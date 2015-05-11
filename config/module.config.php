@@ -16,31 +16,7 @@ return [
                             'route' => 'olcs-backend'
                         ],
                         'may_terminate' => false,
-                        'child_routes' => [
-                            'application' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => '/application/:id[/]',
-                                    'constraints' => [
-                                        //'id' => '[0-9]+'// Removing this allows us to consistently validate the id
-                                    ],
-                                    'default' => [
-                                        'controller' => 'Application'
-                                    ]
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'GET' => [
-                                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                        'options' => [
-                                            'default' => [
-                                                'dto' => \Dvsa\Olcs\Transfer\Query\Application\TypeOfLicence::class
-                                            ]
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ]
+                        'child_routes' => include('backend-routes.config.php')
                     ]
                 ]
             ]

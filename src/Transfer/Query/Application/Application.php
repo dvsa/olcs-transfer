@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Type Of Licence
+ * Application
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
@@ -13,7 +13,7 @@ use Zend\Stdlib\ArraySerializableInterface;
 /**
  * @Transfer\RouteName("backend/application")
  */
-class TypeOfLicence implements ArraySerializableInterface
+class Application implements ArraySerializableInterface
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
