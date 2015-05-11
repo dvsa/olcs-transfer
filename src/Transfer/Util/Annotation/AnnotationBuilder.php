@@ -9,6 +9,7 @@ namespace Dvsa\Olcs\Transfer\Util\Annotation;
 
 use Doctrine\Common\Annotations\AnnotationReader;
 use Dvsa\Olcs\Transfer\Query\Query;
+use Dvsa\Olcs\Transfer\Command\Command;
 
 /**
  * Annotation Builder
@@ -53,6 +54,10 @@ class AnnotationBuilder
             }
         }
 
+        if ($routeName === null) {
+            throw new \RuntimeException('No RouteName defined in the Query\'s annotations');
+        }
+
         $query = new Query();
         $inputFilter = new $inputFilterClass();
         $query->setInputFilter($inputFilter);
@@ -64,6 +69,52 @@ class AnnotationBuilder
         }
 
         return $query;
+    }
+
+    public function createCommand($dto)
+    {
+        $reflectedDto = new \ReflectionClass($dto);
+
+        $classAnnotations = $this->getReader()->getClassAnnotations($reflectedDto);
+
+        $routeName = null;
+        $method = null;
+        $inputFilterClass = '\Zend\InputFilter\InputFilter';
+
+        foreach ($classAnnotations as $annotation) {
+            if ($annotation instanceof RouteName) {
+                $routeName = $annotation->getRouteName();
+            }
+
+            if ($annotation instanceof Method) {
+                $method = $annotation->getMethod();
+            }
+
+            if ($annotation instanceof InputFilter) {
+                $inputFilterClass = $annotation->getName();
+            }
+        }
+
+        if ($routeName === null) {
+            throw new \RuntimeException('No RouteName defined in the Command\'s annotations');
+        }
+
+        if ($method === null) {
+            throw new \RuntimeException('No Method defined in the Command\'s annotations');
+        }
+
+        $command = new Command();
+        $inputFilter = new $inputFilterClass();
+        $command->setInputFilter($inputFilter);
+        $command->setRouteName($routeName);
+        $command->setMethod($method);
+        $command->setDto($dto);
+
+        foreach ($reflectedDto->getProperties() as $property) {
+            $inputFilter->add($this->processProperty($property));
+        }
+
+        return $command;
     }
 
     protected function processProperty(\ReflectionProperty $property)

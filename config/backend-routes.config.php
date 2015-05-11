@@ -28,6 +28,27 @@ return [
                                 'dto' => \Dvsa\Olcs\Transfer\Query\Application\Application::class
                             ]
                         ]
+                    ],
+                    'type-of-licence' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'type-of-licence[/]',
+                            'defaults' => [
+                                'controller' => 'Api\Application\TypeOfLicence'
+                            ]
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => [
+                                'type' => \Zend\Mvc\Router\Http\Method::class,
+                                'options' => [
+                                    'verb' => 'PUT',
+                                    'defaults' => [
+                                        'dto' => \Dvsa\Olcs\Transfer\Command\Application\UpdateTypeOfLicence::class
+                                    ]
+                                ]
+                            ]
+                        ]
                     ]
                 ]
             ]
