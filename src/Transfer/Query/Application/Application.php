@@ -8,12 +8,12 @@
 namespace Dvsa\Olcs\Transfer\Query\Application;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Zend\Stdlib\ArraySerializableInterface;
+use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
  * @Transfer\RouteName("backend/application")
  */
-class Application implements ArraySerializableInterface
+class Application extends AbstractQuery
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})

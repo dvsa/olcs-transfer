@@ -1,21 +1,21 @@
 <?php
 
 /**
- * Query
+ * Query Container
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
 namespace Dvsa\Olcs\Transfer\Query;
 
 use Zend\InputFilter\InputFilterInterface;
-use Zend\Stdlib\ArraySerializableInterface;
+use Dvsa\Olcs\Transfer\Query\QueryInterface;
 
 /**
- * Query
+ * Query Container
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-class Query implements QueryInterface
+class QueryContainer implements QueryContainerInterface
 {
     protected $routeName;
 
@@ -27,7 +27,7 @@ class Query implements QueryInterface
     protected $inputFilter;
 
     /**
-     * @var ArraySerializableInterface
+     * @var CommandInterface
      */
     protected $dto;
 
@@ -41,7 +41,7 @@ class Query implements QueryInterface
         return $this->inputFilter;
     }
 
-    public function setDto(ArraySerializableInterface $dto)
+    public function setDto(QueryInterface $dto)
     {
         $this->dto = $dto;
     }

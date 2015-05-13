@@ -8,45 +8,51 @@
 namespace Dvsa\Olcs\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Zend\Stdlib\ArraySerializableInterface;
+use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
  * @Transfer\RouteName("backend/application/type-of-licence")
  * @Transfer\Method("PUT")
  */
-class UpdateTypeOfLicence implements ArraySerializableInterface
+final class UpdateTypeOfLicence extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $id;
+    private $id;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $version;
+    private $version;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"lcat_gv","lcat_psv"}}})
      */
-    protected $operatorType;
+    private $operatorType;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}})
      */
-    protected $licenceType;
+    private $licenceType;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
-    protected $niFlag;
+    private $niFlag;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    private $confirm = false;
 
     public function getId()
     {
@@ -71,6 +77,11 @@ class UpdateTypeOfLicence implements ArraySerializableInterface
     public function getNiFlag()
     {
         return $this->niFlag;
+    }
+
+    public function getConfirm()
+    {
+        return $this->confirm;
     }
 
     /**
@@ -100,6 +111,10 @@ class UpdateTypeOfLicence implements ArraySerializableInterface
         if (isset($array['niFlag'])) {
             $this->niFlag = $array['niFlag'];
         }
+
+        if (isset($array['confirm'])) {
+            $this->confirm = $array['confirm'];
+        }
     }
 
     /**
@@ -114,7 +129,8 @@ class UpdateTypeOfLicence implements ArraySerializableInterface
             'version' => $this->version,
             'operatorType' => $this->operatorType,
             'licenceType' => $this->licenceType,
-            'niFlag' => $this->niFlag
+            'niFlag' => $this->niFlag,
+            'confirm' => $this->confirm
         ];
     }
 }

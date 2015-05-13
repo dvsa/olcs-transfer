@@ -7,7 +7,6 @@
  */
 namespace Dvsa\Olcs\Transfer\Query;
 
-use Zend\InputFilter\InputFilterInterface;
 use Zend\Stdlib\ArraySerializableInterface;
 
 /**
@@ -15,21 +14,7 @@ use Zend\Stdlib\ArraySerializableInterface;
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-interface QueryInterface
+interface QueryInterface extends ArraySerializableInterface
 {
-    public function setInputFilter(InputFilterInterface $inputFilter);
-
-    public function getInputFilter();
-
-    public function setDto(ArraySerializableInterface $dto);
-
-    public function getDto();
-
-    public function setRouteName($routeName);
-
-    public function getRouteName();
-
-    public function isValid();
-
-    public function getMessages();
+    public static function create(array $data);
 }

@@ -1,21 +1,21 @@
 <?php
 
 /**
- * Command
+ * Command Container
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
 namespace Dvsa\Olcs\Transfer\Command;
 
 use Zend\InputFilter\InputFilterInterface;
-use Zend\Stdlib\ArraySerializableInterface;
+use Dvsa\Olcs\Transfer\Command\CommandInterface;
 
 /**
- * Command
+ * Command Container
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-class Command implements CommandInterface
+class CommandContainer implements CommandContainerInterface
 {
     protected $routeName;
 
@@ -29,7 +29,7 @@ class Command implements CommandInterface
     protected $inputFilter;
 
     /**
-     * @var ArraySerializableInterface
+     * @var CommandInterface
      */
     protected $dto;
 
@@ -43,7 +43,7 @@ class Command implements CommandInterface
         return $this->inputFilter;
     }
 
-    public function setDto(ArraySerializableInterface $dto)
+    public function setDto(CommandInterface $dto)
     {
         $this->dto = $dto;
     }

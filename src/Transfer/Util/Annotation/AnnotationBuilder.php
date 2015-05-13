@@ -8,8 +8,8 @@
 namespace Dvsa\Olcs\Transfer\Util\Annotation;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Dvsa\Olcs\Transfer\Query\Query;
-use Dvsa\Olcs\Transfer\Command\Command;
+use Dvsa\Olcs\Transfer\Query\QueryContainer;
+use Dvsa\Olcs\Transfer\Command\CommandContainer;
 
 /**
  * Annotation Builder
@@ -58,7 +58,7 @@ class AnnotationBuilder
             throw new \RuntimeException('No RouteName defined in the Query\'s annotations');
         }
 
-        $query = new Query();
+        $query = new QueryContainer();
         $inputFilter = new $inputFilterClass();
         $query->setInputFilter($inputFilter);
         $query->setRouteName($routeName);
@@ -103,7 +103,7 @@ class AnnotationBuilder
             throw new \RuntimeException('No Method defined in the Command\'s annotations');
         }
 
-        $command = new Command();
+        $command = new CommandContainer();
         $inputFilter = new $inputFilterClass();
         $command->setInputFilter($inputFilter);
         $command->setRouteName($routeName);
@@ -132,6 +132,11 @@ class AnnotationBuilder
 
             if ($annotation instanceof Validator) {
                 $validatorChain->attachByName($annotation->getName(), $annotation->getOptions());
+            }
+
+            if ($annotation instanceof Optional) {
+                $input->setRequired(false);
+                $input->setAllowEmpty(true);
             }
         }
 
