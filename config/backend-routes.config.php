@@ -8,6 +8,41 @@ return [
         ],
         'may_terminate' => false,
         'child_routes' => [
+            'cases' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'cases/:id[/]',
+                    'defaults' => [
+                        'controller' => 'Api\Cases'
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => [
+                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                        'options' => [
+                            'defaults' => [
+                                //'dto' => \Dvsa\Olcs\Transfer\Query\Cases\Cases::class
+                            ]
+                        ]
+                    ],
+                    'pi' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'pi[/]',
+                        ],
+                        'may_terminate' => false,
+                        'GET' => [
+                            'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                            'options' => [
+                                'defaults' => [
+                                    'dto' => \Dvsa\Olcs\Transfer\Query\Cases\Pi::class
+                                ]
+                            ]
+                        ],
+                    ]
+                ]
+            ],
             'application' => [
                 'type' => 'Segment',
                 'options' => [
