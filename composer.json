@@ -17,8 +17,8 @@
         }
     },
     "autoload": {
-        "psr-0": {
-            "Dvsa\\Olcs\\Transfer\\": "src/Transfer/"
+        "psr-4": {
+            "Dvsa\\Olcs\\Transfer\\": "src/"
         }
     }
 }
