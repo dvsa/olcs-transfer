@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/application")
+ * @Transfer\RouteName("backend/application/single")
  */
 class Application extends AbstractQuery
 {
@@ -25,30 +25,5 @@ class Application extends AbstractQuery
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Exchange internal values from provided array
-     *
-     * @param array $array
-     * @return void
-     */
-    public function exchangeArray(array $array)
-    {
-        if (isset($array['id'])) {
-            $this->id = $array['id'];
-        }
-    }
-
-    /**
-     * Return an array representation of the object
-     *
-     * @return array
-     */
-    public function getArrayCopy()
-    {
-        return [
-            'id' => $this->id
-        ];
     }
 }
