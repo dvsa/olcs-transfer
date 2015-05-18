@@ -11,46 +11,46 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/application/single/type-of-licence")
- * @Transfer\Method("PUT")
+ * @src\RouteName("backend/application/single/type-of-licence")
+ * @src\Method("PUT")
  */
 final class UpdateTypeOfLicence extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @src\Filter({"name":"Zend\Filter\Digits"})
+     * @src\Validator({"name":"Zend\Validator\Digits"})
+     * @src\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $id;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @src\Filter({"name":"Zend\Filter\Digits"})
+     * @src\Validator({"name":"Zend\Validator\Digits"})
+     * @src\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $version;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"lcat_gv","lcat_psv"}}})
+     * @src\Filter({"name":"Zend\Filter\StringTrim"})
+     * @src\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"lcat_gv","lcat_psv"}}})
      */
     protected $operatorType;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}})
+     * @src\Filter({"name":"Zend\Filter\StringTrim"})
+     * @src\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}})
      */
     protected $licenceType;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @src\Filter({"name":"Zend\Filter\StringTrim"})
+     * @src\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
     protected $niFlag;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
-     * @Transfer\Optional
+     * @src\Filter({"name":"Zend\Filter\Boolean"})
+     * @src\Optional
      */
     protected $confirm = false;
 

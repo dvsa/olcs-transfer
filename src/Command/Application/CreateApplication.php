@@ -11,48 +11,48 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/application")
- * @Transfer\Method("POST")
+ * @src\RouteName("backend/application")
+ * @src\Method("POST")
  */
 final class CreateApplication extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"lcat_gv","lcat_psv"}}})
-     * @Transfer\Optional
+     * @src\Filter({"name":"Zend\Filter\StringTrim"})
+     * @src\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"lcat_gv","lcat_psv"}}})
+     * @src\Optional
      */
     protected $operatorType;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}})
-     * @Transfer\Optional
+     * @src\Filter({"name":"Zend\Filter\StringTrim"})
+     * @src\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}})
+     * @src\Optional
      */
     protected $licenceType;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
-     * @Transfer\Optional
+     * @src\Filter({"name":"Zend\Filter\StringTrim"})
+     * @src\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @src\Optional
      */
     protected $niFlag;
 
     /**
      * @todo add validators
-     * @Transfer\Optional
+     * @src\Optional
      */
     protected $receivedDate;
 
     /**
      * @todo add validators
-     * @Transfer\Optional
+     * @src\Optional
      */
     protected $trafficArea;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @src\Filter({"name":"Zend\Filter\Digits"})
+     * @src\Validator({"name":"Zend\Validator\Digits"})
+     * @src\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $organisation;
 

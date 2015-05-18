@@ -22,7 +22,7 @@ return [
                         'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
                         'options' => [
                             'defaults' => [
-                                //'dto' => \Dvsa\Olcs\Transfer\Query\Cases\Cases::class
+                                //'dto' => \Dvsa\Olcs\src\Query\Cases\Cases::class
                             ]
                         ]
                     ],
