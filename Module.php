@@ -1,3 +1,3 @@
 <?php
 
-require_once __DIR__ . '/src/Transfer/Module.php';
+require_once __DIR__ . '/src/Module.php';
