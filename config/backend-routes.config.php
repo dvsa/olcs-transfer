@@ -32,14 +32,16 @@ return [
                             'route' => 'pi[/]',
                         ],
                         'may_terminate' => false,
-                        'GET' => [
-                            'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                            'options' => [
-                                'defaults' => [
-                                    'dto' => \Dvsa\Olcs\Transfer\Query\Cases\Pi::class
+                        'child_routes' => [
+                            'GET' => [
+                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                'options' => [
+                                    'defaults' => [
+                                        'dto' => \Dvsa\Olcs\Transfer\Query\Cases\Pi::class
+                                    ]
                                 ]
-                            ]
-                        ],
+                            ],
+                        ]
                     ]
                 ]
             ],
