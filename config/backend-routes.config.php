@@ -41,6 +41,24 @@ return [
                                     ]
                                 ]
                             ],
+                            'agreed' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'agreed[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' => \Dvsa\Olcs\Transfer\Command\Cases\UpdatePiAgreedAndLegislation::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
                         ]
                     ]
                 ]
