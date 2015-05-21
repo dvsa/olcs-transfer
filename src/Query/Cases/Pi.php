@@ -7,16 +7,16 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * Class Pi
- * @package Dvsa\Olcs\src\Query\Cases
- * @src\RouteName("backend/cases/pi")
+ * @package Dvsa\Olcs\Transfer\Query\Cases
+ * @Transfer\RouteName("backend/cases/pi")
  */
 class Pi extends AbstractQuery
 {
     /**
      * @var int
-     * @src\Filter({"name":"Zend\Filter\Digits"})
-     * @src\Validator({"name":"Zend\Validator\Digits"})
-     * @src\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $id;
 
