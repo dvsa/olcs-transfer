@@ -11,7 +11,7 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'backend' => [
-                        'type' => 'Hostname',
+                        'type' => \Common\Util\Hostname::class,
                         'options' => [
                             'route' => 'olcs-backend'
                         ],
