@@ -129,6 +129,62 @@ return [
                         ]
                     ]
                 ]
+            ],
+            'organisation' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'organisation[/]',
+                    'defaults' => [
+                        'id' => null,
+                        'controller' => 'Api\Organisation'
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => ':id[/]',
+                            'constraints' => [],
+                            'defaults' => [
+                                'id' => null,
+                                'controller' => 'Api\Organisation'
+                            ]
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => [
+                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                'options' => [
+                                    'defaults' => [
+                                        'dto' => \Dvsa\Olcs\Transfer\Query\Organisation\Organisation::class
+                                    ]
+                                ]
+                            ],
+                            'business-type' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'business-type[/]',
+                                    'defaults' => [
+                                        'controller' => 'Api\Organisation\BusinessType'
+                                    ]
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' => \Dvsa\Olcs\Transfer\Command\Organisation\UpdateBusinessType::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
             ]
         ]
     ]
