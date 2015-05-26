@@ -1,5 +1,8 @@
 <?php
 
+use Dvsa\Olcs\Transfer\Command;
+use Dvsa\Olcs\Transfer\Query;
+
 return [
     'api' => [
         'type' => 'Literal',
@@ -54,7 +57,7 @@ return [
                                             'verb' => 'PUT',
                                             'defaults' => [
                                                 'dto' =>
-                                                    \Dvsa\Olcs\Transfer\Command\Cases\UpdatePiAgreedAndLegislation::class
+                                                    Command\Cases\UpdatePiAgreedAndLegislation::class
                                             ]
                                         ]
                                     ]
@@ -93,7 +96,7 @@ return [
                                 'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
                                 'options' => [
                                     'defaults' => [
-                                        'dto' => \Dvsa\Olcs\Transfer\Query\Application\Application::class
+                                        'dto' => Query\Application\Application::class
                                     ]
                                 ]
                             ],
@@ -113,7 +116,7 @@ return [
                                             'verb' => 'PUT',
                                             'defaults' => [
                                                 'dto' =>
-                                                    \Dvsa\Olcs\Transfer\Command\Application\UpdateTypeOfLicence::class
+                                                    Command\Application\UpdateTypeOfLicence::class
                                             ]
                                         ]
                                     ]
@@ -126,7 +129,7 @@ return [
                         'options' => [
                             'verb' => 'POST',
                             'defaults' => [
-                                'dto' => \Dvsa\Olcs\Transfer\Command\Application\CreateApplication::class
+                                'dto' => Command\Application\CreateApplication::class
                             ]
                         ]
                     ]
@@ -159,7 +162,7 @@ return [
                                 'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
                                 'options' => [
                                     'defaults' => [
-                                        'dto' => \Dvsa\Olcs\Transfer\Query\Organisation\Organisation::class
+                                        'dto' => Query\Organisation\Organisation::class
                                     ]
                                 ]
                             ],
@@ -179,7 +182,7 @@ return [
                                             'verb' => 'PUT',
                                             'defaults' => [
                                                 'dto' =>
-                                                    \Dvsa\Olcs\Transfer\Command\Organisation\UpdateBusinessType::class
+                                                    Command\Organisation\UpdateBusinessType::class
                                             ]
                                         ]
                                     ]

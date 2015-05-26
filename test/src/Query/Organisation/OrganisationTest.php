@@ -12,10 +12,7 @@ class OrganisationTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {
-        $command = Organisation::create([
-            'id' => 111,
-            'foo' => 'bar'
-        ]);
+        $command = Organisation::create(['id' => 111, 'foo' => 'bar']);
 
         $this->assertEquals(111, $command->getId());
     }

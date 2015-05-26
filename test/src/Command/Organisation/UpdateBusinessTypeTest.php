@@ -12,7 +12,7 @@ class UpdateBusinessTypeTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {
-        $command = UpdateBusinessType::create([
+        $data = [
             'id' => 111,
             'application' => 222,
             'licence' => 333,
@@ -20,7 +20,9 @@ class UpdateBusinessTypeTest extends PHPUnit_Framework_TestCase
             'version' => 1,
             'businessType' => 'org_t_rc',
             'foo' => 'bar'
-        ]);
+        ];
+
+        $command = UpdateBusinessType::create($data);
 
         $this->assertEquals(111, $command->getId());
         $this->assertEquals(222, $command->getApplication());
