@@ -73,27 +73,11 @@ final class UpdateBusinessType extends AbstractCommand
     }
 
     /**
-     * @param mixed $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
-    /**
      * @return mixed
      */
     public function getVersion()
     {
         return $this->version;
-    }
-
-    /**
-     * @param mixed $version
-     */
-    public function setVersion($version)
-    {
-        $this->version = $version;
     }
 
     /**
@@ -105,27 +89,11 @@ final class UpdateBusinessType extends AbstractCommand
     }
 
     /**
-     * @param mixed $businessType
-     */
-    public function setBusinessType($businessType)
-    {
-        $this->businessType = $businessType;
-    }
-
-    /**
      * @return mixed
      */
     public function getApplication()
     {
         return $this->application;
-    }
-
-    /**
-     * @param mixed $application
-     */
-    public function setApplication($application)
-    {
-        $this->application = $application;
     }
 
     /**
@@ -137,26 +105,10 @@ final class UpdateBusinessType extends AbstractCommand
     }
 
     /**
-     * @param mixed $licence
-     */
-    public function setLicence($licence)
-    {
-        $this->licence = $licence;
-    }
-
-    /**
      * @return mixed
      */
     public function getVariation()
     {
         return $this->variation;
-    }
-
-    /**
-     * @param mixed $variation
-     */
-    public function setVariation($variation)
-    {
-        $this->variation = $variation;
     }
 }
