@@ -56,7 +56,10 @@ final class UpdateBusinessType extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"org_t_p","org_t_pa","org_t_rc","org_t_llp","org_t_st","org_t_ir"}}})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {"haystack": {"org_t_p","org_t_pa","org_t_rc","org_t_llp","org_t_st","org_t_ir"}}
+     * })
      * @Transfer\Optional
      */
     protected $businessType;

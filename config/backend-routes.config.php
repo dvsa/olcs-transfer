@@ -53,7 +53,8 @@ return [
                                         'options' => [
                                             'verb' => 'PUT',
                                             'defaults' => [
-                                                'dto' => \Dvsa\Olcs\Transfer\Command\Cases\UpdatePiAgreedAndLegislation::class
+                                                'dto' =>
+                                                    \Dvsa\Olcs\Transfer\Command\Cases\UpdatePiAgreedAndLegislation::class
                                             ]
                                         ]
                                     ]
@@ -111,7 +112,8 @@ return [
                                         'options' => [
                                             'verb' => 'PUT',
                                             'defaults' => [
-                                                'dto' => \Dvsa\Olcs\Transfer\Command\Application\UpdateTypeOfLicence::class
+                                                'dto' =>
+                                                    \Dvsa\Olcs\Transfer\Command\Application\UpdateTypeOfLicence::class
                                             ]
                                         ]
                                     ]
@@ -176,7 +178,8 @@ return [
                                         'options' => [
                                             'verb' => 'PUT',
                                             'defaults' => [
-                                                'dto' => \Dvsa\Olcs\Transfer\Command\Organisation\UpdateBusinessType::class
+                                                'dto' =>
+                                                    \Dvsa\Olcs\Transfer\Command\Organisation\UpdateBusinessType::class
                                             ]
                                         ]
                                     ]
