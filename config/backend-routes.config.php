@@ -8,6 +8,9 @@ return [
         'type' => 'Literal',
         'options' => [
             'route' => '/api/',
+            'defaults' => [
+                'controller' => 'Api\Generic'
+            ]
         ],
         'may_terminate' => false,
         'child_routes' => [
