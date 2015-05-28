@@ -191,6 +191,35 @@ return [
                         ]
                     ]
                 ]
+            ],
+            'processing' => [
+                'type' => 'segment',
+                'options' => [
+                    'route' => 'processing[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'history' => [
+                        'type' => 'literal',
+                        'options' => [
+                            'route' => 'history',
+                            'defaults' => [
+                                'controller' => 'Api\Generic'
+                            ]
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => [
+                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                'options' => [
+                                    'defaults' => [
+                                        'dto' => \Dvsa\Olcs\Transfer\Query\Processing\History::class
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
             ]
         ]
     ]
