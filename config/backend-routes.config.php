@@ -221,6 +221,59 @@ return [
                         ]
                     ]
                 ]
+            ],
+            'previous-conviction' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'previous-conviction[/]',
+                    'defaults' => [
+                        'id' => null,
+                        'controller' => 'Api\PreviousConviction'
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => ':id[/]',
+                            'constraints' => [],
+                            'defaults' => [
+                                'id' => null,
+                                'controller' => 'Api\PreviousConviction'
+                            ]
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => [
+                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                'options' => [
+                                    'defaults' => [
+                                        'dto' => Query\PreviousConviction\PreviousConviction::class
+                                    ]
+                                ]
+                            ],
+                            'PUT' => [
+                                'type' => \Zend\Mvc\Router\Http\Method::class,
+                                'options' => [
+                                    'verb' => 'PUT',
+                                    'defaults' => [
+                                        'dto' => Command\PreviousConviction\UpdatePreviousConviction::class
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    'POST' => [
+                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                        'options' => [
+                            'verb' => 'POST',
+                            'defaults' => [
+                                'dto' => Command\PreviousConviction\CreatePreviousConviction::class
+                            ]
+                        ]
+                    ]
+                ]
             ]
         ]
     ]
