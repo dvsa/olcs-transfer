@@ -121,6 +121,36 @@ return [
                                         ]
                                     ]
                                 ]
+                            ],
+                            'previous-convictions' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'previous-convictions[/]',
+                                    'defaults' => [
+                                        'controller' => 'Api\Application\PreviousConvictions'
+                                    ]
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => [
+                                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                        'options' => [
+                                            'verb' => 'GET',
+                                            'defaults' => [
+                                                'dto' => \Dvsa\Olcs\Transfer\Query\Application\PreviousConvictions::class
+                                            ]
+                                        ]
+                                    ],
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' => Command\Application\UpdatePreviousConvictions::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
                             ]
                         ]
                     ],
