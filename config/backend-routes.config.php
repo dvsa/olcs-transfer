@@ -121,6 +121,38 @@ return [
                                         ]
                                     ]
                                 ]
+                            ],
+                            'financial-history' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'financial-history[/]',
+                                    'defaults' => [
+                                        'controller' => 'Api\Application\FinancialHistory'
+                                    ]
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'GET',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Dvsa\Olcs\Transfer\Query\Application\FinancialHistory::class
+                                            ]
+                                        ]
+                                    ],
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Command\Application\FinancialHistory::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
                             ]
                         ]
                     ],
