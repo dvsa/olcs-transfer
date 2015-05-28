@@ -1,5 +1,8 @@
 <?php
 
+use Dvsa\Olcs\Transfer\Command;
+use Dvsa\Olcs\Transfer\Query;
+
 return [
     'api' => [
         'type' => 'Literal',
@@ -53,7 +56,8 @@ return [
                                         'options' => [
                                             'verb' => 'PUT',
                                             'defaults' => [
-                                                'dto' => \Dvsa\Olcs\Transfer\Command\Cases\UpdatePiAgreedAndLegislation::class
+                                                'dto' =>
+                                                    Command\Cases\UpdatePiAgreedAndLegislation::class
                                             ]
                                         ]
                                     ]
@@ -92,7 +96,7 @@ return [
                                 'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
                                 'options' => [
                                     'defaults' => [
-                                        'dto' => \Dvsa\Olcs\Transfer\Query\Application\Application::class
+                                        'dto' => Query\Application\Application::class
                                     ]
                                 ]
                             ],
@@ -111,7 +115,8 @@ return [
                                         'options' => [
                                             'verb' => 'PUT',
                                             'defaults' => [
-                                                'dto' => \Dvsa\Olcs\Transfer\Command\Application\UpdateTypeOfLicence::class
+                                                'dto' =>
+                                                    Command\Application\UpdateTypeOfLicence::class
                                             ]
                                         ]
                                     ]
@@ -124,7 +129,64 @@ return [
                         'options' => [
                             'verb' => 'POST',
                             'defaults' => [
-                                'dto' => \Dvsa\Olcs\Transfer\Command\Application\CreateApplication::class
+                                'dto' => Command\Application\CreateApplication::class
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            'organisation' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'organisation[/]',
+                    'defaults' => [
+                        'id' => null,
+                        'controller' => 'Api\Organisation'
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => ':id[/]',
+                            'constraints' => [],
+                            'defaults' => [
+                                'id' => null,
+                                'controller' => 'Api\Organisation'
+                            ]
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => [
+                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                'options' => [
+                                    'defaults' => [
+                                        'dto' => Query\Organisation\Organisation::class
+                                    ]
+                                ]
+                            ],
+                            'business-type' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'business-type[/]',
+                                    'defaults' => [
+                                        'controller' => 'Api\Organisation\BusinessType'
+                                    ]
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Command\Organisation\UpdateBusinessType::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
                             ]
                         ]
                     ]
