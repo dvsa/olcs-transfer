@@ -76,7 +76,6 @@ return [
                     'route' => 'application[/]',
                     'defaults' => [
                         'id' => null,
-                        'controller' => 'Api\Application'
                     ]
                 ],
                 'may_terminate' => false,
@@ -90,7 +89,6 @@ return [
                             ],
                             'defaults' => [
                                 'id' => null,
-                                'controller' => 'Api\Application'
                             ]
                         ],
                         'may_terminate' => false,
@@ -128,10 +126,29 @@ return [
                             'financial-history' => [
                                 'type' => 'Segment',
                                 'options' => [
-                                    'route' => 'financial-history[/]',
+                                    'route' => 'type-of-licence[/]',
                                     'defaults' => [
-                                        'controller' => 'Api\Application\FinancialHistory'
+                                        'controller' => 'Api\Application\TypeOfLicence'
                                     ]
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Command\Application\UpdateTypeOfLicence::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'financial-history' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'financial-history[/]',
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
