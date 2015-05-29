@@ -126,28 +126,6 @@ return [
                             'financial-history' => [
                                 'type' => 'Segment',
                                 'options' => [
-                                    'route' => 'type-of-licence[/]',
-                                    'defaults' => [
-                                        'controller' => 'Api\Application\TypeOfLicence'
-                                    ]
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'PUT',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    Command\Application\UpdateTypeOfLicence::class
-                                            ]
-                                        ]
-                                    ]
-                                ]
-                            ],
-                            'financial-history' => [
-                                'type' => 'Segment',
-                                'options' => [
                                     'route' => 'financial-history[/]',
                                 ],
                                 'may_terminate' => false,
