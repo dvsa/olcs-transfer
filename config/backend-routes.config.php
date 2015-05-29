@@ -148,7 +148,7 @@ return [
                                             'verb' => 'PUT',
                                             'defaults' => [
                                                 'dto' =>
-                                                    Command\Application\FinancialHistory::class
+                                                    Command\Application\UpdateFinancialHistory::class
                                             ]
                                         ]
                                     ]

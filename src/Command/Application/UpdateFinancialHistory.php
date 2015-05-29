@@ -14,7 +14,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  * @Transfer\RouteName("backend/application/single/financial-history")
  * @Transfer\Method("PUT")
  */
-final class UpdateTypeOfLicence extends AbstractCommand
+final class UpdateFinancialHistory extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})

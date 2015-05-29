@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/application/financialHistory")
+ * @Transfer\RouteName("backend/application/single/financial-history")
  */
 class FinancialHistory extends Application
 {
