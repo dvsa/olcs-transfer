@@ -116,6 +116,33 @@ return [
                                         ]
                                     ]
                                 ]
+                            ],
+                            'declaration' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'declaration[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'GET',
+                                            'defaults' => [
+                                                'dto' => \Dvsa\Olcs\Transfer\Query\Application\Declaration::class
+                                            ]
+                                        ]
+                                    ],
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' => \Dvsa\Olcs\Transfer\Command\Application\UpdateDeclaration::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
                             ]
                         ]
                     ],
