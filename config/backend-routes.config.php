@@ -18,6 +18,9 @@ return [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'cases/:id[/]',
+                    'defaults' => [
+                        'controller' => 'Api\Cases'
+                    ]
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
@@ -61,6 +64,40 @@ return [
                                             ]
                                         ]
                                     ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    'legacy-offence' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'legacy-offence[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => [
+                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                'options' => [
+                                    'defaults' => [
+                                        // to-do 'dto' => \Dvsa\Olcs\Transfer\Query\Cases\LegacyOffences::class
+                                    ]
+                                ]
+                            ],
+                            'single' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => ':offence'
+                                ],
+                                'may_terminate' => true,
+                                'child_routes' => [
+                                    'GET' => [
+                                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                        'options' => [
+                                            'defaults' => [
+                                                'dto' => \Dvsa\Olcs\Transfer\Query\Cases\LegacyOffence::class
+                                            ]
+                                        ]
+                                    ],
                                 ]
                             ]
                         ]
