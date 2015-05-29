@@ -18,9 +18,6 @@ return [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'cases/:id[/]',
-                    'defaults' => [
-                        'controller' => 'Api\Cases'
-                    ]
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
@@ -76,7 +73,6 @@ return [
                     'route' => 'application[/]',
                     'defaults' => [
                         'id' => null,
-                        'controller' => 'Api\Application'
                     ]
                 ],
                 'may_terminate' => false,
@@ -90,7 +86,6 @@ return [
                             ],
                             'defaults' => [
                                 'id' => null,
-                                'controller' => 'Api\Application'
                             ]
                         ],
                         'may_terminate' => false,
@@ -107,9 +102,6 @@ return [
                                 'type' => 'Segment',
                                 'options' => [
                                     'route' => 'type-of-licence[/]',
-                                    'defaults' => [
-                                        'controller' => 'Api\Application\TypeOfLicence'
-                                    ]
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
@@ -144,7 +136,6 @@ return [
                     'route' => 'organisation[/]',
                     'defaults' => [
                         'id' => null,
-                        'controller' => 'Api\Organisation'
                     ]
                 ],
                 'may_terminate' => false,
@@ -156,7 +147,6 @@ return [
                             'constraints' => [],
                             'defaults' => [
                                 'id' => null,
-                                'controller' => 'Api\Organisation'
                             ]
                         ],
                         'may_terminate' => false,
@@ -173,9 +163,6 @@ return [
                                 'type' => 'Segment',
                                 'options' => [
                                     'route' => 'business-type[/]',
-                                    'defaults' => [
-                                        'controller' => 'Api\Organisation\BusinessType'
-                                    ]
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
@@ -206,9 +193,6 @@ return [
                         'type' => 'literal',
                         'options' => [
                             'route' => 'history',
-                            'defaults' => [
-                                'controller' => 'Api\Generic'
-                            ]
                         ],
                         'may_terminate' => false,
                         'child_routes' => [
