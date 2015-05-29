@@ -17,7 +17,7 @@ class LegacyOffence extends AbstractQuery
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $case;
+    protected $id;
 
     /**
      * @var int
@@ -25,7 +25,15 @@ class LegacyOffence extends AbstractQuery
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $offence;
+    protected $case;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * @return int
@@ -33,13 +41,5 @@ class LegacyOffence extends AbstractQuery
     public function getCase()
     {
         return $this->case;
-    }
-
-    /**
-     * @return int
-     */
-    public function getOffence()
-    {
-        return $this->offence;
     }
 }

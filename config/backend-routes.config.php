@@ -20,7 +20,7 @@ return [
                     'route' => 'cases/:id[/]',
                     'defaults' => [
                         'controller' => 'Api\Cases'
-                    ]
+                    ],
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
@@ -86,9 +86,9 @@ return [
                             'single' => [
                                 'type' => 'Segment',
                                 'options' => [
-                                    'route' => ':offence'
+                                    'route' => ':id'
                                 ],
-                                'may_terminate' => true,
+                                'may_terminate' => false,
                                 'child_routes' => [
                                     'GET' => [
                                         'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
