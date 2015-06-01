@@ -79,7 +79,7 @@ return [
                                 'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
                                 'options' => [
                                     'defaults' => [
-                                        // to-do 'dto' => \Dvsa\Olcs\Transfer\Query\Cases\LegacyOffences::class
+                                        'dto' => \Dvsa\Olcs\Transfer\Query\Cases\LegacyOffenceList::class
                                     ]
                                 ]
                             ],
