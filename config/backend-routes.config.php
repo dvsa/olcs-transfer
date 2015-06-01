@@ -116,7 +116,24 @@ return [
                                         ]
                                     ]
                                 ]
-                            ]
+                            ],
+                            'business-details' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'business-details[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => [
+                                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                        'options' => [
+                                            'defaults' => [
+                                                'dto' => Query\Application\BusinessDetails::class
+                                            ]
+                                        ]
+                                    ],
+                                ]
+                            ],
                         ]
                     ],
                     'POST' => [
@@ -177,7 +194,24 @@ return [
                                         ]
                                     ]
                                 ]
-                            ]
+                            ],
+                            'business-details' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'business-details[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => [
+                                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                        'options' => [
+                                            'defaults' => [
+                                                'dto' => Query\Organisation\BusinessDetails::class
+                                            ]
+                                        ]
+                                    ],
+                                ]
+                            ],
                         ]
                     ]
                 ]
