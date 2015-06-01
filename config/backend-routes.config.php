@@ -135,6 +135,40 @@ return [
                     ]
                 ]
             ],
+            'bus' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'bus[/]',
+                    'defaults' => [
+                        'id' => null,
+                        'controller' => 'Api\Generic'
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => ':id[/]',
+                            'defaults' => [
+                                'id' => null,
+                                'controller' => 'Api\Generic'
+                            ]
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => [
+                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                'options' => [
+                                    'defaults' => [
+                                        'dto' => Query\Bus\BusReg::class
+                                    ]
+                                ]
+                            ],
+                        ]
+                    ]
+                ]
+            ],
             'organisation' => [
                 'type' => 'Segment',
                 'options' => [
