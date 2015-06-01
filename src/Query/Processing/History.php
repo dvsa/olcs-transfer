@@ -25,13 +25,13 @@ class History extends AbstractQuery
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $caseId;
+    protected $case;
 
     /**
      * @return int
      */
-    public function getCaseId()
+    public function getCase()
     {
-        return $this->caseId;
+        return $this->case;
     }
 }

@@ -121,6 +121,10 @@ return [
                                 'type' => 'Segment',
                                 'options' => [
                                     'route' => 'declaration[/]',
+                            'financial-history' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'financial-history[/]',
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
@@ -130,6 +134,8 @@ return [
                                             'verb' => 'GET',
                                             'defaults' => [
                                                 'dto' => \Dvsa\Olcs\Transfer\Query\Application\Declaration::class
+                                                'dto' =>
+                                                    Dvsa\Olcs\Transfer\Query\Application\FinancialHistory::class
                                             ]
                                         ]
                                     ],
@@ -139,6 +145,8 @@ return [
                                             'verb' => 'PUT',
                                             'defaults' => [
                                                 'dto' => \Dvsa\Olcs\Transfer\Command\Application\UpdateDeclaration::class
+                                                'dto' =>
+                                                    Command\Application\UpdateFinancialHistory::class
                                             ]
                                         ]
                                     ]

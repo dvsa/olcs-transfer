@@ -18,7 +18,7 @@ trait OrderedTrait
      * @var string
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Filter({"name":"Zend\Filter\StringToUpper"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options":{"haystack": {"ASC": "DESC"}}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options":{"haystack": {"ASC", "DESC"}}})
      */
     protected $order;
 
