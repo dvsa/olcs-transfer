@@ -343,7 +343,41 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Trailer\CreateTrailer::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\Trailer\DeleteTrailer::class),
                 ]
-            ]
+            ],
+            'impoundings' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'cases/:case/impoundings[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => [
+                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                        'options' => [
+                            'defaults' => [
+                                'dto' => \Dvsa\Olcs\Transfer\Query\Cases\ImpoundingList::class
+                            ]
+                        ]
+                    ],
+                    'single' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => ':id'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => [
+                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                'options' => [
+                                    'defaults' => [
+                                        'dto' => \Dvsa\Olcs\Transfer\Query\Cases\Impounding::class
+                                    ]
+                                ]
+                            ],
+                        ]
+                    ]
+                ]
+            ],
         ]
     ]
 ];
