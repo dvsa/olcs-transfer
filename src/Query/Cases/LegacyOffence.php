@@ -7,7 +7,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * Class LegacyOffence
- * @Transfer\RouteName("backend/cases/legacy-offence/single")
+ * @Transfer\RouteName("backend/legacy-offence/single")
  */
 class LegacyOffence extends AbstractQuery
 {
