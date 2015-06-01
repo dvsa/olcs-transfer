@@ -3,7 +3,7 @@
 /**
  * Bus Reg
  */
-namespace Dvsa\Olcs\Transfer\Query\Application;
+namespace Dvsa\Olcs\Transfer\Query\Bus;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
