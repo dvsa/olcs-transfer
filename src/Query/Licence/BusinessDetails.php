@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/licence/single/business-details")
+ * @Transfer\RouteName("backend/organisation/business-details/licence")
  */
 class BusinessDetails extends AbstractQuery
 {

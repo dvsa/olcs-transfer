@@ -117,23 +117,6 @@ return [
                                     ]
                                 ]
                             ],
-                            'business-details' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'business-details[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'GET' => [
-                                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                        'options' => [
-                                            'defaults' => [
-                                                'dto' => Query\Application\BusinessDetails::class
-                                            ]
-                                        ]
-                                    ],
-                                ]
-                            ],
                             'financial-history' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -242,7 +225,33 @@ return [
                                 ]
                             ],
                         ]
-                    ]
+                    ],
+                    'business-details' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'business-details[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'licence' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'licence/:id[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => [
+                                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                        'options' => [
+                                            'defaults' => [
+                                                'dto' => Query\Licence\BusinessDetails::class
+                                            ]
+                                        ]
+                                    ],
+                                ]
+                            ]
+                        ]
+                    ],
                 ]
             ],
             'processing' => [

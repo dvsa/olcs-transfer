@@ -410,3 +410,71 @@
 }
 ```
 ---
+### <http://olcs-backend/api/organisation/1/business-details>
+#### [Dvsa\Olcs\Transfer\Query\Organisation\BusinessDetails](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Query/Organisation/BusinessDetails.php)
+
+##### Extends [DEFAULT ORGANISATION ENTITY VALUES](#http-olcs-backend-api-organisation-1)
+```
+    ...
+    "contactDetails": {
+        "address": {
+            "addressLine1": "Unit 9",
+            "addressLine2": "Shapely Industrial Estate",
+            "addressLine3": "Harehills",
+            "addressLine4": "",
+            "adminArea": null,
+            "countryCode": {
+                "countryDesc": "United Kingdom",
+                "createdBy": null,
+                "createdOn": null,
+                "id": "GB",
+                "irfoPsvAuths": null,
+                "isMemberState": "Y",
+                "lastModifiedBy": null,
+                "lastModifiedOn": null,
+                "version": 1
+            },
+            "createdBy": null,
+            "createdOn": "2015-05-29T10:46:43+0100",
+            "id": 21,
+            "lastModifiedBy": null,
+            "lastModifiedOn": "2015-05-29T10:46:43+0100",
+            "olbsKey": null,
+            "olbsType": null,
+            "paonEnd": null,
+            "paonStart": null,
+            "postcode": "LS9 2FA",
+            "saonEnd": null,
+            "saonStart": null,
+            "town": "Leeds",
+            "uprn": null,
+            "version": 1,
+            "contactDetails": null
+        },
+        "contactType": {
+            "description": "Registered",
+            "displayOrder": null,
+            "id": "ct_reg",
+            "olbsKey": null,
+            "parent": null,
+            "refDataCategoryId": "contact_type"
+        },
+        "createdBy": null,
+        "createdOn": "2014-11-24T10:30:04+0000",
+        "deletedDate": null,
+        "description": null,
+        "emailAddress": null,
+        "fao": null,
+        "id": 21,
+        "lastModifiedBy": null,
+        "lastModifiedOn": "2014-11-24T10:30:04+0000",
+        "olbsKey": null,
+        "olbsType": null,
+        "person": null,
+        "version": 1,
+        "writtenPermissionToEngage": "N",
+        "phoneContacts": null
+    }
+}
+```
+---

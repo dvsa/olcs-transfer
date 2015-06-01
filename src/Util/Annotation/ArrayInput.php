@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Optional
+ * ArrayInput
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
@@ -10,12 +10,12 @@ namespace Dvsa\Olcs\Transfer\Util\Annotation;
 /**
  * @Annotation
  */
-class Optional
+class ArrayInput
 {
     /**
      * @var bool
      */
-    protected $optional = false;
+    protected $arrayInput = false;
 
     /**
      * Receive and process the contents of an annotation
@@ -28,7 +28,7 @@ class Optional
             $data['value'] = true;
         }
 
-        $this->optional = $data['value'];
+        $this->arrayInput = $data['value'];
     }
 
     /**
@@ -36,8 +36,8 @@ class Optional
      *
      * @return bool
      */
-    public function getOptional()
+    public function getArrayInput()
     {
-        return $this->optional;
+        return $this->arrayInput;
     }
 }
