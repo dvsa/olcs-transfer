@@ -17,8 +17,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class UpdateTrailer extends AbstractCommand
 {
     /**
-     * @var int
-     * @todo validation
+     * @var string
      */
     protected $trailerNo;
 
