@@ -8,6 +8,9 @@ return [
         'type' => 'Literal',
         'options' => [
             'route' => '/api/',
+            'defaults' => [
+                'controller' => 'Api\Generic'
+            ]
         ],
         'may_terminate' => false,
         'child_routes' => [
@@ -15,9 +18,6 @@ return [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'cases/:id[/]',
-                    'defaults' => [
-                        'controller' => 'Api\Cases'
-                    ]
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
@@ -73,7 +73,6 @@ return [
                     'route' => 'application[/]',
                     'defaults' => [
                         'id' => null,
-                        'controller' => 'Api\Application'
                     ]
                 ],
                 'may_terminate' => false,
@@ -82,12 +81,8 @@ return [
                         'type' => 'Segment',
                         'options' => [
                             'route' => ':id[/]',
-                            'constraints' => [
-                                //'id' => '[0-9]+'// Removing this allows us to consistently validate the id
-                            ],
                             'defaults' => [
                                 'id' => null,
-                                'controller' => 'Api\Application'
                             ]
                         ],
                         'may_terminate' => false,
@@ -104,9 +99,6 @@ return [
                                 'type' => 'Segment',
                                 'options' => [
                                     'route' => 'type-of-licence[/]',
-                                    'defaults' => [
-                                        'controller' => 'Api\Application\TypeOfLicence'
-                                    ]
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
@@ -149,6 +141,35 @@ return [
                                                 'dto' => Command\Application\UpdatePreviousConvictions::class
                                             ]
                                         ]
+                                    ],
+                                ]
+                            ],
+                            'financial-history' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'financial-history[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'GET',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Dvsa\Olcs\Transfer\Query\Application\FinancialHistory::class
+                                            ]
+                                        ]
+                                    ],
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Command\Application\UpdateFinancialHistory::class
+                                            ]
+                                        ]
                                     ]
                                 ]
                             ]
@@ -165,13 +186,130 @@ return [
                     ]
                 ]
             ],
+            'variation' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'variation[/]',
+                    'defaults' => [
+                        'id' => null
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => ':id[/]',
+                            'defaults' => [
+                                'id' => null
+                            ]
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => [
+                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                'options' => [
+                                    'defaults' => [
+                                        'dto' => Query\Variation\Variation::class
+                                    ]
+                                ]
+                            ],
+                            'type-of-licence' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'type-of-licence[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => [
+                                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                        'options' => [
+                                            'defaults' => [
+                                                'dto' => Query\Variation\TypeOfLicence::class
+                                            ]
+                                        ]
+                                    ],
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Command\Variation\UpdateTypeOfLicence::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            'licence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'licence[/]',
+                    'defaults' => [
+                        'id' => null
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => ':id[/]',
+                            'defaults' => [
+                                'id' => null
+                            ]
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => [
+                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                'options' => [
+                                    'defaults' => [
+                                        'dto' => Query\Licence\Licence::class
+                                    ]
+                                ]
+                            ],
+                            'type-of-licence' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'type-of-licence[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => [
+                                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                        'options' => [
+                                            'defaults' => [
+                                                'dto' => Query\Licence\TypeOfLicence::class
+                                            ]
+                                        ]
+                                    ],
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Command\Licence\UpdateTypeOfLicence::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ],
             'organisation' => [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'organisation[/]',
                     'defaults' => [
                         'id' => null,
-                        'controller' => 'Api\Organisation'
                     ]
                 ],
                 'may_terminate' => false,
@@ -183,7 +321,6 @@ return [
                             'constraints' => [],
                             'defaults' => [
                                 'id' => null,
-                                'controller' => 'Api\Organisation'
                             ]
                         ],
                         'may_terminate' => false,
@@ -200,9 +337,6 @@ return [
                                 'type' => 'Segment',
                                 'options' => [
                                     'route' => 'business-type[/]',
-                                    'defaults' => [
-                                        'controller' => 'Api\Organisation\BusinessType'
-                                    ]
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
@@ -270,6 +404,30 @@ return [
                             'verb' => 'POST',
                             'defaults' => [
                                 'dto' => Command\PreviousConviction\CreatePreviousConviction::class
+                    ]
+                ]
+            ],
+            'processing' => [
+                'type' => 'segment',
+                'options' => [
+                    'route' => 'processing[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'history' => [
+                        'type' => 'literal',
+                        'options' => [
+                            'route' => 'history',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => [
+                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                'options' => [
+                                    'defaults' => [
+                                        'dto' => \Dvsa\Olcs\Transfer\Query\Processing\History::class
+                                    ]
+                                ]
                             ]
                         ]
                     ]
