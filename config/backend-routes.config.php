@@ -235,6 +235,25 @@ return [
                                     ),
                                 ]
                             ],
+                            'transport-managers' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'transport-managers[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'GET',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Dvsa\Olcs\Transfer\Query\Application\TransportManagers::class
+                                            ]
+                                        ]
+                                    ],
+                                ]
+                            ]
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -352,6 +371,23 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(
                                         Command\Licence\UpdateSafety::class
                                     ),
+                                ]
+                            ],
+                            'transport-managers' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'transport-managers[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => [
+                                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                        'options' => [
+                                            'defaults' => [
+                                                'dto' => Query\Licence\TransportManagers::class
+                                            ]
+                                        ]
+                                    ],
                                 ]
                             ],
                         ]
