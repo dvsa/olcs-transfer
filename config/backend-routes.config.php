@@ -145,7 +145,36 @@ return [
                                         ]
                                     ]
                                 ]
-                            ]
+                            ],
+                            'licence-history' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'licence-history[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'GET',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Dvsa\Olcs\Transfer\Query\Application\LicenceHistory::class
+                                            ]
+                                        ]
+                                    ],
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Command\Application\UpdateLicenceHistory::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
                         ]
                     ],
                     'POST' => [
@@ -206,35 +235,6 @@ return [
                                         ]
                                     ]
                                 ]
-                            ],
-                            'licence-history' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'licence-history[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'GET' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'GET',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    Dvsa\Olcs\Transfer\Query\Application\LicenceHistory::class
-                                            ]
-                                        ]
-                                    ],
-                                    'PUT' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'PUT',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    Command\Application\UpdateLicenceHistory::class
-                                            ]
-                                        ]
-                                    ]
-                                ]
                             ]
                         ]
                     ]
@@ -261,6 +261,60 @@ return [
                                         'dto' => \Dvsa\Olcs\Transfer\Query\Processing\History::class
                                     ]
                                 ]
+                            ]
+                        ]
+                    ]
+                ]
+            ],
+            'other-licence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'other-licence[/]',
+                    'defaults' => [
+                        'id' => null,
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => ':id[/]',
+                            'defaults' => [
+                                'id' => null,
+                            ]
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => [
+                                'type' => \Zend\Mvc\Router\Http\Method::class,
+                                'options' => [
+                                    'verb' => 'GET',
+                                    'defaults' => [
+                                        'dto' =>
+                                            Dvsa\Olcs\Transfer\Query\OtherLicence\OtherLicence::class
+                                    ]
+                                ]
+                            ],
+                            'PUT' => [
+                                'type' => \Zend\Mvc\Router\Http\Method::class,
+                                'options' => [
+                                    'verb' => 'PUT',
+                                    'defaults' => [
+                                        'dto' =>
+                                            Command\OtherLicence\UpdateOtherLicence::class
+                                    ]
+                                ]
+                            ],
+                        ]
+                    ],
+                    'POST' => [
+                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                        'options' => [
+                            'verb' => 'POST',
+                            'defaults' => [
+                                'dto' =>
+                                    Command\OtherLicence\CreateOtherLicence::class
                             ]
                         ]
                     ]

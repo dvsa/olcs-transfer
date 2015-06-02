@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/application/single/financial-history")
+ * @Transfer\RouteName("backend/application/single/licence-history")
  * @Transfer\Method("PUT")
  */
 final class UpdateLicenceHistory extends AbstractCommand
@@ -47,25 +47,25 @@ final class UpdateLicenceHistory extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
     public $prevBeenRefused = null;
-    
+
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
     public $prevBeenRevoked = null;
-    
+
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
     public $prevBeenAtPi = null;
-    
+
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
     public $prevBeenDisqualifiedTc = null;
-    
+
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
