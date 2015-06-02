@@ -8,10 +8,8 @@
 namespace Dvsa\Olcs\Transfer\Util\Annotation;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Doctrine\Common\Annotations\AnnotationRegistry;
 use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\Olcs\Transfer\Command\CommandContainer;
-use Dvsa\Olcs\Transfer\Util\ArrayInput;
 
 /**
  * Annotation Builder
@@ -132,7 +130,7 @@ class AnnotationBuilder
         }
 
         if ($isArrayInput) {
-            $input = new ArrayInput();
+            $input = new \Dvsa\Olcs\Transfer\Util\ArrayInput();
 
             $arrayFilterChain = new \Zend\Filter\FilterChain();
             $arrayValidatorChain = new \Zend\Validator\ValidatorChain();
