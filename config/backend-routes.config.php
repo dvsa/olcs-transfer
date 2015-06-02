@@ -304,6 +304,44 @@ return [
                                     ]
                                 ]
                             ],
+                            'stops' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'stops[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Command\Bus\UpdateStops::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'quality' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'quality[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Command\Bus\UpdateQualitySchemes::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
                         ]
                     ]
                 ]
