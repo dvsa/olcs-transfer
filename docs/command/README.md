@@ -18,6 +18,9 @@
 |---|---|---|
 | [Dvsa\Olcs\Transfer\Command\Licence\UpdateTypeOfLicence](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Licence/UpdateTypeOfLicence.php) | **PUT** <http://olcs-backend/api/licence/7/type-of-licence> | Update licence type |
 |---|---|---|
+| [Dvsa\Olcs\Transfer\Command\Variation\UpdateTypeOfLicence](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Variation/UpdateTypeOfLicence.php) | **PUT** <http://olcs-backend/api/Variation/2/type-of-licence> | Update licence type |
+| --- | --- | Update application section statuses |
+|---|---|---|
 | [Dvsa\Olcs\Transfer\Command\Organisation\UpdateBusinessType](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Organisation/UpdateBusinessType.php) | **PUT** <http://olcs-backend/api/organisation/1/business-type> | Update business type |
 | --- | --- | Update application completion |
 |---|---|---|
