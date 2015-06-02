@@ -121,6 +121,30 @@ return [
                                 'type' => 'Segment',
                                 'options' => [
                                     'route' => 'declaration[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'GET',
+                                            'defaults' => [
+                                                'dto' => \Dvsa\Olcs\Transfer\Query\Application\Declaration::class
+                                            ]
+                                        ]
+                                    ],
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    \Dvsa\Olcs\Transfer\Command\Application\UpdateDeclaration::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
                             'financial-history' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -133,7 +157,6 @@ return [
                                         'options' => [
                                             'verb' => 'GET',
                                             'defaults' => [
-                                                'dto' => \Dvsa\Olcs\Transfer\Query\Application\Declaration::class
                                                 'dto' =>
                                                     Dvsa\Olcs\Transfer\Query\Application\FinancialHistory::class
                                             ]
@@ -144,7 +167,6 @@ return [
                                         'options' => [
                                             'verb' => 'PUT',
                                             'defaults' => [
-                                                'dto' => \Dvsa\Olcs\Transfer\Command\Application\UpdateDeclaration::class
                                                 'dto' =>
                                                     Command\Application\UpdateFinancialHistory::class
                                             ]
