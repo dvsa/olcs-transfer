@@ -118,9 +118,6 @@ return [
                                 'type' => 'Segment',
                                 'options' => [
                                     'route' => 'previous-convictions[/]',
-                                    'defaults' => [
-                                        'controller' => 'Api\Application\PreviousConvictions'
-                                    ]
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
@@ -361,8 +358,7 @@ return [
                 'options' => [
                     'route' => 'previous-conviction[/]',
                     'defaults' => [
-                        'id' => null,
-                        'controller' => 'Api\PreviousConviction'
+                        'id' => null
                     ]
                 ],
                 'may_terminate' => false,
@@ -373,8 +369,7 @@ return [
                             'route' => ':id[/]',
                             'constraints' => [],
                             'defaults' => [
-                                'id' => null,
-                                'controller' => 'Api\PreviousConviction'
+                                'id' => null
                             ]
                         ],
                         'may_terminate' => false,
@@ -404,6 +399,8 @@ return [
                             'verb' => 'POST',
                             'defaults' => [
                                 'dto' => Command\PreviousConviction\CreatePreviousConviction::class
+                            ]
+                        ]
                     ]
                 ]
             ],
