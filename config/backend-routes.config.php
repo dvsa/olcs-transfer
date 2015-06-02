@@ -401,6 +401,15 @@ return [
                                 'dto' => Command\PreviousConviction\CreatePreviousConviction::class
                             ]
                         ]
+                    ],
+                    'DELETE' => [
+                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                        'options' => [
+                            'verb' => 'DELETE',
+                            'defaults' => [
+                                'dto' => Command\PreviousConviction\DeletePreviousConviction::class
+                            ]
+                        ]
                     ]
                 ]
             ],
