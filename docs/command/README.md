@@ -22,10 +22,18 @@
 | --- | --- | Update application section statuses |
 |---|---|---|
 | [Dvsa\Olcs\Transfer\Command\Organisation\UpdateBusinessType](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Organisation/UpdateBusinessType.php) | **PUT** <http://olcs-backend/api/organisation/1/business-type> | Update business type |
-| --- | --- | Update application completion |
+| --- | --- | Update application declaration |
+|---|---|---|
+| [Dvsa\Olcs\Transfer\Command\Application\Declaration](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Application/UpdateDeclaration.php) | **PUT** <http://olcs-backend/api/application/1/declaration> | Update declaration/interim |
+| --- | --- | Create Interim Fee |
+| --- | --- | Cancel All Interim Fees |
 |---|---|---|
 | [Dvsa\Olcs\Api\Domain\Command\Application\CreateApplicationFee](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Application/CreateApplicationFee.php) | **INTERNAL** | Create application fee |
 | --- | --- | (Optional) Create task |
+|---|---|---|
+| [Dvsa\Olcs\Api\Domain\Command\Application\CancelAllInterimFees](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Application/CancelAllInterimFees.php) | **INTERNAL** | Cancel all interim fees |
+|---|---|---|
+| [Dvsa\Olcs\Api\Domain\Command\Application\CreateFee](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Application/CreateFee.php) | **INTERNAL** | Create a fee for an application |
 |---|---|---|
 | [Dvsa\Olcs\Api\Domain\Command\Application\GenerateLicenceNumber](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Application/GenerateLicenceNumber.php) | **INTERNAL** | Generate/Update licence number |
 |---|---|---|
@@ -40,6 +48,10 @@
 |---|---|---|
 | [Dvsa\Olcs\Api\Domain\Command\Fee\CreateFee](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Fee/CreateFee.php) | **INTERNAL** | Create fee |
 |---|---|---|
+| [Dvsa\Olcs\Api\Domain\Command\Fee\CancelFee](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Fee/CancelFee.php) | **INTERNAL** | Cancel fee |
+|---|---|---|
 | [Dvsa\Olcs\Api\Domain\Command\Licence\CancelLicenceFees](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Licence/CancelLicenceFees.php) | **INTERNAL** | Cancel all licence fees |
 |---|---|---|
 | [Dvsa\Olcs\Api\Domain\Command\Task\CreateTask](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Task/CreateTask.php) | **INTERNAL** | Create a task |
+|---|---|---|
+| [Dvsa\Olcs\Api\Domain\Command\Application\UpdateVariationCompletion](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Application/UpdateVariationCompletion.php) | **INTERNAL** | Update variation completion status (STUB that needs to be implemented) |
