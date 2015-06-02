@@ -17,6 +17,15 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class UpdateBusinessDetails extends AbstractCommand
 {
     /**
+     * @Transfer\ArrayInput
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Optional
+     */
+    protected $tradingNames;
+
+    /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -35,15 +44,6 @@ final class UpdateBusinessDetails extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
      */
     protected $name;
-
-    /**
-     * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
-     * @Transfer\Optional
-     */
-    protected $tradingNames;
 
     /**
      * @Transfer\ArrayInput
