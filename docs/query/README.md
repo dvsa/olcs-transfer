@@ -410,3 +410,14 @@
 }
 ```
 ---
+### <http://olcs-backend/api/application/2/declaration>
+#### [Dvsa\Olcs\Transfer\Query\Variation\TypeOfLicence](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Query/Variation/TypeOfLicence.php)
+
+##### Includes [DEFAULT APPLICATION ENTITY VALUES](#http-olcs-backend-api-application-1)
+
+```
+    ...
+    "canHaveInterimLicence": false,
+    "isLicenceUpgrade": true
+}
+```
