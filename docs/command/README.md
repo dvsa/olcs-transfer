@@ -28,6 +28,8 @@
 | --- | --- | Create Interim Fee |
 | --- | --- | Cancel All Interim Fees |
 |---|---|---|
+| [Dvsa\Olcs\Transfer\Command\Irfo\CreateIrfoGvPermit](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Irfo/CreateIrfoGvPermit.php) | **POST** <http://olcs-backend/api/irfo/gv-permit> | Create a IRFO GV Permit |
+| [Dvsa\Olcs\Transfer\Command\Irfo\UpdateIrfoGvPermit](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Irfo/UpdateIrfoGvPermit.php) | **PUT** <http://olcs-backend/api/irfo/gv-permit/1> | Update a IRFO GV Permit |
 | [Dvsa\Olcs\Transfer\Command\Trailers\CreateTrailer](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Trailers/CreateTrailer.php) | **POST** <http://olcs-backend/api/trailers/> | Create a trailer |
 | [Dvsa\Olcs\Transfer\Command\Trailers\UpdateTrailer](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Trailers/UpdateTrailer.php) | **PUT** <http://olcs-backend/api/trailers/1> | Update a trailer |
 | [Dvsa\Olcs\Transfer\Command\Trailers\DeleteTrailer](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Trailers/DeleteTrailer.php) | **DELETE** <http://olcs-backend/api/trailers/> | Delete trailer(s) |
