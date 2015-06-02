@@ -363,6 +363,16 @@ return [
                                             ]
                                         ]
                                     ],
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Command\Licence\UpdateBusinessDetails::class
+                                            ]
+                                        ]
+                                    ]
                                 ]
                             ]
                         ]
