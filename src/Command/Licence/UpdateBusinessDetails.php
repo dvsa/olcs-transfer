@@ -59,8 +59,7 @@ final class UpdateBusinessDetails extends AbstractCommand
     protected $companyOrLlpNo;
 
     /**
-     * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Address")
      * @Transfer\Optional
      */
     protected $registeredAddress;

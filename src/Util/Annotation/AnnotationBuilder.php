@@ -10,6 +10,8 @@ namespace Dvsa\Olcs\Transfer\Util\Annotation;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\Olcs\Transfer\Command\CommandContainer;
+use Dvsa\Olcs\Transfer\Util\StructuredInput;
+use Zend\InputFilter\InputFilter;
 
 /**
  * Annotation Builder
@@ -117,33 +119,61 @@ class AnnotationBuilder
         return $command;
     }
 
+    protected function createPartial($partial, $name, $filterChain, $validatorChain)
+    {
+        $reflectedPartial = new \ReflectionClass($partial);
+
+        $input = new StructuredInput($name);
+
+        foreach ($reflectedPartial->getProperties() as $property) {
+            $input->add($this->processProperty($property));
+        }
+
+        $classAnnotations = $this->getReader()->getClassAnnotations($reflectedPartial);
+        $this->attachFiltersAndValidators($classAnnotations, $filterChain, $validatorChain, $input);
+
+        return $input;
+    }
+
     protected function processProperty(\ReflectionProperty $property)
     {
         $propertyAnnotations = $this->getReader()->getPropertyAnnotations($property);
 
         $isArrayInput = false;
-
-        foreach ($propertyAnnotations as $annotation) {
-            if ($annotation instanceof ArrayInput) {
-                $isArrayInput = $annotation->getArrayInput();
-            }
-        }
-
-        if ($isArrayInput) {
-            $input = new \Dvsa\Olcs\Transfer\Util\ArrayInput($property->getName());
-
-            $arrayFilterChain = new \Zend\Filter\FilterChain();
-            $arrayValidatorChain = new \Zend\Validator\ValidatorChain();
-        } else {
-            $input = new \Zend\InputFilter\Input($property->getName());
-        }
+        $input = null;
 
         $filterChain = new \Zend\Filter\FilterChain();
         $validatorChain = new \Zend\Validator\ValidatorChain();
 
+        // Determine what type of input we have
         foreach ($propertyAnnotations as $annotation) {
+            if ($annotation instanceof ArrayInput) {
+                $isArrayInput = $annotation->getArrayInput();
 
-            if ($isArrayInput) {
+                $input = new \Dvsa\Olcs\Transfer\Util\ArrayInput($property->getName());
+
+                $arrayFilterChain = new \Zend\Filter\FilterChain();
+                $arrayValidatorChain = new \Zend\Validator\ValidatorChain();
+                break;
+            }
+
+            if ($annotation instanceof Partial) {
+                $input = $this->createPartial(
+                    $annotation->getComposedObject(),
+                    $property->getName(),
+                    $filterChain,
+                    $validatorChain
+                );
+                break;
+            }
+        }
+
+        if ($input === null) {
+            $input = new \Zend\InputFilter\Input($property->getName());
+        }
+
+        if ($isArrayInput) {
+            foreach ($propertyAnnotations as $annotation) {
 
                 if ($annotation instanceof ArrayFilter) {
                     $arrayFilterChain->attachByName($annotation->getName());
@@ -156,6 +186,21 @@ class AnnotationBuilder
                 }
             }
 
+            $input->setArrayFilterChain($arrayFilterChain);
+            $input->setArrayValidatorChain($arrayValidatorChain);
+        }
+
+        $this->attachFiltersAndValidators($propertyAnnotations, $filterChain, $validatorChain, $input);
+
+        $input->setFilterChain($filterChain);
+        $input->setValidatorChain($validatorChain);
+
+        return $input;
+    }
+
+    protected function attachFiltersAndValidators($annotations, $filterChain, $validatorChain, $input)
+    {
+        foreach ($annotations as $annotation) {
             if ($annotation instanceof Filter) {
                 $filterChain->attachByName($annotation->getName());
                 continue;
@@ -172,15 +217,5 @@ class AnnotationBuilder
                 continue;
             }
         }
-
-        if ($isArrayInput) {
-            $input->setArrayFilterChain($arrayFilterChain);
-            $input->setArrayValidatorChain($arrayValidatorChain);
-        }
-
-        $input->setFilterChain($filterChain);
-        $input->setValidatorChain($validatorChain);
-
-        return $input;
     }
 }
