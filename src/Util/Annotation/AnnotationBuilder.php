@@ -130,7 +130,7 @@ class AnnotationBuilder
         }
 
         if ($isArrayInput) {
-            $input = new \Dvsa\Olcs\Transfer\Util\ArrayInput();
+            $input = new \Dvsa\Olcs\Transfer\Util\ArrayInput($property->getName());
 
             $arrayFilterChain = new \Zend\Filter\FilterChain();
             $arrayValidatorChain = new \Zend\Validator\ValidatorChain();
