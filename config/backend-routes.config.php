@@ -190,7 +190,7 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'history' => [
-                        'type' => 'literal',
+                        'type' => 'Segment',
                         'options' => [
                             'route' => 'history',
                         ],
@@ -206,6 +206,50 @@ return [
                             ]
                         ]
                     ]
+                ]
+            ],
+            'trailers' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'trailers[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => [
+                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                        'options' => [
+                            'defaults' => [
+                                'dto' => Query\Trailer\Trailers::class
+                            ]
+                        ]
+                    ],
+                    'PUT' => [
+                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                        'options' => [
+                            'verb' => 'PUT',
+                            'defaults' => [
+                                'dto' => Command\Trailer\UpdateTrailer::class
+                            ]
+                        ]
+                    ],
+                    'POST' => [
+                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                        'options' => [
+                            'verb' => 'POST',
+                            'defaults' => [
+                                'dto' => Command\Trailer\CreateTrailer::class
+                            ]
+                        ]
+                    ],
+                    'DELETE' => [
+                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                        'options' => [
+                            'verb' => 'DELETE',
+                            'defaults' => [
+                                'dto' => Command\Trailer\DeleteTrailer::class
+                            ]
+                        ]
+                    ],
                 ]
             ]
         ]
