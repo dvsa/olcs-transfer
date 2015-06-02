@@ -18,6 +18,9 @@ return [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'cases/:id[/]',
+                    'defaults' => [
+                        'controller' => 'Api\Cases'
+                    ],
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
@@ -63,6 +66,40 @@ return [
                                     ]
                                 ]
                             ]
+                        ]
+                    ]
+                ]
+            ],
+            'legacy-offence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'cases/:case/legacy-offence[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => [
+                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                        'options' => [
+                            'defaults' => [
+                                'dto' => \Dvsa\Olcs\Transfer\Query\Cases\LegacyOffenceList::class
+                            ]
+                        ]
+                    ],
+                    'single' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => ':id'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => [
+                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                'options' => [
+                                    'defaults' => [
+                                        'dto' => \Dvsa\Olcs\Transfer\Query\Cases\LegacyOffence::class
+                                    ]
+                                ]
+                            ],
                         ]
                     ]
                 ]
