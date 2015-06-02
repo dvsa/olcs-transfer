@@ -21,6 +21,7 @@ class History extends AbstractQuery
 
     /**
      * @var int
+     * @transfer\optional()
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -28,10 +29,78 @@ class History extends AbstractQuery
     protected $case;
 
     /**
+     * @var int
+     * @transfer\optional()
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $licence;
+
+    /**
+     * @var int
+     * @transfer\optional()
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $organisation;
+
+    /**
+     * @var int
+     * @transfer\optional()
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $transportManager;
+
+    /**
+     * @var int
+     * @transfer\optional()
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $user;
+
+    /**
      * @return int
      */
     public function getCase()
     {
         return $this->case;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLicence()
+    {
+        return $this->licence;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOrganisation()
+    {
+        return $this->organisation;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTransportManager()
+    {
+        return $this->transportManager;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

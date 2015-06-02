@@ -5,13 +5,13 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-namespace Dvsa\Olcs\Transfer\Command\Application;
+namespace Dvsa\Olcs\Transfer\Command\Licence;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/application/single/type-of-licence")
+ * @Transfer\RouteName("backend/licence/single/type-of-licence")
  * @Transfer\Method("PUT")
  */
 final class UpdateTypeOfLicence extends AbstractCommand
@@ -32,30 +32,12 @@ final class UpdateTypeOfLicence extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"lcat_gv","lcat_psv"}}})
-     */
-    protected $operatorType;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({
      *     "name":"Zend\Validator\InArray",
      *     "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}
      * })
      */
     protected $licenceType;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
-     */
-    protected $niFlag;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
-     * @Transfer\Optional
-     */
-    protected $confirm = false;
 
     public function getId()
     {
@@ -67,23 +49,8 @@ final class UpdateTypeOfLicence extends AbstractCommand
         return $this->version;
     }
 
-    public function getOperatorType()
-    {
-        return $this->operatorType;
-    }
-
     public function getLicenceType()
     {
         return $this->licenceType;
-    }
-
-    public function getNiFlag()
-    {
-        return $this->niFlag;
-    }
-
-    public function getConfirm()
-    {
-        return $this->confirm;
     }
 }

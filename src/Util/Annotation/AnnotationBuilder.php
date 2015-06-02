@@ -8,7 +8,6 @@
 namespace Dvsa\Olcs\Transfer\Util\Annotation;
 
 use Doctrine\Common\Annotations\AnnotationReader;
-use Doctrine\Common\Annotations\AnnotationRegistry;
 use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\Olcs\Transfer\Command\CommandContainer;
 
@@ -122,23 +121,61 @@ class AnnotationBuilder
     {
         $propertyAnnotations = $this->getReader()->getPropertyAnnotations($property);
 
-        $input = new \Zend\InputFilter\Input($property->getName());
+        $isArrayInput = false;
+
+        foreach ($propertyAnnotations as $annotation) {
+            if ($annotation instanceof ArrayInput) {
+                $isArrayInput = $annotation->getArrayInput();
+            }
+        }
+
+        if ($isArrayInput) {
+            $input = new \Dvsa\Olcs\Transfer\Util\ArrayInput($property->getName());
+
+            $arrayFilterChain = new \Zend\Filter\FilterChain();
+            $arrayValidatorChain = new \Zend\Validator\ValidatorChain();
+        } else {
+            $input = new \Zend\InputFilter\Input($property->getName());
+        }
+
         $filterChain = new \Zend\Filter\FilterChain();
         $validatorChain = new \Zend\Validator\ValidatorChain();
 
         foreach ($propertyAnnotations as $annotation) {
+
+            if ($isArrayInput) {
+
+                if ($annotation instanceof ArrayFilter) {
+                    $arrayFilterChain->attachByName($annotation->getName());
+                    continue;
+                }
+
+                if ($annotation instanceof ArrayValidator) {
+                    $arrayValidatorChain->attachByName($annotation->getName(), $annotation->getOptions());
+                    continue;
+                }
+            }
+
             if ($annotation instanceof Filter) {
                 $filterChain->attachByName($annotation->getName());
+                continue;
             }
 
             if ($annotation instanceof Validator) {
                 $validatorChain->attachByName($annotation->getName(), $annotation->getOptions());
+                continue;
             }
 
             if ($annotation instanceof Optional) {
                 $input->setRequired(false);
                 $input->setAllowEmpty(true);
+                continue;
             }
+        }
+
+        if ($isArrayInput) {
+            $input->setArrayFilterChain($arrayFilterChain);
+            $input->setArrayValidatorChain($arrayValidatorChain);
         }
 
         $input->setFilterChain($filterChain);

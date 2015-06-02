@@ -11,10 +11,10 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/application/single/type-of-licence")
+ * @Transfer\RouteName("backend/application/single/declaration")
  * @Transfer\Method("PUT")
  */
-final class UpdateTypeOfLicence extends AbstractCommand
+final class UpdateDeclaration extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -32,30 +32,23 @@ final class UpdateTypeOfLicence extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"lcat_gv","lcat_psv"}}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
-    protected $operatorType;
+    protected $declarationConfirmation;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Zend\Validator\InArray",
-     *     "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}
-     * })
-     */
-    protected $licenceType;
-
-    /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
-    protected $niFlag;
+    protected $interimRequested;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
      * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 0, "max": 1000}})
      */
-    protected $confirm = false;
+    protected $interimReason;
 
     public function getId()
     {
@@ -67,23 +60,18 @@ final class UpdateTypeOfLicence extends AbstractCommand
         return $this->version;
     }
 
-    public function getOperatorType()
+    public function getDeclarationConfirmation()
     {
-        return $this->operatorType;
+        return $this->declarationConfirmation;
     }
 
-    public function getLicenceType()
+    public function getInterimRequested()
     {
-        return $this->licenceType;
+        return $this->interimRequested;
     }
 
-    public function getNiFlag()
+    public function getInterimReason()
     {
-        return $this->niFlag;
-    }
-
-    public function getConfirm()
-    {
-        return $this->confirm;
+        return $this->interimReason;
     }
 }
