@@ -1,31 +1,27 @@
 <?php
 
 /**
- * Licence
+ * Variation
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-namespace Dvsa\Olcs\Transfer\Query\Licence;
+namespace Dvsa\Olcs\Transfer\Query\Variation;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/licence/single")
+ * @Transfer\RouteName("backend/variation/single")
  */
-class Licence extends AbstractQuery
+class Variation extends AbstractQuery
 {
     /**
-     * @var int
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $id;
 
-    /**
-     * @return int
-     */
     public function getId()
     {
         return $this->id;
