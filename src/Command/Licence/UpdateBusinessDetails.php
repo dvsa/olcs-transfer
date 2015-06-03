@@ -17,15 +17,6 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class UpdateBusinessDetails extends AbstractCommand
 {
     /**
-     * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
-     * @Transfer\Optional
-     */
-    protected $tradingNames;
-
-    /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -48,6 +39,8 @@ final class UpdateBusinessDetails extends AbstractCommand
     /**
      * @Transfer\ArrayInput
      * @Transfer\ArrayValidator({"name":"Zend\Validator\NotEmpty"})
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
     protected $natureOfBusinesses;
@@ -59,10 +52,20 @@ final class UpdateBusinessDetails extends AbstractCommand
     protected $companyOrLlpNo;
 
     /**
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Address")
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\RegisteredAddress")
      * @Transfer\Optional
      */
     protected $registeredAddress;
+
+    /**
+     * @Transfer\ArrayInput
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Optional
+     */
+    protected $tradingNames;
 
     /**
      * @return mixed
