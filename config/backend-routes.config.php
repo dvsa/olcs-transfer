@@ -432,13 +432,26 @@ return [
                             ]
                         ]
                     ],
-                    'PUT' => [
-                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                    'single' => [
+                        'type' => 'Segment',
                         'options' => [
-                            'verb' => 'PUT',
+                            'route' => ':id[/]',
+                            'constraints' => [],
                             'defaults' => [
-                                'dto' => Command\Trailer\UpdateTrailer::class
+                                'id' => null,
                             ]
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => [
+                                'type' => \Zend\Mvc\Router\Http\Method::class,
+                                'options' => [
+                                    'verb' => 'PUT',
+                                    'defaults' => [
+                                        'dto' => Command\Trailer\UpdateTrailer::class
+                                    ]
+                                ]
+                            ],
                         ]
                     ],
                     'POST' => [
