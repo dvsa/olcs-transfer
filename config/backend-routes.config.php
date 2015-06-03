@@ -374,6 +374,35 @@ return [
                                     ]
                                 ]
                             ],
+                            'PUT' => [
+                                'type' => \Zend\Mvc\Router\Http\Method::class,
+                                'options' => [
+                                    'verb' => 'PUT',
+                                    'defaults' => [
+                                        'dto' =>
+                                            Command\Cases\Impounding\UpdateImpounding::class
+                                    ]
+                                ]
+                            ],
+                            'DELETE' => [
+                                'type' => \Zend\Mvc\Router\Http\Method::class,
+                                'options' => [
+                                    'verb' => 'DELETE',
+                                    'defaults' => [
+                                        'dto' =>
+                                            Command\Cases\Impounding\DeleteImpounding::class
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ],
+                    'POST' => [
+                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                        'options' => [
+                            'verb' => 'POST',
+                            'defaults' => [
+                                'dto' => Command\Cases\Impounding\CreateImpounding::class
+                            ]
                         ]
                     ]
                 ]
