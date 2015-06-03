@@ -339,6 +339,78 @@ return [
                     ]
                 ]
             ],
+            'bus' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'bus[/]',
+                    'defaults' => [
+                        'id' => null,
+                        'controller' => 'Api\Generic'
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => ':id[/]',
+                            'defaults' => [
+                                'id' => null,
+                                'controller' => 'Api\Generic'
+                            ]
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => [
+                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                'options' => [
+                                    'defaults' => [
+                                        'dto' => Query\Bus\BusReg::class
+                                    ]
+                                ]
+                            ],
+                            'stops' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'stops[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Command\Bus\UpdateStops::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'quality' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'quality[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Command\Bus\UpdateQualitySchemes::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                        ]
+                    ]
+                ]
+            ],
             'organisation' => [
                 'type' => 'Segment',
                 'options' => [
