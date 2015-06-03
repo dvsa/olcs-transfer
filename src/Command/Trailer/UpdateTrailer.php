@@ -29,6 +29,13 @@ final class UpdateTrailer extends AbstractCommand
     protected $trailerNo;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $version;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -42,5 +49,13 @@ final class UpdateTrailer extends AbstractCommand
     public function getTrailerNo()
     {
         return $this->trailerNo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVersion()
+    {
+        return $this->version;
     }
 }
