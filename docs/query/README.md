@@ -703,8 +703,7 @@
 ```
 ---
 ### <http://olcs-backend/api/cases/24/impoundings/?page=1&sort=id&order=ASC&limit=10>
-#### [Dvsa\Olcs\Transfer\Query\Cases\ImpoundingList](https://gitlab.inf.mgt
-.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Query/Cases/ImpoundingList.php)
+#### [Dvsa\Olcs\Transfer\Query\Cases\ImpoundingList](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Query/Cases/ImpoundingList.php)
 ```
 {
     "count": 1,
