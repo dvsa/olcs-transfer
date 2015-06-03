@@ -2,7 +2,7 @@
 
 <phpunit bootstrap="Bootstrap.php" colors="true">
     <testsuites>
-        <testsuite name="OLCS Transfer Application">
+        <testsuite name="OLCS Transfer">
             <directory>./</directory>
         </testsuite>
     </testsuites>
