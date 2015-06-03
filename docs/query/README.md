@@ -582,3 +582,32 @@
 }
 ```
 ---
+### <http://olcs-backend/api/trailers?licence=1>
+#### [Dvsa\Olcs\Transfer\Query\Trailer\Trailers](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Query/Trailer/Trailers.php)
+```
+{
+    "count": 2,
+    "results": [
+        {
+            "createdOn": "2015-01-01T00:00:00+0000",
+            "deletedDate": null,
+            "id": 3,
+            "lastModifiedOn": "2015-03-02T00:00:00+0000",
+            "olbsKey": null,
+            "specifiedDate": "2015-03-02T00:00:00+0000",
+            "trailerNo": "C0300",
+            "version": 1
+        },
+        {
+            "createdOn": "2015-01-01T00:00:00+0000",
+            "deletedDate": null,
+            "id": 4,
+            "lastModifiedOn": "2015-04-01T00:00:00+0100",
+            "olbsKey": null,
+            "specifiedDate": "2015-04-01T00:00:00+0100",
+            "trailerNo": "D4000",
+            "version": 1
+        }
+    ]
+}
+```
