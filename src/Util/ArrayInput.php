@@ -78,7 +78,8 @@ class ArrayInput extends \Zend\InputFilter\ArrayInput
         $arrayValidator = $this->getArrayValidatorChain();
         $result = $arrayValidator->isValid($values, $context);
 
-        if (!$result) {
+        // If the whole array is valid, check the individual rules
+        if ($result) {
             return parent::isValid($context);
         }
 

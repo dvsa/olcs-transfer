@@ -28,6 +28,10 @@
 | --- | --- | Create Interim Fee |
 | --- | --- | Cancel All Interim Fees |
 |---|---|---|
+| [Dvsa\Olcs\Transfer\Command\Trailers\CreateTrailer](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Trailers/CreateTrailer.php) | **POST** <http://olcs-backend/api/trailers/> | Create a trailer |
+| [Dvsa\Olcs\Transfer\Command\Trailers\UpdateTrailer](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Trailers/UpdateTrailer.php) | **PUT** <http://olcs-backend/api/trailers/1> | Update a trailer |
+| [Dvsa\Olcs\Transfer\Command\Trailers\DeleteTrailer](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Trailers/DeleteTrailer.php) | **DELETE** <http://olcs-backend/api/trailers/> | Delete trailer(s) |
+|---|---|---|
 | [Dvsa\Olcs\Api\Domain\Command\Application\CreateApplicationFee](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Application/CreateApplicationFee.php) | **INTERNAL** | Create application fee |
 | --- | --- | (Optional) Create task |
 |---|---|---|
