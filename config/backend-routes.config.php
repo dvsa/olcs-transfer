@@ -497,6 +497,16 @@ return [
                                     Command\OtherLicence\CreateOtherLicence::class
                             ]
                         ]
+                    ],
+                    'DELETE' => [
+                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                        'options' => [
+                            'verb' => 'DELETE',
+                            'defaults' => [
+                                'dto' =>
+                                    Command\OtherLicence\DeleteOtherLicence::class
+                            ]
+                        ]
                     ]
                 ]
             ]
