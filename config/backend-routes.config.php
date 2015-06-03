@@ -114,6 +114,67 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+                    'named-single' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => ':application[/]',
+                            'defaults' => [
+                                'application' => null,
+                            ]
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'company-subsidiary' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'company-subsidiary[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'single' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => ':id[/]',
+                                            'defaults' => [
+                                                'id' => null,
+                                            ]
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'PUT' => [
+                                                'type' => \Zend\Mvc\Router\Http\Method::class,
+                                                'options' => [
+                                                    'verb' => 'PUT',
+                                                    'defaults' => [
+                                                        'dto' =>
+                                                            Command\Application\UpdateCompanySubsidiary::class
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                    ],
+                                    'DELETE' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'DELETE',
+                                            'defaults' => [
+                                                'dto' => Command\Application\DeleteCompanySubsidiary::class
+                                            ]
+                                        ]
+                                    ],
+                                    'POST' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'POST',
+                                            'defaults' => [
+                                                'dto' => Command\Application\CreateCompanySubsidiary::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                        ]
+                    ],
                     'single' => [
                         'type' => 'Segment',
                         'options' => [
@@ -290,6 +351,67 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+                    'named-single' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => ':licence[/]',
+                            'defaults' => [
+                                'application' => null,
+                            ]
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'company-subsidiary' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'company-subsidiary[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'single' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => ':id[/]',
+                                            'defaults' => [
+                                                'id' => null,
+                                            ]
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'PUT' => [
+                                                'type' => \Zend\Mvc\Router\Http\Method::class,
+                                                'options' => [
+                                                    'verb' => 'PUT',
+                                                    'defaults' => [
+                                                        'dto' =>
+                                                            Command\Licence\UpdateCompanySubsidiary::class
+                                                    ]
+                                                ]
+                                            ]
+                                        ]
+                                    ],
+                                    'DELETE' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'DELETE',
+                                            'defaults' => [
+                                                'dto' => Command\Licence\DeleteCompanySubsidiary::class
+                                            ]
+                                        ]
+                                    ],
+                                    'POST' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'POST',
+                                            'defaults' => [
+                                                'dto' => Command\Licence\CreateCompanySubsidiary::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                        ]
+                    ],
                     'single' => [
                         'type' => 'Segment',
                         'options' => [
@@ -439,6 +561,25 @@ return [
                                         ]
                                     ]
                                 ]
+                            ],
+                            'application' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'application/:id[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Command\Application\UpdateBusinessDetails::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
                             ]
                         ]
                     ],
@@ -469,7 +610,39 @@ return [
                         ]
                     ]
                 ]
-            ]
+            ],
+            'company-subsidiary' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'company-subsidiary[/]',
+                    'defaults' => [
+                        'id' => null,
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => ':id[/]',
+                            'defaults' => [
+                                'id' => null,
+                            ]
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => [
+                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                'options' => [
+                                    'defaults' => [
+                                        'dto' => Query\CompanySubsidiary\CompanySubsidiary::class
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ],
         ]
     ]
 ];
