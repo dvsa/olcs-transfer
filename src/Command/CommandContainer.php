@@ -78,6 +78,7 @@ class CommandContainer implements CommandContainerInterface
         $this->hasValidated = true;
 
         $this->inputFilter->setData($this->dto->getArrayCopy());
+
         $this->dto->exchangeArray($this->inputFilter->getValues());
 
         return $this->inputFilter->isValid();
