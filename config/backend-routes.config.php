@@ -125,6 +125,25 @@ return [
                                     ),
                                 ]
                             ],
+                            'financial-evidence' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'financial-evidence[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'GET',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Dvsa\Olcs\Transfer\Query\Application\FinancialEvidence::class
+                                            ]
+                                        ]
+                                    ],
+                                ],
+                            ],
                             'financial-history' => [
                                 'type' => 'Segment',
                                 'options' => [
