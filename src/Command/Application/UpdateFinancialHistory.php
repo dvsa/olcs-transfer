@@ -62,14 +62,14 @@ final class UpdateFinancialHistory extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
      */
     protected $insolvencyDetails;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
-     * @Transfer\Optional
      */
-    protected $confirm = false;
+    protected $insolvencyConfirmation = false;
 
     public function getId()
     {
@@ -111,8 +111,8 @@ final class UpdateFinancialHistory extends AbstractCommand
         return $this->insolvencyDetails;
     }
 
-    public function getConfirm()
+    public function getInsolvencyConfirmation()
     {
-        return $this->confirm;
+        return $this->insolvencyConfirmation;
     }
 }
