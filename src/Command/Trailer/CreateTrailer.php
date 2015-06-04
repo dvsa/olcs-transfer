@@ -18,6 +18,7 @@ final class CreateTrailer extends AbstractCommand
 {
     /**
      * @var string
+     * @todo validation
      */
     protected $trailerNo;
 
