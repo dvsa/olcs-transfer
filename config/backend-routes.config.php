@@ -344,8 +344,7 @@ return [
                 'options' => [
                     'route' => 'bus[/]',
                     'defaults' => [
-                        'id' => null,
-                        'controller' => 'Api\Generic'
+                        'id' => null
                     ]
                 ],
                 'may_terminate' => false,
@@ -355,8 +354,7 @@ return [
                         'options' => [
                             'route' => ':id[/]',
                             'defaults' => [
-                                'id' => null,
-                                'controller' => 'Api\Generic'
+                                'id' => null
                             ]
                         ],
                         'may_terminate' => false,
