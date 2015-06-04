@@ -190,6 +190,17 @@ return [
                                     'GET' => QueryConfig::getConfig(Query\Licence\TypeOfLicence::class),
                                     'PUT' => CommandConfig::getPutConfig(Command\Licence\UpdateTypeOfLicence::class),
                                 ]
+                            ],
+                            'addresses' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'addresses[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\Addresses::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Licence\UpdateAddresses::class),
+                                ]
                             ]
                         ]
                     ),
