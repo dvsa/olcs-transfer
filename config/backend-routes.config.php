@@ -518,6 +518,26 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Impounding\CreateImpounding::class),
                 ]
             ],
+            'complaint' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'cases/:case/complaint[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Cases\ComplaintList::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Cases\Complaint::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Impounding\UpdateComplaint::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(
+                                Command\Cases\Impounding\DeleteComplaint::class
+                            )
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\Impounding\CreateComplaint::class)
+                ]
+            ],
         ]
     ]
 ];
