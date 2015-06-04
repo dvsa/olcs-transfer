@@ -381,8 +381,7 @@ return [
                                         'options' => [
                                             'verb' => 'PUT',
                                             'defaults' => [
-                                                'dto' =>
-                                                    Command\Bus\UpdateStops::class
+                                                'dto' => Command\Bus\UpdateStops::class
                                             ]
                                         ]
                                     ]
@@ -400,8 +399,43 @@ return [
                                         'options' => [
                                             'verb' => 'PUT',
                                             'defaults' => [
-                                                'dto' =>
-                                                    Command\Bus\UpdateQualitySchemes::class
+                                                'dto' => Command\Bus\UpdateQualitySchemes::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'service-details' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'service-details[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' => Command\Bus\UpdateServiceDetails::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'ta' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'ta[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' => Command\Bus\UpdateTa::class
                                             ]
                                         ]
                                     ]
