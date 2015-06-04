@@ -72,6 +72,11 @@ final class UpdateLicenceHistory extends AbstractCommand
      */
     public $prevPurchasedAssets = null;
 
+    /**
+     * @Transfer\Optional
+     */
+    public $inProgress = null;
+    
     public function getId()
     {
         return $this->id;
@@ -115,5 +120,10 @@ final class UpdateLicenceHistory extends AbstractCommand
     public function getPrevPurchasedAssets()
     {
         return $this->prevPurchasedAssets;
+    }
+
+    public function getInProgress()
+    {
+        return $this->inProgress;
     }
 }
