@@ -106,24 +106,8 @@ return [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'GET' => [
-                                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                        'options' => [
-                                            'verb' => 'GET',
-                                            'defaults' => [
-                                                'dto' => \Dvsa\Olcs\Transfer\Query\Application\PreviousConvictions::class
-                                            ]
-                                        ]
-                                    ],
-                                    'PUT' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'PUT',
-                                            'defaults' => [
-                                                'dto' => Command\Application\UpdatePreviousConvictions::class
-                                            ]
-                                        ]
-                                    ],
+                                    'GET' => QueryConfig::getConfig(Query\Application\PreviousConvictions::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\UpdatePreviousConvictions::class)
                                 ]
                             ],
                             'declaration' => [
@@ -288,54 +272,14 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'single' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => ':id[/]',
-                            'constraints' => [],
-                            'defaults' => [
-                                'id' => null
-                            ]
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'GET' => [
-                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                'options' => [
-                                    'defaults' => [
-                                        'dto' => Query\PreviousConviction\PreviousConviction::class
-                                    ]
-                                ]
-                            ],
-                            'PUT' => [
-                                'type' => \Zend\Mvc\Router\Http\Method::class,
-                                'options' => [
-                                    'verb' => 'PUT',
-                                    'defaults' => [
-                                        'dto' => Command\PreviousConviction\UpdatePreviousConviction::class
-                                    ]
-                                ]
-                            ]
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\PreviousConviction\PreviousConviction::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\PreviousConviction\UpdatePreviousConviction::class)
                         ]
-                    ],
-                    'POST' => [
-                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                        'options' => [
-                            'verb' => 'POST',
-                            'defaults' => [
-                                'dto' => Command\PreviousConviction\CreatePreviousConviction::class
-                            ]
-                        ]
-                    ],
-                    'DELETE' => [
-                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                        'options' => [
-                            'verb' => 'DELETE',
-                            'defaults' => [
-                                'dto' => Command\PreviousConviction\DeletePreviousConviction::class
-                            ]
-                        ]
-                    ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\PreviousConviction\CreatePreviousConviction::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\PreviousConviction\DeletePreviousConviction::class)
                 ]
             ],
             'irfo' => [
