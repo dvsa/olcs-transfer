@@ -334,14 +334,33 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Trailer\Trailers::class),
                     'single' => RouteConfig::getSingleConfig(
                         [
+                            'GET' => QueryConfig::getConfig(Query\Trailer\Trailer::class),
                             'PUT' => CommandConfig::getPutConfig(Command\Trailer\UpdateTrailer::class),
                         ]
                     ),
+                    'GET' => QueryConfig::getConfig(Query\Trailer\Trailers::class),
                     'POST' => CommandConfig::getPostConfig(Command\Trailer\CreateTrailer::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\Trailer\DeleteTrailer::class),
+                ]
+            ],
+            'grace-periods' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'grace-periods[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\GracePeriod\GracePeriod::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\GracePeriod\UpdateGracePeriod::class),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\GracePeriod\GracePeriods::class),
+                    'POST' => CommandConfig::getPostConfig(Command\GracePeriod\CreateGracePeriod::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\GracePeriod\DeleteGracePeriod::class),
                 ]
             ]
         ]
