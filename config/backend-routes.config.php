@@ -242,16 +242,7 @@ return [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'GET' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'GET',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    Dvsa\Olcs\Transfer\Query\Application\TransportManagers::class
-                                            ]
-                                        ]
-                                    ],
+                                    'GET' => QueryConfig::getConfig(Query\Application\TransportManagers::class),
                                 ]
                             ]
                         ]
@@ -293,6 +284,18 @@ return [
                                     'GET' => QueryConfig::getConfig(Query\Licence\Addresses::class),
                                     'PUT' => CommandConfig::getPutConfig(Command\Variation\UpdateAddresses::class),
                                 ]
+                            ],
+                            'transport-manager-delete-delta' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'transport-manager-delete-delta[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Variation\TransportManagerDeleteDelta::class
+                                    ),
+                                ],
                             ]
                         ]
                     ),
@@ -380,14 +383,7 @@ return [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'GET' => [
-                                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                        'options' => [
-                                            'defaults' => [
-                                                'dto' => Query\Licence\TransportManagers::class
-                                            ]
-                                        ]
-                                    ],
+                                    'GET' => QueryConfig::getConfig(Query\Licence\TransportManagers::class),
                                 ]
                             ],
                         ]
@@ -971,6 +967,35 @@ return [
                              'POST' =>CommandConfig::getPostConfig(Command\Payment\PayOutstandingFees::class),
                         ],
                     ],
+                ]
+            ],
+            'transport-manager-application' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'transport-manager-application[/]',
+                    'defaults' => [
+                        'id' => null
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\TransportManagerApplication\Update::class),
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\TransportManagerApplication\Create::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\TransportManagerApplication\Delete::class),
+                ]
+            ],
+            'user' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'user[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\User\UserList::class),
                 ]
             ],
         ]
