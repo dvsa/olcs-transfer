@@ -1,31 +1,25 @@
 <?php
 
 /**
- * Licence
- *
- * @author Rob Caiger <rob@clocal.co.uk>
+ * Bus Reg
  */
-namespace Dvsa\Olcs\Transfer\Query\Licence;
+namespace Dvsa\Olcs\Transfer\Query\Bus;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/licence/single")
+ * @Transfer\RouteName("backend/bus/single")
  */
-class Licence extends AbstractQuery
+class BusReg extends AbstractQuery
 {
     /**
-     * @var int
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $id;
 
-    /**
-     * @return int
-     */
     public function getId()
     {
         return $this->id;
