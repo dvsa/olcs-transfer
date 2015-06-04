@@ -611,3 +611,94 @@
     ]
 }
 ```
+---
+### <http://olcs-backend/api/irfo/gv-permit/1>
+#### [Dvsa\Olcs\Transfer\Query\Irfo\IrfoGvPermit](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Query/Irfo/IrfoGvPermit.php)
+```
+{
+    "createdBy": null,
+    "createdOn": "2015-06-01T10:23:06+0100",
+    "exemptionDetails": "testing",
+    "expiryDate": null,
+    "id": 1,
+    "inForceDate": "2016-03-10",
+    "irfoFeeId": null,
+    "irfoGvPermitType":
+    {
+        "createdBy": null,
+        "createdOn": null,
+        "description": "ECMT 75% (Apr to Jun)",
+        "id": 2,
+        "irfoCountry": null,
+        "lastModifiedBy": null,
+        "lastModifiedOn": null,
+        "version": 1
+    },
+    "irfoPermitStatus":
+    {
+        "description": "Refused",
+        "displayOrder": null,
+        "id": "irfo_perm_s_refused",
+        "olbsKey": "Refused",
+        "parent": null,
+        "refDataCategoryId": "irfo_permit_status"
+    },
+    "isFeeExempt": "Y",
+    "lastModifiedBy": null,
+    "lastModifiedOn": "2015-06-02T14:27:10+0100",
+    "noOfCopies": 10,
+    "note": null,
+    "olbsKey": null,
+    "organisation": null,
+    "permitPrinted": "N",
+    "version": 6,
+    "withdrawnReason": null,
+    "yearRequired": 2010
+}
+```
+---
+### <http://olcs-backend/api/irfo/gv-permit?organisation=101&page=1&limit=1&sort=id&order=asc>
+#### [Dvsa\Olcs\Transfer\Query\Irfo\IrfoGvPermitList](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Query/Irfo/IrfoGvPermitList.php)
+```
+{
+    "count": 2,
+    "results":
+    {
+        "0":
+        {
+            "createdOn": "2015-06-01T10:23:06+0100",
+            "exemptionDetails": "testing",
+            "expiryDate": null,
+            "id": 1,
+            "inForceDate": "2016-03-10",
+            "irfoFeeId": null,
+            "isFeeExempt": "Y",
+            "lastModifiedOn": "2015-06-02T14:27:10+0100",
+            "noOfCopies": 10,
+            "note": null,
+            "olbsKey": null,
+            "permitPrinted": "N",
+            "version": 6,
+            "yearRequired": 2010,
+            "irfoPermitStatus":
+            {
+                "description": "Refused",
+                "displayOrder": null,
+                "id": "irfo_perm_s_refused",
+                "olbsKey": "Refused",
+                "refDataCategoryId": "irfo_permit_status"
+            },
+            "withdrawnReason": null,
+            "irfoGvPermitType":
+            {
+                "createdOn": null,
+                "description": "ECMT 75% (Apr to Jun)",
+                "id": 2,
+                "lastModifiedOn": null,
+                "version": 1
+            }
+        }
+    }
+}
+```
+---
