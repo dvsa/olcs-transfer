@@ -107,7 +107,9 @@ return [
                                 'may_terminate' => false,
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Application\PreviousConvictions::class),
-                                    'PUT' => CommandConfig::getPutConfig(Command\Application\UpdatePreviousConvictions::class)
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdatePreviousConvictions::class
+                                    )
                                 ]
                             ],
                             'declaration' => [
@@ -288,11 +290,15 @@ return [
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\PreviousConviction\PreviousConviction::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\PreviousConviction\UpdatePreviousConviction::class)
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\PreviousConviction\UpdatePreviousConviction::class
+                            )
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\PreviousConviction\CreatePreviousConviction::class),
-                    'DELETE' => CommandConfig::getDeleteConfig(Command\PreviousConviction\DeletePreviousConviction::class)
+                    'DELETE' => CommandConfig::getDeleteConfig(
+                        Command\PreviousConviction\DeletePreviousConviction::class
+                    )
                 ]
             ],
             'irfo' => [
@@ -366,8 +372,8 @@ return [
                 'child_routes' => [
                     'single' => RouteConfig::getSingleConfig(
                         [
-                            'PUT' => CommandConfig::getPutConfig(Command\OtherLicence\UpdateOtherLicence::class),
                             'GET' => QueryConfig::getConfig(Query\OtherLicence\OtherLicence::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\OtherLicence\UpdateOtherLicence::class),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateOtherLicence::class),
