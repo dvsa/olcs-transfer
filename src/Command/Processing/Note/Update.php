@@ -4,7 +4,8 @@ namespace Dvsa\Olcs\Transfer\Command\Processing\Note;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\Command\Traits\FieldType;
+use Dvsa\Olcs\Transfer\FieldType as FieldType;
+use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 
 /**
  * Class to Update a Note
@@ -13,18 +14,27 @@ use Dvsa\Olcs\Transfer\Command\Traits\FieldType;
  * @Transfer\RouteName("backend/processing/note/single")
  */
 class Update extends AbstractCommand
+    implements
+    FieldType\IdentityInterface,
+    FieldType\VersionInterface,
+    FieldType\ApplicationInterface,
+    FieldType\CasesInterface,
+    FieldType\LicenceInterface,
+    FieldType\OrganisationInterface,
+    FieldType\TransportManagerInterface
+
 {
     // Identity & Locking
-    use FieldType\Identity;
-    use FieldType\Version;
+    use FieldTypeTraits\Identity;
+    use FieldTypeTraits\Version;
 
     // Foreign Keys
-    use FieldType\ApplicationOptional;
-    use FieldType\CasesOptional;
-    use FieldType\LicenceOptional;
-    use FieldType\OrganisationOptional;
-    use FieldType\TransportManagerOptional;
+    use FieldTypeTraits\ApplicationOptional;
+    use FieldTypeTraits\CasesOptional;
+    use FieldTypeTraits\LicenceOptional;
+    use FieldTypeTraits\OrganisationOptional;
+    use FieldTypeTraits\TransportManagerOptional;
 
     // Individual Fields
-    use FieldType\CommentOptional;
+    use FieldTypeTraits\CommentOptional;
 }

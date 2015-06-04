@@ -5,25 +5,15 @@ namespace Dvsa\Olcs\Transfer\Query\Processing;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
+use Dvsa\Olcs\Transfer\FieldType;
+use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
+
 /**
  * Class Note
  * @Transfer\RouteName("backend/processing/note/single")
  */
 class Note extends AbstractQuery
+    implements FieldType\IdentityInterface
 {
-    /**
-     * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $id;
-
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+    use FieldTypeTraits\Identity;
 }
