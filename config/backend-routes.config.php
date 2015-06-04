@@ -126,6 +126,17 @@ return [
                                     ),
                                 ]
                             ],
+                            'previous-convictions' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'previous-convictions[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\PreviousConvictions::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\UpdatePreviousConvictions::class)
+                                ]
+                            ],
                             'declaration' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -345,6 +356,26 @@ return [
                             ]
                         ]
                     ],
+                ]
+            ],
+            'previous-conviction' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'previous-conviction[/]',
+                    'defaults' => [
+                        'id' => null
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\PreviousConviction\PreviousConviction::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\PreviousConviction\UpdatePreviousConviction::class)
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\PreviousConviction\CreatePreviousConviction::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\PreviousConviction\DeletePreviousConviction::class)
                 ]
             ],
             'irfo' => [
