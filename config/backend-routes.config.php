@@ -339,6 +339,78 @@ return [
                     ]
                 ]
             ],
+            'bus' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'bus[/]',
+                    'defaults' => [
+                        'id' => null,
+                        'controller' => 'Api\Generic'
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => ':id[/]',
+                            'defaults' => [
+                                'id' => null,
+                                'controller' => 'Api\Generic'
+                            ]
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => [
+                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                'options' => [
+                                    'defaults' => [
+                                        'dto' => Query\Bus\BusReg::class
+                                    ]
+                                ]
+                            ],
+                            'stops' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'stops[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Command\Bus\UpdateStops::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'quality' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'quality[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Command\Bus\UpdateQualitySchemes::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                        ]
+                    ]
+                ]
+            ],
             'organisation' => [
                 'type' => 'Segment',
                 'options' => [
@@ -391,6 +463,73 @@ return [
                     ]
                 ]
             ],
+            'irfo' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'irfo[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'gv-permit' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'gv-permit[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'single' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => ':id[/]',
+                                    'constraints' => [],
+                                    'defaults' => [
+                                        'id' => null,
+                                    ]
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => [
+                                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                        'options' => [
+                                            'defaults' => [
+                                                'dto' => \Dvsa\Olcs\Transfer\Query\Irfo\IrfoGvPermit::class
+                                            ]
+                                        ]
+                                    ],
+                                    'PUT' => [
+                                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                                        'options' => [
+                                            'verb' => 'PUT',
+                                            'defaults' => [
+                                                'dto' =>
+                                                    Command\Irfo\UpdateIrfoGvPermit::class
+                                            ]
+                                        ]
+                                    ]
+                                ]
+                            ],
+                            'GET' => [
+                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                                'options' => [
+                                    'defaults' => [
+                                        'dto' => \Dvsa\Olcs\Transfer\Query\Irfo\IrfoGvPermitList::class
+                                    ]
+                                ]
+                            ],
+                            'POST' => [
+                                'type' => \Zend\Mvc\Router\Http\Method::class,
+                                'options' => [
+                                    'verb' => 'POST',
+                                    'defaults' => [
+                                        'dto' =>
+                                            Command\Irfo\CreateIrfoGvPermit::class
+                                    ]
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            ],
             'processing' => [
                 'type' => 'segment',
                 'options' => [
@@ -399,7 +538,7 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'history' => [
-                        'type' => 'literal',
+                        'type' => 'Segment',
                         'options' => [
                             'route' => 'history',
                         ],
@@ -479,6 +618,63 @@ return [
                             ]
                         ]
                     ]
+                ]
+            ],
+            'trailers' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'trailers[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => [
+                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
+                        'options' => [
+                            'defaults' => [
+                                'dto' => Query\Trailer\Trailers::class
+                            ]
+                        ]
+                    ],
+                    'single' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => ':id[/]',
+                            'constraints' => [],
+                            'defaults' => [
+                                'id' => null,
+                            ]
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => [
+                                'type' => \Zend\Mvc\Router\Http\Method::class,
+                                'options' => [
+                                    'verb' => 'PUT',
+                                    'defaults' => [
+                                        'dto' => Command\Trailer\UpdateTrailer::class
+                                    ]
+                                ]
+                            ],
+                        ]
+                    ],
+                    'POST' => [
+                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                        'options' => [
+                            'verb' => 'POST',
+                            'defaults' => [
+                                'dto' => Command\Trailer\CreateTrailer::class
+                            ]
+                        ]
+                    ],
+                    'DELETE' => [
+                        'type' => \Zend\Mvc\Router\Http\Method::class,
+                        'options' => [
+                            'verb' => 'DELETE',
+                            'defaults' => [
+                                'dto' => Command\Trailer\DeleteTrailer::class
+                            ]
+                        ]
+                    ],
                 ]
             ]
         ]

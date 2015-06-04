@@ -1,19 +1,15 @@
 <?php
 
-/**
- * Licence
- *
- * @author Rob Caiger <rob@clocal.co.uk>
- */
-namespace Dvsa\Olcs\Transfer\Query\Licence;
+namespace Dvsa\Olcs\Transfer\Query\Irfo;
 
-use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * @Transfer\RouteName("backend/licence/single")
+ * Class IrfoGvPermit
+ * @Transfer\RouteName("backend/irfo/gv-permit/single")
  */
-class Licence extends AbstractQuery
+class IrfoGvPermit extends AbstractQuery
 {
     /**
      * @var int

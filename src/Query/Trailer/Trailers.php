@@ -1,19 +1,15 @@
 <?php
 
-/**
- * Licence
- *
- * @author Rob Caiger <rob@clocal.co.uk>
- */
-namespace Dvsa\Olcs\Transfer\Query\Licence;
+namespace Dvsa\Olcs\Transfer\Query\Trailer;
 
-use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * @Transfer\RouteName("backend/licence/single")
+ * Class Trailers
+ * @Transfer\RouteName("backend/trailers")
  */
-class Licence extends AbstractQuery
+class Trailers extends AbstractQuery
 {
     /**
      * @var int
@@ -21,13 +17,13 @@ class Licence extends AbstractQuery
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $id;
+    protected $licence;
 
     /**
      * @return int
      */
-    public function getId()
+    public function getLicence()
     {
-        return $this->id;
+        return $this->licence;
     }
 }
