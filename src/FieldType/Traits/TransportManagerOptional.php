@@ -9,8 +9,6 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
  */
 trait TransportManagerOptional
 {
-    use TransportManager;
-
     /**
      * @var int
      * @transfer\optional()
@@ -19,4 +17,12 @@ trait TransportManagerOptional
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $transportManager;
+
+    /**
+     * @return int
+     */
+    public function getTransportManager()
+    {
+        return $this->transportManager;
+    }
 }

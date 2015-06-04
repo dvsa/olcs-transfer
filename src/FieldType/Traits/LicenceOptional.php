@@ -9,8 +9,6 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
  */
 trait LicenceOptional
 {
-    use Licence;
-
     /**
      * @var int
      * @transfer\optional()
@@ -19,4 +17,12 @@ trait LicenceOptional
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $licence;
+
+    /**
+     * @return int
+     */
+    public function getLicence()
+    {
+        return $this->licence;
+    }
 }

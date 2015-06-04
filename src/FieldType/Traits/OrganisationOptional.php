@@ -9,8 +9,6 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
  */
 trait OrganisationOptional
 {
-    use Organisation;
-
     /**
      * @var int
      * @transfer\optional()
@@ -19,4 +17,12 @@ trait OrganisationOptional
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $organisation;
+
+    /**
+     * @return int
+     */
+    public function getOrganisation()
+    {
+        return $this->organisation;
+    }
 }
