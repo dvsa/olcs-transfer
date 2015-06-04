@@ -56,5 +56,4 @@ class DeleteImpounding extends AbstractCommand
     {
         return $this->version;
     }
-
 }

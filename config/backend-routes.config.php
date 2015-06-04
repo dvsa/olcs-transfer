@@ -107,7 +107,9 @@ return [
                                 'may_terminate' => false,
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Application\PreviousConvictions::class),
-                                    'PUT' => CommandConfig::getPutConfig(Command\Application\UpdatePreviousConvictions::class)
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdatePreviousConvictions::class
+                                    )
                                 ]
                             ],
                             'declaration' => [
@@ -118,7 +120,9 @@ return [
                                 'may_terminate' => false,
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Application\Declaration::class),
-                                    'PUT' => CommandConfig::getPutConfig(Command\Application\UpdateDeclaration::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateDeclaration::class
+                                    ),
                                 ]
                             ],
                             'financial-history' => [
@@ -275,11 +279,17 @@ return [
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\PreviousConviction\PreviousConviction::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\PreviousConviction\UpdatePreviousConviction::class)
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\PreviousConviction\UpdatePreviousConviction::class
+                            )
                         ]
                     ),
-                    'POST' => CommandConfig::getPostConfig(Command\PreviousConviction\CreatePreviousConviction::class),
-                    'DELETE' => CommandConfig::getDeleteConfig(Command\PreviousConviction\DeletePreviousConviction::class)
+                    'POST' => CommandConfig::getPostConfig(
+                        Command\PreviousConviction\CreatePreviousConviction::class
+                    ),
+                    'DELETE' => CommandConfig::getDeleteConfig(
+                        Command\PreviousConviction\DeletePreviousConviction::class
+                    )
                 ]
             ],
             'irfo' => [
@@ -351,60 +361,17 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET' => [
-                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                        'options' => [
-                            'defaults' => [
-                                'dto' => \Dvsa\Olcs\Transfer\Query\Cases\ImpoundingList::class
-                            ]
+                    'GET' => QueryConfig::getConfig(Query\Cases\ImpoundingList::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Cases\Impounding::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Impounding\UpdateImpounding::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(
+                                Command\Cases\Impounding\DeleteImpounding::class
+                            )
                         ]
-                    ],
-                    'single' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => ':id'
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'GET' => [
-                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                'options' => [
-                                    'defaults' => [
-                                        'dto' => \Dvsa\Olcs\Transfer\Query\Cases\Impounding::class
-                                    ]
-                                ]
-                            ],
-                            'PUT' => [
-                                'type' => \Zend\Mvc\Router\Http\Method::class,
-                                'options' => [
-                                    'verb' => 'PUT',
-                                    'defaults' => [
-                                        'dto' =>
-                                            Command\Cases\Impounding\UpdateImpounding::class
-                                    ]
-                                ]
-                            ],
-                            'DELETE' => [
-                                'type' => \Zend\Mvc\Router\Http\Method::class,
-                                'options' => [
-                                    'verb' => 'DELETE',
-                                    'defaults' => [
-                                        'dto' =>
-                                            Command\Cases\Impounding\DeleteImpounding::class
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ],
-                    'POST' => [
-                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                        'options' => [
-                            'verb' => 'POST',
-                            'defaults' => [
-                                'dto' => Command\Cases\Impounding\CreateImpounding::class
-                            ]
-                        ]
-                    ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\Impounding\CreateImpounding::class),
                 ]
             ],
         ]
