@@ -2,6 +2,9 @@
 
 use Dvsa\Olcs\Transfer\Command;
 use Dvsa\Olcs\Transfer\Query;
+use Dvsa\Olcs\Transfer\Router\CommandConfig;
+use Dvsa\Olcs\Transfer\Router\QueryConfig;
+use Dvsa\Olcs\Transfer\Router\RouteConfig;
 
 return [
     'api' => [
@@ -39,14 +42,7 @@ return [
                         ],
                         'may_terminate' => false,
                         'child_routes' => [
-                            'GET' => [
-                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                'options' => [
-                                    'defaults' => [
-                                        'dto' => \Dvsa\Olcs\Transfer\Query\Cases\Pi::class
-                                    ]
-                                ]
-                            ],
+                            'GET' => QueryConfig::getConfig(Query\Cases\Pi::class),
                             'agreed' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -54,16 +50,9 @@ return [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'PUT' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'PUT',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    Command\Cases\UpdatePiAgreedAndLegislation::class
-                                            ]
-                                        ]
-                                    ]
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Cases\UpdatePiAgreedAndLegislation::class
+                                    ),
                                 ]
                             ]
                         ]
@@ -77,31 +66,12 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET' => [
-                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                        'options' => [
-                            'defaults' => [
-                                'dto' => \Dvsa\Olcs\Transfer\Query\Cases\LegacyOffenceList::class
-                            ]
+                    'GET' => QueryConfig::getConfig(Query\Cases\LegacyOffenceList::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Cases\LegacyOffence::class),
                         ]
-                    ],
-                    'single' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => ':id'
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'GET' => [
-                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                'options' => [
-                                    'defaults' => [
-                                        'dto' => \Dvsa\Olcs\Transfer\Query\Cases\LegacyOffence::class
-                                    ]
-                                ]
-                            ],
-                        ]
-                    ]
+                    ),
                 ]
             ],
             'application' => [
@@ -114,24 +84,9 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'single' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => ':id[/]',
-                            'defaults' => [
-                                'id' => null,
-                            ]
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'GET' => [
-                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                'options' => [
-                                    'defaults' => [
-                                        'dto' => Query\Application\Application::class
-                                    ]
-                                ]
-                            ],
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Application\Application::class),
                             'type-of-licence' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -139,16 +94,9 @@ return [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'PUT' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'PUT',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    Command\Application\UpdateTypeOfLicence::class
-                                            ]
-                                        ]
-                                    ]
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateTypeOfLicence::class
+                                    ),
                                 ]
                             ],
                             'declaration' => [
@@ -158,25 +106,8 @@ return [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'GET' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'GET',
-                                            'defaults' => [
-                                                'dto' => \Dvsa\Olcs\Transfer\Query\Application\Declaration::class
-                                            ]
-                                        ]
-                                    ],
-                                    'PUT' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'PUT',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    \Dvsa\Olcs\Transfer\Command\Application\UpdateDeclaration::class
-                                            ]
-                                        ]
-                                    ]
+                                    'GET' => QueryConfig::getConfig(Query\Application\Declaration::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\UpdateDeclaration::class),
                                 ]
                             ],
                             'financial-history' => [
@@ -186,26 +117,10 @@ return [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'GET' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'GET',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    Dvsa\Olcs\Transfer\Query\Application\FinancialHistory::class
-                                            ]
-                                        ]
-                                    ],
-                                    'PUT' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'PUT',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    Command\Application\UpdateFinancialHistory::class
-                                            ]
-                                        ]
-                                    ]
+                                    'GET' => QueryConfig::getConfig(Query\Application\FinancialHistory::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateFinancialHistory::class
+                                    ),
                                 ]
                             ],
                             'licence-history' => [
@@ -215,39 +130,15 @@ return [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'GET' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'GET',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    Dvsa\Olcs\Transfer\Query\Application\LicenceHistory::class
-                                            ]
-                                        ]
-                                    ],
-                                    'PUT' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'PUT',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    Command\Application\UpdateLicenceHistory::class
-                                            ]
-                                        ]
-                                    ]
+                                    'GET' => QueryConfig::getConfig(Query\Application\LicenceHistory::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateLicenceHistory::class
+                                    )
                                 ]
                             ],
                         ]
-                    ],
-                    'POST' => [
-                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                        'options' => [
-                            'verb' => 'POST',
-                            'defaults' => [
-                                'dto' => Command\Application\CreateApplication::class
-                            ]
-                        ]
-                    ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
                 ]
             ],
             'variation' => [
@@ -260,24 +151,9 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'single' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => ':id[/]',
-                            'defaults' => [
-                                'id' => null
-                            ]
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'GET' => [
-                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                'options' => [
-                                    'defaults' => [
-                                        'dto' => Query\Variation\Variation::class
-                                    ]
-                                ]
-                            ],
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Variation\Variation::class),
                             'type-of-licence' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -285,28 +161,12 @@ return [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'GET' => [
-                                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                        'options' => [
-                                            'defaults' => [
-                                                'dto' => Query\Variation\TypeOfLicence::class
-                                            ]
-                                        ]
-                                    ],
-                                    'PUT' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'PUT',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    Command\Variation\UpdateTypeOfLicence::class
-                                            ]
-                                        ]
-                                    ]
+                                    'GET' => QueryConfig::getConfig(Query\Variation\TypeOfLicence::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Variation\UpdateTypeOfLicence::class),
                                 ]
                             ]
                         ]
-                    ]
+                    ),
                 ]
             ],
             'licence' => [
@@ -319,24 +179,9 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'single' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => ':id[/]',
-                            'defaults' => [
-                                'id' => null
-                            ]
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'GET' => [
-                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                'options' => [
-                                    'defaults' => [
-                                        'dto' => Query\Licence\Licence::class
-                                    ]
-                                ]
-                            ],
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Licence\Licence::class),
                             'type-of-licence' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -344,28 +189,50 @@ return [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'GET' => [
-                                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                        'options' => [
-                                            'defaults' => [
-                                                'dto' => Query\Licence\TypeOfLicence::class
-                                            ]
-                                        ]
-                                    ],
-                                    'PUT' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'PUT',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    Command\Licence\UpdateTypeOfLicence::class
-                                            ]
-                                        ]
-                                    ]
+                                    'GET' => QueryConfig::getConfig(Query\Licence\TypeOfLicence::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Licence\UpdateTypeOfLicence::class),
                                 ]
                             ]
                         ]
+                    ),
+                ]
+            ],
+            'bus' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'bus[/]',
+                    'defaults' => [
+                        'id' => null,
+                        'controller' => 'Api\Generic'
                     ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Bus\BusReg::class),
+                            'stops' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'stops[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateStops::class),
+                                ]
+                            ],
+                            'quality' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'quality[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateQualitySchemes::class),
+                                ]
+                            ],
+                        ]
+                    ),
                 ]
             ],
             'organisation' => [
@@ -378,25 +245,9 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'single' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => ':id[/]',
-                            'constraints' => [],
-                            'defaults' => [
-                                'id' => null,
-                            ]
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'GET' => [
-                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                'options' => [
-                                    'defaults' => [
-                                        'dto' => Query\Organisation\Organisation::class
-                                    ]
-                                ]
-                            ],
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Organisation\Organisation::class),
                             'business-type' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -404,18 +255,37 @@ return [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'PUT' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'PUT',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    Command\Organisation\UpdateBusinessType::class
-                                            ]
-                                        ]
-                                    ]
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Organisation\UpdateBusinessType::class
+                                    ),
                                 ]
                             ]
+                        ]
+                    ),
+                ]
+            ],
+            'irfo' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'irfo[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'gv-permit' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'gv-permit[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'single' => RouteConfig::getSingleConfig(
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Irfo\IrfoGvPermit::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\UpdateIrfoGvPermit::class),
+                                ]
+                            ),
+                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoGvPermitList::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoGvPermit::class),
                         ]
                     ]
                 ]
@@ -428,86 +298,49 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'history' => [
-                        'type' => 'literal',
+                        'type' => 'Segment',
                         'options' => [
-                            'route' => 'history',
+                            'route' => 'history[/]',
                         ],
                         'may_terminate' => false,
                         'child_routes' => [
-                            'GET' => [
-                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                'options' => [
-                                    'defaults' => [
-                                        'dto' => \Dvsa\Olcs\Transfer\Query\Processing\History::class
-                                    ]
-                                ]
-                            ]
+                            'GET' => QueryConfig::getConfig(Query\Processing\History::class),
                         ]
                     ]
+                ]
+            ],
+            'trailers' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'trailers[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Trailer\Trailers::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\Trailer\UpdateTrailer::class),
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\Trailer\CreateTrailer::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\Trailer\DeleteTrailer::class),
                 ]
             ],
             'other-licence' => [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'other-licence[/]',
-                    'defaults' => [
-                        'id' => null,
-                    ]
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'single' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => ':id[/]',
-                            'defaults' => [
-                                'id' => null,
-                            ]
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'GET' => [
-                                'type' => \Zend\Mvc\Router\Http\Method::class,
-                                'options' => [
-                                    'verb' => 'GET',
-                                    'defaults' => [
-                                        'dto' =>
-                                            Dvsa\Olcs\Transfer\Query\OtherLicence\OtherLicence::class
-                                    ]
-                                ]
-                            ],
-                            'PUT' => [
-                                'type' => \Zend\Mvc\Router\Http\Method::class,
-                                'options' => [
-                                    'verb' => 'PUT',
-                                    'defaults' => [
-                                        'dto' =>
-                                            Command\OtherLicence\UpdateOtherLicence::class
-                                    ]
-                                ]
-                            ],
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\OtherLicence\UpdateOtherLicence::class),
+                            'GET' => QueryConfig::getConfig(Query\OtherLicence\OtherLicence::class),
                         ]
-                    ],
-                    'POST' => [
-                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                        'options' => [
-                            'verb' => 'POST',
-                            'defaults' => [
-                                'dto' =>
-                                    Command\OtherLicence\CreateOtherLicence::class
-                            ]
-                        ]
-                    ],
-                    'DELETE' => [
-                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                        'options' => [
-                            'verb' => 'DELETE',
-                            'defaults' => [
-                                'dto' =>
-                                    Command\OtherLicence\DeleteOtherLicence::class
-                            ]
-                        ]
-                    ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateOtherLicence::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\OtherLicence\DeleteOtherLicence::class),
                 ]
             ]
         ]

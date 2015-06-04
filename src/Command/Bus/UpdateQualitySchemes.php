@@ -1,20 +1,18 @@
 <?php
 
 /**
- * Financial History
- *
- * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
+ * Bus stops
  */
-namespace Dvsa\Olcs\Transfer\Command\Application;
+namespace Dvsa\Olcs\Transfer\Command\Bus;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/application/single/financial-history")
+ * @Transfer\RouteName("backend/bus/single/quality")
  * @Transfer\Method("PUT")
  */
-final class UpdateFinancialHistory extends AbstractCommand
+final class UpdateQualitySchemes extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -34,85 +32,87 @@ final class UpdateFinancialHistory extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
-    public $bankrupt = null;
+    public $isQualityPartnership;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
-     */
-    protected $liquidation;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
-     */
-    protected $receivership;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
-     */
-    protected $administration;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
-     */
-    protected $disqualified;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":4000}})
      * @Transfer\Optional
      */
-    protected $insolvencyDetails;
+    protected $qualityPartnershipDetails;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
-    protected $insolvencyConfirmation = false;
+    protected $qualityPartnershipFacilitiesUsed;
 
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     */
+    protected $isQualityContract;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":4000}})
+     * @Transfer\Optional
+     */
+    protected $qualityContractDetails;
+
+    /**
+     * @return int
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * @return int
+     */
     public function getVersion()
     {
         return $this->version;
     }
 
-    public function getBankrupt()
+    /**
+     * @return mixed
+     */
+    public function getIsQualityPartnership()
     {
-        return $this->bankrupt;
+        return $this->isQualityPartnership;
     }
 
-    public function getLiquidation()
+    /**
+     * @return mixed
+     */
+    public function getQualityPartnershipDetails()
     {
-        return $this->liquidation;
+        return $this->qualityPartnershipDetails;
     }
 
-    public function getReceivership()
+    /**
+     * @return mixed
+     */
+    public function getQualityPartnershipFacilitiesUsed()
     {
-        return $this->receivership;
+        return $this->qualityPartnershipFacilitiesUsed;
     }
 
-    public function getAdministration()
+    /**
+     * @return mixed
+     */
+    public function getIsQualityContract()
     {
-        return $this->administration;
+        return $this->isQualityContract;
     }
 
-    public function getDisqualified()
+    /**
+     * @return mixed
+     */
+    public function getQualityContractDetails()
     {
-        return $this->disqualified;
-    }
-
-    public function getInsolvencyDetails()
-    {
-        return $this->insolvencyDetails;
-    }
-
-    public function getInsolvencyConfirmation()
-    {
-        return $this->insolvencyConfirmation;
+        return $this->qualityContractDetails;
     }
 }
