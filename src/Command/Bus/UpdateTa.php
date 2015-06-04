@@ -28,6 +28,29 @@ final class UpdateTa extends AbstractCommand
      */
     protected $version;
 
+    /**
+     * @Transfer\ArrayInput
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":1}})
+     * @Transfer\Optional
+     */
+    protected $trafficAreas;
+
+    /**
+     * @Transfer\ArrayInput
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    protected $localAuthoritys;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":5, "max":800}})
+     * @Transfer\Optional
+     */
+    protected $stoppingArrangements;
 
     /**
      * @return int
