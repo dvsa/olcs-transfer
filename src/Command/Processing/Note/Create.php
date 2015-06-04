@@ -26,6 +26,7 @@ class Create extends AbstractCommand
 
     // Foreign Keys
     use FieldTypeTraits\ApplicationOptional;
+    use FieldTypeTraits\BusRegOptional;
     use FieldTypeTraits\CasesOptional;
     use FieldTypeTraits\LicenceOptional;
     use FieldTypeTraits\OrganisationOptional;

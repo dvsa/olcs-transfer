@@ -12,6 +12,8 @@ trait CommentOptional
     use Comment;
 
     /**
+     *
+     * @Transfer\optional()
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":4000}})
      */

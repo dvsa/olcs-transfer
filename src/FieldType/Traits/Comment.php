@@ -12,7 +12,6 @@ trait Comment
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":4000}})
-     * @Transfer\Optional
      */
     protected $comment;
 

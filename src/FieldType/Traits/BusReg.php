@@ -2,12 +2,12 @@
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
- * Trait TransportManagerOptional
+ * Trait BusReg
  *
  * @package Dvsa\Olcs\Transfer\Command\Traits\FieldType
  * @author Valtech <uk@valtech.co.uk>
  */
-trait TransportManagerOptional
+trait BusRegOptional
 {
     /**
      * @var int
@@ -16,13 +16,13 @@ trait TransportManagerOptional
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $transportManager;
+    protected $busReg;
 
     /**
      * @return int
      */
-    public function getTransportManager()
+    public function getBusReg()
     {
-        return $this->transportManager;
+        return $this->busReg;
     }
 }
