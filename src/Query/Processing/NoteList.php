@@ -10,10 +10,10 @@ use Dvsa\Olcs\Transfer\Query\PagedTrait;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 
 /**
- * Class History
- * @Transfer\RouteName("backend/processing/history")
+ * Class Note
+ * @Transfer\RouteName("backend/processing/note")
  */
-class History extends AbstractQuery
+class NoteList extends AbstractQuery
     implements PagedQueryInterface, OrderedQueryInterface
 {
     use PagedTrait;
