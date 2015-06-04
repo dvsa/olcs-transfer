@@ -14,5 +14,16 @@ use Dvsa\Olcs\Transfer\Command\Traits\FieldType;
  */
 class Create extends AbstractCommand
 {
+    // Identity & Locking
     use FieldType\Identity;
+
+    // Foreign Keys
+    use FieldType\ApplicationOptional;
+    use FieldType\CasesOptional;
+    use FieldType\LicenceOptional;
+    use FieldType\OrganisationOptional;
+    use FieldType\TransportManagerOptional;
+
+    // Individual Fields
+    use FieldType\CommentOptional;
 }
