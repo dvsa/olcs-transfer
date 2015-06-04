@@ -132,17 +132,11 @@ return [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'GET' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'GET',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    Dvsa\Olcs\Transfer\Query\Application\FinancialEvidence::class
-                                            ]
-                                        ]
-                                    ],
-                                ],
+                                    'GET' => QueryConfig::getConfig(Query\Application\FinancialEvidence::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateFinancialEvidence::class
+                                    ),
+                                ]
                             ],
                             'financial-history' => [
                                 'type' => 'Segment',
