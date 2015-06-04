@@ -582,3 +582,123 @@
 }
 ```
 ---
+### <http://olcs-backend/api/trailers?licence=1>
+#### [Dvsa\Olcs\Transfer\Query\Trailer\Trailers](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Query/Trailer/Trailers.php)
+```
+{
+    "count": 2,
+    "results": [
+        {
+            "createdOn": "2015-01-01T00:00:00+0000",
+            "deletedDate": null,
+            "id": 3,
+            "lastModifiedOn": "2015-03-02T00:00:00+0000",
+            "olbsKey": null,
+            "specifiedDate": "2015-03-02T00:00:00+0000",
+            "trailerNo": "C0300",
+            "version": 1
+        },
+        {
+            "createdOn": "2015-01-01T00:00:00+0000",
+            "deletedDate": null,
+            "id": 4,
+            "lastModifiedOn": "2015-04-01T00:00:00+0100",
+            "olbsKey": null,
+            "specifiedDate": "2015-04-01T00:00:00+0100",
+            "trailerNo": "D4000",
+            "version": 1
+        }
+    ]
+}
+```
+---
+### <http://olcs-backend/api/irfo/gv-permit/1>
+#### [Dvsa\Olcs\Transfer\Query\Irfo\IrfoGvPermit](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Query/Irfo/IrfoGvPermit.php)
+```
+{
+    "createdBy": null,
+    "createdOn": "2015-06-01T10:23:06+0100",
+    "exemptionDetails": "testing",
+    "expiryDate": null,
+    "id": 1,
+    "inForceDate": "2016-03-10",
+    "irfoFeeId": null,
+    "irfoGvPermitType":
+    {
+        "createdBy": null,
+        "createdOn": null,
+        "description": "ECMT 75% (Apr to Jun)",
+        "id": 2,
+        "irfoCountry": null,
+        "lastModifiedBy": null,
+        "lastModifiedOn": null,
+        "version": 1
+    },
+    "irfoPermitStatus":
+    {
+        "description": "Refused",
+        "displayOrder": null,
+        "id": "irfo_perm_s_refused",
+        "olbsKey": "Refused",
+        "parent": null,
+        "refDataCategoryId": "irfo_permit_status"
+    },
+    "isFeeExempt": "Y",
+    "lastModifiedBy": null,
+    "lastModifiedOn": "2015-06-02T14:27:10+0100",
+    "noOfCopies": 10,
+    "note": null,
+    "olbsKey": null,
+    "organisation": null,
+    "permitPrinted": "N",
+    "version": 6,
+    "withdrawnReason": null,
+    "yearRequired": 2010
+}
+```
+---
+### <http://olcs-backend/api/irfo/gv-permit?organisation=101&page=1&limit=1&sort=id&order=asc>
+#### [Dvsa\Olcs\Transfer\Query\Irfo\IrfoGvPermitList](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Query/Irfo/IrfoGvPermitList.php)
+```
+{
+    "count": 2,
+    "results":
+    {
+        "0":
+        {
+            "createdOn": "2015-06-01T10:23:06+0100",
+            "exemptionDetails": "testing",
+            "expiryDate": null,
+            "id": 1,
+            "inForceDate": "2016-03-10",
+            "irfoFeeId": null,
+            "isFeeExempt": "Y",
+            "lastModifiedOn": "2015-06-02T14:27:10+0100",
+            "noOfCopies": 10,
+            "note": null,
+            "olbsKey": null,
+            "permitPrinted": "N",
+            "version": 6,
+            "yearRequired": 2010,
+            "irfoPermitStatus":
+            {
+                "description": "Refused",
+                "displayOrder": null,
+                "id": "irfo_perm_s_refused",
+                "olbsKey": "Refused",
+                "refDataCategoryId": "irfo_permit_status"
+            },
+            "withdrawnReason": null,
+            "irfoGvPermitType":
+            {
+                "createdOn": null,
+                "description": "ECMT 75% (Apr to Jun)",
+                "id": 2,
+                "lastModifiedOn": null,
+                "version": 1
+            }
+        }
+    }
+}
+```
+---
