@@ -13,8 +13,6 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 /**
  * @Transfer\RouteName("backend/previous-conviction/single")
  * @Transfer\Method("PUT")
- *
- * @TODO lots of validators missing here
  */
 final class UpdatePreviousConviction extends AbstractCommand
 {
@@ -30,7 +28,7 @@ final class UpdatePreviousConviction extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $application;
+    protected $version;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -87,12 +85,9 @@ final class UpdatePreviousConviction extends AbstractCommand
         return $this->id;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getApplication()
+    public function getVersion()
     {
-        return $this->application;
+        return $this->version;
     }
 
     public function getTransportManager()
