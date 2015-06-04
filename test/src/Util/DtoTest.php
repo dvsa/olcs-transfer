@@ -52,7 +52,7 @@ class DtoTest extends MockeryTestCase
             $command->getMessages();
             $ex = null;
         } catch (\Exception $ex) {
-
+            // We are expecting to throw the exception all the time so we assert it later
         }
 
         // Assert the exception here, as we expect to always throw an exception
