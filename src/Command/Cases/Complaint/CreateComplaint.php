@@ -17,6 +17,11 @@ class CreateComplaint extends AbstractCommand
     protected $case = null;
 
     /**
+     * isCompliance = true unless Environmental
+     */
+    public $isCompliance = true;
+
+    /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":35}})
      */
@@ -272,5 +277,4 @@ class CreateComplaint extends AbstractCommand
     {
         return $this->status;
     }
-
 }
