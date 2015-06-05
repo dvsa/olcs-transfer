@@ -12,17 +12,28 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class UpdateImpounding extends AbstractCommand
 {
     /**
-     * @todo add validators
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $id = null;
 
     /**
-     * @todo add validators
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $version = null;
 
     /**
-     * @todo add validators
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"impt_hearing","impt_paper"}}
+     *  }
+     * )
      */
     protected $impoundingType = null;
 
@@ -32,17 +43,20 @@ class UpdateImpounding extends AbstractCommand
     protected $applicationReceiptDate = null;
 
     /**
-     * @Transfer\Optional()
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"\Dvsa\Olcs\Transfer\Filter\Vrm"})
+     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\Vrm"})
      */
     protected $vrm = null;
 
     /**
-     * @todo add validators
+     * @Transfer\Filter({"name":""})
      */
     protected $impoundingLegislationTypes = null;
 
     /**
      * @Transfer\Optional()
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $hearingDate = null;
 
@@ -64,6 +78,12 @@ class UpdateImpounding extends AbstractCommand
 
     /**
      * @Transfer\Optional()
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"impo_not","impo_returned","impo_wd"}}
+     *  }
+     * )
      */
     protected $outcome = null;
 
@@ -81,11 +101,19 @@ class UpdateImpounding extends AbstractCommand
     protected $notes = null;
 
     /**
+     * @Transfer\Optional()
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     */
+    protected $closeDate = null;
+
+    /**
      * @param mixed $id
+     * @return $this
      */
     public function setId($id)
     {
         $this->id = $id;
+        return $this;
     }
 
     /**
@@ -98,10 +126,12 @@ class UpdateImpounding extends AbstractCommand
 
     /**
      * @param mixed $version
+     * @return $this
      */
     public function setVersion($version)
     {
         $this->version = $version;
+        return $this;
     }
 
     /**
@@ -209,6 +239,7 @@ class UpdateImpounding extends AbstractCommand
     public function setOutcome($outcome)
     {
         $this->outcome = $outcome;
+        return $this;
     }
 
     /**
@@ -226,6 +257,7 @@ class UpdateImpounding extends AbstractCommand
     public function setOutcomeSentDate($outcomeSentDate)
     {
         $this->outcomeSentDate = $outcomeSentDate;
+        return $this;
     }
 
     /**
@@ -243,6 +275,7 @@ class UpdateImpounding extends AbstractCommand
     public function setPiVenue($piVenue)
     {
         $this->piVenue = $piVenue;
+        return $this;
     }
 
     /**
@@ -260,6 +293,7 @@ class UpdateImpounding extends AbstractCommand
     public function setPiVenueOther($piVenueOther)
     {
         $this->piVenueOther = $piVenueOther;
+        return $this;
     }
 
     /**
@@ -277,6 +311,7 @@ class UpdateImpounding extends AbstractCommand
     public function setPresidingTc($presidingTc)
     {
         $this->presidingTc = $presidingTc;
+        return $this;
     }
 
     /**
@@ -294,6 +329,7 @@ class UpdateImpounding extends AbstractCommand
     public function setVrm($vrm)
     {
         $this->vrm = $vrm;
+        return $this;
     }
 
     /**
@@ -303,4 +339,23 @@ class UpdateImpounding extends AbstractCommand
     {
         return $this->vrm;
     }
+
+    /**
+     * @param mixed $closeDate
+     * @return $this
+     */
+    public function setCloseDate($closeDate)
+    {
+        $this->closeDate = $closeDate;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCloseDate()
+    {
+        return $this->closeDate;
+    }
+
 }

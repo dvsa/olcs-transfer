@@ -12,12 +12,18 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class DeleteImpounding extends AbstractCommand
 {
     /**
-     * @todo add validators
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $id = null;
 
     /**
-     * @todo add validators
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $version = null;
 

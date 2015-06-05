@@ -12,12 +12,20 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class CreateImpounding extends AbstractCommand
 {
     /**
-     * @todo add validators
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $case = null;
 
     /**
-     * @todo add validators
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"impt_hearing","impt_paper"}}
+     *  }
+     * )
      */
     protected $impoundingType = null;
 
@@ -27,7 +35,9 @@ class CreateImpounding extends AbstractCommand
     protected $applicationReceiptDate = null;
 
     /**
-     * @Transfer\Optional()
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"\Dvsa\Olcs\Transfer\Filter\Vrm"})
+     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\Vrm"})
      */
     protected $vrm = null;
 
@@ -37,7 +47,8 @@ class CreateImpounding extends AbstractCommand
     protected $impoundingLegislationTypes = null;
 
     /**
-     * @Transfer\Optional() 
+     * @Transfer\Optional()
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $hearingDate = null;
 
@@ -59,6 +70,12 @@ class CreateImpounding extends AbstractCommand
 
     /**
      * @Transfer\Optional()
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"impo_not","impo_returned","impo_wd"}}
+     *  }
+     * )
      */
     protected $outcome = null;
 
