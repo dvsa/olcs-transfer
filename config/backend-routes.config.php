@@ -84,6 +84,33 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+                    'named-single' => RouteConfig::getNamedSingleConfig(
+                        'application',
+                        [
+                            'company-subsidiary' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'company-subsidiary[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'single' => RouteConfig::getSingleConfig(
+                                        [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\Application\UpdateCompanySubsidiary::class
+                                            ),
+                                        ]
+                                    ),
+                                    'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Application\DeleteCompanySubsidiary::class
+                                    ),
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Application\CreateCompanySubsidiary::class
+                                    ),
+                                ]
+                            ],
+                        ]
+                    ),
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\Application\Application::class),
@@ -181,6 +208,33 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+                    'named-single' => RouteConfig::getNamedSingleConfig(
+                        'licence',
+                        [
+                            'company-subsidiary' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'company-subsidiary[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'single' => RouteConfig::getSingleConfig(
+                                        [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\Licence\UpdateCompanySubsidiary::class
+                                            ),
+                                        ]
+                                    ),
+                                    'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Licence\DeleteCompanySubsidiary::class
+                                    ),
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Licence\CreateCompanySubsidiary::class
+                                    ),
+                                ]
+                            ],
+                        ]
+                    ),
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\Licence\Licence::class),
@@ -261,9 +315,51 @@ return [
                                         Command\Organisation\UpdateBusinessType::class
                                     ),
                                 ]
-                            ]
+                            ],
+                            'business-details' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'business-details[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Organisation\BusinessDetails::class),
+                                ]
+                            ],
                         ]
                     ),
+                    'business-details' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'business-details[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'licence' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'licence/:id[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\BusinessDetails::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Licence\UpdateBusinessDetails::class),
+                                ]
+                            ],
+                            'application' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'application/:id[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateBusinessDetails::class
+                                    ),
+                                ]
+                            ]
+                        ]
+                    ],
                 ]
             ],
             'previous-conviction' => [
@@ -337,6 +433,23 @@ return [
                     ]
                 ]
             ],
+            'company-subsidiary' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'company-subsidiary[/]',
+                    'defaults' => [
+                        'id' => null,
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\CompanySubsidiary\CompanySubsidiary::class),
+                        ]
+                    )
+                ]
+            ],
             'trailers' => [
                 'type' => 'Segment',
                 'options' => [
@@ -344,12 +457,12 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Trailer\Trailers::class),
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'PUT' => CommandConfig::getPutConfig(Command\Trailer\UpdateTrailer::class),
                         ]
                     ),
+                    'GET' => QueryConfig::getConfig(Query\Trailer\Trailers::class),
                     'POST' => CommandConfig::getPostConfig(Command\Trailer\CreateTrailer::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\Trailer\DeleteTrailer::class),
                 ]

@@ -201,12 +201,13 @@ class AnnotationBuilder
     protected function attachFiltersAndValidators($annotations, $filterChain, $validatorChain, $input)
     {
         foreach ($annotations as $annotation) {
-            if ($annotation instanceof Filter) {
+
+            if (!($annotation instanceof ArrayFilter) && $annotation instanceof Filter) {
                 $filterChain->attachByName($annotation->getName());
                 continue;
             }
 
-            if ($annotation instanceof Validator) {
+            if (!($annotation instanceof ArrayValidator) && $annotation instanceof Validator) {
                 $validatorChain->attachByName($annotation->getName(), $annotation->getOptions());
                 continue;
             }
