@@ -29,6 +29,7 @@ class Update extends AbstractCommand
 
     // Foreign Keys
     use FieldTypeTraits\ApplicationOptional;
+    use FieldTypeTraits\BusRegOptional;
     use FieldTypeTraits\CasesOptional;
     use FieldTypeTraits\LicenceOptional;
     use FieldTypeTraits\OrganisationOptional;
@@ -36,5 +37,5 @@ class Update extends AbstractCommand
 
     // Individual Fields
     use FieldTypeTraits\CommentOptional;
-    use FieldTypeTraits\NoteType;
+    use FieldTypeTraits\NoteTypeOptional;
 }

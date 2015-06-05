@@ -336,9 +336,9 @@ return [
                             'POST'   => CommandConfig::getPostConfig(Command\Processing\Note\Create::class),
                             'single' => RouteConfig::getSingleConfig(
                                 [
-                                    'DELETE' => CommandConfig::getDeleteConfig(Command\Processing\Note\Delete::class),
-                                    'PUT'    => CommandConfig::getPutConfig(Command\Processing\Note\Update::class),
                                     'GET'    => QueryConfig::getConfig(Query\Processing\Note::class),
+                                    'PUT'    => CommandConfig::getPutConfig(Command\Processing\Note\Update::class),
+                                    'DELETE' => CommandConfig::getDeleteConfig(Command\Processing\Note\Delete::class),
                                 ]
                             )
                         ]
