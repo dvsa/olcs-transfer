@@ -22,31 +22,11 @@ class DeleteComplaint extends AbstractCommand
     protected $version = null;
 
     /**
-     * @param mixed $id
-     * @return $this
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * @param mixed $version
-     * @return $this
-     */
-    public function setVersion($version)
-    {
-        $this->version = $version;
-        return $this;
     }
 
     /**

@@ -12,9 +12,15 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class CreateComplaint extends AbstractCommand
 {
     /**
-     * @Transfer\Validator({"name":"Zend\Validator\Digits ","options":{"min":1}})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $case = null;
+
+    /**
+     * Always ct_complainant
+     */
+    public $contactType = 'ct_complainant';
 
     /**
      * isCompliance = true unless Environmental
@@ -35,17 +41,28 @@ class CreateComplaint extends AbstractCommand
 
     /**
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
-     * @Transfer\Validator({"name": "\Common\Form\Elements\Validators\DateNotInFuture"})
      */
     public $complaintDate = null;
 
     /**
      * @Transfer\Optional()
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"ct_cor","ct_cov","ct_dgm","ct_dsk","ct_fls","ct_lvu","ct_ndl","ct_nol","ct_olr",
+     *      "ct_ovb","ct_pvo","ct_rds","ct_rta","ct_sln","ct_spe","ct_tgo","ct_ufl","ct_ump","ct_urd","ct_vpo"}}
+     *  }
+     * )
      */
     public $complaintType = null;
 
     /**
-     * @to-do add validators
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"cs_ack","cs_pin","cs_rfs","cs_vfr","cs_yst"}}
+     *  }
+     * )
      */
     public $status = null;
 
@@ -56,9 +73,9 @@ class CreateComplaint extends AbstractCommand
     public $description = null;
 
     /**
-     * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Common\Filter\Vrm"})
-     * @Transfer\Validator({"name":"Common\Form\Elements\Validators\Vrm"})
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"\Dvsa\Olcs\Transfer\Filter\Vrm"})
+     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\Vrm"})
      */
     public $vrm = null;
 
@@ -81,31 +98,11 @@ class CreateComplaint extends AbstractCommand
     public $closedDate = null;
 
     /**
-     * @param mixed $case
-     * @return $this
-     */
-    public function setCase($case)
-    {
-        $this->case = $case;
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getCase()
     {
         return $this->case;
-    }
-
-    /**
-     * @param mixed $vrm
-     * @return $this
-     */
-    public function setVrm($vrm)
-    {
-        $this->vrm = $vrm;
-        return $this;
     }
 
     /**
@@ -117,31 +114,11 @@ class CreateComplaint extends AbstractCommand
     }
 
     /**
-     * @param mixed $closedDate
-     * @return $this
-     */
-    public function setClosedDate($closedDate)
-    {
-        $this->closedDate = $closedDate;
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getClosedDate()
     {
         return $this->closedDate;
-    }
-
-    /**
-     * @param mixed $complainantFamilyName
-     * @return $this
-     */
-    public function setComplainantFamilyName($complainantFamilyName)
-    {
-        $this->complainantFamilyName = $complainantFamilyName;
-        return $this;
     }
 
     /**
@@ -153,31 +130,11 @@ class CreateComplaint extends AbstractCommand
     }
 
     /**
-     * @param mixed $complainantForename
-     * @return $this
-     */
-    public function setComplainantForename($complainantForename)
-    {
-        $this->complainantForename = $complainantForename;
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getComplainantForename()
     {
         return $this->complainantForename;
-    }
-
-    /**
-     * @param mixed $complaintDate
-     * @return $this
-     */
-    public function setComplaintDate($complaintDate)
-    {
-        $this->complaintDate = $complaintDate;
-        return $this;
     }
 
     /**
@@ -189,31 +146,11 @@ class CreateComplaint extends AbstractCommand
     }
 
     /**
-     * @param mixed $complaintType
-     * @return $this
-     */
-    public function setComplaintType($complaintType)
-    {
-        $this->complaintType = $complaintType;
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getComplaintType()
     {
         return $this->complaintType;
-    }
-
-    /**
-     * @param mixed $description
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-        return $this;
     }
 
     /**
@@ -225,16 +162,6 @@ class CreateComplaint extends AbstractCommand
     }
 
     /**
-     * @param mixed $driverFamilyName
-     * @return $this
-     */
-    public function setDriverFamilyName($driverFamilyName)
-    {
-        $this->driverFamilyName = $driverFamilyName;
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getDriverFamilyName()
@@ -243,31 +170,11 @@ class CreateComplaint extends AbstractCommand
     }
 
     /**
-     * @param mixed $driverForename
-     * @return $this
-     */
-    public function setDriverForename($driverForename)
-    {
-        $this->driverForename = $driverForename;
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getDriverForename()
     {
         return $this->driverForename;
-    }
-
-    /**
-     * @param mixed $status
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-        return $this;
     }
 
     /**

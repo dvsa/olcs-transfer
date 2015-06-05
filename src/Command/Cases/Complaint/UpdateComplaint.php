@@ -71,31 +71,11 @@ class UpdateComplaint extends AbstractCommand
     public $closedDate = null;
 
     /**
-     * @param mixed $vrm
-     * @return $this
-     */
-    public function setVrm($vrm)
-    {
-        $this->vrm = $vrm;
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getVrm()
     {
         return $this->vrm;
-    }
-
-    /**
-     * @param mixed $closedDate
-     * @return $this
-     */
-    public function setClosedDate($closedDate)
-    {
-        $this->closedDate = $closedDate;
-        return $this;
     }
 
     /**
@@ -107,31 +87,11 @@ class UpdateComplaint extends AbstractCommand
     }
 
     /**
-     * @param mixed $complainantFamilyName
-     * @return $this
-     */
-    public function setComplainantFamilyName($complainantFamilyName)
-    {
-        $this->complainantFamilyName = $complainantFamilyName;
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getComplainantFamilyName()
     {
         return $this->complainantFamilyName;
-    }
-
-    /**
-     * @param mixed $complainantForename
-     * @return $this
-     */
-    public function setComplainantForename($complainantForename)
-    {
-        $this->complainantForename = $complainantForename;
-        return $this;
     }
 
     /**
@@ -143,31 +103,11 @@ class UpdateComplaint extends AbstractCommand
     }
 
     /**
-     * @param mixed $complaintDate
-     * @return $this
-     */
-    public function setComplaintDate($complaintDate)
-    {
-        $this->complaintDate = $complaintDate;
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getComplaintDate()
     {
         return $this->complaintDate;
-    }
-
-    /**
-     * @param mixed $complaintType
-     * @return $this
-     */
-    public function setComplaintType($complaintType)
-    {
-        $this->complaintType = $complaintType;
-        return $this;
     }
 
     /**
@@ -179,31 +119,11 @@ class UpdateComplaint extends AbstractCommand
     }
 
     /**
-     * @param mixed $description
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * @param mixed $driverFamilyName
-     * @return $this
-     */
-    public function setDriverFamilyName($driverFamilyName)
-    {
-        $this->driverFamilyName = $driverFamilyName;
-        return $this;
     }
 
     /**
@@ -215,31 +135,11 @@ class UpdateComplaint extends AbstractCommand
     }
 
     /**
-     * @param mixed $driverForename
-     * @return $this
-     */
-    public function setDriverForename($driverForename)
-    {
-        $this->driverForename = $driverForename;
-        return $this;
-    }
-
-    /**
      * @return mixed
      */
     public function getDriverForename()
     {
         return $this->driverForename;
-    }
-
-    /**
-     * @param mixed $status
-     * @return $this
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-        return $this;
     }
 
     /**
@@ -249,5 +149,4 @@ class UpdateComplaint extends AbstractCommand
     {
         return $this->status;
     }
-
 }
