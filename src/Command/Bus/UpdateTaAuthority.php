@@ -12,7 +12,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  * @Transfer\RouteName("backend/bus/single/ta")
  * @Transfer\Method("PUT")
  */
-final class UpdateTa extends AbstractCommand
+final class UpdateTaAuthority extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -66,5 +66,29 @@ final class UpdateTa extends AbstractCommand
     public function getVersion()
     {
         return $this->version;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTrafficAreas()
+    {
+        return $this->trafficAreas;
+    }
+
+    /**
+     * @return array
+     */
+    public function getLocalAuthoritys()
+    {
+        return $this->localAuthoritys;
+    }
+
+    /**
+     * @return array
+     */
+    public function getStoppingArrangements()
+    {
+        return $this->stoppingArrangements;
     }
 }
