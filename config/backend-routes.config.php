@@ -234,7 +234,7 @@ return [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateTa::class)
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateTaAuthority::class)
                                 ]
                             ],
                         ]
