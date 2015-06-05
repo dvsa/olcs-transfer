@@ -50,7 +50,9 @@ class UpdateImpounding extends AbstractCommand
     protected $vrm = null;
 
     /**
-     * @Transfer\Filter({"name":""})
+     * @Transfer\ArrayInput
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":1,"max":32}})
      */
     protected $impoundingLegislationTypes = null;
 

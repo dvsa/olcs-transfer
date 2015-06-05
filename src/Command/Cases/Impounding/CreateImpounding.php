@@ -42,7 +42,9 @@ class CreateImpounding extends AbstractCommand
     protected $vrm = null;
 
     /**
-     * @todo add validators
+     * @Transfer\ArrayInput
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":1,"max":32}})
      */
     protected $impoundingLegislationTypes = null;
 
