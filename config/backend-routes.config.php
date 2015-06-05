@@ -120,7 +120,9 @@ return [
                                 'may_terminate' => false,
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Application\Declaration::class),
-                                    'PUT' => CommandConfig::getPutConfig(Command\Application\UpdateDeclaration::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateDeclaration::class
+                                    ),
                                 ]
                             ],
                             'financial-history' => [
@@ -295,7 +297,9 @@ return [
                             )
                         ]
                     ),
-                    'POST' => CommandConfig::getPostConfig(Command\PreviousConviction\CreatePreviousConviction::class),
+                    'POST' => CommandConfig::getPostConfig(
+                        Command\PreviousConviction\CreatePreviousConviction::class
+                    ),
                     'DELETE' => CommandConfig::getDeleteConfig(
                         Command\PreviousConviction\DeletePreviousConviction::class
                     )
@@ -379,7 +383,27 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateOtherLicence::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\OtherLicence\DeleteOtherLicence::class),
                 ]
-            ]
+            ],
+            'impoundings' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'cases/:case/impoundings[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Cases\ImpoundingList::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Cases\Impounding::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Impounding\UpdateImpounding::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(
+                                Command\Cases\Impounding\DeleteImpounding::class
+                            )
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\Impounding\CreateImpounding::class),
+                ]
+            ],
         ]
     ]
 ];

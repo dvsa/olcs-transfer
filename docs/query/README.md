@@ -702,3 +702,178 @@
 }
 ```
 ---
+### <http://olcs-backend/api/cases/24/impoundings/?page=1&sort=id&order=ASC&limit=10>
+#### [Dvsa\Olcs\Transfer\Query\Cases\ImpoundingList](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Query/Cases/ImpoundingList.php)
+```
+{
+    "count": 1,
+    "results": {
+        "0": {
+            "applicationReceiptDate": "2014-06-09T11:15:00+0100",
+            "closeDate": "2015-05-28T10:53:34+0100",
+            "createdOn": "2015-05-28T10:53:34+0100",
+            "hearingDate": "2014-06-10T15:45:00+0100",
+            "id": 17,
+            "lastModifiedOn": "2015-05-28T10:53:34+0100",
+            "notes": "Some notes - db default",
+            "outcomeSentDate": "2014-06-11T14:30:00+0100",
+            "piVenueOther": null,
+            "version": 1,
+            "vrm": null,
+            "impoundingLegislationTypes": [
+                {
+                    "description": "Section A At the time the vehicle was detained, the person using the vehicle held a valid licence (whether or not authorising the use of the vehicle);",
+                    "displayOrder": null,
+                    "id": "imlgis_type_goods_ni1",
+                    "olbsKey": null,
+                    "refDataCategoryId": "impound_legislation_goods_ni"
+                },
+                {
+                    "description": "Section B At the time the vehicle was detained, the vehicle was not being, and had not been, used in contravention of section 1 of the 2010 Act;",
+                    "displayOrder": null,
+                    "id": "imlgis_type_goods_ni2",
+                    "olbsKey": null,
+                    "refDataCategoryId": "impound_legislation_goods_ni"
+                }
+            ],
+            "impoundingType": {
+                "description": "Hearing",
+                "displayOrder": null,
+                "id": "impt_hearing",
+                "olbsKey": null,
+                "refDataCategoryId": "impound_type"
+            },
+            "outcome": {
+                "description": "Vehicle Returned",
+                "displayOrder": null,
+                "id": "impo_returned",
+                "olbsKey": null,
+                "refDataCategoryId": "impound_outcome"
+            },
+            "presidingTc": {
+                "deleted": "N",
+                "id": 1,
+                "name": "Presiding TC Name 1"
+            }
+        }
+    }
+}
+```
+---
+### <http://olcs-backend/api/cases/24/impoundings/17>
+#### [Dvsa\Olcs\Transfer\Query\Cases\Impounding](https://gitlab.inf.mgt
+.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Query/Cases/Impounding.php)
+```
+{
+    "applicationReceiptDate": "2014-06-09T11:15:00+0100",
+    "case": {
+        "annualTestHistory": "Annual test history for case 24",
+        "application": null,
+        "caseType": null,
+        "categorys": null,
+        "closedDate": null,
+        "convictionNote": "test comments",
+        "createdBy": null,
+        "createdOn": "2013-11-12T12:27:33+0000",
+        "deletedDate": null,
+        "description": "Case for convictions against company\n  directors",
+        "ecmsNo": "E123456",
+        "erruCaseType": null,
+        "erruOriginatingAuthority": null,
+        "erruTransportUndertakingName": null,
+        "erruVrm": null,
+        "id": 24,
+        "isImpounding": "N",
+        "lastModifiedBy": null,
+        "lastModifiedOn": null,
+        "licence": null,
+        "olbsKey": null,
+        "olbsType": null,
+        "openDate": "2012-03-21T00:00:00+0000",
+        "outcomes": null,
+        "penaltiesNote": null,
+        "prohibitionNote": "prohibition test notes",
+        "transportManager": null,
+        "version": 1,
+        "appeals": null,
+        "complaints": null,
+        "conditionUndertakings": null,
+        "convictions": null,
+        "documents": null,
+        "legacyOffences": null,
+        "oppositions": null,
+        "publicInquirys": null,
+        "prohibitions": null,
+        "seriousInfringements": null,
+        "statements": null,
+        "stays": null,
+        "tmDecisions": null
+    },
+    "closeDate": "2015-05-28T10:53:34+0100",
+    "createdBy": null,
+    "createdOn": "2015-05-28T10:53:34+0100",
+    "hearingDate": "2014-06-10T15:45:00+0100",
+    "id": 17,
+    "impoundingLegislationTypes": [
+        {
+            "description": "Section A At the time the vehicle was detained, the person using the vehicle held a valid licence (whether or not authorising the use of the vehicle);",
+            "displayOrder": null,
+            "id": "imlgis_type_goods_ni1",
+            "olbsKey": null,
+            "parent": null,
+            "refDataCategoryId": "impound_legislation_goods_ni"
+        },
+        {
+            "description": "Section A At the time the vehicle was detained, the person using the vehicle held a valid licence (whether or not authorising the use of the vehicle);",
+            "displayOrder": null,
+            "id": "imlgis_type_goods_ni1",
+            "olbsKey": null,
+            "parent": null,
+            "refDataCategoryId": "impound_legislation_goods_ni"
+        }
+    ],
+    "impoundingType": {
+        "description": "Hearing",
+        "displayOrder": null,
+        "id": "impt_hearing",
+        "olbsKey": null,
+        "parent": null,
+        "refDataCategoryId": "impound_type"
+    },
+    "lastModifiedBy": null,
+    "lastModifiedOn": "2015-05-28T10:53:34+0100",
+    "notes": "Some notes - db default",
+    "outcome": {
+        "description": "Vehicle Returned",
+        "displayOrder": null,
+        "id": "impo_returned",
+        "olbsKey": null,
+        "parent": null,
+        "refDataCategoryId": "impound_outcome"
+    },
+    "outcomeSentDate": "2014-06-11T14:30:00+0100",
+    "piVenue": {
+        "address": null,
+        "createdBy": null,
+        "createdOn": null,
+        "endDate": null,
+        "id": 3,
+        "lastModifiedBy": null,
+        "lastModifiedOn": null,
+        "name": "venue_3",
+        "olbsKey": null,
+        "startDate": null,
+        "trafficArea": null,
+        "version": 1
+    },
+    "piVenueOther": null,
+    "presidingTc": {
+        "deleted": "N",
+        "id": 1,
+        "name": "Presiding TC Name 1"
+    },
+    "version": 1,
+    "vrm": null
+}
+```
+---
