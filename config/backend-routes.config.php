@@ -332,61 +332,15 @@ return [
                         ],
                         'may_terminate' => false,
                         'child_routes' => [
-                            'GET' => [
-                                'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                'options' => [
-                                    'defaults' => [
-                                        'dto' => \Dvsa\Olcs\Transfer\Query\Processing\NoteList::class
-                                    ]
+                            'GET'    => QueryConfig::getConfig(Query\Processing\NoteList::class),
+                            'POST'   => CommandConfig::getPostConfig(Command\Processing\Note\Create::class),
+                            'single' => RouteConfig::getSingleConfig(
+                                [
+                                    'DELETE' => CommandConfig::getDeleteConfig(Command\Processing\Note\Delete::class),
+                                    'PUT'    => CommandConfig::getPutConfig(Command\Processing\Note\Update::class),
+                                    'GET'    => QueryConfig::getConfig(Query\Processing\Note::class),
                                 ]
-                            ],
-                            'POST' => [
-                                'type' => \Zend\Mvc\Router\Http\Method::class,
-                                'options' => [
-                                    'verb' => 'POST',
-                                    'defaults' => [
-                                        'dto' =>
-                                            \Dvsa\Olcs\Transfer\Command\Application\UpdateDeclaration::class
-                                    ]
-                                ]
-                            ],
-                            'single' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => ':id'
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'GET' => [
-                                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                                        'options' => [
-                                            'defaults' => [
-                                                'dto' => \Dvsa\Olcs\Transfer\Query\Processing\Note::class
-                                            ]
-                                        ]
-                                    ],
-                                    'PUT' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'PUT',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    \Dvsa\Olcs\Transfer\Command\Application\UpdateDeclaration::class
-                                            ]
-                                        ]
-                                    ],
-                                    'DELETE' => [
-                                        'type' => \Zend\Mvc\Router\Http\Method::class,
-                                        'options' => [
-                                            'verb' => 'DELETE',
-                                            'defaults' => [
-                                                'dto' =>
-                                                    \Dvsa\Olcs\Transfer\Command\Application\UpdateDeclaration::class
-                                            ]
-                                        ]
-                                    ]
-                                ]
-                            ]
+                            )
                         ]
                     ]
                 ]

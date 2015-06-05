@@ -10,6 +10,7 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait Comment
 {
     /**
+     * @var String
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":4000}})
      */

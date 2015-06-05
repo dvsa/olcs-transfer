@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
  * Class to Create a Note
  *
  * @Transfer\Method("POST")
- * @Transfer\RouteName("backend/processing/note/single")
+ * @Transfer\RouteName("backend/processing/note")
  */
 class Create extends AbstractCommand
     implements
@@ -21,9 +21,6 @@ class Create extends AbstractCommand
     FieldType\OrganisationInterface,
     FieldType\TransportManagerInterface
 {
-    // Identity & Locking
-    use FieldTypeTraits\Identity;
-
     // Foreign Keys
     use FieldTypeTraits\ApplicationOptional;
     use FieldTypeTraits\BusRegOptional;
@@ -34,4 +31,5 @@ class Create extends AbstractCommand
 
     // Individual Fields
     use FieldTypeTraits\CommentOptional;
+    //use FieldTypeTraits\NoteType;
 }

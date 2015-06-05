@@ -22,7 +22,6 @@ class Update extends AbstractCommand
     FieldType\LicenceInterface,
     FieldType\OrganisationInterface,
     FieldType\TransportManagerInterface
-
 {
     // Identity & Locking
     use FieldTypeTraits\Identity;
@@ -37,4 +36,5 @@ class Update extends AbstractCommand
 
     // Individual Fields
     use FieldTypeTraits\CommentOptional;
+    use FieldTypeTraits\NoteType;
 }

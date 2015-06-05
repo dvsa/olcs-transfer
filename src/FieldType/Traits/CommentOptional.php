@@ -9,13 +9,19 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
  */
 trait CommentOptional
 {
-    use Comment;
-
     /**
-     *
-     * @Transfer\optional()
+     * @var String
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":4000}})
      */
     protected $comment;
+
+    /**
+     * @return int
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
 }
