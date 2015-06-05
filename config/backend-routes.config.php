@@ -424,6 +424,17 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Irfo\IrfoGvPermitList::class),
                             'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoGvPermit::class),
                         ]
+                    ],
+                    'permit-stock' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'permit-stock[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPermitStockList::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoPermitStock::class),
+                        ]
                     ]
                 ]
             ],
