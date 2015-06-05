@@ -18,10 +18,6 @@ class Validator extends ZendValidator
     {
         $spec = $this->getValidator();
 
-        if (empty($spec['name'])) {
-            return null;
-        }
-
         return $spec['name'];
     }
 
