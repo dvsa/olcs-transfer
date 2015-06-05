@@ -981,7 +981,7 @@ return [
                 'child_routes' => [
                     'single' => RouteConfig::getSingleConfig(
                         [
-                            'PUT' => CommandConfig::getPutConfig(Command\TransportManagerApplication\Update::class),
+                            'GET' => QueryConfig::getConfig(Query\TransportManagerApplication\GetDetails::class),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\TransportManagerApplication\Create::class),
@@ -995,7 +995,26 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\User\User::class),
+                        ]
+                    ),
                     'GET' => QueryConfig::getConfig(Query\User\UserList::class),
+                ]
+            ],
+            'person' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'person[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\Person\Update::class),
+                        ]
+                    ),
                 ]
             ],
         ]

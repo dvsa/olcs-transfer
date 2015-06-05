@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Create Transport Manager Application
+ * Create Transport Manager Application for a User
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
@@ -24,15 +24,6 @@ final class Create extends AbstractCommand
     protected $application;
 
     /**
-     * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $transportManager;
-
-    /**
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -44,7 +35,6 @@ final class Create extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"A","U"}}})
      */
     protected $action;
-
 
     /**
      * Get Application ID
