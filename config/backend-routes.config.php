@@ -107,7 +107,9 @@ return [
                                 'may_terminate' => false,
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Application\PreviousConvictions::class),
-                                    'PUT' => CommandConfig::getPutConfig(Command\Application\UpdatePreviousConvictions::class)
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdatePreviousConvictions::class
+                                    )
                                 ]
                             ],
                             'declaration' => [
@@ -118,7 +120,9 @@ return [
                                 'may_terminate' => false,
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Application\Declaration::class),
-                                    'PUT' => CommandConfig::getPutConfig(Command\Application\UpdateDeclaration::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateDeclaration::class
+                                    ),
                                 ]
                             ],
                             'financial-history' => [
@@ -275,11 +279,17 @@ return [
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\PreviousConviction\PreviousConviction::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\PreviousConviction\UpdatePreviousConviction::class)
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\PreviousConviction\UpdatePreviousConviction::class
+                            )
                         ]
                     ),
-                    'POST' => CommandConfig::getPostConfig(Command\PreviousConviction\CreatePreviousConviction::class),
-                    'DELETE' => CommandConfig::getDeleteConfig(Command\PreviousConviction\DeletePreviousConviction::class)
+                    'POST' => CommandConfig::getPostConfig(
+                        Command\PreviousConviction\CreatePreviousConviction::class
+                    ),
+                    'DELETE' => CommandConfig::getDeleteConfig(
+                        Command\PreviousConviction\DeletePreviousConviction::class
+                    )
                 ]
             ],
             'irfo' => [
@@ -361,7 +371,27 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Trailer\CreateTrailer::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\Trailer\DeleteTrailer::class),
                 ]
-            ]
+            ],
+            'impoundings' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'cases/:case/impoundings[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Cases\ImpoundingList::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Cases\Impounding::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Impounding\UpdateImpounding::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(
+                                Command\Cases\Impounding\DeleteImpounding::class
+                            )
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\Impounding\CreateImpounding::class),
+                ]
+            ],
         ]
     ]
 ];
