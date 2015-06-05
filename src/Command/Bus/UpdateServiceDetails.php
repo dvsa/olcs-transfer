@@ -31,8 +31,15 @@ final class UpdateServiceDetails extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":70}})
+     * @Transfer\Optional
      */
     public $serviceNo;
+
+    /**
+     * @Transfer\ArrayInput
+     * @Transfer\Optional
+     */
+    public $otherServices;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -56,6 +63,15 @@ final class UpdateServiceDetails extends AbstractCommand
     public $via;
 
     /**
+     * @Transfer\ArrayInput
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    protected $busServiceTypes;
+
+    /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":800}})
      * @Transfer\Optional
@@ -64,21 +80,21 @@ final class UpdateServiceDetails extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":800}})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":10, "max":10}})
      * @Transfer\Optional
      */
     public $receivedDate;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":800}})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":10, "max":10}})
      * @Transfer\Optional
      */
     public $effectiveDate;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":800}})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":10, "max":10}})
      * @Transfer\Optional
      */
     public $endDate;
@@ -116,6 +132,14 @@ final class UpdateServiceDetails extends AbstractCommand
     }
 
     /**
+     * @return array
+     */
+    public function getOtherServices()
+    {
+        return $this->otherServices;
+    }
+
+    /**
      * @return string
      */
     public function getStartPoint()
@@ -137,6 +161,14 @@ final class UpdateServiceDetails extends AbstractCommand
     public function getVia()
     {
         return $this->via;
+    }
+
+    /**
+     * @return array
+     */
+    public function getBusServiceTypes()
+    {
+        return $this->busServiceTypes;
     }
 
     /**
@@ -172,12 +204,10 @@ final class UpdateServiceDetails extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getBusNoticePeriod()
     {
         return $this->busNoticePeriod;
     }
-
-
 }
