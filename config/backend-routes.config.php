@@ -757,7 +757,25 @@ return [
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondences::class),
-                ]
+                ],
+            ],
+            'payment' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'payment[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'by-reference' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => ':reference[/]',
+                        ],
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Payment\Payment::class),
+                        ],
+                    ],
+                ],
             ],
         ]
     ]
