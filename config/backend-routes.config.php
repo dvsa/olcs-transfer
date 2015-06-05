@@ -525,17 +525,17 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Cases\ComplaintList::class),
+                    'GET' => QueryConfig::getConfig(Query\Cases\Complaint\ComplaintList::class),
                     'single' => RouteConfig::getSingleConfig(
                         [
-                            'GET' => QueryConfig::getConfig(Query\Cases\Complaint::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Impounding\UpdateComplaint::class),
+                            'GET' => QueryConfig::getConfig(Query\Cases\Complaint\Complaint::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Complaint\UpdateComplaint::class),
                             'DELETE' => CommandConfig::getDeleteConfig(
-                                Command\Cases\Impounding\DeleteComplaint::class
+                                Command\Cases\Complaint\DeleteComplaint::class
                             )
                         ]
                     ),
-                    'POST' => CommandConfig::getPostConfig(Command\Cases\Impounding\CreateComplaint::class)
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\Complaint\CreateComplaint::class)
                 ]
             ],
         ]

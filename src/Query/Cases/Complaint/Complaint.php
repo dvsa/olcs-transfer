@@ -9,7 +9,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  * Class Compaint
  * @Transfer\RouteName("backend/complaint/single")
  */
-class Compaint extends AbstractQuery
+class Complaint extends AbstractQuery
 {
     /**
      * @var int
