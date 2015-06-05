@@ -61,3 +61,10 @@
 | [Dvsa\Olcs\Api\Domain\Command\Task\CreateTask](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Task/CreateTask.php) | **INTERNAL** | Create a task |
 |---|---|---|
 | [Dvsa\Olcs\Api\Domain\Command\Application\UpdateVariationCompletion](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Application/UpdateVariationCompletion.php) | **INTERNAL** | Update variation completion status (STUB that needs to be implemented) |
+|---|---|---|
+| [Dvsa\Olcs\Api\Domain\Command\Cases\Impounding\CreateImpounding](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Cases/Impounding/CreateImpounding.php) | **INTERNAL** | Create Impounding |
+|---|---|---|
+| [Dvsa\Olcs\Api\Domain\Command\Cases\Impounding\UpdateImpounding](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Cases/Impounding/UpdateImpounding.php) | **INTERNAL** | Update Impounding |
+|---|---|---|
+| [Dvsa\Olcs\Api\Domain\Command\Cases\Impounding\CreateImpounding](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Cases/Impounding/DeleteImpounding.php) | **INTERNAL** | Delete Impounding |
+|---|---|---|
