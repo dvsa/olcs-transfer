@@ -398,6 +398,16 @@ return [
                                     'GET' => QueryConfig::getConfig(Query\Organisation\BusinessDetails::class),
                                 ]
                             ],
+                            'outstanding-fees' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'outstanding-fees[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Organisation\OutstandingFees::class),
+                                ],
+                            ],
                         ]
                     ),
                     'business-details' => [
