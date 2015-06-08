@@ -12,6 +12,32 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class UpdateComplaint extends AbstractCommand
 {
     /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $id = null;
+
+    /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $version = null;
+
+    /**
+     * Always ct_complainant
+     */
+    public $contactType = 'ct_complainant';
+
+    /**
+     * isCompliance = true unless Environmental
+     */
+    public $isCompliance = true;
+
+    /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":35}})
      */
@@ -25,17 +51,28 @@ class UpdateComplaint extends AbstractCommand
 
     /**
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
-     * @Transfer\Validator({"name": "\Common\Form\Elements\Validators\DateNotInFuture"})
      */
     public $complaintDate = null;
 
     /**
      * @Transfer\Optional()
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"ct_cor","ct_cov","ct_dgm","ct_dsk","ct_fls","ct_lvu","ct_ndl","ct_nol","ct_olr",
+     *      "ct_ovb","ct_pvo","ct_rds","ct_rta","ct_sln","ct_spe","ct_tgo","ct_ufl","ct_ump","ct_urd","ct_vpo"}}
+     *  }
+     * )
      */
     public $complaintType = null;
 
     /**
-     * @to-do add validators
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"cs_ack","cs_pin","cs_rfs","cs_vfr","cs_yst"}}
+     *  }
+     * )
      */
     public $status = null;
 
@@ -46,9 +83,9 @@ class UpdateComplaint extends AbstractCommand
     public $description = null;
 
     /**
-     * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Common\Filter\Vrm"})
-     * @Transfer\Validator({"name":"Common\Form\Elements\Validators\Vrm"})
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"\Dvsa\Olcs\Transfer\Filter\Vrm"})
+     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\Vrm"})
      */
     public $vrm = null;
 
@@ -69,6 +106,23 @@ class UpdateComplaint extends AbstractCommand
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     public $closedDate = null;
+
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return mixed
