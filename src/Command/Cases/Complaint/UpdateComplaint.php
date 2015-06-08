@@ -55,7 +55,6 @@ class UpdateComplaint extends AbstractCommand
     protected $complaintDate = null;
 
     /**
-     * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
      *      "name":"Zend\Validator\InArray",
