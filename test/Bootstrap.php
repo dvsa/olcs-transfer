@@ -3,6 +3,7 @@
 namespace Dvsa\OlcsTest\Transfer;
 
 use Mockery as m;
+use Doctrine\Common\Annotations\AnnotationRegistry;
 
 error_reporting(-1);
 chdir(dirname(__DIR__));
@@ -20,7 +21,9 @@ class Bootstrap
         ini_set('memory_limit', '1G');
         // Setup the autoloader
         $loader = static::initAutoloader();
-        $loader->addPsr4('Dvsa\\OlcsTest\\Transfer\\', __DIR__ . '/Transfer/src');
+        $loader->addPsr4('Dvsa\\OlcsTest\\Transfer\\', __DIR__ . '/src');
+
+        AnnotationRegistry::registerLoader([$loader, 'loadClass']);
 
         // Grab the application config
         $config = array(
