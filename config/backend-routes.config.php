@@ -443,6 +443,24 @@ return [
                         'child_routes' => [
                             'GET' => QueryConfig::getConfig(Query\Processing\History::class),
                         ]
+                    ],
+                    'note' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'note[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET'    => QueryConfig::getConfig(Query\Processing\NoteList::class),
+                            'POST'   => CommandConfig::getPostConfig(Command\Processing\Note\Create::class),
+                            'single' => RouteConfig::getSingleConfig(
+                                [
+                                    'GET'    => QueryConfig::getConfig(Query\Processing\Note::class),
+                                    'PUT'    => CommandConfig::getPutConfig(Command\Processing\Note\Update::class),
+                                    'DELETE' => CommandConfig::getDeleteConfig(Command\Processing\Note\Delete::class),
+                                ]
+                            )
+                        ]
                     ]
                 ]
             ],
