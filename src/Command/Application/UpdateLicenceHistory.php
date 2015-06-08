@@ -31,42 +31,49 @@ final class UpdateLicenceHistory extends AbstractCommand
     protected $version;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
     public $prevHasLicence = null;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
     public $prevHadLicence = null;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
     public $prevBeenRefused = null;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
     public $prevBeenRevoked = null;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
     public $prevBeenAtPi = null;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
     public $prevBeenDisqualifiedTc = null;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
