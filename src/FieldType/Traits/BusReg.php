@@ -7,7 +7,7 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
  * @package Dvsa\Olcs\Transfer\Command\Traits\FieldType
  * @author Valtech <uk@valtech.co.uk>
  */
-trait BusRegOptional
+trait BusReg
 {
     /**
      * @var int
