@@ -152,6 +152,19 @@ return [
                                     ),
                                 ]
                             ],
+                            'financial-evidence' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'financial-evidence[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\FinancialEvidence::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateFinancialEvidence::class
+                                    ),
+                                ]
+                            ],
                             'financial-history' => [
                                 'type' => 'Segment',
                                 'options' => [
