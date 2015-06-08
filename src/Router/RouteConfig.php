@@ -11,12 +11,22 @@ class RouteConfig
 {
     public static function getSingleConfig($childRoutes = null)
     {
+        return self::getSingleConfigByName('id', $childRoutes);
+    }
+
+    public static function getNamedSingleConfig($name, $childRoutes = null)
+    {
+        return self::getSingleConfigByName($name, $childRoutes);
+    }
+
+    private static function getSingleConfigByName($name, $childRoutes = null)
+    {
         $config = [
             'type' => 'Segment',
             'options' => [
-                'route' => ':id[/]',
+                'route' => ':' . $name . '[/]',
                 'defaults' => [
-                    'id' => null
+                    $name => null
                 ]
             ]
         ];
