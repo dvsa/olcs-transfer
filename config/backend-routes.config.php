@@ -551,7 +551,17 @@ return [
                     ),
                     'DELETE' => CommandConfig::getDeleteConfig(
                         Command\PreviousConviction\DeletePreviousConviction::class
-                    )
+                    ),
+                    'tma' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'tma[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\PreviousConviction\CreateForTma::class),
+                        ]
+                    ],
                 ]
             ],
             'irfo' => [
@@ -1015,6 +1025,48 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\Person\Update::class),
                         ]
                     ),
+                ]
+            ],
+            'tm-employment' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'tm-employment[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\TmEmployment\GetSingle::class),
+                        ]
+                    ),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\TmEmployment\DeleteList::class),
+                    'POST' => CommandConfig::getPostConfig(Command\TmEmployment\Create::class),
+                ]
+            ],
+            'other-licence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'other-licence[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            //'GET' => QueryConfig::getConfig(Query\TmEmployment\GetSingle::class),
+                        ]
+                    ),
+                    'previous-licence' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'previous-licence[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreatePreviousLicence::class),
+                        ]
+                    ],
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\OtherLicence\DeleteList::class),
+                    'POST' => CommandConfig::getPostConfig(Command\OtherLicence\Create::class),
                 ]
             ],
         ]
