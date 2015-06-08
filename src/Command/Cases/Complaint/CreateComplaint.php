@@ -20,29 +20,29 @@ class CreateComplaint extends AbstractCommand
     /**
      * Always ct_complainant
      */
-    public $contactType = 'ct_complainant';
+    protected $contactType = 'ct_complainant';
 
     /**
      * isCompliance = true unless Environmental
      */
-    public $isCompliance = true;
+    protected $isCompliance = true;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":35}})
      */
-    public $complainantForename = null;
+    protected $complainantForename = null;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":35}})
      */
-    public $complainantFamilyName = null;
+    protected $complainantFamilyName = null;
 
     /**
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
-    public $complaintDate = null;
+    protected $complaintDate = null;
 
     /**
      * @Transfer\Optional()
@@ -54,7 +54,7 @@ class CreateComplaint extends AbstractCommand
      *  }
      * )
      */
-    public $complaintType = null;
+    protected $complaintType = null;
 
     /**
      * @Transfer\Validator(
@@ -64,38 +64,38 @@ class CreateComplaint extends AbstractCommand
      *  }
      * )
      */
-    public $status = null;
+    protected $status = null;
 
     /**
      * @Transfer\Optional()
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":5,"max":4000}})
      */
-    public $description = null;
+    protected $description = null;
 
     /**
      * @Transfer\Optional
      * @Transfer\Filter({"name":"\Dvsa\Olcs\Transfer\Filter\Vrm"})
      * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\Vrm"})
      */
-    public $vrm = null;
+    protected $vrm = null;
 
     /**
      * @Transfer\Optional()
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":35}})
      */
-    public $driverForename = null;
+    protected $driverForename = null;
 
     /**
      * @Transfer\Optional()
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":35}})
      */
-    public $driverFamilyName = null;
+    protected $driverFamilyName = null;
 
     /**
      * @Transfer\Optional()
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
-    public $closedDate = null;
+    protected $closedDate = null;
 
     /**
      * @return mixed
