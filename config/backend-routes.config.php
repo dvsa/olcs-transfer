@@ -374,6 +374,16 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Impounding\CreateImpounding::class),
                 ]
             ],
+            'community-lic' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'community-lic[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\CommunityLic\CommunityLic::class)
+                ]
+            ],
         ]
     ]
 ];
