@@ -31,5 +31,4 @@ class Create extends AbstractCommand
 
     // Individual Fields
     use FieldTypeTraits\CommentOptional;
-    //use FieldTypeTraits\NoteType;
 }
