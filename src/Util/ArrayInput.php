@@ -28,7 +28,7 @@ class ArrayInput extends \Zend\InputFilter\ArrayInput
     }
 
     /**
-     * @return mixed
+     * @return FilterChain
      */
     public function getArrayFilterChain()
     {
@@ -46,7 +46,7 @@ class ArrayInput extends \Zend\InputFilter\ArrayInput
     }
 
     /**
-     * @return mixed
+     * @return ValidatorChain
      */
     public function getArrayValidatorChain()
     {
@@ -84,5 +84,14 @@ class ArrayInput extends \Zend\InputFilter\ArrayInput
         }
 
         return $result;
+    }
+
+    /**
+     * @return array
+     */
+    public function getMessages()
+    {
+        $validator = $this->getArrayValidatorChain();
+        return $validator->getMessages();
     }
 }
