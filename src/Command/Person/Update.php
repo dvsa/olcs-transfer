@@ -48,5 +48,4 @@ final class Update extends AbstractCommand
     {
         return $this->dob;
     }
-
 }

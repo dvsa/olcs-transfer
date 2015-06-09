@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Create Other Licence
+ * Update Other Licence for a Transport manager application
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
@@ -11,63 +11,83 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/other-licence")
- * @Transfer\Method("POST")
+ * @Transfer\RouteName("backend/other-licence/single/tma")
+ * @Transfer\Method("PUT")
  */
-final class Create extends AbstractCommand
+final class UpdateForTma extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $tmaId;
+    protected $id;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $version;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 0, "max": 18}})
      */
-    protected $licNo;
+    public $licNo;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"ol_role_applicant","ol_role_lic_holder","ol_role_tm"}}})
+     * @Transfer\Optional
      */
-    protected $role;
+    public $role;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 0, "max": 255}})
+     * @Transfer\Optional
      */
-    protected $operatingCentres;
+    public $operatingCentres;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
      */
-    protected $totalAuthVehicles;
+    public $totalAuthVehicles;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
      */
-    protected $hoursPerWeek;
+    public $hoursPerWeek;
 
     /**
-     * Get the TMA ID
-     *
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
+     */
+    public $holderName;
+
+    /**
      * @return int
      */
-    public function getTmaId()
+    public function getId()
     {
-        return $this->tmaId;
+        return $this->id;
     }
 
     /**
-     * Get the licence number (This is not a reference to a Licence entity)
-     *
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
+
+    /**
      * @return string
      */
     public function getLicNo()
@@ -75,10 +95,8 @@ final class Create extends AbstractCommand
         return $this->licNo;
     }
 
-    /**
-     * Get role
-     *
-     * @return string
+        /**
+     * @return string RefData
      */
     public function getRole()
     {
@@ -86,8 +104,6 @@ final class Create extends AbstractCommand
     }
 
     /**
-     * Get Operating Centres
-     *
      * @return string
      */
     public function getOperatingCentres()
@@ -96,8 +112,6 @@ final class Create extends AbstractCommand
     }
 
     /**
-     * Get Total Auth Vehicles
-     *
      * @return int
      */
     public function getTotalAuthVehicles()
@@ -106,12 +120,18 @@ final class Create extends AbstractCommand
     }
 
     /**
-     * Get hours per week
-     *
      * @return int
      */
     public function getHoursPerWeek()
     {
         return $this->hoursPerWeek;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHolderName()
+    {
+        return $this->holderName;
     }
 }

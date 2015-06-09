@@ -769,10 +769,40 @@ return [
                         [
                             'GET' => QueryConfig::getConfig(Query\OtherLicence\OtherLicence::class),
                             'PUT' => CommandConfig::getPutConfig(Command\OtherLicence\UpdateOtherLicence::class),
+                            'tma' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'tma[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\OtherLicence\UpdateForTma::class),
+                                ]
+                            ]
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateOtherLicence::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\OtherLicence\DeleteOtherLicence::class),
+                    'previous-licence' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'previous-licence[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreatePreviousLicence::class),
+                        ]
+                    ],
+                    'tma' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'tma[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateForTma::class),
+                        ]
+                    ],
                 ]
             ],
             'impoundings' => [
@@ -1037,36 +1067,11 @@ return [
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\TmEmployment\GetSingle::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\TmEmployment\Update::class),
                         ]
                     ),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\TmEmployment\DeleteList::class),
                     'POST' => CommandConfig::getPostConfig(Command\TmEmployment\Create::class),
-                ]
-            ],
-            'other-licence' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'other-licence[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            //'GET' => QueryConfig::getConfig(Query\TmEmployment\GetSingle::class),
-                        ]
-                    ),
-                    'previous-licence' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'previous-licence[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreatePreviousLicence::class),
-                        ]
-                    ],
-                    'DELETE' => CommandConfig::getDeleteConfig(Command\OtherLicence\DeleteList::class),
-                    'POST' => CommandConfig::getPostConfig(Command\OtherLicence\Create::class),
                 ]
             ],
         ]

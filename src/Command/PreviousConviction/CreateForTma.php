@@ -106,6 +106,4 @@ final class CreateForTma extends AbstractCommand
     {
         return $this->penalty;
     }
-
-
 }

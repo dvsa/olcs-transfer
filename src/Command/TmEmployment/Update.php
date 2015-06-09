@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Create TmEmployment
+ * Update TmEmployment
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
@@ -11,17 +11,24 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/tm-employment")
- * @Transfer\Method("POST")
+ * @Transfer\RouteName("backend/tm-employment/single")
+ * @Transfer\Method("PUT")
  */
-final class Create extends AbstractCommand
+final class Update extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $tmaId;
+    protected $id;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $version;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -47,13 +54,21 @@ final class Create extends AbstractCommand
     protected $address;
 
     /**
-     * Get Transport Manager Id
+     * Get TmEmployment ID
      *
      * @return int
      */
-    public function getTmaId()
+    public function getId()
     {
-        return $this->tmaId;
+        return $this->id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->version;
     }
 
     /**
@@ -84,7 +99,6 @@ final class Create extends AbstractCommand
     }
 
     /**
-     *
      * @return \Dvsa\Olcs\Transfer\Command\Partial\Address
      */
     public function getAddress()
