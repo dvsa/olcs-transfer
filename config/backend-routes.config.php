@@ -769,12 +769,20 @@ return [
                     'by-reference' => [
                         'type' => 'Segment',
                         'options' => [
-                            'route' => ':reference[/]',
+                            'route' => 'ref/:reference[/]',
+                             'constraints' => [
+                                'reference' => 'OLCS-[0-9A-F\-]+',
+                            ],
                         ],
                         'child_routes' => [
-                            'GET' => QueryConfig::getConfig(Query\Payment\Payment::class),
+                            'GET' => QueryConfig::getConfig(Query\Payment\PaymentByReference::class),
                         ],
                     ],
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Payment\Payment::class),
+                        ]
+                    ),
                     'pay-outstanding-fees' => [
                         'type' => 'Segment',
                         'options' => [
