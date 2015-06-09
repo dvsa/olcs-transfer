@@ -18,10 +18,6 @@ class Filter extends ZendFilter
     {
         $spec = $this->getFilter();
 
-        if (empty($spec['name'])) {
-            return null;
-        }
-
         return $spec['name'];
     }
 }

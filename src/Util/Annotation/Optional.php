@@ -28,14 +28,7 @@ class Optional
             $data['value'] = true;
         }
 
-        $optional = $data['value'];
-
-        if (!is_bool($optional)) {
-            $filter   = new BooleanFilter();
-            $optional = $filter->filter($optional);
-        }
-
-        $this->optional = $optional;
+        $this->optional = $data['value'];
     }
 
     /**
