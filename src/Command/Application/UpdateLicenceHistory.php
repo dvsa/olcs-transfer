@@ -81,9 +81,10 @@ final class UpdateLicenceHistory extends AbstractCommand
 
     /**
      * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
      */
     public $inProgress = null;
-    
+
     public function getId()
     {
         return $this->id;
