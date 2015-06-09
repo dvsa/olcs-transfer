@@ -177,7 +177,20 @@ return [
                                         Command\Application\UpdateFinancialHistory::class
                                     ),
                                 ]
-                            ]
+                            ],
+                            'licence-history' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'licence-history[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\LicenceHistory::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateLicenceHistory::class
+                                    )
+                                ]
+                            ],
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -496,6 +509,23 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Trailer\Trailers::class),
                     'POST' => CommandConfig::getPostConfig(Command\Trailer\CreateTrailer::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\Trailer\DeleteTrailer::class),
+                ]
+            ],
+            'other-licence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'other-licence[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\OtherLicence\OtherLicence::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\OtherLicence\UpdateOtherLicence::class),
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateOtherLicence::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\OtherLicence\DeleteOtherLicence::class),
                 ]
             ],
             'impoundings' => [
