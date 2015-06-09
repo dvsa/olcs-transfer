@@ -1,19 +1,19 @@
 <?php
 
 /**
- * Licence Addresses
+ * Application Addresses
  *
  * @author Nick Payne <nick.payne@valtech.co.uk>
  *
  * @FIXME: validators required!
  */
-namespace Dvsa\Olcs\Transfer\Command\Licence;
+namespace Dvsa\Olcs\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/licence/single/addresses")
+ * @Transfer\RouteName("backend/application/single/addresses")
  * @Transfer\Method("PUT")
  */
 final class UpdateAddresses extends AbstractCommand
