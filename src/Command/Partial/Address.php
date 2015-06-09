@@ -28,40 +28,40 @@ class Address
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    public $addressLine1 = null;
+    public $addressLine1;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Optional
      */
-    public $addressLine2 = null;
+    public $addressLine2;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Optional
      */
-    public $addressLine3 = null;
+    public $addressLine3;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Optional
      */
-    public $addressLine4 = null;
+    public $addressLine4;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    public $town = null;
+    public $town;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    public $postcode = null;
+    public $postcode;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    public $countryCode = null;
+    public $countryCode;
 
     /**
      * @return mixed

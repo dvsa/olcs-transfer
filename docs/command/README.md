@@ -28,6 +28,12 @@
 | --- | --- | Create Interim Fee |
 | --- | --- | Cancel All Interim Fees |
 |---|---|---|
+| [Dvsa\Olcs\Transfer\Command\Irfo\CreateIrfoGvPermit](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Irfo/CreateIrfoGvPermit.php) | **POST** <http://olcs-backend/api/irfo/gv-permit> | Create a IRFO GV Permit |
+| [Dvsa\Olcs\Transfer\Command\Irfo\UpdateIrfoGvPermit](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Irfo/UpdateIrfoGvPermit.php) | **PUT** <http://olcs-backend/api/irfo/gv-permit/1> | Update a IRFO GV Permit |
+| [Dvsa\Olcs\Transfer\Command\Trailers\CreateTrailer](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Trailers/CreateTrailer.php) | **POST** <http://olcs-backend/api/trailers/> | Create a trailer |
+| [Dvsa\Olcs\Transfer\Command\Trailers\UpdateTrailer](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Trailers/UpdateTrailer.php) | **PUT** <http://olcs-backend/api/trailers/1> | Update a trailer |
+| [Dvsa\Olcs\Transfer\Command\Trailers\DeleteTrailer](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-transfer/blob/develop/src/Command/Trailers/DeleteTrailer.php) | **DELETE** <http://olcs-backend/api/trailers/> | Delete trailer(s) |
+|---|---|---|
 | [Dvsa\Olcs\Api\Domain\Command\Application\CreateApplicationFee](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Application/CreateApplicationFee.php) | **INTERNAL** | Create application fee |
 | --- | --- | (Optional) Create task |
 |---|---|---|
@@ -55,3 +61,10 @@
 | [Dvsa\Olcs\Api\Domain\Command\Task\CreateTask](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Task/CreateTask.php) | **INTERNAL** | Create a task |
 |---|---|---|
 | [Dvsa\Olcs\Api\Domain\Command\Application\UpdateVariationCompletion](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Application/UpdateVariationCompletion.php) | **INTERNAL** | Update variation completion status (STUB that needs to be implemented) |
+|---|---|---|
+| [Dvsa\Olcs\Api\Domain\Command\Cases\Impounding\CreateImpounding](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Cases/Impounding/CreateImpounding.php) | **INTERNAL** | Create Impounding |
+|---|---|---|
+| [Dvsa\Olcs\Api\Domain\Command\Cases\Impounding\UpdateImpounding](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Cases/Impounding/UpdateImpounding.php) | **INTERNAL** | Update Impounding |
+|---|---|---|
+| [Dvsa\Olcs\Api\Domain\Command\Cases\Impounding\CreateImpounding](https://gitlab.inf.mgt.mtpdvsa/olcs/olcs-backend/blob/develop/module/Api/src/Domain/Command/Cases/Impounding/DeleteImpounding.php) | **INTERNAL** | Delete Impounding |
+|---|---|---|

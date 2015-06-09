@@ -28,7 +28,7 @@ class ArrayInput extends \Zend\InputFilter\ArrayInput
     }
 
     /**
-     * @return mixed
+     * @return FilterChain
      */
     public function getArrayFilterChain()
     {
@@ -46,7 +46,7 @@ class ArrayInput extends \Zend\InputFilter\ArrayInput
     }
 
     /**
-     * @return mixed
+     * @return ValidatorChain
      */
     public function getArrayValidatorChain()
     {
@@ -78,10 +78,20 @@ class ArrayInput extends \Zend\InputFilter\ArrayInput
         $arrayValidator = $this->getArrayValidatorChain();
         $result = $arrayValidator->isValid($values, $context);
 
-        if (!$result) {
+        // If the whole array is valid, check the individual rules
+        if ($result) {
             return parent::isValid($context);
         }
 
         return $result;
+    }
+
+    /**
+     * @return array
+     */
+    public function getMessages()
+    {
+        $validator = $this->getArrayValidatorChain();
+        return $validator->getMessages();
     }
 }
