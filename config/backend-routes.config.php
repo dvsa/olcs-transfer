@@ -604,8 +604,9 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET' => QueryConfig::getConfig
-                            (Query\Cases\EnvironmentalComplaint\EnvironmentalComplaintList::class),
+                    'GET' => QueryConfig::getConfig(
+                        Query\Cases\EnvironmentalComplaint\EnvironmentalComplaintList::class
+                    ),
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(
