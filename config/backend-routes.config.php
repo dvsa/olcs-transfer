@@ -385,7 +385,7 @@ return [
                                 ]
                             ]
                         ]
-                    ),
+                    ],
                 ]
             ],
             'previous-conviction' => [
