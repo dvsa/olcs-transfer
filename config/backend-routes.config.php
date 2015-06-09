@@ -503,6 +503,7 @@ return [
                 'child_routes' => [
                     'single' => RouteConfig::getSingleConfig(
                         [
+                            'GET' => QueryConfig::getConfig(Query\Trailer\Trailer::class),
                             'PUT' => CommandConfig::getPutConfig(Command\Trailer\UpdateTrailer::class),
                         ]
                     ),
@@ -568,6 +569,24 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Complaint\CreateComplaint::class)
                 ]
             ],
+            'grace-periods' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'grace-periods[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\GracePeriod\GracePeriod::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\GracePeriod\UpdateGracePeriod::class),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\GracePeriod\GracePeriods::class),
+                    'POST' => CommandConfig::getPostConfig(Command\GracePeriod\CreateGracePeriod::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\GracePeriod\DeleteGracePeriod::class),
+                ]
+            ]
         ]
     ]
 ];
