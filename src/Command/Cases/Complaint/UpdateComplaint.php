@@ -201,4 +201,12 @@ class UpdateComplaint extends AbstractCommand
     {
         return $this->status;
     }
+
+    /**
+     * @return bool
+     */
+    public function getIsCompliance()
+    {
+        return $this->isCompliance;
+    }
 }

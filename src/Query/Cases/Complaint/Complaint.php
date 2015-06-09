@@ -28,6 +28,12 @@ class Complaint extends AbstractQuery
     protected $case;
 
     /**
+     * @Transfer\Optional()
+     * isCompliance = 1 unless Environmental
+     */
+    protected $isCompliance = 1;
+
+    /**
      * @return int
      */
     public function getId()
@@ -41,5 +47,13 @@ class Complaint extends AbstractQuery
     public function getCase()
     {
         return $this->case;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsCompliance()
+    {
+        return $this->isCompliance;
     }
 }

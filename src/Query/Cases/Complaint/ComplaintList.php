@@ -27,10 +27,24 @@ class ComplaintList extends AbstractQuery implements PagedQueryInterface, Ordere
     protected $case;
 
     /**
+     * @Transfer\Optional()
+     * isCompliance = true unless Environmental
+     */
+    protected $isCompliance = 1;
+
+    /**
      * @return int
      */
     public function getCase()
     {
         return $this->case;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsCompliance()
+    {
+        return $this->isCompliance;
     }
 }
