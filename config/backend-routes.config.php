@@ -775,7 +775,17 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Payment\Payment::class),
                         ],
                     ],
-                ],
+                    'pay-outstanding-fees' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'pay-outstanding-fees[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                             'POST' =>CommandConfig::getPostConfig(Command\Payment\PayOutstandingFees::class),
+                        ],
+                    ],
+                ]
             ],
         ]
     ]
