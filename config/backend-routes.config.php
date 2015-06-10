@@ -1022,6 +1022,30 @@ return [
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\TransportManagerApplication\GetDetails::class),
+                            'update-status' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'update-status[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\TransportManagerApplication\UpdateStatus::class
+                                    ),
+                                ]
+                            ],
+                            'update-details' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'update-details[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\TransportManagerApplication\SubmitDetails::class
+                                    ),
+                                ]
+                            ],
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\TransportManagerApplication\Create::class),
