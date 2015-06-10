@@ -60,6 +60,4 @@ final class CompletePayment extends AbstractCommand
     {
         return $this->cpmsData;
     }
-
-
 }

@@ -17,4 +17,3 @@ class PaymentByReferenceTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('OLCS-1234-ABCD', $query->getReference());
     }
 }
-
