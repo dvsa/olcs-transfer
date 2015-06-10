@@ -28,11 +28,6 @@ class UpdateEnvironmentalComplaint extends AbstractCommand
     protected $version = null;
 
     /**
-     * Always ct_complainant
-     */
-    protected $contactType = 'ct_complainant';
-
-    /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":35}})
      */

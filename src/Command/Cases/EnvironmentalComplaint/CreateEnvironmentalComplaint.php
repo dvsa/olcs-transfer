@@ -18,17 +18,6 @@ class CreateEnvironmentalComplaint extends AbstractCommand
     protected $case = null;
 
     /**
-     * Always ct_complainant
-     */
-    protected $contactType = 'ct_complainant';
-
-    /**
-     * @Transfer\Optional
-     * isCompliance = true unless Environmental
-     */
-    protected $isCompliance = 0;
-
-    /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":35}})
      */

@@ -28,9 +28,10 @@ class ComplaintList extends AbstractQuery implements PagedQueryInterface, Ordere
 
     /**
      * @Transfer\Optional()
-     * isCompliance = true unless Environmental
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": "1"}})
      */
-    protected $isCompliance = 1;
+    protected $isCompliance = '1';
 
     /**
      * @return int

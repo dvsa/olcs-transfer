@@ -29,9 +29,10 @@ class Complaint extends AbstractQuery
 
     /**
      * @Transfer\Optional()
-     * isCompliance = 1 unless Environmental
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": "1"}})
      */
-    protected $isCompliance = 1;
+    protected $isCompliance = '1';
 
     /**
      * @return int

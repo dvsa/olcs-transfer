@@ -28,9 +28,10 @@ class EnvironmentalComplaintList extends AbstractQuery implements PagedQueryInte
 
     /**
      * @Transfer\Optional()
-     * isCompliance = true unless Environmental
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": "0"}})
      */
-    protected $isCompliance = 0;
+    protected $isCompliance = '0';
 
     /**
      * @return int
