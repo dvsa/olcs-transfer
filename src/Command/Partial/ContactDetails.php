@@ -28,12 +28,6 @@ class ContactDetails
     protected $version;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"phone_t_tel","phone_t_fax","phone_t_gtn","phone_t_home","phone_t_mobile"}}})
-     */
-    protected $contactType;
-
-    /**
      * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
@@ -43,6 +37,7 @@ class ContactDetails
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\EmailAddress"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":5,"max":255}})
+     * @Transfer\Optional
      */
     public $emailAddress;
 
@@ -53,6 +48,8 @@ class ContactDetails
     protected $address;
 
     /**
+     * @Transfer\ArrayInput
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\PhoneContact")
      * @Transfer\Optional
      */
@@ -72,14 +69,6 @@ class ContactDetails
     public function getVersion()
     {
         return $this->version;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getContactType()
-    {
-        return $this->contactType;
     }
 
     /**
