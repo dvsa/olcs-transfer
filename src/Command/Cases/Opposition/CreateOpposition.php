@@ -144,6 +144,7 @@ class CreateOpposition extends AbstractCommand
     protected $applicationOperatingCentres;
 
     /**
+     * @Transfer\ArrayInput
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
