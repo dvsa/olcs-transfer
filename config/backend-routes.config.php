@@ -438,6 +438,23 @@ return [
                             'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoGvPermit::class),
                         ]
                     ],
+                    'psv-auth' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'psv-auth[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'single' => RouteConfig::getSingleConfig(
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuth::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\UpdateIrfoPsvAuth::class),
+                                ]
+                            ),
+                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthList::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoPsvAuth::class),
+                        ]
+                    ],
                     'permit-stock' => [
                         'type' => 'Segment',
                         'options' => [
