@@ -180,7 +180,20 @@ return [
                                         Command\Application\UpdateFinancialHistory::class
                                     ),
                                 ]
-                            ]
+                            ],
+                            'licence-history' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'licence-history[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\LicenceHistory::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateLicenceHistory::class
+                                    )
+                                ]
+                            ],
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -427,6 +440,34 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Irfo\IrfoGvPermitList::class),
                             'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoGvPermit::class),
                         ]
+                    ],
+                    'psv-auth' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'psv-auth[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'single' => RouteConfig::getSingleConfig(
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuth::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\UpdateIrfoPsvAuth::class),
+                                ]
+                            ),
+                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthList::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoPsvAuth::class),
+                        ]
+                    ],
+                    'permit-stock' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'permit-stock[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPermitStockList::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoPermitStock::class),
+                        ]
                     ]
                 ]
             ],
@@ -493,12 +534,30 @@ return [
                 'child_routes' => [
                     'single' => RouteConfig::getSingleConfig(
                         [
+                            'GET' => QueryConfig::getConfig(Query\Trailer\Trailer::class),
                             'PUT' => CommandConfig::getPutConfig(Command\Trailer\UpdateTrailer::class),
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Trailer\Trailers::class),
                     'POST' => CommandConfig::getPostConfig(Command\Trailer\CreateTrailer::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\Trailer\DeleteTrailer::class),
+                ]
+            ],
+            'other-licence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'other-licence[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\OtherLicence\OtherLicence::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\OtherLicence\UpdateOtherLicence::class),
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateOtherLicence::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\OtherLicence\DeleteOtherLicence::class),
                 ]
             ],
             'impoundings' => [
@@ -557,6 +616,24 @@ return [
                             'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Conviction\Delete::class),
                         ]
                     )
+                ]
+            ],
+            'grace-periods' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'grace-periods[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\GracePeriod\GracePeriod::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\GracePeriod\UpdateGracePeriod::class),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\GracePeriod\GracePeriods::class),
+                    'POST' => CommandConfig::getPostConfig(Command\GracePeriod\CreateGracePeriod::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\GracePeriod\DeleteGracePeriod::class),
                 ]
             ]
         ]

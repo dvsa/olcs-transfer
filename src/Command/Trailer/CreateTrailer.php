@@ -17,8 +17,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class CreateTrailer extends AbstractCommand
 {
     /**
-     * @var int
-     * @todo validation
+     * @var string
      */
     protected $trailerNo;
 
@@ -37,15 +36,7 @@ final class CreateTrailer extends AbstractCommand
     protected $specifiedDate;
 
     /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return int
+     * @return string
      */
     public function getTrailerNo()
     {
