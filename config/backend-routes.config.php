@@ -776,6 +776,7 @@ return [
                         ],
                         'child_routes' => [
                             'GET' => QueryConfig::getConfig(Query\Payment\PaymentByReference::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Payment\CompletePayment::class),
                         ],
                     ],
                     'single' => RouteConfig::getSingleConfig(

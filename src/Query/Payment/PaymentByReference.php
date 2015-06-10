@@ -15,6 +15,10 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
  */
 class PaymentByReference extends AbstractQuery
 {
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     */
     protected $reference;
 
     public function getReference()
