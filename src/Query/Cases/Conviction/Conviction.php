@@ -14,5 +14,4 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 class Conviction extends AbstractQuery
 {
     use FieldTypeTraits\Identity;
-    use FieldTypeTraits\Cases;
 }
