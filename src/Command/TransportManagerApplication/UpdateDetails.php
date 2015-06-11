@@ -35,7 +35,7 @@ final class UpdateDetails extends AbstractCommand
      * @Transfer\Optional
      */
     protected $email;
-    
+
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Optional
@@ -46,7 +46,7 @@ final class UpdateDetails extends AbstractCommand
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\AddressOptional")
      */
     protected $homeAddress;
-    
+
     /**
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\AddressOptional")
      */
