@@ -30,13 +30,6 @@ final class Create extends AbstractCommand
      */
     public $totalLicences;
 
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    public $identifier;
-
     public function getLicence()
     {
         return $this->licence;
@@ -45,10 +38,5 @@ final class Create extends AbstractCommand
     public function getTotalLicences()
     {
         return $this->totalLicences;
-    }
-
-    public function getIdentifier()
-    {
-        return $this->identifier;
     }
 }
