@@ -45,12 +45,13 @@ class RegisteredAddress
     public $addressLine3;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
     public $addressLine4;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
     public $town;
