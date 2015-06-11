@@ -437,6 +437,34 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Irfo\IrfoGvPermitList::class),
                             'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoGvPermit::class),
                         ]
+                    ],
+                    'psv-auth' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'psv-auth[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'single' => RouteConfig::getSingleConfig(
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuth::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\UpdateIrfoPsvAuth::class),
+                                ]
+                            ),
+                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthList::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoPsvAuth::class),
+                        ]
+                    ],
+                    'permit-stock' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'permit-stock[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPermitStockList::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoPermitStock::class),
+                        ]
                     ]
                 ]
             ],
@@ -503,6 +531,7 @@ return [
                 'child_routes' => [
                     'single' => RouteConfig::getSingleConfig(
                         [
+                            'GET' => QueryConfig::getConfig(Query\Trailer\Trailer::class),
                             'PUT' => CommandConfig::getPutConfig(Command\Trailer\UpdateTrailer::class),
                         ]
                     ),
@@ -659,6 +688,70 @@ return [
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Complaint\CreateComplaint::class)
+                ]
+            ],
+            'conviction' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'conviction[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET'    => QueryConfig::getConfig(Query\Cases\Conviction\ConvictionList::class),
+                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Conviction\Create::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET'    => QueryConfig::getConfig(Query\Cases\Conviction\Conviction::class),
+                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Conviction\Update::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Conviction\Delete::class),
+                        ]
+                    )
+                ]
+            ],
+            'environmental-complaint' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'cases/:case/environmental-complaint[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(
+                        Query\Cases\EnvironmentalComplaint\EnvironmentalComplaintList::class
+                    ),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(
+                                Query\Cases\EnvironmentalComplaint\EnvironmentalComplaint::class
+                            ),
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\EnvironmentalComplaint\UpdateEnvironmentalComplaint::class
+                            ),
+                            'DELETE' => CommandConfig::getDeleteConfig(
+                                Command\Cases\EnvironmentalComplaint\DeleteEnvironmentalComplaint::class
+                            )
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(
+                        Command\Cases\EnvironmentalComplaint\CreateEnvironmentalComplaint::class
+                    )
+                ]
+            ],
+            'grace-periods' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'grace-periods[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\GracePeriod\GracePeriod::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\GracePeriod\UpdateGracePeriod::class),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\GracePeriod\GracePeriods::class),
+                    'POST' => CommandConfig::getPostConfig(Command\GracePeriod\CreateGracePeriod::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\GracePeriod\DeleteGracePeriod::class),
                 ]
             ],
         ]

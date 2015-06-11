@@ -1,15 +1,15 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Query\Cases\Complaint;
+namespace Dvsa\Olcs\Transfer\Query\Cases\EnvironmentalComplaint;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * Class Compaint
- * @Transfer\RouteName("backend/complaint/single")
+ * @Transfer\RouteName("backend/environmental-complaint/single")
  */
-class Complaint extends AbstractQuery
+class EnvironmentalComplaint extends AbstractQuery
 {
     /**
      * @var int
@@ -30,9 +30,9 @@ class Complaint extends AbstractQuery
     /**
      * @Transfer\Optional()
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": "1"}})
+     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": "0"}})
      */
-    protected $isCompliance = '1';
+    protected $isCompliance = '0';
 
     /**
      * @return int
