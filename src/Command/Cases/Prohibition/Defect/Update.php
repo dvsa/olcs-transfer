@@ -20,13 +20,12 @@ class Update extends AbstractCommand
     use FieldType\Traits\Version;
 
     // Foreign Keys
-    use FieldType\Traits\Prohibition;
+    use FieldType\Traits\ProhibitionOptional;
     use FieldType\Traits\Notes;
 
     /**
      * @var string
      *
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":255}})
      */
