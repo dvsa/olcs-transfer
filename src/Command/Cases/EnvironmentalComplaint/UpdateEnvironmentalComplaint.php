@@ -1,6 +1,6 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Command\Cases\Complaint;
+namespace Dvsa\Olcs\Transfer\Command\Cases\EnvironmentalComplaint;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -9,7 +9,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  * @Transfer\RouteName("backend/complaint")
  * @Transfer\Method("POST")
  */
-class UpdateComplaint extends AbstractCommand
+class UpdateEnvironmentalComplaint extends AbstractCommand
 {
     /**
      * @var int
@@ -26,11 +26,6 @@ class UpdateComplaint extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $version = null;
-
-    /**
-     * Always ct_complainant
-     */
-    protected $contactType = 'ct_complainant';
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

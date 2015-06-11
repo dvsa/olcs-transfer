@@ -597,6 +597,34 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Complaint\CreateComplaint::class)
                 ]
             ],
+            'environmental-complaint' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'cases/:case/environmental-complaint[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(
+                        Query\Cases\EnvironmentalComplaint\EnvironmentalComplaintList::class
+                    ),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(
+                                Query\Cases\EnvironmentalComplaint\EnvironmentalComplaint::class
+                            ),
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\EnvironmentalComplaint\UpdateEnvironmentalComplaint::class
+                            ),
+                            'DELETE' => CommandConfig::getDeleteConfig(
+                                Command\Cases\EnvironmentalComplaint\DeleteEnvironmentalComplaint::class
+                            )
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(
+                        Command\Cases\EnvironmentalComplaint\CreateEnvironmentalComplaint::class
+                    )
+                ]
+            ],
             'grace-periods' => [
                 'type' => 'Segment',
                 'options' => [
@@ -614,7 +642,7 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\GracePeriod\CreateGracePeriod::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\GracePeriod\DeleteGracePeriod::class),
                 ]
-            ]
+            ],
         ]
     ]
 ];

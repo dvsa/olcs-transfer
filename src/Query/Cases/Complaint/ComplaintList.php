@@ -27,10 +27,25 @@ class ComplaintList extends AbstractQuery implements PagedQueryInterface, Ordere
     protected $case;
 
     /**
+     * @Transfer\Optional()
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": "1"}})
+     */
+    protected $isCompliance = '1';
+
+    /**
      * @return int
      */
     public function getCase()
     {
         return $this->case;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsCompliance()
+    {
+        return $this->isCompliance;
     }
 }
