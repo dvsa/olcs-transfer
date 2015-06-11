@@ -751,7 +751,9 @@ return [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Correspondence\AccessCorrespondence::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Correspondence\AccessCorrespondence::class
+                                    ),
                                 ]
                             ]
                         ]
