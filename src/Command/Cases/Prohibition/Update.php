@@ -21,7 +21,7 @@ class Update extends AbstractCommand
     use FieldType\Traits\Version;
 
     // Foreign Keys
-    use FieldType\Traits\Cases;
+    use FieldType\Traits\CasesOptional;
     use FieldType\Traits\ProhibitionType;
 
     // Fields
