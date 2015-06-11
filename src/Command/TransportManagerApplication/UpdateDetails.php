@@ -1,7 +1,7 @@
 <?php
 
 /**
- * SubmitDetails Transport Manager Application
+ * UpdateDetails Transport Manager Application
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
@@ -14,7 +14,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  * @Transfer\RouteName("backend/transport-manager-application/single/update-details")
  * @Transfer\Method("PUT")
  */
-final class SubmitDetails extends AbstractCommand
+final class UpdateDetails extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -32,21 +32,23 @@ final class SubmitDetails extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
      */
     protected $email;
     
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
      */
     protected $placeOfBirth;
 
     /**
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Address")
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\AddressOptional")
      */
     protected $homeAddress;
     
     /**
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Address")
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\AddressOptional")
      */
     protected $workAddress;
 
@@ -55,25 +57,27 @@ final class SubmitDetails extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
      */
     protected $operatingCentres;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"tm_t_i","tm_t_e"}}})
+     * @Transfer\Optional
      */
     protected $tmType;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Optional
      */
     protected $isOwner;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
     protected $hoursMon;
@@ -81,7 +85,6 @@ final class SubmitDetails extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
     protected $hoursTue;
@@ -89,7 +92,6 @@ final class SubmitDetails extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
     protected $hoursWed;
@@ -97,7 +99,6 @@ final class SubmitDetails extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
     protected $hoursThu;
@@ -105,7 +106,6 @@ final class SubmitDetails extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
     protected $hoursFri;
@@ -113,7 +113,6 @@ final class SubmitDetails extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
     protected $hoursSat;
@@ -121,15 +120,22 @@ final class SubmitDetails extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
     protected $hoursSun;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
      */
     protected $additionalInfo;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Optional
+     */
+    protected $submit;
 
     /**
      * Get Transport Manager Application ID
@@ -166,7 +172,7 @@ final class SubmitDetails extends AbstractCommand
     }
 
     /**
-     * @return \Dvsa\Olcs\Transfer\Command\Partial\Address
+     * @return \Dvsa\Olcs\Transfer\Command\Partial\AddressOptional
      */
     public function getHomeAddress()
     {
@@ -174,7 +180,7 @@ final class SubmitDetails extends AbstractCommand
     }
 
     /**
-     * @return \Dvsa\Olcs\Transfer\Command\Partial\Address
+     * @return \Dvsa\Olcs\Transfer\Command\Partial\AddressOptional
      */
     public function getWorkAddress()
     {
@@ -267,5 +273,13 @@ final class SubmitDetails extends AbstractCommand
     public function getAdditionalInfo()
     {
         return $this->additionalInfo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSubmit()
+    {
+        return $this->submit;
     }
 }

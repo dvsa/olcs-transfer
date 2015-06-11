@@ -1042,7 +1042,7 @@ return [
                                 'may_terminate' => false,
                                 'child_routes' => [
                                     'PUT' => CommandConfig::getPutConfig(
-                                        Command\TransportManagerApplication\SubmitDetails::class
+                                        Command\TransportManagerApplication\UpdateDetails::class
                                     ),
                                 ]
                             ],
