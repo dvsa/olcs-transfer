@@ -1167,18 +1167,18 @@ return [
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Cases\ConditionUndertaking\ConditionUndertakingList::class),
                     'single' => RouteConfig::getSingleConfig(
-                            [
-                                'GET' => QueryConfig::getConfig(
-                                    Query\Cases\ConditionUndertaking\ConditionUndertaking::class
-                                ),
-                                'PUT' => CommandConfig::getPutConfig(
-                                    Command\Cases\ConditionUndertaking\UpdateConditionUndertaking::class
-                                ),
-                                'DELETE' => CommandConfig::getDeleteConfig(
-                                    Command\Cases\ConditionUndertaking\DeleteConditionUndertaking::class
-                                )
-                            ]
-                        ),
+                        [
+                            'GET' => QueryConfig::getConfig(
+                                Query\Cases\ConditionUndertaking\ConditionUndertaking::class
+                            ),
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\ConditionUndertaking\UpdateConditionUndertaking::class
+                            ),
+                            'DELETE' => CommandConfig::getDeleteConfig(
+                                Command\Cases\ConditionUndertaking\DeleteConditionUndertaking::class
+                            )
+                        ]
+                    ),
                     'POST' => CommandConfig::getPostConfig(
                         Command\Cases\ConditionUndertaking\CreateConditionUndertaking::class
                     )
