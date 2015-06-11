@@ -59,8 +59,8 @@ class Create extends AbstractCommand
      *     "name":"Zend\Validator\InArray",
      *     "options": {
      *          "haystack": {
-     *              "Yes",
-     *              "No"
+     *              "Y",
+     *              "N"
      *          }
      *      }
      * })
@@ -119,8 +119,8 @@ class Create extends AbstractCommand
      *     "name":"Zend\Validator\InArray",
      *     "options": {
      *          "haystack": {
-     *              "Yes",
-     *              "No"
+     *              "Y",
+     *              "N"
      *          }
      *      }
      * })
@@ -134,8 +134,8 @@ class Create extends AbstractCommand
      *     "name":"Zend\Validator\InArray",
      *     "options": {
      *          "haystack": {
-     *              "Yes",
-     *              "No"
+     *              "Y",
+     *              "N"
      *          }
      *      }
      * })

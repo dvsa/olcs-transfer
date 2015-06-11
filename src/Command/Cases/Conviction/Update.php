@@ -65,8 +65,8 @@ class Update extends AbstractCommand
      *     "name":"Zend\Validator\InArray",
      *     "options": {
      *          "haystack": {
-     *              "Yes",
-     *              "No"
+     *              "Y",
+     *              "N"
      *          }
      *      }
      * })
@@ -125,8 +125,8 @@ class Update extends AbstractCommand
      *     "name":"Zend\Validator\InArray",
      *     "options": {
      *          "haystack": {
-     *              "Yes",
-     *              "No"
+     *              "Y",
+     *              "N"
      *          }
      *      }
      * })
@@ -140,8 +140,8 @@ class Update extends AbstractCommand
      *     "name":"Zend\Validator\InArray",
      *     "options": {
      *          "haystack": {
-     *              "Yes",
-     *              "No"
+     *              "Y",
+     *              "N"
      *          }
      *      }
      * })
