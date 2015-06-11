@@ -1,0 +1,42 @@
+<?php
+
+namespace Dvsa\Olcs\Transfer\Command\Cases\Prohibition\Defect;
+
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType as FieldType;
+
+/**
+ * @Transfer\RouteName("backend/defect/single")
+ * @Transfer\Method("PUT")
+ */
+class Update extends AbstractCommand
+    implements
+    FieldType\IdentityInterface,
+    FieldType\VersionInterface
+{
+    // Identity & Locking
+    use FieldType\Traits\Identity;
+    use FieldType\Traits\Version;
+
+    // Foreign Keys
+    use FieldType\Traits\Prohibition;
+    use FieldType\Traits\Notes;
+
+    /**
+     * @var string
+     *
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":255}})
+     */
+    public $defectType = null;
+
+    /**
+     * @return string
+     */
+    public function getDefectType()
+    {
+        return $this->defectType;
+    }
+}
