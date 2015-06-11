@@ -109,6 +109,26 @@ return [
                                     ),
                                 ]
                             ],
+                            'workshop' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'workshop[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'single' => RouteConfig::getSingleConfig(
+                                        [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\Application\UpdateWorkshop::class
+                                            ),
+                                        ]
+                                    ),
+                                    'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Application\DeleteWorkshop::class
+                                    ),
+                                    'POST' => CommandConfig::getPostConfig(Command\Application\CreateWorkshop::class),
+                                ]
+                            ],
                         ]
                     ),
                     'single' => RouteConfig::getSingleConfig(
@@ -189,6 +209,19 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(
                                         Command\Application\UpdateLicenceHistory::class
                                     )
+                                ]
+                            ],
+                            'safety' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'safety[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Safety::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateSafety::class
+                                    ),
                                 ]
                             ],
                         ]
@@ -274,7 +307,20 @@ return [
                                     'GET' => QueryConfig::getConfig(Query\Licence\TypeOfLicence::class),
                                     'PUT' => CommandConfig::getPutConfig(Command\Licence\UpdateTypeOfLicence::class),
                                 ]
-                            ]
+                            ],
+                            'safety' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'safety[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\Safety::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Licence\UpdateSafety::class
+                                    ),
+                                ]
+                            ],
                         ]
                     ),
                 ]
@@ -520,6 +566,23 @@ return [
                             'GET' => QueryConfig::getConfig(Query\CompanySubsidiary\CompanySubsidiary::class),
                         ]
                     )
+                ]
+            ],
+            'workshop' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'workshop[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\Workshop\DeleteWorkshop::class),
+                    'POST' => CommandConfig::getPostConfig(Command\Workshop\CreateWorkshop::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Workshop\Workshop::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Workshop\UpdateWorkshop::class),
+                        ]
+                    ),
                 ]
             ],
             'trailers' => [
