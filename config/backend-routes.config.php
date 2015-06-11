@@ -697,6 +697,31 @@ return [
                     'DELETE' => CommandConfig::getDeleteConfig(Command\GracePeriod\DeleteGracePeriod::class),
                 ]
             ],
+            'correspondence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'correspondence[/]',
+                ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondence::class),
+                            'access' => [
+                                'type' => 'segment',
+                                'options' => [
+                                    'route' => 'access[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Correspondence\AccessCorrespondence::class),
+                                ]
+                            ]
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondences::class),
+                ]
+            ],
         ]
     ]
 ];
