@@ -21,9 +21,6 @@ return [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'cases/:id[/]',
-                    /*'constraints' => [
-                        'id' => '[0-9]+',
-                    ],*/
                     'defaults' => [
                         'controller' => 'Api\Cases'
                     ],
