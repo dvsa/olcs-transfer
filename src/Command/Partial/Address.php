@@ -2,7 +2,6 @@
 
 namespace Dvsa\Olcs\Transfer\Command\Partial;
 
-use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
@@ -10,7 +9,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-class Address extends AbstractCommand
+class Address
 {
     /**
      * @Transfer\Optional
