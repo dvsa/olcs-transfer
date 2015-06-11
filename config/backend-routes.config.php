@@ -597,6 +597,24 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Complaint\CreateComplaint::class)
                 ]
             ],
+            'conviction' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'conviction[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET'    => QueryConfig::getConfig(Query\Cases\Conviction\ConvictionList::class),
+                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Conviction\Create::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET'    => QueryConfig::getConfig(Query\Cases\Conviction\Conviction::class),
+                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Conviction\Update::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Conviction\Delete::class),
+                        ]
+                    )
+                ]
+            ],
             'environmental-complaint' => [
                 'type' => 'Segment',
                 'options' => [
