@@ -785,6 +785,48 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondences::class),
                 ]
             ],
+            'document' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'document[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'template' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'template[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'single' => RouteConfig::getSingleConfig(
+                                [
+                                    'paragraphs' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'paragraphs[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'GET' => QueryConfig::getConfig(Query\Document\TemplateParagraphs::class),
+                                        ]
+                                    ]
+                                ]
+                            )
+                        ]
+                    ],
+                    'letter' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'letter[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Document\CreateLetter::class),
+                        ]
+                    ],
+                ]
+            ],
         ]
     ]
 ];
