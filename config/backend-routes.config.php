@@ -989,6 +989,21 @@ $routes = [
                     )
                 ]
             ],
+            'fee' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'fee[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Fee\Fee::class),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\Fee\FeeList::class),
+                ]
+            ],
             'grace-periods' => [
                 'type' => 'Segment',
                 'options' => [
