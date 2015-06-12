@@ -678,6 +678,42 @@ return [
                     )
                 ]
             ],
+            'prohibition' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'prohibition[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\ProhibitionList::class),
+                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Prohibition\Create::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\Prohibition::class),
+                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Prohibition\Update::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Prohibition\Delete::class),
+                        ]
+                    )
+                ]
+            ],
+            'defect' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'defect[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\DefectList::class),
+                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Prohibition\Defect\Create::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\Defect::class),
+                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Prohibition\Defect\Update::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Prohibition\Defect\Delete::class),
+                        ]
+                    )
+                ]
+            ],
             'environmental-complaint' => [
                 'type' => 'Segment',
                 'options' => [
