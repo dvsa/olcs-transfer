@@ -714,6 +714,23 @@ return [
                     )
                 ]
             ],
+            'non-pi' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'non-pi[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET'    => QueryConfig::getConfig(Query\Cases\NonPi\Listing::class),
+                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Prohibition\Defect\Create::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET'    => QueryConfig::getConfig(Query\Cases\NonPi\Single::class),
+                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Prohibition\Defect\Update::class),
+                        ]
+                    )
+                ]
+            ],
             'environmental-complaint' => [
                 'type' => 'Segment',
                 'options' => [
