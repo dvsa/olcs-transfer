@@ -29,7 +29,6 @@ class CreateAppeal extends AbstractCommand
     protected $appealDate = null;
 
     /**
-     * @Transfer\Optional()
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":20}})
      */
@@ -92,8 +91,8 @@ class CreateAppeal extends AbstractCommand
     protected $outcome = null;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Optional()
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":4000}})
      */
     protected $comment = null;
@@ -105,6 +104,7 @@ class CreateAppeal extends AbstractCommand
      *      "name":"Zend\Validator\InArray",
      *      "options": {"haystack": {"Y","N"}}
      *  }
+     * )
      */
     protected $isWithdrawn = null;
 

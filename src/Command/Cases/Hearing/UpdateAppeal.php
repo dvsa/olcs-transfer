@@ -12,6 +12,22 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class UpdateAppeal extends AbstractCommand
 {
     /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $id = null;
+
+    /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $version = null;
+
+    /**
      * @Transfer\Optional()
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
@@ -99,6 +115,7 @@ class UpdateAppeal extends AbstractCommand
      *      "name":"Zend\Validator\InArray",
      *      "options": {"haystack": {"Y","N"}}
      *  }
+     * )
      */
     protected $isWithdrawn = null;
 
@@ -107,6 +124,22 @@ class UpdateAppeal extends AbstractCommand
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $withdrawnDate = null;
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return mixed
