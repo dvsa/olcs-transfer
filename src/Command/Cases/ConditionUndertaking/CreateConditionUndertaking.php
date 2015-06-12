@@ -109,5 +109,4 @@ class CreateConditionUndertaking extends AbstractCommand
     {
         return $this->operatingCentre;
     }
-
 }
