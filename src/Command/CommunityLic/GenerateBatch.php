@@ -36,7 +36,7 @@ final class GenerateBatch extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
-    public $application;
+    public $identifier;
 
     public function getLicence()
     {
@@ -50,6 +50,6 @@ final class GenerateBatch extends AbstractCommand
 
     public function getIdentifier()
     {
-        return $this->application;
+        return $this->identifier;
     }
 }
