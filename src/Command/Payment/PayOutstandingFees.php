@@ -17,7 +17,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class PayOutstandingFees extends AbstractCommand
 {
     /**
-     * @var array
+     * @Transfer\ArrayInput
      */
     protected $feeIds;
 
