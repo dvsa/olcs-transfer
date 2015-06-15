@@ -321,6 +321,16 @@ return [
                                     ),
                                 ]
                             ],
+                            'decisions' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'decisions[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\LicenceDecisions::class)
+                                ]
+                            ]
                         ]
                     ),
                 ]
@@ -804,6 +814,23 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondences::class),
                 ]
             ],
+            'licence-status-rule' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'licence-status-rule[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\LicenceStatusRule\CreateLicenceStatusRule::class),
+                    /*'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\LicenceStatusRule\LicenceStatusRule::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\LicenceStatusRule\UpdateLicenceStatusRule::class),
+                            'DELETE' => CommandConfig::getPutConfig(Command\LicenceStatusRule\DeleteLicenceStatusRule::class),
+                        ]
+                    ),*/
+                ]
+            ]
         ]
     ]
 ];
