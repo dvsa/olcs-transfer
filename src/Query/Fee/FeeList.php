@@ -6,8 +6,8 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\Query\PagedTrait;
-use Dvsa\Olcs\Transfer\Query\OrderedTrait;
+use Dvsa\Olcs\Transfer\Query\PagedTraitOptional;
+use Dvsa\Olcs\Transfer\Query\OrderedTraitOptional;
 
 use Dvsa\Olcs\Transfer\FieldType;
 use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
@@ -26,8 +26,8 @@ class FeeList extends AbstractQuery
     FieldType\BusRegInterface,
     FieldType\IrfoGvPermitInterface
 {
-    use PagedTrait;
-    use OrderedTrait;
+    use PagedTraitOptional;
+    use OrderedTraitOptional;
 
     // Foreign Keys
     use FieldTypeTraits\ApplicationOptional;
@@ -38,7 +38,6 @@ class FeeList extends AbstractQuery
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
      */
     protected $isMiscellaneous;
 
@@ -51,6 +50,11 @@ class FeeList extends AbstractQuery
      * })
      */
     protected $status;
+
+    /**
+     * @Transfer\ArrayInput
+     */
+    protected $ids;
 
     /**
      * @return int
@@ -66,5 +70,13 @@ class FeeList extends AbstractQuery
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * @return array
+     */
+    public function getIds()
+    {
+        return $this->ids;
     }
 }
