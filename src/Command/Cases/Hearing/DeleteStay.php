@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractDeleteCommand;
  * @Transfer\RouteName("backend/stay")
  * @Transfer\Method("DELETE")
  */
-class Delete extends AbstractDeleteCommand
+class DeleteStay extends AbstractDeleteCommand
 {
     //
 }

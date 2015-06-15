@@ -4,28 +4,20 @@ namespace Dvsa\Olcs\Transfer\Command\Cases\Hearing;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\FieldType as FieldType;
 
 /**
  * @Transfer\RouteName("backend/appeal")
  * @Transfer\Method("PUT")
  */
 class UpdateAppeal extends AbstractCommand
+    implements
+    FieldType\IdentityInterface,
+    FieldType\VersionInterface
 {
-    /**
-     * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $id = null;
-
-    /**
-     * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $version = null;
+    // Identity & Locking
+    use FieldType\Traits\Identity;
+    use FieldType\Traits\Version;
 
     /**
      * @Transfer\Optional()
@@ -125,21 +117,6 @@ class UpdateAppeal extends AbstractCommand
      */
     protected $withdrawnDate = null;
 
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
 
     /**
      * @return mixed
