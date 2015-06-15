@@ -722,11 +722,12 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET'    => QueryConfig::getConfig(Query\Cases\NonPi\Listing::class),
-                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Prohibition\Defect\Create::class),
+                    'POST'   => CommandConfig::getPostConfig(Command\Cases\NonPi\Create::class),
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET'    => QueryConfig::getConfig(Query\Cases\NonPi\Single::class),
-                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Prohibition\Defect\Update::class),
+                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\NonPi\Update::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\NonPi\Delete::class),
                         ]
                     )
                 ]
