@@ -324,8 +324,7 @@ return [
                 'options' => [
                     'route' => 'bus[/]',
                     'defaults' => [
-                        'id' => null,
-                        'controller' => 'Api\Generic'
+                        'id' => null
                     ]
                 ],
                 'may_terminate' => false,
@@ -351,6 +350,26 @@ return [
                                 'may_terminate' => false,
                                 'child_routes' => [
                                     'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateQualitySchemes::class),
+                                ]
+                            ],
+                            'service-details' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'service-details[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateServiceDetails::class)
+                                ]
+                            ],
+                            'ta' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'ta[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateTaAuthority::class)
                                 ]
                             ],
                         ]
