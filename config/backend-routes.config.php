@@ -609,6 +609,24 @@ return [
                     ],
                 ],
             ],
+            'partner' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'partner[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\User\Partner::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\User\UpdatePartner::class),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\User\PartnerList::class),
+                    'POST' => CommandConfig::getPostConfig(Command\User\CreatePartner::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\User\DeletePartner::class),
+                ]
+            ],
             'processing' => [
                 'type' => 'segment',
                 'options' => [
