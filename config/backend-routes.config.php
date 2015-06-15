@@ -486,6 +486,12 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoDetails::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Irfo\UpdateIrfoDetails::class),
+                        ]
+                    ),
                     'gv-permit' => [
                         'type' => 'Segment',
                         'options' => [
