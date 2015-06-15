@@ -93,7 +93,7 @@ class CreateAppeal extends AbstractCommand
     /**
      * @Transfer\Optional()
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":4000}})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":5,"max":4000}})
      */
     protected $comment = null;
 
