@@ -10,8 +10,7 @@ use Dvsa\Olcs\Transfer\FieldType as FieldType;
  * @Transfer\RouteName("backend/stay")
  * @Transfer\Method("PUT")
  */
-class UpdateStay extends AbstractCommand
-    implements
+class UpdateStay extends AbstractCommand implements
     FieldType\IdentityInterface,
     FieldType\VersionInterface
 {

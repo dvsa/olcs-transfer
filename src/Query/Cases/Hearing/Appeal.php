@@ -42,5 +42,4 @@ class Appeal extends AbstractQuery
     {
         return $this->case;
     }
-
 }

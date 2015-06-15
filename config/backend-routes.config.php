@@ -1294,15 +1294,15 @@ $routes = [
                     ),
                     'single' => RouteConfig::getSingleConfig(
                         [
-                        'GET' => QueryConfig::getConfig(
-                            Query\Cases\Hearing\Appeal::class
-                        ),
-                        'PUT' => CommandConfig::getPutConfig(
-                            Command\Cases\Hearing\UpdateAppeal::class
-                        ),
-                        'DELETE' => CommandConfig::getDeleteConfig(
-                            Command\Cases\Hearing\DeleteAppeal::class
-                        )
+                            'GET' => QueryConfig::getConfig(
+                                Query\Cases\Hearing\Appeal::class
+                            ),
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\Hearing\UpdateAppeal::class
+                            ),
+                            'DELETE' => CommandConfig::getDeleteConfig(
+                                Command\Cases\Hearing\DeleteAppeal::class
+                            )
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(

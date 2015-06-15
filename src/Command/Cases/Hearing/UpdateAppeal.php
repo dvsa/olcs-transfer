@@ -10,8 +10,7 @@ use Dvsa\Olcs\Transfer\FieldType as FieldType;
  * @Transfer\RouteName("backend/appeal")
  * @Transfer\Method("PUT")
  */
-class UpdateAppeal extends AbstractCommand
-    implements
+class UpdateAppeal extends AbstractCommand implements
     FieldType\IdentityInterface,
     FieldType\VersionInterface
 {
