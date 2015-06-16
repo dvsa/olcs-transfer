@@ -244,6 +244,43 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+                    'named-single' => RouteConfig::getNamedSingleConfig(
+                        'application',
+                        [
+                            'psv-discs' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'psv-discs[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'void' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'void[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'PUT' => CommandConfig::getPutConfig(Command\Variation\VoidPsvDiscs::class),
+                                        ]
+                                    ],
+                                    'replace' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'replace[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\Variation\ReplacePsvDiscs::class
+                                            ),
+                                        ]
+                                    ],
+                                    'POST' => CommandConfig::getPostConfig(Command\Variation\CreatePsvDiscs::class),
+                                ]
+                            ],
+                        ]
+                    ),
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\Variation\Variation::class),
@@ -268,7 +305,7 @@ return [
                                     'GET' => QueryConfig::getConfig(Query\Licence\Addresses::class),
                                     'PUT' => CommandConfig::getPutConfig(Command\Variation\UpdateAddresses::class),
                                 ]
-                            ]
+                            ],
                         ]
                     ),
                 ]
@@ -306,6 +343,38 @@ return [
                                     'POST' => CommandConfig::getPostConfig(
                                         Command\Licence\CreateCompanySubsidiary::class
                                     ),
+                                ]
+                            ],
+                            'psv-discs' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'psv-discs[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'void' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'void[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'PUT' => CommandConfig::getPutConfig(Command\Licence\VoidPsvDiscs::class),
+                                        ]
+                                    ],
+                                    'replace' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'replace[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\Licence\ReplacePsvDiscs::class
+                                            ),
+                                        ]
+                                    ],
+                                    'POST' => CommandConfig::getPostConfig(Command\Licence\CreatePsvDiscs::class),
                                 ]
                             ],
                         ]
@@ -346,6 +415,16 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(
                                         Command\Licence\UpdateSafety::class
                                     ),
+                                ]
+                            ],
+                            'psv-discs' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'psv-discs[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\PsvDiscs::class),
                                 ]
                             ],
                         ]
