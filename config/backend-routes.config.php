@@ -997,6 +997,16 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Document\CreateDocument::class),
                 ]
             ],
+            'scan' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'scan[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Scan\CreateSeparatorSheet::class),
+                ]
+            ],
         ]
     ]
 ];
