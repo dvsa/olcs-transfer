@@ -59,7 +59,7 @@ final class PayOutstandingFees extends AbstractCommand
 
     /**
      * @Transfer\Optional
-     * @todo validation
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $receiptDate;
 
@@ -83,7 +83,7 @@ final class PayOutstandingFees extends AbstractCommand
 
     /**
      * @Transfer\Optional
-     * @todo validation
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $chequeDate;
 

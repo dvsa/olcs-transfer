@@ -17,10 +17,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
  * @Transfer\RouteName("backend/fee/single")
  * @Transfer\Method("PUT")
  */
-final class UpdateFee extends AbstractCommand
-    implements
-    FieldType\IdentityInterface,
-    FieldType\VersionInterface
+final class UpdateFee extends AbstractCommand implements FieldType\IdentityInterface, FieldType\VersionInterface
 {
     use FieldTypeTraits\Identity;
     use FieldTypeTraits\Version;

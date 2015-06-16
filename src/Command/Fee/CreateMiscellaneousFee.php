@@ -17,9 +17,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  * @Transfer\RouteName("backend/fee")
  * @Transfer\Method("POST")
  */
-final class CreateMiscellaneousFee extends AbstractCommand
-    implements
-    FieldType\UserInterface
+final class CreateMiscellaneousFee extends AbstractCommand implements FieldType\UserInterface
 {
     use FieldTypeTraits\User;
 

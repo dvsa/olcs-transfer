@@ -16,15 +16,13 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
  * Class FeeList
  * @Transfer\RouteName("backend/fee")
  */
-class FeeList extends AbstractQuery
-    implements
-    PagedQueryInterface,
-    OrderedQueryInterface,
-    FieldType\ApplicationInterface,
-    FieldType\LicenceInterface,
-    FieldType\TaskInterface,
-    FieldType\BusRegInterface,
-    FieldType\IrfoGvPermitInterface
+class FeeList extends AbstractQuery implements PagedQueryInterface,
+ OrderedQueryInterface,
+ FieldType\ApplicationInterface,
+ FieldType\LicenceInterface,
+ FieldType\TaskInterface,
+ FieldType\BusRegInterface,
+ FieldType\IrfoGvPermitInterface
 {
     use PagedTraitOptional;
     use OrderedTraitOptional;
