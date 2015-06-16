@@ -417,6 +417,16 @@ return [
                                     'GET' => QueryConfig::getConfig(Query\Organisation\BusinessDetails::class),
                                 ]
                             ],
+                            'outstanding-fees' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'outstanding-fees[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Organisation\OutstandingFees::class),
+                                ],
+                            ],
                         ]
                     ),
                     'business-details' => [
@@ -802,12 +812,51 @@ return [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Correspondence\AccessCorrespondence::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Correspondence\AccessCorrespondence::class
+                                    ),
                                 ]
                             ]
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondences::class),
+                ],
+            ],
+            'payment' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'payment[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'by-reference' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ref/:reference[/]',
+                             'constraints' => [
+                                'reference' => 'OLCS-[0-9A-F\-]+',
+                            ],
+                        ],
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Payment\PaymentByReference::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Payment\CompletePayment::class),
+                        ],
+                    ],
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Payment\Payment::class),
+                        ]
+                    ),
+                    'pay-outstanding-fees' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'pay-outstanding-fees[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                             'POST' =>CommandConfig::getPostConfig(Command\Payment\PayOutstandingFees::class),
+                        ],
+                    ],
                 ]
             ],
         ]
