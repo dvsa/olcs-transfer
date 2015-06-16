@@ -22,7 +22,7 @@ final class UpdateStops extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
-    public $useAllStops;
+    protected $useAllStops;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
