@@ -1003,6 +1003,7 @@ $routes = [
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Fee\FeeList::class),
+                    'POST' => CommandConfig::getPostConfig(Command\Fee\CreateMiscellaneousFee::class),
                 ]
             ],
             'grace-periods' => [
