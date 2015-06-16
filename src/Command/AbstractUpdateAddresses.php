@@ -4,6 +4,14 @@
  * Update Addresses
  *
  * @author Nick Payne <nick.payne@valtech.co.uk>
+ *
+ * @TODO: apologies; there is some validation missing off this
+ * command. Correspondence, contact, establishment and consultant
+ * are all arrays of data which will need partials creating in order
+ * to validate them.
+ *
+ * I'd sort this myself but won't have time before leaving. Consider
+ * this my parting gift to one unfortunate developer of the future...
  */
 namespace Dvsa\Olcs\Transfer\Command;
 
