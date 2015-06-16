@@ -5,61 +5,55 @@ namespace Dvsa\Olcs\Transfer\Command\Partial;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * Registered Address partial
+ * Contact Details partial
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-class RegisteredAddress
+class ContactDetails
 {
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
     protected $id;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
     protected $version;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     */
-    public $addressLine1;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Optional
-     */
-    public $addressLine2;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Optional
-     */
-    public $addressLine3;
-
-    /**
      * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    public $addressLine4;
+    protected $fao;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\EmailAddress"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":5,"max":255}})
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    public $town;
+    public $emailAddress;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Address")
+     * @Transfer\Optional
      */
-    public $postcode;
+    protected $address;
+
+    /**
+     * @Transfer\ArrayInput
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\PhoneContact")
+     * @Transfer\Optional
+     */
+    protected $phoneContacts;
 
     /**
      * @return mixed
@@ -80,48 +74,24 @@ class RegisteredAddress
     /**
      * @return mixed
      */
-    public function getAddressLine1()
+    public function getEmailAddress()
     {
-        return $this->addressLine1;
+        return $this->emailAddress;
     }
 
     /**
      * @return mixed
      */
-    public function getAddressLine2()
+    public function getAddress()
     {
-        return $this->addressLine2;
+        return $this->address;
     }
 
     /**
      * @return mixed
      */
-    public function getAddressLine3()
+    public function getPhoneContacts()
     {
-        return $this->addressLine3;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getAddressLine4()
-    {
-        return $this->addressLine4;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTown()
-    {
-        return $this->town;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPostcode()
-    {
-        return $this->postcode;
+        return $this->phoneContacts;
     }
 }

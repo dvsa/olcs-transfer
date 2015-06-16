@@ -109,6 +109,26 @@ return [
                                     ),
                                 ]
                             ],
+                            'workshop' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'workshop[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'single' => RouteConfig::getSingleConfig(
+                                        [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\Application\UpdateWorkshop::class
+                                            ),
+                                        ]
+                                    ),
+                                    'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Application\DeleteWorkshop::class
+                                    ),
+                                    'POST' => CommandConfig::getPostConfig(Command\Application\CreateWorkshop::class),
+                                ]
+                            ],
                         ]
                     ),
                     'single' => RouteConfig::getSingleConfig(
@@ -200,6 +220,19 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(
                                         Command\Application\UpdateLicenceHistory::class
                                     )
+                                ]
+                            ],
+                            'safety' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'safety[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Safety::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateSafety::class
+                                    ),
                                 ]
                             ],
                         ]
@@ -307,7 +340,20 @@ return [
                                     'GET' => QueryConfig::getConfig(Query\Licence\Addresses::class),
                                     'PUT' => CommandConfig::getPutConfig(Command\Licence\UpdateAddresses::class),
                                 ]
-                            ]
+                            ],
+                            'safety' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'safety[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\Safety::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Licence\UpdateSafety::class
+                                    ),
+                                ]
+                            ],
                         ]
                     ),
                 ]
@@ -317,8 +363,7 @@ return [
                 'options' => [
                     'route' => 'bus[/]',
                     'defaults' => [
-                        'id' => null,
-                        'controller' => 'Api\Generic'
+                        'id' => null
                     ]
                 ],
                 'may_terminate' => false,
@@ -344,6 +389,26 @@ return [
                                 'may_terminate' => false,
                                 'child_routes' => [
                                     'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateQualitySchemes::class),
+                                ]
+                            ],
+                            'service-details' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'service-details[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateServiceDetails::class)
+                                ]
+                            ],
+                            'ta' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'ta[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateTaAuthority::class)
                                 ]
                             ],
                         ]
@@ -454,6 +519,12 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoDetails::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Irfo\UpdateIrfoDetails::class),
+                        ]
+                    ),
                     'gv-permit' => [
                         'type' => 'Segment',
                         'options' => [
@@ -555,6 +626,23 @@ return [
                     )
                 ]
             ],
+            'workshop' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'workshop[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\Workshop\DeleteWorkshop::class),
+                    'POST' => CommandConfig::getPostConfig(Command\Workshop\CreateWorkshop::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Workshop\Workshop::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Workshop\UpdateWorkshop::class),
+                        ]
+                    ),
+                ]
+            ],
             'trailers' => [
                 'type' => 'Segment',
                 'options' => [
@@ -630,6 +718,88 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Complaint\CreateComplaint::class)
                 ]
             ],
+            'conviction' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'conviction[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET'    => QueryConfig::getConfig(Query\Cases\Conviction\ConvictionList::class),
+                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Conviction\Create::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET'    => QueryConfig::getConfig(Query\Cases\Conviction\Conviction::class),
+                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Conviction\Update::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Conviction\Delete::class),
+                        ]
+                    )
+                ]
+            ],
+            'prohibition' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'prohibition[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\ProhibitionList::class),
+                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Prohibition\Create::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\Prohibition::class),
+                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Prohibition\Update::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Prohibition\Delete::class),
+                        ]
+                    )
+                ]
+            ],
+            'defect' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'defect[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\DefectList::class),
+                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Prohibition\Defect\Create::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\Defect::class),
+                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Prohibition\Defect\Update::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Prohibition\Defect\Delete::class),
+                        ]
+                    )
+                ]
+            ],
+            'environmental-complaint' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'cases/:case/environmental-complaint[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(
+                        Query\Cases\EnvironmentalComplaint\EnvironmentalComplaintList::class
+                    ),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(
+                                Query\Cases\EnvironmentalComplaint\EnvironmentalComplaint::class
+                            ),
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\EnvironmentalComplaint\UpdateEnvironmentalComplaint::class
+                            ),
+                            'DELETE' => CommandConfig::getDeleteConfig(
+                                Command\Cases\EnvironmentalComplaint\DeleteEnvironmentalComplaint::class
+                            )
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(
+                        Command\Cases\EnvironmentalComplaint\CreateEnvironmentalComplaint::class
+                    )
+                ]
+            ],
             'grace-periods' => [
                 'type' => 'Segment',
                 'options' => [
@@ -647,7 +817,32 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\GracePeriod\CreateGracePeriod::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\GracePeriod\DeleteGracePeriod::class),
                 ]
-            ]
+            ],
+            'correspondence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'correspondence[/]',
+                ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondence::class),
+                            'access' => [
+                                'type' => 'segment',
+                                'options' => [
+                                    'route' => 'access[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Correspondence\AccessCorrespondence::class),
+                                ]
+                            ]
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondences::class),
+                ]
+            ],
         ]
     ]
 ];

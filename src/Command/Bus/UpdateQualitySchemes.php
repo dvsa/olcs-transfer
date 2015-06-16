@@ -7,7 +7,7 @@ namespace Dvsa\Olcs\Transfer\Command\Bus;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
-use Dvsa\Olcs\Transfer\Command\Traits\FieldType;
+use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
 
 /**
  * @Transfer\RouteName("backend/bus/single/quality")

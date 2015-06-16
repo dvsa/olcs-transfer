@@ -1,41 +1,37 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Query\Cases\Complaint;
+namespace Dvsa\Olcs\Transfer\Command\Partial;
 
-use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * Class Compaint
- * @Transfer\RouteName("backend/complaint/single")
+ * Trading name partial
  */
-class Complaint extends AbstractQuery
+class TradingName
 {
     /**
-     * @var int
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
      */
     protected $id;
 
     /**
-     * @var int
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
      */
-    protected $case;
+    protected $version;
 
     /**
-     * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": "1"}})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    protected $isCompliance = '1';
+    public $name;
 
     /**
-     * @return int
+     * @return mixed
      */
     public function getId()
     {
@@ -43,18 +39,18 @@ class Complaint extends AbstractQuery
     }
 
     /**
-     * @return int
+     * @return mixed
      */
-    public function getCase()
+    public function getVersion()
     {
-        return $this->case;
+        return $this->version;
     }
 
     /**
-     * @return bool
+     * @return mixed
      */
-    public function getIsCompliance()
+    public function getName()
     {
-        return $this->isCompliance;
+        return $this->name;
     }
 }
