@@ -4,8 +4,6 @@
  * Update Addresses
  *
  * @author Nick Payne <nick.payne@valtech.co.uk>
- *
- * @FIXME: validators required!
  */
 namespace Dvsa\Olcs\Transfer\Command;
 
