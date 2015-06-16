@@ -57,7 +57,7 @@ class CreateOpposition extends AbstractCommand
      * @Transfer\Validator(
      *  {
      *      "name":"Zend\Validator\InArray",
-     *      "options": {"haystack": {"opp_yes","opp_v_no","opp_v_nd"}}
+     *      "options": {"haystack": {"opp_v_yes","opp_v_no","opp_v_nd"}}
      *  }
      * )
      */
@@ -194,7 +194,7 @@ class CreateOpposition extends AbstractCommand
     protected $emailAddress = null;
 
     /**
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\RegisteredAddress")
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Address")
      * @Transfer\Optional
      */
     protected $opposerAddress = null;
