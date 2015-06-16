@@ -146,6 +146,17 @@ return [
                                     ),
                                 ]
                             ],
+                            'addresses' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'addresses[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\Addresses::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\UpdateAddresses::class),
+                                ]
+                            ],
                             'previous-convictions' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -252,6 +263,17 @@ return [
                                     'GET' => QueryConfig::getConfig(Query\Variation\TypeOfLicence::class),
                                     'PUT' => CommandConfig::getPutConfig(Command\Variation\UpdateTypeOfLicence::class),
                                 ]
+                            ],
+                            'addresses' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'addresses[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\Addresses::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Variation\UpdateAddresses::class),
+                                ]
                             ]
                         ]
                     ),
@@ -306,6 +328,17 @@ return [
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Licence\TypeOfLicence::class),
                                     'PUT' => CommandConfig::getPutConfig(Command\Licence\UpdateTypeOfLicence::class),
+                                ]
+                            ],
+                            'addresses' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'addresses[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\Addresses::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Licence\UpdateAddresses::class),
                                 ]
                             ],
                             'safety' => [
