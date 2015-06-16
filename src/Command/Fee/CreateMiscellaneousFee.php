@@ -11,11 +11,11 @@ use Dvsa\Olcs\Api\Entity\Fee\Fee;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\FieldType;
 use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * Create Miscellaneous Fee
- *
- * @author Dan Eggleston <dan@stolenegg.com>
+ * @Transfer\RouteName("backend/fee")
+ * @Transfer\Method("POST")
  */
 final class CreateMiscellaneousFee extends AbstractCommand
     implements
