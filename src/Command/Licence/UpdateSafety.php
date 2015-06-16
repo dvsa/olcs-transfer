@@ -31,7 +31,7 @@ final class UpdateSafety extends AbstractCommand
     protected $version;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Optional
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 1, "max": 13}})
      */
@@ -39,13 +39,13 @@ final class UpdateSafety extends AbstractCommand
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 13}})
      */
     protected $safetyInsTrailers;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name": "Zend\Filter\StringTrim"})
      * @Transfer\Filter({"name": "Zend\Filter\StringToUpper"})
      * @Transfer\Validator({
@@ -56,6 +56,7 @@ final class UpdateSafety extends AbstractCommand
     protected $safetyInsVaries;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name": "Zend\Filter\StringTrim"})
      * @Transfer\Filter({"name": "Zend\Filter\StringToLower"})
      * @Transfer\Validator({

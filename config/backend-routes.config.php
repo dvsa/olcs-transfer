@@ -330,8 +330,7 @@ return [
                 'options' => [
                     'route' => 'bus[/]',
                     'defaults' => [
-                        'id' => null,
-                        'controller' => 'Api\Generic'
+                        'id' => null
                     ]
                 ],
                 'may_terminate' => false,
@@ -357,6 +356,26 @@ return [
                                 'may_terminate' => false,
                                 'child_routes' => [
                                     'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateQualitySchemes::class),
+                                ]
+                            ],
+                            'service-details' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'service-details[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateServiceDetails::class)
+                                ]
+                            ],
+                            'ta' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'ta[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateTaAuthority::class)
                                 ]
                             ],
                         ]
@@ -477,6 +496,12 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoDetails::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Irfo\UpdateIrfoDetails::class),
+                        ]
+                    ),
                     'gv-permit' => [
                         'type' => 'Segment',
                         'options' => [
@@ -684,6 +709,42 @@ return [
                             'GET'    => QueryConfig::getConfig(Query\Cases\Conviction\Conviction::class),
                             'PUT'    => CommandConfig::getPutConfig(Command\Cases\Conviction\Update::class),
                             'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Conviction\Delete::class),
+                        ]
+                    )
+                ]
+            ],
+            'prohibition' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'prohibition[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\ProhibitionList::class),
+                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Prohibition\Create::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\Prohibition::class),
+                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Prohibition\Update::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Prohibition\Delete::class),
+                        ]
+                    )
+                ]
+            ],
+            'defect' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'defect[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\DefectList::class),
+                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Prohibition\Defect\Create::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\Defect::class),
+                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Prohibition\Defect\Update::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Prohibition\Defect\Delete::class),
                         ]
                     )
                 ]
