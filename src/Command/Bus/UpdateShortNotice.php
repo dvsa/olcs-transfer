@@ -292,6 +292,4 @@ final class UpdateShortNotice extends AbstractCommand
     {
         return $this->policeDetail;
     }
-    
-    
 }
