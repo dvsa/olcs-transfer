@@ -6,7 +6,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * @Transfer\RouteName("backend/cases/pi/agreed")
+ * @Transfer\RouteName("backend/cases/single/pi/agreed")
  * @Transfer\Method("PUT")
  */
 class UpdatePiAgreedAndLegislation extends AbstractCommand

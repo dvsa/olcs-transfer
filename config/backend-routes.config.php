@@ -20,43 +20,37 @@ return [
             'cases' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => 'cases/:id[/]',
-                    'defaults' => [
-                        'controller' => 'Api\Cases'
-                    ],
+                    'route' => 'cases[/]',
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET' => [
-                        'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
-                        'options' => [
-                            'defaults' => [
-                                //'dto' => \Dvsa\Olcs\src\Query\Cases\Cases::class
-                            ]
-                        ]
-                    ],
-                    'pi' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'pi[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'GET' => QueryConfig::getConfig(Query\Cases\Pi::class),
-                            'agreed' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Cases\Cases::class),
+                            'pi' => [
                                 'type' => 'Segment',
                                 'options' => [
-                                    'route' => 'agreed[/]'
+                                    'route' => 'pi[/]',
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(
-                                        Command\Cases\UpdatePiAgreedAndLegislation::class
-                                    ),
+                                    'GET' => QueryConfig::getConfig(Query\Cases\Pi::class),
+                                    'agreed' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'agreed[/]'
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\Cases\UpdatePiAgreedAndLegislation::class
+                                            ),
+                                        ]
+                                    ]
                                 ]
                             ]
                         ]
-                    ]
+                    )
                 ]
             ],
             'legacy-offence' => [
@@ -934,6 +928,48 @@ return [
                         'child_routes' => [
                              'POST' =>CommandConfig::getPostConfig(Command\Payment\PayOutstandingFees::class),
                         ],
+                    ],
+                ]
+            ],
+            'document' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'document[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'template' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'template[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'single' => RouteConfig::getSingleConfig(
+                                [
+                                    'paragraphs' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'paragraphs[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'GET' => QueryConfig::getConfig(Query\Document\TemplateParagraphs::class),
+                                        ]
+                                    ]
+                                ]
+                            )
+                        ]
+                    ],
+                    'letter' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'letter[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Document\CreateLetter::class),
+                        ]
                     ],
                 ]
             ],

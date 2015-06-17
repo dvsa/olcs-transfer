@@ -7,7 +7,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * Class Pi
- * @Transfer\RouteName("backend/cases/pi")
+ * @Transfer\RouteName("backend/cases/single/pi")
  */
 class Pi extends AbstractQuery
 {
