@@ -1,6 +1,10 @@
 <?php
+
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
+/**
+ * Identity
+ */
 trait Identity
 {
     /**

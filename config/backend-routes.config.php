@@ -982,6 +982,12 @@ return [
                             'POST' => CommandConfig::getPostConfig(Command\Document\CreateLetter::class),
                         ]
                     ],
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\Document\DeleteDocument::class),
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\Document\CreateDocument::class),
                 ]
             ],
         ]
