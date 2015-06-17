@@ -742,6 +742,21 @@ $routes = [
                     'DELETE' => CommandConfig::getDeleteConfig(Command\User\DeletePartner::class),
                 ]
             ],
+            'my-account' => [
+                'type' => 'segment',
+                'options' => [
+                    'route' => 'my-account[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\MyAccount\UpdateMyAccount::class),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\MyAccount\MyAccount::class),
+                ],
+            ],
             'processing' => [
                 'type' => 'segment',
                 'options' => [
