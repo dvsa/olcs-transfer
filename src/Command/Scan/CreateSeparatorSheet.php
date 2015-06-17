@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/scan")
+ * @Transfer\RouteName("backend/scan/separator-sheet")
  * @Transfer\Method("POST")
  */
 final class CreateSeparatorSheet extends AbstractCommand

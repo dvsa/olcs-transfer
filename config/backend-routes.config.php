@@ -1004,7 +1004,28 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'POST' => CommandConfig::getPostConfig(Command\Scan\CreateSeparatorSheet::class),
+                    'separator-sheet' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'separator-sheet[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Scan\CreateSeparatorSheet::class),
+                        ],
+                    ],
+                    'continuation-separator-sheet' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'continuation-separator-sheet[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(
+                                Command\Scan\CreateContinuationSeparatorSheet::class
+                            ),
+                        ],
+                    ],
                 ]
             ],
         ]
