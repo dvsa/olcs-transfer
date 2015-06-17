@@ -43,6 +43,7 @@ final class UpdateSafety extends AbstractCommand
      *     "name":"Zend\Validator\InArray",
      *     "options": {"haystack": {"Y","N"}}
      * })
+     * @Transfer\Optional
      */
     protected $safetyConfirmation;
 

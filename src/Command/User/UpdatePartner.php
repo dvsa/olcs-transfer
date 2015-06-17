@@ -1,18 +1,20 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Command\Partial;
+/**
+ * Update Partner
+ */
+namespace Dvsa\Olcs\Transfer\Command\User;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * Contact Details partial
- *
- * @author Rob Caiger <rob@clocal.co.uk>
+ * @Transfer\RouteName("backend/partner/single")
+ * @Transfer\Method("PUT")
  */
-class ContactDetails
+final class UpdatePartner extends AbstractCommand
 {
     /**
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -20,7 +22,6 @@ class ContactDetails
     protected $id;
 
     /**
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -28,32 +29,15 @@ class ContactDetails
     protected $version;
 
     /**
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min":3,"max":35}})
      */
-    protected $fao;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\EmailAddress"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":5,"max":255}})
-     * @Transfer\Optional
-     */
-    public $emailAddress;
+    protected $description;
 
     /**
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Address")
-     * @Transfer\Optional
      */
     protected $address;
-
-    /**
-     * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\PhoneContact")
-     * @Transfer\Optional
-     */
-    protected $phoneContacts;
 
     /**
      * @return mixed
@@ -74,9 +58,9 @@ class ContactDetails
     /**
      * @return mixed
      */
-    public function getEmailAddress()
+    public function getDescription()
     {
-        return $this->emailAddress;
+        return $this->description;
     }
 
     /**
@@ -85,13 +69,5 @@ class ContactDetails
     public function getAddress()
     {
         return $this->address;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPhoneContacts()
-    {
-        return $this->phoneContacts;
     }
 }

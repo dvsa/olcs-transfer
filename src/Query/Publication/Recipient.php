@@ -1,15 +1,15 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Query\Cases;
+namespace Dvsa\Olcs\Transfer\Query\Publication;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * Class Pi
- * @Transfer\RouteName("backend/cases/single/pi")
+ * Class Recipient
+ * @Transfer\RouteName("backend/publication/recipient/single")
  */
-class Pi extends AbstractQuery
+class Recipient extends AbstractQuery
 {
     /**
      * @var int

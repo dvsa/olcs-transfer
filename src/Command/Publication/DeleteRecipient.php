@@ -1,15 +1,18 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Query\Cases;
+/**
+ * Delete Recipient
+ */
+namespace Dvsa\Olcs\Transfer\Command\Publication;
 
-use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * Class Pi
- * @Transfer\RouteName("backend/cases/single/pi")
+ * @Transfer\RouteName("backend/publication/recipient")
+ * @Transfer\Method("DELETE")
  */
-class Pi extends AbstractQuery
+final class DeleteRecipient extends AbstractCommand
 {
     /**
      * @var int
