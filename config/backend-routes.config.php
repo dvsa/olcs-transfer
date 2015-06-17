@@ -405,6 +405,17 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateTaAuthority::class)
                                 ]
                             ],
+                            'short-notice' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'short-notice[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Bus\ShortNoticeByBusReg::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateShortNotice::class)
+                                ]
+                            ],
                         ]
                     ),
                 ]

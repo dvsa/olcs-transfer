@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Bus Reg
+ * Query to get short notice by Bus Reg
  */
 namespace Dvsa\Olcs\Transfer\Query\Bus;
 
@@ -10,9 +10,9 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
 
 /**
- * @Transfer\RouteName("backend/bus/single")
+ * @Transfer\RouteName("backend/bus/single/short-notice")
  */
-class BusReg extends AbstractQuery
+class ShortNoticeByBusReg extends AbstractQuery
 {
-    use FieldType\Identity;
+    use FieldType\Identity; //this is the parent bus reg id
 }

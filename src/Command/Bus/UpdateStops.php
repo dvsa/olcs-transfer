@@ -7,6 +7,7 @@ namespace Dvsa\Olcs\Transfer\Command\Bus;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
 
 /**
  * @Transfer\RouteName("backend/bus/single/stops")
@@ -14,25 +15,14 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateStops extends AbstractCommand
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $id;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $version;
+    use FieldType\Identity;
+    use FieldType\Version;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
-    public $useAllStops;
+    protected $useAllStops;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -85,22 +75,6 @@ final class UpdateStops extends AbstractCommand
      * @Transfer\Optional
      */
     protected $subsidyDetail;
-
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
 
     /**
      * @return string
