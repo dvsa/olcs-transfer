@@ -328,7 +328,17 @@ return [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'GET' => QueryConfig::getConfig(Query\Licence\LicenceDecisions::class)
+                                    'GET' => QueryConfig::getConfig(Query\Licence\LicenceDecisions::class),
+                                    'revoke' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'revoke[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'POST' => CommandConfig::getPostConfig(Command\Licence\RevokeLicence::class)
+                                        ]
+                                    ]
                                 ]
                             ]
                         ]
