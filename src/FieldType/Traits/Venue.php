@@ -1,11 +1,13 @@
 <?php
-
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
- * Identity
+ * Trait Venue
+ *
+ * @package Dvsa\Olcs\Transfer\Command\Traits\FieldType
+ * @author Valtech <uk@valtech.co.uk>
  */
-trait Identity
+trait Venue
 {
     /**
      * @var int
@@ -13,13 +15,13 @@ trait Identity
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $id;
+    protected $venue;
 
     /**
      * @return int
      */
-    public function getId()
+    public function getVenue()
     {
-        return $this->id;
+        return $this->venue;
     }
 }

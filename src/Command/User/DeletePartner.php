@@ -1,15 +1,18 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Query\Cases;
+/**
+ * Delete Partner
+ */
+namespace Dvsa\Olcs\Transfer\Command\User;
 
-use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * Class Pi
- * @Transfer\RouteName("backend/cases/single/pi")
+ * @Transfer\RouteName("backend/partner")
+ * @Transfer\Method("DELETE")
  */
-class Pi extends AbstractQuery
+final class DeletePartner extends AbstractCommand
 {
     /**
      * @var int
