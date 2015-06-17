@@ -1386,7 +1386,21 @@ $routes = [
                         Command\Cases\Hearing\CreateStay::class
                     )
                 ]
-            ]
+            ],
+            'scan' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'scan[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET'    => QueryConfig::getConfig(Query\Scan\GetSingle::class),
+                        ]
+                    )
+                ]
+            ],
         ]
     ]
 ];
