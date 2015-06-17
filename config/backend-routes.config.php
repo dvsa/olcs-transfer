@@ -971,15 +971,6 @@ return [
                             'POST' => CommandConfig::getPostConfig(Command\Document\CreateLetter::class),
                         ]
                     ],
-                ]
-            ],
-            'document' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'document[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'DELETE' => CommandConfig::getDeleteConfig(Command\Document\DeleteDocument::class),
