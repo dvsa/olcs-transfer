@@ -30,13 +30,6 @@ class CreateOpposition extends AbstractCommand
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"max":255}})
-     */
-    protected $contactDetailsDescription = null;
-
-    /**
-     * @Transfer\Optional()
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $raisedDate = null;
@@ -165,39 +158,10 @@ class CreateOpposition extends AbstractCommand
     protected $notes = null;
 
     /**
-     * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"max":35}})
-     */
-    protected $forename = null;
-
-    /**
-     * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"max":35}})
-     */
-    protected $familyName = null;
-
-    /**
-     * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"max":45}})
-     */
-    protected $phone = null;
-
-    /**
-     * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\EmailAddress"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"max":60}})
-     */
-    protected $emailAddress = null;
-
-    /**
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Address")
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\ContactDetails")
      * @Transfer\Optional
      */
-    protected $opposerAddress = null;
+    protected $opposerContactDetails;
 
     /**
      * @return mixed
@@ -213,38 +177,6 @@ class CreateOpposition extends AbstractCommand
     public function getCase()
     {
         return $this->case;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getContactDetailsDescription()
-    {
-        return $this->contactDetailsDescription;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEmailAddress()
-    {
-        return $this->emailAddress;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFamilyName()
-    {
-        return $this->familyName;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getForename()
-    {
-        return $this->forename;
     }
 
     /**
@@ -314,9 +246,9 @@ class CreateOpposition extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getOpposerAddress()
+    public function getOpposerContactDetails()
     {
-        return $this->opposerAddress;
+        return $this->opposerContactDetails;
     }
 
     /**
@@ -333,14 +265,6 @@ class CreateOpposition extends AbstractCommand
     public function getOppositionType()
     {
         return $this->oppositionType;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPhone()
-    {
-        return $this->phone;
     }
 
     /**
@@ -366,6 +290,4 @@ class CreateOpposition extends AbstractCommand
     {
         return $this->validNotes;
     }
-
-
 }

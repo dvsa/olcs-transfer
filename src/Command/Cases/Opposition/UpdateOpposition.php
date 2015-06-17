@@ -11,6 +11,19 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class UpdateOpposition extends AbstractCommand
 {
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $id;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $version;
 
     /**
      * @Transfer\Optional()
@@ -22,13 +35,6 @@ class UpdateOpposition extends AbstractCommand
      * )
      */
     protected $oppositionType;
-
-    /**
-     * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"max":255}})
-     */
-    protected $contactDetailsDescription = null;
 
     /**
      * @Transfer\Optional()
@@ -52,7 +58,7 @@ class UpdateOpposition extends AbstractCommand
      * @Transfer\Validator(
      *  {
      *      "name":"Zend\Validator\InArray",
-     *      "options": {"haystack": {"opp_yes","opp_v_no","opp_v_nd"}}
+     *      "options": {"haystack": {"opp_v_yes","opp_v_no","opp_v_nd"}}
      *  }
      * )
      */
@@ -139,6 +145,7 @@ class UpdateOpposition extends AbstractCommand
     protected $applicationOperatingCentres;
 
     /**
+     * @Transfer\ArrayInput
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
@@ -159,33 +166,26 @@ class UpdateOpposition extends AbstractCommand
     protected $notes = null;
 
     /**
-     * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"max":35}})
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\ContactDetails")
+     * @Transfer\Optional
      */
-    protected $forename = null;
+    protected $opposerContactDetails;
 
     /**
-     * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"max":35}})
+     * @return mixed
      */
-    protected $familyName = null;
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
-     * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"max":45}})
+     * @return mixed
      */
-    protected $phone = null;
-
-    /**
-     * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\EmailAddress"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"max":60}})
-     */
-    protected $emailAddress = null;
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return mixed
@@ -193,38 +193,6 @@ class UpdateOpposition extends AbstractCommand
     public function getApplicationOperatingCentres()
     {
         return $this->applicationOperatingCentres;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getContactDetailsDescription()
-    {
-        return $this->contactDetailsDescription;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getEmailAddress()
-    {
-        return $this->emailAddress;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFamilyName()
-    {
-        return $this->familyName;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getForename()
-    {
-        return $this->forename;
     }
 
     /**
@@ -294,6 +262,14 @@ class UpdateOpposition extends AbstractCommand
     /**
      * @return mixed
      */
+    public function getOpposerContactDetails()
+    {
+        return $this->opposerContactDetails;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getOpposerType()
     {
         return $this->opposerType;
@@ -305,14 +281,6 @@ class UpdateOpposition extends AbstractCommand
     public function getOppositionType()
     {
         return $this->oppositionType;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPhone()
-    {
-        return $this->phone;
     }
 
     /**
@@ -338,6 +306,4 @@ class UpdateOpposition extends AbstractCommand
     {
         return $this->validNotes;
     }
-
-
 }
