@@ -39,7 +39,9 @@ class CreateOpposition extends AbstractCommand
      * @Transfer\Validator(
      *  {
      *      "name":"Zend\Validator\InArray",
-     *      "options": {"haystack": {"obj_t_local_auth", "obj_t_other", "obj_t_police", "obj_t_rta", "obj_t_trade_union"}}
+     *      "options": {"haystack": {"obj_t_local_auth", "obj_t_other", "obj_t_police", "obj_t_rta",
+     *                  "obj_t_trade_union"
+     *      }}
      *  }
      * )
      */

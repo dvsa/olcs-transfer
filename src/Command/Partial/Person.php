@@ -124,6 +124,4 @@ class Person
     {
         return $this->version;
     }
-
-
 }
