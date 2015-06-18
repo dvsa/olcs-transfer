@@ -1398,7 +1398,17 @@ $routes = [
                         [
                             'GET'    => QueryConfig::getConfig(Query\Scan\GetSingle::class),
                         ]
-                    )
+                    ),
+                    'create-document' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'create-document[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Scan\CreateDocument::class),
+                        ]
+                    ],
                 ]
             ],
         ]
