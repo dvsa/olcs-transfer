@@ -229,6 +229,16 @@ return [
                                     ),
                                 ]
                             ],
+                            'transport-managers' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'transport-managers[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\TransportManagers::class),
+                                ]
+                            ]
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -268,6 +278,18 @@ return [
                                     'GET' => QueryConfig::getConfig(Query\Licence\Addresses::class),
                                     'PUT' => CommandConfig::getPutConfig(Command\Variation\UpdateAddresses::class),
                                 ]
+                            ],
+                            'transport-manager-delete-delta' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'transport-manager-delete-delta[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Variation\TransportManagerDeleteDelta::class
+                                    ),
+                                ],
                             ]
                         ]
                     ),
@@ -346,6 +368,16 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(
                                         Command\Licence\UpdateSafety::class
                                     ),
+                                ]
+                            ],
+                            'transport-managers' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'transport-managers[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\TransportManagers::class),
                                 ]
                             ],
                         ]
@@ -513,7 +545,17 @@ return [
                     ),
                     'DELETE' => CommandConfig::getDeleteConfig(
                         Command\PreviousConviction\DeletePreviousConviction::class
-                    )
+                    ),
+                    'tma' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'tma[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\PreviousConviction\CreateForTma::class),
+                        ]
+                    ],
                 ]
             ],
             'irfo' => [
@@ -721,10 +763,40 @@ return [
                         [
                             'GET' => QueryConfig::getConfig(Query\OtherLicence\OtherLicence::class),
                             'PUT' => CommandConfig::getPutConfig(Command\OtherLicence\UpdateOtherLicence::class),
+                            'tma' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'tma[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\OtherLicence\UpdateForTma::class),
+                                ]
+                            ]
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateOtherLicence::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\OtherLicence\DeleteOtherLicence::class),
+                    'previous-licence' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'previous-licence[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreatePreviousLicence::class),
+                        ]
+                    ],
+                    'tma' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'tma[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateForTma::class),
+                        ]
+                    ],
                 ]
             ],
             'impoundings' => [
@@ -995,6 +1067,95 @@ return [
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Document\CreateDocument::class),
+                ]
+            ],
+            'transport-manager-application' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'transport-manager-application[/]',
+                    'defaults' => [
+                        'id' => null
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\TransportManagerApplication\GetDetails::class),
+                            'update-status' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'update-status[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\TransportManagerApplication\UpdateStatus::class
+                                    ),
+                                ]
+                            ],
+                            'update-details' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'update-details[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\TransportManagerApplication\UpdateDetails::class
+                                    ),
+                                ]
+                            ],
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\TransportManagerApplication\Create::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\TransportManagerApplication\Delete::class),
+                ]
+            ],
+            'user' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'user[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\User\User::class),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\User\UserList::class),
+                ]
+            ],
+            'person' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'person[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\Person\Update::class),
+                        ]
+                    ),
+                ]
+            ],
+            'tm-employment' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'tm-employment[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\TmEmployment\GetSingle::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\TmEmployment\Update::class),
+                        ]
+                    ),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\TmEmployment\DeleteList::class),
+                    'POST' => CommandConfig::getPostConfig(Command\TmEmployment\Create::class),
                 ]
             ],
         ]

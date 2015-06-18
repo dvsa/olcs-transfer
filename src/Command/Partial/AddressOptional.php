@@ -5,14 +5,13 @@ namespace Dvsa\Olcs\Transfer\Command\Partial;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * Address partial
+ * Address partial all properties are optional
  *
- * @author Rob Caiger <rob@clocal.co.uk>
+ * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-class Address
+class AddressOptional
 {
     /**
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -21,7 +20,6 @@ class Address
     protected $id;
 
     /**
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -31,6 +29,7 @@ class Address
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
      */
     public $addressLine1;
 
@@ -54,17 +53,20 @@ class Address
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
      */
     public $town;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
      */
     public $postcode;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 0, "max": 2}})
+     * @Transfer\Optional
      */
     public $countryCode;
 
