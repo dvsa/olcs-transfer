@@ -42,6 +42,13 @@ class ContactDetails
     public $emailAddress;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":5,"max":255}})
+     * @Transfer\Optional
+     */
+    public $description;
+
+    /**
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Address")
      * @Transfer\Optional
      */
@@ -54,6 +61,14 @@ class ContactDetails
      * @Transfer\Optional
      */
     protected $phoneContacts;
+
+    /**
+     * @Transfer\ArrayInput
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Person")
+     * @Transfer\Optional
+     */
+    protected $person;
 
     /**
      * @return mixed
@@ -93,5 +108,13 @@ class ContactDetails
     public function getPhoneContacts()
     {
         return $this->phoneContacts;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPerson()
+    {
+        return $this->person;
     }
 }
