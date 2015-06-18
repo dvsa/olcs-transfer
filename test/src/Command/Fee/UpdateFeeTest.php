@@ -6,7 +6,7 @@ use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Fee\UpdateFee;
 
 /**
- * Update Business Type test
+ * Update Fee test
  */
 class UpdateFeeTest extends PHPUnit_Framework_TestCase
 {

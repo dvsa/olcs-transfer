@@ -17,6 +17,13 @@ class PayOutstandingFeesTest extends PHPUnit_Framework_TestCase
             'organisationId' => 69,
             'cpmsRedirectUrl' => 'http://olcs-selfserve/foo',
             'paymentMethod' => 'fpm_card_online',
+            'received' => '1234.56',
+            'receiptDate' => '2015-06-18',
+            'payer' => 'Dan',
+            'slipNo' => '1234',
+            'chequeNo' => '2345',
+            'chequeDate' => '2015-06-17',
+            'poNo' => '3456',
         ];
 
         $command = PayOutstandingFees::create($data);
@@ -25,5 +32,12 @@ class PayOutstandingFeesTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(69, $command->getOrganisationId());
         $this->assertEquals('http://olcs-selfserve/foo', $command->getCpmsRedirectUrl());
         $this->assertEquals('fpm_card_online', $command->getPaymentMethod());
+        $this->assertEquals('1234.56', $command->getReceived());
+        $this->assertEquals('2015-06-18', $command->getReceiptDate());
+        $this->assertEquals('Dan', $command->getPayer());
+        $this->assertEquals('1234', $command->getSlipNo());
+        $this->assertEquals('2345', $command->getChequeNo());
+        $this->assertEquals('2015-06-17', $command->getChequeDate());
+        $this->assertEquals('3456', $command->getPoNo());
     }
 }
