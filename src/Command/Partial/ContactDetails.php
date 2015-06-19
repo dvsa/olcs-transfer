@@ -64,7 +64,6 @@ class ContactDetails
 
     /**
      * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Person")
      * @Transfer\Optional
      */
