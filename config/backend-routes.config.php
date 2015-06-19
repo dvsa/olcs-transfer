@@ -838,6 +838,45 @@ return [
                                 ),
                         ]
                     ],
+                    'void' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'void[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' =>
+                                CommandConfig::getPostConfig(
+                                    Command\CommunityLic\Void::class
+                                ),
+                        ]
+                    ],
+                    'restore' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'restore[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' =>
+                                CommandConfig::getPostConfig(
+                                    Command\CommunityLic\Restore::class
+                                ),
+                        ]
+                    ],
+                    'stop' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'stop[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' =>
+                                CommandConfig::getPostConfig(
+                                    Command\CommunityLic\Stop::class
+                                ),
+                        ]
+                    ],
                 ],
             ],
             'complaint' => [
