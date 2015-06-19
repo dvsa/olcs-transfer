@@ -10,7 +10,7 @@ return [
     'statement' => [
         'type' => 'Segment',
         'options' => [
-            'route' => 'cases/:case/statement[/]',
+            'route' => 'statement[/]',
         ],
         'may_terminate' => false,
         'child_routes' => [
