@@ -4,18 +4,19 @@ namespace Dvsa\Olcs\Transfer\Command\Cases\Statement;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\FieldType as FieldType;
 
 /**
  * @Transfer\RouteName("backend/statement")
- * @Transfer\Method("POST")
+ * @Transfer\Method("PUT")
  */
-class CreateStatement extends AbstractCommand
+class UpdateStatement extends AbstractCommand implements
+    FieldType\IdentityInterface,
+    FieldType\VersionInterface
 {
-    /**
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $case = null;
+    // Identity & Locking
+    use FieldType\Traits\Identity;
+    use FieldType\Traits\Version;
 
     /**
      * @Transfer\Validator(
@@ -77,14 +78,6 @@ class CreateStatement extends AbstractCommand
     public function getAuthorisersDecision()
     {
         return $this->authorisersDecision;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCase()
-    {
-        return $this->case;
     }
 
     /**
