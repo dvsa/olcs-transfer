@@ -898,6 +898,31 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Impounding\CreateImpounding::class),
                 ]
             ],
+            'propose-to-revoke' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'propose-to-revoke[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'case' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'case/:case[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Cases\ProposeToRevoke\ProposeToRevokeByCase::class),
+                        ]
+                    ],
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\ProposeToRevoke\CreateProposeToRevoke::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\ProposeToRevoke\UpdateProposeToRevoke::class),
+                        ]
+                    )
+                ]
+            ],
             'complaint' => [
                 'type' => 'Segment',
                 'options' => [
