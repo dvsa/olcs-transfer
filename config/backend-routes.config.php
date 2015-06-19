@@ -269,6 +269,16 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\GoodsVehicles::class),
                                 ]
                             ],
+                            'vehicles' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'vehicles[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\UpdateVehicles::class),
+                                ]
+                            ],
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
