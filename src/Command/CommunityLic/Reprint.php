@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Community Licence / Void
+ * Community Licence / Reprint
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
@@ -11,10 +11,10 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/community-lic/void")
+ * @Transfer\RouteName("backend/community-lic/reprint")
  * @Transfer\Method("POST")
  */
-final class Void extends AbstractCommand
+final class Reprint extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -30,11 +30,6 @@ final class Void extends AbstractCommand
      */
     public $communityLicenceIds;
 
-    /**
-     * @Transfer\Optional
-     */
-    public $checkOfficeCopy;
-
     public function getLicence()
     {
         return $this->licence;
@@ -43,10 +38,5 @@ final class Void extends AbstractCommand
     public function getCommunityLicenceIds()
     {
         return $this->communityLicenceIds;
-    }
-
-    public function getCheckOfficeCopy()
-    {
-        return $this->checkOfficeCopy;
     }
 }

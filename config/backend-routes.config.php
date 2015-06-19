@@ -1028,6 +1028,19 @@ return [
                                 ),
                         ]
                     ],
+                    'reprint' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'reprint[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' =>
+                                CommandConfig::getPostConfig(
+                                    Command\CommunityLic\Reprint::class
+                                ),
+                        ]
+                    ],
                 ],
             ],
             'complaint' => [
