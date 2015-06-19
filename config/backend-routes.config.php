@@ -1148,6 +1148,37 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Document\CreateDocument::class),
                 ]
             ],
+            'scan' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'scan[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'separator-sheet' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'separator-sheet[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Scan\CreateSeparatorSheet::class),
+                        ],
+                    ],
+                    'continuation-separator-sheet' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'continuation-separator-sheet[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(
+                                Command\Scan\CreateContinuationSeparatorSheet::class
+                            ),
+                        ],
+                    ],
+                ]
+            ],
             'transport-manager-application' => [
                 'type' => 'Segment',
                 'options' => [
