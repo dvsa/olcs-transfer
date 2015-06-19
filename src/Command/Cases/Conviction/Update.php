@@ -24,7 +24,11 @@ class Update extends AbstractCommand
     use FieldType\Traits\Cases;
     use FieldType\Traits\DefendantType;
     use FieldType\Traits\TransportManagerOptional;
-    use FieldType\Traits\ConvictionCategory;
+
+    /**
+     * Optional due to business rule of category - other.
+     */
+    use FieldType\Traits\ConvictionCategoryOptional;
 
     /**
      * @var string
@@ -47,6 +51,15 @@ class Update extends AbstractCommand
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $birthDate = null;
+
+    /**
+     * @var string
+     *
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":255}})
+     */
+    protected $categoryText;
 
     /**
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
@@ -170,6 +183,14 @@ class Update extends AbstractCommand
     public function getBirthDate()
     {
         return $this->birthDate;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCategoryText()
+    {
+        return $this->categoryText;
     }
 
     /**

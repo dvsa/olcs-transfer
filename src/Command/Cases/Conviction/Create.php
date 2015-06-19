@@ -43,6 +43,15 @@ class Create extends AbstractCommand
     protected $birthDate = null;
 
     /**
+     * @var string
+     *
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":255}})
+     */
+    protected $categoryText;
+
+    /**
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $offenceDate = null;
@@ -164,6 +173,14 @@ class Create extends AbstractCommand
     public function getBirthDate()
     {
         return $this->birthDate;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCategoryText()
+    {
+        return $this->categoryText;
     }
 
     /**

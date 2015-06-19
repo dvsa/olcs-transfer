@@ -1282,6 +1282,16 @@ return [
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Opposition\CreateOpposition::class)
                 ]
+            ],
+            'bus-reg-history' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'bus-reg-history[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Bus\HistoryList::class)
+                ]
             ]
         ]
     ]
