@@ -238,7 +238,17 @@ $routes = [
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Application\TransportManagers::class),
                                 ]
-                            ]
+                            ],
+                            'outstanding-fees' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'outstanding-fees[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\OutstandingFees::class),
+                                ]
+                            ],
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
