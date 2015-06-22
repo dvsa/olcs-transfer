@@ -404,6 +404,26 @@ return [
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\Licence\Licence::class),
+                            'decisions' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'decisions[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\LicenceDecisions::class),
+                                    'revoke' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'revoke[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'POST' => CommandConfig::getPostConfig(Command\Licence\RevokeLicence::class)
+                                        ]
+                                    ]
+                                ]
+                            ],
                             'type-of-licence' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -437,26 +457,6 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(
                                         Command\Licence\UpdateSafety::class
                                     ),
-                                ]
-                            ],
-                            'decisions' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'decisions[/]'
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'GET' => QueryConfig::getConfig(Query\Licence\LicenceDecisions::class),
-                                    'revoke' => [
-                                        'type' => 'Segment',
-                                        'options' => [
-                                            'route' => 'revoke[/]',
-                                        ],
-                                        'may_terminate' => false,
-                                        'child_routes' => [
-                                            'POST' => CommandConfig::getPostConfig(Command\Licence\RevokeLicence::class)
-                                        ]
-                                    ]
                                 ]
                             ],
                             'transport-managers' => [
@@ -938,7 +938,7 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Complaint\CreateComplaint::class)
                 ]
             ],
-            'conviction' => [
+             'conviction' => [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'conviction[/]',
