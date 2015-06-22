@@ -31,6 +31,14 @@ final class PayOutstandingFees extends AbstractCommand
 
     /**
      * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $applicationId;
+
+    /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
     protected $cpmsRedirectUrl;
@@ -107,6 +115,14 @@ final class PayOutstandingFees extends AbstractCommand
     public function getOrganisationId()
     {
         return $this->organisationId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getApplicationId()
+    {
+        return $this->applicationId;
     }
 
     /**

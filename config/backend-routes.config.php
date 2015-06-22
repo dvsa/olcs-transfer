@@ -249,6 +249,16 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\OutstandingFees::class),
                                 ]
                             ],
+                            'submit' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'submit[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\SubmitApplication::class),
+                                ]
+                            ],
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -337,7 +347,7 @@ $routes = [
                                         Command\Variation\TransportManagerDeleteDelta::class
                                     ),
                                 ],
-                            ]
+                            ],
                         ]
                     ),
                 ]
