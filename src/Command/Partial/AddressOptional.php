@@ -5,70 +5,70 @@ namespace Dvsa\Olcs\Transfer\Command\Partial;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * Contact Details partial
+ * Address partial all properties are optional
  *
- * @author Rob Caiger <rob@clocal.co.uk>
+ * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-class ContactDetails
+class AddressOptional
 {
     /**
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
      */
     protected $id;
 
     /**
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
      */
     protected $version;
 
     /**
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     */
-    protected $fao;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\EmailAddress"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":5,"max":255}})
      * @Transfer\Optional
      */
-    public $emailAddress;
+    public $addressLine1;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":5,"max":255}})
      * @Transfer\Optional
      */
-    public $description;
+    public $addressLine2;
 
     /**
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Address")
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Optional
      */
-    protected $address;
+    public $addressLine3;
 
     /**
-     * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\PhoneContact")
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Optional
      */
-    protected $phoneContacts;
+    public $addressLine4;
 
     /**
-     * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Person")
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Optional
      */
-    protected $person;
+    public $town;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
+     */
+    public $postcode;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 0, "max": 2}})
+     * @Transfer\Optional
+     */
+    public $countryCode;
 
     /**
      * @return mixed
@@ -89,32 +89,56 @@ class ContactDetails
     /**
      * @return mixed
      */
-    public function getEmailAddress()
+    public function getAddressLine1()
     {
-        return $this->emailAddress;
+        return $this->addressLine1;
     }
 
     /**
      * @return mixed
      */
-    public function getAddress()
+    public function getAddressLine2()
     {
-        return $this->address;
+        return $this->addressLine2;
     }
 
     /**
      * @return mixed
      */
-    public function getPhoneContacts()
+    public function getAddressLine3()
     {
-        return $this->phoneContacts;
+        return $this->addressLine3;
     }
 
     /**
      * @return mixed
      */
-    public function getPerson()
+    public function getAddressLine4()
     {
-        return $this->person;
+        return $this->addressLine4;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTown()
+    {
+        return $this->town;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPostcode()
+    {
+        return $this->postcode;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCountryCode()
+    {
+        return $this->countryCode;
     }
 }
