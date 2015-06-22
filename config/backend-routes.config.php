@@ -55,6 +55,23 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\CreateCase::class),
                 ]
             ],
+            'annual-test-history' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'cases/:case/annual-test-history[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Cases\AnnualTestHistory::class),
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\UpdateAnnualTestHistory::class
+                            ),
+                        ]
+                    ),
+                ]
+            ],
             'legacy-offence' => [
                 'type' => 'Segment',
                 'options' => [
