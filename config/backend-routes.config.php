@@ -878,17 +878,17 @@ $routes = [
                     ],
                 ]
             ],
-            'impoundings' => [
+            'impounding' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => 'cases/:case/impoundings[/]',
+                    'route' => 'impounding[/]',
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Cases\ImpoundingList::class),
+                    'GET' => QueryConfig::getConfig(Query\Cases\Impounding\ImpoundingList::class),
                     'single' => RouteConfig::getSingleConfig(
                         [
-                            'GET' => QueryConfig::getConfig(Query\Cases\Impounding::class),
+                            'GET' => QueryConfig::getConfig(Query\Cases\Impounding\Impounding::class),
                             'PUT' => CommandConfig::getPutConfig(Command\Cases\Impounding\UpdateImpounding::class),
                             'DELETE' => CommandConfig::getDeleteConfig(
                                 Command\Cases\Impounding\DeleteImpounding::class
