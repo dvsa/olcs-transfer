@@ -27,6 +27,7 @@ return [
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\Cases\Cases::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\UpdateCase::class),
                             'pi' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -50,7 +51,8 @@ return [
                                 ]
                             ]
                         ]
-                    )
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\CreateCase::class),
                 ]
             ],
             'legacy-offence' => [
