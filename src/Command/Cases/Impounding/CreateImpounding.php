@@ -50,7 +50,7 @@ class CreateImpounding extends AbstractCommand
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d H:i:s"}})
      */
     protected $hearingDate = null;
 

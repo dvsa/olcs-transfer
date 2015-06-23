@@ -1,6 +1,6 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Query\Cases;
+namespace Dvsa\Olcs\Transfer\Query\Cases\Statement;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -10,10 +10,10 @@ use Dvsa\Olcs\Transfer\Query\PagedTrait;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 
 /**
- * Class ImpoundingList
- * @Transfer\RouteName("backend/impoundings")
+ * Class StatementList
+ * @Transfer\RouteName("backend/statement")
  */
-class ImpoundingList extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
+class StatementList extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
 {
     use PagedTrait;
     use OrderedTrait;
