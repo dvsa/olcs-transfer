@@ -6,7 +6,7 @@ use Dvsa\Olcs\Transfer\Router\CommandConfig;
 use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
 
-return [
+$routes = [
     'api' => [
         'type' => 'Literal',
         'options' => [
@@ -908,24 +908,31 @@ return [
                     ],
                 ]
             ],
-            'impoundings' => [
+            'propose-to-revoke' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => 'cases/:case/impoundings[/]',
+                    'route' => 'propose-to-revoke[/]',
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Cases\ImpoundingList::class),
+                    'case' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'case/:case[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Cases\ProposeToRevoke\ProposeToRevokeByCase::class),
+                        ]
+                    ],
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\ProposeToRevoke\CreateProposeToRevoke::class),
                     'single' => RouteConfig::getSingleConfig(
                         [
-                            'GET' => QueryConfig::getConfig(Query\Cases\Impounding::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Impounding\UpdateImpounding::class),
-                            'DELETE' => CommandConfig::getDeleteConfig(
-                                Command\Cases\Impounding\DeleteImpounding::class
-                            )
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\ProposeToRevoke\UpdateProposeToRevoke::class
+                            ),
                         ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(Command\Cases\Impounding\CreateImpounding::class),
+                    )
                 ]
             ],
             'complaint' => [
@@ -1370,7 +1377,72 @@ return [
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Bus\HistoryList::class)
                 ]
-            ]
+            ],
+            'appeal' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'cases/:case/appeal[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(
+                        Query\Cases\Hearing\AppealList::class
+                    ),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                        'GET' => QueryConfig::getConfig(
+                            Query\Cases\Hearing\Appeal::class
+                        ),
+                        'PUT' => CommandConfig::getPutConfig(
+                            Command\Cases\Hearing\UpdateAppeal::class
+                        ),
+                        'DELETE' => CommandConfig::getDeleteConfig(
+                            Command\Cases\Hearing\DeleteAppeal::class
+                        )
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(
+                        Command\Cases\Hearing\CreateAppeal::class
+                    )
+                ]
+            ],
+            'stay' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'cases/:case/stay[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(
+                        Query\Cases\Hearing\StayList::class
+                    ),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(
+                                Query\Cases\Hearing\Stay::class
+                            ),
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\Hearing\UpdateStay::class
+                            ),
+                            'DELETE' => CommandConfig::getDeleteConfig(
+                                Command\Cases\Hearing\DeleteStay::class
+                            )
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(
+                        Command\Cases\Hearing\CreateStay::class
+                    )
+                ]
+            ],
         ]
     ]
 ];
+
+$files = array_merge(glob(__DIR__ . '/backend-routes/*/*.php'), glob(__DIR__ . '/backend-routes/*.php'));
+
+foreach ($files as $config) {
+    $newRoute = include $config;
+    $routes['api']['child_routes'][key($newRoute)] = current($newRoute);
+}
+
+return $routes;
