@@ -10,7 +10,7 @@ use Dvsa\Olcs\Transfer\FieldType;
 /**
  * Class non-pi
  *
- * @Transfer\RouteName("backend/non-pi/single")
+ * @Transfer\RouteName("backend/non-pi/named-single")
  */
 class Single extends AbstractQuery
 {
