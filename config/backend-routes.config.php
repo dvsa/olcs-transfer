@@ -1043,6 +1043,31 @@ return [
                     ],
                 ],
             ],
+            'propose-to-revoke' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'propose-to-revoke[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'case' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'case/:case[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Cases\ProposeToRevoke\ProposeToRevokeByCase::class),
+                        ]
+                    ],
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\ProposeToRevoke\CreateProposeToRevoke::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\ProposeToRevoke\UpdateProposeToRevoke::class),
+                        ]
+                    )
+                ]
+            ],
             'complaint' => [
                 'type' => 'Segment',
                 'options' => [
@@ -1293,6 +1318,37 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Document\CreateDocument::class),
                 ]
             ],
+            'scan' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'scan[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'separator-sheet' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'separator-sheet[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Scan\CreateSeparatorSheet::class),
+                        ],
+                    ],
+                    'continuation-separator-sheet' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'continuation-separator-sheet[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(
+                                Command\Scan\CreateContinuationSeparatorSheet::class
+                            ),
+                        ],
+                    ],
+                ]
+            ],
             'transport-manager-application' => [
                 'type' => 'Segment',
                 'options' => [
@@ -1427,7 +1483,73 @@ return [
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Opposition\CreateOpposition::class)
                 ]
-            ]
+            ],
+            'bus-reg-history' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'bus-reg-history[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Bus\HistoryList::class)
+                ]
+            ],
+            'appeal' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'cases/:case/appeal[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(
+                            Query\Cases\Hearing\AppealList::class
+                        ),
+                    'single' => RouteConfig::getSingleConfig(
+                            [
+                                'GET' => QueryConfig::getConfig(
+                                        Query\Cases\Hearing\Appeal::class
+                                    ),
+                                'PUT' => CommandConfig::getPutConfig(
+                                        Command\Cases\Hearing\UpdateAppeal::class
+                                    ),
+                                'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Cases\Hearing\DeleteAppeal::class
+                                    )
+                            ]
+                        ),
+                    'POST' => CommandConfig::getPostConfig(
+                            Command\Cases\Hearing\CreateAppeal::class
+                        )
+                ]
+            ],
+            'stay' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'cases/:case/stay[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(
+                            Query\Cases\Hearing\StayList::class
+                        ),
+                    'single' => RouteConfig::getSingleConfig(
+                            [
+                                'GET' => QueryConfig::getConfig(
+                                        Query\Cases\Hearing\Stay::class
+                                    ),
+                                'PUT' => CommandConfig::getPutConfig(
+                                        Command\Cases\Hearing\UpdateStay::class
+                                    ),
+                                'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Cases\Hearing\DeleteStay::class
+                                    )
+                            ]
+                        ),
+                    'POST' => CommandConfig::getPostConfig(
+                            Command\Cases\Hearing\CreateStay::class
+                        )
+                ]
+            ],
         ]
     ]
 ];
