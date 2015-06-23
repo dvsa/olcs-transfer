@@ -1282,62 +1282,6 @@ $routes = [
                     'GET' => QueryConfig::getConfig(Query\Bus\HistoryList::class)
                 ]
             ],
-            'appeal' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases/:case/appeal[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(
-                        Query\Cases\Hearing\AppealList::class
-                    ),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(
-                                Query\Cases\Hearing\Appeal::class
-                            ),
-                            'PUT' => CommandConfig::getPutConfig(
-                                Command\Cases\Hearing\UpdateAppeal::class
-                            ),
-                            'DELETE' => CommandConfig::getDeleteConfig(
-                                Command\Cases\Hearing\DeleteAppeal::class
-                            )
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(
-                        Command\Cases\Hearing\CreateAppeal::class
-                    )
-                ]
-            ],
-            'stay' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases/:case/stay[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(
-                        Query\Cases\Hearing\StayList::class
-                    ),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(
-                                Query\Cases\Hearing\Stay::class
-                            ),
-                            'PUT' => CommandConfig::getPutConfig(
-                                Command\Cases\Hearing\UpdateStay::class
-                            ),
-                            'DELETE' => CommandConfig::getDeleteConfig(
-                                Command\Cases\Hearing\DeleteStay::class
-                            )
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(
-                        Command\Cases\Hearing\CreateStay::class
-                    )
-                ]
-            ],
         ]
     ]
 ];
