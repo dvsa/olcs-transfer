@@ -359,5 +359,4 @@ class UpdateImpounding extends AbstractCommand
     {
         return $this->closeDate;
     }
-
 }

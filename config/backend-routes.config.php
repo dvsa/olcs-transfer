@@ -918,7 +918,9 @@ $routes = [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\ProposeToRevoke\CreateProposeToRevoke::class),
                     'single' => RouteConfig::getSingleConfig(
                         [
-                            'PUT' => CommandConfig::getPutConfig(Command\Cases\ProposeToRevoke\UpdateProposeToRevoke::class),
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\ProposeToRevoke\UpdateProposeToRevoke::class
+                            ),
                         ]
                     )
                 ]
@@ -1308,24 +1310,24 @@ $routes = [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(
-                            Query\Cases\Hearing\AppealList::class
-                        ),
+                        Query\Cases\Hearing\AppealList::class
+                    ),
                     'single' => RouteConfig::getSingleConfig(
-                            [
-                                'GET' => QueryConfig::getConfig(
-                                        Query\Cases\Hearing\Appeal::class
-                                    ),
-                                'PUT' => CommandConfig::getPutConfig(
-                                        Command\Cases\Hearing\UpdateAppeal::class
-                                    ),
-                                'DELETE' => CommandConfig::getDeleteConfig(
-                                        Command\Cases\Hearing\DeleteAppeal::class
-                                    )
-                            ]
+                        [
+                        'GET' => QueryConfig::getConfig(
+                            Query\Cases\Hearing\Appeal::class
                         ),
-                    'POST' => CommandConfig::getPostConfig(
-                            Command\Cases\Hearing\CreateAppeal::class
+                        'PUT' => CommandConfig::getPutConfig(
+                            Command\Cases\Hearing\UpdateAppeal::class
+                        ),
+                        'DELETE' => CommandConfig::getDeleteConfig(
+                            Command\Cases\Hearing\DeleteAppeal::class
                         )
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(
+                        Command\Cases\Hearing\CreateAppeal::class
+                    )
                 ]
             ],
             'stay' => [
