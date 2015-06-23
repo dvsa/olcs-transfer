@@ -1391,7 +1391,7 @@ $routes = [
     ]
 ];
 
-$files = array_merge(glob(__DIR__ . '/backend-routes.d/*/*.php'), glob(__DIR__ . '/backend-routes.d/*.php'));
+$files = array_merge(glob(__DIR__ . '/backend-routes/*/*.php'), glob(__DIR__ . '/backend-routes/*.php'));
 
 foreach ($files as $config) {
     $newRoute = include $config;
