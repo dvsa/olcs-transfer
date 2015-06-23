@@ -6,7 +6,7 @@ use Dvsa\Olcs\Transfer\Router\CommandConfig;
 use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
 
-return [
+$routes = [
     'api' => [
         'type' => 'Literal',
         'options' => [
@@ -943,24 +943,6 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Complaint\CreateComplaint::class)
                 ]
             ],
-            'conviction' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'conviction[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET'    => QueryConfig::getConfig(Query\Cases\Conviction\ConvictionList::class),
-                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Conviction\Create::class),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET'    => QueryConfig::getConfig(Query\Cases\Conviction\Conviction::class),
-                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Conviction\Update::class),
-                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Conviction\Delete::class),
-                        ]
-                    )
-                ]
-            ],
             'prohibition' => [
                 'type' => 'Segment',
                 'options' => [
@@ -1385,26 +1367,35 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(
-                            Query\Cases\Hearing\StayList::class
-                        ),
+                        Query\Cases\Hearing\StayList::class
+                    ),
                     'single' => RouteConfig::getSingleConfig(
-                            [
-                                'GET' => QueryConfig::getConfig(
-                                        Query\Cases\Hearing\Stay::class
-                                    ),
-                                'PUT' => CommandConfig::getPutConfig(
-                                        Command\Cases\Hearing\UpdateStay::class
-                                    ),
-                                'DELETE' => CommandConfig::getDeleteConfig(
-                                        Command\Cases\Hearing\DeleteStay::class
-                                    )
-                            ]
-                        ),
+                        [
+                            'GET' => QueryConfig::getConfig(
+                                Query\Cases\Hearing\Stay::class
+                            ),
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\Hearing\UpdateStay::class
+                            ),
+                            'DELETE' => CommandConfig::getDeleteConfig(
+                                Command\Cases\Hearing\DeleteStay::class
+                            )
+                        ]
+                    ),
                     'POST' => CommandConfig::getPostConfig(
-                            Command\Cases\Hearing\CreateStay::class
-                        )
+                        Command\Cases\Hearing\CreateStay::class
+                    )
                 ]
-            ],
+            ]
         ]
     ]
 ];
+
+$files = array_merge(glob(__DIR__ . '/backend-routes/*/*.php'), glob(__DIR__ . '/backend-routes/*.php'));
+
+foreach ($files as $config) {
+    $newRoute = include $config;
+    $routes['api']['child_routes'][key($newRoute)] = current($newRoute);
+}
+
+return $routes;
