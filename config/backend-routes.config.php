@@ -81,13 +81,9 @@ $routes = [
                     'named-single' => RouteConfig::getNamedSingleConfig(
                         'application',
                         [
-                            'company-subsidiary' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'company-subsidiary[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
+                            'company-subsidiary' => RouteConfig::getRouteConfig(
+                                'company-subsidiary',
+                                [
                                     'single' => RouteConfig::getSingleConfig(
                                         [
                                             'PUT' => CommandConfig::getPutConfig(
@@ -102,14 +98,10 @@ $routes = [
                                         Command\Application\CreateCompanySubsidiary::class
                                     ),
                                 ]
-                            ],
-                            'workshop' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'workshop[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
+                            ),
+                            'workshop' => RouteConfig::getRouteConfig(
+                                'workshop',
+                                [
                                     'single' => RouteConfig::getSingleConfig(
                                         [
                                             'PUT' => CommandConfig::getPutConfig(
@@ -122,17 +114,10 @@ $routes = [
                                     ),
                                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateWorkshop::class),
                                 ]
-                            ],
-                            'goods-vehicles' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'goods-vehicles[/]',
-                                    'defaults' => [
-                                        'id' => null,
-                                    ]
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
+                            ),
+                            'goods-vehicles' => RouteConfig::getRouteConfig(
+                                'goods-vehicles',
+                                [
                                     'single' => RouteConfig::getSingleConfig(
                                         [
                                             'PUT' => CommandConfig::getPutConfig(
@@ -144,7 +129,7 @@ $routes = [
                                         Command\Application\DeleteGoodsVehicle::class
                                     )
                                 ]
-                            ],
+                            ),
                         ]
                     ),
                     'single' => RouteConfig::getSingleConfig(
@@ -398,16 +383,12 @@ $routes = [
                                     ),
                                 ],
                             ],
-                            'goods-vehicles' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'goods-vehicles[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
+                            'goods-vehicles' => RouteConfig::getRouteConfig(
+                                'goods-vehicles',
+                                [
                                     'GET' => QueryConfig::getConfig(Query\Variation\GoodsVehicles::class),
                                 ]
-                            ],
+                            ),
                         ]
                     ),
                 ]
