@@ -6,7 +6,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * @Transfer\RouteName("backend/impoundings")
+ * @Transfer\RouteName("backend/impounding/single")
  * @Transfer\Method("PUT")
  */
 class UpdateImpounding extends AbstractCommand
