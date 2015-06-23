@@ -527,6 +527,14 @@ $routes = [
                                     'POST' => CommandConfig::getPostConfig(
                                         Command\Licence\CreateGoodsVehicle::class
                                     ),
+                                    'transfer' => RouteConfig::getRouteConfig(
+                                        'transfer',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Licence\TransferVehicles::class
+                                            )
+                                        ]
+                                    )
                                 ]
                             ),
                             'document' => RouteConfig::getRouteConfig(
@@ -542,6 +550,12 @@ $routes = [
                                     )
                                 ]
                             ),
+                            'other-active-licences' => RouteConfig::getRouteConfig(
+                                'other-active-licences',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\OtherActiveLicences::class),
+                                ]
+                            )
                         ]
                     ),
                 ]
