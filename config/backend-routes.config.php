@@ -421,6 +421,16 @@ return [
                                         'child_routes' => [
                                             'POST' => CommandConfig::getPostConfig(Command\Licence\RevokeLicence::class)
                                         ]
+                                    ],
+                                    'reset-to-valid' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'reset-to-valid[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'POST' => CommandConfig::getPostConfig(Command\Licence\ResetToValid::class)
+                                        ]
                                     ]
                                 ]
                             ],
@@ -1176,13 +1186,13 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'POST' => CommandConfig::getPostConfig(Command\LicenceStatusRule\CreateLicenceStatusRule::class),
-                    /*'single' => RouteConfig::getSingleConfig(
+                    'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\LicenceStatusRule\LicenceStatusRule::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\LicenceStatusRule\UpdateLicenceStatusRule::class),
-                            'DELETE' => CommandConfig::getPutConfig(Command\LicenceStatusRule\DeleteLicenceStatusRule::class),
+//                            'PUT' => CommandConfig::getPutConfig(Command\LicenceStatusRule\UpdateLicenceStatusRule::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\LicenceStatusRule\DeleteLicenceStatusRule::class),
                         ]
-                    ),*/
+                    ),
                 ]
             ],
             'scan' => [
