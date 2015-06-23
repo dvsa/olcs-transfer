@@ -983,9 +983,13 @@ return [
                     'POST'   => CommandConfig::getPostConfig(Command\Cases\NonPi\Create::class),
                     'single' => RouteConfig::getSingleConfig(
                         [
-                            'GET'    => QueryConfig::getConfig(Query\Cases\NonPi\Single::class),
                             'PUT'    => CommandConfig::getPutConfig(Command\Cases\NonPi\Update::class),
                             'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\NonPi\Delete::class),
+                        ]
+                    ),
+                    'named-single' => RouteConfig::getNamedSingleConfig('case',
+                        [
+                            'GET'    => QueryConfig::getConfig(Query\Cases\NonPi\Single::class),
                         ]
                     )
                 ]

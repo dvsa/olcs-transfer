@@ -16,19 +16,19 @@ class Create extends AbstractCommand
     FieldType\CasesInterface
 {
     use FieldType\Traits\Cases;
-    use FieldType\Traits\NonPiType;
+    use FieldType\Traits\HearingType;
     use FieldType\Traits\VenueOptional;
     use FieldType\Traits\PresidingTCOptional;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d H:i"}})
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $agreedByTcDate;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d H:i"}})
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d H:i:s"}})
      */
     protected $hearingDate;
 
