@@ -422,6 +422,26 @@ $routes = [
                                             'POST' => CommandConfig::getPostConfig(Command\Licence\RevokeLicence::class)
                                         ]
                                     ],
+                                    'curtail' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'curtail[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'POST' => CommandConfig::getPostConfig(Command\Licence\CurtailLicence::class)
+                                        ]
+                                    ],
+                                    'suspend' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'suspend[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'POST' => CommandConfig::getPostConfig(Command\Licence\SuspendLicence::class)
+                                        ]
+                                    ],
                                     'reset-to-valid' => [
                                         'type' => 'Segment',
                                         'options' => [
@@ -1196,7 +1216,7 @@ $routes = [
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\LicenceStatusRule\LicenceStatusRule::class),
-//                            'PUT' => CommandConfig::getPutConfig(Command\LicenceStatusRule\UpdateLicenceStatusRule::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\LicenceStatusRule\UpdateLicenceStatusRule::class),
                             'DELETE' => CommandConfig::getDeleteConfig(Command\LicenceStatusRule\DeleteLicenceStatusRule::class),
                         ]
                     ),
