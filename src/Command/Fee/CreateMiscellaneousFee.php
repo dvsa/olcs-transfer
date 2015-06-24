@@ -21,10 +21,20 @@ final class CreateMiscellaneousFee extends AbstractCommand implements FieldType\
 {
     use FieldTypeTraits\User;
 
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money"})
+     */
     protected $amount;
 
+    /**
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     */
     protected $invoicedDate;
 
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     */
     protected $feeType;
 
     /**
