@@ -6,7 +6,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * @Transfer\RouteName("backend/impoundings")
+ * @Transfer\RouteName("backend/impounding/single")
  * @Transfer\Method("PUT")
  */
 class UpdateImpounding extends AbstractCommand
@@ -58,7 +58,7 @@ class UpdateImpounding extends AbstractCommand
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d H:i:s"}})
      */
     protected $hearingDate = null;
 
@@ -359,5 +359,4 @@ class UpdateImpounding extends AbstractCommand
     {
         return $this->closeDate;
     }
-
 }

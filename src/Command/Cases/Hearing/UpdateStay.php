@@ -4,13 +4,20 @@ namespace Dvsa\Olcs\Transfer\Command\Cases\Hearing;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\FieldType as FieldType;
 
 /**
  * @Transfer\RouteName("backend/stay")
  * @Transfer\Method("PUT")
  */
-class UpdateStay extends AbstractCommand
+class UpdateStay extends AbstractCommand implements
+    FieldType\IdentityInterface,
+    FieldType\VersionInterface
 {
+    // Identity & Locking
+    use FieldType\Traits\Identity;
+    use FieldType\Traits\Version;
+
     /**
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
@@ -29,6 +36,7 @@ class UpdateStay extends AbstractCommand
      *      "name":"Zend\Validator\InArray",
      *      "options": {"haystack": {"stay_s_granted","stay_s_refused"}}
      *  }
+     * )
      */
     protected $outcome = null;
 
@@ -45,6 +53,7 @@ class UpdateStay extends AbstractCommand
      *      "name":"Zend\Validator\InArray",
      *      "options": {"haystack": {"Y","N"}}
      *  }
+     * )
      */
     protected $isWithdrawn = null;
 

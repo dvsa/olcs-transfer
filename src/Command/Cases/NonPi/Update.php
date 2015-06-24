@@ -22,19 +22,19 @@ class Update extends AbstractCommand
 
     // Foreign Keys
     use FieldType\Traits\CasesOptional;
-    use FieldType\Traits\NonPiTypeOptional;
+    use FieldType\Traits\HearingTypeOptional;
     use FieldType\Traits\VenueOptional;
     use FieldType\Traits\PresidingTCOptional;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d H:i"}})
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $agreedByTcDate;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d H:i"}})
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d H:i:s"}})
      */
     protected $hearingDate;
 
