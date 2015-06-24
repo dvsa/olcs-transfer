@@ -566,6 +566,17 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateTaAuthority::class)
                                 ]
                             ],
+                            'short-notice' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'short-notice[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Bus\ShortNoticeByBusReg::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateShortNotice::class)
+                                ]
+                            ],
                         ]
                     ),
                 ]
@@ -1029,24 +1040,6 @@ $routes = [
                     )
                 ]
             ],
-            'non-pi' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'non-pi[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET'    => QueryConfig::getConfig(Query\Cases\NonPi\Listing::class),
-                    'POST'   => CommandConfig::getPostConfig(Command\Cases\NonPi\Create::class),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET'    => QueryConfig::getConfig(Query\Cases\NonPi\Single::class),
-                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\NonPi\Update::class),
-                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\NonPi\Delete::class),
-                        ]
-                    )
-                ]
-            ],
             'environmental-complaint' => [
                 'type' => 'Segment',
                 'options' => [
@@ -1396,62 +1389,6 @@ $routes = [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Bus\HistoryList::class)
-                ]
-            ],
-            'appeal' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases/:case/appeal[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(
-                        Query\Cases\Hearing\AppealList::class
-                    ),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                        'GET' => QueryConfig::getConfig(
-                            Query\Cases\Hearing\Appeal::class
-                        ),
-                        'PUT' => CommandConfig::getPutConfig(
-                            Command\Cases\Hearing\UpdateAppeal::class
-                        ),
-                        'DELETE' => CommandConfig::getDeleteConfig(
-                            Command\Cases\Hearing\DeleteAppeal::class
-                        )
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(
-                        Command\Cases\Hearing\CreateAppeal::class
-                    )
-                ]
-            ],
-            'stay' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases/:case/stay[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(
-                        Query\Cases\Hearing\StayList::class
-                    ),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(
-                                Query\Cases\Hearing\Stay::class
-                            ),
-                            'PUT' => CommandConfig::getPutConfig(
-                                Command\Cases\Hearing\UpdateStay::class
-                            ),
-                            'DELETE' => CommandConfig::getDeleteConfig(
-                                Command\Cases\Hearing\DeleteStay::class
-                            )
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(
-                        Command\Cases\Hearing\CreateStay::class
-                    )
                 ]
             ],
         ]

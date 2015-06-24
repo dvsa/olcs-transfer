@@ -42,5 +42,4 @@ class Stay extends AbstractQuery
     {
         return $this->case;
     }
-
 }
