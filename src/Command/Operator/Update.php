@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Create Operator
+ * Update Operator
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
@@ -12,10 +12,26 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
  * @Transfer\RouteName("backend/operator")
- * @Transfer\Method("POST")
+ * @Transfer\Method("PUT")
  */
-final class Create extends AbstractCommand
+final class Update extends AbstractCommand
 {
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    protected $id;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    protected $version;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -68,6 +84,38 @@ final class Create extends AbstractCommand
      * @Transfer\Optional
      */
     protected $address;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    protected $personId;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    protected $personVersion;
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVersion()
+    {
+        return $this->version;
+    }
 
     /**
      * @return mixed
@@ -131,5 +179,21 @@ final class Create extends AbstractCommand
     public function getAddress()
     {
         return $this->address;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPersonId()
+    {
+        return $this->personId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPersonVersion()
+    {
+        return $this->personVersion;
     }
 }
