@@ -4,13 +4,20 @@ namespace Dvsa\Olcs\Transfer\Command\Cases\Hearing;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\FieldType as FieldType;
 
 /**
  * @Transfer\RouteName("backend/appeal")
  * @Transfer\Method("PUT")
  */
-class UpdateAppeal extends AbstractCommand
+class UpdateAppeal extends AbstractCommand implements
+    FieldType\IdentityInterface,
+    FieldType\VersionInterface
 {
+    // Identity & Locking
+    use FieldType\Traits\Identity;
+    use FieldType\Traits\Version;
+
     /**
      * @Transfer\Optional()
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
@@ -99,6 +106,7 @@ class UpdateAppeal extends AbstractCommand
      *      "name":"Zend\Validator\InArray",
      *      "options": {"haystack": {"Y","N"}}
      *  }
+     * )
      */
     protected $isWithdrawn = null;
 
@@ -107,6 +115,7 @@ class UpdateAppeal extends AbstractCommand
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $withdrawnDate = null;
+
 
     /**
      * @return mixed

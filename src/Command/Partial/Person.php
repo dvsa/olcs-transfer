@@ -27,71 +27,29 @@ class Person
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"title_dr","title_miss","title_mr","title_mrs","title_ms"}}})
      * @Transfer\Optional
      */
     protected $title;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Optional
-     */
-    protected $birthDate;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Optional
-     */
-    protected $birthPlace;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Optional
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":35}})
      */
     protected $forename;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Optional
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":35}})
      */
     protected $familyName;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\Date"})
      * @Transfer\Optional
      */
-    protected $otherName;
-
-    /**
-     * @return mixed
-     */
-    public function getBirthDate()
-    {
-        return $this->birthDate;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getBirthPlace()
-    {
-        return $this->birthPlace;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getFamilyName()
-    {
-        return $this->familyName;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getForename()
-    {
-        return $this->forename;
-    }
+    protected $birthDate;
 
     /**
      * @return mixed
@@ -104,9 +62,9 @@ class Person
     /**
      * @return mixed
      */
-    public function getOtherName()
+    public function getVersion()
     {
-        return $this->otherName;
+        return $this->version;
     }
 
     /**
@@ -120,8 +78,24 @@ class Person
     /**
      * @return mixed
      */
-    public function getVersion()
+    public function getForename()
     {
-        return $this->version;
+        return $this->forename;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getFamilyName()
+    {
+        return $this->familyName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBirthDate()
+    {
+        return $this->birthDate;
     }
 }

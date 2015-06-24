@@ -6,7 +6,7 @@ use Dvsa\Olcs\Transfer\Router\CommandConfig;
 use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
 
-return [
+$routes = [
     'api' => [
         'type' => 'Literal',
         'options' => [
@@ -238,7 +238,27 @@ return [
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Application\TransportManagers::class),
                                 ]
-                            ]
+                            ],
+                            'outstanding-fees' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'outstanding-fees[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\OutstandingFees::class),
+                                ]
+                            ],
+                            'submit' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'submit[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\SubmitApplication::class),
+                                ]
+                            ],
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -327,7 +347,7 @@ return [
                                         Command\Variation\TransportManagerDeleteDelta::class
                                     ),
                                 ],
-                            ]
+                            ],
                         ]
                     ),
                 ]
@@ -514,6 +534,17 @@ return [
                                 'may_terminate' => false,
                                 'child_routes' => [
                                     'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateTaAuthority::class)
+                                ]
+                            ],
+                            'short-notice' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'short-notice[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Bus\ShortNoticeByBusReg::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateShortNotice::class)
                                 ]
                             ],
                         ]
@@ -878,171 +909,6 @@ return [
                     ],
                 ]
             ],
-            'impoundings' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases/:case/impoundings[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Cases\ImpoundingList::class),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Cases\Impounding::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Impounding\UpdateImpounding::class),
-                            'DELETE' => CommandConfig::getDeleteConfig(
-                                Command\Cases\Impounding\DeleteImpounding::class
-                            )
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(Command\Cases\Impounding\CreateImpounding::class),
-                ]
-            ],
-            'community-lic' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'community-lic[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\CommunityLic\CommunityLic::class),
-                    'application' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'application/',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'create' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'create[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'POST' =>
-                                        CommandConfig::getPostConfig(
-                                            Command\CommunityLic\Application\Create::class
-                                        ),
-                                ]
-                            ],
-                            'create-office-copy' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'create-office-copy[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'POST' =>
-                                        CommandConfig::getPostConfig(
-                                            Command\CommunityLic\Application\CreateOfficeCopy::class
-                                        ),
-                                ]
-                            ],
-                        ]
-                    ],
-                    'licence' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'licence/',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'create' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'create[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'POST' =>
-                                        CommandConfig::getPostConfig(
-                                            Command\CommunityLic\Licence\Create::class
-                                        ),
-                                ]
-                            ],
-                            'create-office-copy' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'create-office-copy[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'POST' =>
-                                        CommandConfig::getPostConfig(
-                                            Command\CommunityLic\Licence\CreateOfficeCopy::class
-                                        ),
-                                ]
-                            ],
-                        ]
-                    ],
-                    'generate-batch' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'generate-batch[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'POST' =>
-                                CommandConfig::getPostConfig(
-                                    Command\CommunityLic\GenerateBatch::class
-                                ),
-                        ]
-                    ],
-                    'void' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'void[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'POST' =>
-                                CommandConfig::getPostConfig(
-                                    Command\CommunityLic\Void::class
-                                ),
-                        ]
-                    ],
-                    'restore' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'restore[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'POST' =>
-                                CommandConfig::getPostConfig(
-                                    Command\CommunityLic\Restore::class
-                                ),
-                        ]
-                    ],
-                    'stop' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'stop[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'POST' =>
-                                CommandConfig::getPostConfig(
-                                    Command\CommunityLic\Stop::class
-                                ),
-                        ]
-                    ],
-                    'reprint' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'reprint[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'POST' =>
-                                CommandConfig::getPostConfig(
-                                    Command\CommunityLic\Reprint::class
-                                ),
-                        ]
-                    ],
-                ],
-            ],
             'propose-to-revoke' => [
                 'type' => 'Segment',
                 'options' => [
@@ -1063,7 +929,9 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\ProposeToRevoke\CreateProposeToRevoke::class),
                     'single' => RouteConfig::getSingleConfig(
                         [
-                            'PUT' => CommandConfig::getPutConfig(Command\Cases\ProposeToRevoke\UpdateProposeToRevoke::class),
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\ProposeToRevoke\UpdateProposeToRevoke::class
+                            ),
                         ]
                     )
                 ]
@@ -1086,24 +954,6 @@ return [
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Complaint\CreateComplaint::class)
-                ]
-            ],
-            'conviction' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'conviction[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET'    => QueryConfig::getConfig(Query\Cases\Conviction\ConvictionList::class),
-                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Conviction\Create::class),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET'    => QueryConfig::getConfig(Query\Cases\Conviction\Conviction::class),
-                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Conviction\Update::class),
-                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Conviction\Delete::class),
-                        ]
-                    )
                 ]
             ],
             'prohibition' => [
@@ -1142,24 +992,6 @@ return [
                     )
                 ]
             ],
-            'non-pi' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'non-pi[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET'    => QueryConfig::getConfig(Query\Cases\NonPi\Listing::class),
-                    'POST'   => CommandConfig::getPostConfig(Command\Cases\NonPi\Create::class),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET'    => QueryConfig::getConfig(Query\Cases\NonPi\Single::class),
-                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\NonPi\Update::class),
-                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\NonPi\Delete::class),
-                        ]
-                    )
-                ]
-            ],
             'environmental-complaint' => [
                 'type' => 'Segment',
                 'options' => [
@@ -1186,6 +1018,23 @@ return [
                     'POST' => CommandConfig::getPostConfig(
                         Command\Cases\EnvironmentalComplaint\CreateEnvironmentalComplaint::class
                     )
+                ]
+            ],
+            'fee' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'fee[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Fee\Fee::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Fee\UpdateFee::class),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\Fee\FeeList::class),
+                    'POST' => CommandConfig::getPostConfig(Command\Fee\CreateMiscellaneousFee::class),
                 ]
             ],
             'grace-periods' => [
@@ -1316,37 +1165,6 @@ return [
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Document\CreateDocument::class),
-                ]
-            ],
-            'scan' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'scan[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'separator-sheet' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'separator-sheet[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'POST' => CommandConfig::getPostConfig(Command\Scan\CreateSeparatorSheet::class),
-                        ],
-                    ],
-                    'continuation-separator-sheet' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'continuation-separator-sheet[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'POST' => CommandConfig::getPostConfig(
-                                Command\Scan\CreateContinuationSeparatorSheet::class
-                            ),
-                        ],
-                    ],
                 ]
             ],
             'transport-manager-application' => [
@@ -1494,62 +1312,15 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Bus\HistoryList::class)
                 ]
             ],
-            'appeal' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases/:case/appeal[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(
-                            Query\Cases\Hearing\AppealList::class
-                        ),
-                    'single' => RouteConfig::getSingleConfig(
-                            [
-                                'GET' => QueryConfig::getConfig(
-                                        Query\Cases\Hearing\Appeal::class
-                                    ),
-                                'PUT' => CommandConfig::getPutConfig(
-                                        Command\Cases\Hearing\UpdateAppeal::class
-                                    ),
-                                'DELETE' => CommandConfig::getDeleteConfig(
-                                        Command\Cases\Hearing\DeleteAppeal::class
-                                    )
-                            ]
-                        ),
-                    'POST' => CommandConfig::getPostConfig(
-                            Command\Cases\Hearing\CreateAppeal::class
-                        )
-                ]
-            ],
-            'stay' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases/:case/stay[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(
-                            Query\Cases\Hearing\StayList::class
-                        ),
-                    'single' => RouteConfig::getSingleConfig(
-                            [
-                                'GET' => QueryConfig::getConfig(
-                                        Query\Cases\Hearing\Stay::class
-                                    ),
-                                'PUT' => CommandConfig::getPutConfig(
-                                        Command\Cases\Hearing\UpdateStay::class
-                                    ),
-                                'DELETE' => CommandConfig::getDeleteConfig(
-                                        Command\Cases\Hearing\DeleteStay::class
-                                    )
-                            ]
-                        ),
-                    'POST' => CommandConfig::getPostConfig(
-                            Command\Cases\Hearing\CreateStay::class
-                        )
-                ]
-            ],
         ]
     ]
 ];
+
+$files = array_merge(glob(__DIR__ . '/backend-routes/*/*.php'), glob(__DIR__ . '/backend-routes/*.php'));
+
+foreach ($files as $config) {
+    $newRoute = include $config;
+    $routes['api']['child_routes'][key($newRoute)] = current($newRoute);
+}
+
+return $routes;

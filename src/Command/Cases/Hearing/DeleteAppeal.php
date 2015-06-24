@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractDeleteCommand;
  * @Transfer\RouteName("backend/appeal")
  * @Transfer\Method("DELETE")
  */
-class Delete extends AbstractDeleteCommand
+class DeleteAppeal extends AbstractDeleteCommand
 {
     //
 }
