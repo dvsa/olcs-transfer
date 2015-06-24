@@ -6,7 +6,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * @Transfer\RouteName("backend/complaint")
+ * @Transfer\RouteName("backend/complaint/single")
  * @Transfer\Method("DELETE")
  */
 class DeleteComplaint extends AbstractCommand
