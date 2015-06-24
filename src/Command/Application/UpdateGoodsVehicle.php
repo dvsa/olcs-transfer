@@ -27,6 +27,7 @@ final class UpdateGoodsVehicle extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 999999}})
+     * @Transfer\Optional
      */
     protected $platedWeight;
 
@@ -34,6 +35,11 @@ final class UpdateGoodsVehicle extends AbstractCommand
      * @Transfer\Optional
      */
     protected $receivedDate;
+
+    /**
+     * @Transfer\Optional
+     */
+    protected $removalDate;
 
     /**
      * @return mixed
@@ -49,5 +55,13 @@ final class UpdateGoodsVehicle extends AbstractCommand
     public function getReceivedDate()
     {
         return $this->receivedDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getRemovalDate()
+    {
+        return $this->removalDate;
     }
 }
