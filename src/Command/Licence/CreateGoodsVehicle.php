@@ -31,6 +31,11 @@ final class CreateGoodsVehicle extends AbstractCommand
     /**
      * @Transfer\Optional
      */
+    protected $receivedDate;
+
+    /**
+     * @Transfer\Optional
+     */
     protected $specifiedDate;
 
     /**
@@ -45,6 +50,14 @@ final class CreateGoodsVehicle extends AbstractCommand
     public function getPlatedWeight()
     {
         return $this->platedWeight;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReceivedDate()
+    {
+        return $this->receivedDate;
     }
 
     /**

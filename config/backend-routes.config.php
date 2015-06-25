@@ -140,6 +140,9 @@ $routes = [
                                             ),
                                         ]
                                     ),
+                                    'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Application\DeleteGoodsVehicle::class
+                                    )
                                 ]
                             ],
                         ]
@@ -278,29 +281,34 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\SubmitApplication::class),
                                 ]
                             ],
-                            'goods-vehicles' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'goods-vehicles[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
+                            'goods-vehicles' => RouteConfig::getRouteConfig(
+                                'goods-vehicles',
+                                [
                                     'GET' => QueryConfig::getConfig(Query\Application\GoodsVehicles::class),
                                     'POST' => CommandConfig::getPostConfig(
                                         Command\Application\CreateGoodsVehicle::class
                                     ),
                                 ]
-                            ],
-                            'vehicles' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'vehicles[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
+                            ),
+                            'vehicles' => RouteConfig::getRouteConfig(
+                                'vehicles',
+                                [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\UpdateVehicles::class),
                                 ]
-                            ],
+                            ),
+                            'document' => RouteConfig::getRouteConfig(
+                                'document',
+                                [
+                                    'vehicle-list' => RouteConfig::getRouteConfig(
+                                        'vehicle-list',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Application\CreateVehicleListDocument::class
+                                            ),
+                                        ]
+                                    )
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -531,19 +539,28 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Licence\PsvDiscs::class),
                                 ]
                             ],
-                            'goods-vehicles' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'goods-vehicles[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
+                            'goods-vehicles' => RouteConfig::getRouteConfig(
+                                'goods-vehicles',
+                                [
                                     'GET' => QueryConfig::getConfig(Query\Licence\GoodsVehicles::class),
                                     'POST' => CommandConfig::getPostConfig(
                                         Command\Licence\CreateGoodsVehicle::class
                                     ),
                                 ]
-                            ],
+                            ),
+                            'document' => RouteConfig::getRouteConfig(
+                                'document',
+                                [
+                                    'vehicle-list' => RouteConfig::getRouteConfig(
+                                        'vehicle-list',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Licence\CreateVehicleListDocument::class
+                                            ),
+                                        ]
+                                    )
+                                ]
+                            ),
                         ]
                     ),
                 ]
@@ -1332,6 +1349,9 @@ $routes = [
                             ),
                         ]
                     ),
+                    'DELETE' => CommandConfig::getDeleteConfig(
+                        Command\Vehicle\DeleteGoodsVehicle::class
+                    )
                 ]
             ],
         ]

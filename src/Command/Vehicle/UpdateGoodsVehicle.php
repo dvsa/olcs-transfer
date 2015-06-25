@@ -29,10 +29,36 @@ final class UpdateGoodsVehicle extends AbstractCommand
     protected $platedWeight;
 
     /**
+     * @Transfer\Optional
+     */
+    protected $receivedDate;
+
+    /**
+     * @Transfer\Optional
+     */
+    protected $specifiedDate;
+
+    /**
      * @return mixed
      */
     public function getPlatedWeight()
     {
         return $this->platedWeight;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReceivedDate()
+    {
+        return $this->receivedDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSpecifiedDate()
+    {
+        return $this->specifiedDate;
     }
 }

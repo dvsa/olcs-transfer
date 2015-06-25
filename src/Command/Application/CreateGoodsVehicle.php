@@ -29,6 +29,11 @@ final class CreateGoodsVehicle extends AbstractCommand
     protected $platedWeight;
 
     /**
+     * @Transfer\Optional
+     */
+    protected $receivedDate;
+
+    /**
      * @Transfer\Filter({"name": "Zend\Filter\Boolean"})
      * @Transfer\Optional
      */
@@ -40,6 +45,14 @@ final class CreateGoodsVehicle extends AbstractCommand
     public function getPlatedWeight()
     {
         return $this->platedWeight;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReceivedDate()
+    {
+        return $this->receivedDate;
     }
 
     /**
