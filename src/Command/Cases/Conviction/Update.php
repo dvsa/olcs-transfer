@@ -13,15 +13,13 @@ use Dvsa\Olcs\Transfer\FieldType as FieldType;
 class Update extends AbstractCommand
     implements
     FieldType\IdentityInterface,
-    FieldType\VersionInterface,
-    FieldType\CasesInterface
+    FieldType\VersionInterface
 {
     // Identity & Locking
     use FieldType\Traits\Identity;
     use FieldType\Traits\Version;
 
     // Foreign Keys
-    use FieldType\Traits\Cases;
     use FieldType\Traits\DefendantType;
     use FieldType\Traits\TransportManagerOptional;
 
