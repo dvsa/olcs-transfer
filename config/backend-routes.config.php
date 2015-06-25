@@ -1006,7 +1006,7 @@ $routes = [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Complaint\CreateComplaint::class)
                 ]
             ],
-             'conviction' => [
+            'conviction' => [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'conviction[/]',
@@ -1250,80 +1250,6 @@ $routes = [
                             'DELETE' => CommandConfig::getDeleteConfig(Command\LicenceStatusRule\DeleteLicenceStatusRule::class),
                         ]
                     ),
-                ]
-            ],
-            'scan' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'scan[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'separator-sheet' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'separator-sheet[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'POST' => CommandConfig::getPostConfig(Command\Scan\CreateSeparatorSheet::class),
-                        ],
-                    ],
-                    'continuation-separator-sheet' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'continuation-separator-sheet[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'POST' => CommandConfig::getPostConfig(
-                                Command\Scan\CreateContinuationSeparatorSheet::class
-                            ),
-                        ],
-                    ],
-                ]
-            ],
-            'transport-manager-application' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'transport-manager-application[/]',
-                    'defaults' => [
-                        'id' => null
-                    ]
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\TransportManagerApplication\GetDetails::class),
-                            'update-status' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'update-status[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(
-                                        Command\TransportManagerApplication\UpdateStatus::class
-                                    ),
-                                ]
-                            ],
-                            'update-details' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'update-details[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(
-                                        Command\TransportManagerApplication\UpdateDetails::class
-                                    ),
-                                ]
-                            ],
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(Command\TransportManagerApplication\Create::class),
-                    'DELETE' => CommandConfig::getDeleteConfig(Command\TransportManagerApplication\Delete::class),
                 ]
             ],
             'user' => [
