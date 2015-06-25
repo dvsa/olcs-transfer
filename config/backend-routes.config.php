@@ -259,6 +259,16 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\SubmitApplication::class),
                                 ]
                             ],
+                            'goods-vehicles' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'goods-vehicles[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\GoodsVehicles::class),
+                                ]
+                            ],
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -477,6 +487,16 @@ $routes = [
                                 'may_terminate' => false,
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Licence\PsvDiscs::class),
+                                ]
+                            ],
+                            'goods-vehicles' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'goods-vehicles[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\GoodsVehicles::class),
                                 ]
                             ],
                         ]
