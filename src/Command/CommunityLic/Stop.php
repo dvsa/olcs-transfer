@@ -37,11 +37,13 @@ final class Stop extends AbstractCommand
     public $type;
 
     /**
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      * @Transfer\Optional
      */
     protected $startDate;
 
     /**
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      * @Transfer\Optional
      */
     protected $endDate;
