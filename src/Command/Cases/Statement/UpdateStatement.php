@@ -7,7 +7,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\FieldType as FieldType;
 
 /**
- * @Transfer\RouteName("backend/statement")
+ * @Transfer\RouteName("backend/statement/single")
  * @Transfer\Method("PUT")
  */
 class UpdateStatement extends AbstractCommand implements
