@@ -123,6 +123,25 @@ $routes = [
                                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateWorkshop::class),
                                 ]
                             ],
+                            'goods-vehicles' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'goods-vehicles[/]',
+                                    'defaults' => [
+                                        'id' => null,
+                                    ]
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'single' => RouteConfig::getSingleConfig(
+                                        [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\Application\UpdateGoodsVehicle::class
+                                            ),
+                                        ]
+                                    ),
+                                ]
+                            ],
                         ]
                     ),
                     'single' => RouteConfig::getSingleConfig(
@@ -267,6 +286,9 @@ $routes = [
                                 'may_terminate' => false,
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Application\GoodsVehicles::class),
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Application\CreateGoodsVehicle::class
+                                    ),
                                 ]
                             ],
                             'vehicles' => [
@@ -517,6 +539,9 @@ $routes = [
                                 'may_terminate' => false,
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Licence\GoodsVehicles::class),
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Licence\CreateGoodsVehicle::class
+                                    ),
                                 ]
                             ],
                         ]
@@ -1287,6 +1312,26 @@ $routes = [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Bus\HistoryList::class)
+                ]
+            ],
+            'licence-vehicle' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'licence-vehicle[/]',
+                    'defaults' => [
+                        'id' => null,
+                    ]
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\LicenceVehicle\LicenceVehicle::class),
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Vehicle\UpdateGoodsVehicle::class
+                            ),
+                        ]
+                    ),
                 ]
             ],
         ]
