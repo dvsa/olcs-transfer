@@ -18,6 +18,16 @@ class CreateStay extends AbstractCommand
     protected $case = null;
 
     /**
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"stay_t_tc","stay_t_ut"}}
+     *  }
+     *)
+     */
+    protected $stayType = null;
+
+    /**
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $requestDate = null;
@@ -35,6 +45,7 @@ class CreateStay extends AbstractCommand
      *      "name":"Zend\Validator\InArray",
      *      "options": {"haystack": {"stay_s_granted","stay_s_refused"}}
      *  }
+     * )
      */
     protected $outcome = null;
 
@@ -51,6 +62,7 @@ class CreateStay extends AbstractCommand
      *      "name":"Zend\Validator\InArray",
      *      "options": {"haystack": {"Y","N"}}
      *  }
+     * )
      */
     protected $isWithdrawn = null;
 
@@ -106,6 +118,14 @@ class CreateStay extends AbstractCommand
     public function getRequestDate()
     {
         return $this->requestDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStayType()
+    {
+        return $this->stayType;
     }
 
     /**

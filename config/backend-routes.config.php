@@ -257,7 +257,27 @@ $routes = [
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Application\TransportManagers::class),
                                 ]
-                            ]
+                            ],
+                            'outstanding-fees' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'outstanding-fees[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\OutstandingFees::class),
+                                ]
+                            ],
+                            'submit' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'submit[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\SubmitApplication::class),
+                                ]
+                            ],
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -346,7 +366,7 @@ $routes = [
                                         Command\Variation\TransportManagerDeleteDelta::class
                                     ),
                                 ],
-                            ]
+                            ],
                         ]
                     ),
                 ]
@@ -908,26 +928,6 @@ $routes = [
                     ],
                 ]
             ],
-            'impoundings' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases/:case/impoundings[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Cases\ImpoundingList::class),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Cases\Impounding::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Impounding\UpdateImpounding::class),
-                            'DELETE' => CommandConfig::getDeleteConfig(
-                                Command\Cases\Impounding\DeleteImpounding::class
-                            )
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(Command\Cases\Impounding\CreateImpounding::class),
-                ]
-            ],
             'propose-to-revoke' => [
                 'type' => 'Segment',
                 'options' => [
@@ -948,29 +948,11 @@ $routes = [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\ProposeToRevoke\CreateProposeToRevoke::class),
                     'single' => RouteConfig::getSingleConfig(
                         [
-                            'PUT' => CommandConfig::getPutConfig(Command\Cases\ProposeToRevoke\UpdateProposeToRevoke::class),
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\ProposeToRevoke\UpdateProposeToRevoke::class
+                            ),
                         ]
                     )
-                ]
-            ],
-            'complaint' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases/:case/complaint[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Cases\Complaint\ComplaintList::class),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Cases\Complaint\Complaint::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Complaint\UpdateComplaint::class),
-                            'DELETE' => CommandConfig::getDeleteConfig(
-                                Command\Cases\Complaint\DeleteComplaint::class
-                            )
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(Command\Cases\Complaint\CreateComplaint::class)
                 ]
             ],
             'prohibition' => [
@@ -1009,24 +991,6 @@ $routes = [
                     )
                 ]
             ],
-            'non-pi' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'non-pi[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET'    => QueryConfig::getConfig(Query\Cases\NonPi\Listing::class),
-                    'POST'   => CommandConfig::getPostConfig(Command\Cases\NonPi\Create::class),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET'    => QueryConfig::getConfig(Query\Cases\NonPi\Single::class),
-                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\NonPi\Update::class),
-                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\NonPi\Delete::class),
-                        ]
-                    )
-                ]
-            ],
             'environmental-complaint' => [
                 'type' => 'Segment',
                 'options' => [
@@ -1053,6 +1017,23 @@ $routes = [
                     'POST' => CommandConfig::getPostConfig(
                         Command\Cases\EnvironmentalComplaint\CreateEnvironmentalComplaint::class
                     )
+                ]
+            ],
+            'fee' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'fee[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Fee\Fee::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Fee\UpdateFee::class),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\Fee\FeeList::class),
+                    'POST' => CommandConfig::getPostConfig(Command\Fee\CreateMiscellaneousFee::class),
                 ]
             ],
             'grace-periods' => [
@@ -1185,80 +1166,6 @@ $routes = [
                     'POST' => CommandConfig::getPostConfig(Command\Document\CreateDocument::class),
                 ]
             ],
-            'scan' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'scan[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'separator-sheet' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'separator-sheet[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'POST' => CommandConfig::getPostConfig(Command\Scan\CreateSeparatorSheet::class),
-                        ],
-                    ],
-                    'continuation-separator-sheet' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'continuation-separator-sheet[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'POST' => CommandConfig::getPostConfig(
-                                Command\Scan\CreateContinuationSeparatorSheet::class
-                            ),
-                        ],
-                    ],
-                ]
-            ],
-            'transport-manager-application' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'transport-manager-application[/]',
-                    'defaults' => [
-                        'id' => null
-                    ]
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\TransportManagerApplication\GetDetails::class),
-                            'update-status' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'update-status[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(
-                                        Command\TransportManagerApplication\UpdateStatus::class
-                                    ),
-                                ]
-                            ],
-                            'update-details' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'update-details[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(
-                                        Command\TransportManagerApplication\UpdateDetails::class
-                                    ),
-                                ]
-                            ],
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(Command\TransportManagerApplication\Create::class),
-                    'DELETE' => CommandConfig::getDeleteConfig(Command\TransportManagerApplication\Delete::class),
-                ]
-            ],
             'user' => [
                 'type' => 'Segment',
                 'options' => [
@@ -1361,62 +1268,6 @@ $routes = [
                     'GET' => QueryConfig::getConfig(Query\Bus\HistoryList::class)
                 ]
             ],
-            'appeal' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases/:case/appeal[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(
-                            Query\Cases\Hearing\AppealList::class
-                        ),
-                    'single' => RouteConfig::getSingleConfig(
-                            [
-                                'GET' => QueryConfig::getConfig(
-                                        Query\Cases\Hearing\Appeal::class
-                                    ),
-                                'PUT' => CommandConfig::getPutConfig(
-                                        Command\Cases\Hearing\UpdateAppeal::class
-                                    ),
-                                'DELETE' => CommandConfig::getDeleteConfig(
-                                        Command\Cases\Hearing\DeleteAppeal::class
-                                    )
-                            ]
-                        ),
-                    'POST' => CommandConfig::getPostConfig(
-                            Command\Cases\Hearing\CreateAppeal::class
-                        )
-                ]
-            ],
-            'stay' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases/:case/stay[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(
-                        Query\Cases\Hearing\StayList::class
-                    ),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(
-                                Query\Cases\Hearing\Stay::class
-                            ),
-                            'PUT' => CommandConfig::getPutConfig(
-                                Command\Cases\Hearing\UpdateStay::class
-                            ),
-                            'DELETE' => CommandConfig::getDeleteConfig(
-                                Command\Cases\Hearing\DeleteStay::class
-                            )
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(
-                        Command\Cases\Hearing\CreateStay::class
-                    )
-                ]
-            ]
         ]
     ]
 ];

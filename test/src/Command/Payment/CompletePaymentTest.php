@@ -16,6 +16,7 @@ class CompletePaymentTest extends PHPUnit_Framework_TestCase
             'reference' => 'OLCS-1234-ABCD',
             'paymentMethod' => 'fpm_card_online',
             'cpmsData' => ['foo' => 'bar'],
+            'submitApplicationId' => 69,
         ];
 
         $command = CompletePayment::create($data);
@@ -23,5 +24,6 @@ class CompletePaymentTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('OLCS-1234-ABCD', $command->getReference());
         $this->assertEquals('fpm_card_online', $command->getPaymentMethod());
         $this->assertEquals(['foo' => 'bar'], $command->getCpmsData());
+        $this->assertEquals(69, $command->getSubmitApplicationId());
     }
 }
