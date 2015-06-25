@@ -936,26 +936,6 @@ $routes = [
                     )
                 ]
             ],
-            'complaint' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases/:case/complaint[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Cases\Complaint\ComplaintList::class),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Cases\Complaint\Complaint::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Complaint\UpdateComplaint::class),
-                            'DELETE' => CommandConfig::getDeleteConfig(
-                                Command\Cases\Complaint\DeleteComplaint::class
-                            )
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(Command\Cases\Complaint\CreateComplaint::class)
-                ]
-            ],
             'prohibition' => [
                 'type' => 'Segment',
                 'options' => [
@@ -1165,49 +1145,6 @@ $routes = [
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Document\CreateDocument::class),
-                ]
-            ],
-            'transport-manager-application' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'transport-manager-application[/]',
-                    'defaults' => [
-                        'id' => null
-                    ]
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\TransportManagerApplication\GetDetails::class),
-                            'update-status' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'update-status[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(
-                                        Command\TransportManagerApplication\UpdateStatus::class
-                                    ),
-                                ]
-                            ],
-                            'update-details' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'update-details[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(
-                                        Command\TransportManagerApplication\UpdateDetails::class
-                                    ),
-                                ]
-                            ],
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(Command\TransportManagerApplication\Create::class),
-                    'DELETE' => CommandConfig::getDeleteConfig(Command\TransportManagerApplication\Delete::class),
                 ]
             ],
             'user' => [
