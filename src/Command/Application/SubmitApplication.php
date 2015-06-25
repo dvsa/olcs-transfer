@@ -1,43 +1,41 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Command\Cases\Complaint;
+/**
+ * Submit Application
+ *
+ * @author Dan Eggleston <dan@stolenegg.com>
+ */
+namespace Dvsa\Olcs\Transfer\Command\Application;
 
-use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/complaint/single")
- * @Transfer\Method("DELETE")
+ * @Transfer\RouteName("backend/application/single/submit")
+ * @Transfer\Method("PUT")
  */
-class DeleteComplaint extends AbstractCommand
+final class SubmitApplication extends AbstractCommand
 {
     /**
-     * @var int
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $id = null;
+    protected $id;
 
     /**
-     * @var int
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $version = null;
+    protected $version;
 
-    /**
-     * @return mixed
-     */
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @return mixed
-     */
     public function getVersion()
     {
         return $this->version;

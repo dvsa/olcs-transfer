@@ -238,7 +238,27 @@ $routes = [
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Application\TransportManagers::class),
                                 ]
-                            ]
+                            ],
+                            'outstanding-fees' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'outstanding-fees[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\OutstandingFees::class),
+                                ]
+                            ],
+                            'submit' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'submit[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\SubmitApplication::class),
+                                ]
+                            ],
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -327,7 +347,7 @@ $routes = [
                                         Command\Variation\TransportManagerDeleteDelta::class
                                     ),
                                 ],
-                            ]
+                            ],
                         ]
                     ),
                 ]
@@ -1066,6 +1086,23 @@ $routes = [
                     'POST' => CommandConfig::getPostConfig(
                         Command\Cases\EnvironmentalComplaint\CreateEnvironmentalComplaint::class
                     )
+                ]
+            ],
+            'fee' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'fee[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Fee\Fee::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Fee\UpdateFee::class),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\Fee\FeeList::class),
+                    'POST' => CommandConfig::getPostConfig(Command\Fee\CreateMiscellaneousFee::class),
                 ]
             ],
             'grace-periods' => [

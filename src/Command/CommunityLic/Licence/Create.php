@@ -1,45 +1,42 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Command\Cases\Complaint;
+/**
+ * Create Community Licences / Licence version
+ *
+ * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
+ */
+namespace Dvsa\Olcs\Transfer\Command\CommunityLic\Licence;
 
-use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/complaint/single")
- * @Transfer\Method("DELETE")
+ * @Transfer\RouteName("backend/community-lic/licence/create")
+ * @Transfer\Method("POST")
  */
-class DeleteComplaint extends AbstractCommand
+final class Create extends AbstractCommand
 {
     /**
-     * @var int
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $id = null;
+    public $licence;
 
     /**
-     * @var int
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $version = null;
+    public $totalLicences;
 
-    /**
-     * @return mixed
-     */
-    public function getId()
+    public function getLicence()
     {
-        return $this->id;
+        return $this->licence;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getVersion()
+    public function getTotalLicences()
     {
-        return $this->version;
+        return $this->totalLicences;
     }
 }
