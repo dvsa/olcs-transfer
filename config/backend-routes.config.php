@@ -670,7 +670,17 @@ $routes = [
                                         Command\Licence\PrintLicence::class
                                     ),
                                 ]
-                            )
+                            ),
+                            'overview' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'overview[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\Overview::class),
+                                ]
+                            ],
                         ]
                     ),
                 ]
