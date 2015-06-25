@@ -894,24 +894,6 @@ $routes = [
                     ),
                 ]
             ],
-            'trailers' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'trailers[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Trailer\Trailer::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\Trailer\UpdateTrailer::class),
-                        ]
-                    ),
-                    'GET' => QueryConfig::getConfig(Query\Trailer\Trailers::class),
-                    'POST' => CommandConfig::getPostConfig(Command\Trailer\CreateTrailer::class),
-                    'DELETE' => CommandConfig::getDeleteConfig(Command\Trailer\DeleteTrailer::class),
-                ]
-            ],
             'other-licence' => [
                 'type' => 'Segment',
                 'options' => [
@@ -1105,51 +1087,6 @@ $routes = [
                     'POST' => CommandConfig::getPostConfig(Command\Fee\CreateMiscellaneousFee::class),
                 ]
             ],
-            'grace-periods' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'grace-periods[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\GracePeriod\GracePeriod::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\GracePeriod\UpdateGracePeriod::class),
-                        ]
-                    ),
-                    'GET' => QueryConfig::getConfig(Query\GracePeriod\GracePeriods::class),
-                    'POST' => CommandConfig::getPostConfig(Command\GracePeriod\CreateGracePeriod::class),
-                    'DELETE' => CommandConfig::getDeleteConfig(Command\GracePeriod\DeleteGracePeriod::class),
-                ]
-            ],
-            'correspondence' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'correspondence[/]',
-                ],
-                'may_terminate' => true,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondence::class),
-                            'access' => [
-                                'type' => 'segment',
-                                'options' => [
-                                    'route' => 'access[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(
-                                        Command\Correspondence\AccessCorrespondence::class
-                                    ),
-                                ]
-                            ]
-                        ]
-                    ),
-                    'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondences::class),
-                ],
-            ],
             'payment' => [
                 'type' => 'Segment',
                 'options' => [
@@ -1233,23 +1170,6 @@ $routes = [
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Document\CreateDocument::class),
-                ]
-            ],
-            'licence-status-rule' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'licence-status-rule[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'POST' => CommandConfig::getPostConfig(Command\LicenceStatusRule\CreateLicenceStatusRule::class),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\LicenceStatusRule\LicenceStatusRule::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\LicenceStatusRule\UpdateLicenceStatusRule::class),
-                            'DELETE' => CommandConfig::getDeleteConfig(Command\LicenceStatusRule\DeleteLicenceStatusRule::class),
-                        ]
-                    ),
                 ]
             ],
             'user' => [
