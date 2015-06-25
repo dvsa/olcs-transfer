@@ -12,7 +12,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/case/single")
+ * @Transfer\RouteName("backend/cases/single")
  */
 class Cases extends AbstractQuery
 {
