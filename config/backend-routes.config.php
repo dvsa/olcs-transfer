@@ -358,6 +358,16 @@ $routes = [
                                     ),
                                 ],
                             ],
+                            'goods-vehicles' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'goods-vehicles[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Variation\GoodsVehicles::class),
+                                ]
+                            ],
                         ]
                     ),
                 ]
