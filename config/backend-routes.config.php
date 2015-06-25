@@ -793,12 +793,12 @@ $routes = [
                         ],
                         'may_terminate' => false,
                         'child_routes' => [
-                            'GET'    => QueryConfig::getConfig(Query\Processing\NoteList::class),
-                            'POST'   => CommandConfig::getPostConfig(Command\Processing\Note\Create::class),
+                            'GET' => QueryConfig::getConfig(Query\Processing\NoteList::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Processing\Note\Create::class),
                             'single' => RouteConfig::getSingleConfig(
                                 [
-                                    'GET'    => QueryConfig::getConfig(Query\Processing\Note::class),
-                                    'PUT'    => CommandConfig::getPutConfig(Command\Processing\Note\Update::class),
+                                    'GET' => QueryConfig::getConfig(Query\Processing\Note::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Processing\Note\Update::class),
                                     'DELETE' => CommandConfig::getDeleteConfig(Command\Processing\Note\Delete::class),
                                 ]
                             )
@@ -905,12 +905,12 @@ $routes = [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\ProhibitionList::class),
-                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Prohibition\Create::class),
+                    'GET' => QueryConfig::getConfig(Query\Cases\Prohibition\ProhibitionList::class),
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\Prohibition\Create::class),
                     'single' => RouteConfig::getSingleConfig(
                         [
-                            'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\Prohibition::class),
-                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Prohibition\Update::class),
+                            'GET' => QueryConfig::getConfig(Query\Cases\Prohibition\Prohibition::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Prohibition\Update::class),
                             'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Prohibition\Delete::class),
                         ]
                     )
@@ -923,12 +923,12 @@ $routes = [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\DefectList::class),
-                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Prohibition\Defect\Create::class),
+                    'GET' => QueryConfig::getConfig(Query\Cases\Prohibition\DefectList::class),
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\Prohibition\Defect\Create::class),
                     'single' => RouteConfig::getSingleConfig(
                         [
-                            'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\Defect::class),
-                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Prohibition\Defect\Update::class),
+                            'GET' => QueryConfig::getConfig(Query\Cases\Prohibition\Defect::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Prohibition\Defect\Update::class),
                             'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Prohibition\Defect\Delete::class),
                         ]
                     )
@@ -1035,7 +1035,7 @@ $routes = [
                         'type' => 'Segment',
                         'options' => [
                             'route' => 'ref/:reference[/]',
-                             'constraints' => [
+                            'constraints' => [
                                 'reference' => 'OLCS-[0-9A-F\-]+',
                             ],
                         ],
@@ -1056,57 +1056,9 @@ $routes = [
                         ],
                         'may_terminate' => false,
                         'child_routes' => [
-                             'POST' =>CommandConfig::getPostConfig(Command\Payment\PayOutstandingFees::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Payment\PayOutstandingFees::class),
                         ],
                     ],
-                ]
-            ],
-            'document' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'document[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'template' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'template[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'single' => RouteConfig::getSingleConfig(
-                                [
-                                    'paragraphs' => [
-                                        'type' => 'Segment',
-                                        'options' => [
-                                            'route' => 'paragraphs[/]',
-                                        ],
-                                        'may_terminate' => false,
-                                        'child_routes' => [
-                                            'GET' => QueryConfig::getConfig(Query\Document\TemplateParagraphs::class),
-                                        ]
-                                    ]
-                                ]
-                            )
-                        ]
-                    ],
-                    'letter' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'letter[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'POST' => CommandConfig::getPostConfig(Command\Document\CreateLetter::class),
-                        ]
-                    ],
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'DELETE' => CommandConfig::getDeleteConfig(Command\Document\DeleteDocument::class),
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(Command\Document\CreateDocument::class),
                 ]
             ],
             'transport-manager-application' => [
@@ -1254,29 +1206,6 @@ $routes = [
                     'GET' => QueryConfig::getConfig(Query\Bus\HistoryList::class)
                 ]
             ],
-            'licence-vehicle' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'licence-vehicle[/]',
-                    'defaults' => [
-                        'id' => null,
-                    ]
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\LicenceVehicle\LicenceVehicle::class),
-                            'PUT' => CommandConfig::getPutConfig(
-                                Command\Vehicle\UpdateGoodsVehicle::class
-                            ),
-                        ]
-                    ),
-                    'DELETE' => CommandConfig::getDeleteConfig(
-                        Command\Vehicle\DeleteGoodsVehicle::class
-                    )
-                ]
-            ],
             'appeal' => [
                 'type' => 'Segment',
                 'options' => [
@@ -1285,24 +1214,24 @@ $routes = [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(
-                            Query\Cases\Hearing\AppealList::class
-                        ),
+                        Query\Cases\Hearing\AppealList::class
+                    ),
                     'single' => RouteConfig::getSingleConfig(
-                            [
-                                'GET' => QueryConfig::getConfig(
-                                        Query\Cases\Hearing\Appeal::class
-                                    ),
-                                'PUT' => CommandConfig::getPutConfig(
-                                        Command\Cases\Hearing\UpdateAppeal::class
-                                    ),
-                                'DELETE' => CommandConfig::getDeleteConfig(
-                                        Command\Cases\Hearing\DeleteAppeal::class
-                                    )
-                            ]
-                        ),
+                        [
+                            'GET' => QueryConfig::getConfig(
+                                Query\Cases\Hearing\Appeal::class
+                            ),
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\Hearing\UpdateAppeal::class
+                            ),
+                            'DELETE' => CommandConfig::getDeleteConfig(
+                                Command\Cases\Hearing\DeleteAppeal::class
+                            )
+                        ]
+                    ),
                     'POST' => CommandConfig::getPostConfig(
-                            Command\Cases\Hearing\CreateAppeal::class
-                        )
+                        Command\Cases\Hearing\CreateAppeal::class
+                    )
                 ]
             ],
             'stay' => [
