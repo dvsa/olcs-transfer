@@ -72,13 +72,13 @@ final class Update extends AbstractCommand
      * @Transfer\Optional
      */
     protected $firstName;
-    
+
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Optional
      */
     protected $lastName;
-    
+
     /**
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\RegisteredAddress")
      * @Transfer\Optional
