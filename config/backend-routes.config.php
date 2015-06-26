@@ -1184,7 +1184,7 @@ $routes = [
             'opposition' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => 'cases/:case/opposition[/]',
+                    'route' => 'opposition[/]',
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
