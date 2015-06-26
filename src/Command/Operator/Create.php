@@ -70,6 +70,12 @@ final class Create extends AbstractCommand
     protected $address;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
+     */
+    protected $isIrfo;
+
+    /**
      * @return mixed
      */
     public function getBusinessType()
@@ -120,16 +126,16 @@ final class Create extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getIsIrfo()
+    public function getAddress()
     {
-        return $this->isIrfo;
+        return $this->address;
     }
 
     /**
      * @return mixed
      */
-    public function getAddress()
+    public function getIsIrfo()
     {
-        return $this->address;
+        return $this->isIrfo;
     }
 }

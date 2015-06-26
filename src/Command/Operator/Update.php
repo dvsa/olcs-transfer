@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/operator")
+ * @Transfer\RouteName("backend/operator/single")
  * @Transfer\Method("PUT")
  */
 final class Update extends AbstractCommand
@@ -102,6 +102,12 @@ final class Update extends AbstractCommand
     protected $personVersion;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
+     */
+    protected $isIrfo;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -168,14 +174,6 @@ final class Update extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getIsIrfo()
-    {
-        return $this->isIrfo;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getAddress()
     {
         return $this->address;
@@ -195,5 +193,13 @@ final class Update extends AbstractCommand
     public function getPersonVersion()
     {
         return $this->personVersion;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsIrfo()
+    {
+        return $this->isIrfo;
     }
 }
