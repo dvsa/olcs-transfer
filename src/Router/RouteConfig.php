@@ -19,6 +19,23 @@ class RouteConfig
         return self::getSingleConfigByName($name, $childRoutes);
     }
 
+    public static function getRouteConfig($route, $childRoutes = null)
+    {
+        $config = [
+            'type' => 'Segment',
+            'options' => [
+                'route' => $route . '[/]'
+            ]
+        ];
+
+        if ($childRoutes !== null) {
+            $config['may_terminate'] = false;
+            $config['child_routes'] = $childRoutes;
+        }
+
+        return $config;
+    }
+
     private static function getSingleConfigByName($name, $childRoutes = null)
     {
         $config = [
