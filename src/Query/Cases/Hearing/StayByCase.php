@@ -8,9 +8,9 @@ use Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
  * Class Stay
- * @Transfer\RouteName("backend/stay/single")
+ * @Transfer\RouteName("backend/stay/case/named-single")
  */
-class Stay extends AbstractQuery
+class StayByCase extends AbstractQuery
 {
-    use Traits\Identity;
+    use Traits\Cases;
 }

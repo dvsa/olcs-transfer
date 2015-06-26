@@ -8,7 +8,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractDeleteCommand;
 /**
  * Concrete delete class.
  *
- * @Transfer\RouteName("backend/stay")
+ * @Transfer\RouteName("backend/stay/single")
  * @Transfer\Method("DELETE")
  */
 class DeleteStay extends AbstractDeleteCommand
