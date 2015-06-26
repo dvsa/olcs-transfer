@@ -18,7 +18,7 @@ class CommunityLic extends AbstractQuery implements OrderedQueryInterface
     /**
      * @var string
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @transfer\optional()
+     * @transfer\Optional
      */
     protected $statuses;
 
@@ -27,7 +27,7 @@ class CommunityLic extends AbstractQuery implements OrderedQueryInterface
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @transfer\optional()
+     * @transfer\Optional
      */
     protected $licence;
 
