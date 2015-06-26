@@ -503,6 +503,16 @@ $routes = [
                                             'POST' => CommandConfig::getPostConfig(Command\Licence\SuspendLicence::class)
                                         ]
                                     ],
+                                    'surrender' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'surrender[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'POST' => CommandConfig::getPostConfig(Command\Licence\SurrenderLicence::class)
+                                        ]
+                                    ],
                                     'reset-to-valid' => [
                                         'type' => 'Segment',
                                         'options' => [
