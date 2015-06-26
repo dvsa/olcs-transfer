@@ -493,6 +493,16 @@ $routes = [
                                             'POST' => CommandConfig::getPostConfig(Command\Licence\CurtailLicence::class)
                                         ]
                                     ],
+                                    'suspend' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'suspend[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'POST' => CommandConfig::getPostConfig(Command\Licence\SuspendLicence::class)
+                                        ]
+                                    ],
                                     'surrender' => [
                                         'type' => 'Segment',
                                         'options' => [
