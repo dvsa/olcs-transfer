@@ -19,6 +19,13 @@ final class UpdateMyAccount extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
+    protected $id;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
     protected $version;
 
     /**
