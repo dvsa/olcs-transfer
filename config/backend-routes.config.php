@@ -266,6 +266,19 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\SubmitApplication::class),
                                 ]
                             ],
+                            'vehicle-declaration' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'vehicle-declaration[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\VehicleDeclaration::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateVehicleDeclaration::class
+                                    ),
+                                ]
+                            ],
                             'goods-vehicles' => RouteConfig::getRouteConfig(
                                 'goods-vehicles',
                                 [
