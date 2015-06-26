@@ -30,7 +30,17 @@ return [
                         [
                             'GET' => QueryConfig::getConfig(Query\Organisation\OutstandingFees::class),
                         ]
-                    )
+                    ),
+                    'dashboard' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'dashboard[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Organisation\Dashboard::class),
+                        ],
+                    ],
                 ]
             ),
             'business-details' => RouteConfig::getRouteConfig(
