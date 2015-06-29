@@ -76,7 +76,15 @@ class MoneyTest extends PHPUnit_Framework_TestCase
             [
                 123.456,
                 false
-            ]
+            ],
+            [
+                '-123.45',
+                false
+            ],
+            [
+                -123,
+                false
+            ],
         ];
     }
 }

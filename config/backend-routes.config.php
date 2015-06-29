@@ -100,13 +100,9 @@ $routes = [
                     'named-single' => RouteConfig::getNamedSingleConfig(
                         'application',
                         [
-                            'company-subsidiary' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'company-subsidiary[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
+                            'company-subsidiary' => RouteConfig::getRouteConfig(
+                                'company-subsidiary',
+                                [
                                     'single' => RouteConfig::getSingleConfig(
                                         [
                                             'PUT' => CommandConfig::getPutConfig(
@@ -121,14 +117,10 @@ $routes = [
                                         Command\Application\CreateCompanySubsidiary::class
                                     ),
                                 ]
-                            ],
-                            'workshop' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'workshop[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
+                            ),
+                            'workshop' => RouteConfig::getRouteConfig(
+                                'workshop',
+                                [
                                     'single' => RouteConfig::getSingleConfig(
                                         [
                                             'PUT' => CommandConfig::getPutConfig(
@@ -141,7 +133,22 @@ $routes = [
                                     ),
                                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateWorkshop::class),
                                 ]
-                            ],
+                            ),
+                            'goods-vehicles' => RouteConfig::getRouteConfig(
+                                'goods-vehicles',
+                                [
+                                    'single' => RouteConfig::getSingleConfig(
+                                        [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\Application\UpdateGoodsVehicle::class
+                                            ),
+                                        ]
+                                    ),
+                                    'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Application\DeleteGoodsVehicle::class
+                                    )
+                                ]
+                            ),
                         ]
                     ),
                     'single' => RouteConfig::getSingleConfig(
@@ -278,6 +285,57 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\SubmitApplication::class),
                                 ]
                             ],
+                            'vehicle-declaration' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'vehicle-declaration[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\VehicleDeclaration::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateVehicleDeclaration::class
+                                    ),
+                                ]
+                            ],
+                            'goods-vehicles' => RouteConfig::getRouteConfig(
+                                'goods-vehicles',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\GoodsVehicles::class),
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Application\CreateGoodsVehicle::class
+                                    ),
+                                ]
+                            ),
+                            'vehicles' => RouteConfig::getRouteConfig(
+                                'vehicles',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\UpdateVehicles::class),
+                                ]
+                            ),
+                            'document' => RouteConfig::getRouteConfig(
+                                'document',
+                                [
+                                    'vehicle-list' => RouteConfig::getRouteConfig(
+                                        'vehicle-list',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Application\CreateVehicleListDocument::class
+                                            ),
+                                        ]
+                                    )
+                                ]
+                            ),
+                            'review' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'review[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Review::class)
+                                ]
+                            ],
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -367,6 +425,12 @@ $routes = [
                                     ),
                                 ],
                             ],
+                            'goods-vehicles' => RouteConfig::getRouteConfig(
+                                'goods-vehicles',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Variation\GoodsVehicles::class),
+                                ]
+                            ),
                         ]
                     ),
                 ]
@@ -443,6 +507,72 @@ $routes = [
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\Licence\Licence::class),
+                            'decisions' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'decisions[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\LicenceDecisions::class),
+                                    'revoke' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'revoke[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'POST' => CommandConfig::getPostConfig(Command\Licence\RevokeLicence::class)
+                                        ]
+                                    ],
+                                    'curtail' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'curtail[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Licence\CurtailLicence::class
+                                            )
+                                        ]
+                                    ],
+                                    'suspend' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'suspend[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Licence\SuspendLicence::class
+                                            )
+                                        ]
+                                    ],
+                                    'surrender' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'surrender[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Licence\SurrenderLicence::class
+                                            )
+                                        ]
+                                    ],
+                                    'reset-to-valid' => [
+                                        'type' => 'Segment',
+                                        'options' => [
+                                            'route' => 'reset-to-valid[/]',
+                                        ],
+                                        'may_terminate' => false,
+                                        'child_routes' => [
+                                            'POST' => CommandConfig::getPostConfig(Command\Licence\ResetToValid::class)
+                                        ]
+                                    ]
+                                ]
+                            ],
                             'type-of-licence' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -498,6 +628,42 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Licence\PsvDiscs::class),
                                 ]
                             ],
+                            'goods-vehicles' => RouteConfig::getRouteConfig(
+                                'goods-vehicles',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\GoodsVehicles::class),
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Licence\CreateGoodsVehicle::class
+                                    ),
+                                    'transfer' => RouteConfig::getRouteConfig(
+                                        'transfer',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Licence\TransferVehicles::class
+                                            )
+                                        ]
+                                    )
+                                ]
+                            ),
+                            'document' => RouteConfig::getRouteConfig(
+                                'document',
+                                [
+                                    'vehicle-list' => RouteConfig::getRouteConfig(
+                                        'vehicle-list',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Licence\CreateVehicleListDocument::class
+                                            ),
+                                        ]
+                                    )
+                                ]
+                            ),
+                            'other-active-licences' => RouteConfig::getRouteConfig(
+                                'other-active-licences',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\OtherActiveLicences::class),
+                                ]
+                            )
                         ]
                     ),
                 ]
@@ -568,87 +734,6 @@ $routes = [
                             ],
                         ]
                     ),
-                ]
-            ],
-            'organisation' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'organisation[/]',
-                    'defaults' => [
-                        'id' => null,
-                    ]
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Organisation\Organisation::class),
-                            'business-type' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'business-type[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(
-                                        Command\Organisation\UpdateBusinessType::class
-                                    ),
-                                ]
-                            ],
-                            'business-details' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'business-details[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'GET' => QueryConfig::getConfig(Query\Organisation\BusinessDetails::class),
-                                ]
-                            ],
-                            'outstanding-fees' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'outstanding-fees[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'GET' => QueryConfig::getConfig(Query\Organisation\OutstandingFees::class),
-                                ],
-                            ],
-                        ]
-                    ),
-                    'business-details' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'business-details[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'licence' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'licence/:id[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'GET' => QueryConfig::getConfig(Query\Licence\BusinessDetails::class),
-                                    'PUT' => CommandConfig::getPutConfig(Command\Licence\UpdateBusinessDetails::class),
-                                ]
-                            ],
-                            'application' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'application/:id[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(
-                                        Command\Application\UpdateBusinessDetails::class
-                                    ),
-                                ]
-                            ]
-                        ]
-                    ],
                 ]
             ],
             'previous-conviction' => [
@@ -816,69 +901,17 @@ $routes = [
                         ],
                         'may_terminate' => false,
                         'child_routes' => [
-                            'GET'    => QueryConfig::getConfig(Query\Processing\NoteList::class),
-                            'POST'   => CommandConfig::getPostConfig(Command\Processing\Note\Create::class),
+                            'GET' => QueryConfig::getConfig(Query\Processing\NoteList::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Processing\Note\Create::class),
                             'single' => RouteConfig::getSingleConfig(
                                 [
-                                    'GET'    => QueryConfig::getConfig(Query\Processing\Note::class),
-                                    'PUT'    => CommandConfig::getPutConfig(Command\Processing\Note\Update::class),
+                                    'GET' => QueryConfig::getConfig(Query\Processing\Note::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Processing\Note\Update::class),
                                     'DELETE' => CommandConfig::getDeleteConfig(Command\Processing\Note\Delete::class),
                                 ]
                             )
                         ]
                     ]
-                ]
-            ],
-            'company-subsidiary' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'company-subsidiary[/]',
-                    'defaults' => [
-                        'id' => null,
-                    ]
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\CompanySubsidiary\CompanySubsidiary::class),
-                        ]
-                    )
-                ]
-            ],
-            'workshop' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'workshop[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'DELETE' => CommandConfig::getDeleteConfig(Command\Workshop\DeleteWorkshop::class),
-                    'POST' => CommandConfig::getPostConfig(Command\Workshop\CreateWorkshop::class),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Workshop\Workshop::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\Workshop\UpdateWorkshop::class),
-                        ]
-                    ),
-                ]
-            ],
-            'trailers' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'trailers[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Trailer\Trailer::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\Trailer\UpdateTrailer::class),
-                        ]
-                    ),
-                    'GET' => QueryConfig::getConfig(Query\Trailer\Trailers::class),
-                    'POST' => CommandConfig::getPostConfig(Command\Trailer\CreateTrailer::class),
-                    'DELETE' => CommandConfig::getDeleteConfig(Command\Trailer\DeleteTrailer::class),
                 ]
             ],
             'other-licence' => [
@@ -962,12 +995,12 @@ $routes = [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\ProhibitionList::class),
-                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Prohibition\Create::class),
+                    'GET' => QueryConfig::getConfig(Query\Cases\Prohibition\ProhibitionList::class),
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\Prohibition\Create::class),
                     'single' => RouteConfig::getSingleConfig(
                         [
-                            'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\Prohibition::class),
-                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Prohibition\Update::class),
+                            'GET' => QueryConfig::getConfig(Query\Cases\Prohibition\Prohibition::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Prohibition\Update::class),
                             'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Prohibition\Delete::class),
                         ]
                     )
@@ -980,12 +1013,12 @@ $routes = [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\DefectList::class),
-                    'POST'   => CommandConfig::getPostConfig(Command\Cases\Prohibition\Defect\Create::class),
+                    'GET' => QueryConfig::getConfig(Query\Cases\Prohibition\DefectList::class),
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\Prohibition\Defect\Create::class),
                     'single' => RouteConfig::getSingleConfig(
                         [
-                            'GET'    => QueryConfig::getConfig(Query\Cases\Prohibition\Defect::class),
-                            'PUT'    => CommandConfig::getPutConfig(Command\Cases\Prohibition\Defect\Update::class),
+                            'GET' => QueryConfig::getConfig(Query\Cases\Prohibition\Defect::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Prohibition\Defect\Update::class),
                             'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Prohibition\Defect\Delete::class),
                         ]
                     )
@@ -1036,51 +1069,6 @@ $routes = [
                     'POST' => CommandConfig::getPostConfig(Command\Fee\CreateMiscellaneousFee::class),
                 ]
             ],
-            'grace-periods' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'grace-periods[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\GracePeriod\GracePeriod::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\GracePeriod\UpdateGracePeriod::class),
-                        ]
-                    ),
-                    'GET' => QueryConfig::getConfig(Query\GracePeriod\GracePeriods::class),
-                    'POST' => CommandConfig::getPostConfig(Command\GracePeriod\CreateGracePeriod::class),
-                    'DELETE' => CommandConfig::getDeleteConfig(Command\GracePeriod\DeleteGracePeriod::class),
-                ]
-            ],
-            'correspondence' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'correspondence[/]',
-                ],
-                'may_terminate' => true,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondence::class),
-                            'access' => [
-                                'type' => 'segment',
-                                'options' => [
-                                    'route' => 'access[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(
-                                        Command\Correspondence\AccessCorrespondence::class
-                                    ),
-                                ]
-                            ]
-                        ]
-                    ),
-                    'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondences::class),
-                ],
-            ],
             'payment' => [
                 'type' => 'Segment',
                 'options' => [
@@ -1092,7 +1080,7 @@ $routes = [
                         'type' => 'Segment',
                         'options' => [
                             'route' => 'ref/:reference[/]',
-                             'constraints' => [
+                            'constraints' => [
                                 'reference' => 'OLCS-[0-9A-F\-]+',
                             ],
                         ],
@@ -1113,57 +1101,9 @@ $routes = [
                         ],
                         'may_terminate' => false,
                         'child_routes' => [
-                             'POST' =>CommandConfig::getPostConfig(Command\Payment\PayOutstandingFees::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Payment\PayOutstandingFees::class),
                         ],
                     ],
-                ]
-            ],
-            'document' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'document[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'template' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'template[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'single' => RouteConfig::getSingleConfig(
-                                [
-                                    'paragraphs' => [
-                                        'type' => 'Segment',
-                                        'options' => [
-                                            'route' => 'paragraphs[/]',
-                                        ],
-                                        'may_terminate' => false,
-                                        'child_routes' => [
-                                            'GET' => QueryConfig::getConfig(Query\Document\TemplateParagraphs::class),
-                                        ]
-                                    ]
-                                ]
-                            )
-                        ]
-                    ],
-                    'letter' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'letter[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'POST' => CommandConfig::getPostConfig(Command\Document\CreateLetter::class),
-                        ]
-                    ],
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'DELETE' => CommandConfig::getDeleteConfig(Command\Document\DeleteDocument::class),
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(Command\Document\CreateDocument::class),
                 ]
             ],
             'user' => [
