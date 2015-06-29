@@ -7,10 +7,10 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
- * Class Stay
- * @Transfer\RouteName("backend/stay/single")
+ * Class Appeal
+ * @Transfer\RouteName("backend/appeal/case/named-single")
  */
-class Stay extends AbstractQuery
+class AppealByCase extends AbstractQuery
 {
-    use Traits\Identity;
+    use Traits\Cases;
 }
