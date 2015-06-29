@@ -339,6 +339,7 @@ $routes = [
                                 'overview',
                                 [
                                     'GET' => QueryConfig::getConfig(Query\Application\Overview::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\Overview::class),
                                 ]
                             ),
                         ]
