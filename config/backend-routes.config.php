@@ -335,6 +335,12 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\Review::class)
                                 ]
                             ],
+                            'overview' => RouteConfig::getRouteConfig(
+                                'overview',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Overview::class),
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
