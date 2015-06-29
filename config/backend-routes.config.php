@@ -644,6 +644,14 @@ $routes = [
                                 [
                                     'GET' => QueryConfig::getConfig(Query\Licence\OtherActiveLicences::class),
                                 ]
+                            ),
+                            'print-document' => RouteConfig::getRouteConfig(
+                                'print-document',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Licence\PrintLicence::class
+                                    ),
+                                ]
                             )
                         ]
                     ),
