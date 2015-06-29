@@ -2,6 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Query\Cases\Complaint;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
@@ -11,13 +12,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class Complaint extends AbstractQuery
 {
-    /**
-     * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $id;
+    use Identity;
 
     /**
      * @var int
@@ -33,14 +28,6 @@ class Complaint extends AbstractQuery
      * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": "1"}})
      */
     protected $isCompliance = '1';
-
-    /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * @return int

@@ -307,6 +307,16 @@ $routes = [
                                     )
                                 ]
                             ),
+                            'review' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'review[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Review::class)
+                                ]
+                            ],
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
