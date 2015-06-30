@@ -7,23 +7,15 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\Variation;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\Query\CachableQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
  * @Transfer\RouteName("backend/variation/single")
  */
-class Variation extends AbstractQuery
+class Variation extends AbstractQuery implements CachableQueryInterface
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $id;
-
-    public function getId()
-    {
-        return $this->id;
-    }
+    use Identity;
 }

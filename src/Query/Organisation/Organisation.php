@@ -7,6 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\Organisation;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
@@ -15,15 +16,5 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
  */
 class Organisation extends AbstractQuery
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $id;
-
-    public function getId()
-    {
-        return $this->id;
-    }
+    use Identity;
 }
