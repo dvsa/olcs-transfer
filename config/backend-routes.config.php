@@ -307,6 +307,18 @@ $routes = [
                                     )
                                 ]
                             ),
+                            'withdraw' => RouteConfig::getRouteConfig(
+                                'withdraw',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\WithdrawApplication::class)
+                                ]
+                            ),
+                            'revive' => RouteConfig::getRouteConfig(
+                                'revive',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\ReviveApplication::class)
+                                ]
+                            ),
                             'review' => [
                                 'type' => 'Segment',
                                 'options' => [
