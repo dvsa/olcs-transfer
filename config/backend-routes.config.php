@@ -327,6 +327,24 @@ $routes = [
                                     )
                                 ]
                             ),
+                            'withdraw' => RouteConfig::getRouteConfig(
+                                'withdraw',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\WithdrawApplication::class)
+                                ]
+                            ),
+                            'revive' => RouteConfig::getRouteConfig(
+                                'revive',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\ReviveApplication::class)
+                                ]
+                            ),
+                            'refuse' => RouteConfig::getRouteConfig(
+                                'refuse',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\RefuseApplication::class)
+                                ]
+                            ),
                             'review' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -663,6 +681,14 @@ $routes = [
                                 'other-active-licences',
                                 [
                                     'GET' => QueryConfig::getConfig(Query\Licence\OtherActiveLicences::class),
+                                ]
+                            ),
+                            'print-document' => RouteConfig::getRouteConfig(
+                                'print-document',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Licence\PrintLicence::class
+                                    ),
                                 ]
                             )
                         ]
