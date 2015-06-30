@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * Create Inspection Request
+ *
+ * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
+ */
+namespace Dvsa\Olcs\Transfer\Command\InspectionRequest;
+
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+
+/**
+ * @Transfer\RouteName("backend/inspection-request/create-from-grant")
+ * @Transfer\Method("POST")
+ */
+final class CreateFromGrant extends AbstractCommand
+{
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    public $application;
+
+    /**
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Optional
+     */
+    protected $dueDate;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name": "Zend\Filter\StringTrim"})
+     */
+    protected $caseworkerNotes;
+
+    public function getApplication()
+    {
+        return $this->application;
+    }
+
+    public function getDueDate()
+    {
+        return $this->dueDate;
+    }
+
+    public function getCaseworkerNotes()
+    {
+        return $this->caseworkerNotes;
+    }
+}
