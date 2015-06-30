@@ -319,6 +319,12 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\ReviveApplication::class)
                                 ]
                             ),
+                            'refuse' => RouteConfig::getRouteConfig(
+                                'refuse',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\RefuseApplication::class)
+                                ]
+                            ),
                             'review' => [
                                 'type' => 'Segment',
                                 'options' => [
