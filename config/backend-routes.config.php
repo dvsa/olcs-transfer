@@ -28,6 +28,7 @@ $routes = [
                         [
                             'GET' => QueryConfig::getConfig(Query\Cases\Cases::class),
                             'PUT' => CommandConfig::getPutConfig(Command\Cases\UpdateCase::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\DeleteCase::class),
                             'pi' => [
                                 'type' => 'Segment',
                                 'options' => [
