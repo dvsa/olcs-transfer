@@ -18,7 +18,7 @@ class Create extends AbstractCommand
     use FieldType\Traits\Cases;
     use FieldType\Traits\DefendantType;
     use FieldType\Traits\TransportManagerOptional;
-    use FieldType\Traits\ConvictionCategory;
+    use FieldType\Traits\ConvictionCategoryOptional;
 
     /**
      * @var string

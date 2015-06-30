@@ -318,7 +318,17 @@ $routes = [
                                 [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\ReviveApplication::class)
                                 ]
-                            )
+                            ),
+                            'review' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'review[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Review::class)
+                                ]
+                            ],
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -515,7 +525,9 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'POST' => CommandConfig::getPostConfig(Command\Licence\CurtailLicence::class)
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Licence\CurtailLicence::class
+                                            )
                                         ]
                                     ],
                                     'suspend' => [
@@ -525,7 +537,9 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'POST' => CommandConfig::getPostConfig(Command\Licence\SuspendLicence::class)
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Licence\SuspendLicence::class
+                                            )
                                         ]
                                     ],
                                     'surrender' => [
@@ -535,7 +549,9 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'POST' => CommandConfig::getPostConfig(Command\Licence\SurrenderLicence::class)
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Licence\SurrenderLicence::class
+                                            )
                                         ]
                                     ],
                                     'reset-to-valid' => [

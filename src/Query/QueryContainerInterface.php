@@ -21,6 +21,10 @@ interface QueryContainerInterface
 
     public function getInputFilter();
 
+    public function isCachable();
+
+    public function getCacheIdentifier();
+
     public function setDto(QueryInterface $dto);
 
     public function getDto();

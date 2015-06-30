@@ -16,8 +16,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
  * Class Note
  * @Transfer\RouteName("backend/processing/note")
  */
-class NoteList extends AbstractQuery
-    implements
+class NoteList extends AbstractQuery implements
     PagedQueryInterface,
     OrderedQueryInterface,
     FieldType\ApplicationInterface,
