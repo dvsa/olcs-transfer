@@ -306,6 +306,14 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\Overview::class),
                                 ]
                             ),
+                            'snapshot' => RouteConfig::getRouteConfig(
+                                'snapshot',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Application\CreateSnapshot::class
+                                    ),
+                                ]
+                            )
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
