@@ -17,62 +17,6 @@ $routes = [
         ],
         'may_terminate' => false,
         'child_routes' => [
-            'cases' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Cases\Cases::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\Cases\UpdateCase::class),
-                            'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\DeleteCase::class),
-                            'pi' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'pi[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'GET' => QueryConfig::getConfig(Query\Cases\Pi::class),
-                                    'agreed' => [
-                                        'type' => 'Segment',
-                                        'options' => [
-                                            'route' => 'agreed[/]'
-                                        ],
-                                        'may_terminate' => false,
-                                        'child_routes' => [
-                                            'PUT' => CommandConfig::getPutConfig(
-                                                Command\Cases\UpdatePiAgreedAndLegislation::class
-                                            ),
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(Command\Cases\CreateCase::class),
-                ]
-            ],
-            'annual-test-history' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases/:case/annual-test-history[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Cases\AnnualTestHistory::class),
-                            'PUT' => CommandConfig::getPutConfig(
-                                Command\Cases\UpdateAnnualTestHistory::class
-                            ),
-                        ]
-                    ),
-                ]
-            ],
             'legacy-offence' => [
                 'type' => 'Segment',
                 'options' => [
