@@ -24,10 +24,10 @@ final class CreateFromGrant extends AbstractCommand
     public $application;
 
     /**
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
-     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"3", "6", "9", "12"}}})
      */
-    protected $dueDate;
+    public $duePeriod;
 
     /**
      * @Transfer\Optional
@@ -40,9 +40,9 @@ final class CreateFromGrant extends AbstractCommand
         return $this->application;
     }
 
-    public function getDueDate()
+    public function getDuePeriod()
     {
-        return $this->dueDate;
+        return $this->duePeriod;
     }
 
     public function getCaseworkerNotes()
