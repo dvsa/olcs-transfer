@@ -17,42 +17,6 @@ $routes = [
         ],
         'may_terminate' => false,
         'child_routes' => [
-            'cases' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Cases\Cases::class),
-                            'pi' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'pi[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'GET' => QueryConfig::getConfig(Query\Cases\Pi::class),
-                                    'agreed' => [
-                                        'type' => 'Segment',
-                                        'options' => [
-                                            'route' => 'agreed[/]'
-                                        ],
-                                        'may_terminate' => false,
-                                        'child_routes' => [
-                                            'PUT' => CommandConfig::getPutConfig(
-                                                Command\Cases\UpdatePiAgreedAndLegislation::class
-                                            ),
-                                        ]
-                                    ]
-                                ]
-                            ]
-                        ]
-                    )
-                ]
-            ],
             'legacy-offence' => [
                 'type' => 'Segment',
                 'options' => [
