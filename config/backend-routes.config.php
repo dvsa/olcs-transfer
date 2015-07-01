@@ -299,6 +299,13 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\Review::class)
                                 ]
                             ],
+                            'overview' => RouteConfig::getRouteConfig(
+                                'overview',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Overview::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\Overview::class),
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -634,7 +641,18 @@ $routes = [
                                         Command\Licence\PrintLicence::class
                                     ),
                                 ]
-                            )
+                            ),
+                            'overview' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'overview[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\Overview::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Licence\Overview::class),
+                                ]
+                            ],
                         ]
                     ),
                 ]
