@@ -1,6 +1,6 @@
 <?php
 
-namespace Dvsa\OlcsTest\Transfer\Command\Organisation;
+namespace Dvsa\OlcsTest\Transfer\Command\Application;
 
 use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Application\UpdateFinancialEvidence;
