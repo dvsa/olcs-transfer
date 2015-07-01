@@ -98,13 +98,6 @@ class ApplicationTracking extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"0", "1", "2", "3"}}})
      */
-
-
-    /**
-     * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"0", "1", "2", "3"}}})
-     */
     protected $licenceHistoryStatus;
 
     /**

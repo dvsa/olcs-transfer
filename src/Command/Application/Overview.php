@@ -32,8 +32,12 @@ final class Overview extends AbstractCommand
      */
     protected $version;
 
-    /*
+    /**
      * @Transfer\Optional
+     * @Transfer\Validator({
+     *  "name":"Zend\Validator\InArray",
+     *  "options": {"haystack": {"B", "C", "D", "F", "G", "H", "K", "M", "N"}
+     * })
      */
     protected $leadTcArea;
 
