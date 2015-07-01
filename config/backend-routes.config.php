@@ -289,6 +289,12 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\RefuseApplication::class)
                                 ]
                             ),
+                            'not-taken-up' => RouteConfig::getRouteConfig(
+                                'not-taken-up',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\NotTakenUpApplication::class)
+                                ]
+                            ),
                             'review' => [
                                 'type' => 'Segment',
                                 'options' => [
