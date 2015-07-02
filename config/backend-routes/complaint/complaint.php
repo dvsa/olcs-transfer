@@ -7,7 +7,7 @@ use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
 
 return [
-    'complaint-real' => [
+    'complaint' => [
         'type' => 'Segment',
         'options' => [
             'route' => 'complaint[/]',

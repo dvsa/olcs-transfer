@@ -1,22 +1,18 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Query\Cases\EnvironmentalComplaint;
+namespace Dvsa\Olcs\Transfer\Query\EnvironmentalComplaint;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
-use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
-use Dvsa\Olcs\Transfer\Query\PagedTrait;
-use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 
 /**
- * Class EnvironmentalComplaintList
- * @Transfer\RouteName("backend/environmental-complaint")
+ * Class Compaint
+ * @Transfer\RouteName("backend/environmental-complaint/single")
  */
-class EnvironmentalComplaintList extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
+class EnvironmentalComplaint extends AbstractQuery
 {
-    use PagedTrait;
-    use OrderedTrait;
+    use Identity;
 
     /**
      * @var int
