@@ -1,6 +1,6 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Query\Cases\Complaint;
+namespace Dvsa\Olcs\Transfer\Query\Complaint;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -19,7 +19,15 @@ class ComplaintList extends AbstractQuery implements PagedQueryInterface, Ordere
     use OrderedTrait;
 
     /**
-     * @var int
+     * @Transfer\Optional()
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $licence;
+
+    /**
+     * @Transfer\Optional()
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -32,6 +40,14 @@ class ComplaintList extends AbstractQuery implements PagedQueryInterface, Ordere
      * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": "1"}})
      */
     protected $isCompliance = '1';
+
+    /**
+     * @return int
+     */
+    public function getLicence()
+    {
+        return $this->licence;
+    }
 
     /**
      * @return int

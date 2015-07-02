@@ -14,7 +14,17 @@ return [
         ],
         'may_terminate' => false,
         'child_routes' => [
-            'GET' => QueryConfig::getConfig(Query\Complaint\GetList::class),
+            'GET' => QueryConfig::getConfig(Query\Complaint\ComplaintList::class),
+            'single' => RouteConfig::getSingleConfig(
+                [
+                    'GET' => QueryConfig::getConfig(Query\Complaint\Complaint::class),
+                    'PUT' => CommandConfig::getPutConfig(Command\Complaint\UpdateComplaint::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(
+                        Command\Complaint\DeleteComplaint::class
+                    )
+                ]
+            ),
+            'POST' => CommandConfig::getPostConfig(Command\Complaint\CreateComplaint::class)
         ]
     ],
 ];
