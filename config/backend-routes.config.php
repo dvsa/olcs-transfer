@@ -698,6 +698,24 @@ $routes = [
                                     'POST' => CommandConfig::getPostConfig(Command\Licence\CreateVariation::class),
                                 ]
                             ),
+                            'people' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'people[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\People::class),
+                                    'POST' => CommandConfig::getPostConfig(Command\Licence\CreatePeople::class),
+                                    'DELETE' => CommandConfig::getDeleteConfig(Command\Licence\DeletePeople::class),
+                                    'person' => RouteConfig::getNamedSingleConfig(
+                                        'person',
+                                        [
+                                            'PUT' => CommandConfig::getPutConfig(Command\Licence\UpdatePeople::class),
+                                        ]
+                                    )
+                                ]
+                            ],
                         ]
                     ),
                 ]
