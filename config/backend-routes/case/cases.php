@@ -40,6 +40,16 @@ return [
                                 ]
                             ]
                         ]
+                    ],
+                    'opposition-dates' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'opposition-dates[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Cases\CasesWithOppositionDates::class)
+                        ]
                     ]
                 ]
             ),

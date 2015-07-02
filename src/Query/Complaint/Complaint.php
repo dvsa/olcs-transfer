@@ -1,6 +1,6 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Query\Cases\Complaint;
+namespace Dvsa\Olcs\Transfer\Query\Complaint;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

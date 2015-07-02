@@ -1,15 +1,15 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Command\Cases\Complaint;
+namespace Dvsa\Olcs\Transfer\Command\EnvironmentalComplaint;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * @Transfer\RouteName("backend/complaint/single")
+ * @Transfer\RouteName("backend/environmental-complaint/single")
  * @Transfer\Method("DELETE")
  */
-class DeleteComplaint extends AbstractCommand
+class DeleteEnvironmentalComplaint extends AbstractCommand
 {
     /**
      * @var int

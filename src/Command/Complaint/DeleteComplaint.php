@@ -1,15 +1,15 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Command\Cases\Opposition;
+namespace Dvsa\Olcs\Transfer\Command\Complaint;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * @Transfer\RouteName("backend/opposition")
+ * @Transfer\RouteName("backend/complaint/single")
  * @Transfer\Method("DELETE")
  */
-class DeleteOpposition extends AbstractCommand
+class DeleteComplaint extends AbstractCommand
 {
     /**
      * @var int

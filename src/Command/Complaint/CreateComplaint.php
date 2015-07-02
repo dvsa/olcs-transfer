@@ -1,6 +1,6 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Command\Cases\EnvironmentalComplaint;
+namespace Dvsa\Olcs\Transfer\Command\Complaint;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -9,23 +9,23 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  * @Transfer\RouteName("backend/complaint")
  * @Transfer\Method("POST")
  */
-class UpdateEnvironmentalComplaint extends AbstractCommand
+class CreateComplaint extends AbstractCommand
 {
     /**
-     * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $id = null;
+    protected $case = null;
 
     /**
-     * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * Always ct_complainant
      */
-    protected $version = null;
+    protected $contactType = 'ct_complainant';
+
+    /**
+     * isCompliance = true unless Environmental
+     */
+    protected $isCompliance = true;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -99,17 +99,9 @@ class UpdateEnvironmentalComplaint extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getId()
+    public function getCase()
     {
-        return $this->id;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getVersion()
-    {
-        return $this->version;
+        return $this->case;
     }
 
     /**
@@ -190,5 +182,13 @@ class UpdateEnvironmentalComplaint extends AbstractCommand
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsCompliance()
+    {
+        return $this->isCompliance;
     }
 }
