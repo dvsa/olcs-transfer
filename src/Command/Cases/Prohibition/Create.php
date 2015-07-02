@@ -47,6 +47,7 @@ class Create extends AbstractCommand
     /**
      * @var string
      *
+     * @Transfer\Optional
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     public $clearedDate = null;
