@@ -1,31 +1,36 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Command\Cases\Complaint;
+namespace Dvsa\Olcs\Transfer\Command\Complaint;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * @Transfer\RouteName("backend/complaint")
- * @Transfer\Method("POST")
+ * @Transfer\RouteName("backend/complaint/single")
+ * @Transfer\Method("PUT")
  */
-class CreateComplaint extends AbstractCommand
+class UpdateComplaint extends AbstractCommand
 {
     /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $case = null;
+    protected $id = null;
+
+    /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $version = null;
 
     /**
      * Always ct_complainant
      */
     protected $contactType = 'ct_complainant';
-
-    /**
-     * isCompliance = true unless Environmental
-     */
-    protected $isCompliance = true;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -99,9 +104,17 @@ class CreateComplaint extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getCase()
+    public function getId()
     {
-        return $this->case;
+        return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVersion()
+    {
+        return $this->version;
     }
 
     /**
@@ -182,13 +195,5 @@ class CreateComplaint extends AbstractCommand
     public function getStatus()
     {
         return $this->status;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getIsCompliance()
-    {
-        return $this->isCompliance;
     }
 }

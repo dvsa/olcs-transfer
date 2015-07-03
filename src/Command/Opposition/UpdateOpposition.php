@@ -1,12 +1,12 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Command\Cases\Opposition;
+namespace Dvsa\Olcs\Transfer\Command\Opposition;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * @Transfer\RouteName("backend/opposition")
+ * @Transfer\RouteName("backend/opposition/single")
  * @Transfer\Method("PUT")
  */
 class UpdateOpposition extends AbstractCommand

@@ -289,6 +289,12 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\RefuseApplication::class)
                                 ]
                             ),
+                            'not-taken-up' => RouteConfig::getRouteConfig(
+                                'not-taken-up',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\NotTakenUpApplication::class)
+                                ]
+                            ),
                             'review' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -299,6 +305,21 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\Review::class)
                                 ]
                             ],
+                            'overview' => RouteConfig::getRouteConfig(
+                                'overview',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Overview::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\Overview::class),
+                                ]
+                            ),
+                            'snapshot' => RouteConfig::getRouteConfig(
+                                'snapshot',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Application\CreateSnapshot::class
+                                    ),
+                                ]
+                            )
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -634,7 +655,18 @@ $routes = [
                                         Command\Licence\PrintLicence::class
                                     ),
                                 ]
-                            )
+                            ),
+                            'overview' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'overview[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\Overview::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Licence\Overview::class),
+                                ]
+                            ],
                         ]
                     ),
                 ]
@@ -927,34 +959,6 @@ $routes = [
                     )
                 ]
             ],
-            'environmental-complaint' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases/:case/environmental-complaint[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(
-                        Query\Cases\EnvironmentalComplaint\EnvironmentalComplaintList::class
-                    ),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(
-                                Query\Cases\EnvironmentalComplaint\EnvironmentalComplaint::class
-                            ),
-                            'PUT' => CommandConfig::getPutConfig(
-                                Command\Cases\EnvironmentalComplaint\UpdateEnvironmentalComplaint::class
-                            ),
-                            'DELETE' => CommandConfig::getDeleteConfig(
-                                Command\Cases\EnvironmentalComplaint\DeleteEnvironmentalComplaint::class
-                            )
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(
-                        Command\Cases\EnvironmentalComplaint\CreateEnvironmentalComplaint::class
-                    )
-                ]
-            ],
             'fee' => [
                 'type' => 'Segment',
                 'options' => [
@@ -1079,26 +1083,6 @@ $routes = [
                     'POST' => CommandConfig::getPostConfig(
                         Command\Cases\ConditionUndertaking\CreateConditionUndertaking::class
                     )
-                ]
-            ],
-            'opposition' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'cases/:case/opposition[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Cases\Opposition\OppositionList::class),
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Cases\Opposition\Opposition::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Opposition\UpdateOpposition::class),
-                            'DELETE' => CommandConfig::getDeleteConfig(
-                                Command\Cases\Opposition\DeleteOpposition::class
-                            )
-                        ]
-                    ),
-                    'POST' => CommandConfig::getPostConfig(Command\Cases\Opposition\CreateOpposition::class)
                 ]
             ],
             'bus-reg-history' => [
