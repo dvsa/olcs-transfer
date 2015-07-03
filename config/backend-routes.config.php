@@ -311,7 +311,26 @@ $routes = [
                                         Command\Application\CreateSnapshot::class
                                     ),
                                 ]
-                            )
+                            ),
+                            'grant' => RouteConfig::getRouteConfig(
+                                'grant',
+                                [
+                                    'GET' => QueryConfig::getConfig(
+                                        Query\Application\Grant::class
+                                    ),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\Grant::class
+                                    )
+                                ]
+                            ),
+                            'undo-grant' => RouteConfig::getRouteConfig(
+                                'undo-grant',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UndoGrant::class
+                                    )
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -405,6 +424,14 @@ $routes = [
                                 'goods-vehicles',
                                 [
                                     'GET' => QueryConfig::getConfig(Query\Variation\GoodsVehicles::class),
+                                ]
+                            ),
+                            'grant' => RouteConfig::getRouteConfig(
+                                'grant',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Variation\Grant::class
+                                    )
                                 ]
                             ),
                         ]
