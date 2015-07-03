@@ -1163,6 +1163,20 @@ $routes = [
                     'GET' => QueryConfig::getConfig(Query\Bus\HistoryList::class)
                 ]
             ],
+            'change-of-entity' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'change-of-entity[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\ChangeOfEntity\ChangeOfEntity::class),
+                        ]
+                    ),
+                ]
+            ],
         ]
     ]
 ];
