@@ -1175,6 +1175,7 @@ $routes = [
                             'GET' => QueryConfig::getConfig(Query\ChangeOfEntity\ChangeOfEntity::class),
                         ]
                     ),
+                    'POST' => CommandConfig::getPostConfig(Command\ChangeOfEntity\ChangeOfEntity::class),
                 ]
             ],
         ]
