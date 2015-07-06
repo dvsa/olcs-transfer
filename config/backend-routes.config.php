@@ -331,6 +331,37 @@ $routes = [
                                     )
                                 ]
                             ),
+                            'people' => RouteConfig::getRouteConfig(
+                                'people',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\People::class),
+                                    'POST' => CommandConfig::getPostConfig(Command\Application\CreatePeople::class),
+                                    'DELETE' => CommandConfig::getDeleteConfig(Command\Application\DeletePeople::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\RestorePeople::class),
+                                    'person' => RouteConfig::getNamedSingleConfig(
+                                        'person',
+                                        [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\Application\UpdatePeople::class
+                                            ),
+                                        ]
+                                    ),
+                                    'update-completion' => RouteConfig::getRouteConfig(
+                                        'update-completion',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Application\UpdateCompletion::class
+                                            ),
+                                        ]
+                                    ),
+                                ]
+                            ),
+                            'update-completion' => RouteConfig::getRouteConfig(
+                                'update-completion',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(Command\Application\UpdateCompletion::class),
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
