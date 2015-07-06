@@ -292,7 +292,9 @@ $routes = [
                             'not-taken-up' => RouteConfig::getRouteConfig(
                                 'not-taken-up',
                                 [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Application\NotTakenUpApplication::class)
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\NotTakenUpApplication::class
+                                    ),
                                 ]
                             ),
                             'review' => [
