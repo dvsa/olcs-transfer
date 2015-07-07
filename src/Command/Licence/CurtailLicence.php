@@ -24,10 +24,24 @@ final class CurtailLicence extends AbstractCommand
     protected $id;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     */
+    protected $deleteLicenceStatusRules = true;
+
+
+    /**
      * @return mixed
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getDeleteLicenceStatusRules()
+    {
+        return $this->deleteLicenceStatusRules;
     }
 }
