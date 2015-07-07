@@ -15,27 +15,11 @@ class EnvironmentalComplaint extends AbstractQuery
     use Identity;
 
     /**
-     * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $case;
-
-    /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": "0"}})
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": false}})
      */
-    protected $isCompliance = '0';
-
-    /**
-     * @return int
-     */
-    public function getCase()
-    {
-        return $this->case;
-    }
+    protected $isCompliance = false;
 
     /**
      * @return bool

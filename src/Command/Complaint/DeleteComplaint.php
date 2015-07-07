@@ -28,6 +28,13 @@ class DeleteComplaint extends AbstractCommand
     protected $version = null;
 
     /**
+     * @Transfer\Optional()
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": true}})
+     */
+    protected $isCompliance = true;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -41,5 +48,13 @@ class DeleteComplaint extends AbstractCommand
     public function getVersion()
     {
         return $this->version;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsCompliance()
+    {
+        return $this->isCompliance;
     }
 }
