@@ -210,16 +210,6 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\TransportManagers::class),
                                 ]
                             ],
-                            'outstanding-fees' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'outstanding-fees[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'GET' => QueryConfig::getConfig(Query\Application\OutstandingFees::class),
-                                ]
-                            ],
                             'submit' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -292,7 +282,9 @@ $routes = [
                             'not-taken-up' => RouteConfig::getRouteConfig(
                                 'not-taken-up',
                                 [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Application\NotTakenUpApplication::class)
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\NotTakenUpApplication::class
+                                    )
                                 ]
                             ),
                             'review' => [
