@@ -127,16 +127,7 @@ class CreateOpposition extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $licenceOperatingCentres;
-
-    /**
-     * @Transfer\ArrayInput
-     * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $applicationOperatingCentres;
+    protected $operatingCentres;
 
     /**
      * @Transfer\ArrayInput
@@ -146,7 +137,7 @@ class CreateOpposition extends AbstractCommand
      *      "name":"Zend\Validator\InArray",
      *      "options": {"haystack": {"ogf_both","ogf_env","ogf_fin_stan","ogf_fitness","ogf_fumes","ogf_noise","ogf_o",
      *      "ogf_o_ccap","ogf_parking","ogf_pollution","ogf_prof_com","ogf_repute","ogf_safety","ogf_size",
-     *      "ogf_unsochrs","ogf_cib","ogf_vis"}}
+     *      "ogf_unsochrs","ogf_vib","ogf_vis"}}
      *  }
      * )
      */
@@ -168,9 +159,9 @@ class CreateOpposition extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getApplicationOperatingCentres()
+    public function getOperatingCentres()
     {
-        return $this->applicationOperatingCentres;
+        return $this->operatingCentres;
     }
 
     /**
@@ -227,14 +218,6 @@ class CreateOpposition extends AbstractCommand
     public function getIsWithdrawn()
     {
         return $this->isWithdrawn;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLicenceOperatingCentres()
-    {
-        return $this->licenceOperatingCentres;
     }
 
     /**
