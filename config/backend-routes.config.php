@@ -659,6 +659,12 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Licence\Overview::class),
                                 ]
                             ],
+                            'condition-undertaking' => RouteConfig::getRouteConfig(
+                                'condition-undertaking',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\ConditionUndertaking::class)
+                                ]
+                            ),
                         ]
                     ),
                 ]
