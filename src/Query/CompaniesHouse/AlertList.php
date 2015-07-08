@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * Class AlertList
- * @Transfer\RouteName("backend/companies-house/alert")
+ * @Transfer\RouteName("backend/companies-house-alert")
  */
 class AlertList extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
 {
