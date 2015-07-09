@@ -292,7 +292,9 @@ $routes = [
                             'not-taken-up' => RouteConfig::getRouteConfig(
                                 'not-taken-up',
                                 [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Application\NotTakenUpApplication::class)
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\NotTakenUpApplication::class
+                                    )
                                 ]
                             ),
                             'review' => [
@@ -319,7 +321,17 @@ $routes = [
                                         Command\Application\CreateSnapshot::class
                                     ),
                                 ]
-                            )
+                            ),
+                            'enforcement-area' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'enforcement-area[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\EnforcementArea::class),
+                                ]
+                            ],
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -665,6 +677,16 @@ $routes = [
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Licence\Overview::class),
                                     'PUT' => CommandConfig::getPutConfig(Command\Licence\Overview::class),
+                                ]
+                            ],
+                            'enforcement-area' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'enforcement-area[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\EnforcementArea::class),
                                 ]
                             ],
                         ]
