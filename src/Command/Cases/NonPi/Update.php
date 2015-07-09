@@ -24,7 +24,9 @@ class Update extends AbstractCommand
     use FieldType\Traits\CasesOptional;
     use FieldType\Traits\HearingTypeOptional;
     use FieldType\Traits\VenueOptional;
-    use FieldType\Traits\PresidingTCOptional;
+
+    // additional
+    use FieldType\Traits\PresidingStaffNameOptional;
 
     /**
      * @Transfer\Optional
@@ -57,6 +59,21 @@ class Update extends AbstractCommand
     protected $witnessCount;
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *          "haystack": {
+     *              "non_pio_nfa",
+     *              "non_pio_refer"
+     *          }
+     *      }
+     * })
+     */
+    protected $outcome;
+
+    /**
      * @return mixed
      */
     public function getAgreedByTcDate()
@@ -86,5 +103,13 @@ class Update extends AbstractCommand
     public function getWitnessCount()
     {
         return $this->witnessCount;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOutcome()
+    {
+        return $this->outcome;
     }
 }

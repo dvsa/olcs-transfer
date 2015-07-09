@@ -18,7 +18,7 @@ class Create extends AbstractCommand
     use FieldType\Traits\Cases;
     use FieldType\Traits\HearingType;
     use FieldType\Traits\VenueOptional;
-    use FieldType\Traits\PresidingTCOptional;
+    use FieldType\Traits\PresidingStaffNameOptional;
 
     /**
      * @Transfer\Optional
@@ -51,6 +51,21 @@ class Create extends AbstractCommand
     protected $witnessCount;
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *          "haystack": {
+     *              "non_pio_nfa",
+     *              "non_pio_refer"
+     *          }
+     *      }
+     * })
+     */
+    protected $outcome;
+
+    /**
      * @return mixed
      */
     public function getAgreedByTcDate()
@@ -80,5 +95,13 @@ class Create extends AbstractCommand
     public function getWitnessCount()
     {
         return $this->witnessCount;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getOutcome()
+    {
+        return $this->outcome;
     }
 }

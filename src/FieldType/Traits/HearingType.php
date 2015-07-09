@@ -16,8 +16,8 @@ trait HearingType
      *     "name":"Zend\Validator\InArray",
      *     "options": {
      *          "haystack": {
-     *              "non_pi_type_off_proc",
-     *              "non_pi_type_in_cham"
+     *              "non_pi_type_stl_interview",
+     *              "non_pi_type_pre_hearing"
      *          }
      *      }
      * })
