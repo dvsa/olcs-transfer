@@ -18,21 +18,5 @@ class ByTransportManager extends AbstractQuery implements PagedQueryInterface, O
 {
     use PagedTrait;
     use OrderedTrait;
-
-    /**
-     * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
-     */
-    protected $transportManager;
-
-    /**
-     * @return int
-     */
-    public function getTransportManager()
-    {
-        return $this->transportManager;
-    }
+    use FieldTypeTraits\TransportManager;
 }
