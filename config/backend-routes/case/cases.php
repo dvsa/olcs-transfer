@@ -54,6 +54,16 @@ return [
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(Command\Cases\CreateCase::class),
+            'by-transport-manager' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'by-transport-manager[/]'
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Cases\ByTransportManager::class)
+                ]
+            ]
         ]
     ]
 ];
