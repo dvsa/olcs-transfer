@@ -210,16 +210,6 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\TransportManagers::class),
                                 ]
                             ],
-                            'outstanding-fees' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'outstanding-fees[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'GET' => QueryConfig::getConfig(Query\Application\OutstandingFees::class),
-                                ]
-                            ],
                             'submit' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -689,74 +679,12 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Licence\EnforcementArea::class),
                                 ]
                             ],
-                        ]
-                    ),
-                ]
-            ],
-            'bus' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'bus[/]',
-                    'defaults' => [
-                        'id' => null
-                    ]
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Bus\BusReg::class),
-                            'stops' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'stops[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateStops::class),
+                            'condition-undertaking' => RouteConfig::getRouteConfig(
+                                'condition-undertaking',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\ConditionUndertaking::class)
                                 ]
-                            ],
-                            'quality' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'quality[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateQualitySchemes::class),
-                                ]
-                            ],
-                            'service-details' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'service-details[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateServiceDetails::class)
-                                ]
-                            ],
-                            'ta' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'ta[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateTaAuthority::class)
-                                ]
-                            ],
-                            'short-notice' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'short-notice[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'GET' => QueryConfig::getConfig(Query\Bus\ShortNoticeByBusReg::class),
-                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateShortNotice::class)
-                                ]
-                            ],
+                            ),
                         ]
                     ),
                 ]
