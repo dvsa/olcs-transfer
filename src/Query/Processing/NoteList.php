@@ -36,4 +36,5 @@ class NoteList extends AbstractQuery implements
     use FieldTypeTraits\OrganisationOptional;
     use FieldTypeTraits\TransportManagerOptional;
     use FieldTypeTraits\UserOptional;
+    use FieldTypeTraits\NoteTypeOptional;
 }
