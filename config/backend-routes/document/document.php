@@ -33,10 +33,13 @@ return [
             ),
             'single' => RouteConfig::getSingleConfig(
                 [
+                    'GET' => QueryConfig::getConfig(Query\Document\Document::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\Document\DeleteDocument::class),
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(Command\Document\CreateDocument::class),
+            'DELETE' => CommandConfig::getDeleteConfig(Command\Document\DeleteDocuments::class),
+            'GET' => QueryConfig::getConfig(Query\Document\DocumentList::class),
         ]
     )
 ];
