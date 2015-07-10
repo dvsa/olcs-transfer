@@ -24,7 +24,7 @@ trait CaseOutcomesOptional
     protected $outcomes = null;
 
     /**
-     * @return int
+     * @return array
      */
     public function getOutcomes()
     {

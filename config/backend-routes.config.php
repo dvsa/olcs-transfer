@@ -322,6 +322,25 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\EnforcementArea::class),
                                 ]
                             ],
+                            'grant' => RouteConfig::getRouteConfig(
+                                'grant',
+                                [
+                                    'GET' => QueryConfig::getConfig(
+                                        Query\Application\Grant::class
+                                    ),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\Grant::class
+                                    )
+                                ]
+                            ),
+                            'undo-grant' => RouteConfig::getRouteConfig(
+                                'undo-grant',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UndoGrant::class
+                                    )
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -415,6 +434,14 @@ $routes = [
                                 'goods-vehicles',
                                 [
                                     'GET' => QueryConfig::getConfig(Query\Variation\GoodsVehicles::class),
+                                ]
+                            ),
+                            'grant' => RouteConfig::getRouteConfig(
+                                'grant',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Variation\Grant::class
+                                    )
                                 ]
                             ),
                         ]
@@ -1111,6 +1138,25 @@ $routes = [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Bus\HistoryList::class)
+                ]
+            ],
+            'change-of-entity' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'change-of-entity[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\ChangeOfEntity\ChangeOfEntity::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\ChangeOfEntity\UpdateChangeOfEntity::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(
+                                Command\ChangeOfEntity\DeleteChangeOfEntity::class
+                            )
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\ChangeOfEntity\CreateChangeOfEntity::class),
                 ]
             ],
         ]

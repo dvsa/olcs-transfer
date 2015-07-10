@@ -16,7 +16,7 @@ trait CaseCategorys
     protected $categorys = null;
 
     /**
-     * @return int
+     * @return array
      */
     public function getCategorys()
     {
