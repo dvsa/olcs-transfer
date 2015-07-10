@@ -692,6 +692,12 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Licence\ConditionUndertaking::class)
                                 ]
                             ),
+                            'variation' => RouteConfig::getRouteConfig(
+                                'variation',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(Command\Licence\CreateVariation::class),
+                                ]
+                            ),
                         ]
                     ),
                 ]
