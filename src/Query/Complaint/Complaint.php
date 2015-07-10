@@ -15,27 +15,11 @@ class Complaint extends AbstractQuery
     use Identity;
 
     /**
-     * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $case;
-
-    /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": "1"}})
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": true}})
      */
-    protected $isCompliance = '1';
-
-    /**
-     * @return int
-     */
-    public function getCase()
-    {
-        return $this->case;
-    }
+    protected $isCompliance = true;
 
     /**
      * @return bool
