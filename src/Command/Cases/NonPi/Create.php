@@ -11,9 +11,7 @@ use Dvsa\Olcs\Transfer\FieldType as FieldType;
  * @Transfer\RouteName("backend/non-pi")
  * @Transfer\Method("POST")
  */
-class Create extends AbstractCommand
-    implements
-    FieldType\CasesInterface
+class Create extends AbstractCommand implements FieldType\CasesInterface
 {
     use FieldType\Traits\Cases;
     use FieldType\Traits\HearingType;

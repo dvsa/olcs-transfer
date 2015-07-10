@@ -10,8 +10,7 @@ use Dvsa\Olcs\Transfer\FieldType as FieldType;
  * @Transfer\RouteName("backend/non-pi/single")
  * @Transfer\Method("PUT")
  */
-class Update extends AbstractCommand
-    implements
+class Update extends AbstractCommand implements
     FieldType\IdentityInterface,
     FieldType\VersionInterface,
     FieldType\CasesInterface
