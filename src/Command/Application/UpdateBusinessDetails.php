@@ -45,10 +45,10 @@ final class UpdateBusinessDetails extends AbstractCommand
 
     /**
      * @Transfer\ArrayInput
-     * @Transfer\ArrayValidator({"name":"Zend\Validator\NotEmpty"})
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
      */
     protected $natureOfBusinesses;
 
@@ -73,6 +73,12 @@ final class UpdateBusinessDetails extends AbstractCommand
      * @Transfer\Optional
      */
     protected $tradingNames;
+
+    /**
+     * @Transfer\Filter({"name": "Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $partial;
 
     /**
      * @return mixed
@@ -136,5 +142,13 @@ final class UpdateBusinessDetails extends AbstractCommand
     public function getRegisteredAddress()
     {
         return $this->registeredAddress;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPartial()
+    {
+        return $this->partial;
     }
 }
