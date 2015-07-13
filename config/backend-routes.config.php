@@ -372,6 +372,12 @@ $routes = [
                                     'POST' => CommandConfig::getPostConfig(Command\Application\UpdateCompletion::class),
                                 ]
                             ),
+                            'schedule-41' => RouteConfig::getRouteConfig(
+                                'schedule-41',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\Schedule41::class)
+                                ]
+                            )
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -489,6 +495,16 @@ $routes = [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+                    'by-number' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'by-number/:licenceNumber'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Licence\LicenceByNumber::class)
+                        ]
+                    ],
                     'named-single' => RouteConfig::getNamedSingleConfig(
                         'licence',
                         [

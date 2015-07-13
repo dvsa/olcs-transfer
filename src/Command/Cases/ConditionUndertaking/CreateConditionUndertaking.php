@@ -63,6 +63,17 @@ class CreateConditionUndertaking extends AbstractCommand
     protected $operatingCentre = null;
 
     /**
+     * @Transfer\Optional()
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"cav_case","cav_lic","cav_app"}}
+     *  }
+     * )
+     */
+    protected $addedVia = null;
+
+    /**
      * @return mixed
      */
     public function getAttachedTo()
