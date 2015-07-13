@@ -24,6 +24,14 @@ class OppositionList extends AbstractQuery implements PagedQueryInterface, Order
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
+    protected $application;
+
+    /**
+     * @Transfer\Optional()
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
     protected $licence;
 
     /**
@@ -33,6 +41,16 @@ class OppositionList extends AbstractQuery implements PagedQueryInterface, Order
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $case;
+
+    /**
+     * Get Application ID
+     *
+     * @return int
+     */
+    public function getApplication()
+    {
+        return $this->application;
+    }
 
     /**
      * Get Licence ID
