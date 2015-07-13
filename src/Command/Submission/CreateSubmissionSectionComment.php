@@ -54,4 +54,12 @@ final class CreateSubmissionSectionComment extends AbstractCommand
     {
         return $this->comment;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getSubmissionSection()
+    {
+        return $this->submissionSection;
+    }
 }

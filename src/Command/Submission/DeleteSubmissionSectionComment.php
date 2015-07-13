@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractDeleteCommand;
  * @Transfer\RouteName("backend/submission-section-comment/single")
  * @Transfer\Method("DELETE")
  */
-class Delete extends AbstractDeleteCommand
+class DeleteSubmissionSectionComment extends AbstractDeleteCommand
 {
     //
 }
