@@ -45,6 +45,7 @@ final class UpdateConditionUndertaking extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":5,"max":8000}})
      */
     protected $notes;
 
