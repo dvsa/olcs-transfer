@@ -1,6 +1,6 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Query\Cases\Submission;
+namespace Dvsa\Olcs\Transfer\Query\Submission;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
