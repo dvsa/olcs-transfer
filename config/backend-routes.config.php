@@ -312,6 +312,16 @@ $routes = [
                                     ),
                                 ]
                             ),
+                            'enforcement-area' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'enforcement-area[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\EnforcementArea::class),
+                                ]
+                            ],
                             'grant' => RouteConfig::getRouteConfig(
                                 'grant',
                                 [
@@ -715,6 +725,16 @@ $routes = [
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Licence\Overview::class),
                                     'PUT' => CommandConfig::getPutConfig(Command\Licence\Overview::class),
+                                ]
+                            ],
+                            'enforcement-area' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'enforcement-area[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\EnforcementArea::class),
                                 ]
                             ],
                             'condition-undertaking' => RouteConfig::getRouteConfig(
