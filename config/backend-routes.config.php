@@ -372,6 +372,14 @@ $routes = [
                                     'POST' => CommandConfig::getPostConfig(Command\Application\UpdateCompletion::class),
                                 ]
                             ),
+                            'generate-organisation-name' => RouteConfig::getRouteConfig(
+                                'generate-organisation-name',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\GenerateOrganisationName::class
+                                    ),
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
