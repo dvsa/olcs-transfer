@@ -38,7 +38,6 @@ final class Create extends AbstractCommand
 
     /**
      * @Transfer\Validator({"name":"Date","options":{"format":"Y-m-d"}})
-     * @Transfer\Optional
      */
     public $birthDate;
 
