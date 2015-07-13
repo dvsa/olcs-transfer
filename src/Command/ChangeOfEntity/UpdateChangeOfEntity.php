@@ -33,14 +33,12 @@ final class UpdateChangeOfEntity extends AbstractCommand
     protected $version;
 
     /**
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":1,"max":18}})
      */
     protected $oldLicenceNo;
 
     /**
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":1,"max":160}})
      */
