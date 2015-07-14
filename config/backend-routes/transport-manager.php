@@ -6,7 +6,7 @@ use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Query;
 
 return [
-    'transport-manger' => [
+    'transport-manager' => [
         'type' => 'Segment',
         'options' => [
             'route' => 'transport-manager[/]',

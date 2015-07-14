@@ -18,13 +18,13 @@ final class Create extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 35}})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 2, "max": 35}})
      */
     public $firstName;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 35}})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 2, "max": 35}})
      */
     public $lastName;
 
@@ -70,6 +70,7 @@ final class Create extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
      * @Transfer\Validator(
      *  {
      *      "name":"Zend\Validator\InArray",
