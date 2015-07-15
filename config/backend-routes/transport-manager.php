@@ -3,6 +3,7 @@
 use Dvsa\Olcs\Transfer\Command;
 use Dvsa\Olcs\Transfer\Router\CommandConfig;
 use Dvsa\Olcs\Transfer\Router\QueryConfig;
+use Dvsa\Olcs\Transfer\Router\RouteConfig;
 use Dvsa\Olcs\Transfer\Query;
 
 return [
@@ -13,6 +14,12 @@ return [
         ],
         'may_terminate' => false,
         'child_routes' => [
+            'single' => RouteConfig::getSingleConfig(
+                [
+                    'GET' => QueryConfig::getConfig(Query\Tm\TransportManager::class),
+                    'PUT' => CommandConfig::getPutConfig(Command\Tm\Update::class),
+                ]
+            ),
             'create' => [
                 'type' => 'Segment',
                 'options' => [
