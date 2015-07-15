@@ -375,6 +375,7 @@ $routes = [
                             'schedule-41' => RouteConfig::getRouteConfig(
                                 'schedule-41',
                                 [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Schedule41::class),
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\Schedule41::class)
                                 ]
                             )
