@@ -72,6 +72,16 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateServiceDetails::class)
                         ]
                     ],
+                    'service-register' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'service-register[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateServiceRegister::class)
+                        ]
+                    ],
                     'ta' => [
                         'type' => 'Segment',
                         'options' => [
