@@ -378,7 +378,21 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\Schedule41::class),
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\Schedule41::class)
                                 ]
-                            )
+                            ),
+                            'generate-organisation-name' => RouteConfig::getRouteConfig(
+                                'generate-organisation-name',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\GenerateOrganisationName::class
+                                    ),
+                                ]
+                            ),
+                            'operating-centre' => RouteConfig::getRouteConfig(
+                                'operating-centre',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\OperatingCentre::class),
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -480,6 +494,25 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(
                                         Command\Variation\Grant::class
                                     )
+                                ]
+                            ),
+                            'condition-undertaking' => RouteConfig::getRouteConfig(
+                                'condition-undertaking',
+                                [
+                                    'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Variation\DeleteListConditionUndertaking::class
+                                    ),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Variation\RestoreListConditionUndertaking::class
+                                    ),
+                                    'single' => RouteConfig::getNamedSingleConfig(
+                                        'conditionUndertaking',
+                                        [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\Variation\UpdateConditionUndertaking::class
+                                            )
+                                        ]
+                                    ),
                                 ]
                             ),
                         ]
@@ -784,6 +817,12 @@ $routes = [
                                     )
                                 ]
                             ],
+                            'operating-centre' => RouteConfig::getRouteConfig(
+                                'operating-centre',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\OperatingCentre::class),
+                                ]
+                            ),
                         ]
                     ),
                 ]
