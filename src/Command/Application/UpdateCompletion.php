@@ -25,7 +25,10 @@ class UpdateCompletion extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"people", "conditionsUndertakings"}}})
+     * @Transfer\Validator({
+     *  "name":"Zend\Validator\InArray",
+     *  "options": {"haystack": {"people", "conditionsUndertakings", "taxiPhv"}}
+     * })
      */
     protected $section;
 
