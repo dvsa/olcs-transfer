@@ -2,6 +2,10 @@
 
 namespace Dvsa\Olcs\Transfer\Query\Correspondence;
 
+<<<<<<< HEAD
+=======
+use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+>>>>>>> develop
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
@@ -11,6 +15,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class Correspondence extends AbstractQuery
 {
+<<<<<<< HEAD
     /**
      * @var int
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -26,4 +31,7 @@ class Correspondence extends AbstractQuery
     {
         return $this->id;
     }
+=======
+    use Identity;
+>>>>>>> develop
 }

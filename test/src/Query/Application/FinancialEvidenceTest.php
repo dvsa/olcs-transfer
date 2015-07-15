@@ -12,8 +12,8 @@ class FinancialEvidenceTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {
-        $command = FinancialEvidence::create(['id' => 111, 'foo' => 'bar']);
+        $query = FinancialEvidence::create(['id' => 111, 'foo' => 'bar']);
 
-        $this->assertEquals(111, $command->getId());
+        $this->assertEquals(111, $query->getId());
     }
 }

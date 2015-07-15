@@ -6,7 +6,7 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * Class GracePeriods
+ * Class Correspondences
  * @Transfer\RouteName("backend/correspondence")
  */
 class Correspondences extends AbstractQuery

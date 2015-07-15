@@ -12,16 +12,20 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class Address
 {
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
      */
     protected $id;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
      */
     protected $version;
 
@@ -60,6 +64,7 @@ class Address
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 0, "max": 2}})
      */
     public $countryCode;
 

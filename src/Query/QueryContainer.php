@@ -27,7 +27,7 @@ class QueryContainer implements QueryContainerInterface
     protected $inputFilter;
 
     /**
-     * @var CommandInterface
+     * @var QueryInterface
      */
     protected $dto;
 
@@ -39,6 +39,19 @@ class QueryContainer implements QueryContainerInterface
     public function getInputFilter()
     {
         return $this->inputFilter;
+    }
+
+    public function isCachable()
+    {
+        return ($this->dto instanceof CachableQueryInterface);
+    }
+
+    public function getCacheIdentifier()
+    {
+        $dtoClassName = get_class($this->dto);
+        $jsonData = json_encode($this->dto->getArrayCopy());
+
+        return $dtoClassName . '-' . $jsonData;
     }
 
     public function setDto(QueryInterface $dto)
