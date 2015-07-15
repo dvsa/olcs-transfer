@@ -31,6 +31,13 @@ class GetList extends AbstractQuery
      */
     protected $licence;
 
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"cdt_con","cdt_und"}}})
+     * @Transfer\Optional
+     */
+    protected $conditionType;
+
     public function getApplication()
     {
         return $this->application;
@@ -39,5 +46,10 @@ class GetList extends AbstractQuery
     public function getLicence()
     {
         return $this->licence;
+    }
+
+    public function getConditionType()
+    {
+        return $this->conditionType;
     }
 }
