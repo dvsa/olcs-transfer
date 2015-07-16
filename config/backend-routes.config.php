@@ -392,6 +392,41 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\TaxiPhv::class),
                                 ]
                             ),
+                            'print-interim' => RouteConfig::getRouteConfig(
+                                'print-interim',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Application\PrintInterimDocument::class
+                                    ),
+                                ]
+                            ),
+                            'interim' => RouteConfig::getRouteConfig(
+                                'interim',
+                                [
+                                    'GET' => QueryConfig::getConfig(
+                                        Query\Application\Interim::class
+                                    ),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateInterim::class
+                                    ),
+                                    'refuse' => RouteConfig::getRouteConfig(
+                                        'refuse',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Application\RefuseInterim::class
+                                            ),
+                                        ]
+                                    ),
+                                    'grant' => RouteConfig::getRouteConfig(
+                                        'grant',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Application\GrantInterim::class
+                                            ),
+                                        ]
+                                    ),
+                                ]
+                            )
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
