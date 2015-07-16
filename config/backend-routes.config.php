@@ -378,7 +378,7 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\Schedule41::class),
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\Schedule41::class)
                                 ]
-                            )
+                            ),
                             'generate-organisation-name' => RouteConfig::getRouteConfig(
                                 'generate-organisation-name',
                                 [
