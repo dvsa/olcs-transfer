@@ -16,28 +16,11 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 class Update extends AbstractCommand
     implements
     FieldType\IdentityInterface,
-    FieldType\VersionInterface,
-    FieldType\ApplicationInterface,
-    FieldType\CasesInterface,
-    FieldType\LicenceInterface,
-    FieldType\OrganisationInterface,
-    FieldType\TransportManagerInterface
+    FieldType\VersionInterface
 {
     // Identity & Locking
     use FieldTypeTraits\Identity;
     use FieldTypeTraits\Version;
-
-    // Foreign Keys
-    use FieldTypeTraits\ApplicationOptional;
-    use FieldTypeTraits\BusRegOptional;
-    use FieldTypeTraits\CasesOptional;
-    use FieldTypeTraits\LicenceOptional;
-    use FieldTypeTraits\OrganisationOptional;
-    use FieldTypeTraits\TransportManagerOptional;
-
-    // Individual Fields
-    use FieldTypeTraits\CommentOptional;
-    use FieldTypeTraits\NoteTypeOptional;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
