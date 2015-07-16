@@ -386,6 +386,12 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\OperatingCentre::class),
                                 ]
                             ),
+                            'taxi-phv' => RouteConfig::getRouteConfig(
+                                'taxi-phv',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\TaxiPhv::class),
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -804,6 +810,18 @@ $routes = [
                                 'operating-centre',
                                 [
                                     'GET' => QueryConfig::getConfig(Query\Licence\OperatingCentre::class),
+                                ]
+                            ),
+                            'taxi-phv' => RouteConfig::getRouteConfig(
+                                'taxi-phv',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\TaxiPhv::class),
+                                ]
+                            ),
+                            'update-traffic-area' => RouteConfig::getRouteConfig(
+                                'update-traffic-area',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Licence\UpdateTrafficArea::class),
                                 ]
                             ),
                         ]
