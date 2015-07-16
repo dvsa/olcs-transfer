@@ -17,10 +17,31 @@ return [
         ],
         'may_terminate' => false,
         'child_routes' => [
+            'POST' => CommandConfig::getPostConfig(Command\Bus\CreateBus::class),
             'single' => RouteConfig::getSingleConfig(
                 [
                     'GET' => QueryConfig::getConfig(Query\Bus\BusReg::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\Bus\DeleteBus::class),
+                    'variation' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'variation[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Bus\CreateVariation::class),
+                        ]
+                    ],
+                    'cancellation' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'cancellation[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Bus\CreateCancellation::class),
+                        ]
+                    ],
                     'stops' => [
                         'type' => 'Segment',
                         'options' => [
@@ -49,6 +70,16 @@ return [
                         'may_terminate' => false,
                         'child_routes' => [
                             'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateServiceDetails::class)
+                        ]
+                    ],
+                    'service-register' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'service-register[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateServiceRegister::class)
                         ]
                     ],
                     'ta' => [

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * UpdateCompletion
+ * Generate the Organisation name, for sole traders and partnerships
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
@@ -11,10 +11,10 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/application/single/people/update-completion")
- * @Transfer\Method("POST")
+ * @Transfer\RouteName("backend/application/single/generate-organisation-name")
+ * @Transfer\Method("PUT")
  */
-class UpdateCompletion extends AbstractCommand
+final class GenerateOrganisationName extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -24,21 +24,12 @@ class UpdateCompletion extends AbstractCommand
     protected $id;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *  "name":"Zend\Validator\InArray",
-     *  "options": {"haystack": {"people", "conditionsUndertakings", "taxiPhv"}}
-     * })
+     * Get Application Id
+     *
+     * @return int
      */
-    protected $section;
-
     public function getId()
     {
         return $this->id;
-    }
-
-    public function getSection()
-    {
-        return $this->section;
     }
 }
