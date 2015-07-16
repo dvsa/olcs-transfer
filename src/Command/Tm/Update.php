@@ -20,7 +20,6 @@ final class Update extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
     protected $id;
 
@@ -28,7 +27,6 @@ final class Update extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
     protected $version;
 
@@ -36,7 +34,6 @@ final class Update extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
     protected $homeCdId;
 
@@ -44,7 +41,6 @@ final class Update extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
     protected $homeCdVersion;
 
@@ -52,23 +48,6 @@ final class Update extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
-     */
-    protected $workCdId;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
-     */
-    protected $workCdVersion;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
     protected $homeAddressId;
 
@@ -76,7 +55,6 @@ final class Update extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
     protected $homeAddressVersion;
 
@@ -84,7 +62,6 @@ final class Update extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
     protected $workAddressId;
 
@@ -92,7 +69,6 @@ final class Update extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
     protected $workAddressVersion;
 
@@ -100,7 +76,6 @@ final class Update extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
     protected $personId;
 
@@ -108,7 +83,6 @@ final class Update extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
     protected $personVersion;
 
@@ -288,16 +262,6 @@ final class Update extends AbstractCommand
     public function getHomeCdVersion()
     {
         return $this->homeCdVersion;
-    }
-
-    public function getWorkCdId()
-    {
-        return $this->workCdId;
-    }
-
-    public function getWorkCdVersion()
-    {
-        return $this->workCdVersion;
     }
 
     public function getHomeAddressId()
