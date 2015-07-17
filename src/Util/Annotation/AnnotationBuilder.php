@@ -11,6 +11,7 @@ use Doctrine\Common\Annotations\AnnotationReader;
 use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\Olcs\Transfer\Command\CommandContainer;
 use Dvsa\Olcs\Transfer\Util\StructuredInput;
+use Zend\Filter\FilterPluginManager;
 use Zend\InputFilter\InputFilter;
 
 /**
@@ -20,6 +21,45 @@ use Zend\InputFilter\InputFilter;
  */
 class AnnotationBuilder
 {
+    protected $filterManager;
+    protected $validatorManager;
+
+    /**
+     * @return mixed
+     */
+    public function getFilterManager()
+    {
+        if ($this->filterManager === null) {
+            $this->filterManager = new FilterPluginManager();
+        }
+        return $this->filterManager;
+    }
+
+    /**
+     * @param mixed $filterManager
+     */
+    public function setFilterManager($filterManager)
+    {
+        $this->filterManager = $filterManager;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getValidatorManager()
+    {
+        return $this->validatorManager;
+    }
+
+    /**
+     * @param mixed $validatorManager
+     */
+    public function setValidatorManager($validatorManager)
+    {
+        $this->validatorManager = $validatorManager;
+    }
+
+
     protected $reader;
 
     public function setReader(AnnotationReader $reader)
@@ -142,7 +182,7 @@ class AnnotationBuilder
         $isArrayInput = false;
         $input = null;
 
-        $filterChain = new \Zend\Filter\FilterChain();
+        $filterChain = $this->getNewFilterChain();
         $validatorChain = new \Zend\Validator\ValidatorChain();
 
         // Determine what type of input we have
@@ -218,5 +258,15 @@ class AnnotationBuilder
                 continue;
             }
         }
+    }
+
+    /**
+     * @return \Zend\Filter\FilterChain
+     */
+    protected function getNewFilterChain()
+    {
+        $filterChain = new \Zend\Filter\FilterChain();
+        $filterChain->setPluginManager($this->getFilterManager());
+        return $filterChain;
     }
 }
