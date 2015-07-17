@@ -36,7 +36,7 @@ final class Create extends AbstractCommand
     protected $councilName;
 
     /**
-    * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Address")
+    * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\AddressOptional")
     */
     protected $address;
 
