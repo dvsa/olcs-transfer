@@ -5,7 +5,7 @@ namespace Dvsa\Olcs\Transfer\Util\Annotation;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
-class AnnoationBuilderFactory implements FactoryInterface
+class AnnotationBuilderFactory implements FactoryInterface
 {
     /**
      * Create service
@@ -17,6 +17,7 @@ class AnnoationBuilderFactory implements FactoryInterface
     {
         $service = new AnnotationBuilder();
         $service->setFilterManager($serviceLocator->get('FilterManager'));
+        $service->setValidatorManager($serviceLocator->get('ValidatorManager'));
 
         return $service;
     }

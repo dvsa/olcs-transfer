@@ -12,6 +12,8 @@ use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\Olcs\Transfer\Command\CommandContainer;
 use Dvsa\Olcs\Transfer\Util\StructuredInput;
 use Zend\Filter\FilterPluginManager;
+use Zend\Validator\ValidatorPluginManager;
+
 use Zend\InputFilter\InputFilter;
 
 /**
@@ -48,6 +50,9 @@ class AnnotationBuilder
      */
     public function getValidatorManager()
     {
+        if ($this->validatorManager === null) {
+            $this->validatorManager = new ValidatorPluginManager();
+        }
         return $this->validatorManager;
     }
 

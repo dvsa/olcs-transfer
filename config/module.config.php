@@ -26,9 +26,6 @@ return [
         'factories' => [
             'ApiRouter' => \Dvsa\Olcs\Transfer\Router\RouterFactory::class,
             'TransferAnnotationBuilder' => \Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilderFactory::class
-        ],
-        'invokables' => [
-            ,
         ]
     ]
 ];
