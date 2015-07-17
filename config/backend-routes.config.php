@@ -824,6 +824,18 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Licence\UpdateTrafficArea::class),
                                 ]
                             ),
+                            'markers' => RouteConfig::getRouteConfig(
+                                'markers',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\Markers::class),
+                                ]
+                            ),
+                            'continuation-detail' => RouteConfig::getRouteConfig(
+                                'continuation-detail',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\ContinuationDetail::class),
+                                ]
+                            ),
                         ]
                     ),
                 ]
