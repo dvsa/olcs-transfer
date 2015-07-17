@@ -836,6 +836,12 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Licence\ContinuationDetail::class),
                                 ]
                             ),
+                            'continue-licence' => RouteConfig::getRouteConfig(
+                                'continue-licence',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Licence\ContinueLicence::class),
+                                ]
+                            ),
                         ]
                     ),
                 ]
