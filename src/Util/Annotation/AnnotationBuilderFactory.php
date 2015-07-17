@@ -5,6 +5,11 @@ namespace Dvsa\Olcs\Transfer\Util\Annotation;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
 
+/**
+ * Class AnnotationBuilderFactory - injects validator manager and filter manager to allow transfer objects to use
+ * custom filters/validators
+ * @package Dvsa\Olcs\Transfer\Util\Annotation
+ */
 class AnnotationBuilderFactory implements FactoryInterface
 {
     /**
