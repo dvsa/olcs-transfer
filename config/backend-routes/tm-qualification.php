@@ -19,19 +19,6 @@ return [
                     'GET' => QueryConfig::getConfig(Query\TmQualification\TmQualification::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\TmQualification\Delete::class),
                     'PUT' => CommandConfig::getPutConfig(Command\TmQualification\Update::class),
-                    'documents' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'documents[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'GET' =>
-                                CommandConfig::getPostConfig(
-                                    Command\TmQualification\Documents::class
-                                ),
-                        ]
-                    ],
                 ]
             ),
             'transport-manager' => RouteConfig::getRouteConfig(
@@ -41,6 +28,19 @@ return [
                         'transportManager',
                         [
                             'GET' => QueryConfig::getConfig(Query\TmQualification\TmQualificationsList::class),
+                            'child_routes' => [
+                                'documents' => [
+                                    'type' => 'Segment',
+                                    'options' => [
+                                        'route' => 'documents[/]',
+                                    ],
+                                    'may_terminate' => false,
+                                    'child_routes' => [
+                                        'GET' =>
+                                            QueryConfig::getConfig(Query\TmQualification\Documents::class)
+                                    ]
+                                ],
+                            ]
                         ]
                     )
                 ]

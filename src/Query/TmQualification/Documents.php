@@ -12,9 +12,9 @@ use Dvsa\Olcs\Transfer\Query\PagedTrait;
 /**
  * Class TmQualificationsList
  * 
- * @Transfer\RouteName("backend/tm-qualification/transport-manager/named-single")
+ * @Transfer\RouteName("backend/tm-qualification/transport-manager/named-single/documents")
  */
-class TmQualificationsList extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
+class Documents extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
 {
     use PagedTrait,
         OrderedTrait;
