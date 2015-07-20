@@ -10,7 +10,7 @@ return [
     'transport-manager' => [
         'type' => 'Segment',
         'options' => [
-            'route' => 'transport-manager[/]',
+            'route' => 'transport-manager/',
         ],
         'may_terminate' => false,
         'child_routes' => [
