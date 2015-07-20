@@ -372,6 +372,13 @@ $routes = [
                                     'POST' => CommandConfig::getPostConfig(Command\Application\UpdateCompletion::class),
                                 ]
                             ),
+                            'schedule-41' => RouteConfig::getRouteConfig(
+                                'schedule-41',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Schedule41::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\Schedule41::class)
+                                ]
+                            ),
                             'generate-organisation-name' => RouteConfig::getRouteConfig(
                                 'generate-organisation-name',
                                 [
@@ -528,6 +535,16 @@ $routes = [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+                    'by-number' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'by-number/:licenceNumber'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Licence\LicenceByNumber::class)
+                        ]
+                    ],
                     'named-single' => RouteConfig::getNamedSingleConfig(
                         'licence',
                         [
@@ -1289,6 +1306,31 @@ $routes = [
                     'POST' => CommandConfig::getPostConfig(Command\ChangeOfEntity\CreateChangeOfEntity::class),
                 ]
             ],
+            'correspondence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'correspondence[/]',
+                ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondence::class),
+                            'access' => [
+                                'type' => 'segment',
+                                'options' => [
+                                    'route' => 'access[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Correspondence\AccessCorrespondence::class),
+                                ]
+                            ]
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondences::class),
+                ]
+            ]
         ]
     ]
 ];

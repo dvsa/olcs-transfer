@@ -15,6 +15,12 @@ class CreateConditionUndertaking extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
+    protected $licence = null;
+
+    /**
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
     protected $case = null;
 
     /**
@@ -63,6 +69,25 @@ class CreateConditionUndertaking extends AbstractCommand
     protected $operatingCentre = null;
 
     /**
+     * @Transfer\Optional()
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"cav_case","cav_lic","cav_app"}}
+     *  }
+     * )
+     */
+    protected $addedVia = null;
+
+    /**
+     * @return mixed
+     */
+    public function getLicence()
+    {
+        return $this->licence;
+    }
+
+    /**
      * @return mixed
      */
     public function getAttachedTo()
@@ -108,5 +133,13 @@ class CreateConditionUndertaking extends AbstractCommand
     public function getOperatingCentre()
     {
         return $this->operatingCentre;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAddedVia()
+    {
+        return $this->addedVia;
     }
 }
