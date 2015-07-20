@@ -103,6 +103,26 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateShortNotice::class)
                         ]
                     ],
+                    'decision' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'decision[/]'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Bus\BusRegDecision::class),
+                            'reset' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'reset[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\ResetBusReg::class)
+                                ]
+                            ]
+                        ]
+                    ],
                 ]
             ),
             'registration-history-list' => [
