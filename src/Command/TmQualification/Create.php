@@ -31,19 +31,19 @@ final class Create extends AbstractCommand
      * )
      */
     protected $qualificationType;
-    
+
     /**
      * @Transfer\Filter({"name": "Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":0,"max":20}})
      * @Transfer\Optional
      */
     protected $serialNo;
-    
+
     /**
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $issuedDate;
-    
+
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 2}})
