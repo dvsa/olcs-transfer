@@ -1370,7 +1370,7 @@ $routes = [
                     ),
                     'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondences::class),
                 ]
-            ]
+            ],
             // @todo move to separate route file
             'companies-house-alert' => [
                 'type' => 'Segment',
