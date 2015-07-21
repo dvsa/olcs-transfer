@@ -902,9 +902,6 @@ $routes = [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'previous-conviction[/]',
-                    'defaults' => [
-                        'id' => null
-                    ]
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
@@ -932,6 +929,7 @@ $routes = [
                             'POST' => CommandConfig::getPostConfig(Command\PreviousConviction\CreateForTma::class),
                         ]
                     ],
+                    'GET' => QueryConfig::getConfig(Query\PreviousConviction\GetList::class),
                 ]
             ],
             'irfo' => [
@@ -1101,6 +1099,7 @@ $routes = [
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateOtherLicence::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\OtherLicence\DeleteOtherLicence::class),
+                    'GET' => QueryConfig::getConfig(Query\OtherLicence\GetList::class),
                     'previous-licence' => [
                         'type' => 'Segment',
                         'options' => [
@@ -1121,6 +1120,12 @@ $routes = [
                             'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateForTma::class),
                         ]
                     ],
+                    'transport-manager' => RouteConfig::getRouteConfig(
+                        'transport-manager',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateForTm::class),
+                        ]
+                    ),
                 ]
             ],
             'propose-to-revoke' => [
