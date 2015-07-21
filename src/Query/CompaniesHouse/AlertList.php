@@ -3,6 +3,7 @@
 namespace Dvsa\Olcs\Transfer\Query\CompaniesHouse;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
+use Dvsa\Olcs\Transfer\Query\CachableQueryInterface;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\OrderedTraitOptional;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
@@ -13,8 +14,51 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  * Class AlertList
  * @Transfer\RouteName("backend/companies-house-alert")
  */
-class AlertList extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
+class AlertList extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface, CachableQueryInterface
 {
     use PagedTraitOptional;
     use OrderedTraitOptional;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     */
+    protected $includeClosed = false;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Validator({
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {
+     *          "haystack": {
+     *              "company_status_change",
+     *              "company_name_change",
+     *              "company_address_change",
+     *              "company_people_change",
+     *              "invalid_company_number"
+     *          }
+     *      }
+     * })
+     */
+    protected $typeOfChange;
+
+    /**
+     * Gets the value of includeClosed.
+     *
+     * @return mixed
+     */
+    public function getIncludeClosed()
+    {
+        return $this->includeClosed;
+    }
+
+    /**
+     * Gets the value of typeOfChange.
+     *
+     * @return mixed
+     */
+    public function getTypeOfChange()
+    {
+        return $this->typeOfChange;
+    }
 }
