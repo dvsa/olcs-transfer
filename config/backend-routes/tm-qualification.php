@@ -28,19 +28,6 @@ return [
                         'transportManager',
                         [
                             'GET' => QueryConfig::getConfig(Query\TmQualification\TmQualificationsList::class),
-                            'child_routes' => [
-                                'documents' => [
-                                    'type' => 'Segment',
-                                    'options' => [
-                                        'route' => 'documents[/]',
-                                    ],
-                                    'may_terminate' => false,
-                                    'child_routes' => [
-                                        'GET' =>
-                                            QueryConfig::getConfig(Query\TmQualification\Documents::class)
-                                    ]
-                                ],
-                            ]
                         ]
                     )
                 ]
