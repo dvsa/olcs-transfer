@@ -1372,16 +1372,18 @@ $routes = [
                 ]
             ],
             // @todo move to separate route file
-            'companies-house-alert' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'companies-house-alert[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
+            'companies-house-alert' => RouteConfig::getRouteConfig(
+                'companies-house-alert',
+                [
                     'GET' => QueryConfig::getConfig(Query\CompaniesHouse\AlertList::class),
-                ],
-            ],
+                    'close' => RouteConfig::getRouteConfig(
+                        'close',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\CompaniesHouse\CloseAlerts::class),
+                        ]
+                    ),
+                ]
+            )
         ]
     ]
 ];
