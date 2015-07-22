@@ -1372,6 +1372,7 @@ $routes = [
                     ),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\TmEmployment\DeleteList::class),
                     'POST' => CommandConfig::getPostConfig(Command\TmEmployment\Create::class),
+                    'GET' => QueryConfig::getConfig(Query\TmEmployment\GetList::class),
                 ],
             ],
             'case-condition-undertaking' => [
