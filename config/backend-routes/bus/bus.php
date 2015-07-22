@@ -120,7 +120,17 @@ return [
                                 'child_routes' => [
                                     'PUT' => CommandConfig::getPutConfig(Command\Bus\ResetBusReg::class)
                                 ]
-                            ]
+                            ],
+                            'admin-cancel' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'admin-cancel[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\AdminCancelBusReg::class)
+                                ]
+                            ],
                         ]
                     ],
                 ]
