@@ -151,6 +151,16 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(Command\Bus\RefuseBusReg::class)
                                 ]
                             ],
+                            'refuse-by-short-notice' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'refuse-by-short-notice[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\RefuseBusRegByShortNotice::class)
+                                ]
+                            ],
                         ]
                     ],
                 ]
