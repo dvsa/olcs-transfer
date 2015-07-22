@@ -141,6 +141,16 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(Command\Bus\WithdrawBusReg::class)
                                 ]
                             ],
+                            'refuse' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'refuse[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\RefuseBusReg::class)
+                                ]
+                            ],
                         ]
                     ],
                 ]
