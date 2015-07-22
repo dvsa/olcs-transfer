@@ -17,6 +17,7 @@ return [
                 [
                     'PUT' => CommandConfig::getPutConfig(Command\ConditionUndertaking\Update::class),
                     'GET' => QueryConfig::getConfig(Query\ConditionUndertaking\Get::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\ConditionUndertaking\Delete::class),
                 ]
             ),
         ]
