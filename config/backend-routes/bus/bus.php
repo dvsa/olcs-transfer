@@ -161,6 +161,16 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(Command\Bus\RefuseBusRegByShortNotice::class)
                                 ]
                             ],
+                            'grant' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'grant[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\GrantBusReg::class)
+                                ]
+                            ],
                         ]
                     ],
                 ]
