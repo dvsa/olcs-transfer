@@ -17,10 +17,10 @@ return [
             'single' => RouteConfig::getSingleConfig(
                 [
                     'GET' => QueryConfig::getConfig(Query\TmQualification\TmQualification::class),
-                    'DELETE' => CommandConfig::getDeleteConfig(Command\TmQualification\Delete::class),
                     'PUT' => CommandConfig::getPutConfig(Command\TmQualification\Update::class),
                 ]
             ),
+            'DELETE' => CommandConfig::getDeleteConfig(Command\TmQualification\Delete::class),
             'transport-manager' => RouteConfig::getRouteConfig(
                 'transport-manager',
                 [

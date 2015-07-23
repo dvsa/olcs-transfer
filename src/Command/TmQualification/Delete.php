@@ -8,7 +8,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 /**
  * Delete Inspection Request
  *
- * @Transfer\RouteName("backend/tm-qualification/single")
+ * @Transfer\RouteName("backend/tm-qualification")
  * @Transfer\Method("DELETE")
  */
 class Delete extends AbstractCommand
