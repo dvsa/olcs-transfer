@@ -13,6 +13,7 @@ return [
             'licence' => RouteConfig::getRouteConfig(
                 'licence',
                 [
+                    'GET' => QueryConfig::getConfig(Query\Search\Licence::class),
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\Search\Licence::class),
