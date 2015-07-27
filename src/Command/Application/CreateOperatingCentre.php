@@ -18,6 +18,4 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 final class CreateOperatingCentre extends AbstractOcCommand
 {
     use Application;
-
-
 }
