@@ -19,7 +19,6 @@ final class CreateUnlicensed extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\NotEmpty"})
-     * @Transfer\Optional
      */
     protected $name;
 
