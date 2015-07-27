@@ -1,18 +1,23 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Query\Correspondence;
+/**
+ * Get a list of Application
+ *
+ * @author Mat Evans <mat.evans@valtech.co.uk>
+ */
+namespace Dvsa\Olcs\Transfer\Query\Application;
 
-use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * Class Correspondences
- * @Transfer\RouteName("backend/correspondence")
+ * @Transfer\RouteName("backend/application")
  */
-class Correspondences extends AbstractQuery
+final class GetList extends AbstractQuery implements \Dvsa\Olcs\Transfer\Query\OrderedQueryInterface
 {
+    use \Dvsa\Olcs\Transfer\Query\OrderedTraitOptional;
+
     /**
-     * @var int
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -20,6 +25,8 @@ class Correspondences extends AbstractQuery
     protected $organisation;
 
     /**
+     * Get a Organsation ID
+     *
      * @return int
      */
     public function getOrganisation()

@@ -51,6 +51,16 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Cases\CasesWithOppositionDates::class)
                         ]
                     ],
+                    'licence' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'licence[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Cases\CasesWithLicence::class)
+                        ]
+                    ],
                     'conviction-note' => [
                         'type' => 'Segment',
                         'options' => [

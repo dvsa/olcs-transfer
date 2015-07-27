@@ -29,6 +29,8 @@ final class SurrenderLicence extends AbstractCommand
      */
     protected $surrenderDate;
 
+    protected $terminated = false;
+
     /**
      * @return mixed
      */
@@ -43,5 +45,13 @@ final class SurrenderLicence extends AbstractCommand
     public function getSurrenderDate()
     {
         return $this->surrenderDate;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isTerminated()
+    {
+        return $this->terminated;
     }
 }

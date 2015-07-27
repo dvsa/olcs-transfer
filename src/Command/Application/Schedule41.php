@@ -21,8 +21,19 @@ final class Schedule41 extends AbstractCommand
     use Identity,
         Licence;
 
+    /**
+     * @Transfer\ArrayInput
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
     protected $operatingCentres;
 
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Optional
+     */
     protected $surrenderLicence;
 
     /**

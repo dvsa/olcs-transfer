@@ -36,9 +36,6 @@ $routes = [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'application[/]',
-                    'defaults' => [
-                        'id' => null,
-                    ]
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
@@ -399,9 +396,48 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\TaxiPhv::class),
                                 ]
                             ),
+<<<<<<< HEAD
+=======
+                            'print-interim' => RouteConfig::getRouteConfig(
+                                'print-interim',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Application\PrintInterimDocument::class
+                                    ),
+                                ]
+                            ),
+                            'interim' => RouteConfig::getRouteConfig(
+                                'interim',
+                                [
+                                    'GET' => QueryConfig::getConfig(
+                                        Query\Application\Interim::class
+                                    ),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateInterim::class
+                                    ),
+                                    'refuse' => RouteConfig::getRouteConfig(
+                                        'refuse',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Application\RefuseInterim::class
+                                            ),
+                                        ]
+                                    ),
+                                    'grant' => RouteConfig::getRouteConfig(
+                                        'grant',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Application\GrantInterim::class
+                                            ),
+                                        ]
+                                    ),
+                                ]
+                            )
+>>>>>>> 9317ce502be4375b2a2ab9f16592d2daa3aafad2
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
+                    'GET' => QueryConfig::getConfig(Query\Application\GetList::class),
                 ]
             ],
             'variation' => [
@@ -529,9 +565,6 @@ $routes = [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'licence[/]',
-                    'defaults' => [
-                        'id' => null
-                    ]
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
@@ -853,17 +886,21 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Licence\ContinuationDetail::class),
                                 ]
                             ),
+                            'continue-licence' => RouteConfig::getRouteConfig(
+                                'continue-licence',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Licence\ContinueLicence::class),
+                                ]
+                            ),
                         ]
                     ),
+                    'GET' => QueryConfig::getConfig(Query\Licence\GetList::class),
                 ]
             ],
             'previous-conviction' => [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'previous-conviction[/]',
-                    'defaults' => [
-                        'id' => null
-                    ]
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
@@ -891,6 +928,7 @@ $routes = [
                             'POST' => CommandConfig::getPostConfig(Command\PreviousConviction\CreateForTma::class),
                         ]
                     ],
+                    'GET' => QueryConfig::getConfig(Query\PreviousConviction\GetList::class),
                 ]
             ],
             'irfo' => [
@@ -1060,6 +1098,7 @@ $routes = [
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateOtherLicence::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\OtherLicence\DeleteOtherLicence::class),
+                    'GET' => QueryConfig::getConfig(Query\OtherLicence\GetList::class),
                     'previous-licence' => [
                         'type' => 'Segment',
                         'options' => [
@@ -1080,6 +1119,12 @@ $routes = [
                             'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateForTma::class),
                         ]
                     ],
+                    'transport-manager' => RouteConfig::getRouteConfig(
+                        'transport-manager',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateForTm::class),
+                        ]
+                    ),
                 ]
             ],
             'propose-to-revoke' => [
@@ -1300,6 +1345,31 @@ $routes = [
                     'POST' => CommandConfig::getPostConfig(Command\ChangeOfEntity\CreateChangeOfEntity::class),
                 ]
             ],
+            'correspondence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'correspondence[/]',
+                ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondence::class),
+                            'access' => [
+                                'type' => 'segment',
+                                'options' => [
+                                    'route' => 'access[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Correspondence\AccessCorrespondence::class),
+                                ]
+                            ]
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondences::class),
+                ]
+            ]
         ]
     ]
 ];
