@@ -396,8 +396,6 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\TaxiPhv::class),
                                 ]
                             ),
-<<<<<<< HEAD
-=======
                             'print-interim' => RouteConfig::getRouteConfig(
                                 'print-interim',
                                 [
@@ -433,7 +431,6 @@ $routes = [
                                     ),
                                 ]
                             )
->>>>>>> 9317ce502be4375b2a2ab9f16592d2daa3aafad2
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
