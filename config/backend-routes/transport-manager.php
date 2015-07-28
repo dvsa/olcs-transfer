@@ -18,6 +18,17 @@ return [
                 [
                     'GET' => QueryConfig::getConfig(Query\Tm\TransportManager::class),
                     'PUT' => CommandConfig::getPutConfig(Command\Tm\Update::class),
+                    'documents' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'documents[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' =>
+                                QueryConfig::getConfig(Query\Tm\Documents::class)
+                        ]
+                    ],
                 ]
             ),
             'create' => [
