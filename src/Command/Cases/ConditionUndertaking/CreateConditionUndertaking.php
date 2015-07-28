@@ -21,6 +21,12 @@ class CreateConditionUndertaking extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
+    protected $application = null;
+
+    /**
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
     protected $case = null;
 
     /**
@@ -85,6 +91,14 @@ class CreateConditionUndertaking extends AbstractCommand
     public function getLicence()
     {
         return $this->licence;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getApplication()
+    {
+        return $this->application;
     }
 
     /**

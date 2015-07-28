@@ -103,6 +103,76 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateShortNotice::class)
                         ]
                     ],
+                    'decision' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'decision[/]'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Bus\BusRegDecision::class),
+                            'reset' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'reset[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\ResetBusReg::class)
+                                ]
+                            ],
+                            'admin-cancel' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'admin-cancel[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\AdminCancelBusReg::class)
+                                ]
+                            ],
+                            'withdraw' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'withdraw[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\WithdrawBusReg::class)
+                                ]
+                            ],
+                            'refuse' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'refuse[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\RefuseBusReg::class)
+                                ]
+                            ],
+                            'refuse-by-short-notice' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'refuse-by-short-notice[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\RefuseBusRegByShortNotice::class)
+                                ]
+                            ],
+                            'grant' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'grant[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\GrantBusReg::class)
+                                ]
+                            ],
+                        ]
+                    ],
                 ]
             ),
             'registration-history-list' => [
