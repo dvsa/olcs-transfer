@@ -36,9 +36,6 @@ $routes = [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'application[/]',
-                    'defaults' => [
-                        'id' => null,
-                    ]
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
@@ -443,6 +440,7 @@ $routes = [
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
+                    'GET' => QueryConfig::getConfig(Query\Application\GetList::class),
                 ]
             ],
             'variation' => [
@@ -570,9 +568,6 @@ $routes = [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'licence[/]',
-                    'defaults' => [
-                        'id' => null
-                    ]
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
@@ -902,6 +897,7 @@ $routes = [
                             ),
                         ]
                     ),
+                    'GET' => QueryConfig::getConfig(Query\Licence\GetList::class),
                 ]
             ],
             'previous-conviction' => [
@@ -1369,14 +1365,16 @@ $routes = [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Correspondence\AccessCorrespondence::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Correspondence\AccessCorrespondence::class
+                                    ),
                                 ]
                             ]
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondences::class),
                 ]
-            ]
+            ],
         ]
     ]
 ];
