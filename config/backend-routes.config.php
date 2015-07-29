@@ -1116,6 +1116,16 @@ $routes = [
                             'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateForTma::class),
                         ]
                     ],
+                    'tml' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'tml[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateForTml::class),
+                        ]
+                    ],
                     'transport-manager' => RouteConfig::getRouteConfig(
                         'transport-manager',
                         [

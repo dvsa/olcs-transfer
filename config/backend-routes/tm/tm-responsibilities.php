@@ -37,9 +37,6 @@ return [
                             'GET' => QueryConfig::getConfig(
                                 Query\TransportManagerApplication\GetForResponsibilities::class
                             ),
-                            'DELETE' => CommandConfig::getDeleteConfig(
-                                Command\TransportManagerApplication\DeleteForResponsibilities::class
-                            ),
                             'PUT' => CommandConfig::getPutConfig(
                                 Command\TransportManagerApplication\UpdateForResponsibilities::class
                             ),
@@ -49,6 +46,9 @@ return [
                         CommandConfig::getPostConfig(
                             Command\TransportManagerApplication\CreateForResponsibilities::class
                         ),
+                    'DELETE' => CommandConfig::getDeleteConfig(
+                        Command\TransportManagerApplication\DeleteForResponsibilities::class
+                    ),
                 ]
             ],
             'transport-manager-licence' => [
@@ -63,14 +63,14 @@ return [
                             'GET' => QueryConfig::getConfig(
                                 Query\TransportManagerLicence\GetForResponsibilities::class
                             ),
-                            'DELETE' => CommandConfig::getDeleteConfig(
-                                Command\TransportManagerLicence\DeleteForResponsibilities::class
-                            ),
                             'PUT' => CommandConfig::getPutConfig(
                                 Command\TransportManagerLicence\UpdateForResponsibilities::class
                             ),
                         ]
-                    )
+                    ),
+                    'DELETE' => CommandConfig::getDeleteConfig(
+                        Command\TransportManagerLicence\DeleteForResponsibilities::class
+                    ),
                 ]
             ],
             'documents' => [

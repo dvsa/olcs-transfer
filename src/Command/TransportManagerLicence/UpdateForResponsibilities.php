@@ -101,6 +101,12 @@ final class UpdateForResponsibilities extends AbstractCommand
     protected $additionalInformation;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     */
+    protected $isOwner;
+
+    /**
      * Get Transport Manager Application ID
      *
      * @return int
@@ -196,5 +202,13 @@ final class UpdateForResponsibilities extends AbstractCommand
     public function getAdditionalInformation()
     {
         return $this->additionalInformation;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIsOwner()
+    {
+        return $this->isOwner;
     }
 }
