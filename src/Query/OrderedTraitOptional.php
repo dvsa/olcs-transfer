@@ -20,7 +20,7 @@ trait OrderedTraitOptional
      * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Filter({"name":"Zend\Filter\StringToUpper"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options":{"haystack": {"ASC", "DESC"}}})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Order"})
      */
     protected $order = 'ASC';
 
