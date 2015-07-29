@@ -17,7 +17,7 @@ return [
             'single' => RouteConfig::getSingleConfig(
                 [
                     'GET' => QueryConfig::getConfig(Query\Operator\UnlicensedBusinessDetails::class),
-                    // 'PUT' => CommandConfig::getPutConfig(Command\Operator\Update::class),
+                    'PUT' => CommandConfig::getPutConfig(Command\Operator\UpdateUnlicensed::class),
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(Command\Operator\CreateUnlicensed::class)
