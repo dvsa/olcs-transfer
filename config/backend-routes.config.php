@@ -464,7 +464,7 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'PUT' => CommandConfig::getPutConfig(Command\Variation\VoidPsvDiscs::class),
+                                            'POST' => CommandConfig::getPostConfig(Command\Variation\VoidPsvDiscs::class),
                                         ]
                                     ],
                                     'replace' => [
@@ -474,7 +474,7 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'PUT' => CommandConfig::getPutConfig(
+                                            'POST' => CommandConfig::getPostConfig(
                                                 Command\Variation\ReplacePsvDiscs::class
                                             ),
                                         ]
@@ -614,7 +614,7 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'PUT' => CommandConfig::getPutConfig(Command\Licence\VoidPsvDiscs::class),
+                                            'POST' => CommandConfig::getPostConfig(Command\Licence\VoidPsvDiscs::class),
                                         ]
                                     ],
                                     'replace' => [
@@ -624,7 +624,7 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'PUT' => CommandConfig::getPutConfig(
+                                            'POST' => CommandConfig::getPostConfig(
                                                 Command\Licence\ReplacePsvDiscs::class
                                             ),
                                         ]
