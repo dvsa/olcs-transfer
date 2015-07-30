@@ -61,6 +61,7 @@ abstract class AbstractOcCommand extends AbstractCommand
     protected $adPlacedIn;
 
     /**
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      * @Transfer\Optional
      */
     protected $adPlacedDate;
