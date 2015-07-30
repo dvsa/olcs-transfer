@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Delete Goods Vehicle
+ * Delete Psv Vehicle
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
@@ -13,10 +13,10 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/application/named-single/goods-vehicles")
+ * @Transfer\RouteName("backend/application/named-single/psv-vehicles")
  * @Transfer\Method("DELETE")
  */
-final class DeleteGoodsVehicle extends AbstractCommand
+final class DeletePsvVehicle extends AbstractCommand
 {
     use Application,
         Ids;

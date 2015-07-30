@@ -5,19 +5,17 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-namespace Dvsa\Olcs\Transfer\Command\Application;
+namespace Dvsa\Olcs\Transfer\Command\Vehicle;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\Application;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Ids;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/application/named-single/goods-vehicles")
+ * @Transfer\RouteName("backend/licence-vehicle")
  * @Transfer\Method("DELETE")
  */
-final class DeleteGoodsVehicle extends AbstractCommand
+final class DeleteLicenceVehicle extends AbstractCommand
 {
-    use Application,
-        Ids;
+    use Ids;
 }
