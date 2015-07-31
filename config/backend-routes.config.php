@@ -413,6 +413,12 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\Schedule41Approve::class)
                                 ]
                             ),
+                            'reset-schedule-41' => RouteConfig::getRouteConfig(
+                                'reset-schedule-41',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\Schedule41Reset::class)
+                                ]
+                            ),
                             'generate-organisation-name' => RouteConfig::getRouteConfig(
                                 'generate-organisation-name',
                                 [
