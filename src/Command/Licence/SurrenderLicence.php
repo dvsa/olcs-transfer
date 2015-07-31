@@ -29,6 +29,9 @@ final class SurrenderLicence extends AbstractCommand
      */
     protected $surrenderDate;
 
+    /**
+     * @Transfer\Optional
+     */
     protected $terminated = false;
 
     /**
