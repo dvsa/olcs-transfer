@@ -19,7 +19,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 abstract class AbstractOcCommand extends AbstractCommand
 {
     /**
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Address")
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\AddressOptionalPostcode")
      * @Transfer\Optional
      */
     protected $address;
