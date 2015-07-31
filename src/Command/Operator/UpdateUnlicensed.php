@@ -39,7 +39,7 @@ final class UpdateUnlicensed extends AbstractCommand
     protected $trafficArea;
 
     /**
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\ContactDetails")
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\OperatorContactDetails")
      * @Transfer\Optional
      */
     protected $contactDetails;
