@@ -91,6 +91,37 @@ $routes = [
                                     )
                                 ]
                             ),
+                            'operating-centre' => RouteConfig::getRouteConfig(
+                                'operating-centre',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Application\CreateOperatingCentre::class
+                                    ),
+                                    'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Application\DeleteOperatingCentres::class
+                                    ),
+                                ]
+                            ),
+                            'variation-operating-centre' => RouteConfig::getRouteConfig(
+                                'variation-operating-centre',
+                                [
+                                    'single' => RouteConfig::getSingleConfig(
+                                        [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\VariationOperatingCentre\Update::class
+                                            ),
+                                            'restore' => RouteConfig::getRouteConfig(
+                                                'restore',
+                                                [
+                                                    'PUT' => CommandConfig::getPutConfig(
+                                                        Command\Variation\RestoreOperatingCentre::class
+                                                    ),
+                                                ]
+                                            )
+                                        ]
+                                    ),
+                                ]
+                            )
                         ]
                     ),
                     'single' => RouteConfig::getSingleConfig(
@@ -430,7 +461,16 @@ $routes = [
                                         ]
                                     ),
                                 ]
-                            )
+                            ),
+                            'operating-centres' => RouteConfig::getRouteConfig(
+                                'operating-centres',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\OperatingCentres::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateOperatingCentres::class
+                                    ),
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -464,7 +504,7 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'PUT' => CommandConfig::getPutConfig(Command\Variation\VoidPsvDiscs::class),
+                                            'POST' => CommandConfig::getPostConfig(Command\Variation\VoidPsvDiscs::class),
                                         ]
                                     ],
                                     'replace' => [
@@ -474,7 +514,7 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'PUT' => CommandConfig::getPutConfig(
+                                            'POST' => CommandConfig::getPostConfig(
                                                 Command\Variation\ReplacePsvDiscs::class
                                             ),
                                         ]
@@ -482,6 +522,18 @@ $routes = [
                                     'POST' => CommandConfig::getPostConfig(Command\Variation\CreatePsvDiscs::class),
                                 ]
                             ],
+                            'operating-centre' => RouteConfig::getRouteConfig(
+                                'operating-centre',
+                                [
+                                    'single' => RouteConfig::getSingleConfig(
+                                        [
+                                            'DELETE' => CommandConfig::getDeleteConfig(
+                                                Command\Variation\DeleteOperatingCentre::class
+                                            ),
+                                        ]
+                                    )
+                                ]
+                            ),
                         ]
                     ),
                     'single' => RouteConfig::getSingleConfig(
@@ -614,7 +666,7 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'PUT' => CommandConfig::getPutConfig(Command\Licence\VoidPsvDiscs::class),
+                                            'POST' => CommandConfig::getPostConfig(Command\Licence\VoidPsvDiscs::class),
                                         ]
                                     ],
                                     'replace' => [
@@ -624,7 +676,7 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'PUT' => CommandConfig::getPutConfig(
+                                            'POST' => CommandConfig::getPostConfig(
                                                 Command\Licence\ReplacePsvDiscs::class
                                             ),
                                         ]
@@ -632,6 +684,17 @@ $routes = [
                                     'POST' => CommandConfig::getPostConfig(Command\Licence\CreatePsvDiscs::class),
                                 ]
                             ],
+                            'operating-centre' => RouteConfig::getRouteConfig(
+                                'operating-centre',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Licence\CreateOperatingCentre::class
+                                    ),
+                                    'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Licence\DeleteOperatingCentres::class
+                                    ),
+                                ]
+                            ),
                         ]
                     ),
                     'single' => RouteConfig::getSingleConfig(
@@ -887,6 +950,15 @@ $routes = [
                                 'continue-licence',
                                 [
                                     'PUT' => CommandConfig::getPutConfig(Command\Licence\ContinueLicence::class),
+                                ]
+                            ),
+                            'operating-centres' => RouteConfig::getRouteConfig(
+                                'operating-centres',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\OperatingCentres::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Licence\UpdateOperatingCentres::class
+                                    ),
                                 ]
                             ),
                         ]
@@ -1359,14 +1431,16 @@ $routes = [
                                 ],
                                 'may_terminate' => false,
                                 'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Correspondence\AccessCorrespondence::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Correspondence\AccessCorrespondence::class
+                                    ),
                                 ]
                             ]
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondences::class),
                 ]
-            ]
+            ],
         ]
     ]
 ];

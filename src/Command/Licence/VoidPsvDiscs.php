@@ -12,7 +12,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
  * @Transfer\RouteName("backend/licence/named-single/psv-discs/void")
- * @Transfer\Method("PUT")
+ * @Transfer\Method("POST")
  */
 final class VoidPsvDiscs extends AbstractCommand
 {
