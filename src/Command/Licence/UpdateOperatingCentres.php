@@ -28,6 +28,7 @@ final class UpdateOperatingCentres extends AbstractCommand
     protected $partial;
 
     /**
+     * @Transfer\Filter({"name":"\Zend\Filter\Int"})
      * @Transfer\Validator({"name": "Digits"})
      * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 1000000}})
      * @Transfer\Optional
@@ -35,6 +36,7 @@ final class UpdateOperatingCentres extends AbstractCommand
     protected $totAuthSmallVehicles;
 
     /**
+     * @Transfer\Filter({"name":"\Zend\Filter\Int"})
      * @Transfer\Validator({"name": "Digits"})
      * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 1000000}})
      * @Transfer\Optional
@@ -42,6 +44,7 @@ final class UpdateOperatingCentres extends AbstractCommand
     protected $totAuthMediumVehicles;
 
     /**
+     * @Transfer\Filter({"name":"\Zend\Filter\Int"})
      * @Transfer\Validator({"name": "Digits"})
      * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 1000000}})
      * @Transfer\Optional
@@ -49,6 +52,7 @@ final class UpdateOperatingCentres extends AbstractCommand
     protected $totAuthLargeVehicles;
 
     /**
+     * @Transfer\Filter({"name":"\Zend\Filter\Int"})
      * @Transfer\Validator({"name": "Digits"})
      * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 1000000}})
      * @Transfer\Optional
@@ -56,6 +60,7 @@ final class UpdateOperatingCentres extends AbstractCommand
     protected $totAuthVehicles;
 
     /**
+     * @Transfer\Filter({"name":"\Zend\Filter\Int"})
      * @Transfer\Validator({"name": "Digits"})
      * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 1000000}})
      * @Transfer\Optional
