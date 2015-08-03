@@ -21,6 +21,8 @@ final class Schedule41Approve extends AbstractCommand
 
     /**
      * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
      */
     protected $trueS4 = null;
 
