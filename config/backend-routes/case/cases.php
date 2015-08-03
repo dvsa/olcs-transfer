@@ -50,10 +50,50 @@ return [
                         'child_routes' => [
                             'GET' => QueryConfig::getConfig(Query\Cases\CasesWithOppositionDates::class)
                         ]
-                    ]
+                    ],
+                    'licence' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'licence[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Cases\CasesWithLicence::class)
+                        ]
+                    ],
+                    'conviction-note' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'conviction-note[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\UpdateConvictionNote::class),
+                        ]
+                    ],
+                    'prohibition-note' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'prohibition-note[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\UpdateProhibitionNote::class),
+                        ]
+                    ],
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(Command\Cases\CreateCase::class),
+            'by-transport-manager' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'by-transport-manager[/]'
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Cases\ByTransportManager::class)
+                ]
+            ]
         ]
     ]
 ];

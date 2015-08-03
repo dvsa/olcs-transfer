@@ -24,6 +24,14 @@ class EnvironmentalComplaintList extends AbstractQuery implements PagedQueryInte
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
+    protected $application;
+
+    /**
+     * @Transfer\Optional()
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
     protected $licence;
 
     /**
@@ -36,10 +44,18 @@ class EnvironmentalComplaintList extends AbstractQuery implements PagedQueryInte
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": "0"}})
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": false}})
      */
-    protected $isCompliance = '0';
+    protected $isCompliance = false;
+
+    /**
+     * @return int
+     */
+    public function getApplication()
+    {
+        return $this->application;
+    }
 
     /**
      * @return int

@@ -35,8 +35,8 @@ final class Overview extends AbstractCommand
     /**
      * @Transfer\Optional
      * @Transfer\Validator({
-     *  "name":"Zend\Validator\InArray",
-     *  "options": {"haystack": {"B", "C", "D", "F", "G", "H", "K", "M", "N"}}
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {"haystack": {"B", "C", "D", "F", "G", "H", "K", "M", "N"}}
      * })
      */
     protected $leadTcArea;
@@ -57,6 +57,12 @@ final class Overview extends AbstractCommand
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\ApplicationTracking")
      */
     protected $tracking;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     */
+    protected $overrideOppositionDate;
 
     /**
      * Gets the value of id.
@@ -116,5 +122,14 @@ final class Overview extends AbstractCommand
     public function getTracking()
     {
         return $this->tracking;
+    }
+
+    /**
+     *
+     * @return string Y|N
+     */
+    public function getOverrideOppositionDate()
+    {
+        return $this->overrideOppositionDate;
     }
 }

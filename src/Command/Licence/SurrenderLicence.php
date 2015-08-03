@@ -30,6 +30,12 @@ final class SurrenderLicence extends AbstractCommand
     protected $surrenderDate;
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name": "Zend\Filter\Boolean"})
+     */
+    protected $terminated = false;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -43,5 +49,13 @@ final class SurrenderLicence extends AbstractCommand
     public function getSurrenderDate()
     {
         return $this->surrenderDate;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function isTerminated()
+    {
+        return $this->terminated;
     }
 }

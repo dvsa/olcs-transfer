@@ -16,26 +16,32 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 class Update extends AbstractCommand
     implements
     FieldType\IdentityInterface,
-    FieldType\VersionInterface,
-    FieldType\ApplicationInterface,
-    FieldType\CasesInterface,
-    FieldType\LicenceInterface,
-    FieldType\OrganisationInterface,
-    FieldType\TransportManagerInterface
+    FieldType\VersionInterface
 {
     // Identity & Locking
     use FieldTypeTraits\Identity;
     use FieldTypeTraits\Version;
 
-    // Foreign Keys
-    use FieldTypeTraits\ApplicationOptional;
-    use FieldTypeTraits\BusRegOptional;
-    use FieldTypeTraits\CasesOptional;
-    use FieldTypeTraits\LicenceOptional;
-    use FieldTypeTraits\OrganisationOptional;
-    use FieldTypeTraits\TransportManagerOptional;
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Optional
+     */
+    protected $priority;
 
-    // Individual Fields
-    use FieldTypeTraits\CommentOptional;
-    use FieldTypeTraits\NoteTypeOptional;
+    /**
+     * @return mixed
+     */
+    public function getPriority()
+    {
+        return $this->priority;
+    }
+
+    /**
+     * @param mixed $priority
+     */
+    public function setPriority($priority)
+    {
+        $this->priority = $priority;
+    }
 }

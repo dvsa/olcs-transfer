@@ -12,7 +12,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
  * @Transfer\RouteName("backend/variation/named-single/psv-discs/replace")
- * @Transfer\Method("PUT")
+ * @Transfer\Method("POST")
  */
 final class ReplacePsvDiscs extends AbstractCommand
 {

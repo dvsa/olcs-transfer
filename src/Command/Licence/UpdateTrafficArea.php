@@ -1,45 +1,53 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Command\Cases\ConditionUndertaking;
+/**
+ * UpdateTrafficArea
+ *
+ * @author Mat Evans <mat.evans@valtech.co.uk>
+ */
+namespace Dvsa\Olcs\Transfer\Command\Licence;
 
-use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/condition-undertaking")
- * @Transfer\Method("DELETE")
+ * @Transfer\RouteName("backend/licence/single/update-traffic-area")
+ * @Transfer\Method("PUT")
  */
-class DeleteConditionUndertaking extends AbstractCommand
+final class UpdateTrafficArea extends AbstractCommand
 {
     /**
-     * @var int
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $id = null;
+    protected $id;
 
     /**
-     * @var int
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $version = null;
+    protected $version;
 
     /**
-     * @return mixed
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\TrafficArea"})
      */
+    protected $trafficArea;
+
     public function getId()
     {
         return $this->id;
     }
 
-    /**
-     * @return mixed
-     */
     public function getVersion()
     {
         return $this->version;
+    }
+
+    public function getTrafficArea()
+    {
+        return $this->trafficArea;
     }
 }

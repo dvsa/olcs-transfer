@@ -28,6 +28,13 @@ class DeleteEnvironmentalComplaint extends AbstractCommand
     protected $version = null;
 
     /**
+     * @Transfer\Optional()
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": false}})
+     */
+    protected $isCompliance = false;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -41,5 +48,13 @@ class DeleteEnvironmentalComplaint extends AbstractCommand
     public function getVersion()
     {
         return $this->version;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsCompliance()
+    {
+        return $this->isCompliance;
     }
 }

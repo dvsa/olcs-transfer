@@ -36,9 +36,6 @@ $routes = [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'application[/]',
-                    'defaults' => [
-                        'id' => null,
-                    ]
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
@@ -94,6 +91,37 @@ $routes = [
                                     )
                                 ]
                             ),
+                            'operating-centre' => RouteConfig::getRouteConfig(
+                                'operating-centre',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Application\CreateOperatingCentre::class
+                                    ),
+                                    'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Application\DeleteOperatingCentres::class
+                                    ),
+                                ]
+                            ),
+                            'variation-operating-centre' => RouteConfig::getRouteConfig(
+                                'variation-operating-centre',
+                                [
+                                    'single' => RouteConfig::getSingleConfig(
+                                        [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\VariationOperatingCentre\Update::class
+                                            ),
+                                            'restore' => RouteConfig::getRouteConfig(
+                                                'restore',
+                                                [
+                                                    'PUT' => CommandConfig::getPutConfig(
+                                                        Command\Variation\RestoreOperatingCentre::class
+                                                    ),
+                                                ]
+                                            )
+                                        ]
+                                    ),
+                                ]
+                            )
                         ]
                     ),
                     'single' => RouteConfig::getSingleConfig(
@@ -311,10 +339,148 @@ $routes = [
                                         Command\Application\CreateSnapshot::class
                                     ),
                                 ]
-                            )
+                            ),
+                            'enforcement-area' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'enforcement-area[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\EnforcementArea::class),
+                                ]
+                            ],
+                            'grant' => RouteConfig::getRouteConfig(
+                                'grant',
+                                [
+                                    'GET' => QueryConfig::getConfig(
+                                        Query\Application\Grant::class
+                                    ),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\Grant::class
+                                    )
+                                ]
+                            ),
+                            'undo-grant' => RouteConfig::getRouteConfig(
+                                'undo-grant',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UndoGrant::class
+                                    )
+                                ]
+                            ),
+                            'people' => RouteConfig::getRouteConfig(
+                                'people',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\People::class),
+                                    'POST' => CommandConfig::getPostConfig(Command\Application\CreatePeople::class),
+                                    'DELETE' => CommandConfig::getDeleteConfig(Command\Application\DeletePeople::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\RestorePeople::class),
+                                    'person' => RouteConfig::getNamedSingleConfig(
+                                        'person',
+                                        [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\Application\UpdatePeople::class
+                                            ),
+                                        ]
+                                    ),
+                                    'update-completion' => RouteConfig::getRouteConfig(
+                                        'update-completion',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Application\UpdateCompletion::class
+                                            ),
+                                        ]
+                                    ),
+                                ]
+                            ),
+                            'update-completion' => RouteConfig::getRouteConfig(
+                                'update-completion',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(Command\Application\UpdateCompletion::class),
+                                ]
+                            ),
+                            'schedule-41' => RouteConfig::getRouteConfig(
+                                'schedule-41',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Schedule41::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\Schedule41::class)
+                                ]
+                            ),
+                            'approve-schedule-41' => RouteConfig::getRouteConfig(
+                                'approve-schedule-41',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\Schedule41Approve::class)
+                                ]
+                            ),
+                            'generate-organisation-name' => RouteConfig::getRouteConfig(
+                                'generate-organisation-name',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\GenerateOrganisationName::class
+                                    ),
+                                ]
+                            ),
+                            'operating-centre' => RouteConfig::getRouteConfig(
+                                'operating-centre',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\OperatingCentre::class),
+                                ]
+                            ),
+                            'taxi-phv' => RouteConfig::getRouteConfig(
+                                'taxi-phv',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\TaxiPhv::class),
+                                ]
+                            ),
+                            'print-interim' => RouteConfig::getRouteConfig(
+                                'print-interim',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Application\PrintInterimDocument::class
+                                    ),
+                                ]
+                            ),
+                            'interim' => RouteConfig::getRouteConfig(
+                                'interim',
+                                [
+                                    'GET' => QueryConfig::getConfig(
+                                        Query\Application\Interim::class
+                                    ),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateInterim::class
+                                    ),
+                                    'refuse' => RouteConfig::getRouteConfig(
+                                        'refuse',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Application\RefuseInterim::class
+                                            ),
+                                        ]
+                                    ),
+                                    'grant' => RouteConfig::getRouteConfig(
+                                        'grant',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Application\GrantInterim::class
+                                            ),
+                                        ]
+                                    ),
+                                ]
+                            ),
+                            'operating-centres' => RouteConfig::getRouteConfig(
+                                'operating-centres',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\OperatingCentres::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateOperatingCentres::class
+                                    ),
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
+                    'GET' => QueryConfig::getConfig(Query\Application\GetList::class),
                 ]
             ],
             'variation' => [
@@ -344,7 +510,7 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'PUT' => CommandConfig::getPutConfig(Command\Variation\VoidPsvDiscs::class),
+                                            'POST' => CommandConfig::getPostConfig(Command\Variation\VoidPsvDiscs::class),
                                         ]
                                     ],
                                     'replace' => [
@@ -354,7 +520,7 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'PUT' => CommandConfig::getPutConfig(
+                                            'POST' => CommandConfig::getPostConfig(
                                                 Command\Variation\ReplacePsvDiscs::class
                                             ),
                                         ]
@@ -362,6 +528,18 @@ $routes = [
                                     'POST' => CommandConfig::getPostConfig(Command\Variation\CreatePsvDiscs::class),
                                 ]
                             ],
+                            'operating-centre' => RouteConfig::getRouteConfig(
+                                'operating-centre',
+                                [
+                                    'single' => RouteConfig::getSingleConfig(
+                                        [
+                                            'DELETE' => CommandConfig::getDeleteConfig(
+                                                Command\Variation\DeleteOperatingCentre::class
+                                            ),
+                                        ]
+                                    )
+                                ]
+                            ),
                         ]
                     ),
                     'single' => RouteConfig::getSingleConfig(
@@ -407,6 +585,33 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Variation\GoodsVehicles::class),
                                 ]
                             ),
+                            'grant' => RouteConfig::getRouteConfig(
+                                'grant',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Variation\Grant::class
+                                    )
+                                ]
+                            ),
+                            'condition-undertaking' => RouteConfig::getRouteConfig(
+                                'condition-undertaking',
+                                [
+                                    'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Variation\DeleteListConditionUndertaking::class
+                                    ),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Variation\RestoreListConditionUndertaking::class
+                                    ),
+                                    'single' => RouteConfig::getNamedSingleConfig(
+                                        'conditionUndertaking',
+                                        [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\Variation\UpdateConditionUndertaking::class
+                                            )
+                                        ]
+                                    ),
+                                ]
+                            ),
                         ]
                     ),
                 ]
@@ -415,12 +620,19 @@ $routes = [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'licence[/]',
-                    'defaults' => [
-                        'id' => null
-                    ]
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+                    'by-number' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'by-number/:licenceNumber'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Licence\LicenceByNumber::class)
+                        ]
+                    ],
                     'named-single' => RouteConfig::getNamedSingleConfig(
                         'licence',
                         [
@@ -460,7 +672,7 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'PUT' => CommandConfig::getPutConfig(Command\Licence\VoidPsvDiscs::class),
+                                            'POST' => CommandConfig::getPostConfig(Command\Licence\VoidPsvDiscs::class),
                                         ]
                                     ],
                                     'replace' => [
@@ -470,7 +682,7 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'PUT' => CommandConfig::getPutConfig(
+                                            'POST' => CommandConfig::getPostConfig(
                                                 Command\Licence\ReplacePsvDiscs::class
                                             ),
                                         ]
@@ -478,6 +690,17 @@ $routes = [
                                     'POST' => CommandConfig::getPostConfig(Command\Licence\CreatePsvDiscs::class),
                                 ]
                             ],
+                            'operating-centre' => RouteConfig::getRouteConfig(
+                                'operating-centre',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Licence\CreateOperatingCentre::class
+                                    ),
+                                    'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Licence\DeleteOperatingCentres::class
+                                    ),
+                                ]
+                            ),
                         ]
                     ),
                     'single' => RouteConfig::getSingleConfig(
@@ -659,91 +882,100 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Licence\Overview::class),
                                 ]
                             ],
+                            'enforcement-area' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'enforcement-area[/]'
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\EnforcementArea::class),
+                                ]
+                            ],
                             'condition-undertaking' => RouteConfig::getRouteConfig(
                                 'condition-undertaking',
                                 [
                                     'GET' => QueryConfig::getConfig(Query\Licence\ConditionUndertaking::class)
                                 ]
                             ),
+                            'variation' => RouteConfig::getRouteConfig(
+                                'variation',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(Command\Licence\CreateVariation::class),
+                                ]
+                            ),
+                            'people' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'people[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\People::class),
+                                    'POST' => CommandConfig::getPostConfig(Command\Licence\CreatePeople::class),
+                                    'DELETE' => CommandConfig::getDeleteConfig(Command\Licence\DeletePeople::class),
+                                    'person' => RouteConfig::getNamedSingleConfig(
+                                        'person',
+                                        [
+                                            'PUT' => CommandConfig::getPutConfig(Command\Licence\UpdatePeople::class),
+                                        ]
+                                    )
+                                ]
+                            ],
+                            'operating-centre' => RouteConfig::getRouteConfig(
+                                'operating-centre',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\OperatingCentre::class),
+                                ]
+                            ),
+                            'taxi-phv' => RouteConfig::getRouteConfig(
+                                'taxi-phv',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\TaxiPhv::class),
+                                ]
+                            ),
+                            'update-traffic-area' => RouteConfig::getRouteConfig(
+                                'update-traffic-area',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Licence\UpdateTrafficArea::class),
+                                ]
+                            ),
+                            'markers' => RouteConfig::getRouteConfig(
+                                'markers',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\Markers::class),
+                                ]
+                            ),
+                            'continuation-detail' => RouteConfig::getRouteConfig(
+                                'continuation-detail',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\ContinuationDetail::class),
+                                ]
+                            ),
+                            'continue-licence' => RouteConfig::getRouteConfig(
+                                'continue-licence',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Licence\ContinueLicence::class),
+                                ]
+                            ),
+                            'operating-centres' => RouteConfig::getRouteConfig(
+                                'operating-centres',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\OperatingCentres::class),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Licence\UpdateOperatingCentres::class
+                                    ),
+                                ]
+                            ),
                         ]
                     ),
-                ]
-            ],
-            'bus' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'bus[/]',
-                    'defaults' => [
-                        'id' => null
-                    ]
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Bus\BusReg::class),
-                            'stops' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'stops[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateStops::class),
-                                ]
-                            ],
-                            'quality' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'quality[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateQualitySchemes::class),
-                                ]
-                            ],
-                            'service-details' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'service-details[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateServiceDetails::class)
-                                ]
-                            ],
-                            'ta' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'ta[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateTaAuthority::class)
-                                ]
-                            ],
-                            'short-notice' => [
-                                'type' => 'Segment',
-                                'options' => [
-                                    'route' => 'short-notice[/]',
-                                ],
-                                'may_terminate' => false,
-                                'child_routes' => [
-                                    'GET' => QueryConfig::getConfig(Query\Bus\ShortNoticeByBusReg::class),
-                                    'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateShortNotice::class)
-                                ]
-                            ],
-                        ]
-                    ),
+                    'GET' => QueryConfig::getConfig(Query\Licence\GetList::class),
                 ]
             ],
             'previous-conviction' => [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'previous-conviction[/]',
-                    'defaults' => [
-                        'id' => null
-                    ]
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
@@ -771,6 +1003,7 @@ $routes = [
                             'POST' => CommandConfig::getPostConfig(Command\PreviousConviction\CreateForTma::class),
                         ]
                     ],
+                    'GET' => QueryConfig::getConfig(Query\PreviousConviction\GetList::class),
                 ]
             ],
             'irfo' => [
@@ -940,6 +1173,7 @@ $routes = [
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateOtherLicence::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\OtherLicence\DeleteOtherLicence::class),
+                    'GET' => QueryConfig::getConfig(Query\OtherLicence\GetList::class),
                     'previous-licence' => [
                         'type' => 'Segment',
                         'options' => [
@@ -960,6 +1194,22 @@ $routes = [
                             'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateForTma::class),
                         ]
                     ],
+                    'tml' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'tml[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateForTml::class),
+                        ]
+                    ],
+                    'transport-manager' => RouteConfig::getRouteConfig(
+                        'transport-manager',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\OtherLicence\CreateForTm::class),
+                        ]
+                    ),
                 ]
             ],
             'propose-to-revoke' => [
@@ -1159,6 +1409,52 @@ $routes = [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Bus\HistoryList::class)
+                ]
+            ],
+            'change-of-entity' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'change-of-entity[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\ChangeOfEntity\ChangeOfEntity::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\ChangeOfEntity\UpdateChangeOfEntity::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(
+                                Command\ChangeOfEntity\DeleteChangeOfEntity::class
+                            )
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\ChangeOfEntity\CreateChangeOfEntity::class),
+                ]
+            ],
+            'correspondence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'correspondence[/]',
+                ],
+                'may_terminate' => true,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondence::class),
+                            'access' => [
+                                'type' => 'segment',
+                                'options' => [
+                                    'route' => 'access[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Correspondence\AccessCorrespondence::class
+                                    ),
+                                ]
+                            ]
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\Correspondence\Correspondences::class),
                 ]
             ],
         ]
