@@ -31,6 +31,7 @@ final class SurrenderLicence extends AbstractCommand
 
     /**
      * @Transfer\Optional
+     * @Transfer\Filter({"name": "Zend\Filter\Boolean"})
      */
     protected $terminated = false;
 
