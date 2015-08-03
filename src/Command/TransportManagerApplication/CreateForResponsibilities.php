@@ -1,20 +1,20 @@
 <?php
 
 /**
- * Replace Psv Discs
+ * Create Transport Manager Application
  *
- * @author Rob Caiger <rob@clocal.co.uk>
+ * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
-namespace Dvsa\Olcs\Transfer\Command\Variation;
+namespace Dvsa\Olcs\Transfer\Command\TransportManagerApplication;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/variation/named-single/psv-discs/replace")
+ * @Transfer\RouteName("backend/tm-responsibilities/transport-manager-application")
  * @Transfer\Method("POST")
  */
-final class ReplacePsvDiscs extends AbstractCommand
+final class CreateForResponsibilities extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -24,15 +24,16 @@ final class ReplacePsvDiscs extends AbstractCommand
     protected $application;
 
     /**
-     * @Transfer\ArrayInput
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $ids;
+    protected $transportManager;
 
     /**
-     * @return mixed
+     * Get Application ID
+     *
+     * @return int
      */
     public function getApplication()
     {
@@ -40,10 +41,12 @@ final class ReplacePsvDiscs extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get Transport Manager ID
+     *
+     * @return int
      */
-    public function getIds()
+    public function getTransportManager()
     {
-        return $this->ids;
+        return $this->transportManager;
     }
 }

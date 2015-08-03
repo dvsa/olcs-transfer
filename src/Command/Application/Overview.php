@@ -59,6 +59,12 @@ final class Overview extends AbstractCommand
     protected $tracking;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     */
+    protected $overrideOppositionDate;
+
+    /**
      * Gets the value of id.
      *
      * @return int
@@ -116,5 +122,14 @@ final class Overview extends AbstractCommand
     public function getTracking()
     {
         return $this->tracking;
+    }
+
+    /**
+     *
+     * @return string Y|N
+     */
+    public function getOverrideOppositionDate()
+    {
+        return $this->overrideOppositionDate;
     }
 }

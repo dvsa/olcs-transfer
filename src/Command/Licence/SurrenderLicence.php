@@ -29,6 +29,10 @@ final class SurrenderLicence extends AbstractCommand
      */
     protected $surrenderDate;
 
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name": "Zend\Filter\Boolean"})
+     */
     protected $terminated = false;
 
     /**
