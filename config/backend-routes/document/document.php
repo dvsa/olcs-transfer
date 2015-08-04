@@ -40,6 +40,18 @@ return [
             'POST' => CommandConfig::getPostConfig(Command\Document\CreateDocument::class),
             'DELETE' => CommandConfig::getDeleteConfig(Command\Document\DeleteDocuments::class),
             'GET' => QueryConfig::getConfig(Query\Document\DocumentList::class),
+            'copy' => RouteConfig::getRouteConfig(
+                'copy',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\Document\CopyDocument::class),
+                ]
+            ),
+            'move' => RouteConfig::getRouteConfig(
+                'move',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\Document\MoveDocument::class),
+                ]
+            ),
         ]
     )
 ];

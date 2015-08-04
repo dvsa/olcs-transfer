@@ -504,7 +504,9 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'POST' => CommandConfig::getPostConfig(Command\Variation\VoidPsvDiscs::class),
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Variation\VoidPsvDiscs::class
+                                            ),
                                         ]
                                     ],
                                     'replace' => [
