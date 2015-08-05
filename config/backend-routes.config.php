@@ -431,6 +431,18 @@ $routes = [
                                 'taxi-phv',
                                 [
                                     'GET' => QueryConfig::getConfig(Query\Application\TaxiPhv::class),
+                                    'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Application\DeleteTaxiPhv::class
+                                    ),
+                                    'POST' => CommandConfig::getPostConfig(Command\Application\CreateTaxiPhv::class),
+                                    'single' => RouteConfig::getNamedSingleConfig(
+                                        'privateHireLicence',
+                                        [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\Application\UpdateTaxiPhv::class
+                                            ),
+                                        ]
+                                    ),
                                 ]
                             ),
                             'print-interim' => RouteConfig::getRouteConfig(
@@ -510,7 +522,9 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'POST' => CommandConfig::getPostConfig(Command\Variation\VoidPsvDiscs::class),
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Variation\VoidPsvDiscs::class
+                                            ),
                                         ]
                                     ],
                                     'replace' => [

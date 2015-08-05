@@ -1,27 +1,41 @@
 <?php
 
 /**
- * Create PrivateHireLicence
+ * Update TaxiPhv
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-namespace Dvsa\Olcs\Transfer\Command\PrivateHireLicence;
+namespace Dvsa\Olcs\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/private-hire-licence")
- * @Transfer\Method("POST")
+ * @Transfer\RouteName("backend/application/single/taxi-phv/single")
+ * @Transfer\Method("PUT")
  */
-final class Create extends AbstractCommand
+final class UpdateTaxiPhv extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $licence;
+    protected $id;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $privateHireLicence;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $version;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -40,12 +54,20 @@ final class Create extends AbstractCommand
     */
     protected $address;
 
-    /**
-     * @return int
-     */
-    public function getLicence()
+
+    public function getId()
     {
-        return $this->licence;
+        return $this->id;
+    }
+
+    public function getPrivateHireLicence()
+    {
+        return $this->privateHireLicence;
+    }
+
+    public function getVersion()
+    {
+        return $this->version;
     }
 
     public function getPrivateHireLicenceNo()
