@@ -2,14 +2,15 @@
 
 namespace Dvsa\Olcs\Transfer\Command\Partial;
 
+use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * Contact Details partial
+ * Operator Contact Details partial
  *
- * @author Rob Caiger <rob@clocal.co.uk>
+ * @author Dan Eggleston <dan@stolenegg.com>
  */
-class ContactDetails
+class OperatorContactDetails extends AbstractCommand
 {
     /**
      * @Transfer\Optional
@@ -28,12 +29,6 @@ class ContactDetails
     protected $version;
 
     /**
-     * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     */
-    protected $fao;
-
-    /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\EmailAddress"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":5,"max":255}})
@@ -42,34 +37,38 @@ class ContactDetails
     public $emailAddress;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":5,"max":255}})
-     * @Transfer\Optional
-     */
-    public $description;
-
-    /**
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\AddressOptional")
      * @Transfer\Optional
      */
     protected $address;
 
     /**
-     * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\PhoneContact")
      * @Transfer\Optional
      */
-    protected $phoneContacts;
+    protected $businessPhoneContact;
 
     /**
-     * @Transfer\ArrayInput
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Person")
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\PhoneContact")
      * @Transfer\Optional
      */
-    protected $person;
+    protected $homePhoneContact;
 
     /**
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\PhoneContact")
+     * @Transfer\Optional
+     */
+    protected $mobilePhoneContact;
+
+    /**
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\PhoneContact")
+     * @Transfer\Optional
+     */
+    protected $faxPhoneContact;
+
+    /**
+     * Gets the value of id.
+     *
      * @return mixed
      */
     public function getId()
@@ -78,6 +77,8 @@ class ContactDetails
     }
 
     /**
+     * Gets the value of version.
+     *
      * @return mixed
      */
     public function getVersion()
@@ -86,6 +87,8 @@ class ContactDetails
     }
 
     /**
+     * Gets the value of emailAddress.
+     *
      * @return mixed
      */
     public function getEmailAddress()
@@ -94,6 +97,8 @@ class ContactDetails
     }
 
     /**
+     * Gets the value of address.
+     *
      * @return mixed
      */
     public function getAddress()
@@ -102,18 +107,42 @@ class ContactDetails
     }
 
     /**
+     * Gets the value of businessPhoneContact.
+     *
      * @return mixed
      */
-    public function getPhoneContacts()
+    public function getBusinessPhoneContact()
     {
-        return $this->phoneContacts;
+        return $this->businessPhoneContact;
     }
 
     /**
+     * Gets the value of homePhoneContact.
+     *
      * @return mixed
      */
-    public function getPerson()
+    public function getHomePhoneContact()
     {
-        return $this->person;
+        return $this->homePhoneContact;
+    }
+
+    /**
+     * Gets the value of mobilePhoneContact.
+     *
+     * @return mixed
+     */
+    public function getMobilePhoneContact()
+    {
+        return $this->mobilePhoneContact;
+    }
+
+    /**
+     * Gets the value of faxPhoneContact.
+     *
+     * @return mixed
+     */
+    public function getFaxPhoneContact()
+    {
+        return $this->faxPhoneContact;
     }
 }
