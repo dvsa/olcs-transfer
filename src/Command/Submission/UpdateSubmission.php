@@ -7,13 +7,18 @@ namespace Dvsa\Olcs\Transfer\Command\Submission;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType as FieldType;
 
 /**
- * @Transfer\RouteName("backend/submission")
+ * @Transfer\RouteName("backend/submission/single")
  * @Transfer\Method("PUT")
  */
 final class UpdateSubmission extends AbstractCommand
 {
+    // Identity & Locking
+    use FieldType\Traits\Identity;
+    use FieldType\Traits\Version;
+
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({
@@ -78,6 +83,13 @@ final class UpdateSubmission extends AbstractCommand
     protected $urgent;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\Date"})
+     * @Transfer\Optional
+     */
+    protected $closedDate;
+
+    /**
      * @return mixed
      */
     public function getSubmissionType()
@@ -115,5 +127,13 @@ final class UpdateSubmission extends AbstractCommand
     public function getUrgent()
     {
         return $this->urgent;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getClosedDate()
+    {
+        return $this->closedDate;
     }
 }
