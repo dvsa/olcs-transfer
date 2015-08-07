@@ -16,6 +16,14 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Create extends AbstractCommand
 {
+    /**
+     * @Transfer\Optional
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {"haystack": {"op_cpid_central","op_cpid_local","op_cpid_corporation","op_cpid_default"}}
+     * })
+     */
+    protected $cpid;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -76,6 +84,14 @@ final class Create extends AbstractCommand
      * @Transfer\Optional
      */
     protected $isIrfo;
+
+    /**
+     * @return mixed
+     */
+    public function getCpid()
+    {
+        return $this->cpid;
+    }
 
     /**
      * @return mixed
