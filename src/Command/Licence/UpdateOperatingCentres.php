@@ -68,6 +68,13 @@ final class UpdateOperatingCentres extends AbstractCommand
     protected $totAuthTrailers;
 
     /**
+     * @Transfer\Filter({"name":"\Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"\Zend\Validator\StringLength", "options": {"min": 1, "max": "4"}})
+     * @Transfer\Optional
+     */
+    protected $enforcementArea;
+
+    /**
      * @return mixed
      */
     public function getPartial()
@@ -113,5 +120,13 @@ final class UpdateOperatingCentres extends AbstractCommand
     public function getTotAuthTrailers()
     {
         return $this->totAuthTrailers;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEnforcementArea()
+    {
+        return $this->enforcementArea;
     }
 }
