@@ -20,6 +20,15 @@ final class Create extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    protected $transportManager;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
      */
     protected $tmaId;
 
@@ -42,12 +51,22 @@ final class Create extends AbstractCommand
     protected $employerName;
 
     /**
-    * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Address")
+    * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\AddressOptional")
     */
     protected $address;
 
     /**
      * Get Transport Manager Id
+     *
+     * @return int
+     */
+    public function geTransportManager()
+    {
+        return $this->transportManager;
+    }
+
+    /**
+     * Get Transport Manager Application Id
      *
      * @return int
      */
