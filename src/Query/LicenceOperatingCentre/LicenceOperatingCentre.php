@@ -17,4 +17,17 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 class LicenceOperatingCentre extends AbstractQuery
 {
     use Identity;
+
+    /**
+     * @Transfer\Optional
+     */
+    protected $isVariation = false;
+
+    /**
+     * @return mixed
+     */
+    public function getIsVariation()
+    {
+        return $this->isVariation;
+    }
 }

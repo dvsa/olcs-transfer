@@ -41,6 +41,12 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Organisation\Dashboard::class),
                         ],
                     ],
+                    'people' => RouteConfig::getRouteConfig(
+                        'people',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Organisation\People::class),
+                        ]
+                    ),
                 ]
             ),
             'business-details' => RouteConfig::getRouteConfig(
