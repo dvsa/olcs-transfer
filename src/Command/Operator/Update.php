@@ -34,6 +34,15 @@ final class Update extends AbstractCommand
     protected $version;
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {"haystack": {"op_cpid_central","op_cpid_local","op_cpid_corporation","op_cpid_default"}}
+     * })
+     */
+    protected $cpid;
+
+    /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({
      *     "name":"Zend\Validator\InArray",
@@ -123,6 +132,14 @@ final class Update extends AbstractCommand
     public function getVersion()
     {
         return $this->version;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCpid()
+    {
+        return $this->cpid;
     }
 
     /**
