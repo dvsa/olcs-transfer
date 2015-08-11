@@ -35,12 +35,14 @@ final class Create extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 0, "max": 45}})
+     * @Transfer\Optional
      */
     protected $position;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 0, "max": 100}})
+     * @Transfer\Optional
      */
     protected $hoursPerWeek;
 
