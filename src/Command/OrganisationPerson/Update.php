@@ -1,66 +1,64 @@
 <?php
 
 /**
- * Delete one or more PrivateHireLicence
+ * Update OrganisationPerson
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-namespace Dvsa\Olcs\Transfer\Command\PrivateHireLicence;
+namespace Dvsa\Olcs\Transfer\Command\OrganisationPerson;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/private-hire-licence")
- * @Transfer\Method("DELETE")
+ * @Transfer\RouteName("backend/organisation-person/single")
+ * @Transfer\Method("PUT")
  */
-final class DeleteList extends AbstractCommand
+final class Update extends AbstractCommand
 {
     /**
-     * @Transfer\ArrayInput
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $ids;
+    protected $id;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $licence;
+    protected $version;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Zend\Validator\InArray",
-     *     "options": {"haystack": {"application","variation","licence"}}
-     * })
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 0, "max": 45}})
      * @Transfer\Optional
      */
-    protected $lva;
+    protected $position;
 
     /**
-     * Get TM Employment ID's
-     *
-     * @return array
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Person")
      */
-    public function getIds()
+    protected $person;
+
+    public function getId()
     {
-        return $this->ids;
+        return $this->id;
     }
 
-    /**
-     * @return int
-     */
-    public function getLicence()
+    public function getVersion()
     {
-        return $this->licence;
+        return $this->version;
     }
 
-    public function getLva()
+    public function getPosition()
     {
-        return $this->lva;
+        return $this->position;
+    }
+
+    public function getPerson()
+    {
+        return $this->person;
     }
 }

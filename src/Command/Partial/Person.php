@@ -27,7 +27,7 @@ class Person
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"title_dr","title_miss","title_mr","title_mrs","title_ms"}}})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Title"})
      * @Transfer\Optional
      */
     protected $title;
@@ -50,6 +50,14 @@ class Person
      * @Transfer\Optional
      */
     protected $birthDate;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":0,"max":35}})
+     * @Transfer\Optional
+     */
+    public $otherName;
+
 
     /**
      * @return mixed
@@ -97,5 +105,10 @@ class Person
     public function getBirthDate()
     {
         return $this->birthDate;
+    }
+
+    public function getOtherName()
+    {
+        return $this->otherName;
     }
 }

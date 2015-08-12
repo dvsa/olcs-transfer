@@ -41,8 +41,15 @@ final class Create extends AbstractCommand
     protected $address;
 
     /**
-     * @return int
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {"haystack": {"application","variation","licence"}}
+     * })
+     * @Transfer\Optional
      */
+    protected $lva;
+
     public function getLicence()
     {
         return $this->licence;
@@ -61,5 +68,10 @@ final class Create extends AbstractCommand
     public function getAddress()
     {
         return $this->address;
+    }
+
+    public function getLva()
+    {
+        return $this->lva;
     }
 }

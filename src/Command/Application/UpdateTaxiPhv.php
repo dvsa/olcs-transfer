@@ -54,6 +54,22 @@ final class UpdateTaxiPhv extends AbstractCommand
     */
     protected $address;
 
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $licence;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {"haystack": {"application","variation","licence"}}
+     * })
+     * @Transfer\Optional
+     */
+    protected $lva;
 
     public function getId()
     {
@@ -83,5 +99,15 @@ final class UpdateTaxiPhv extends AbstractCommand
     public function getAddress()
     {
         return $this->address;
+    }
+
+    public function getLicence()
+    {
+        return $this->licence;
+    }
+
+    public function getLva()
+    {
+        return $this->lva;
     }
 }

@@ -14,9 +14,16 @@ return [
                 [
                     'GET' => QueryConfig::getConfig(Query\LicenceVehicle\LicenceVehicle::class),
                     'PUT' => CommandConfig::getPutConfig(Command\Vehicle\UpdateGoodsVehicle::class),
+                    'psv' => RouteConfig::getRouteConfig(
+                        'psv',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\LicenceVehicle\PsvLicenceVehicle::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\LicenceVehicle\UpdatePsvLicenceVehicle::class),
+                        ]
+                    )
                 ]
             ),
-            'DELETE' => CommandConfig::getDeleteConfig(Command\Vehicle\DeleteGoodsVehicle::class)
+            'DELETE' => CommandConfig::getDeleteConfig(Command\Vehicle\DeleteLicenceVehicle::class)
         ]
     )
 ];
