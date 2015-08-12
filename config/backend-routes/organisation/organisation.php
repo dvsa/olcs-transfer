@@ -68,7 +68,14 @@ return [
                         ]
                     ]
                 ]
-            )
+            ),
+            'cpid' => RouteConfig::getRouteConfig(
+                'cpid',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\Organisation\CpidOrganisationExport::class),
+                    'GET' => QueryConfig::getConfig(Query\Organisation\CpidOrganisation::class),
+                ]
+            ),
         ]
     )
 ];
