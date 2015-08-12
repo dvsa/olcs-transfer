@@ -93,7 +93,17 @@ return [
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Cases\ByTransportManager::class)
                 ]
-            ]
+            ],
+            'by-licence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'by-licence[/]'
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Cases\ByLicence::class)
+                ]
+            ],
         ]
     ]
 ];
