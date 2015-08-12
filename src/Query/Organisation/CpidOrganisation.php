@@ -27,7 +27,15 @@ class CpidOrganisation extends AbstractQuery implements PagedQueryInterface
      * @Transfer\Optional
      * @Transfer\Validator({
      *     "name":"Zend\Validator\InArray",
-     *     "options": {"haystack": {"op_cpid_central","op_cpid_local","op_cpid_corporation","op_cpid_default","op_cpid_all"}}
+     *     "options": {
+     *         "haystack": {
+     *             "op_cpid_central",
+     *             "op_cpid_local",
+     *             "op_cpid_corporation",
+     *             "op_cpid_default",
+     *             "op_cpid_all"
+     *         }
+     *     }
      * })
      */
     protected $cpid;
