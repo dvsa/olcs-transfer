@@ -18,4 +18,18 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 class PsvVehicles extends AbstractQuery implements CachableQueryInterface
 {
     use Identity;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $includeRemoved;
+
+    /**
+     * @return mixed
+     */
+    public function getIncludeRemoved()
+    {
+        return $this->includeRemoved;
+    }
 }
