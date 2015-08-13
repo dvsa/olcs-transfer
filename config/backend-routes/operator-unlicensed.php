@@ -18,6 +18,11 @@ return [
                 [
                     'GET' => QueryConfig::getConfig(Query\Operator\UnlicensedBusinessDetails::class),
                     'PUT' => CommandConfig::getPutConfig(Command\Operator\UpdateUnlicensed::class),
+                ]
+            ),
+            'named-single' => RouteConfig::getNamedSingleConfig(
+                'organisation',
+                [
                     'vehicles' => [
                         'type' => 'Segment',
                         'options' => [
