@@ -30,7 +30,7 @@ final class Create extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
-    protected $officerCd;
+    protected $person;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -63,9 +63,9 @@ final class Create extends AbstractCommand
         return $this->organisation;
     }
 
-    public function getOfficerCd()
+    public function getPerson()
     {
-        return $this->officerCd;
+        return $this->person;
     }
 
     public function getIsDisqualified()
