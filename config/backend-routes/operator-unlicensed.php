@@ -18,6 +18,16 @@ return [
                 [
                     'GET' => QueryConfig::getConfig(Query\Operator\UnlicensedBusinessDetails::class),
                     'PUT' => CommandConfig::getPutConfig(Command\Operator\UpdateUnlicensed::class),
+                    'vehicles' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'vehicles[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Operator\UnlicensedVehicles::class),
+                        ],
+                    ],
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(Command\Operator\CreateUnlicensed::class)
