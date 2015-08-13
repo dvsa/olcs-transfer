@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Create Document
+ * Update Document Links
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
@@ -14,151 +14,95 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 
 /**
- * @Transfer\RouteName("backend/document")
- * @Transfer\Method("POST")
+ * @Transfer\RouteName("backend/document/single/links")
+ * @Transfer\Method("PUT")
  */
-final class CreateDocument extends AbstractCommand
+final class UpdateDocumentLinks extends AbstractCommand
 {
-    use ApplicationOptional,
+    use Identity,
+        ApplicationOptional,
         BusRegOptional,
         CasesOptional,
         TransportManagerOptional,
         LicenceOptional;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
-     */
-    protected $filename;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
-     */
-    protected $identifier;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $size;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @var int
      * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $irfoOrganisation;
 
     /**
+     * @var int
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
     protected $submission;
 
     /**
+     * @var int
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
     protected $trafficArea;
 
     /**
+     * @var int
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
     protected $operatingCentre;
 
     /**
+     * @var int
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $statement;
+
+    /**
+     * @var int
      * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $hearing;
+
+    /**
+     * @var int
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $opposition;
 
     /**
+     * @var int
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
-    protected $category;
+    protected $complaint;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
-     */
-    protected $subCategory;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Optional
-     */
-    protected $description;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
-     * @Transfer\Optional
-     */
-    protected $isExternal;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
-     * @Transfer\Optional
-     */
-    protected $isReadOnly;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
-     * @Transfer\Optional
-     */
-    protected $isScan = 0;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\DateTimeFormatter"})
-     * @Transfer\Optional
-     */
-    protected $issuedDate;
-
-    /**
-     * @return mixed
-     */
-    public function getFilename()
-    {
-        return $this->filename;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIdentifier()
-    {
-        return $this->identifier;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSize()
-    {
-        return $this->size;
-    }
-
-    /**
-     * @return mixed
+     * @return int
      */
     public function getIrfoOrganisation()
     {
@@ -166,7 +110,7 @@ final class CreateDocument extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getSubmission()
     {
@@ -174,7 +118,7 @@ final class CreateDocument extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getTrafficArea()
     {
@@ -182,11 +126,27 @@ final class CreateDocument extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * @return int
      */
     public function getOperatingCentre()
     {
         return $this->operatingCentre;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatement()
+    {
+        return $this->statement;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getHearing()
+    {
+        return $this->hearing;
     }
 
     /**
@@ -200,56 +160,8 @@ final class CreateDocument extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getCategory()
+    public function getComplaint()
     {
-        return $this->category;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSubCategory()
-    {
-        return $this->subCategory;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIsExternal()
-    {
-        return $this->isExternal;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIsReadOnly()
-    {
-        return $this->isReadOnly;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIsScan()
-    {
-        return $this->isScan;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIssuedDate()
-    {
-        return $this->issuedDate;
+        return $this->complaint;
     }
 }

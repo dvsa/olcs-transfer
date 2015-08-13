@@ -35,6 +35,18 @@ return [
                 [
                     'GET' => QueryConfig::getConfig(Query\Document\Document::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\Document\DeleteDocument::class),
+                    'letter' => RouteConfig::getRouteConfig(
+                        'letter',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Document\Letter::class),
+                        ]
+                    ),
+                    'links' => RouteConfig::getRouteConfig(
+                        'links',
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\Document\UpdateDocumentLinks::class),
+                        ]
+                    ),
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(Command\Document\CreateDocument::class),
