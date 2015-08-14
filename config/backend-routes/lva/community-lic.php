@@ -85,19 +85,6 @@ return [
                     ],
                 ]
             ],
-            'generate-batch' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'generate-batch[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'POST' =>
-                        CommandConfig::getPostConfig(
-                            Command\CommunityLic\GenerateBatch::class
-                        ),
-                ]
-            ],
             'void' => [
                 'type' => 'Segment',
                 'options' => [
