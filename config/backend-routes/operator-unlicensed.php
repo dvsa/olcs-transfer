@@ -35,6 +35,20 @@ return [
                     ],
                 ]
             ),
+            'licence-vehicle' => RouteConfig::getRouteConfig(
+                'licence-vehicle',
+                [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\LicenceVehicle\UpdateUnlicensedOperatorLicenceVehicle::class
+                            ),
+                        ]
+                    ),
+                    // 'DELETE' => CommandConfig::getDeleteConfig(Command\Vehicle\DeleteLicenceVehicle::class)
+                    // 'POST'
+                ]
+            ),
             'POST' => CommandConfig::getPostConfig(Command\Operator\CreateUnlicensed::class)
         ]
     ]
