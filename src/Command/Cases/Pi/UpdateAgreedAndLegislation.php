@@ -1,27 +1,24 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Command\Cases;
+namespace Dvsa\Olcs\Transfer\Command\Cases\Pi;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
 
 /**
- * @Transfer\RouteName("backend/cases/single/pi/agreed")
+ * @Transfer\RouteName("backend/pi/single/agreed")
  * @Transfer\Method("PUT")
  */
-class UpdatePiAgreedAndLegislation extends AbstractCommand
+class UpdateAgreedAndLegislation extends AbstractCommand
 {
-    /**
-     * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $id;
+    use FieldType\Identity;
+    use FieldType\Version;
+    use FieldType\CommentOptional;
 
     /**
      * @var string
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $agreedDate;
 
@@ -34,37 +31,33 @@ class UpdatePiAgreedAndLegislation extends AbstractCommand
     protected $agreedByTc;
 
     /**
-     * @var string
+     * @var String
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *          "haystack": {"tc_r_dhtru", "tc_r_dtc", "tc_r_htru", "tc_r_tc"}
+     *      }
+     * })
      */
     protected $agreedByTcRole;
 
     /**
-     * @var array
-     * @TODO filter + validate me (array validator???)
+     * @Transfer\ArrayInput
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":1,"max":32}})
      */
     protected $piTypes;
 
     /**
-     * @var array
-     * @TODO filter + validate me (array validator???)
+     * @Transfer\ArrayInput
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $reasons;
-
-    /**
-     * @var string
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Optional()
-     */
-    protected $comment;
-
-    /**
-     * @return int
-     */
-    public function getCaseId()
-    {
-        return $this->caseId;
-    }
 
     /**
      * @return string
@@ -104,13 +97,5 @@ class UpdatePiAgreedAndLegislation extends AbstractCommand
     public function getReasons()
     {
         return $this->reasons;
-    }
-
-    /**
-     * @return string
-     */
-    public function getComment()
-    {
-        return $this->comment;
     }
 }
