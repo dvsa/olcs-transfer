@@ -35,11 +35,35 @@ return [
                 [
                     'GET' => QueryConfig::getConfig(Query\Document\Document::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\Document\DeleteDocument::class),
+                    'letter' => RouteConfig::getRouteConfig(
+                        'letter',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Document\Letter::class),
+                        ]
+                    ),
+                    'links' => RouteConfig::getRouteConfig(
+                        'links',
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\Document\UpdateDocumentLinks::class),
+                        ]
+                    ),
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(Command\Document\CreateDocument::class),
             'DELETE' => CommandConfig::getDeleteConfig(Command\Document\DeleteDocuments::class),
             'GET' => QueryConfig::getConfig(Query\Document\DocumentList::class),
+            'copy' => RouteConfig::getRouteConfig(
+                'copy',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\Document\CopyDocument::class),
+                ]
+            ),
+            'move' => RouteConfig::getRouteConfig(
+                'move',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\Document\MoveDocument::class),
+                ]
+            ),
         ]
     )
 ];

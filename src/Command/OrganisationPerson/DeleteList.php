@@ -1,20 +1,20 @@
 <?php
 
 /**
- * Delete Goods Vehicle
+ * Delete one or more OrganisationPerson
  *
- * @author Rob Caiger <rob@clocal.co.uk>
+ * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-namespace Dvsa\Olcs\Transfer\Command\Vehicle;
+namespace Dvsa\Olcs\Transfer\Command\OrganisationPerson;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/licence-vehicle")
+ * @Transfer\RouteName("backend/organisation-person")
  * @Transfer\Method("DELETE")
  */
-final class DeleteGoodsVehicle extends AbstractCommand
+final class DeleteList extends AbstractCommand
 {
     /**
      * @Transfer\ArrayInput
@@ -25,7 +25,9 @@ final class DeleteGoodsVehicle extends AbstractCommand
     protected $ids;
 
     /**
-     * @return mixed
+     * Get TM Employment ID's
+     *
+     * @return array
      */
     public function getIds()
     {

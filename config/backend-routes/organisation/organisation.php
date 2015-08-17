@@ -41,6 +41,18 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Organisation\Dashboard::class),
                         ],
                     ],
+                    'people' => RouteConfig::getRouteConfig(
+                        'people',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Organisation\People::class),
+                        ]
+                    ),
+                    'unlicensed-cases' => RouteConfig::getRouteConfig(
+                        'unlicensed-cases',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Organisation\UnlicensedCases::class),
+                        ]
+                    ),
                 ]
             ),
             'business-details' => RouteConfig::getRouteConfig(

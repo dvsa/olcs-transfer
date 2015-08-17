@@ -40,14 +40,19 @@ final class Create extends AbstractCommand
     */
     protected $address;
 
-    public function getId()
-    {
-        return $this->id;
-    }
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {"haystack": {"application","variation","licence"}}
+     * })
+     * @Transfer\Optional
+     */
+    protected $lva;
 
-    public function getVersion()
+    public function getLicence()
     {
-        return $this->version;
+        return $this->licence;
     }
 
     public function getPrivateHireLicenceNo()
@@ -55,21 +60,18 @@ final class Create extends AbstractCommand
         return $this->privateHireLicenceNo;
     }
 
+    public function getCouncilName()
+    {
+        return $this->councilName;
+    }
+
     public function getAddress()
     {
         return $this->address;
     }
 
-    /**
-     * @return int
-     */
-    public function getLicence()
+    public function getLva()
     {
-        return $this->licence;
-    }
-
-    public function getCouncilName()
-    {
-        return $this->councilName;
+        return $this->lva;
     }
 }

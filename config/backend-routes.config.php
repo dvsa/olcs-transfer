@@ -121,7 +121,18 @@ $routes = [
                                         ]
                                     ),
                                 ]
-                            )
+                            ),
+                            'psv-vehicles' => RouteConfig::getRouteConfig(
+                                'psv-vehicles',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Application\CreatePsvVehicle::class
+                                    ),
+                                    'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Application\DeletePsvVehicle::class
+                                    )
+                                ]
+                            ),
                         ]
                     ),
                     'single' => RouteConfig::getSingleConfig(
@@ -413,6 +424,18 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\Schedule41Approve::class)
                                 ]
                             ),
+                            'reset-schedule-41' => RouteConfig::getRouteConfig(
+                                'reset-schedule-41',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\Schedule41Reset::class)
+                                ]
+                            ),
+                            'refuse-schedule-41' => RouteConfig::getRouteConfig(
+                                'refuse-schedule-41',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\Schedule41Refuse::class)
+                                ]
+                            ),
                             'generate-organisation-name' => RouteConfig::getRouteConfig(
                                 'generate-organisation-name',
                                 [
@@ -431,6 +454,18 @@ $routes = [
                                 'taxi-phv',
                                 [
                                     'GET' => QueryConfig::getConfig(Query\Application\TaxiPhv::class),
+                                    'DELETE' => CommandConfig::getDeleteConfig(
+                                        Command\Application\DeleteTaxiPhv::class
+                                    ),
+                                    'POST' => CommandConfig::getPostConfig(Command\Application\CreateTaxiPhv::class),
+                                    'single' => RouteConfig::getNamedSingleConfig(
+                                        'privateHireLicence',
+                                        [
+                                            'PUT' => CommandConfig::getPutConfig(
+                                                Command\Application\UpdateTaxiPhv::class
+                                            ),
+                                        ]
+                                    ),
                                 ]
                             ),
                             'print-interim' => RouteConfig::getRouteConfig(
@@ -477,6 +512,17 @@ $routes = [
                                     ),
                                 ]
                             ),
+                            'psv-vehicles' => RouteConfig::getRouteConfig(
+                                'psv-vehicles',
+                                [
+                                    'GET' => QueryConfig::getConfig(
+                                        Query\Application\PsvVehicles::class
+                                    ),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdatePsvVehicles::class
+                                    ),
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -510,7 +556,9 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
-                                            'POST' => CommandConfig::getPostConfig(Command\Variation\VoidPsvDiscs::class),
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Variation\VoidPsvDiscs::class
+                                            ),
                                         ]
                                     ],
                                     'replace' => [
@@ -612,6 +660,14 @@ $routes = [
                                     ),
                                 ]
                             ),
+                            'psv-vehicles' => RouteConfig::getRouteConfig(
+                                'psv-vehicles',
+                                [
+                                    'GET' => QueryConfig::getConfig(
+                                        Query\Variation\PsvVehicles::class
+                                    ),
+                                ]
+                            ),
                         ]
                     ),
                 ]
@@ -698,6 +754,14 @@ $routes = [
                                     ),
                                     'DELETE' => CommandConfig::getDeleteConfig(
                                         Command\Licence\DeleteOperatingCentres::class
+                                    ),
+                                ]
+                            ),
+                            'psv-vehicles' => RouteConfig::getRouteConfig(
+                                'psv-vehicles',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Licence\CreatePsvVehicle::class
                                     ),
                                 ]
                             ),
@@ -967,6 +1031,14 @@ $routes = [
                                     ),
                                 ]
                             ),
+                            'psv-vehicles' => RouteConfig::getRouteConfig(
+                                'psv-vehicles',
+                                [
+                                    'GET' => QueryConfig::getConfig(
+                                        Query\Licence\PsvVehicles::class
+                                    ),
+                                ]
+                            ),
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Licence\GetList::class),
@@ -1065,33 +1137,6 @@ $routes = [
                         ]
                     ]
                 ]
-            ],
-            'publication' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'publication[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'recipient' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'recipient[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'single' => RouteConfig::getSingleConfig(
-                                [
-                                    'GET' => QueryConfig::getConfig(Query\Publication\Recipient::class),
-                                    'PUT' => CommandConfig::getPutConfig(Command\Publication\UpdateRecipient::class),
-                                ]
-                            ),
-                            'GET' => QueryConfig::getConfig(Query\Publication\RecipientList::class),
-                            'POST' => CommandConfig::getPostConfig(Command\Publication\CreateRecipient::class),
-                            'DELETE' => CommandConfig::getDeleteConfig(Command\Publication\DeleteRecipient::class),
-                        ]
-                    ],
-                ],
             ],
             'partner' => [
                 'type' => 'Segment',
@@ -1373,6 +1418,7 @@ $routes = [
                     ),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\TmEmployment\DeleteList::class),
                     'POST' => CommandConfig::getPostConfig(Command\TmEmployment\Create::class),
+                    'GET' => QueryConfig::getConfig(Query\TmEmployment\GetList::class),
                 ],
             ],
             'case-condition-undertaking' => [

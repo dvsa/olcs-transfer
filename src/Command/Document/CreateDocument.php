@@ -7,6 +7,11 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\Document;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\BusRegOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\CasesOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -16,6 +21,12 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class CreateDocument extends AbstractCommand
 {
+    use ApplicationOptional,
+        BusRegOptional,
+        CasesOptional,
+        TransportManagerOptional,
+        LicenceOptional;
+
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
@@ -41,30 +52,6 @@ final class CreateDocument extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
-    protected $application;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
-     */
-    protected $busReg;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
-     */
-    protected $case;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
-     */
     protected $irfoOrganisation;
 
     /**
@@ -82,22 +69,6 @@ final class CreateDocument extends AbstractCommand
      * @Transfer\Optional
      */
     protected $trafficArea;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
-     */
-    protected $transportManager;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
-     */
-    protected $licence;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -189,30 +160,6 @@ final class CreateDocument extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getApplication()
-    {
-        return $this->application;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getBusReg()
-    {
-        return $this->busReg;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getCase()
-    {
-        return $this->case;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getIrfoOrganisation()
     {
         return $this->irfoOrganisation;
@@ -232,22 +179,6 @@ final class CreateDocument extends AbstractCommand
     public function getTrafficArea()
     {
         return $this->trafficArea;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTransportManager()
-    {
-        return $this->transportManager;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLicence()
-    {
-        return $this->licence;
     }
 
     /**

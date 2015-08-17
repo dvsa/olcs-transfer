@@ -49,7 +49,7 @@ class ContactDetails
     public $description;
 
     /**
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Address")
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\AddressOptional")
      * @Transfer\Optional
      */
     protected $address;
