@@ -553,7 +553,7 @@
         "seriousInfringements": null,
         "statements": null,
         "stays": null,
-        "tmDecisions": null
+        "tmDecision": null
     },
     "createdBy": {
         "accountDisabled": "N",
@@ -875,7 +875,7 @@
         "seriousInfringements": null,
         "statements": null,
         "stays": null,
-        "tmDecisions": null
+        "tmDecision": null
     },
     "closeDate": "2015-05-28T10:53:34+0100",
     "createdBy": null,
