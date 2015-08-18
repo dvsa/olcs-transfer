@@ -47,8 +47,10 @@ return [
                     ),
                     'DELETE' => CommandConfig::getDeleteConfig(
                         Command\LicenceVehicle\DeleteUnlicensedOperatorLicenceVehicle::class
+                    ),
+                    'POST' => CommandConfig::getPostConfig(
+                        Command\LicenceVehicle\CreateUnlicensedOperatorLicenceVehicle::class
                     )
-                    // 'POST'
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(Command\Operator\CreateUnlicensed::class)
