@@ -39,6 +39,14 @@ return [
                         'letter',
                         [
                             'GET' => QueryConfig::getConfig(Query\Document\Letter::class),
+                            'print' => RouteConfig::getRouteConfig(
+                                'print',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Document\PrintLetter::class
+                                    )
+                                ]
+                            )
                         ]
                     ),
                     'links' => RouteConfig::getRouteConfig(
