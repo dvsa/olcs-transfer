@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Create ReputeNotLost
+ * Create NoFurtherAction
  */
 namespace Dvsa\Olcs\Transfer\Command\TmCaseDecision;
 
@@ -10,10 +10,10 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
 
 /**
- * @Transfer\RouteName("backend/tm-case-decision/repute-not-lost")
+ * @Transfer\RouteName("backend/tm-case-decision/no-further-action")
  * @Transfer\Method("POST")
  */
-final class CreateReputeNotLost extends AbstractCommand
+final class CreateNoFurtherAction extends AbstractCommand
 {
     use FieldType\Cases;
 
@@ -37,9 +37,9 @@ final class CreateReputeNotLost extends AbstractCommand
     /**
      * @Transfer\Optional()
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":500}})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":4000}})
      */
-    protected $reputeNotLostReason = null;
+    protected $noFurtherActionReason = null;
 
     /**
      * @return string
@@ -68,8 +68,8 @@ final class CreateReputeNotLost extends AbstractCommand
     /**
      * @return string
      */
-    public function getReputeNotLostReason()
+    public function getNoFurtherActionReason()
     {
-        return $this->reputeNotLostReason;
+        return $this->noFurtherActionReason;
     }
 }

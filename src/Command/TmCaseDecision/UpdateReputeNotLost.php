@@ -40,7 +40,7 @@ final class UpdateReputeNotLost extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":500}})
      */
-    public $reputeNotLostReason = null;
+    protected $reputeNotLostReason = null;
 
     /**
      * @return string
