@@ -38,6 +38,16 @@ return [
                         'child_routes' => [
                             'PUT' => CommandConfig::getPutConfig(Command\Cases\Pi\UpdateDecision::class)
                         ]
+                    ],
+                    'sla' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'sla[/]'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Pi\UpdateSla::class)
+                        ]
                     ]
                 ]
             ),
