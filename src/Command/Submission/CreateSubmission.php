@@ -84,5 +84,4 @@ final class CreateSubmission extends AbstractCommand
     {
         return $this->sections;
     }
-
 }
