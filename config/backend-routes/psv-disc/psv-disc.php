@@ -23,6 +23,15 @@ return [
                         )
                 ]
             ),
+            'confirm-printing' => RouteConfig::getRouteConfig(
+                'confirm-printing',
+                [
+                    'POST' =>
+                        CommandConfig::getPostConfig(
+                            Command\PsvDisc\ConfirmPrinting::class
+                        )
+                ]
+            ),
         ],
     ],
 ];

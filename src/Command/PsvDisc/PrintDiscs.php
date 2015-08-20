@@ -18,7 +18,9 @@ final class PrintDiscs extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}})
+     * @Transfer\Validator(
+     *  {"name":"Zend\Validator\InArray", "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}}
+     * )
      * @Transfer\Optional
      */
     public $licenceType;
@@ -30,6 +32,13 @@ final class PrintDiscs extends AbstractCommand
      */
     public $startNumber;
 
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    public $discSequence;
+
     public function getLicenceType()
     {
         return $this->licenceType;
@@ -38,5 +47,10 @@ final class PrintDiscs extends AbstractCommand
     public function getStartNumber()
     {
         return $this->startNumber;
+    }
+
+    public function getDiscSequence()
+    {
+        return $this->discSequence;
     }
 }

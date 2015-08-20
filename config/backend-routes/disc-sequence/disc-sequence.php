@@ -14,10 +14,16 @@ return [
         ],
         'may_terminate' => false,
         'child_routes' => [
-            'disc-prefix' => RouteConfig::getRouteConfig(
-                'disc-prefix',
+            'disc-prefixes' => RouteConfig::getRouteConfig(
+                'disc-prefixes',
                 [
-                    'GET' => QueryConfig::getConfig(Query\DiscSequence\DiscPrefix::class)
+                    'GET' => QueryConfig::getConfig(Query\DiscSequence\DiscPrefixes::class)
+                ]
+            ),
+            'discs-numbering' => RouteConfig::getRouteConfig(
+                'discs-numbering',
+                [
+                    'GET' => QueryConfig::getConfig(Query\DiscSequence\DiscsNumbering::class)
                 ]
             ),
         ],
