@@ -1,17 +1,17 @@
 <?php
 
 /**
- * Get a list of Transport Manager Applications
+ * Get a list of Transport Manager Licences
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-namespace Dvsa\Olcs\Transfer\Query\TransportManagerApplication;
+namespace Dvsa\Olcs\Transfer\Query\TransportManagerLicence;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/transport-manager-application")
+ * @Transfer\RouteName("backend/transport-manager-licence")
  */
 class GetList extends AbstractQuery
 {
@@ -21,15 +21,7 @@ class GetList extends AbstractQuery
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
-    protected $user;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
-     */
-    protected $application;
+    protected $licence;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -39,14 +31,9 @@ class GetList extends AbstractQuery
      */
     protected $transportManager;
 
-    public function getUser()
+    public function getLicence()
     {
-        return $this->user;
-    }
-
-    public function getApplication()
-    {
-        return $this->application;
+        return $this->licence;
     }
 
     public function getTransportManager()
