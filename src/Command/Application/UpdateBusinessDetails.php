@@ -44,13 +44,11 @@ final class UpdateBusinessDetails extends AbstractCommand
     protected $name;
 
     /**
-     * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 255}})
      * @Transfer\Optional
      */
-    protected $natureOfBusinesses;
+    protected $natureOfBusiness;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -123,9 +121,9 @@ final class UpdateBusinessDetails extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getNatureOfBusinesses()
+    public function getNatureOfBusiness()
     {
-        return $this->natureOfBusinesses;
+        return $this->natureOfBusiness;
     }
 
     /**
