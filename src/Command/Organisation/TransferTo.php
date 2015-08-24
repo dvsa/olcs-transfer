@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * Transfer an Organisation Licence/Application to another Organisation
+ *
+ * @author Mat Evans <mat.evans@valtech.co.uk>
+ */
+namespace Dvsa\Olcs\Transfer\Command\Organisation;
+
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+
+/**
+ * @Transfer\RouteName("backend/organisation/single/transfer")
+ * @Transfer\Method("PUT")
+ */
+final class TransferTo extends AbstractCommand
+{
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $id;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    protected $receivingOrganisation;
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getReceivingOrganisation()
+    {
+        return $this->receivingOrganisation;
+    }
+}
