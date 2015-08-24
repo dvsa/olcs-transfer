@@ -12,16 +12,8 @@ namespace Dvsa\Olcs\Transfer\Validators;
  *
  * @author Shaun Lizzio <shaun@lizzio.co.uk>
  */
-class SubmissionSection extends \Zend\Validator\AbstractValidator
+class SubmissionSection extends \Zend\Validator\InArray
 {
-    const NOT_ARRAY = 'notArray';
-    const NOT_IN_ARRAY = 'notInArray';
-
-    protected $messageTemplates = array(
-        self::NOT_ARRAY => 'The sections input must be an array of valid sections',
-        self::NOT_IN_ARRAY => 'The input contains an invalid section',
-    );
-
     protected $haystack = ['introduction', 'case-summary', 'case-outline', 'most-serious-infringement',
         'outstanding-applications', 'people', 'operating-centres', 'conditions-and-undertakings',
         'intelligence-unit-check', 'interim', 'advertisement', 'linked-licences-app-numbers', 'lead-tc-area',
@@ -36,21 +28,7 @@ class SubmissionSection extends \Zend\Validator\AbstractValidator
         'tm-responsibilities', 'tm-other-employment', 'tm-previous-history'
     ];
 
-
-    public function isValid($value)
-    {
-        if (!is_array($value)) {
-            $this->error(self::NOT_ARRAY);
-            return false;
-        }
-
-        foreach ($value as $submissionSection) {
-            if (!in_array(trim(strtolower($submissionSection)), $this->haystack)) {
-                $this->error(self::NOT_IN_ARRAY);
-                return false;
-            }
-        }
-
-        return true;
-    }
+    protected $messageTemplates = array(
+        self::NOT_IN_ARRAY => 'The input is not contains an invalid submission section',
+    );
 }
