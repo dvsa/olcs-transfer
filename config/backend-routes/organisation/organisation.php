@@ -53,6 +53,12 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Organisation\UnlicensedCases::class),
                         ]
                     ),
+                    'transfer' => RouteConfig::getRouteConfig(
+                        'transfer',
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\Organisation\TransferTo::class),
+                        ]
+                    ),
                 ]
             ),
             'business-details' => RouteConfig::getRouteConfig(
