@@ -36,26 +36,7 @@ final class UpdateSubmission extends AbstractCommand
     protected $submissionType;
 
     /**
-     * @Transfer\ArrayInput
-     * @Transfer\Validator({
-     *      "name":"Zend\Validator\InArray",
-     *      "options": {
-     *          "haystack": {
-     *              "introduction", "case-summary","case-outline", "most-serious-infringement",
-     *  "outstanding-applications","people","operating-centres","conditions-and-undertakings",
-     * "intelligence-unit-check","interim","advertisement","linked-licences-app-numbers","lead-tc-area",
-     * "current-submissions","auth-requested-applied-for","transport-managers","continuous-effective-control",
-     * "fitness-and-repute","previous-history","bus-reg-app-details","transport-authority-comments",
-     * "total-bus-registrations","local-licence-history","linked-mlh-history","registration-details",
-     * "maintenance-tachographs-hours","prohibition-history","conviction-fpn-offence-history","annual-test-history",
-     * "penalties","statements","other-issues","te-reports","site-plans","planning-permission","applicants-comments",
-     * "visibility-access-egress-size","compliance-complaints","environmental-complaints","oppositions",
-     * "financial-information","maps","waive-fee-late-fee","surrender","annex","tm-details","tm-qualifications",
-     * "tm-responsibilities","tm-other-employment","tm-previous-history"
-     *          }
-     *      }
-     * })
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\SubmissionSection"})
      */
     protected $submissionSections;
 
