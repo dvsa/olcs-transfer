@@ -1277,10 +1277,10 @@ $routes = [
                     'POST' => CommandConfig::getPostConfig(Command\Fee\CreateMiscellaneousFee::class),
                 ]
             ],
-            'payment' => [
+            'transaction' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => 'payment[/]',
+                    'route' => 'transaction[/]',
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
@@ -1293,13 +1293,13 @@ $routes = [
                             ],
                         ],
                         'child_routes' => [
-                            'GET' => QueryConfig::getConfig(Query\Payment\PaymentByReference::class),
-                            'POST' => CommandConfig::getPostConfig(Command\Payment\CompletePayment::class),
+                            'GET' => QueryConfig::getConfig(Query\Transaction\TransactionByReference::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Transaction\CompleteTransaction::class),
                         ],
                     ],
                     'single' => RouteConfig::getSingleConfig(
                         [
-                            'GET' => QueryConfig::getConfig(Query\Payment\Payment::class),
+                            'GET' => QueryConfig::getConfig(Query\Transaction\Transaction::class),
                         ]
                     ),
                     'pay-outstanding-fees' => [
@@ -1309,7 +1309,7 @@ $routes = [
                         ],
                         'may_terminate' => false,
                         'child_routes' => [
-                            'POST' => CommandConfig::getPostConfig(Command\Payment\PayOutstandingFees::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Transaction\PayOutstandingFees::class),
                         ],
                     ],
                 ]
