@@ -53,6 +53,12 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Organisation\UnlicensedCases::class),
                         ]
                     ),
+                    'transfer' => RouteConfig::getRouteConfig(
+                        'transfer',
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\Organisation\TransferTo::class),
+                        ]
+                    ),
                 ]
             ),
             'business-details' => RouteConfig::getRouteConfig(
@@ -80,7 +86,14 @@ return [
                         ]
                     ]
                 ]
-            )
+            ),
+            'cpid' => RouteConfig::getRouteConfig(
+                'cpid',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\Organisation\CpidOrganisationExport::class),
+                    'GET' => QueryConfig::getConfig(Query\Organisation\CpidOrganisation::class),
+                ]
+            ),
         ]
     )
 ];
