@@ -18,6 +18,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
  */
 class FeeList extends AbstractQuery implements PagedQueryInterface,
  OrderedQueryInterface,
+ FieldType\OrganisationInterface,
  FieldType\ApplicationInterface,
  FieldType\LicenceInterface,
  FieldType\TaskInterface,
@@ -28,6 +29,7 @@ class FeeList extends AbstractQuery implements PagedQueryInterface,
     use OrderedTraitOptional;
 
     // Foreign Keys
+    use FieldTypeTraits\OrganisationOptional;
     use FieldTypeTraits\ApplicationOptional;
     use FieldTypeTraits\LicenceOptional;
     use FieldTypeTraits\TaskOptional;
