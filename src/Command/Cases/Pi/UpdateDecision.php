@@ -70,11 +70,13 @@ class UpdateDecision extends AbstractCommand
     protected $licenceCurtailedAtPi;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $decisionDate;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $notificationDate;
