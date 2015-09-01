@@ -44,6 +44,19 @@ return [
                         ),
                 ]
             ],
+            'remove' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'remove[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' =>
+                        CommandConfig::getPostConfig(
+                            Command\Tm\Remove::class
+                        ),
+                ]
+            ],
         ],
     ],
 ];

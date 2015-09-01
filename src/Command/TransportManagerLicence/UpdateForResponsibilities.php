@@ -46,50 +46,50 @@ final class UpdateForResponsibilities extends AbstractCommand
     protected $tmType;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
      * @Transfer\Optional
      */
     protected $hoursMon;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
      * @Transfer\Optional
      */
     protected $hoursTue;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
      * @Transfer\Optional
      */
     protected $hoursWed;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
      * @Transfer\Optional
      */
     protected $hoursThu;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
      * @Transfer\Optional
      */
     protected $hoursFri;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
      * @Transfer\Optional
      */
     protected $hoursSat;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
      * @Transfer\Optional
      */
     protected $hoursSun;
