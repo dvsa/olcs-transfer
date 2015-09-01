@@ -1270,6 +1270,7 @@ $routes = [
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\Fee\Fee::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Fee\UpdateFee::class),
                             'approve-waive' => RouteConfig::getRouteConfig(
                                 'approve-waive',
                                 [
