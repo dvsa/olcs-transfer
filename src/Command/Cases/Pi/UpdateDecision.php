@@ -16,6 +16,8 @@ class UpdateDecision extends AbstractCommand
     use FieldType\Version;
     use FieldType\TrafficAreasOptional;
     use FieldType\PubTypeOptional;
+    use FieldType\Witnesses;
+    use FieldType\Publish;
 
     /**
      * @var int
@@ -68,13 +70,6 @@ class UpdateDecision extends AbstractCommand
     protected $licenceCurtailedAtPi;
 
     /**
-     * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     */
-    protected $witnesses;
-
-    /**
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $decisionDate;
@@ -90,12 +85,6 @@ class UpdateDecision extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":5,"max":4000}})
      */
     protected $decisionNotes;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
-     */
-    protected $publish;
 
     /**
      * @return int
@@ -146,14 +135,6 @@ class UpdateDecision extends AbstractCommand
     }
 
     /**
-     * @return int
-     */
-    public function getWitnesses()
-    {
-        return $this->witnesses;
-    }
-
-    /**
      * @return mixed
      */
     public function getDecisionDate()
@@ -175,13 +156,5 @@ class UpdateDecision extends AbstractCommand
     public function getDecisionNotes()
     {
         return $this->decisionNotes;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPublish()
-    {
-        return $this->publish;
     }
 }
