@@ -29,6 +29,18 @@ return [
                             ),
                         ]
                     ],
+                    'close' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'close[/]'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\Pi\Close::class
+                            ),
+                        ]
+                    ],
                     'decision' => [
                         'type' => 'Segment',
                         'options' => [
@@ -37,6 +49,18 @@ return [
                         'may_terminate' => false,
                         'child_routes' => [
                             'PUT' => CommandConfig::getPutConfig(Command\Cases\Pi\UpdateDecision::class)
+                        ]
+                    ],
+                    'reopen' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'reopen[/]'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\Pi\Reopen::class
+                            ),
                         ]
                     ],
                     'sla' => [
