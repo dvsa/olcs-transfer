@@ -42,6 +42,12 @@ final class CreateIrfoGvPermit extends AbstractCommand
     protected $inForceDate;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\Date"})
+     */
+    protected $expiryDate;
+
+    /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0, "inclusive":true}})
@@ -92,6 +98,14 @@ final class CreateIrfoGvPermit extends AbstractCommand
     public function getInForceDate()
     {
         return $this->inForceDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getExpiryDate()
+    {
+        return $this->expiryDate;
     }
 
     /**
