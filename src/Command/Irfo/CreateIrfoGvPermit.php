@@ -29,12 +29,6 @@ final class CreateIrfoGvPermit extends AbstractCommand
     protected $irfoGvPermitType;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"irfo_perm_s_appreoved","irfo_perm_s_pending","irfo_perm_s_refused","irfo_perm_s_withdrawn"}}})
-     */
-    protected $irfoPermitStatus;
-
-    /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -82,14 +76,6 @@ final class CreateIrfoGvPermit extends AbstractCommand
     public function getIrfoGvPermitType()
     {
         return $this->irfoGvPermitType;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIrfoPermitStatus()
-    {
-        return $this->irfoPermitStatus;
     }
 
     /**
@@ -146,14 +132,6 @@ final class CreateIrfoGvPermit extends AbstractCommand
     public function setIrfoGvPermitType($irfoGvPermitType)
     {
         $this->irfoGvPermitType = $irfoGvPermitType;
-    }
-
-    /**
-     * @param mixed $irfoPermitStatus
-     */
-    public function setIrfoPermitStatus($irfoPermitStatus)
-    {
-        $this->irfoPermitStatus = $irfoPermitStatus;
     }
 
     /**
