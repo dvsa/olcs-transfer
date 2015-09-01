@@ -1270,7 +1270,24 @@ $routes = [
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\Fee\Fee::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\Fee\UpdateFee::class),
+                            'approve-waive' => RouteConfig::getRouteConfig(
+                                'approve-waive',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Fee\ApproveWaive::class),
+                                ]
+                            ),
+                            'recommend-waive' => RouteConfig::getRouteConfig(
+                                'recommend-waive',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Fee\RecommendWaive::class),
+                                ]
+                            ),
+                            'reject-waive' => RouteConfig::getRouteConfig(
+                                'reject-waive',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Fee\RejectWaive::class),
+                                ]
+                            ),
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Fee\FeeList::class),

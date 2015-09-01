@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Update Fee
+ * Approve Waive
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
@@ -14,10 +14,10 @@ use Dvsa\Olcs\Transfer\FieldType;
 use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 
 /**
- * @Transfer\RouteName("backend/fee/single")
+ * @Transfer\RouteName("backend/fee/single/approve-waive")
  * @Transfer\Method("PUT")
  */
-final class UpdateFee extends AbstractCommand implements FieldType\IdentityInterface, FieldType\VersionInterface
+final class ApproveWaive extends AbstractCommand implements FieldType\IdentityInterface, FieldType\VersionInterface
 {
     use FieldTypeTraits\Identity;
     use FieldTypeTraits\Version;
@@ -29,28 +29,10 @@ final class UpdateFee extends AbstractCommand implements FieldType\IdentityInter
     protected $waiveReason;
 
     /**
-     * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *  "name":"Zend\Validator\InArray",
-     *  "options": {"haystack": {"lfs_wr","lfs_w","lfs_ot"}}
-     * })
-     */
-    protected $status;
-
-    /**
      * @return string
      */
     public function getWaiveReason()
     {
         return $this->waiveReason;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->status;
     }
 }

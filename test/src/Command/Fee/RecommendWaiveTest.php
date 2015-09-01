@@ -3,12 +3,12 @@
 namespace Dvsa\OlcsTest\Transfer\Command\Fee;
 
 use PHPUnit_Framework_TestCase;
-use Dvsa\Olcs\Transfer\Command\Fee\UpdateFee;
+use Dvsa\Olcs\Transfer\Command\Fee\RecommendWaive;
 
 /**
- * Update Fee test
+ * Recommend Waive test
  */
-class UpdateFeeTest extends PHPUnit_Framework_TestCase
+class RecommendWaiveTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {
@@ -16,14 +16,12 @@ class UpdateFeeTest extends PHPUnit_Framework_TestCase
             'id' => 111,
             'version' => 1,
             'waiveReason' => 'foo',
-            'status' => 'lfs_ot'
         ];
 
-        $command = UpdateFee::create($data);
+        $command = RecommendWaive::create($data);
 
         $this->assertEquals(111, $command->getId());
         $this->assertEquals(1, $command->getVersion());
         $this->assertEquals('foo', $command->getWaiveReason());
-        $this->assertEquals('lfs_ot', $command->getStatus());
     }
 }
