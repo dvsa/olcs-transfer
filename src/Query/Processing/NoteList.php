@@ -33,6 +33,7 @@ class NoteList extends AbstractQuery implements
     use FieldTypeTraits\ApplicationOptional;
     use FieldTypeTraits\BusRegOptional;
     use FieldTypeTraits\CasesOptional;
+    use FieldTypeTraits\CasesMultiple;
     use FieldTypeTraits\LicenceOptional;
     use FieldTypeTraits\OrganisationOptional;
     use FieldTypeTraits\TransportManagerOptional;
