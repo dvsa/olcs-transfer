@@ -1,4 +1,5 @@
 <?php
+
 use Dvsa\Olcs\Transfer\Command;
 use Dvsa\Olcs\Transfer\Query;
 use Dvsa\Olcs\Transfer\Router\CommandConfig;
