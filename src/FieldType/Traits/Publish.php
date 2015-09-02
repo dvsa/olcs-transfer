@@ -2,26 +2,24 @@
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
- * Trait Optional Comment
+ * Publish
  *
  * @package Dvsa\Olcs\Transfer\Command\Traits\FieldType
  * @author Valtech <uk@valtech.co.uk>
  */
-trait CommentOptional
+trait Publish
 {
     /**
-     * @var String
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":4000}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
-    protected $comment;
+    protected $publish;
 
     /**
      * @return string
      */
-    public function getComment()
+    public function getPublish()
     {
-        return $this->comment;
+        return $this->publish;
     }
 }
