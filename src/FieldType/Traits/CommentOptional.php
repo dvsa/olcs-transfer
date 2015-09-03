@@ -18,7 +18,7 @@ trait CommentOptional
     protected $comment;
 
     /**
-     * @return int
+     * @return string
      */
     public function getComment()
     {

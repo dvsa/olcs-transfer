@@ -32,26 +32,6 @@ return [
                     'DELETE' => CommandConfig::getDeleteConfig(Command\Publication\DeleteRecipient::class),
                 ]
             ],
-            'pi-hearing' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'pi-hearing[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'POST' => CommandConfig::getPostConfig(Command\Publication\PiHearing::class),
-                ]
-            ],
-            'pi-decision' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'pi-decision[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'POST' => CommandConfig::getPostConfig(Command\Publication\PiDecision::class),
-                ]
-            ],
             'bus' => [
                 'type' => 'Segment',
                 'options' => [

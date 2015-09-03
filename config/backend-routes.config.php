@@ -898,6 +898,9 @@ $routes = [
                                     'POST' => CommandConfig::getPostConfig(
                                         Command\Licence\CreateGoodsVehicle::class
                                     ),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Licence\UpdateVehicles::class
+                                    ),
                                     'transfer' => RouteConfig::getRouteConfig(
                                         'transfer',
                                         [
@@ -1039,6 +1042,17 @@ $routes = [
                                     ),
                                 ]
                             ),
+                            'trailers' => RouteConfig::getRouteConfig(
+                                'trailers',
+                                [
+                                    'GET' => QueryConfig::getConfig(
+                                        Query\Licence\Trailers::class
+                                    ),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Licence\UpdateTrailers::class
+                                    )
+                                ]
+                            ),
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Licence\GetList::class),
@@ -1076,66 +1090,6 @@ $routes = [
                         ]
                     ],
                     'GET' => QueryConfig::getConfig(Query\PreviousConviction\GetList::class),
-                ]
-            ],
-            'irfo' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'irfo[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoDetails::class),
-                            'PUT' => CommandConfig::getPutConfig(Command\Irfo\UpdateIrfoDetails::class),
-                        ]
-                    ),
-                    'gv-permit' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'gv-permit[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'single' => RouteConfig::getSingleConfig(
-                                [
-                                    'GET' => QueryConfig::getConfig(Query\Irfo\IrfoGvPermit::class),
-                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\UpdateIrfoGvPermit::class),
-                                ]
-                            ),
-                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoGvPermitList::class),
-                            'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoGvPermit::class),
-                        ]
-                    ],
-                    'psv-auth' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'psv-auth[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'single' => RouteConfig::getSingleConfig(
-                                [
-                                    'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuth::class),
-                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\UpdateIrfoPsvAuth::class),
-                                ]
-                            ),
-                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthList::class),
-                            'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoPsvAuth::class),
-                        ]
-                    ],
-                    'permit-stock' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'permit-stock[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPermitStockList::class),
-                            'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoPermitStock::class),
-                        ]
-                    ]
                 ]
             ],
             'partner' => [
@@ -1331,16 +1285,34 @@ $routes = [
                         [
                             'GET' => QueryConfig::getConfig(Query\Fee\Fee::class),
                             'PUT' => CommandConfig::getPutConfig(Command\Fee\UpdateFee::class),
+                            'approve-waive' => RouteConfig::getRouteConfig(
+                                'approve-waive',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Fee\ApproveWaive::class),
+                                ]
+                            ),
+                            'recommend-waive' => RouteConfig::getRouteConfig(
+                                'recommend-waive',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Fee\RecommendWaive::class),
+                                ]
+                            ),
+                            'reject-waive' => RouteConfig::getRouteConfig(
+                                'reject-waive',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Fee\RejectWaive::class),
+                                ]
+                            ),
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Fee\FeeList::class),
                     'POST' => CommandConfig::getPostConfig(Command\Fee\CreateMiscellaneousFee::class),
                 ]
             ],
-            'payment' => [
+            'transaction' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => 'payment[/]',
+                    'route' => 'transaction[/]',
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
@@ -1353,13 +1325,13 @@ $routes = [
                             ],
                         ],
                         'child_routes' => [
-                            'GET' => QueryConfig::getConfig(Query\Payment\PaymentByReference::class),
-                            'POST' => CommandConfig::getPostConfig(Command\Payment\CompletePayment::class),
+                            'GET' => QueryConfig::getConfig(Query\Transaction\TransactionByReference::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Transaction\CompleteTransaction::class),
                         ],
                     ],
                     'single' => RouteConfig::getSingleConfig(
                         [
-                            'GET' => QueryConfig::getConfig(Query\Payment\Payment::class),
+                            'GET' => QueryConfig::getConfig(Query\Transaction\Transaction::class),
                         ]
                     ),
                     'pay-outstanding-fees' => [
@@ -1369,7 +1341,7 @@ $routes = [
                         ],
                         'may_terminate' => false,
                         'child_routes' => [
-                            'POST' => CommandConfig::getPostConfig(Command\Payment\PayOutstandingFees::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Transaction\PayOutstandingFees::class),
                         ],
                     ],
                 ]
