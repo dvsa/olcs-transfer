@@ -41,6 +41,16 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(Command\Irfo\ResetIrfoGvPermit::class),
                                 ]
                             ],
+                            'approve' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'approve[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\ApproveIrfoGvPermit::class),
+                                ]
+                            ],
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Irfo\IrfoGvPermitList::class),
