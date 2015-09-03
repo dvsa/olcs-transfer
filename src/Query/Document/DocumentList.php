@@ -10,6 +10,7 @@ namespace Dvsa\Olcs\Transfer\Query\Document;
 use Dvsa\Olcs\Transfer\FieldType\Traits\CasesOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\OrganisationOptional;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
@@ -26,7 +27,8 @@ class DocumentList extends AbstractQuery implements OrderedQueryInterface, Paged
         PagedTrait,
         LicenceOptional,
         CasesOptional,
-        TransportManagerOptional;
+        TransportManagerOptional,
+        OrganisationOptional;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
