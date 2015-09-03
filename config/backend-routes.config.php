@@ -898,6 +898,9 @@ $routes = [
                                     'POST' => CommandConfig::getPostConfig(
                                         Command\Licence\CreateGoodsVehicle::class
                                     ),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Licence\UpdateVehicles::class
+                                    ),
                                     'transfer' => RouteConfig::getRouteConfig(
                                         'transfer',
                                         [
@@ -1037,6 +1040,17 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(
                                         Query\Licence\PsvVehicles::class
                                     ),
+                                ]
+                            ),
+                            'trailers' => RouteConfig::getRouteConfig(
+                                'trailers',
+                                [
+                                    'GET' => QueryConfig::getConfig(
+                                        Query\Licence\Trailers::class
+                                    ),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Licence\UpdateTrailers::class
+                                    )
                                 ]
                             ),
                         ]

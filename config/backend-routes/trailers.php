@@ -1,4 +1,5 @@
 <?php
+
 use Dvsa\Olcs\Transfer\Command;
 use Dvsa\Olcs\Transfer\Query;
 use Dvsa\Olcs\Transfer\Router\CommandConfig;
@@ -19,7 +20,6 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\Trailer\UpdateTrailer::class),
                 ]
             ),
-            'GET' => QueryConfig::getConfig(Query\Trailer\Trailers::class),
             'POST' => CommandConfig::getPostConfig(Command\Trailer\CreateTrailer::class),
             'DELETE' => CommandConfig::getDeleteConfig(Command\Trailer\DeleteTrailer::class),
         ]
