@@ -31,7 +31,7 @@ final class MoveDocument extends AbstractCommand
      *      "name":"Zend\Validator\InArray",
      *      "options": {
      *          "haystack": {
-     *              "application", "busReg", "case", "irfo", "licence", "transportManager"
+     *              "application", "busReg", "case", "irfoOrganisation", "licence", "transportManager"
      *          }
      *      }
      *  }
