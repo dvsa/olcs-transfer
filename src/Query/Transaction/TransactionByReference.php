@@ -1,19 +1,19 @@
 <?php
 
 /**
- * Payment by reference
+ * Transaction by reference
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
-namespace Dvsa\Olcs\Transfer\Query\Payment;
+namespace Dvsa\Olcs\Transfer\Query\Transaction;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/payment/by-reference")
+ * @Transfer\RouteName("backend/transaction/by-reference")
  */
-class PaymentByReference extends AbstractQuery
+class TransactionByReference extends AbstractQuery
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

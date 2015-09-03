@@ -1,20 +1,20 @@
 <?php
 
 /**
- * Complete Payment
+ * Complete Transaction
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
-namespace Dvsa\Olcs\Transfer\Command\Payment;
+namespace Dvsa\Olcs\Transfer\Command\Transaction;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/payment/by-reference")
+ * @Transfer\RouteName("backend/transaction/by-reference")
  * @Transfer\Method("POST")
  */
-class CompletePayment extends AbstractCommand
+class CompleteTransaction extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

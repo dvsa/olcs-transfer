@@ -1,9 +1,9 @@
 <?php
 
-namespace Dvsa\OlcsTest\Transfer\Command\Payment;
+namespace Dvsa\OlcsTest\Transfer\Command\Transaction;
 
 use PHPUnit_Framework_TestCase;
-use Dvsa\Olcs\Transfer\Command\Payment\PayOutstandingFees;
+use Dvsa\Olcs\Transfer\Command\Transaction\PayOutstandingFees;
 
 /**
  * Pay Outstanding Fees test
