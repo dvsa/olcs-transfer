@@ -1,14 +1,14 @@
 <?php
 
-namespace Dvsa\OlcsTest\Transfer\Command\Payment;
+namespace Dvsa\OlcsTest\Transfer\Command\Transaction;
 
 use PHPUnit_Framework_TestCase;
-use Dvsa\Olcs\Transfer\Command\Payment\CompletePayment;
+use Dvsa\Olcs\Transfer\Command\Transaction\CompleteTransaction;
 
 /**
- * Complete Payment test
+ * Complete Transaction test
  */
-class CompletePaymentTest extends PHPUnit_Framework_TestCase
+class CompleteTransactionTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {
@@ -19,7 +19,7 @@ class CompletePaymentTest extends PHPUnit_Framework_TestCase
             'submitApplicationId' => 69,
         ];
 
-        $command = CompletePayment::create($data);
+        $command = CompleteTransaction::create($data);
 
         $this->assertEquals('OLCS-1234-ABCD', $command->getReference());
         $this->assertEquals('fpm_card_online', $command->getPaymentMethod());

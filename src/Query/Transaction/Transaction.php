@@ -1,20 +1,20 @@
 <?php
 
 /**
- * Payment
+ * Transaction
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
-namespace Dvsa\Olcs\Transfer\Query\Payment;
+namespace Dvsa\Olcs\Transfer\Query\Transaction;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/payment/single")
+ * @Transfer\RouteName("backend/transaction/single")
  */
-class Payment extends AbstractQuery
+class Transaction extends AbstractQuery
 {
     use Identity;
 }
