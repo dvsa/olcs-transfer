@@ -2,26 +2,24 @@
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
- * Trait Optional Comment
+ * Is Adjourned
  *
  * @package Dvsa\Olcs\Transfer\Command\Traits\FieldType
  * @author Valtech <uk@valtech.co.uk>
  */
-trait CommentOptional
+trait IsAdjourned
 {
     /**
-     * @var String
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":4000}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
      */
-    protected $comment;
+    protected $isAdjourned;
 
     /**
      * @return string
      */
-    public function getComment()
+    public function getIsAdjourned()
     {
-        return $this->comment;
+        return $this->isAdjourned;
     }
 }

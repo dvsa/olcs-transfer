@@ -29,6 +29,12 @@ return [
                                 QueryConfig::getConfig(Query\Tm\Documents::class)
                         ]
                     ],
+                    'merge' => RouteConfig::getRouteConfig(
+                        'merge',
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\Tm\Merge::class)
+                        ]
+                    ),
                 ]
             ),
             'create' => [

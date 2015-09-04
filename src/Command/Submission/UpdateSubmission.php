@@ -36,9 +36,11 @@ final class UpdateSubmission extends AbstractCommand
     protected $submissionType;
 
     /**
+     * @Transfer\ArrayInput
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\SubmissionSection"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
      */
-    protected $submissionSections;
+    protected $sections;
 
     /**
      * @Transfer\Optional
@@ -81,9 +83,9 @@ final class UpdateSubmission extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getSubmissionSections()
+    public function getSections()
     {
-        return $this->submissionSections;
+        return $this->sections;
     }
 
     /**

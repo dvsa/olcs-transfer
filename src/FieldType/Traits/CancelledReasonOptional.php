@@ -2,26 +2,26 @@
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
- * Trait Optional Comment
+ * Trait CancelledReasonOptional
  *
  * @package Dvsa\Olcs\Transfer\Command\Traits\FieldType
  * @author Valtech <uk@valtech.co.uk>
  */
-trait CommentOptional
+trait CancelledReasonOptional
 {
     /**
      * @var String
      * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":4000}})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":1000}})
      */
-    protected $comment;
+    protected $cancelledReason;
 
     /**
      * @return string
      */
-    public function getComment()
+    public function getCancelledReason()
     {
-        return $this->comment;
+        return $this->cancelledReason;
     }
 }

@@ -13,12 +13,8 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
  * @Transfer\Method("DELETE")
  * @Transfer\RouteName("backend/processing/note/single")
  */
-class Delete extends AbstractCommand
-    implements
-    FieldType\IdentityInterface,
-    FieldType\VersionInterface
+class Delete extends AbstractCommand implements FieldType\IdentityInterface
 {
     // Identity & Locking
     use FieldTypeTraits\Identity;
-    use FieldTypeTraits\Version;
 }

@@ -29,6 +29,18 @@ return [
                             ),
                         ]
                     ],
+                    'close' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'close[/]'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\Pi\Close::class
+                            ),
+                        ]
+                    ],
                     'decision' => [
                         'type' => 'Segment',
                         'options' => [
@@ -37,6 +49,18 @@ return [
                         'may_terminate' => false,
                         'child_routes' => [
                             'PUT' => CommandConfig::getPutConfig(Command\Cases\Pi\UpdateDecision::class)
+                        ]
+                    ],
+                    'reopen' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'reopen[/]'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\Pi\Reopen::class
+                            ),
                         ]
                     ],
                     'sla' => [
@@ -51,6 +75,23 @@ return [
                     ]
                 ]
             ),
+            'hearing' =>         [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'hearing[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Cases\Pi\HearingList::class),
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Cases\Pi\Hearing::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Pi\UpdateHearing::class)
+                        ]
+                    ),
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\Pi\CreateHearing::class)
+                ],
+            ],
             'POST' => CommandConfig::getPostConfig(Command\Cases\Pi\CreateAgreedAndLegislation::class)
         ],
     ]

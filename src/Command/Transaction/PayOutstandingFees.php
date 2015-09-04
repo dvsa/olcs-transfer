@@ -5,13 +5,13 @@
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
-namespace Dvsa\Olcs\Transfer\Command\Payment;
+namespace Dvsa\Olcs\Transfer\Command\Transaction;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/payment/pay-outstanding-fees")
+ * @Transfer\RouteName("backend/transaction/pay-outstanding-fees")
  * @Transfer\Method("POST")
  */
 final class PayOutstandingFees extends AbstractCommand

@@ -18,4 +18,19 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class CreateVehicleListDocument extends AbstractCommand
 {
     use Identity;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"lva", "dp"}}})
+     * @Transfer\Optional
+     */
+    protected $type;
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
 }

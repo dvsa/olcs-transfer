@@ -31,6 +31,16 @@ return [
                         [
                             'GET' => QueryConfig::getConfig(Query\Irfo\IrfoGvPermit::class),
                             'PUT' => CommandConfig::getPutConfig(Command\Irfo\UpdateIrfoGvPermit::class),
+                            'reset' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'reset[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\ResetIrfoGvPermit::class),
+                                ]
+                            ],
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Irfo\IrfoGvPermitList::class),

@@ -36,12 +36,6 @@ final class UpdateIrfoGvPermit extends AbstractCommand
     protected $irfoGvPermitType;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"irfo_perm_s_appreoved","irfo_perm_s_pending","irfo_perm_s_refused","irfo_perm_s_withdrawn"}}})
-     */
-    protected $irfoPermitStatus;
-
-    /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -53,6 +47,12 @@ final class UpdateIrfoGvPermit extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Date"})
      */
     protected $inForceDate;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\Date"})
+     */
+    protected $expiryDate;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -102,14 +102,6 @@ final class UpdateIrfoGvPermit extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getIrfoPermitStatus()
-    {
-        return $this->irfoPermitStatus;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getYearRequired()
     {
         return $this->yearRequired;
@@ -121,6 +113,14 @@ final class UpdateIrfoGvPermit extends AbstractCommand
     public function getInForceDate()
     {
         return $this->inForceDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getExpiryDate()
+    {
+        return $this->expiryDate;
     }
 
     /**
@@ -169,14 +169,6 @@ final class UpdateIrfoGvPermit extends AbstractCommand
     public function setIrfoGvPermitType($irfoGvPermitType)
     {
         $this->irfoGvPermitType = $irfoGvPermitType;
-    }
-
-    /**
-     * @param mixed $irfoPermitStatus
-     */
-    public function setIrfoPermitStatus($irfoPermitStatus)
-    {
-        $this->irfoPermitStatus = $irfoPermitStatus;
     }
 
     /**
