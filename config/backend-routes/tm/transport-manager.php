@@ -35,6 +35,12 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\Tm\Merge::class)
                         ]
                     ),
+                    'unmerge' => RouteConfig::getRouteConfig(
+                        'unmerge',
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\Tm\Unmerge::class)
+                        ]
+                    ),
                 ]
             ),
             'create' => [
