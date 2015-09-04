@@ -173,7 +173,8 @@ return [
                             ],
                         ]
                     ],
-                ]
+                ],
+                '[0-9]+'
             ),
             'registration-history-list' => [
                 'type' => 'Segment',
