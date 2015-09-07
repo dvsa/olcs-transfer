@@ -6,6 +6,7 @@ use Dvsa\Olcs\Transfer\Router\CommandConfig;
 use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
 
+
 return [
     'submission' => [
         'type' => 'Segment',
@@ -24,6 +25,26 @@ return [
                     )
                 ]
             ),
+            'refresh' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'refresh[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\Submission\RefreshSubmissionSections::class),
+                ]
+            ],
+            'filter' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'filter[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\Submission\FilterSubmissionSections::class),
+                ]
+            ],
             'POST' => CommandConfig::getPostConfig(Command\Submission\CreateSubmission::class),
         ]
     ]
