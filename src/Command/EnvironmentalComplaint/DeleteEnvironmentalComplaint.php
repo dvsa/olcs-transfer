@@ -13,5 +13,18 @@ use Dvsa\Olcs\Transfer\Command\AbstractDeleteCommand;
  */
 class DeleteEnvironmentalComplaint extends AbstractDeleteCommand
 {
-    //
+    /**
+     * @Transfer\Optional()
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": false}})
+     */
+    protected $isCompliance = false;
+
+    /**
+     * @return bool
+     */
+    public function getIsCompliance()
+    {
+        return $this->isCompliance;
+    }
 }
