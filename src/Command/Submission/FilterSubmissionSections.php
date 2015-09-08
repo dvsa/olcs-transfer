@@ -21,15 +21,16 @@ final class FilterSubmissionSections extends AbstractCommand
     use FieldType\Traits\Version;
 
     /**
-     * @Transfer\ArrayInput
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\SubmissionSection"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"max":50}})
      */
-    protected $sections;
+    protected $section;
 
     /**
-     * @Transfer\ArrayInput
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"max":50}})
      */
     protected $subSection;
 
@@ -42,9 +43,9 @@ final class FilterSubmissionSections extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getSections()
+    public function getSection()
     {
-        return $this->sections;
+        return $this->section;
     }
 
     /**

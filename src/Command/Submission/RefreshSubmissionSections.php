@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Update Submission sections. Leave any other sections as is. Just update sections passed in Command
+ * Update Submission sections. Leave any other sections as is. Just update section/subsection passed in Command
  */
 namespace Dvsa\Olcs\Transfer\Command\Submission;
 
@@ -20,17 +20,32 @@ final class RefreshSubmissionSections extends AbstractCommand
     use FieldType\Traits\Version;
 
     /**
-     * @Transfer\ArrayInput
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\SubmissionSection"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"max":50}})
      */
-    protected $sections;
+    protected $section;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"max":50}})
+     */
+    protected $subSection;
 
     /**
      * @return mixed
      */
-    public function getSections()
+    public function getSection()
     {
-        return $this->sections;
+        return $this->section;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubSection()
+    {
+        return $this->subSection;
     }
 }
