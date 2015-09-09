@@ -15,6 +15,18 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\ContinuationDetail\Update::class),
                 ]
             ),
+            'checklist-reminders' => RouteConfig::getRouteConfig(
+                'checklist-reminders',
+                [
+                    'GET' => QueryConfig::getConfig(Query\ContinuationDetail\ChecklistReminders::class)
+                ]
+            ),
+            'queue-letters' =>  RouteConfig::getRouteConfig(
+                'queue-letters',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\ContinuationDetail\QueueLetters::class)
+                ]
+            )
         ]
     )
 ];
