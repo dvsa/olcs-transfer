@@ -55,6 +55,30 @@ final class Update extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0, "inclusive": true}})
+     * @Transfer\Optional
+     */
+    protected $totAuthSmallVehicles;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0, "inclusive": true}})
+     * @Transfer\Optional
+     */
+    protected $totAuthMediumVehicles;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0, "inclusive": true}})
+     * @Transfer\Optional
+     */
+    protected $totAuthLargeVehicles;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 999999}})
      * @Transfer\Optional
      */
@@ -92,6 +116,21 @@ final class Update extends AbstractCommand
     public function getTotAuthVehicles()
     {
         return $this->totAuthVehicles;
+    }
+
+    public function getTotAuthSmallVehicles()
+    {
+        return $this->totAuthSmallVehicles;
+    }
+
+    public function getTotAuthMediumVehicles()
+    {
+        return $this->totAuthMediumVehicles;
+    }
+
+    public function getTotAuthLargeVehicles()
+    {
+        return $this->totAuthLargeVehicles;
     }
 
     public function getTotPsvDiscs()
