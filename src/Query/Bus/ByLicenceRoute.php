@@ -12,7 +12,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 
 /**
  * Class ByRouteNo
- * @Transfer\RouteName("backend/bus/by-route-no")
+ * @Transfer\RouteName("backend/bus/by-licence-route")
  */
 class ByLicenceRoute extends AbstractQuery
     implements PagedQueryInterface, OrderedQueryInterface
