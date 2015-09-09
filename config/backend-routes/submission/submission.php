@@ -6,7 +6,6 @@ use Dvsa\Olcs\Transfer\Router\CommandConfig;
 use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
 
-
 return [
     'submission' => [
         'type' => 'Segment',
