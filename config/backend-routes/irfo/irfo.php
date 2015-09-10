@@ -51,6 +51,26 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(Command\Irfo\ApproveIrfoGvPermit::class),
                                 ]
                             ],
+                            'withdraw' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'withdraw[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\WithdrawIrfoGvPermit::class),
+                                ]
+                            ],
+                            'refuse' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'refuse[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\RefuseIrfoGvPermit::class),
+                                ]
+                            ],
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Irfo\IrfoGvPermitList::class),
