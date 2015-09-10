@@ -29,7 +29,10 @@ final class UpdateFinancialStandingRate extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}})
+     * @Transfer\Validator({
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}
+     * })
      * @Transfer\Optional
      */
     protected $licenceType;
