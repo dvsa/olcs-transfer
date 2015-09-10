@@ -22,7 +22,7 @@ class UpdateFinancialStandingRateTest extends PHPUnit_Framework_TestCase
             'effectiveFrom' => '2015-06-18',
         ];
 
-        $command = Sut::Update($data);
+        $command = Sut::create($data);
 
         $this->assertEquals('69', $command->getId());
         $this->assertEquals('1', $command->getVersion());
