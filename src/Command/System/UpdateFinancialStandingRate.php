@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Create Financial Standing Rate
+ * Update Financial Standing Rate
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
@@ -9,13 +9,17 @@ namespace Dvsa\Olcs\Transfer\Command\System;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 
 /**
- * @Transfer\RouteName("backend/financial-standing-rate")
- * @Transfer\Method("POST")
+ * @Transfer\RouteName("backend/financial-standing-rate/single")
+ * @Transfer\Method("PUT")
  */
-final class CreateFinancialStandingRate extends AbstractCommand
+final class UpdateFinancialStandingRate extends AbstractCommand
 {
+    use FieldTypeTraits\Identity,
+        FieldTypeTraits\Version;
+
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"lcat_gv","lcat_psv"}}})
