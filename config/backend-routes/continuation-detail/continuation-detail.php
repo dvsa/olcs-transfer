@@ -26,7 +26,13 @@ return [
                 [
                     'POST' => CommandConfig::getPostConfig(Command\ContinuationDetail\QueueLetters::class)
                 ]
-            )
+            ),
+            'list' => RouteConfig::getRouteConfig(
+                'list',
+                [
+                    'GET' => QueryConfig::getConfig(Query\ContinuationDetail\GetList::class)
+                ]
+            ),
         ]
     )
 ];
