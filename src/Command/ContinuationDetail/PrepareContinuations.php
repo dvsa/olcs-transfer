@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Queue letters
+ * Generate letters
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
@@ -11,10 +11,10 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/continuation-detail/queue-letters")
+ * @Transfer\RouteName("backend/continuation-detail/prepare-continuations")
  * @Transfer\Method("POST")
  */
-final class QueueLetters extends AbstractCommand
+final class PrepareContinuations extends AbstractCommand
 {
     /**
      * @Transfer\ArrayInput
