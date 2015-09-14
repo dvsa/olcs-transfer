@@ -21,12 +21,24 @@ return [
                     'GET' => QueryConfig::getConfig(Query\ContinuationDetail\ChecklistReminders::class)
                 ]
             ),
-            'queue-letters' =>  RouteConfig::getRouteConfig(
-                'queue-letters',
+            'queue' =>  RouteConfig::getRouteConfig(
+                'queue',
                 [
-                    'POST' => CommandConfig::getPostConfig(Command\ContinuationDetail\QueueLetters::class)
+                    'POST' => CommandConfig::getPostConfig(Command\ContinuationDetail\Queue::class)
                 ]
-            )
+            ),
+            'prepare-continuations' =>  RouteConfig::getRouteConfig(
+                'prepare-continuations',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\ContinuationDetail\PrepareContinuations::class)
+                ]
+            ),
+            'list' => RouteConfig::getRouteConfig(
+                'list',
+                [
+                    'GET' => QueryConfig::getConfig(Query\ContinuationDetail\GetList::class)
+                ]
+            ),
         ]
     )
 ];
