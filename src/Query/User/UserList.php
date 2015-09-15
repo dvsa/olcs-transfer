@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/user")
+ * @Transfer\RouteName("backend/user/internal")
  */
 final class UserList extends AbstractQuery
 {

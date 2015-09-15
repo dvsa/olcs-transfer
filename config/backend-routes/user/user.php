@@ -14,15 +14,42 @@ return [
         ],
         'may_terminate' => false,
         'child_routes' => [
-            'single' => RouteConfig::getSingleConfig(
-                [
-                    'GET' => QueryConfig::getConfig(Query\User\User::class),
-                    'PUT' => CommandConfig::getPutConfig(Command\User\UpdateUser::class),
-                    'DELETE' => CommandConfig::getDeleteConfig(Command\User\DeleteUser::class),
+            'internal' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'internal[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\User\User::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\User\UpdateUser::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\User\DeleteUser::class),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\User\UserList::class),
+                    'POST' => CommandConfig::getPostConfig(Command\User\CreateUser::class),
                 ]
-            ),
-            'GET' => QueryConfig::getConfig(Query\User\UserList::class),
-            'POST' => CommandConfig::getPostConfig(Command\User\CreateUser::class),
+            ],
+            'selfserve' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'selfserve[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\User\UserSelfserve::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\User\UpdateUserSelfserve::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\User\DeleteUserSelfserve::class),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\User\UserListSelfserve::class),
+                    'POST' => CommandConfig::getPostConfig(Command\User\CreateUserSelfserve::class),
+                ]
+            ],
         ]
     ],
 ];
