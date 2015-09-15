@@ -15,6 +15,30 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\ContinuationDetail\Update::class),
                 ]
             ),
+            'checklist-reminders' => RouteConfig::getRouteConfig(
+                'checklist-reminders',
+                [
+                    'GET' => QueryConfig::getConfig(Query\ContinuationDetail\ChecklistReminders::class)
+                ]
+            ),
+            'queue' =>  RouteConfig::getRouteConfig(
+                'queue',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\ContinuationDetail\Queue::class)
+                ]
+            ),
+            'prepare-continuations' =>  RouteConfig::getRouteConfig(
+                'prepare-continuations',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\ContinuationDetail\PrepareContinuations::class)
+                ]
+            ),
+            'list' => RouteConfig::getRouteConfig(
+                'list',
+                [
+                    'GET' => QueryConfig::getConfig(Query\ContinuationDetail\GetList::class)
+                ]
+            ),
         ]
     )
 ];

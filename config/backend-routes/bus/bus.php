@@ -173,7 +173,8 @@ return [
                             ],
                         ]
                     ],
-                ]
+                ],
+                '[0-9]+'
             ),
             'registration-history-list' => [
                 'type' => 'Segment',
@@ -183,16 +184,6 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Bus\RegistrationHistoryList::class),
-                ]
-            ],
-            'by-route-no' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'by-route-no[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Bus\ByRouteNo::class),
                 ]
             ],
             'previous-variation-by-route-no' => [

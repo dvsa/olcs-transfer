@@ -590,8 +590,7 @@
         "team": null,
         "transportManager": null,
         "version": 1,
-        "organisationUsers": null,
-        "userRoles": null
+        "organisationUsers": null
     },
     "createdOn": "2015-05-28T10:53:34+0100",
     "definition": "Some Definition",
@@ -632,8 +631,7 @@
         "team": null,
         "transportManager": null,
         "version": 1,
-        "organisationUsers": null,
-        "userRoles": null
+        "organisationUsers": null
     },
     "lastModifiedOn": "2015-05-28T10:53:34+0100",
     "notes": "Some Notes for Offence (case 24)",

@@ -12,9 +12,9 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 
 /**
  * Class ByRouteNo
- * @Transfer\RouteName("backend/bus/by-route-no")
+ * @Transfer\RouteName("backend/bus/by-licence-route")
  */
-class ByRouteNo extends AbstractQuery
+class ByLicenceRoute extends AbstractQuery
     implements PagedQueryInterface, OrderedQueryInterface
 {
     use PagedTrait;
@@ -30,10 +30,26 @@ class ByRouteNo extends AbstractQuery
     protected $routeNo;
 
     /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $licenceId;
+
+    /**
      * @return int
      */
     public function getRouteNo()
     {
         return $this->routeNo;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLicenceId()
+    {
+        return $this->licenceId;
     }
 }

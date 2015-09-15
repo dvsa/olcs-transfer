@@ -1,26 +1,26 @@
 <?php
 
 /**
- * Copy document
+ * Queue letters
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
-namespace Dvsa\Olcs\Transfer\Command\Document;
+namespace Dvsa\Olcs\Transfer\Command\ContinuationDetail;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/document/copy")
+ * @Transfer\RouteName("backend/continuation-detail/queue")
  * @Transfer\Method("POST")
  */
-final class CopyDocument extends AbstractCommand
+final class Queue extends AbstractCommand
 {
     /**
      * @Transfer\ArrayInput
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
      */
     protected $ids;
 
@@ -31,41 +31,26 @@ final class CopyDocument extends AbstractCommand
      *      "name":"Zend\Validator\InArray",
      *      "options": {
      *          "haystack": {
-     *              "application", "busReg", "case", "irfoOrganisation", "licence", "transportManager"
+     *              "que_typ_cont_check_rem_gen_let",
+     *              "que_typ_cpid_export_csv",
+     *              "que_typ_ch_initial",
+     *              "que_typ_ch_compare",
+     *              "que_typ_cont_checklist"
      *          }
      *      }
      *  }
      * )
+     * @Transfer\Optional
      */
-    public $type;
+    protected $type;
 
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
-     */
-    protected $targetId;
-
-    /**
-     * @return mixed
-     */
     public function getIds()
     {
         return $this->ids;
     }
 
-    /**
-     * @return mixed
-     */
     public function getType()
     {
         return $this->type;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTargetId()
-    {
-        return $this->targetId;
     }
 }

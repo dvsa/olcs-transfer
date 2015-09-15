@@ -9,14 +9,14 @@ namespace Dvsa\Olcs\Transfer\Router;
  */
 class RouteConfig
 {
-    public static function getSingleConfig($childRoutes = null)
+    public static function getSingleConfig($childRoutes = null, $constraint = null)
     {
-        return self::getSingleConfigByName('id', $childRoutes);
+        return self::getSingleConfigByName('id', $childRoutes, $constraint);
     }
 
-    public static function getNamedSingleConfig($name, $childRoutes = null)
+    public static function getNamedSingleConfig($name, $childRoutes = null, $constraint = null)
     {
-        return self::getSingleConfigByName($name, $childRoutes);
+        return self::getSingleConfigByName($name, $childRoutes, $constraint);
     }
 
     public static function getRouteConfig($route, $childRoutes = null)
@@ -36,7 +36,7 @@ class RouteConfig
         return $config;
     }
 
-    private static function getSingleConfigByName($name, $childRoutes = null)
+    private static function getSingleConfigByName($name, $childRoutes = null, $constraint = null)
     {
         $config = [
             'type' => 'Segment',
@@ -47,6 +47,10 @@ class RouteConfig
                 ]
             ]
         ];
+
+        if (!is_null($constraint)) {
+            $config['options']['constraints'][$name] = $constraint;
+        }
 
         if ($childRoutes !== null) {
             $config['may_terminate'] = false;

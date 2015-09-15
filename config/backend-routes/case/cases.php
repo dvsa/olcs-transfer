@@ -19,6 +19,26 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Cases\Cases::class),
                     'PUT' => CommandConfig::getPutConfig(Command\Cases\UpdateCase::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\DeleteCase::class),
+                    'close' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'close[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\CloseCase::class),
+                        ]
+                    ],
+                    'reopen' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'reopen[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\ReopenCase::class),
+                        ]
+                    ],
                     'opposition-dates' => [
                         'type' => 'Segment',
                         'options' => [

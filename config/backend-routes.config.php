@@ -1346,21 +1346,6 @@ $routes = [
                     ],
                 ]
             ],
-            'user' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'user[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'GET' => QueryConfig::getConfig(Query\User\User::class),
-                        ]
-                    ),
-                    'GET' => QueryConfig::getConfig(Query\User\UserList::class),
-                ]
-            ],
             'person' => [
                 'type' => 'Segment',
                 'options' => [
