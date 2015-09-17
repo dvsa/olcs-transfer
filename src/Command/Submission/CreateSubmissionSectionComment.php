@@ -27,8 +27,8 @@ final class CreateSubmissionSectionComment extends AbstractCommand
      *      "name":"Zend\Validator\InArray",
      *      "options": {
      *          "haystack": {
-     *              "introduction", "case-summary""case-outline", "most-serious-infringement",
-     *  "outstanding-applications","persons","operating-centres","conditions-and-undertakings",
+     *              "introduction", "case-summary","case-outline", "most-serious-infringement",
+     *  "outstanding-applications","people","operating-centres","conditions-and-undertakings",
      * "intelligence-unit-check","interim","advertisement","linked-licences-app-numbers","lead-tc-area",
      * "current-submissions","auth-requested-applied-for","transport-managers","continuous-effective-control",
      * "fitness-and-repute","previous-history","bus-reg-app-details","transport-authority-comments",
