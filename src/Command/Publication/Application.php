@@ -17,4 +17,21 @@ final class Application extends AbstractCommand
 {
     use FieldType\Identity;
     use FieldType\TrafficArea;
+
+    /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    protected $publicationSection;
+
+    /**
+     * @return int
+     */
+    public function getPublicationSection()
+    {
+        return $this->publicationSection;
+    }
 }
