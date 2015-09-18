@@ -46,6 +46,19 @@ final class CreateVariation extends AbstractCommand
     protected $licenceType;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray", "options": {
+     *          "haystack": {"applied_via_post","applied_via_phone"}
+     *      }
+     *  }
+     * )
+     * @Transfer\Optional
+     */
+    protected $appliedVia;
+
+    /**
      * @return mixed
      */
     public function getReceivedDate()
@@ -67,5 +80,13 @@ final class CreateVariation extends AbstractCommand
     public function getLicenceType()
     {
         return $this->licenceType;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAppliedVia()
+    {
+        return $this->appliedVia;
     }
 }

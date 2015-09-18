@@ -25,7 +25,9 @@ final class CreateApplication extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}})
+     * @Transfer\Validator(
+     *  {"name":"Zend\Validator\InArray", "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}}
+     * )
      * @Transfer\Optional
      */
     protected $licenceType;
@@ -55,6 +57,19 @@ final class CreateApplication extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $organisation;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray", "options": {
+     *          "haystack": {"applied_via_post","applied_via_phone"}
+     *      }
+     *  }
+     * )
+     * @Transfer\Optional
+     */
+    protected $appliedVia;
 
     /**
      * @return mixed
@@ -150,5 +165,13 @@ final class CreateApplication extends AbstractCommand
     public function setTrafficArea($trafficArea)
     {
         $this->trafficArea = $trafficArea;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAppliedVia()
+    {
+        return $this->appliedVia;
     }
 }
