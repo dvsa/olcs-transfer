@@ -10,6 +10,12 @@ return [
     'document' => RouteConfig::getRouteConfig(
         'document',
         [
+            'generate-and-store' => RouteConfig::getRouteConfig(
+                'generate-and-store',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\Document\GenerateAndStore::class),
+                ]
+            ),
             'template' => RouteConfig::getRouteConfig(
                 'template',
                 [
@@ -54,7 +60,7 @@ return [
                         [
                             'PUT' => CommandConfig::getPutConfig(Command\Document\UpdateDocumentLinks::class),
                         ]
-                    ),
+                    )
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(Command\Document\CreateDocument::class),
@@ -70,6 +76,18 @@ return [
                 'move',
                 [
                     'POST' => CommandConfig::getPostConfig(Command\Document\MoveDocument::class),
+                ]
+            ),
+            'download' => RouteConfig::getRouteConfig(
+                'download',
+                [
+                    'GET' => QueryConfig::getConfig(Query\Document\Download::class),
+                ]
+            ),
+            'upload' => RouteConfig::getRouteConfig(
+                'upload',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\Document\Upload::class),
                 ]
             ),
         ]

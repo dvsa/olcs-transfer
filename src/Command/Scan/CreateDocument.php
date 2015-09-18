@@ -21,22 +21,9 @@ final class CreateDocument extends AbstractCommand
      */
     protected $scanId;
 
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     */
-    protected $fileIdentifier;
+    protected $content;
 
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     */
-    protected $fileName;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $fileSize;
+    protected $filename;
 
     /**
      * @return int
@@ -47,34 +34,18 @@ final class CreateDocument extends AbstractCommand
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getFileIdentifier()
+    public function getContent()
     {
-        return $this->fileIdentifier;
+        return $this->content;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getFileDescription()
+    public function getFilename()
     {
-        return $this->fileDescription;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFileName()
-    {
-        return $this->fileName;
-    }
-
-    /**
-     * @return int
-     */
-    public function getFileSize()
-    {
-        return $this->fileSize;
+        return $this->filename;
     }
 }
