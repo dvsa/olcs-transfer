@@ -22,7 +22,7 @@ final class CreateUser extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"internal","local-authority","partner","self-service","transport-manager"}}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"internal","local-authority","partner","operator","transport-manager"}}})
      */
     protected $userType;
 
