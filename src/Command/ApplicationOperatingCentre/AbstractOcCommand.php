@@ -38,12 +38,14 @@ abstract class AbstractOcCommand extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y"}}})
+     * @Transfer\Optional
      */
     protected $sufficientParking;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y"}}})
+     * @Transfer\Optional
      */
     protected $permission;
 
