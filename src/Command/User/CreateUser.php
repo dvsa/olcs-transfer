@@ -9,7 +9,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/user")
+ * @Transfer\RouteName("backend/user/internal")
  * @Transfer\Method("POST")
  */
 final class CreateUser extends AbstractCommand
@@ -70,9 +70,8 @@ final class CreateUser extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
-    protected $roles = null;
+    protected $roles;
 
     /**
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\ContactDetails")
