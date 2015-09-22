@@ -31,7 +31,7 @@ class ApplicationTrackingTest extends PHPUnit_Framework_TestCase
             'taxiPhvStatus' => 15,
             'transportManagersStatus' => 16,
             'typeOfLicenceStatus' => 17,
-            'undertakingsStatus' => 18,
+            'declarationsInternalStatus' => 18,
             'vehiclesDeclarationsStatus' => 19,
             'vehiclesPsvStatus' => 20,
             'vehiclesStatus' => 21,
@@ -57,7 +57,7 @@ class ApplicationTrackingTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(15, $command->getTaxiPhvStatus());
         $this->assertEquals(16, $command->getTransportManagersStatus());
         $this->assertEquals(17, $command->getTypeOfLicenceStatus());
-        $this->assertEquals(18, $command->getUndertakingsStatus());
+        $this->assertEquals(18, $command->getDeclarationsInternalStatus());
         $this->assertEquals(19, $command->getVehiclesDeclarationsStatus());
         $this->assertEquals(20, $command->getVehiclesPsvStatus());
         $this->assertEquals(21, $command->getVehiclesStatus());
