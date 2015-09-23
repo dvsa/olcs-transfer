@@ -14,12 +14,35 @@ return [
         ],
         'may_terminate' => false,
         'child_routes' => [
-            'single' => RouteConfig::getSingleConfig(
-                [
-                    'PUT' => CommandConfig::getPutConfig(Command\MyAccount\UpdateMyAccount::class),
+            'internal' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'internal[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\MyAccount\UpdateMyAccount::class),
+                        ]
+                    ),
                 ]
-            ),
+            ],
+            'selfserve' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'selfserve[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\MyAccount\UpdateMyAccountSelfserve::class),
+                        ]
+                    ),
+                ]
+            ],
             'GET' => QueryConfig::getConfig(Query\MyAccount\MyAccount::class),
-        ],
+        ]
     ]
 ];

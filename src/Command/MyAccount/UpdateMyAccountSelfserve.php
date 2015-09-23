@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Update MyAccount
+ * Update MyAccount Selfserve
  */
 namespace Dvsa\Olcs\Transfer\Command\MyAccount;
 
@@ -9,10 +9,10 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/my-account/internal/single")
+ * @Transfer\RouteName("backend/my-account/selfserve/single")
  * @Transfer\Method("PUT")
  */
-final class UpdateMyAccount extends AbstractCommand
+final class UpdateMyAccountSelfserve extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -27,13 +27,6 @@ final class UpdateMyAccount extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $version;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $team;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -60,14 +53,6 @@ final class UpdateMyAccount extends AbstractCommand
     public function getVersion()
     {
         return $this->version;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTeam()
-    {
-        return $this->team;
     }
 
     /**
