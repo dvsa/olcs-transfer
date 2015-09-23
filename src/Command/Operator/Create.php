@@ -36,7 +36,7 @@ final class Create extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 8, "max": 8}})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 1, "max": 8}})
      * @Transfer\Validator({"name":"Zend\I18n\Validator\Alnum"})
      * @Transfer\Optional
      */
