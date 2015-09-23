@@ -7,6 +7,9 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\Organisation;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -16,28 +19,9 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateBusinessType extends AbstractCommand
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $id;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
-     */
-    protected $application;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
-     */
-    protected $licence;
+    use Identity,
+        ApplicationOptional,
+        LicenceOptional;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -65,11 +49,17 @@ final class UpdateBusinessType extends AbstractCommand
     protected $businessType;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $confirm = false;
+
+    /**
      * @return mixed
      */
-    public function getId()
+    public function getVariation()
     {
-        return $this->id;
+        return $this->variation;
     }
 
     /**
@@ -91,24 +81,8 @@ final class UpdateBusinessType extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getApplication()
+    public function getConfirm()
     {
-        return $this->application;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLicence()
-    {
-        return $this->licence;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getVariation()
-    {
-        return $this->variation;
+        return $this->confirm;
     }
 }
