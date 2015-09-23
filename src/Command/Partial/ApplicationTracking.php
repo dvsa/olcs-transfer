@@ -147,7 +147,7 @@ class ApplicationTracking extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"0", "1", "2", "3"}}})
      */
-    protected $undertakingsStatus;
+    protected $declarationsInternalStatus;
 
     /**
      * @Transfer\Optional
@@ -353,13 +353,13 @@ class ApplicationTracking extends AbstractCommand
     }
 
     /**
-     * Gets the value of undertakingsStatus.
+     * Gets the value of declarationsInternalStatus.
      *
      * @return mixed
      */
-    public function getUndertakingsStatus()
+    public function getDeclarationsInternalStatus()
     {
-        return $this->undertakingsStatus;
+        return $this->declarationsInternalStatus;
     }
 
     /**
