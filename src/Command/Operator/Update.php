@@ -7,6 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\Operator;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\IdentityOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -16,14 +17,13 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Update extends AbstractCommand
 {
+    use IdentityOptional;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
      * @Transfer\Optional
      */
-    protected $id;
+    protected $confirm = false;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -118,9 +118,9 @@ final class Update extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getId()
+    public function getConfirm()
     {
-        return $this->id;
+        return $this->confirm;
     }
 
     /**
