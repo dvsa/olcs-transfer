@@ -29,6 +29,14 @@ return [
                             ),
                         ]
                     ),
+                    'send-email' => RouteConfig::getRouteConfig(
+                        'send-email',
+                        [
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\TransportManagerApplication\SendTmApplication::class
+                            ),
+                        ]
+                    ),
                     'review' => RouteConfig::getRouteConfig(
                         'review',
                         [
