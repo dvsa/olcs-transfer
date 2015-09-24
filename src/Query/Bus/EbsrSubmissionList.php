@@ -12,7 +12,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 
 /**
  * Class EbsrSubmissionList
- * @Transfer\RouteName("backend/bus/ebsr-submission-list")
+ * @Transfer\RouteName("backend/ebsr-submission")
  */
 class EbsrSubmissionList extends AbstractQuery
     implements PagedQueryInterface, OrderedQueryInterface
@@ -33,7 +33,7 @@ class EbsrSubmissionList extends AbstractQuery
      *      }
      * })
      */
-    protected $registrationType;
+    protected $ebsrSubmissionType;
 
     /**
      * @var string
@@ -44,36 +44,27 @@ class EbsrSubmissionList extends AbstractQuery
      *      "options": {
      *          "haystack": {
      *              "ebsrs_expired", "ebsrs_expiring", "ebsrs_processed", "ebsrs_published", "ebsrs_expiring",
-     * "ebsrs_validated", "ebsrs_processing", "ebsrs_publishing", "ebsrs_submitting", "ebsrs_validating",
-     * "ebsrs_distributed", "ebsrs_distributing"
+     * "ebsrs_validated", "ebsrs_processing", "ebsrs_publishing", "ebsrs_submitted", "ebsrs_submitting",
+     * "ebsrs_validating",  "ebsrs_distributed", "ebsrs_distributing"
      *          }
      *      }
      * })
      */
-    protected $status;
+    protected $ebsrSubmissionStatus;
 
     /**
-     * @return int
+     * @return string
      */
-    public function getCase()
+    public function getEbsrSubmissionType()
     {
-        return $this->case;
+        return $this->ebsrSubmissionType;
     }
 
     /**
      * @return string
      */
-    public function getRegistrationType()
+    public function getEbsrSubmissionStatus()
     {
-        return $this->registrationType;
+        return $this->ebsrSubmissionStatus;
     }
-
-    /**
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
 }
