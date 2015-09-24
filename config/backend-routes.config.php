@@ -531,6 +531,13 @@ $routes = [
                                     ),
                                 ]
                             ),
+                            'publish' => RouteConfig::getRouteConfig(
+                                'publish',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Publish::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\Publish::class),
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
