@@ -12,7 +12,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
  * @Transfer\RouteName("backend/transport-manager-application/single/send-email")
- * @Transfer\Method("PUT")
+ * @Transfer\Method("POST")
  */
 final class SendTmApplication extends AbstractCommand
 {

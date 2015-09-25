@@ -32,7 +32,7 @@ return [
                     'send-email' => RouteConfig::getRouteConfig(
                         'send-email',
                         [
-                            'PUT' => CommandConfig::getPutConfig(
+                            'POST' => CommandConfig::getPostConfig(
                                 Command\TransportManagerApplication\SendTmApplication::class
                             ),
                         ]
