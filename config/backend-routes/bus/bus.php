@@ -173,6 +173,16 @@ return [
                             ],
                         ]
                     ],
+                    'with-documents' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'with-documents[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Bus\BusRegWithDocuments::class),
+                        ]
+                    ],
                 ],
                 '[0-9]+'
             ),
