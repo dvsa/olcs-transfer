@@ -35,4 +35,19 @@ class SearchViewList extends AbstractQuery implements PagedQueryInterface, Order
     {
         return $this->licId;
     }
+    /**
+     * @var String
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":32}})
+     */
+    protected $status;
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
 }
