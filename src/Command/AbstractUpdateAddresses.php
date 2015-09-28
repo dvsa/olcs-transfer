@@ -49,7 +49,7 @@ abstract class AbstractUpdateAddresses extends AbstractCommand
     protected $establishment;
 
     /**
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Address")
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\AddressOptional")
      * @Transfer\Optional
      */
     protected $establishmentAddress;
