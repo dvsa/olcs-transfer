@@ -16,21 +16,4 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
 class BusRegWithDocuments extends AbstractQuery implements CachableQueryInterface
 {
     use FieldType\Identity;
-
-    /**
-     * @Transfer\Optional
-     * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $localAuthority;
-
-    /**
-     * @return int
-     */
-    public function getLocalAuthority()
-    {
-        return $this->localAuthority;
-    }
 }
