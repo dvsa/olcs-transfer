@@ -185,16 +185,6 @@ return [
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Bus\RegistrationHistoryList::class),
                 ]
-            ],
-            'previous-variation-by-route-no' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'previous-variation-by-route-no[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Bus\PreviousVariationByRouteNo::class),
-                ]
             ]
         ]
     ]

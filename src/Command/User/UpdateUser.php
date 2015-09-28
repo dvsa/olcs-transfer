@@ -9,7 +9,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/user/single")
+ * @Transfer\RouteName("backend/user/internal/single")
  * @Transfer\Method("PUT")
  */
 final class UpdateUser extends AbstractCommand
@@ -36,10 +36,9 @@ final class UpdateUser extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"internal","local-authority","partner","self-service","transport-manager"}}})
-     * @Transfer\Optional
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"internal","local-authority","partner","operator","transport-manager"}}})
      */
-    protected $userType = null;
+    protected $userType;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -85,9 +84,8 @@ final class UpdateUser extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
      */
-    protected $roles = null;
+    protected $roles;
 
     /**
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\ContactDetails")

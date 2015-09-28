@@ -1,21 +1,21 @@
 <?php
 
 /**
- * User
+ * Publish
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-namespace Dvsa\Olcs\Transfer\Query\User;
+namespace Dvsa\Olcs\Transfer\Query\Application;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
-use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\CachableQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/user/internal/single")
+ * @Transfer\RouteName("backend/application/single/publish")
  */
-class User extends AbstractQuery implements CachableQueryInterface
+class Publish extends AbstractQuery implements CachableQueryInterface
 {
     use Identity;
 }

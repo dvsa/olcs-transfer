@@ -523,6 +523,21 @@ $routes = [
                                     ),
                                 ]
                             ),
+                            'auth-signature' => RouteConfig::getRouteConfig(
+                                'auth-signature',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateAuthSignature::class
+                                    ),
+                                ]
+                            ),
+                            'publish' => RouteConfig::getRouteConfig(
+                                'publish',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Publish::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\Publish::class),
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
