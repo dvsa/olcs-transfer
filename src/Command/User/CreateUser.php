@@ -80,13 +80,6 @@ final class CreateUser extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":10}})
-     * @Transfer\Optional
-     */
-    protected $memorableWord = null;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      * @Transfer\Optional
      */
@@ -142,11 +135,6 @@ final class CreateUser extends AbstractCommand
     public function getLoginId()
     {
         return $this->loginId;
-    }
-
-    public function getMemorableWord()
-    {
-        return $this->memorableWord;
     }
 
     public function getMustResetPassword()
