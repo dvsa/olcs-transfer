@@ -7,13 +7,13 @@ use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
 
 return [
-    'ebsr-submission' => RouteConfig::getRouteConfig(
-        'ebsr-submission',
+    'txc-inbox' => RouteConfig::getRouteConfig(
+        'txc-inbox',
         [
-            'GET' => QueryConfig::getConfig(Query\Bus\EbsrSubmissionList::class),
+            'GET' => QueryConfig::getConfig(Query\Bus\Ebsr\TxcInboxList::class),
             'single' => RouteConfig::getSingleConfig(
                 [
-                    'PUT' => CommandConfig::getPutConfig(Command\Bus\EbsrSubmissionUpdate::class),
+                    'PUT' => CommandConfig::getPutConfig(Command\Bus\Ebsr\TxcInboxUpdate::class),
                 ]
             ),
         ]

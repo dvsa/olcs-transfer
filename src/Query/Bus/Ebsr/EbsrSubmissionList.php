@@ -1,6 +1,6 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Query\Bus;
+namespace Dvsa\Olcs\Transfer\Query\Bus\Ebsr;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
