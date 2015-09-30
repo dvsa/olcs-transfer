@@ -14,8 +14,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
  * Class TxcInboxList
  * @Transfer\RouteName("backend/txc-inbox")
  */
-class TxcInboxList extends AbstractQuery
-    implements PagedQueryInterface, OrderedQueryInterface
+class TxcInboxList extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
 {
     use PagedTrait;
     use OrderedTrait;
