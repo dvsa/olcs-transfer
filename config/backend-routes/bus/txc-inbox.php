@@ -11,11 +11,7 @@ return [
         'txc-inbox',
         [
             'GET' => QueryConfig::getConfig(Query\Bus\Ebsr\TxcInboxList::class),
-            'single' => RouteConfig::getSingleConfig(
-                [
-                    'PUT' => CommandConfig::getPutConfig(Command\Bus\Ebsr\TxcInboxUpdate::class),
-                ]
-            ),
+            'PUT' => CommandConfig::getPutConfig(Command\Bus\Ebsr\UpdateTxcInbox::class),
         ]
     )
 ];
