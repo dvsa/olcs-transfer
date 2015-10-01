@@ -18,7 +18,8 @@ return [
                     'named-single' => RouteConfig::getNamedSingleConfig(
                         'reference',
                         [
-                           'PUT' => CommandConfig::getPutConfig(Command\Cpms\DownloadReport::class),
+                            'GET' => QueryConfig::getConfig(Query\Cpms\ReportStatus::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Cpms\DownloadReport::class),
                         ]
                     ),
                 ]
