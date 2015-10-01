@@ -54,6 +54,14 @@ final class UpdateUser extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
+    protected $application = null;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
     protected $transportManager = null;
 
     /**
@@ -124,6 +132,11 @@ final class UpdateUser extends AbstractCommand
     public function getTeam()
     {
         return $this->team;
+    }
+
+    public function getApplication()
+    {
+        return $this->application;
     }
 
     public function getTransportManager()
