@@ -14,6 +14,13 @@ return [
                 'report',
                 [
                     'GET' => QueryConfig::getConfig(Query\Cpms\ReportList::class),
+                    'POST' => CommandConfig::getPostConfig(Command\Cpms\RequestReport::class),
+                    'named-single' => RouteConfig::getNamedSingleConfig(
+                        'reference',
+                        [
+                           'PUT' => CommandConfig::getPutConfig(Command\Cpms\DownloadReport::class),
+                        ]
+                    ),
                 ]
             )
         ]
