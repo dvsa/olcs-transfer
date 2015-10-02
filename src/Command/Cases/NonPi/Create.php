@@ -44,6 +44,7 @@ class Create extends AbstractCommand implements FieldType\CasesInterface
      *
      * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Between","options":{"min":0,"max":99,"inclusive":true}})
      */
     protected $witnessCount;
