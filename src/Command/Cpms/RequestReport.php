@@ -23,6 +23,18 @@ final class RequestReport extends AbstractCommand
     protected $reportCode;
 
     /**
+     * @var \DateTime
+     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d H:i:s"}})
+     */
+    protected $start;
+
+    /**
+     * @var \DateTime
+     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d H:i:s"}})
+     */
+    protected $end;
+
+    /**
      * Gets the value of reportCode.
      *
      * @return mixed
@@ -30,5 +42,25 @@ final class RequestReport extends AbstractCommand
     public function getReportCode()
     {
         return $this->reportCode;
+    }
+
+    /**
+     * Gets the value of start.
+     *
+     * @return \DateTime
+     */
+    public function getStart()
+    {
+        return $this->start;
+    }
+
+    /**
+     * Gets the value of end.
+     *
+     * @return \DateTime
+     */
+    public function getEnd()
+    {
+        return $this->end;
     }
 }
