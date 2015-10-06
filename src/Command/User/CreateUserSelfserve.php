@@ -27,9 +27,9 @@ final class CreateUserSelfserve extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"admin", "user"}}})
      */
-    protected $isAdministrator;
+    protected $permission;
 
     public function getLoginId()
     {
@@ -41,8 +41,8 @@ final class CreateUserSelfserve extends AbstractCommand
         return $this->contactDetails;
     }
 
-    public function getIsAdministrator()
+    public function getPermission()
     {
-        return $this->isAdministrator;
+        return $this->permission;
     }
 }

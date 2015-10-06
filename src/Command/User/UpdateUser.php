@@ -54,6 +54,14 @@ final class UpdateUser extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
+    protected $application = null;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
     protected $transportManager = null;
 
     /**
@@ -94,13 +102,6 @@ final class UpdateUser extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":10}})
-     * @Transfer\Optional
-     */
-    protected $memorableWord = null;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      * @Transfer\Optional
      */
@@ -131,6 +132,11 @@ final class UpdateUser extends AbstractCommand
     public function getTeam()
     {
         return $this->team;
+    }
+
+    public function getApplication()
+    {
+        return $this->application;
     }
 
     public function getTransportManager()
@@ -166,11 +172,6 @@ final class UpdateUser extends AbstractCommand
     public function getLoginId()
     {
         return $this->loginId;
-    }
-
-    public function getMemorableWord()
-    {
-        return $this->memorableWord;
     }
 
     public function getMustResetPassword()

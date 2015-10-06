@@ -14,6 +14,30 @@ return [
         ],
         'may_terminate' => false,
         'child_routes' => [
+            'single' => RouteConfig::getSingleConfig(
+                [
+                    'generate' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'generate[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Publication\Generate::class),
+                        ]
+                    ],
+                    'publish' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'publish[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Publication\Publish::class),
+                        ]
+                    ],
+                ]
+            ),
             'recipient' => [
                 'type' => 'Segment',
                 'options' => [
@@ -50,6 +74,52 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'POST' => CommandConfig::getPostConfig(Command\Publication\Application::class),
+                ]
+            ],
+            'pending-list' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'pending-list[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Publication\PendingList::class),
+                ]
+            ],
+            'link' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'link[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Publication\PublicationLink::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Publication\UpdatePublicationLink::class)
+                        ]
+                    ),
+                    'tm-list' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'tm-list[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Publication\PublicationLinkTmList::class),
+                        ]
+                    ],
+                    'licence-list' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'licence-list[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Publication\PublicationLinkLicenceList::class),
+                        ]
+                    ],
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\Publication\DeletePublicationLink::class),
                 ]
             ],
         ],

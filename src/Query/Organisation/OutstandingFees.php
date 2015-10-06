@@ -17,4 +17,19 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 class OutstandingFees extends AbstractQuery
 {
     use Identity;
+
+    /**
+     * @return mixed
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $hideExpired;
+
+    /**
+     * @return mixed
+     */
+    public function getHideExpired()
+    {
+        return $this->hideExpired;
+    }
 }
