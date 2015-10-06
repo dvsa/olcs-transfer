@@ -29,6 +29,13 @@ final class DownloadReport extends AbstractCommand
     protected $token;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Optional
+     */
+    protected $filename;
+
+    /**
      * Gets the value of reference.
      *
      * @return mixed
@@ -46,5 +53,15 @@ final class DownloadReport extends AbstractCommand
     public function getToken()
     {
         return $this->token;
+    }
+
+    /**
+     * Gets the value of filename.
+     *
+     * @return mixed
+     */
+    public function getFilename()
+    {
+        return $this->filename;
     }
 }
