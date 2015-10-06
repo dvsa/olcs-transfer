@@ -24,13 +24,13 @@ final class RequestReport extends AbstractCommand
 
     /**
      * @var \DateTime
-     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d H:i:s"}})
+     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d"}})
      */
     protected $start;
 
     /**
      * @var \DateTime
-     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d H:i:s"}})
+     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d"}})
      */
     protected $end;
 
