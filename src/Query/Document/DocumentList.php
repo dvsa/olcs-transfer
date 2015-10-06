@@ -47,7 +47,8 @@ class DocumentList extends AbstractQuery implements OrderedQueryInterface, Paged
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\ArrayInput
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
