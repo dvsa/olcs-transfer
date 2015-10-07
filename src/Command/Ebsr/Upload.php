@@ -15,5 +15,5 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
  */
 final class Upload extends AbstractCommand
 {
-    use FieldType\Licence;
+    //placeholder
 }
