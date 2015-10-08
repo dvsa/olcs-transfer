@@ -22,6 +22,12 @@ class SubmissionList extends AbstractQuery implements PagedQueryInterface, Order
      * @var string
      * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"ebsrt_map", "ebsrt_new", "ebsrt_refresh", "ebsrt_unknown"}}
+     *  }
+     * )
      */
     protected $ebsrSubmissionType;
 
@@ -29,6 +35,27 @@ class SubmissionList extends AbstractQuery implements PagedQueryInterface, Order
      * @var string
      * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {
+     *          "haystack": {
+     *              "ebsrs_distributed",
+     *              "ebsrs_distributing",
+     *              "ebsrs_expired",
+     *              "ebsrs_expiring",
+     *              "ebsrs_processed",
+     *              "ebsrs_processing",
+     *              "ebsrs_published",
+     *              "ebsrs_publishing",
+     *              "ebsrs_submitted",
+     *              "ebsrs_submitting",
+     *              "ebsrs_validated",
+     *              "ebsrs_validating"
+     *          }
+     *      }
+     *  }
+     * )
      */
     protected $ebsrSubmissionStatus;
 
