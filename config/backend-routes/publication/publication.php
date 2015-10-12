@@ -109,16 +109,7 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Publication\PublicationLinkTmList::class),
                         ]
                     ],
-                    'licence-list' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'licence-list[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'GET' => QueryConfig::getConfig(Query\Publication\PublicationLinkLicenceList::class),
-                        ]
-                    ],
+                    'GET' => QueryConfig::getConfig(Query\Publication\PublicationLinkList::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\Publication\DeletePublicationLink::class),
                 ]
             ],

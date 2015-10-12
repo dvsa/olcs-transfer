@@ -2,7 +2,8 @@
 
 namespace Dvsa\Olcs\Transfer\Query\Publication;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\Licence;
+use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
@@ -11,12 +12,13 @@ use Dvsa\Olcs\Transfer\Query\PagedTrait;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 
 /**
- * Class PublicationLinkLicenceList
- * @Transfer\RouteName("backend/publication/link/licence-list")
+ * Class PublicationLinkList
+ * @Transfer\RouteName("backend/publication/link")
  */
-class PublicationLinkLicenceList extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
+class PublicationLinkList extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
 {
     use PagedTrait;
     use OrderedTrait;
-    use Licence;
+    use LicenceOptional;
+    use ApplicationOptional;
 }
