@@ -28,7 +28,7 @@ final class UpdateSubmission extends AbstractCommand
      *              "submission_type_o_bus_reg", "submission_type_o_clo_fep", "submission_type_o_clo_g",
      * "submission_type_o_clo_psv", "submission_type_o_env", "submission_type_o_impounding",
      * "submission_type_o_irfo", "submission_type_o_mlh_clo", "submission_type_o_mlh_otc", "submission_type_o_otc",
-     * "submission_type_o_schedule_41", "submission_type_o_tm"
+     * "submission_type_o_schedule_41", "submission_type_o_tm", "submission_type_o_ni_tru"
      *          }
      *      }
      * })
