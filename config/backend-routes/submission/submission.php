@@ -44,6 +44,16 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\Submission\FilterSubmissionSections::class),
                 ]
             ],
+            'assign' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'assign[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\Submission\AssignSubmission::class),
+                ]
+            ],
             'POST' => CommandConfig::getPostConfig(Command\Submission\CreateSubmission::class),
         ]
     ]
