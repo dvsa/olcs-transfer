@@ -7,68 +7,40 @@ use Dvsa\Olcs\Transfer\Router\RouteConfig;
 use Dvsa\Olcs\Transfer\Query;
 
 return [
-    'transport-manager' => [
-        'type' => 'Segment',
-        'options' => [
-            'route' => 'transport-manager/',
-        ],
-        'may_terminate' => false,
-        'child_routes' => [
+    'transport-manager' => RouteConfig::getRouteConfig(
+        'transport-manager',
+        [
             'single' => RouteConfig::getSingleConfig(
                 [
                     'GET' => QueryConfig::getConfig(Query\Tm\TransportManager::class),
                     'PUT' => CommandConfig::getPutConfig(Command\Tm\Update::class),
-                    'documents' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'documents[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'GET' =>
-                                QueryConfig::getConfig(Query\Tm\Documents::class)
-                        ]
-                    ],
+                    'documents' => RouteConfig::getRouteConfig(
+                        'documents',
+                        ['GET' => QueryConfig::getConfig(Query\Tm\Documents::class)]
+                    ),
                     'merge' => RouteConfig::getRouteConfig(
                         'merge',
-                        [
-                            'PUT' => CommandConfig::getPutConfig(Command\Tm\Merge::class)
-                        ]
+                        ['PUT' => CommandConfig::getPutConfig(Command\Tm\Merge::class)]
                     ),
                     'unmerge' => RouteConfig::getRouteConfig(
                         'unmerge',
-                        [
-                            'PUT' => CommandConfig::getPutConfig(Command\Tm\Unmerge::class)
-                        ]
+                        ['PUT' => CommandConfig::getPutConfig(Command\Tm\Unmerge::class)]
                     ),
-                ]
+                ],
+                '[0-9]+'
             ),
-            'create' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'create[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'POST' =>
-                        CommandConfig::getPostConfig(
-                            Command\Tm\Create::class
-                        ),
-                ]
-            ],
-            'remove' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'remove[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'POST' =>
-                        CommandConfig::getPostConfig(
-                            Command\Tm\Remove::class
-                        ),
-                ]
-            ],
-        ],
-    ],
+            'create' => RouteConfig::getRouteConfig(
+                'create',
+                ['POST' => CommandConfig::getPostConfig(Command\Tm\Create::class),]
+            ),
+            'create-new-user' => RouteConfig::getRouteConfig(
+                'create-new-user',
+                ['POST' => CommandConfig::getPostConfig(Command\Tm\CreateNewUser::class),]
+            ),
+            'remove' => RouteConfig::getRouteConfig(
+                'remove',
+                ['POST' => CommandConfig::getPostConfig(Command\Tm\Remove::class),]
+            ),
+        ]
+    )
 ];

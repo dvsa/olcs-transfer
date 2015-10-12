@@ -43,7 +43,8 @@ return [
                             'GET' => QueryConfig::getConfig(Query\TransportManagerApplication\Review::class)
                         ]
                     )
-                ]
+                ],
+                '[0-9]+'
             ),
             'POST' => CommandConfig::getPostConfig(Command\TransportManagerApplication\Create::class),
             'DELETE' => CommandConfig::getDeleteConfig(Command\TransportManagerApplication\Delete::class),
