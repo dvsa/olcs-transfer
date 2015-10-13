@@ -326,6 +326,14 @@ $routes = [
                                     )
                                 ]
                             ),
+                            'cancel' => RouteConfig::getRouteConfig(
+                                'cancel',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\CancelApplication::class
+                                    )
+                                ]
+                            ),
                             'review' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -849,7 +857,7 @@ $routes = [
                                         'child_routes' => [
                                             'POST' => CommandConfig::getPostConfig(Command\Licence\ResetToValid::class)
                                         ]
-                                    ]
+                                    ],
                                 ]
                             ],
                             'type-of-licence' => [
