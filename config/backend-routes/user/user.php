@@ -39,6 +39,12 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+                    'register' => RouteConfig::getRouteConfig(
+                        'register',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\User\RegisterUserSelfserve::class),
+                        ]
+                    ),
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\User\UserSelfserve::class),
