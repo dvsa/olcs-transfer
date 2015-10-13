@@ -421,6 +421,7 @@ $routes = [
                             'approve-schedule-41' => RouteConfig::getRouteConfig(
                                 'approve-schedule-41',
                                 [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Schedule41Approve::class),
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\Schedule41Approve::class)
                                 ]
                             ),

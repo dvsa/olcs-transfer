@@ -48,6 +48,7 @@ class UpdateInterim extends AbstractCommand
     protected $endDate;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 1, "inclusive": true}})
      * @Transfer\Optional
@@ -55,6 +56,7 @@ class UpdateInterim extends AbstractCommand
     protected $authVehicles;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0, "inclusive": true}})
      * @Transfer\Optional
