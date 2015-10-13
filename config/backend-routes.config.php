@@ -539,6 +539,12 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\Publish::class),
                                 ]
                             ),
+                            'declaration-undertakings' => RouteConfig::getRouteConfig(
+                                'declaration-undertakings',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\DeclarationUndertakings::class),
+                                ]
+                            )
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
