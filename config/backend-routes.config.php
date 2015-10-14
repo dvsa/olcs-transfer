@@ -725,6 +725,16 @@ $routes = [
                             'GET' => QueryConfig::getConfig(Query\Licence\LicenceByNumber::class)
                         ]
                     ],
+                    'registered-address' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'registered-address/:licenceNumber'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Licence\LicenceRegisteredAddress::class)
+                        ]
+                    ],
                     'named-single' => RouteConfig::getNamedSingleConfig(
                         'licence',
                         [
