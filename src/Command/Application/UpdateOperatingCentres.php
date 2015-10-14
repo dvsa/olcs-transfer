@@ -90,30 +90,6 @@ final class UpdateOperatingCentres extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getTotAuthSmallVehicles()
-    {
-        return $this->totAuthSmallVehicles;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTotAuthMediumVehicles()
-    {
-        return $this->totAuthMediumVehicles;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTotAuthLargeVehicles()
-    {
-        return $this->totAuthLargeVehicles;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getTotAuthVehicles()
     {
         return $this->totAuthVehicles;
