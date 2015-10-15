@@ -17,6 +17,7 @@ return [
             'single' => RouteConfig::getSingleConfig(
                 [
                     'GET' => QueryConfig::getConfig(Query\Person\Person::class),
+                    'PUT' => CommandConfig::getPutConfig(Command\Person\Update::class),
                 ]
             ),
         ]
