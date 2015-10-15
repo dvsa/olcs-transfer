@@ -552,6 +552,12 @@ $routes = [
                                 [
                                     'GET' => QueryConfig::getConfig(Query\Application\DeclarationUndertakings::class),
                                 ]
+                            ),
+                            'summary' => RouteConfig::getRouteConfig(
+                                'summary',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Summary::class),
+                                ]
                             )
                         ]
                     ),
