@@ -172,7 +172,17 @@ return [
                                 ]
                             ],
                         ]
-                    ]
+                    ],
+                    'request-map' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'request-map[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Bus\Ebsr\RequestMap::class),
+                        ]
+                    ],
                 ],
                 '[0-9]+'
             ),
