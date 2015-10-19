@@ -14,6 +14,16 @@ return [
         ],
         'may_terminate' => false,
         'child_routes' => [
+            'roles' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'roles[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\User\Roles::class),
+                ]
+            ],
             'internal' => [
                 'type' => 'Segment',
                 'options' => [
