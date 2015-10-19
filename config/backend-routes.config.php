@@ -1355,6 +1355,16 @@ $routes = [
                     'POST' => CommandConfig::getPostConfig(Command\Fee\CreateMiscellaneousFee::class),
                 ]
             ],
+            'fee-type' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'fee-type[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Fee\FeeTypeList::class),
+                ]
+            ],
             'transaction' => [
                 'type' => 'Segment',
                 'options' => [
