@@ -1,9 +1,7 @@
 <?php
 
 /**
- * LicenceByNumber.php
- *
- * @author Josh Curtis <josh.curtis@valtech.co.uk>
+ * Licence Registered Address
  */
 namespace Dvsa\Olcs\Transfer\Query\Licence;
 
@@ -11,9 +9,9 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/licence/by-number")
+ * @Transfer\RouteName("backend/licence/registered-address")
  */
-class LicenceByNumber extends AbstractQuery
+class LicenceRegisteredAddress extends AbstractQuery
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
