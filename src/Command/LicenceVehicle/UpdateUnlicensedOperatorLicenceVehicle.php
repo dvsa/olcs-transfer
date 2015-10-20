@@ -29,13 +29,6 @@ final class UpdateUnlicensedOperatorLicenceVehicle extends AbstractCommand
     protected $vrm;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"vhl_t_a","vhl_t_b","vhl_t_c"}}})
-     * @Transfer\Optional
-     */
-    protected $psvType;
-
-    /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 999999}})
@@ -51,16 +44,6 @@ final class UpdateUnlicensedOperatorLicenceVehicle extends AbstractCommand
     public function getVrm()
     {
         return $this->vrm;
-    }
-
-    /**
-     * Gets the value of psvType.
-     *
-     * @return mixed
-     */
-    public function getPsvType()
-    {
-        return $this->psvType;
     }
 
     /**

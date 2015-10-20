@@ -326,6 +326,14 @@ $routes = [
                                     )
                                 ]
                             ),
+                            'cancel' => RouteConfig::getRouteConfig(
+                                'cancel',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\CancelApplication::class
+                                    )
+                                ]
+                            ),
                             'review' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -539,6 +547,18 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\Publish::class),
                                 ]
                             ),
+                            'declaration-undertakings' => RouteConfig::getRouteConfig(
+                                'declaration-undertakings',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\DeclarationUndertakings::class),
+                                ]
+                            ),
+                            'summary' => RouteConfig::getRouteConfig(
+                                'summary',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Summary::class),
+                                ]
+                            )
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
@@ -705,6 +725,16 @@ $routes = [
                             'GET' => QueryConfig::getConfig(Query\Licence\LicenceByNumber::class)
                         ]
                     ],
+                    'registered-address' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'registered-address/:licenceNumber'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Licence\LicenceRegisteredAddress::class)
+                        ]
+                    ],
                     'named-single' => RouteConfig::getNamedSingleConfig(
                         'licence',
                         [
@@ -849,7 +879,7 @@ $routes = [
                                         'child_routes' => [
                                             'POST' => CommandConfig::getPostConfig(Command\Licence\ResetToValid::class)
                                         ]
-                                    ]
+                                    ],
                                 ]
                             ],
                             'type-of-licence' => [

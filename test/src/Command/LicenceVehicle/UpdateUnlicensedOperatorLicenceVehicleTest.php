@@ -16,7 +16,6 @@ class UpdateUnlicensedOperatorLicenceVehicleTest extends PHPUnit_Framework_TestC
             'id' => 69,
             'version' => 1,
             'vrm' => 'ABC123',
-            'psvType' => 'vhl_t_a',
             'platedWeight' => 895,
         ];
 
@@ -25,7 +24,6 @@ class UpdateUnlicensedOperatorLicenceVehicleTest extends PHPUnit_Framework_TestC
         $this->assertEquals(69, $command->getId());
         $this->assertEquals(1, $command->getVersion());
         $this->assertEquals('ABC123', $command->getVrm());
-        $this->assertEquals('vhl_t_a', $command->getPsvType());
         $this->assertEquals(895, $command->getPlatedWeight());
     }
 }

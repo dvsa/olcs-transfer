@@ -33,13 +33,6 @@ final class UpdatePsvLicenceVehicle extends AbstractCommand
     protected $makeModel;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
-     * @Transfer\Optional
-     */
-    protected $isNovelty;
-
-    /**
      * @Transfer\Optional
      */
     protected $receivedDate;
@@ -60,14 +53,6 @@ final class UpdatePsvLicenceVehicle extends AbstractCommand
     public function getMakeModel()
     {
         return $this->makeModel;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIsNovelty()
-    {
-        return $this->isNovelty;
     }
 
     /**

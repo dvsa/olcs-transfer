@@ -29,23 +29,10 @@ final class CreatePsvVehicle extends AbstractCommand
     protected $makeModel;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
-     * @Transfer\Optional
-     */
-    protected $isNovelty;
-
-    /**
      * @Transfer\Optional
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $receivedDate;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"small", "medium", "large"}}})
-     */
-    protected $type;
 
     /**
      * @return mixed
@@ -53,14 +40,6 @@ final class CreatePsvVehicle extends AbstractCommand
     public function getMakeModel()
     {
         return $this->makeModel;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIsNovelty()
-    {
-        return $this->isNovelty;
     }
 
     /**
@@ -77,13 +56,5 @@ final class CreatePsvVehicle extends AbstractCommand
     public function getRemovalDate()
     {
         return $this->removalDate;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getType()
-    {
-        return $this->type;
     }
 }

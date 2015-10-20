@@ -33,30 +33,6 @@ final class UpdateOperatingCentres extends AbstractCommand
      * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 1000000}})
      * @Transfer\Optional
      */
-    protected $totAuthSmallVehicles;
-
-    /**
-     * @Transfer\Filter({"name":"\Zend\Filter\Int"})
-     * @Transfer\Validator({"name": "Digits"})
-     * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 1000000}})
-     * @Transfer\Optional
-     */
-    protected $totAuthMediumVehicles;
-
-    /**
-     * @Transfer\Filter({"name":"\Zend\Filter\Int"})
-     * @Transfer\Validator({"name": "Digits"})
-     * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 1000000}})
-     * @Transfer\Optional
-     */
-    protected $totAuthLargeVehicles;
-
-    /**
-     * @Transfer\Filter({"name":"\Zend\Filter\Int"})
-     * @Transfer\Validator({"name": "Digits"})
-     * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 1000000}})
-     * @Transfer\Optional
-     */
     protected $totAuthVehicles;
 
     /**
@@ -80,30 +56,6 @@ final class UpdateOperatingCentres extends AbstractCommand
     public function getPartial()
     {
         return $this->partial;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTotAuthSmallVehicles()
-    {
-        return $this->totAuthSmallVehicles;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTotAuthMediumVehicles()
-    {
-        return $this->totAuthMediumVehicles;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTotAuthLargeVehicles()
-    {
-        return $this->totAuthLargeVehicles;
     }
 
     /**

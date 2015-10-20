@@ -34,6 +34,15 @@ final class UpdateVehicleDeclaration extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options":
+     *      {"haystack": {"psvvs_small", "psvvs_medium_large", "psvvs_both"}}
+     * })
+     * @Transfer\Optional
+     */
+    protected $psvVehicleSize;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      * @Transfer\Optional
      */
@@ -103,6 +112,11 @@ final class UpdateVehicleDeclaration extends AbstractCommand
     public function getVersion()
     {
         return $this->version;
+    }
+
+    public function getPsvVehicleSize()
+    {
+        return $this->psvVehicleSize;
     }
 
     public function getPsvNoSmallVhlConfirmation()
