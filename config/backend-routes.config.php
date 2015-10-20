@@ -1362,6 +1362,11 @@ $routes = [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Fee\FeeType::class),
+                        ]
+                    ),
                     'GET' => QueryConfig::getConfig(Query\Fee\FeeTypeList::class),
                 ]
             ],
