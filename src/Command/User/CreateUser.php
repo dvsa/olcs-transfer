@@ -75,9 +75,8 @@ final class CreateUser extends AbstractCommand
 
     /**
      * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"internal-limited-read-only","internal-read-only","internal-case-worker","internal-admin","operator-admin","operator-user","operator-tm","partner-admin","partner-user","local-authority-admin","local-authority-user"}}})
      */
     protected $roles;
 
