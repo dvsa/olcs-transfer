@@ -42,7 +42,23 @@ return [
                         [
                             'GET' => QueryConfig::getConfig(Query\TransportManagerApplication\Review::class)
                         ]
-                    )
+                    ),
+                    'submit' => RouteConfig::getRouteConfig(
+                        'submit',
+                        [
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\TransportManagerApplication\Submit::class
+                            ),
+                        ]
+                    ),
+                    'operator-approve' => RouteConfig::getRouteConfig(
+                        'operator-approve',
+                        [
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\TransportManagerApplication\OperatorApprove::class
+                            ),
+                        ]
+                    ),
                 ],
                 '[0-9]+'
             ),
