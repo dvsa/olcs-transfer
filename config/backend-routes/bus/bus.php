@@ -183,6 +183,16 @@ return [
                             'POST' => CommandConfig::getPostConfig(Command\Bus\Ebsr\RequestMap::class),
                         ]
                     ],
+                    'process-packs' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'process-packs[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Bus\Ebsr\ProcessPacks::class),
+                        ]
+                    ],
                 ],
                 '[0-9]+'
             ),
