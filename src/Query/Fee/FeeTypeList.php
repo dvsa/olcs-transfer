@@ -36,7 +36,7 @@ class FeeTypeList extends AbstractQuery implements FieldType\ApplicationInterfac
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      * @Transfer\Optional
      */
-    protected $effectiveFrom;
+    protected $effectiveDate;
 
     /**
      * @return int
@@ -47,12 +47,12 @@ class FeeTypeList extends AbstractQuery implements FieldType\ApplicationInterfac
     }
 
     /**
-     * Gets the value of effectiveFrom
+     * Gets the value of effectiveDate
      *
      * @return string
      */
-    public function getEffectiveFrom()
+    public function getEffectiveDate()
     {
-        return $this->effectiveFrom;
+        return $this->effectiveDate;
     }
 }
