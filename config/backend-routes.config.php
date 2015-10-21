@@ -1352,7 +1352,7 @@ $routes = [
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Fee\FeeList::class),
-                    'POST' => CommandConfig::getPostConfig(Command\Fee\CreateMiscellaneousFee::class),
+                    'POST' => CommandConfig::getPostConfig(Command\Fee\CreateFee::class),
                 ]
             ],
             'fee-type' => [
