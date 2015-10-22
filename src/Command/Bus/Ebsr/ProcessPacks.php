@@ -8,7 +8,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 /**
  * Process Ebsr packs
  *
- * @Transfer\RouteName("backend/bus/single/process-packs")
+ * @Transfer\RouteName("backend/bus/process-ebsr-packs")
  * @Transfer\Method("POST")
  */
 class ProcessPacks extends AbstractCommand
