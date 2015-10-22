@@ -2,13 +2,13 @@
 
 namespace Dvsa\Olcs\Transfer\Query\Fee;
 
+use Dvsa\Olcs\Transfer\FieldType;
+use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
+use Dvsa\Olcs\Transfer\Query\CachableQueryInterface;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-
-use Dvsa\Olcs\Transfer\FieldType;
-use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 
 /**
  * Class FeeTypeList
@@ -18,7 +18,8 @@ class FeeTypeList extends AbstractQuery implements FieldType\ApplicationInterfac
  FieldType\BusRegInterface,
  FieldType\IrfoGvPermitInterface,
  FieldType\LicenceInterface,
- FieldType\OrganisationInterface
+ FieldType\OrganisationInterface,
+ CachableQueryInterface
 {
     // Foreign Keys
     use FieldTypeTraits\ApplicationOptional;
