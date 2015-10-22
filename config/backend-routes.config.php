@@ -558,12 +558,6 @@ $routes = [
                                 [
                                     'GET' => QueryConfig::getConfig(Query\Application\Summary::class),
                                 ]
-                            ),
-                            'history' => RouteConfig::getRouteConfig(
-                                'history',
-                                [
-                                    'GET' => QueryConfig::getConfig(Query\Application\History::class),
-                                ]
                             )
                         ]
                     ),
