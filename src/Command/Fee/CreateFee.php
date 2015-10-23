@@ -17,12 +17,12 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  * @Transfer\Method("POST")
  */
 class CreateFee extends AbstractCommand implements FieldType\UserInterface,
-    FieldType\ApplicationInterface,
-    FieldType\BusRegInterface,
-    FieldType\LicenceInterface,
-    FieldType\TaskInterface,
-    FieldType\IrfoGvPermitInterface,
-    FieldType\IrfoPsvAuthInterface
+ FieldType\ApplicationInterface,
+ FieldType\BusRegInterface,
+ FieldType\LicenceInterface,
+ FieldType\TaskInterface,
+ FieldType\IrfoGvPermitInterface,
+ FieldType\IrfoPsvAuthInterface
 {
     use FieldTypeTraits\User,
         FieldTypeTraits\ApplicationOptional,
