@@ -23,6 +23,12 @@ final class RequestReport extends AbstractCommand
     protected $reportCode;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     */
+    protected $name;
+
+    /**
      * @var \DateTime
      * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d"}})
      */
@@ -42,6 +48,15 @@ final class RequestReport extends AbstractCommand
     public function getReportCode()
     {
         return $this->reportCode;
+    }
+
+    /**
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
