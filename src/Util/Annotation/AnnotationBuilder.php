@@ -12,8 +12,8 @@ use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\Olcs\Transfer\Command\CommandContainer;
 use Dvsa\Olcs\Transfer\Util\StructuredInput;
 use Zend\Filter\FilterPluginManager;
+use Zend\Filter\HtmlEntities;
 use Zend\Validator\ValidatorPluginManager;
-
 use Zend\InputFilter\InputFilter;
 
 /**
@@ -190,6 +190,8 @@ class AnnotationBuilder
         $filterChain = $this->getNewFilterChain();
         $validatorChain = new \Zend\Validator\ValidatorChain();
 
+        $escape = true;
+
         // Determine what type of input we have
         foreach ($propertyAnnotations as $annotation) {
             if ($annotation instanceof ArrayInput) {
@@ -211,6 +213,10 @@ class AnnotationBuilder
                 );
                 break;
             }
+
+            if ($annotation instanceof Escape) {
+                $escape = $annotation->getEscape();
+            }
         }
 
         if ($input === null) {
@@ -231,8 +237,16 @@ class AnnotationBuilder
                 }
             }
 
+            if ($escape) {
+                $escapeFilter = new HtmlEntities();
+                $arrayFilterChain->attach($escapeFilter);
+            }
+
             $input->setArrayFilterChain($arrayFilterChain);
             $input->setArrayValidatorChain($arrayValidatorChain);
+        } elseif ($escape) {
+            $escapeFilter = new HtmlEntities();
+            $filterChain->attach($escapeFilter);
         }
 
         $this->attachFiltersAndValidators($propertyAnnotations, $filterChain, $validatorChain, $input);
