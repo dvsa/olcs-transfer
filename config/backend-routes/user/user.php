@@ -55,6 +55,12 @@ return [
                             'POST' => CommandConfig::getPostConfig(Command\User\RegisterUserSelfserve::class),
                         ]
                     ),
+                    'remind-username' => RouteConfig::getRouteConfig(
+                        'remind-username',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\User\RemindUsernameSelfserve::class),
+                        ]
+                    ),
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\User\UserSelfserve::class),
