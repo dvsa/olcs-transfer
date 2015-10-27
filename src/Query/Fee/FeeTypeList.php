@@ -25,6 +25,7 @@ class FeeTypeList extends AbstractQuery implements FieldType\ApplicationInterfac
     use FieldTypeTraits\OrganisationOptional;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
      * @Transfer\Optional
      */
     protected $isMiscellaneous;
