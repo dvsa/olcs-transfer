@@ -3,7 +3,7 @@
 /**
  * Get a list of Transport Manager Licences
  *
- * @author Mat Evans <mat.evans@valtech.co.uk>
+ * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
 namespace Dvsa\Olcs\Transfer\Query\TransportManagerLicence;
 
