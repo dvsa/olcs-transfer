@@ -12,7 +12,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  * @Transfer\RouteName("backend/irfo/psv-auth/single")
  * @Transfer\Method("PUT")
  */
-final class UpdateIrfoPsvAuth extends AbstractCommand
+class UpdateIrfoPsvAuth extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -39,7 +39,14 @@ final class UpdateIrfoPsvAuth extends AbstractCommand
     /**
      * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"irfo_auth_s_approved","irfo_auth_s_cns","irfo_auth_s_granted","irfo_auth_s_pending","irfo_auth_s_refused","irfo_auth_s_renew","irfo_auth_s_withdrawn"}}})
+     * @Transfer\Validator({
+     *      "name":"Zend\Validator\InArray",
+     *      "options":
+     *          {"haystack": {"irfo_auth_s_approved","irfo_auth_s_cns","irfo_auth_s_granted","irfo_auth_s_pending",
+     * "irfo_auth_s_refused","irfo_auth_s_renew","irfo_auth_s_withdrawn"}
+     *          }
+     *      }
+     * )
      */
     protected $status;
 
@@ -93,7 +100,12 @@ final class UpdateIrfoPsvAuth extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"psv_freq_daily","psv_freq_2_weekly","psv_freq_weekly","psv_freq_fortnight","psv_freq_monthly","psv_freq_other"}}})
+     * @Transfer\Validator({
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"psv_freq_daily","psv_freq_2_weekly","psv_freq_weekly","psv_freq_fortnight",
+     * "psv_freq_monthly","psv_freq_other"}}
+     *      }
+     * )
      */
     protected $journeyFrequency;
 
@@ -143,6 +155,23 @@ final class UpdateIrfoPsvAuth extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0, "inclusive":true}})
      */
     protected $copiesRequiredTotal;
+
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"grant", "N"}}})
+     * @Transfer\Optional
+     */
+    protected $action = 'grant';
+
+    /**
+     * @return string
+     */
+    public function getAction()
+    {
+        return $this->action;
+    }
 
     /**
      * @return mixed
