@@ -163,7 +163,7 @@ class UpdateIrfoPsvAuth extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"grant", "N"}}})
      * @Transfer\Optional
      */
-    protected $action = 'grant';
+    protected $action;
 
     /**
      * @return string
