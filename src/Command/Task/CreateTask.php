@@ -12,6 +12,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\BusRegOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\CasesOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\SubmissionOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -24,6 +25,7 @@ final class CreateTask extends AbstractCommand
     use LicenceOptional,
         ApplicationOptional,
         TransportManagerOptional,
+        SubmissionOptional,
         BusRegOptional,
         CasesOptional;
 
@@ -65,6 +67,14 @@ final class CreateTask extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $assignedToUser;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $assignedByUser;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -129,6 +139,14 @@ final class CreateTask extends AbstractCommand
     public function getAssignedToUser()
     {
         return $this->assignedToUser;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAssignedByUser()
+    {
+        return $this->assignedByUser;
     }
 
     /**

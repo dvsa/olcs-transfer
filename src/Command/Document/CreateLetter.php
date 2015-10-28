@@ -25,6 +25,9 @@ final class CreateLetter extends AbstractCommand
 
     protected $data;
 
+    /**
+     * @Transfer\Escape(false)
+     */
     protected $meta;
 
     /**

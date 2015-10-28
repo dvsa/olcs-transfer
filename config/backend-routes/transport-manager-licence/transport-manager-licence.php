@@ -10,7 +10,12 @@ return [
     'transport-manager-licence' => RouteConfig::getRouteConfig(
         'transport-manager-licence',
         [
-            'GET' => QueryConfig::getConfig(Query\TransportManagerLicence\GetList::class)
+            'GET' => QueryConfig::getConfig(Query\TransportManagerLicence\GetList::class),
+            'variation' => RouteConfig::getRouteConfig(
+                'variation',
+                ['GET' => QueryConfig::getConfig(Query\TransportManagerLicence\GetListByVariation::class)]
+            ),
+
         ]
     )
 ];

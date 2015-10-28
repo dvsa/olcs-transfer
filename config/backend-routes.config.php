@@ -1352,7 +1352,22 @@ $routes = [
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Fee\FeeList::class),
-                    'POST' => CommandConfig::getPostConfig(Command\Fee\CreateMiscellaneousFee::class),
+                    'POST' => CommandConfig::getPostConfig(Command\Fee\CreateFee::class),
+                ]
+            ],
+            'fee-type' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'fee-type[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Fee\FeeType::class),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\Fee\FeeTypeList::class),
                 ]
             ],
             'transaction' => [
