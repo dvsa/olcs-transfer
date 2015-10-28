@@ -102,6 +102,12 @@ final class PayOutstandingFees extends AbstractCommand
     protected $poNo;
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     */
+    protected $storedCardReference;
+
+    /**
      * @return array
      */
     public function getFeeIds()
@@ -195,5 +201,13 @@ final class PayOutstandingFees extends AbstractCommand
     public function getPoNo()
     {
         return $this->poNo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStoredCardReference()
+    {
+        return $this->storedCardReference;
     }
 }
