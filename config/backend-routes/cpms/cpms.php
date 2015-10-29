@@ -23,6 +23,12 @@ return [
                         ]
                     ),
                 ]
+            ),
+            'stored-card-list' => RouteConfig::getRouteConfig(
+                'stored-card-list',
+                [
+                    'GET' => QueryConfig::getConfig(Query\Cpms\StoredCardList::class),
+                ]
             )
         ]
     )
