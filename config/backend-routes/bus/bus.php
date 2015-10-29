@@ -172,10 +172,30 @@ return [
                                 ]
                             ],
                         ]
-                    ]
+                    ],
+                    'request-map' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'request-map[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Bus\Ebsr\RequestMap::class),
+                        ]
+                    ],
                 ],
                 '[0-9]+'
             ),
+            'process-ebsr-packs' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'process-packs[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Bus\Ebsr\ProcessPacks::class),
+                ]
+            ],
             'registration-history-list' => [
                 'type' => 'Segment',
                 'options' => [
