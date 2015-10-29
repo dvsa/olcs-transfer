@@ -29,6 +29,7 @@ final class UpdateIrfoPsvAuth extends AbstractCommand
     protected $version;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -36,12 +37,14 @@ final class UpdateIrfoPsvAuth extends AbstractCommand
     protected $irfoPsvAuthType;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"irfo_auth_s_approved","irfo_auth_s_cns","irfo_auth_s_granted","irfo_auth_s_pending","irfo_auth_s_refused","irfo_auth_s_renew","irfo_auth_s_withdrawn"}}})
      */
     protected $status;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -126,6 +129,7 @@ final class UpdateIrfoPsvAuth extends AbstractCommand
     protected $exemptionDetails;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0, "inclusive":true}})
@@ -133,6 +137,7 @@ final class UpdateIrfoPsvAuth extends AbstractCommand
     protected $copiesRequired;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0, "inclusive":true}})

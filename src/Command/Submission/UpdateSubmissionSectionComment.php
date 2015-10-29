@@ -22,6 +22,7 @@ final class UpdateSubmissionSectionComment extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Filter({"name":"htmlpurifier"})
+     * @Transfer\Escape(false)
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":5}})
      */
     protected $comment;
