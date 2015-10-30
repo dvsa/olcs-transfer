@@ -71,21 +71,21 @@ final class UpdateServiceDetails extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":10, "max":10}})
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      * @Transfer\Optional
      */
     public $receivedDate;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":10, "max":10}})
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      * @Transfer\Optional
      */
     public $effectiveDate;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":10, "max":10}})
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      * @Transfer\Optional
      */
     public $endDate;
