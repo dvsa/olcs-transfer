@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Create Community Licences / Applicaiton version
+ * Create Community Licences / Application version
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
