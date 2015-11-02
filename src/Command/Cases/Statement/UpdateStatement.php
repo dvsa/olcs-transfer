@@ -56,6 +56,11 @@ class UpdateStatement extends AbstractCommand implements
     protected $requestedDate = null;
 
     /**
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     */
+    protected $issuedDate = null;
+
+    /**
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
@@ -94,6 +99,14 @@ class UpdateStatement extends AbstractCommand implements
     public function getRequestedDate()
     {
         return $this->requestedDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIssuedDate()
+    {
+        return $this->issuedDate;
     }
 
     /**

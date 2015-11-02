@@ -55,6 +55,11 @@ class CreateStatement extends AbstractCommand
     protected $requestedDate = null;
 
     /**
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     */
+    protected $issuedDate = null;
+
+    /**
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
@@ -101,6 +106,14 @@ class CreateStatement extends AbstractCommand
     public function getRequestedDate()
     {
         return $this->requestedDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIssuedDate()
+    {
+        return $this->issuedDate;
     }
 
     /**
