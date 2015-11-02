@@ -16,7 +16,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  * @Transfer\RouteName("backend/community-lic/stop")
  * @Transfer\Method("POST")
  */
-class Stop extends AbstractCommand
+final class Stop extends AbstractCommand
 {
     use ApplicationOptional,
         Licence;
