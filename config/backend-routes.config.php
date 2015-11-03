@@ -1399,6 +1399,12 @@ $routes = [
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\Transaction\Transaction::class),
+                            'reverse' => RouteConfig::getRouteConfig(
+                                'reverse',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Transaction\ReverseTransaction::class),
+                                ]
+                            )
                         ]
                     ),
                     'pay-outstanding-fees' => [
