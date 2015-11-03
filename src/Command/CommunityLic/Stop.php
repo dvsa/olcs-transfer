@@ -7,6 +7,8 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\CommunityLic;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\Licence;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -16,12 +18,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Stop extends AbstractCommand
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    public $licence;
+    use ApplicationOptional,
+        Licence;
 
     /**
      * @Transfer\ArrayInput
@@ -56,11 +54,6 @@ final class Stop extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
     public $reasons;
-
-    public function getLicence()
-    {
-        return $this->licence;
-    }
 
     public function getCommunityLicenceIds()
     {
