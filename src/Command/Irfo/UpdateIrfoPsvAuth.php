@@ -38,20 +38,6 @@ class UpdateIrfoPsvAuth extends AbstractCommand
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *      "name":"Zend\Validator\InArray",
-     *      "options":
-     *          {"haystack": {"irfo_auth_s_approved","irfo_auth_s_cns","irfo_auth_s_granted","irfo_auth_s_pending",
-     * "irfo_auth_s_refused","irfo_auth_s_renew","irfo_auth_s_withdrawn"}
-     *          }
-     *      }
-     * )
-     */
-    protected $status;
-
-    /**
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -156,23 +142,6 @@ class UpdateIrfoPsvAuth extends AbstractCommand
      */
     protected $copiesRequiredTotal;
 
-
-    /**
-     * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"grant", "N"}}})
-     * @Transfer\Optional
-     */
-    protected $action;
-
-    /**
-     * @return string
-     */
-    public function getAction()
-    {
-        return $this->action;
-    }
-
     /**
      * @return mixed
      */
@@ -195,14 +164,6 @@ class UpdateIrfoPsvAuth extends AbstractCommand
     public function getIrfoPsvAuthType()
     {
         return $this->irfoPsvAuthType;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getStatus()
-    {
-        return $this->status;
     }
 
     /**
