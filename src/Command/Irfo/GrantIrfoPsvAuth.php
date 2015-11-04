@@ -14,5 +14,4 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class GrantIrfoPsvAuth extends UpdateIrfoPsvAuth
 {
-    protected $action = 'grant';
 }
