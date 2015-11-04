@@ -1349,6 +1349,12 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Fee\RejectWaive::class),
                                 ]
                             ),
+                            'refund-fee' => RouteConfig::getRouteConfig(
+                                'refund-fee',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Fee\RefundFee::class),
+                                ]
+                            ),
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Fee\FeeList::class),
