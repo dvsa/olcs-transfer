@@ -56,6 +56,12 @@ class CreateStatement extends AbstractCommand
 
     /**
      * @Transfer\Optional()
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     */
+    protected $issuedDate = null;
+
+    /**
+     * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
      *      "name":"Zend\Validator\InArray",
@@ -101,6 +107,14 @@ class CreateStatement extends AbstractCommand
     public function getRequestedDate()
     {
         return $this->requestedDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIssuedDate()
+    {
+        return $this->issuedDate;
     }
 
     /**
