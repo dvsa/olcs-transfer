@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Update IrfoPsvAuth
+ * Grant IrfoPsvAuth
  */
 namespace Dvsa\Olcs\Transfer\Command\Irfo;
 
