@@ -77,7 +77,10 @@ final class CreateIrfoPsvAuth extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"psv_freq_daily","psv_freq_2_weekly","psv_freq_weekly","psv_freq_fortnight","psv_freq_monthly","psv_freq_other"}}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray",
+     *      "options":
+     *          {"haystack": {"psv_freq_daily","psv_freq_2_weekly","psv_freq_weekly","psv_freq_fortnight",
+     *          "psv_freq_monthly","psv_freq_other"}}})
      */
     protected $journeyFrequency;
 
