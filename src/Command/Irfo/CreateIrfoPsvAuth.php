@@ -29,12 +29,6 @@ final class CreateIrfoPsvAuth extends AbstractCommand
     protected $irfoPsvAuthType;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"irfo_auth_s_approved","irfo_auth_s_cns","irfo_auth_s_granted","irfo_auth_s_pending","irfo_auth_s_refused","irfo_auth_s_renew","irfo_auth_s_withdrawn"}}})
-     */
-    protected $status;
-
-    /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -83,7 +77,10 @@ final class CreateIrfoPsvAuth extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"psv_freq_daily","psv_freq_2_weekly","psv_freq_weekly","psv_freq_fortnight","psv_freq_monthly","psv_freq_other"}}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray",
+     *      "options":
+     *          {"haystack": {"psv_freq_daily","psv_freq_2_weekly","psv_freq_weekly","psv_freq_fortnight",
+     *          "psv_freq_monthly","psv_freq_other"}}})
      */
     protected $journeyFrequency;
 
@@ -146,14 +143,6 @@ final class CreateIrfoPsvAuth extends AbstractCommand
     public function getIrfoPsvAuthType()
     {
         return $this->irfoPsvAuthType;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getStatus()
-    {
-        return $this->status;
     }
 
     /**
