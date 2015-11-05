@@ -20,4 +20,18 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 final class ReverseTransaction extends AbstractCommand implements FieldType\IdentityInterface
 {
     use FieldTypeTraits\Identity;
+
+    /**
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 1, "max": 1000}})
+     * @Transfer\Filter({"name": "Zend\Filter\StringTrim"})
+     */
+    protected $reason;
+
+    /**
+     * @return string
+     */
+    public function getReason()
+    {
+        return $this->reason;
+    }
 }
