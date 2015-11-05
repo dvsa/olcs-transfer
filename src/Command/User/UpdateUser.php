@@ -104,13 +104,6 @@ final class UpdateUser extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      * @Transfer\Optional
      */
-    protected $mustResetPassword = null;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
-     * @Transfer\Optional
-     */
     protected $accountDisabled = null;
 
     public function getId()
@@ -171,11 +164,6 @@ final class UpdateUser extends AbstractCommand
     public function getLoginId()
     {
         return $this->loginId;
-    }
-
-    public function getMustResetPassword()
-    {
-        return $this->mustResetPassword;
     }
 
     public function getAccountDisabled()
