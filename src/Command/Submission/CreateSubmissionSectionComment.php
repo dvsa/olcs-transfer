@@ -37,7 +37,7 @@ final class CreateSubmissionSectionComment extends AbstractCommand
      * "penalties","statements","other-issues","te-reports","site-plans","planning-permission","applicants-comments",
      * "visibility-access-egress-size","compliance-complaints","environmental-complaints","oppositions",
      * "financial-information","maps","waive-fee-late-fee","surrender","annex","tm-details","tm-qualifications",
-     * "tm-responsibilities","tm-other-employment","tm-previous-history"
+     * "tm-responsibilities","tm-other-employment","tm-previous-history","applicants-responses"
      *          }
      *      }
      * })

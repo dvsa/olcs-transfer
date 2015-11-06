@@ -22,7 +22,7 @@ class SubmissionSection extends \Zend\Validator\InArray
         'total-bus-registrations', 'local-licence-history', 'linked-mlh-history', 'registration-details',
         'maintenance-tachographs-hours', 'prohibition-history', 'conviction-fpn-offence-history',
         'annual-test-history', 'penalties', 'statements', 'other-issues', 'te-reports', 'site-plans',
-        'planning-permission', 'applicants-comments',
+        'planning-permission', 'applicants-comments','applicants-responses',
         'visibility-access-egress-size', 'compliance-complaints', 'environmental-complaints', 'oppositions',
         'financial-information', 'maps', 'waive-fee-late-fee', 'surrender', 'annex', 'tm-details', 'tm-qualifications',
         'tm-responsibilities', 'tm-other-employment', 'tm-previous-history'
