@@ -12,7 +12,7 @@ use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\Olcs\Transfer\Command\CommandContainer;
 use Dvsa\Olcs\Transfer\Util\StructuredInput;
 use Zend\Filter\FilterPluginManager;
-use Zend\Filter\HtmlEntities;
+use Zend\Filter\StripTags as Escaper;
 use Zend\Validator\ValidatorPluginManager;
 use Zend\InputFilter\InputFilter;
 
@@ -237,15 +237,12 @@ class AnnotationBuilder
                 }
             }
 
-            if ($escape) {
-                $escapeFilter = new HtmlEntities();
-                $arrayFilterChain->attach($escapeFilter);
-            }
-
             $input->setArrayFilterChain($arrayFilterChain);
             $input->setArrayValidatorChain($arrayValidatorChain);
-        } elseif ($escape) {
-            $escapeFilter = new HtmlEntities();
+        }
+
+        if ($escape) {
+            $escapeFilter = new Escaper();
             $filterChain->attach($escapeFilter);
         }
 
