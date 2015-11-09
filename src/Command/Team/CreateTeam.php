@@ -7,6 +7,7 @@ namespace Dvsa\Olcs\Transfer\Command\Team;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits\TrafficAreaOptional;
 
 /**
  * @Transfer\RouteName("backend/team")
@@ -14,6 +15,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class CreateTeam extends AbstractCommand
 {
+    use TrafficAreaOptional;
+
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":70}})
@@ -26,15 +29,6 @@ final class CreateTeam extends AbstractCommand
      */
     protected $description;
 
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator(
-     *  {"name":"Zend\Validator\InArray", "options": {"haystack": {"B","C","D","F","G","H","K","M","N"}}}
-     * )
-     * @Transfer\Optional
-     */
-    protected $trafficArea;
-
     public function getName()
     {
         return $this->name;
@@ -43,10 +37,5 @@ final class CreateTeam extends AbstractCommand
     public function getDescription()
     {
         return $this->description;
-    }
-
-    public function getTrafficArea()
-    {
-        return $this->trafficArea;
     }
 }

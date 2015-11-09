@@ -7,6 +7,9 @@ namespace Dvsa\Olcs\Transfer\Command\Team;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits\TrafficAreaOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\FieldType\Traits\Version;
 
 /**
  * @Transfer\RouteName("backend/team/single")
@@ -14,19 +17,9 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateTeam extends AbstractCommand
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $id;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $version;
+    use TrafficAreaOptional,
+        Identity,
+        Version;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -40,15 +33,6 @@ final class UpdateTeam extends AbstractCommand
      */
     protected $description;
 
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator(
-     *  {"name":"Zend\Validator\InArray", "options": {"haystack": {"B","C","D","F","G","H","K","M","N"}}}
-     * )
-     * @Transfer\Optional
-     */
-    protected $trafficArea;
-
     public function getName()
     {
         return $this->name;
@@ -57,20 +41,5 @@ final class UpdateTeam extends AbstractCommand
     public function getDescription()
     {
         return $this->description;
-    }
-
-    public function getTrafficArea()
-    {
-        return $this->trafficArea;
-    }
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getVersion()
-    {
-        return $this->version;
     }
 }
