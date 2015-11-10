@@ -259,7 +259,7 @@ class AnnotationBuilder
         foreach ($annotations as $annotation) {
 
             if (!($annotation instanceof ArrayFilter) && $annotation instanceof Filter) {
-                $filterChain->attachByName($annotation->getName());
+                $filterChain->attachByName($annotation->getName(), $annotation->getOptions());
                 continue;
             }
 
