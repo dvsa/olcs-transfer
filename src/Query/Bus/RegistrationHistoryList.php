@@ -14,8 +14,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
  * Class RegistrationHistoryList
  * @Transfer\RouteName("backend/bus/registration-history-list")
  */
-class RegistrationHistoryList extends AbstractQuery
-    implements OrderedQueryInterface
+class RegistrationHistoryList extends AbstractQuery implements OrderedQueryInterface
 {
     use OrderedTrait;
     use FieldTypeTraits\Identity; //bus reg id

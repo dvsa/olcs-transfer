@@ -15,8 +15,7 @@ use Dvsa\Olcs\Transfer\Query\Bus\RegistrationHistoryList;
  * Class PaginatedRegistrationHistoryList
  * @Transfer\RouteName("backend/bus/paginated-registration-history-list")
  */
-class PaginatedRegistrationHistoryList extends RegistrationHistoryList
-    implements PagedQueryInterface
+class PaginatedRegistrationHistoryList extends RegistrationHistoryList implements PagedQueryInterface
 {
     use PagedTrait;
 }
