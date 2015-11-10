@@ -26,6 +26,10 @@ return [
                         'unmerge',
                         ['PUT' => CommandConfig::getPutConfig(Command\Tm\Unmerge::class)]
                     ),
+                    'undo-disqualification' => RouteConfig::getRouteConfig(
+                        'undo-disqualification',
+                        ['PUT' => CommandConfig::getPutConfig(Command\Tm\UndoDisqualification::class)]
+                    ),
                 ],
                 '[0-9]+'
             ),
