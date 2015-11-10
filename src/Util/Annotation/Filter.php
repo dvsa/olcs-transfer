@@ -20,4 +20,15 @@ class Filter extends ZendFilter
 
         return $spec['name'];
     }
+
+    public function getOptions()
+    {
+        $spec = $this->getFilter();
+
+        if (empty($spec['options'])) {
+            return null;
+        }
+
+        return $spec['options'];
+    }
 }
