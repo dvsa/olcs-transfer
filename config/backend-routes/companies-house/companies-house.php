@@ -18,5 +18,11 @@ return [
                 ]
             ),
         ]
+    ),
+    'companies-house' => RouteConfig::getRouteConfig(
+        'companies-house',
+        [
+            'GET' => QueryConfig::getConfig(Query\CompaniesHouse\GetList::class),
+        ]
     )
 ];
