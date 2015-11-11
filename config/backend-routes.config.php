@@ -462,6 +462,7 @@ $routes = [
                             'taxi-phv' => RouteConfig::getRouteConfig(
                                 'taxi-phv',
                                 [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\UpdateTaxiPhv::class),
                                     'GET' => QueryConfig::getConfig(Query\Application\TaxiPhv::class),
                                     'DELETE' => CommandConfig::getDeleteConfig(
                                         Command\Application\DeleteTaxiPhv::class
@@ -471,7 +472,7 @@ $routes = [
                                         'privateHireLicence',
                                         [
                                             'PUT' => CommandConfig::getPutConfig(
-                                                Command\Application\UpdateTaxiPhv::class
+                                                Command\Application\UpdatePrivateHireLicence::class
                                             ),
                                         ]
                                     ),
