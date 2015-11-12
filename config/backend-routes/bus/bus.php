@@ -206,16 +206,12 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Bus\RegistrationHistoryList::class),
                 ]
             ],
-            'paginated-registration-history-list' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'paginated-registration-history-list[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
+            'paginated-registration-history-list' => RouteConfig::getRouteConfig(
+                'paginated-registration-history-list',
+                [
                     'GET' => QueryConfig::getConfig(Query\Bus\PaginatedRegistrationHistoryList::class),
                 ]
-            ]
+            ),
         ]
     ]
 ];
