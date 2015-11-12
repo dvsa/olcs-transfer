@@ -7,22 +7,10 @@ use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
 
 return [
-    'companies-house-alert' => RouteConfig::getRouteConfig(
-        'companies-house-alert',
-        [
-            'GET' => QueryConfig::getConfig(Query\CompaniesHouse\AlertList::class),
-            'close' => RouteConfig::getRouteConfig(
-                'close',
-                [
-                    'POST' => CommandConfig::getPostConfig(Command\CompaniesHouse\CloseAlerts::class),
-                ]
-            ),
-        ]
-    ),
     'companies-house' => RouteConfig::getRouteConfig(
         'companies-house',
         [
             'GET' => QueryConfig::getConfig(Query\CompaniesHouse\GetList::class),
         ]
-    )
+    ),
 ];
