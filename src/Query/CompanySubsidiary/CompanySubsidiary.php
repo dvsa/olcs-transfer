@@ -7,7 +7,9 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\CompanySubsidiary;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
@@ -16,5 +18,7 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
  */
 class CompanySubsidiary extends AbstractQuery
 {
-    use Identity;
+    use Identity,
+        ApplicationOptional,
+        LicenceOptional;
 }
