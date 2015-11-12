@@ -205,7 +205,13 @@ return [
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Bus\RegistrationHistoryList::class),
                 ]
-            ]
+            ],
+            'paginated-registration-history-list' => RouteConfig::getRouteConfig(
+                'paginated-registration-history-list',
+                [
+                    'GET' => QueryConfig::getConfig(Query\Bus\PaginatedRegistrationHistoryList::class),
+                ]
+            ),
         ]
     ]
 ];

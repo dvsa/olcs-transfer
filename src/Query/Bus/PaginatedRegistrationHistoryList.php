@@ -11,11 +11,12 @@ use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 
 /**
- * Class RegistrationHistoryList
- * @Transfer\RouteName("backend/bus/registration-history-list")
+ * Class PaginatedRegistrationHistoryList
+ * @Transfer\RouteName("backend/bus/paginated-registration-history-list")
  */
-class RegistrationHistoryList extends AbstractQuery implements OrderedQueryInterface
+class PaginatedRegistrationHistoryList extends AbstractQuery implements OrderedQueryInterface, PagedQueryInterface
 {
     use OrderedTrait;
+    use PagedTrait;
     use FieldTypeTraits\Identity; //bus reg id
 }
