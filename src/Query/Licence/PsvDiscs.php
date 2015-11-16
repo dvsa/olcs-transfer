@@ -14,9 +14,9 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 /**
  * @Transfer\RouteName("backend/licence/single/psv-discs")
  */
-class PsvDiscs extends AbstractQuery
+class PsvDiscs extends AbstractQuery implements \Dvsa\Olcs\Transfer\Query\PagedQueryInterface
 {
-    use Identity;
+    use Identity, \Dvsa\Olcs\Transfer\Query\PagedTraitOptional;
 
     /**
      * @Transfer\Filter({"name": "Zend\Filter\Boolean"})
