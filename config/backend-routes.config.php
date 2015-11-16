@@ -1374,6 +1374,12 @@ $routes = [
                             'GET' => QueryConfig::getConfig(Query\Fee\FeeType::class),
                         ]
                     ),
+                    'latest' => RouteConfig::getRouteConfig(
+                        'latest',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Fee\GetLatestFeeType::class),
+                        ]
+                    ),
                     'GET' => QueryConfig::getConfig(Query\Fee\FeeTypeList::class),
                 ]
             ],
