@@ -27,6 +27,10 @@ class Postcode extends StringTrim
         // apply StringTrim filter
         $value = parent::filter($value);
 
+        if (empty($value)) {
+            return $value;
+        }
+
         // normalise spacing and case
         $value = strtoupper(str_replace(' ', '', $value));
 
