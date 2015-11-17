@@ -4,6 +4,7 @@ namespace Dvsa\Olcs\Transfer\Command\Submission;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCloseCommand;
+use Dvsa\Olcs\Transfer\FieldType as FieldType;
 
 /**
  * Concrete close class.
@@ -13,5 +14,6 @@ use Dvsa\Olcs\Transfer\Command\AbstractCloseCommand;
  */
 class CloseSubmission extends AbstractCloseCommand
 {
-    //
+    // Context validation
+    use FieldType\Traits\Cases;
 }
