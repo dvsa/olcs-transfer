@@ -39,6 +39,7 @@ class PostcodeTest extends MockeryTestCase
             ['ls 96nf', 'LS9 6NF'],
             ['ls96nf  ', 'LS9 6NF'],
             ['L23SW', 'L2 3SW'],
+            ['L23SW ', 'L2 3SW'],
             ['w1a4aa', 'W1A 4AA'],
         ];
     }
