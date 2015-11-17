@@ -64,7 +64,7 @@ class Address
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 0, "max": 8}})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Postcode"})
      */
     public $postcode;
 

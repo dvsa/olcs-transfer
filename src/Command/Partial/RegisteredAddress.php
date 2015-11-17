@@ -58,6 +58,7 @@ class RegisteredAddress
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Postcode"})
      */
     public $postcode;
 
