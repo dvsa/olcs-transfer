@@ -46,6 +46,22 @@ final class UpdateWorkshop extends AbstractCommand
     protected $contactDetails;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    protected $licence;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    protected $application;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -67,6 +83,14 @@ final class UpdateWorkshop extends AbstractCommand
     public function getLicence()
     {
         return $this->licence;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getApplication()
+    {
+        return $this->application;
     }
 
     /**
