@@ -21,7 +21,27 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\Submission\UpdateSubmission::class),
                     'DELETE' => CommandConfig::getDeleteConfig(
                         Command\Submission\DeleteSubmission::class
-                    )
+                    ),
+                    'close' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'close[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Submission\CloseSubmission::class),
+                        ]
+                    ],
+                    'reopen' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'reopen[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Submission\ReopenSubmission::class),
+                        ]
+                    ],
                 ]
             ),
             'refresh' => [
