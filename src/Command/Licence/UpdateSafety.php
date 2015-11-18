@@ -69,7 +69,7 @@ final class UpdateSafety extends AbstractCommand
     /**
      * @Transfer\Optional
      * @Transfer\Filter({"name": "Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1,"max":"90"}})
      */
     protected $tachographInsName;
 
