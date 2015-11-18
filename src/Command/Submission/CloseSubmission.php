@@ -14,6 +14,5 @@ use Dvsa\Olcs\Transfer\FieldType as FieldType;
  */
 class CloseSubmission extends AbstractCloseCommand
 {
-    // Context validation
-    use FieldType\Traits\Cases;
+    //
 }

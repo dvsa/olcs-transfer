@@ -14,6 +14,5 @@ use Dvsa\Olcs\Transfer\FieldType as FieldType;
  */
 class ReopenSubmission extends AbstractReopenCommand
 {
-    // Context validation
-    use FieldType\Traits\Cases;
+    // 
 }
