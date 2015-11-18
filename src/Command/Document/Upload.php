@@ -7,6 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\Document;
 
+use Dvsa\Olcs\Transfer\Command\LoggerOmitContentInterface;
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\BusRegOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\CasesOptional;
@@ -19,7 +20,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  * @Transfer\RouteName("backend/document/upload")
  * @Transfer\Method("POST")
  */
-final class Upload extends AbstractCommand
+final class Upload extends AbstractCommand implements LoggerOmitContentInterface
 {
     use ApplicationOptional,
         BusRegOptional,
