@@ -36,10 +36,6 @@ class EmailAddressTest extends PHPUnit_Framework_TestCase
     {
         return [
             [
-                'abc',
-                false
-            ],
-            [
                 '1234567890123456789012345678901234567890123456789012345678901',
                 false
             ],
