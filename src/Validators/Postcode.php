@@ -16,14 +16,14 @@ use Zend\Validator\AbstractValidator;
  */
 class Postcode extends AbstractValidator
 {
-    const POSTCODE_MIN_LENGTH = 6;
+    const POSTCODE_MIN_LENGTH = 5;
     const POSTCODE_MAX_LENGTH = 8;
     const POSTCODE_BAD_LENGTH     = 'postcodeBadLength';
     const POSTCODE_INVALID_FORMAT = 'invalidPostcodeFormat';
 
     protected $messageTemplates = [
-        self::POSTCODE_BAD_LENGTH     => 'Postcode must be either 6, 7 or 8 characters long and start with a letter',
-        self::POSTCODE_INVALID_FORMAT => 'Invalid postcode format'
+        self::POSTCODE_BAD_LENGTH     => 'postcode.validation.postcodeBadLength',
+        self::POSTCODE_INVALID_FORMAT => 'postcode.validation.invalidPostcodeFormat',
     ];
 
     protected $postcodeFormats = [

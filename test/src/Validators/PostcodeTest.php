@@ -45,20 +45,19 @@ class PostcodeTest extends PHPUnit_Framework_TestCase
             [
                 'ls9336NF',
                 false,
-                ['invalidPostcodeFormat' => 'Invalid postcode format']
+                ['invalidPostcodeFormat' => 'postcode.validation.invalidPostcodeFormat']
             ],
             ['W1A4AA', true],
             ['GIR 0AA', true],
             [
                 'not a postcode',
                 false,
-                ['postcodeBadLength' => 'Postcode must be either 6, 7 or 8 characters long and start with a letter'],
+                ['postcodeBadLength' => 'postcode.validation.postcodeBadLength'],
             ],
             ['GIR 0AA', true],
             ['L2 3SW', true],
 
-            // @todo this *should* be a valid postcode
-            // ['L23SW', true],
+            ['L23SW', true],
         ];
     }
 }
