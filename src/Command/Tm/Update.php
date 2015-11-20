@@ -100,8 +100,7 @@ final class Update extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 60}})
-     * @Transfer\Validator({"name":"Zend\Validator\EmailAddress"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\EmailAddress"})
      * @Transfer\Optional
      */
     public $emailAddress;

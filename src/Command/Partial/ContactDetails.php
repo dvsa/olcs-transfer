@@ -36,8 +36,7 @@ class ContactDetails
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\EmailAddress"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":5,"max":255}})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\EmailAddress"})
      * @Transfer\Optional
      */
     public $emailAddress;

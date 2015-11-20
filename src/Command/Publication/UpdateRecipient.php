@@ -42,8 +42,7 @@ final class UpdateRecipient extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\EmailAddress"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"max":90}})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\EmailAddress"})
      */
     protected $emailAddress;
 
