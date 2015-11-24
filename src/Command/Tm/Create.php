@@ -75,7 +75,7 @@ final class Create extends AbstractCommand
      *      "name":"Zend\Validator\InArray",
      *      "options": {
      *          "haystack": {
-     *              "tm_s_cur","tm_s_dis","tm_st_act","tm_st_disa"
+     *              "tm_s_cur","tm_s_dis","tm_s_rem"
      *          }
      *      }
      *  }
