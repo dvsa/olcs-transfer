@@ -1,7 +1,7 @@
 <?php
 
 /**
- * TxcInbox
+ * BusRegWithTxcInbox
  */
 namespace Dvsa\Olcs\Transfer\Query\Bus\Ebsr;
 
@@ -11,9 +11,9 @@ use Dvsa\Olcs\Transfer\Query\CachableQueryInterface;
 use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 
 /**
- * @Transfer\RouteName("backend/txc-inbox/bus-reg")
+ * @Transfer\RouteName("backend/bus/single/txc-inbox")
  */
-class TxcInboxByBusReg extends AbstractQuery implements CachableQueryInterface
+class BusRegWithTxcInbox extends AbstractQuery implements CachableQueryInterface
 {
-    use FieldTypeTraits\BusReg;
+    use FieldTypeTraits\Identity;
 }
