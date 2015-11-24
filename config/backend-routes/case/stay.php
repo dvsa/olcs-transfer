@@ -32,9 +32,6 @@ return [
                     'PUT' => CommandConfig::getPutConfig(
                         Command\Cases\Hearing\UpdateStay::class
                     ),
-                    'DELETE' => CommandConfig::getDeleteConfig(
-                        Command\Cases\Hearing\DeleteStay::class
-                    )
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(
