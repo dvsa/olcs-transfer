@@ -21,7 +21,7 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\User\Roles::class),
+                    'GET' => QueryConfig::getConfig(Query\User\RoleList::class),
                 ]
             ],
             'internal' => [
