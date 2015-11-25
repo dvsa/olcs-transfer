@@ -13,7 +13,7 @@ use Dvsa\Olcs\Transfer\Query\CachableQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * NOTE This is a temporary query dto used to bridge the gap between zfcuser and openam
+ * @todo Remove this class when we are fully integrated with OpenAM
  *
  * @Transfer\RouteName("backend/zfcuser")
  */
