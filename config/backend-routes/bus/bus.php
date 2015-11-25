@@ -22,6 +22,16 @@ return [
                 [
                     'GET' => QueryConfig::getConfig(Query\Bus\BusReg::class),
                     'DELETE' => CommandConfig::getDeleteConfig(Command\Bus\DeleteBus::class),
+                    'txc-inbox' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'txc-inbox[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Bus\Ebsr\BusRegWithTxcInbox::class),
+                        ]
+                    ],
                     'variation' => [
                         'type' => 'Segment',
                         'options' => [

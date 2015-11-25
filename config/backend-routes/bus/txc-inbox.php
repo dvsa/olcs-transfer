@@ -15,12 +15,6 @@ return [
         'may_terminate' => false,
         'child_routes' => [
             'GET' => QueryConfig::getConfig(Query\Bus\Ebsr\TxcInboxList::class),
-            'bus-reg' => RouteConfig::getRouteConfig(
-                'bus-reg',
-                [
-                    'GET' => QueryConfig::getConfig(Query\Bus\Ebsr\TxcInboxByBusReg::class),
-                ]
-            ),
             'PUT' => CommandConfig::getPutConfig(Command\Bus\Ebsr\UpdateTxcInbox::class),
         ]
     ]
