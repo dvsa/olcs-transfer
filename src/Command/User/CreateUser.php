@@ -5,6 +5,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\User;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\TranslateToWelshOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -14,6 +15,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class CreateUser extends AbstractCommand
 {
+    use TranslateToWelshOptional;
+
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":2, "max":40}})

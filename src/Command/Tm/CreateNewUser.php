@@ -8,6 +8,7 @@
 namespace Dvsa\Olcs\Transfer\Command\Tm;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Application;
+use Dvsa\Olcs\Transfer\FieldType\Traits\TranslateToWelshOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -18,6 +19,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class CreateNewUser extends AbstractCommand
 {
     use Application;
+    use TranslateToWelshOptional;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
