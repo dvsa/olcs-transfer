@@ -73,6 +73,17 @@ class CreateStay extends AbstractCommand
     protected $withdrawnDate = null;
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"Y","N"}}
+     *  }
+     * )
+     */
+    protected $dvsaNotified = null;
+
+    /**
      * @return mixed
      */
     public function getCase()
@@ -134,5 +145,13 @@ class CreateStay extends AbstractCommand
     public function getWithdrawnDate()
     {
         return $this->withdrawnDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDvsaNotified()
+    {
+        return $this->dvsaNotified;
     }
 }
