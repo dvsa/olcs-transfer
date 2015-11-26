@@ -7,6 +7,8 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\ContinuationDetail;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\FieldType\Traits\Version;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -16,19 +18,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Update extends AbstractCommand
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 999999}})
-     */
-    protected $id;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 999999}})
-     */
-    protected $version;
+    use Identity,
+        Version;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -67,17 +58,6 @@ final class Update extends AbstractCommand
      * @Transfer\Optional
      */
     protected $totCommunityLicences;
-
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    public function getVersion()
-    {
-        return $this->version;
-    }
 
     public function getReceived()
     {

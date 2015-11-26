@@ -7,6 +7,9 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\ConditionUndertaking;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\CasesOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -16,29 +19,9 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Create extends AbstractCommand
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 999999}})
-     * @Transfer\Optional
-     */
-    protected $licence;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 999999}})
-     * @Transfer\Optional
-     */
-    protected $application;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 999999}})
-     * @Transfer\Optional
-     */
-    protected $case;
+    use LicenceOptional,
+        ApplicationOptional,
+        CasesOptional;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -67,25 +50,10 @@ final class Create extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 999999}})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
     protected $operatingCentre;
-
-    public function getLicence()
-    {
-        return $this->licence;
-    }
-
-    public function getApplication()
-    {
-        return $this->application;
-    }
-
-    public function getCase()
-    {
-        return $this->case;
-    }
 
     public function getType()
     {
