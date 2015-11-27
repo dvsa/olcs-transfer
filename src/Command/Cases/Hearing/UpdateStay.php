@@ -64,6 +64,17 @@ class UpdateStay extends AbstractCommand implements
     protected $withdrawnDate = null;
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"Y","N"}}
+     *  }
+     * )
+     */
+    protected $dvsaNotified = null;
+
+    /**
      * @return mixed
      */
     public function getDecisionDate()
@@ -109,5 +120,13 @@ class UpdateStay extends AbstractCommand implements
     public function getWithdrawnDate()
     {
         return $this->withdrawnDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDvsaNotified()
+    {
+        return $this->dvsaNotified;
     }
 }
