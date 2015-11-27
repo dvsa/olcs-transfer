@@ -37,6 +37,12 @@ final class Create extends AbstractCommand
     protected $action;
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d"}})
+     */
+    protected $dob;
+
+    /**
      * Get Application ID
      *
      * @return int
@@ -74,5 +80,15 @@ final class Create extends AbstractCommand
     public function getAction()
     {
         return $this->action;
+    }
+
+    /**
+     * Get date of birth
+     *
+     * @return string
+     */
+    public function getDob()
+    {
+        return $this->dob;
     }
 }
