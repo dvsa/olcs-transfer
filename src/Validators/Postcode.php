@@ -88,7 +88,7 @@ class Postcode extends AbstractValidator
         }
 
         if (isset($context['countryCode']) && $context['countryCode'] === 'GB') {
-            return $this->validateUkPostcode($value, $context);
+            return $this->validateUkPostcode($value);
         }
 
         return $this->validateNonUkPostcode($value, $context);
@@ -98,7 +98,7 @@ class Postcode extends AbstractValidator
      * UK postcode cannot usually be empty, must be 5-8 characters and must
      * match a predefined format
      */
-    private function validateUkPostcode($value, $context)
+    private function validateUkPostcode($value)
     {
         if (empty($value)) {
             $this->error(self::POSTCODE_IS_EMPTY);
@@ -126,7 +126,7 @@ class Postcode extends AbstractValidator
     /**
      * Non-UK postcode must not exceed maximum field length
      */
-    private function validateNonUkPostcode($value, $context)
+    private function validateNonUkPostcode($value)
     {
         $length = strlen($value);
 
