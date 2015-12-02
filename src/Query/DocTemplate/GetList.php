@@ -1,19 +1,19 @@
 <?php
 
 /**
- * Get a list of Users
+ * Get a list of Doc Templates
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-namespace Dvsa\Olcs\Transfer\Query\User;
+namespace Dvsa\Olcs\Transfer\Query\DocTemplate;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/user/internal")
+ * @Transfer\RouteName("backend/doc-template")
  */
-final class UserList extends AbstractQuery implements \Dvsa\Olcs\Transfer\Query\OrderedQueryInterface
+class GetList extends AbstractQuery implements \Dvsa\Olcs\Transfer\Query\OrderedQueryInterface
 {
     use \Dvsa\Olcs\Transfer\Query\OrderedTraitOptional;
 
@@ -22,32 +22,22 @@ final class UserList extends AbstractQuery implements \Dvsa\Olcs\Transfer\Query\
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      */
-    protected $organisation;
+    protected $category;
 
     /**
      * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      */
-    protected $team;
+    protected $subCategory;
 
-    /**
-     * Get Organisation ID
-     *
-     * @return int
-     */
-    public function getOrganisation()
+    public function getCategory()
     {
-        return $this->organisation;
+        return $this->category;
     }
 
-    /**
-     * Get team Id
-     *
-     * @return int
-     */
-    public function getTeam()
+    public function getSubCategory()
     {
-        return $this->team;
+        return $this->subCategory;
     }
 }
