@@ -3,7 +3,7 @@
 /**
  * ContinueIfEmpty
  *
- * @author Rob Caiger <rob@clocal.co.uk>
+ * @author Dan Eggleston <dan@stolenegg.com>
  */
 namespace Dvsa\Olcs\Transfer\Util\Annotation;
 
