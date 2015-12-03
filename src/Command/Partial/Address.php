@@ -63,8 +63,10 @@ class Address
     public $town;
 
     /**
-     * @Transfer\Filter({"name":"Dvsa\Olcs\Transfer\Filter\Postcode"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Postcode"})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Postcode", "options": {"allow_empty": false}})
+     * @Transfer\Optional
+     * @Transfer\ContinueIfEmpty
      */
     public $postcode;
 

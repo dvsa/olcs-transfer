@@ -273,6 +273,12 @@ class AnnotationBuilder
                 $input->setAllowEmpty(true);
                 continue;
             }
+
+            if ($annotation instanceof ContinueIfEmpty) {
+                $input->setRequired(true);
+                $input->setContinueIfEmpty(true);
+                continue;
+            }
         }
     }
 
