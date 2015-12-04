@@ -21,7 +21,7 @@ class CreateStatement extends AbstractCommand
      * @Transfer\Validator(
      *  {
      *      "name":"Zend\Validator\InArray",
-     *      "options": {"haystack": {"statement_t_36", "statement_t_36", "statement_t_43", "statement_t_9"}}
+     *      "options": {"haystack": {"statement_t_ni", "statement_t_43", "statement_t_9"}}
      *  }
      * )
      */
