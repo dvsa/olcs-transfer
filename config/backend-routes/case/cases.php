@@ -79,6 +79,16 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\Cases\UpdateProhibitionNote::class),
                         ]
                     ],
+                    'penalties-note' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'penalties-note[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\UpdatePenaltiesNote::class),
+                        ]
+                    ],
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(Command\Cases\CreateCase::class),
