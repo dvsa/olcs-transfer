@@ -22,7 +22,7 @@ class UpdateSla extends AbstractCommand
      * @Transfer\Validator({
      *     "name":"Zend\Validator\InArray",
      *     "options": {
-     *          "haystack": {"piwo_none", "piwo_reason", "piwo_decision"}
+     *          "haystack": {"piwo_verbal", "piwo_reason", "piwo_decision"}
      *      }
      * })
      */
@@ -63,6 +63,12 @@ class UpdateSla extends AbstractCommand
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $decisionLetterSentDate;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     */
+    protected $writtenDecisionLetterDate;
 
     /**
      * @return String
@@ -118,5 +124,13 @@ class UpdateSla extends AbstractCommand
     public function getDecisionLetterSentDate()
     {
         return $this->decisionLetterSentDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWrittenDecisionLetterDate()
+    {
+        return $this->writtenDecisionLetterDate;
     }
 }
