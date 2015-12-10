@@ -10,7 +10,7 @@ return [
     'fee' => [
         'type' => 'Segment',
         'options' => [
-            'route' => 'fee[/]',
+            'route' => 'fee/',
         ],
         'may_terminate' => false,
         'child_routes' => [
