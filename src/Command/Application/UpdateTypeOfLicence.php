@@ -33,6 +33,7 @@ final class UpdateTypeOfLicence extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"lcat_gv","lcat_psv"}}})
+     * @Transfer\Optional
      */
     protected $operatorType;
 
