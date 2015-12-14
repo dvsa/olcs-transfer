@@ -98,6 +98,16 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(Command\Irfo\GrantIrfoPsvAuth::class),
                                 ]
                             ],
+                            'refuse' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'refuse[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\RefuseIrfoPsvAuth::class),
+                                ]
+                            ],
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthList::class),
