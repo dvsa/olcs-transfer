@@ -108,6 +108,16 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(Command\Irfo\RefuseIrfoPsvAuth::class),
                                 ]
                             ],
+                            'withdraw' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'withdraw[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\WithdrawIrfoPsvAuth::class),
+                                ]
+                            ],
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthList::class),
