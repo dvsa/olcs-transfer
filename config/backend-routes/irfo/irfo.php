@@ -118,6 +118,16 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(Command\Irfo\WithdrawIrfoPsvAuth::class),
                                 ]
                             ],
+                            'reset' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'reset[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\ResetIrfoPsvAuth::class),
+                                ]
+                            ],
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthList::class),
