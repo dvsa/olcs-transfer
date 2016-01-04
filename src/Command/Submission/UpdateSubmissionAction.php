@@ -50,7 +50,9 @@ final class UpdateSubmissionAction extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min":5,"max":10000}})
+     * @Transfer\Filter({"name":"htmlpurifier"})
+     * @Transfer\Escape(false)
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":5}})
      */
     protected $comment;
 
