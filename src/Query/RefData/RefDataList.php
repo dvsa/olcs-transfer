@@ -9,16 +9,12 @@ namespace Dvsa\Olcs\Transfer\Query\RefData;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
-use Dvsa\Olcs\Transfer\Query\PagedTraitOptional;
 
 /**
  * @Transfer\RouteName("backend/ref-data")
  */
-class RefDataList extends AbstractQuery implements PagedQueryInterface
+class RefDataList extends AbstractQuery
 {
-    use PagedTraitOptional;
-
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Filter({"name":"Zend\Filter\StringToLower"})
