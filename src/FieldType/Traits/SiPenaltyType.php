@@ -5,7 +5,7 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
  * Trait SiPenaltyType
  *
  * @package Dvsa\Olcs\Transfer\Command\Traits\FieldType
- * @author Valtech <uk@valtech.co.uk>
+ * @author Ian Lindsay <ian@hemera-business-services.co.uk>
  */
 trait SiPenaltyType
 {
