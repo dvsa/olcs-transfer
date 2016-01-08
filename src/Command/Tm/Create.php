@@ -58,6 +58,7 @@ final class Create extends AbstractCommand
      *      }
      *  }
      * )
+     * @Transfer\Optional
      */
     protected $title;
 
@@ -131,6 +132,7 @@ final class Create extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 90}})
+     * @Transfer\Optional
      */
     public $workAddressLine1;
 
@@ -158,18 +160,21 @@ final class Create extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 30}})
+     * @Transfer\Optional
      */
     public $workTown;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 8}})
+     * @Transfer\Optional
      */
     public $workPostcode;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 2}})
+     * @Transfer\Optional
      */
     public $workCountryCode;
 
