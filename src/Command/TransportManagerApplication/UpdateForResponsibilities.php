@@ -42,6 +42,7 @@ final class UpdateForResponsibilities extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"tm_t_i","tm_t_e"}}})
+     * @Transfer\Optional
      */
     protected $tmType;
 
