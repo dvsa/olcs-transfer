@@ -72,6 +72,16 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\User\CreateUserSelfserve::class),
                 ]
             ],
+            'pid' => RouteConfig::getRouteConfig(
+                'pid',
+                [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\User\Pid::class),
+                        ]
+                    ),
+                ]
+            ),
         ]
     ],
 ];
