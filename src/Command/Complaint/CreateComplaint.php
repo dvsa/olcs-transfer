@@ -43,6 +43,7 @@ class CreateComplaint extends AbstractCommand
 
     /**
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\DateNotInFuture"})
      */
     protected $complaintDate = null;
 
@@ -95,6 +96,7 @@ class CreateComplaint extends AbstractCommand
     /**
      * @Transfer\Optional()
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\DateNotInFuture"})
      */
     protected $closedDate = null;
 
