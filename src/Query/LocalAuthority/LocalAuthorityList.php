@@ -4,14 +4,12 @@ namespace Dvsa\Olcs\Transfer\Query\LocalAuthority;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
-use Dvsa\Olcs\Transfer\Query\PagedTrait;
 
 /**
- * Class PiVenueList
+ * Class LocalAuthorityList
  * @Transfer\RouteName("backend/local-authority")
  */
-class LocalAuthorityList extends AbstractQuery implements  PagedQueryInterface
+class LocalAuthorityList extends AbstractQuery
 {
-    use PagedTrait;
+    //
 }
