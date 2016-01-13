@@ -131,6 +131,11 @@ final class UpdateDetails extends AbstractCommand
     protected $additionalInfo;
 
     /**
+     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d"}})
+     */
+    protected $dob;
+
+    /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
      * @Transfer\Optional
@@ -281,5 +286,15 @@ final class UpdateDetails extends AbstractCommand
     public function getSubmit()
     {
         return $this->submit;
+    }
+
+    /**
+     * Get date of birth
+     *
+     * @return string
+     */
+    public function getDob()
+    {
+        return $this->dob;
     }
 }
