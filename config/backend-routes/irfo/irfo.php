@@ -118,6 +118,16 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(Command\Irfo\WithdrawIrfoPsvAuth::class),
                                 ]
                             ],
+                            'cns' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'cns[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\CnsIrfoPsvAuth::class),
+                                ]
+                            ],
                             'reset' => [
                                 'type' => 'Segment',
                                 'options' => [
