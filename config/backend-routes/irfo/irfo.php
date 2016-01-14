@@ -145,6 +145,16 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoPermitStock::class),
                     'PUT' => CommandConfig::getPutConfig(Command\Irfo\UpdateIrfoPermitStock::class),
                 ]
+            ],
+            'country-list' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'country-list[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Irfo\IrfoCountryList::class),
+                ]
             ]
         ]
     ],
