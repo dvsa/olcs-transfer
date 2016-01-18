@@ -140,6 +140,16 @@ return [
                             ],
                         ]
                     ),
+                    'type-list' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'type-list[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthTypeList::class),
+                        ]
+                    ],
                     'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthList::class),
                     'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoPsvAuth::class),
                 ]
