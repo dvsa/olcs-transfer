@@ -73,6 +73,16 @@ return [
                             ],
                         ]
                     ),
+                    'type-list' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'type-list[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoGvPermitTypeList::class),
+                        ]
+                    ],
                     'GET' => QueryConfig::getConfig(Query\Irfo\IrfoGvPermitList::class),
                     'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoGvPermit::class),
                 ]
