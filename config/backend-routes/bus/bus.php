@@ -222,6 +222,12 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Bus\PaginatedRegistrationHistoryList::class),
                 ]
             ),
+            'service-type-list' => RouteConfig::getRouteConfig(
+                'service-type-list',
+                [
+                    'GET' => QueryConfig::getConfig(Query\Bus\BusServiceTypeList::class),
+                ]
+            ),
         ]
     ]
 ];
