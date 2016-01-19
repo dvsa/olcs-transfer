@@ -206,6 +206,12 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Bus\Ebsr\ProcessPacks::class),
                 ]
             ],
+            'notice-period-list' => RouteConfig::getRouteConfig(
+                'notice-period-list',
+                [
+                    'GET' => QueryConfig::getConfig(Query\Bus\BusNoticePeriodList::class),
+                ]
+            ),
             'registration-history-list' => [
                 'type' => 'Segment',
                 'options' => [
