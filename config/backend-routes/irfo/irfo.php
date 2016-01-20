@@ -73,6 +73,16 @@ return [
                             ],
                         ]
                     ),
+                    'type-list' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'type-list[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoGvPermitTypeList::class),
+                        ]
+                    ],
                     'GET' => QueryConfig::getConfig(Query\Irfo\IrfoGvPermitList::class),
                     'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoGvPermit::class),
                 ]
@@ -118,6 +128,16 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(Command\Irfo\WithdrawIrfoPsvAuth::class),
                                 ]
                             ],
+                            'cns' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'cns[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\CnsIrfoPsvAuth::class),
+                                ]
+                            ],
                             'reset' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -130,6 +150,16 @@ return [
                             ],
                         ]
                     ),
+                    'type-list' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'type-list[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthTypeList::class),
+                        ]
+                    ],
                     'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthList::class),
                     'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoPsvAuth::class),
                 ]
@@ -144,6 +174,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPermitStockList::class),
                     'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoPermitStock::class),
                     'PUT' => CommandConfig::getPutConfig(Command\Irfo\UpdateIrfoPermitStock::class),
+                ]
+            ],
+            'country-list' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'country-list[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Irfo\IrfoCountryList::class),
                 ]
             ]
         ]

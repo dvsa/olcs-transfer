@@ -32,6 +32,12 @@ final class UserList extends AbstractQuery implements \Dvsa\Olcs\Transfer\Query\
     protected $team;
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     */
+    protected $isInternal;
+
+    /**
      * Get Organisation ID
      *
      * @return int
@@ -49,5 +55,15 @@ final class UserList extends AbstractQuery implements \Dvsa\Olcs\Transfer\Query\
     public function getTeam()
     {
         return $this->team;
+    }
+
+    /**
+     * Get isInternal
+     *
+     * @return bool
+     */
+    public function getIsInternal()
+    {
+        return $this->isInternal;
     }
 }

@@ -206,6 +206,12 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Bus\Ebsr\ProcessPacks::class),
                 ]
             ],
+            'notice-period-list' => RouteConfig::getRouteConfig(
+                'notice-period-list',
+                [
+                    'GET' => QueryConfig::getConfig(Query\Bus\BusNoticePeriodList::class),
+                ]
+            ),
             'registration-history-list' => [
                 'type' => 'Segment',
                 'options' => [
@@ -220,6 +226,12 @@ return [
                 'paginated-registration-history-list',
                 [
                     'GET' => QueryConfig::getConfig(Query\Bus\PaginatedRegistrationHistoryList::class),
+                ]
+            ),
+            'service-type-list' => RouteConfig::getRouteConfig(
+                'service-type-list',
+                [
+                    'GET' => QueryConfig::getConfig(Query\Bus\BusServiceTypeList::class),
                 ]
             ),
         ]
