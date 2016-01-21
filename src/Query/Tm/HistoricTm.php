@@ -7,7 +7,6 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\Tm;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\CachableQueryInterface;
@@ -17,5 +16,19 @@ use Dvsa\Olcs\Transfer\Query\CachableQueryInterface;
  */
 class HistoricTm extends AbstractQuery implements CachableQueryInterface
 {
-    use Identity;
+    /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $historicId;
+
+    /**
+     * @return int
+     */
+    public function getHistoricId()
+    {
+        return $this->historicId;
+    }
 }

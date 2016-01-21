@@ -10,7 +10,8 @@ return [
     'historic-tm' => RouteConfig::getRouteConfig(
         'historic-tm',
         [
-            'single' => RouteConfig::getSingleConfig(
+            'single' => RouteConfig::getNamedSingleConfig(
+                'historicId',
                 [
                     'GET' => QueryConfig::getConfig(Query\Tm\HistoricTm::class)
                 ],
