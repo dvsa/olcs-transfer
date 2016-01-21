@@ -108,6 +108,16 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(Command\Irfo\GrantIrfoPsvAuth::class),
                                 ]
                             ],
+                            'approve' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'approve[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\ApproveIrfoPsvAuth::class),
+                                ]
+                            ],
                             'refuse' => [
                                 'type' => 'Segment',
                                 'options' => [
