@@ -132,6 +132,7 @@ final class UpdateDetails extends AbstractCommand
 
     /**
      * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Optional
      */
     protected $dob;
 
