@@ -32,7 +32,7 @@ class EbsrSubmissionList extends AbstractQuery implements PagedQueryInterface, O
      *      }
      * })
      */
-    protected $ebsrSubmissionType;
+    protected $subType;
 
     /**
      * @var string
@@ -49,21 +49,21 @@ class EbsrSubmissionList extends AbstractQuery implements PagedQueryInterface, O
      *      }
      * })
      */
-    protected $ebsrSubmissionStatus;
+    protected $status;
 
     /**
      * @return string
      */
-    public function getEbsrSubmissionType()
+    public function getSubType()
     {
-        return $this->ebsrSubmissionType;
+        return $this->subType;
     }
 
     /**
      * @return string
      */
-    public function getEbsrSubmissionStatus()
+    public function getStatus()
     {
-        return $this->ebsrSubmissionStatus;
+        return $this->status;
     }
 }

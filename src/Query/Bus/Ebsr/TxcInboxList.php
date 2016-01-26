@@ -32,7 +32,7 @@ class TxcInboxList extends AbstractQuery implements PagedQueryInterface, Ordered
      *      }
      * })
      */
-    protected $ebsrSubmissionType;
+    protected $subType;
 
     /**
      * @var string
@@ -49,21 +49,21 @@ class TxcInboxList extends AbstractQuery implements PagedQueryInterface, Ordered
      *      }
      * })
      */
-    protected $ebsrSubmissionStatus;
+    protected $status;
 
     /**
      * @return string
      */
-    public function getEbsrSubmissionType()
+    public function getSubType()
     {
-        return $this->ebsrSubmissionType;
+        return $this->subType;
     }
 
     /**
      * @return string
      */
-    public function getEbsrSubmissionStatus()
+    public function getStatus()
     {
-        return $this->ebsrSubmissionStatus;
+        return $this->status;
     }
 }
