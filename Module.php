@@ -1,24 +1,3 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer;
-
-use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
-
-class Module implements AutoloaderProviderInterface
-{
-    public function getAutoloaderConfig()
-    {
-        return array(
-            'Zend\Loader\StandardAutoloader' => array(
-                'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/Transfer',
-                ),
-            ),
-        );
-    }
-
-    public function getConfig()
-    {
-        return include __DIR__ . '/config/module.config.php';
-    }
-}
+require_once __DIR__ . '/src/Module.php';
