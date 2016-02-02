@@ -31,21 +31,21 @@ class CreateSlaTargetDate extends AbstractCommand
 
     /**
      * @var string
-     * @Transfer\Validator({"name": "AgreedDate", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $agreedDate;
 
     /**
      * @Transfer\Optional
      * @var string
-     * @Transfer\Validator({"name": "TargetDate", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $targetDate;
 
     /**
      * @Transfer\Optional
      * @var string
-     * @Transfer\Validator({"name": "SentDate", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $sentDate;
 
