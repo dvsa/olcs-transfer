@@ -13,7 +13,7 @@ use Dvsa\Olcs\Transfer\Query\CachableQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * @Transfer\RouteName("backend/sla-target-date/single")
+ * @Transfer\RouteName("backend/sla-target-date")
  */
 class SlaTargetDate extends AbstractQuery implements CachableQueryInterface
 {

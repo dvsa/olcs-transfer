@@ -13,15 +13,12 @@ return [
             'route' => 'sla-target-date[/]',
         ],
         'may_terminate' => false,
-        'child_routes' => [
-            'single' => RouteConfig::getSingleConfig(
-                [
-                    'GET' => QueryConfig::getConfig(Query\Sla\SlaTargetDate::class),
-                    'PUT' => CommandConfig::getPutConfig(
-                        Command\Sla\UpdateSlaTargetDate::class
-                    ),
-                ]
-            ),
+        'child_routes' =>
+            [
+                'GET' => QueryConfig::getConfig(Query\Sla\SlaTargetDate::class),
+                'PUT' => CommandConfig::getPutConfig(
+                    Command\Sla\UpdateSlaTargetDate::class
+                ),
             'POST' => CommandConfig::getPostConfig(
                 Command\Sla\CreateSlaTargetDate::class
             )
