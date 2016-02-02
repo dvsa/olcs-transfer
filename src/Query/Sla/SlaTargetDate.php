@@ -17,5 +17,34 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class SlaTargetDate extends AbstractQuery implements CachableQueryInterface
 {
-    use Identity;
+    /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $entityId;
+
+    /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"document"}}})
+     */
+    protected $entityType;
+
+    /**
+     * @return int
+     */
+    public function getEntityId()
+    {
+        return $this->entityId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getEntityType()
+    {
+        return $this->entityType;
+    }
 }
