@@ -16,8 +16,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Version;
  */
 final class UpdatePrinter extends AbstractCommand
 {
-    use Identity,
-        Version;
+    use Identity;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
