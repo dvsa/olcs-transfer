@@ -12,8 +12,25 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
  */
 class UpdateSlaTargetDate extends AbstractCommand
 {
-    use FieldType\Identity;
     use FieldType\Version;
+
+    /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $entityId = null;
+
+    /**
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"document"}}
+     *  }
+     * )
+     */
+    protected $entityType = null;
 
     /**
      * @var string
@@ -48,6 +65,22 @@ class UpdateSlaTargetDate extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":5, "max":4000}})
      */
     protected $notes;
+
+    /**
+     * @return int
+     */
+    public function getEntityId()
+    {
+        return $this->entityId;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEntityType()
+    {
+        return $this->entityType;
+    }
 
     /**
      * @return string
