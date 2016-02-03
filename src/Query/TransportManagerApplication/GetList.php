@@ -39,6 +39,13 @@ class GetList extends AbstractQuery
      */
     protected $transportManager;
 
+    /**
+     * @Transfer\ArrayInput
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\ApplicationStatus"})
+     */
+    protected $appStatuses;
+
     public function getUser()
     {
         return $this->user;
@@ -52,5 +59,13 @@ class GetList extends AbstractQuery
     public function getTransportManager()
     {
         return $this->transportManager;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAppStatuses()
+    {
+        return $this->appStatuses;
     }
 }
