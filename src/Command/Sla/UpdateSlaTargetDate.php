@@ -8,7 +8,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
 
 /**
  * @Transfer\RouteName("backend/sla-target-date")
- * @Transfer\Method("POST")
+ * @Transfer\Method("PUT")
  */
 class UpdateSlaTargetDate extends AbstractCommand
 {
