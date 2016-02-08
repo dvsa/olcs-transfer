@@ -5,7 +5,7 @@
  *
  * @author Shaun Lizzio <shaun@lizzio.co.uk>
  */
-namespace Dvsa\Olcs\Transfer\Query\Sla;
+namespace Dvsa\Olcs\Transfer\Query\System;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

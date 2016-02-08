@@ -14,10 +14,10 @@ return [
         ],
         'may_terminate' => false,
         'child_routes' => [
-            'POST' => CommandConfig::getPostConfig(Command\Sla\CreateSlaTargetDate::class),
-            'GET' => QueryConfig::getConfig(Query\Sla\SlaTargetDate::class),
+            'POST' => CommandConfig::getPostConfig(Command\System\CreateSlaTargetDate::class),
+            'GET' => QueryConfig::getConfig(Query\System\SlaTargetDate::class),
             'PUT' => CommandConfig::getPutConfig(
-                Command\Sla\UpdateSlaTargetDate::class
+                Command\System\UpdateSlaTargetDate::class
             )
         ]
     ]
