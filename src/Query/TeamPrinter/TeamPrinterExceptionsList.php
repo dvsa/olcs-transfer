@@ -30,5 +30,4 @@ final class TeamPrinterExceptionsList extends AbstractQuery
     {
         return $this->team;
     }
-
 }
