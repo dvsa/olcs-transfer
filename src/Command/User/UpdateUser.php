@@ -109,6 +109,13 @@ final class UpdateUser extends AbstractCommand
      */
     protected $accountDisabled = null;
 
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Optional
+     */
+    protected $resetPassword = null;
+
     public function getId()
     {
         return $this->id;
@@ -172,5 +179,10 @@ final class UpdateUser extends AbstractCommand
     public function getAccountDisabled()
     {
         return $this->accountDisabled;
+    }
+
+    public function getResetPassword()
+    {
+        return $this->resetPassword;
     }
 }
