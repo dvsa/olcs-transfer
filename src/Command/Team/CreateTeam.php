@@ -29,6 +29,14 @@ final class CreateTeam extends AbstractCommand
      */
     protected $description;
 
+    /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $defaultPrinter;
+
     public function getName()
     {
         return $this->name;
@@ -37,5 +45,13 @@ final class CreateTeam extends AbstractCommand
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDefaultPrinter()
+    {
+        return $this->defaultPrinter;
     }
 }
