@@ -116,6 +116,12 @@ final class Update extends AbstractCommand
     protected $isIrfo;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
+     */
+    protected $allowEmail;
+
+    /**
      * @return mixed
      */
     public function getConfirm()
@@ -217,5 +223,13 @@ final class Update extends AbstractCommand
     public function getIsIrfo()
     {
         return $this->isIrfo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllowEmail()
+    {
+        return $this->allowEmail;
     }
 }
