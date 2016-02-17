@@ -27,5 +27,15 @@ return [
             'ApiRouter' => \Dvsa\Olcs\Transfer\Router\RouterFactory::class,
             'TransferAnnotationBuilder' => \Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilderFactory::class
         ]
-    ]
+    ],
+    'filters' => [
+        'invokables' => [
+            \Dvsa\Olcs\Transfer\Filter\Vrm::class => \Dvsa\Olcs\Transfer\Filter\Vrm::class
+        ],
+    ],
+    'validators' => [
+        'invokables' => [
+            \Dvsa\Olcs\Transfer\Validators\Vrm::class => \Dvsa\Olcs\Transfer\Validators\Vrm::class
+        ],
+    ],
 ];
