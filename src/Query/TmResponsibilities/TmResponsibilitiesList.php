@@ -23,20 +23,6 @@ final class TmResponsibilitiesList extends AbstractQuery
     protected $transportManager;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":0,"max":512}})
-     * @Transfer\Optional
-     */
-    protected $licenceStatuses;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":0,"max":512}})
-     * @Transfer\Optional
-     */
-    protected $applicationStatuses;
-
-    /**
      * Get a Transport Manager ID
      *
      * @return int
@@ -44,25 +30,5 @@ final class TmResponsibilitiesList extends AbstractQuery
     public function getTransportManager()
     {
         return $this->transportManager;
-    }
-
-    /**
-     * Get a licence statuses
-     *
-     * @return array
-     */
-    public function getLicenceStatuses()
-    {
-        return $this->licenceStatuses;
-    }
-
-    /**
-     * Get an application statuses
-     *
-     * @return array
-     */
-    public function getApplicationStatuses()
-    {
-        return $this->applicationStatuses;
     }
 }
