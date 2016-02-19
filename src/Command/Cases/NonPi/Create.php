@@ -57,7 +57,11 @@ class Create extends AbstractCommand implements FieldType\CasesInterface
      *     "options": {
      *          "haystack": {
      *              "non_pio_nfa",
-     *              "non_pio_refer"
+     *              "non_pio_other",
+     *              "non_pio_ph",
+     *              "non_pio_pi",
+     *              "non_pio_und",
+     *              "non_pio_wl"
      *          }
      *      }
      * })
