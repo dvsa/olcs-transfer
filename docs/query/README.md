@@ -248,7 +248,7 @@
                 "lastModifiedOn": null,
                 "olbsKey": null,
                 "olbsType": null,
-                "piVenueOther": null,
+                "venueOther": null,
                 "presidingTcOther": null,
                 "version": 1,
                 "witnesses": 9
@@ -267,7 +267,7 @@
                 "lastModifiedOn": null,
                 "olbsKey": null,
                 "olbsType": null,
-                "piVenueOther": null,
+                "venueOther": null,
                 "presidingTcOther": null,
                 "version": 1,
                 "witnesses": 9
@@ -757,7 +757,7 @@
             "lastModifiedOn": "2015-05-28T10:53:34+0100",
             "notes": "Some notes - db default",
             "outcomeSentDate": "2014-06-11T14:30:00+0100",
-            "piVenueOther": null,
+            "venueOther": null,
             "version": 1,
             "vrm": null,
             "impoundingLegislationTypes": [
@@ -892,7 +892,7 @@
         "refDataCategoryId": "impound_outcome"
     },
     "outcomeSentDate": "2014-06-11T14:30:00+0100",
-    "piVenue": {
+    "venue": {
         "address": null,
         "createdBy": null,
         "createdOn": null,
@@ -906,7 +906,7 @@
         "trafficArea": null,
         "version": 1
     },
-    "piVenueOther": null,
+    "venueOther": null,
     "presidingTc": {
         "deleted": "N",
         "id": 1,

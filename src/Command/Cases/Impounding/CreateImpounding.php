@@ -57,13 +57,13 @@ class CreateImpounding extends AbstractCommand
     /**
      * @Transfer\Optional()
      */
-    protected $piVenue = null;
+    protected $venue = null;
 
     /**
      * @Transfer\Optional() 
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    protected $piVenueOther = null;
+    protected $venueOther = null;
 
     /**
      * @Transfer\Optional() 
@@ -237,37 +237,37 @@ class CreateImpounding extends AbstractCommand
     }
 
     /**
-     * @param mixed $piVenue
+     * @param mixed $venue
      * @return $this
      */
-    public function setPiVenue($piVenue)
+    public function setVenue($venue)
     {
-        $this->piVenue = $piVenue;
+        $this->venue = $venue;
     }
 
     /**
      * @return mixed
      */
-    public function getPiVenue()
+    public function getVenue()
     {
-        return $this->piVenue;
+        return $this->venue;
     }
 
     /**
-     * @param mixed $piVenueOther
+     * @param mixed $venueOther
      * @return $this
      */
-    public function setPiVenueOther($piVenueOther)
+    public function setVenueOther($venueOther)
     {
-        $this->piVenueOther = $piVenueOther;
+        $this->venueOther = $venueOther;
     }
 
     /**
      * @return mixed
      */
-    public function getPiVenueOther()
+    public function getVenueOther()
     {
-        return $this->piVenueOther;
+        return $this->venueOther;
     }
 
     /**
