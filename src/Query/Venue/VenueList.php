@@ -1,16 +1,16 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Query\Cases\PiVenue;
+namespace Dvsa\Olcs\Transfer\Query\Venue;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TrafficAreaOptional;
 
 /**
- * Class PiVenueList
+ * Class VenueList
  * @Transfer\RouteName("backend/venue-list")
  */
-class PiVenueList extends AbstractQuery
+class VenueList extends AbstractQuery
 {
     use TrafficAreaOptional;
 }

@@ -2,12 +2,12 @@
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
- * Trait Pi
+ * Trait Venue Other Optional
  *
  * @package Dvsa\Olcs\Transfer\Command\Traits\FieldType
  * @author Valtech <uk@valtech.co.uk>
  */
-trait PiVenueOtherOptional
+trait VenueOtherOptional
 {
     /**
      * @var String
@@ -15,13 +15,13 @@ trait PiVenueOtherOptional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":255}})
      */
-    protected $piVenueOther;
+    protected $venueOther;
 
     /**
      * @return string
      */
-    public function getPiVenueOther()
+    public function getVenueOther()
     {
-        return $this->piVenueOther;
+        return $this->venueOther;
     }
 }

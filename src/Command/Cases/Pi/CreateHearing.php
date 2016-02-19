@@ -13,8 +13,8 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
 class CreateHearing extends AbstractCommand
 {
     use FieldType\Pi;
-    use FieldType\PiVenueOptional;
-    use FieldType\PiVenueOtherOptional;
+    use FieldType\VenueOptional;
+    use FieldType\VenueOtherOptional;
     use FieldType\PresidingTC;
     use FieldType\PresidedByRole;
     use FieldType\Witnesses;
