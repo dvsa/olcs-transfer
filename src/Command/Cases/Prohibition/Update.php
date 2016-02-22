@@ -10,8 +10,7 @@ use Dvsa\Olcs\Transfer\FieldType as FieldType;
  * @Transfer\RouteName("backend/prohibition/single")
  * @Transfer\Method("PUT")
  */
-class Update extends AbstractCommand
-    implements
+class Update extends AbstractCommand implements
     FieldType\IdentityInterface,
     FieldType\VersionInterface,
     FieldType\CasesInterface
@@ -31,6 +30,7 @@ class Update extends AbstractCommand
      * @var int
      *
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\DateNotInFuture"})
      */
     public $prohibitionDate = null;
 
@@ -55,6 +55,15 @@ class Update extends AbstractCommand
      *
      * @Transfer\Optional
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\DateNotInFuture"})
+     * @Transfer\Validator({
+     *     "name": "\Dvsa\Olcs\Transfer\Validators\DateCompare",
+     *     "options": {
+     *         "compare_to":"prohibitionDate",
+     *         "compare_to_label":"Prohibition date",
+     *         "operator": "gte",
+     *     }
+     * })
      */
     public $clearedDate = null;
 
