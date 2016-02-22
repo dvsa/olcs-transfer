@@ -11,8 +11,7 @@ use Dvsa\Olcs\Transfer\FieldType as FieldType;
  * @Transfer\RouteName("backend/prohibition")
  * @Transfer\Method("POST")
  */
-class Create extends AbstractCommand
-    implements
+class Create extends AbstractCommand implements
     FieldType\CasesInterface
 {
     use FieldType\Traits\Cases;
@@ -25,6 +24,7 @@ class Create extends AbstractCommand
      * @var int
      *
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\DateNotInFuture"})
      */
     public $prohibitionDate = null;
 
@@ -49,6 +49,15 @@ class Create extends AbstractCommand
      *
      * @Transfer\Optional
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\DateNotInFuture"})
+     * @Transfer\Validator({
+     *     "name": "\Dvsa\Olcs\Transfer\Validators\DateCompare",
+     *     "options": {
+     *         "compare_to":"prohibitionDate",
+     *         "compare_to_label":"Prohibition date",
+     *         "operator": "gte",
+     *     }
+     * })
      */
     public $clearedDate = null;
 
