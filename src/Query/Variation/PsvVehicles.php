@@ -13,14 +13,17 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
+use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
+use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 
 /**
  * @Transfer\RouteName("backend/variation/single/psv-vehicles")
  */
-class PsvVehicles extends AbstractQuery implements CachableQueryInterface, PagedQueryInterface
+class PsvVehicles extends AbstractQuery implements CachableQueryInterface, PagedQueryInterface, OrderedQueryInterface
 {
     use Identity,
-        PagedTrait;
+        PagedTrait,
+        OrderedTrait;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
