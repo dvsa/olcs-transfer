@@ -21,6 +21,7 @@ trait ProhibitionType
      *              "pro_t_sd",
      *              "pro_t_sv",
      *              "pro_t_i",
+     *              "pro_t_d",
      *              "pro_t_v",
      *              "pro_t_ro",
      *              "pro_t_vr"
