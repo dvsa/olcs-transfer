@@ -4,6 +4,7 @@ namespace Dvsa\Olcs\Transfer\Command\Cases\Impounding;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
 
 /**
  * @Transfer\RouteName("backend/impounding/single")
@@ -11,6 +12,8 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class UpdateImpounding extends AbstractCommand
 {
+    use FieldType\Publish;
+
     /**
      * @var int
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
