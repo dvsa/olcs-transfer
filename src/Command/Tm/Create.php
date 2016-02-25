@@ -178,6 +178,20 @@ final class Create extends AbstractCommand
      */
     public $workCountryCode;
 
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 100}})
+     */
+    public $nysiisForename;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 100}})
+     */
+    public $nysiisFamilyname;
+
     public function getFirstName()
     {
         return $this->firstName;
@@ -286,5 +300,15 @@ final class Create extends AbstractCommand
     public function getWorkCountryCode()
     {
         return $this->workCountryCode;
+    }
+
+    public function getNysiisForename()
+    {
+        return $this->nysiisForename;
+    }
+
+    public function getNysiisFamilyname()
+    {
+        return $this->nysiisFamilyname;
     }
 }

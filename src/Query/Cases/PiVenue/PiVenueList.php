@@ -4,7 +4,7 @@ namespace Dvsa\Olcs\Transfer\Query\Cases\PiVenue;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\FieldType\Traits\TrafficArea;
+use Dvsa\Olcs\Transfer\FieldType\Traits\TrafficAreaOptional;
 
 /**
  * Class PiVenueList
@@ -12,5 +12,5 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\TrafficArea;
  */
 class PiVenueList extends AbstractQuery
 {
-    use TrafficArea;
+    use TrafficAreaOptional;
 }
