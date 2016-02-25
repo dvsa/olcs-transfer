@@ -78,7 +78,19 @@ class CreateAppeal extends AbstractCommand
      * @Transfer\Optional()
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
+    protected $papersDueTcDate = null;
+
+    /**
+     * @Transfer\Optional()
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     */
     protected $papersSentDate = null;
+
+    /**
+     * @Transfer\Optional()
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     */
+    protected $papersSentTcDate = null;
 
     /**
      * @Transfer\Optional()
@@ -244,5 +256,21 @@ class CreateAppeal extends AbstractCommand
     public function getDvsaNotified()
     {
         return $this->dvsaNotified;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPapersDueTcDate()
+    {
+        return $this->papersDueTcDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPapersSentTcDate()
+    {
+        return $this->papersSentTcDate;
     }
 }
