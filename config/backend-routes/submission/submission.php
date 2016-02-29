@@ -74,6 +74,16 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\Submission\AssignSubmission::class),
                 ]
             ],
+            'information-complete' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'information-complete[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\Submission\InformationCompleteSubmission::class),
+                ]
+            ],
             'POST' => CommandConfig::getPostConfig(Command\Submission\CreateSubmission::class),
         ]
     ]
