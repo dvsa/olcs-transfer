@@ -37,5 +37,8 @@ return [
         'invokables' => [
             \Dvsa\Olcs\Transfer\Validators\Vrm::class => \Dvsa\Olcs\Transfer\Validators\Vrm::class
         ],
+        'factories' => [
+            \Dvsa\Olcs\Transfer\Validators\Xml::class => \Dvsa\Olcs\Transfer\Validators\XmlFactory::class
+        ],
     ],
 ];
