@@ -1452,6 +1452,24 @@ $routes = [
                 ]
             ],
         ]
+    ],
+    'msi' => [
+        'type' => 'Literal',
+        'options' => [
+            'route' => '/msi/',
+            'defaults' => [
+                'controller' => 'Api\Xml'
+            ]
+        ],
+        'may_terminate' => false,
+        'child_routes' => [
+            'compliance-episode' => RouteConfig::getRouteConfig(
+                'compliance-episode',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\Si\ComplianceEpisode::class)
+                ]
+            )
+        ]
     ]
 ];
 

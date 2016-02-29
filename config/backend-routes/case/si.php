@@ -16,12 +16,6 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Si\SendResponse::class)
                 ]
             ),
-            'compliance-episode' => RouteConfig::getRouteConfig(
-                'compliance-episode',
-                [
-                    'POST' => CommandConfig::getPostConfig(Command\Cases\Si\ComplianceEpisode::class)
-                ]
-            ),
             'GET' => QueryConfig::getConfig(Query\Cases\Si\GetList::class),
         ]
     )
