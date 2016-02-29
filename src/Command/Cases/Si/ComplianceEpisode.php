@@ -2,26 +2,17 @@
 
 namespace Dvsa\Olcs\Transfer\Command\Cases\Si;
 
+use Dvsa\Olcs\Transfer\Command\AbstractXmlCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
 
 /**
- * @Transfer\RouteName("backend/si/compliance-episode")
+ * Process a compliance episode
+ *
+ * @Transfer\RouteName("backend/msi/compliance-episode")
  * @Transfer\Method("POST")
  */
-class ComplianceEpisode extends AbstractCommand
+class ComplianceEpisode extends AbstractXmlCommand
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     */
-    protected $xml;
 
-    /**
-     * @return string
-     */
-    public function getXml()
-    {
-        return $this->xml;
-    }
 }
