@@ -16,6 +16,7 @@ class UpdateHearing extends AbstractCommand
     use FieldType\Version;
     use FieldType\VenueOptional;
     use FieldType\VenueOtherOptional;
+    use FieldType\IsFullDay;
     use FieldType\PresidingTC;
     use FieldType\PresidedByRole;
     use FieldType\Witnesses;
