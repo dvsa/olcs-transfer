@@ -17,7 +17,11 @@ class XmlFactoryTest extends TestCase
 {
     public function testCreateService()
     {
+        $mockXmlSecurity = m::mock(XmlSecurityValidator::class);
+
         $mockSl = m::mock(ServiceLocatorInterface::class);
+        $mockSl->shouldReceive('getServiceLocator')->andReturnSelf();
+        $mockSl->shouldReceive('get')->with(XmlSecurityValidator::class)->andReturn($mockXmlSecurity);
 
         $sut = new XmlFactory();
         $service = $sut->createService($mockSl);

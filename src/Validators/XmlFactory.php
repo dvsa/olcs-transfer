@@ -21,7 +21,7 @@ class XmlFactory implements FactoryInterface
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
         $service = new Xml();
-        $service->setSecurityValidator(new XmlSecurityValidator());
+        $service->setSecurityValidator($serviceLocator->getServiceLocator()->get(XmlSecurityValidator::class));
 
         return $service;
     }
