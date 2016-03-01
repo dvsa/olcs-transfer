@@ -15,6 +15,7 @@ class CreateHearing extends AbstractCommand
     use FieldType\Pi;
     use FieldType\VenueOptional;
     use FieldType\VenueOtherOptional;
+    use FieldType\IsFullDay;
     use FieldType\PresidingTC;
     use FieldType\PresidedByRole;
     use FieldType\Witnesses;
