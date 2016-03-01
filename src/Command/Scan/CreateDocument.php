@@ -7,12 +7,13 @@ namespace Dvsa\Olcs\Transfer\Command\Scan;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\Command\LoggerOmitContentInterface;
 
 /**
  * @Transfer\RouteName("backend/scan/create-document")
  * @Transfer\Method("POST")
  */
-final class CreateDocument extends AbstractCommand
+final class CreateDocument extends AbstractCommand implements LoggerOmitContentInterface
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
