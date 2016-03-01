@@ -26,6 +26,9 @@ return [
         'factories' => [
             'ApiRouter' => \Dvsa\Olcs\Transfer\Router\RouterFactory::class,
             'TransferAnnotationBuilder' => \Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilderFactory::class
+        ],
+        'invokables' => [
+            \ZendXml\Security::class => \ZendXml\Security::class
         ]
     ],
     'filters' => [
@@ -36,6 +39,9 @@ return [
     'validators' => [
         'invokables' => [
             \Dvsa\Olcs\Transfer\Validators\Vrm::class => \Dvsa\Olcs\Transfer\Validators\Vrm::class
+        ],
+        'factories' => [
+            \Dvsa\Olcs\Transfer\Validators\Xml::class => \Dvsa\Olcs\Transfer\Validators\XmlFactory::class
         ],
     ],
 ];

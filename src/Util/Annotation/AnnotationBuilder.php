@@ -264,6 +264,13 @@ class AnnotationBuilder
             }
 
             if (!($annotation instanceof ArrayValidator) && $annotation instanceof Validator) {
+                $options = $annotation->getOptions();
+
+                if (isset($options['usePluginManager']) && $options['usePluginManager']) {
+                    $validatorChain->attach($this->getValidatorManager()->get($annotation->getName()));
+                    continue;
+                }
+
                 $validatorChain->attachByName($annotation->getName(), $annotation->getOptions());
                 continue;
             }
