@@ -98,6 +98,12 @@ class UpdateDecision extends AbstractCommand
     protected $tmDecisions = null;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     */
+    protected $tmCalledWithOperator;
+
+    /**
      * @return int
      */
     public function getDecidedByTc()
@@ -175,5 +181,13 @@ class UpdateDecision extends AbstractCommand
     public function getTmDecisions()
     {
         return $this->tmDecisions;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTmCalledWithOperator()
+    {
+        return $this->tmCalledWithOperator;
     }
 }
