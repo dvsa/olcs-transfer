@@ -89,6 +89,15 @@ class UpdateDecision extends AbstractCommand
     protected $decisionNotes;
 
     /**
+     * @Transfer\ArrayInput
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":1,"max":32}})
+     * @Transfer\Optional
+     */
+    protected $tmDecisions = null;
+
+    /**
      * @return int
      */
     public function getDecidedByTc()
@@ -158,5 +167,13 @@ class UpdateDecision extends AbstractCommand
     public function getDecisionNotes()
     {
         return $this->decisionNotes;
+    }
+
+    /**
+     * @return array
+     */
+    public function getTmDecisions()
+    {
+        return $this->tmDecisions;
     }
 }
