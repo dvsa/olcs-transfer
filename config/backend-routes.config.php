@@ -565,7 +565,13 @@ $routes = [
                                 [
                                     'GET' => QueryConfig::getConfig(Query\Application\Summary::class),
                                 ]
-                            )
+                            ),
+                            'outstanding-fees' => RouteConfig::getRouteConfig(
+                                'outstanding-fees',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\OutstandingFees::class),
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
