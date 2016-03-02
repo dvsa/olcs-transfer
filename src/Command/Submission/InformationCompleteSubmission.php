@@ -24,7 +24,7 @@ final class InformationCompleteSubmission extends AbstractCommand
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\DateNotInFuture"})
      */
-    protected $informationCompleteDate;
+    protected $informationCompleteDate = null;
 
     /**
      * @return mixed
