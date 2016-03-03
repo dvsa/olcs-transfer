@@ -111,7 +111,7 @@ final class UpdateUser extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"post", "email"}}})
      * @Transfer\Optional
      */
     protected $resetPassword = null;
