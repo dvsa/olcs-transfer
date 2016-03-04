@@ -1474,7 +1474,19 @@ $routes = [
                 [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Si\ComplianceEpisode::class)
                 ]
-            )
+            ),
+            'valid-licence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'valid-licence/:licNo[/]',
+                    'defaults' => [
+                        'controller' => 'Api\Generic'
+                    ]
+                ],
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Licence\Exists::class)
+                ]
+            ]
         ]
     ]
 ];
