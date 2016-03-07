@@ -170,6 +170,16 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthTypeList::class),
                         ]
                     ],
+                    'continuation' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'continuation[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthContinuationList::class),
+                        ]
+                    ],
                     'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthList::class),
                     'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoPsvAuth::class),
                 ]
