@@ -32,10 +32,24 @@ class PsvVehicles extends AbstractQuery implements CachableQueryInterface, Paged
     protected $includeRemoved;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
+     */
+    protected $vrm;
+
+    /**
      * @return mixed
      */
     public function getIncludeRemoved()
     {
         return $this->includeRemoved;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVrm()
+    {
+        return $this->vrm;
     }
 }
