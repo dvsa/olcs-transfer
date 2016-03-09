@@ -16,6 +16,11 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Si\SendResponse::class)
                 ]
             ),
+            'single' => RouteConfig::getSingleConfig(
+                [
+                    'GET' => QueryConfig::getConfig(Query\Cases\Si\Si::class),
+                ]
+            ),
             'GET' => QueryConfig::getConfig(Query\Cases\Si\GetList::class),
         ]
     )

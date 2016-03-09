@@ -12,10 +12,17 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
  */
 class Create extends AbstractCommand
 {
-    use FieldType\Cases;
     use FieldType\SiPenaltyType;
     use FieldType\StartDateOptional;
     use FieldType\EndDateOptional;
+
+    /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $si;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -30,6 +37,14 @@ class Create extends AbstractCommand
      * @Transfer\Optional
      */
     protected $reasonNotImposed;
+
+    /**
+     * @return int
+     */
+    public function getSi()
+    {
+        return $this->si;
+    }
 
     /**
      * @return string
