@@ -46,11 +46,16 @@ class UpdateImpounding extends AbstractCommand
     protected $applicationReceiptDate = null;
 
     /**
-     * @Transfer\Optional
-     * @Transfer\Filter({"name":"\Dvsa\Olcs\Transfer\Filter\Vrm"})
-     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\Vrm"})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":1,"max":20}})
      */
     protected $vrm = null;
+
+    /**
+     * @Transfer\Optional()
+     * @Transfer\Validator({"name":"Date","options":{"format":"Y-m-d"}})
+     */
+    public $birthDate;
 
     /**
      * @Transfer\ArrayInput
@@ -343,6 +348,14 @@ class UpdateImpounding extends AbstractCommand
     public function getVrm()
     {
         return $this->vrm;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getBirthDate()
+    {
+        return $this->birthDate;
     }
 
     /**
