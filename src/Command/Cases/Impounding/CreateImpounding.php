@@ -44,12 +44,6 @@ class CreateImpounding extends AbstractCommand
     protected $vrm = null;
 
     /**
-     * @Transfer\Optional()
-     * @Transfer\Validator({"name":"Date","options":{"format":"Y-m-d"}})
-     */
-    public $birthDate;
-
-    /**
      * @Transfer\ArrayInput
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":1,"max":32}})
@@ -310,13 +304,5 @@ class CreateImpounding extends AbstractCommand
     public function getVrm()
     {
         return $this->vrm;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getBirthDate()
-    {
-        return $this->birthDate;
     }
 }
