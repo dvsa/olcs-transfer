@@ -180,6 +180,16 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthContinuationList::class),
                         ]
                     ],
+                    'renew' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'renew[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Irfo\RenewIrfoPsvAuth::class),
+                        ]
+                    ],
                     'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthList::class),
                     'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoPsvAuth::class),
                 ]
