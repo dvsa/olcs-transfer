@@ -28,10 +28,24 @@ final class Merge extends AbstractCommand
     protected $recipientTransportManager;
 
     /**
+     * @Transfer\Filter({"name": "Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $confirm;
+
+    /**
      * @return int
      */
     public function getRecipientTransportManager()
     {
         return $this->recipientTransportManager;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConfirm()
+    {
+        return $this->confirm;
     }
 }
