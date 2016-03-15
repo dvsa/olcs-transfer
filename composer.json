@@ -1,6 +1,15 @@
 {
     "name": "olcs/olcs-transfer",
     "description": "OLCS Transfer",
+    "repositories": [
+        {
+            "packagist": false
+        },
+        {
+            "url": "http://satis.inf.mgt.mtpdvsa",
+            "type": "composer"
+        }
+    ],
     "require": {
         "php": ">=5.4",
         "zendframework/zendframework": "~2.3.5"
@@ -14,7 +23,8 @@
         "preferred-install": "dist",
         "github-oauth": {
             "github.com": "9d28c36d14775b5d8c4a5ffeee6172eecbd8c9f4"
-        }
+        },
+        "secure-http" : false
     },
     "autoload": {
         "psr-4": {
