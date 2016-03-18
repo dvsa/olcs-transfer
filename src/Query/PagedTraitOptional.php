@@ -21,7 +21,7 @@ trait PagedTraitOptional
      * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0, "max": 100}})
+     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 1, "max": 100}})
      */
     protected $limit;
 
