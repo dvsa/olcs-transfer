@@ -22,8 +22,7 @@ final class UpdateUnlicensedOperatorLicenceVehicle extends AbstractCommand
         Version;
 
     /**
-     * @Transfer\Filter({"name":"\Dvsa\Olcs\Transfer\Filter\Vrm"})
-     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\Vrm"})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Optional
      */
     protected $vrm;
