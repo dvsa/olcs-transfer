@@ -20,8 +20,8 @@ final class CreateUnlicensedOperatorLicenceVehicle extends AbstractCommand
     use Organisation;
 
     /**
-     * @Transfer\Filter({"name":"\Dvsa\Olcs\Transfer\Filter\Vrm"})
-     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\Vrm"})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":1,"max":20}})
      * @Transfer\Optional
      */
     protected $vrm;
