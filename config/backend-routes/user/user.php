@@ -38,7 +38,7 @@ return [
                             'DELETE' => CommandConfig::getDeleteConfig(Command\User\DeleteUser::class),
                         ]
                     ),
-                    'GET' => QueryConfig::getConfig(Query\User\UserList::class),
+                    'GET' => QueryConfig::getConfig(Query\User\UserListInternal::class),
                     'POST' => CommandConfig::getPostConfig(Command\User\CreateUser::class),
                 ]
             ],
