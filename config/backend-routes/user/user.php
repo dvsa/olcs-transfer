@@ -42,6 +42,20 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\User\CreateUser::class),
                 ]
             ],
+            /*
+             * This route has been introduced to spefically address OLCS-11676. Ideally all references to the internal
+             * route need to use a single DTO
+             */
+            'internal-only' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'internal-only[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\User\UserListInternal::class),
+                ]
+            ],
             'selfserve' => [
                 'type' => 'Segment',
                 'options' => [
