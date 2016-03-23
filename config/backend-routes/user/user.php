@@ -49,7 +49,7 @@ return [
             'internal-only' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => 'internal[/]',
+                    'route' => 'internal-only[/]',
                 ],
                 'may_terminate' => false,
                 'child_routes' => [

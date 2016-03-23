@@ -9,26 +9,19 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/user/internal")
+ * @Transfer\RouteName("backend/user/internal-only")
  */
 final class UserListInternal extends AbstractQuery implements \Dvsa\Olcs\Transfer\Query\OrderedQueryInterface
 {
     use \Dvsa\Olcs\Transfer\Query\OrderedTrait;
 
     /**
-     * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     */
-    protected $team;
-
-    /**
      * Get team Id
      *
      * @return int
      */
-    public function getTeam()
+    public function getIsInternal()
     {
-        return $this->team;
+        return true;
     }
 }
