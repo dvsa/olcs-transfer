@@ -21,6 +21,12 @@ return [
                     'DELETE' => CommandConfig::getDeleteConfig(Command\Team\DeleteTeam::class),
                 ]
             ),
+            'list-data' => RouteConfig::getRouteConfig(
+                'list-data',
+                [
+                    'GET' => QueryConfig::getConfig(Query\Team\TeamListData::class),
+                ]
+            ),
             'GET' => QueryConfig::getConfig(Query\Team\TeamList::class),
             'POST' => CommandConfig::getPostConfig(Command\Team\CreateTeam::class),
         ]
