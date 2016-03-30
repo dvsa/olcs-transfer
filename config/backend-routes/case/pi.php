@@ -51,6 +51,16 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\Cases\Pi\UpdateDecision::class)
                         ]
                     ],
+                    'tm-decision' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'tm-decision[/]'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Cases\Pi\UpdateTmDecision::class)
+                        ]
+                    ],
                     'reopen' => [
                         'type' => 'Segment',
                         'options' => [
