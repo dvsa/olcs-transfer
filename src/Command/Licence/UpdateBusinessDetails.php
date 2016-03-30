@@ -71,6 +71,13 @@ final class UpdateBusinessDetails extends AbstractCommand
     protected $partial;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Optional
+     */
+    protected $allowEmail;
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -132,5 +139,13 @@ final class UpdateBusinessDetails extends AbstractCommand
     public function getPartial()
     {
         return $this->partial;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllowEmail()
+    {
+        return $this->allowEmail;
     }
 }
