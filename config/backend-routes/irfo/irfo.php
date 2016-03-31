@@ -180,6 +180,17 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuthContinuationList::class),
                         ]
                     ],
+                    'checklist' => RouteConfig::getRouteConfig(
+                        'checklist',
+                        [
+                            'print' => RouteConfig::getRouteConfig(
+                                'print',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\PrintIrfoPsvAuthChecklist::class),
+                                ]
+                            ),
+                        ]
+                    ),
                     'renew' => [
                         'type' => 'Segment',
                         'options' => [
