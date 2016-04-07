@@ -17,7 +17,7 @@ use Dvsa\Olcs\Transfer\FieldType;
  */
 final class CurtailLicence extends AbstractCommand
 {
-    use FieldType\Traits\ReasonsOptional;
+    use FieldType\Traits\DecisionsOptional;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})

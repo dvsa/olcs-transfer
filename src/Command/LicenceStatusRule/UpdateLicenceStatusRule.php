@@ -15,7 +15,7 @@ use Dvsa\Olcs\Transfer\FieldType;
  */
 final class UpdateLicenceStatusRule extends AbstractCommand
 {
-    use FieldType\Traits\ReasonsOptional;
+    use FieldType\Traits\DecisionsOptional;
 
     /**
      * @var int

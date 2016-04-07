@@ -17,7 +17,7 @@ use Dvsa\Olcs\Transfer\FieldType;
  */
 final class SurrenderLicence extends AbstractCommand
 {
-    use FieldType\Traits\ReasonsOptional;
+    use FieldType\Traits\DecisionsOptional;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})

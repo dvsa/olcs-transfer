@@ -2,12 +2,12 @@
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
- * Trait ReasonsOptional
+ * Trait DecisionsOptional
  *
  * @package Dvsa\Olcs\Transfer\Command\Traits\FieldType
  * @author Valtech <uk@valtech.co.uk>
  */
-trait ReasonsOptional
+trait DecisionsOptional
 {
     /**
      * @Transfer\Optional()
@@ -18,14 +18,13 @@ trait ReasonsOptional
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $reasons;
-
+    protected $decisions;
 
     /**
      * @return array
      */
-    public function getReasons()
+    public function getDecisions()
     {
-        return $this->reasons;
+        return $this->decisions;
     }
 }
