@@ -12,7 +12,7 @@ trait IsNiOptional
     /**
      * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
      */
     protected $isNi;
 
