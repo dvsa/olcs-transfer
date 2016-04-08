@@ -47,7 +47,7 @@ final class CreateNewUser extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max": 40}})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Username"})
      * @Transfer\Optional
      */
     public $username;

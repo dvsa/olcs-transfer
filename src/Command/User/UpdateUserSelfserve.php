@@ -33,7 +33,7 @@ final class UpdateUserSelfserve extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":2, "max":40}})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Username"})
      */
     protected $loginId;
 
