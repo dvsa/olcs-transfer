@@ -5,7 +5,7 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
  * Is Ni Optional
  *
  * @package Dvsa\Olcs\Transfer\Command\Traits\FieldType
- * @author Valtech <uk@valtech.co.uk>
+ * @author Shaun Lizzio <shaun@lizzio.co.uk>
  */
 trait IsNiOptional
 {
