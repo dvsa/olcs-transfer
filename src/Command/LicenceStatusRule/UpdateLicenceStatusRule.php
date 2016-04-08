@@ -7,6 +7,7 @@ namespace Dvsa\Olcs\Transfer\Command\LicenceStatusRule;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType;
 
 /**
  * @Transfer\RouteName("backend/licence-status-rule/single")
@@ -14,6 +15,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateLicenceStatusRule extends AbstractCommand
 {
+    use FieldType\Traits\DecisionsOptional;
+
     /**
      * @var int
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
