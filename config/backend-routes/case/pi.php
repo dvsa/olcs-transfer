@@ -102,6 +102,12 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Cases\Pi\CreateHearing::class)
                 ],
             ],
+            'report' => RouteConfig::getRouteConfig(
+                'report',
+                [
+                    'GET' => QueryConfig::getConfig(Query\Cases\Pi\ReportList::class),
+                ]
+            ),
             'POST' => CommandConfig::getPostConfig(Command\Cases\Pi\CreateAgreedAndLegislation::class)
         ],
     ]
