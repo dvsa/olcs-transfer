@@ -22,7 +22,8 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Task\TaskDetails::class),
                         ]
                     )
-                ]
+                ],
+                '[0-9]+'
             ),
             'close' => RouteConfig::getRouteConfig(
                 'close',
