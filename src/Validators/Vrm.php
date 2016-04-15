@@ -22,7 +22,7 @@ class Vrm extends AbstractValidator
      * @var array
      */
     protected $messageTemplates = array(
-        'invalid' => 'Invalid Vehicle Registration Mark'
+        'invalid' => 'error.vrm.invalid'
     );
 
     /**
