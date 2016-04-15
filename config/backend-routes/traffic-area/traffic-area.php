@@ -15,6 +15,9 @@ return [
         'may_terminate' => false,
         'child_routes' => [
             'GET' => QueryConfig::getConfig(Query\TrafficArea\TrafficAreaList::class),
+            'single' => RouteConfig::getSingleConfig(
+                ['GET' => QueryConfig::getConfig(Query\TrafficArea\Get::class)]
+            ),
         ]
     ],
 ];
