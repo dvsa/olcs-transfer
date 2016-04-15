@@ -22,7 +22,7 @@ class Money extends AbstractValidator
      * @var array
      */
     protected $messageTemplates = array(
-        'invalid' => 'Invalid amount'
+        'invalid' => 'money-element-invalid'
     );
 
     /**
