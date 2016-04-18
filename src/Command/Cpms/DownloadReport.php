@@ -36,6 +36,14 @@ final class DownloadReport extends AbstractCommand
     protected $filename;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    protected $user;
+
+    /**
      * Gets the value of reference.
      *
      * @return mixed
@@ -63,5 +71,13 @@ final class DownloadReport extends AbstractCommand
     public function getFilename()
     {
         return $this->filename;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
