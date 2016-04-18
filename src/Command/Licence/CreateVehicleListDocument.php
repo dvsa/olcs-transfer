@@ -27,10 +27,25 @@ final class CreateVehicleListDocument extends AbstractCommand
     protected $type;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Optional
+     */
+    protected $user;
+
+    /**
      * @return mixed
      */
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
