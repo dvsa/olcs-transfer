@@ -134,6 +134,14 @@ final class CreateDocument extends AbstractCommand
     protected $issuedDate;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    protected $user;
+
+    /**
      * @return mixed
      */
     public function getFilename()
@@ -251,5 +259,13 @@ final class CreateDocument extends AbstractCommand
     public function getIssuedDate()
     {
         return $this->issuedDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
