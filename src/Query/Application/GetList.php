@@ -9,13 +9,17 @@ namespace Dvsa\Olcs\Transfer\Query\Application;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
+use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
+use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
+use Dvsa\Olcs\Transfer\Query\OrderedTraitOptional;
+use Dvsa\Olcs\Transfer\Query\PagedTrait;
 
 /**
  * @Transfer\RouteName("backend/application")
  */
-final class GetList extends AbstractQuery implements \Dvsa\Olcs\Transfer\Query\OrderedQueryInterface
+final class GetList extends AbstractQuery implements OrderedQueryInterface, PagedQueryInterface
 {
-    use \Dvsa\Olcs\Transfer\Query\OrderedTraitOptional;
+    use OrderedTraitOptional, PagedTrait;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
