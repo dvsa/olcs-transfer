@@ -35,6 +35,7 @@ class SearchViewList extends AbstractQuery implements PagedQueryInterface, Order
     {
         return $this->licId;
     }
+
     /**
      * @var String
      * @Transfer\Optional

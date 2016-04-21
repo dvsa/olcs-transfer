@@ -1411,6 +1411,16 @@ $routes = [
                     'GET' => QueryConfig::getConfig(Query\Bus\SearchViewList::class)
                 ]
             ],
+            'bus-reg-list' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'bus-reg-list[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Bus\BusRegList::class)
+                ]
+            ],
             'change-of-entity' => [
                 'type' => 'Segment',
                 'options' => [
