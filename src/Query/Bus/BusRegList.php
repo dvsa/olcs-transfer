@@ -23,20 +23,16 @@ class BusRegList extends AbstractQuery implements PagedQueryInterface, OrderedQu
     /**
      * @var int
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    protected $licId;
+    protected $licNo;
 
     /**
      * @var int
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    protected $organisationId;
+    protected $organisationName;
 
     /**
      * @var String
@@ -52,29 +48,30 @@ class BusRegList extends AbstractQuery implements PagedQueryInterface, OrderedQu
      *     }
      * })
      */
-    protected $busRegStatusId;
+    protected $status;
 
     /**
      * @return int
      */
-    public function getLicId()
+    public function getLicNo()
     {
-        return $this->licId;
+        return $this->licNo;
     }
 
     /**
      * @return int
      */
-    public function getOrganisationId()
+    public function getOrganisationName()
     {
-        return $this->organisationId;
+        return $this->organisationName;
     }
 
     /**
      * @return String
      */
-    public function getBusRegStatusId()
+    public function getStatus()
     {
-        return $this->busRegStatusId;
+        return $this->status;
     }
+
 }
