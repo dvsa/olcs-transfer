@@ -73,5 +73,4 @@ class BusRegList extends AbstractQuery implements PagedQueryInterface, OrderedQu
     {
         return $this->status;
     }
-
 }
