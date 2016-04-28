@@ -23,16 +23,20 @@ class BusRegSearchViewList extends AbstractQuery implements PagedQueryInterface,
     /**
      * @var int
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $licNo;
+    protected $licId;
 
     /**
      * @var int
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $organisationName;
+    protected $organisationId;
 
     /**
      * @var String
@@ -48,29 +52,39 @@ class BusRegSearchViewList extends AbstractQuery implements PagedQueryInterface,
      *     }
      * })
      */
-    protected $status;
+    protected $busRegStatus;
 
     /**
      * @return int
      */
-    public function getLicNo()
+    public function getLicId()
     {
-        return $this->licNo;
+        return $this->licId;
     }
 
     /**
      * @return int
      */
-    public function getOrganisationName()
+    public function getOrganisationId()
     {
-        return $this->organisationName;
+        return $this->organisationId;
+    }
+
+    /**
+     * Setter required to apply default Organisation ID for Operator queries.
+     *
+     * @param int $organisationId
+     */
+    public function setOrganisationId($organisationId)
+    {
+        $this->organisationId = $organisationId;
     }
 
     /**
      * @return String
      */
-    public function getStatus()
+    public function getBusRegStatus()
     {
-        return $this->status;
+        return $this->busRegStatus;
     }
 }

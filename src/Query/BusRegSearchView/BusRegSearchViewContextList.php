@@ -21,7 +21,7 @@ class BusRegSearchViewContextList extends AbstractQuery implements OrderedQueryI
      *      "name":"Zend\Validator\InArray",
      *      "options": {
      *          "haystack": {
-     *              "organisationName","licNo","busRegStatusId"
+     *              "organisation","licence","busRegStatus"
      *          }
      *      }
      * })
