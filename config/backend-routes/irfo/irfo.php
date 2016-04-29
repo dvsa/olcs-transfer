@@ -218,6 +218,12 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+                    'issued' => RouteConfig::getRouteConfig(
+                        'issued',
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\Irfo\UpdateIrfoPermitStockIssued::class),
+                        ]
+                    ),
                     'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPermitStockList::class),
                     'POST' => CommandConfig::getPostConfig(Command\Irfo\CreateIrfoPermitStock::class),
                     'PUT' => CommandConfig::getPutConfig(Command\Irfo\UpdateIrfoPermitStock::class),
