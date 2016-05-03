@@ -51,6 +51,12 @@ return [
                                     'PUT' => CommandConfig::getPutConfig(Command\Irfo\ApproveIrfoGvPermit::class),
                                 ]
                             ],
+                            'generate' => RouteConfig::getRouteConfig(
+                                'generate',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\GenerateIrfoGvPermit::class),
+                                ]
+                            ),
                             'withdraw' => [
                                 'type' => 'Segment',
                                 'options' => [
