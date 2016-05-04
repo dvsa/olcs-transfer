@@ -104,6 +104,12 @@ return [
                         [
                             'GET' => QueryConfig::getConfig(Query\Irfo\IrfoPsvAuth::class),
                             'PUT' => CommandConfig::getPutConfig(Command\Irfo\UpdateIrfoPsvAuth::class),
+                            'generate' => RouteConfig::getRouteConfig(
+                                'generate',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Irfo\GenerateIrfoPsvAuth::class),
+                                ]
+                            ),
                             'grant' => [
                                 'type' => 'Segment',
                                 'options' => [
