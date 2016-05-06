@@ -6,7 +6,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * @Transfer\RouteName("backend/system-info-message")
+ * @Transfer\RouteName("backend/system-info-message/single")
  * @Transfer\Method("PUT")
  */
 class Update extends Create
