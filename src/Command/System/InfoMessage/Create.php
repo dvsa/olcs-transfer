@@ -41,7 +41,7 @@ class Create extends AbstractCommand
      */
     public function isInternal()
     {
-        return ($this->isInternal === 'Y');
+        return $this->isInternal;
     }
 
     /**
