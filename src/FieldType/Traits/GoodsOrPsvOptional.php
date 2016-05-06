@@ -3,18 +3,21 @@
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
- * Goods or PSV Optional
+ * Goods or PSV Optional.
+ * Null allowed as a string to prevent returning both goods AND psv options in filter
+ *
  */
 trait GoodsOrPsvOptional
 {
     /**
      * @var String
+     *
      * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator(
      *  {
      *      "name":"Zend\Validator\InArray",
-     *      "options": {"haystack": {"lcat_gv","lcat_psv"}}
+     *      "options": {"haystack": {"lcat_gv","lcat_psv", "NULL"}}
      *  }
      * )
      */
