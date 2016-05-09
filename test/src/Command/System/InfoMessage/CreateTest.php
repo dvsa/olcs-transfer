@@ -26,6 +26,6 @@ class CreateTest extends PHPUnit_Framework_TestCase
         static::assertEquals('unit_Desc', $command->getDescription());
         static::assertEquals($startDate, $command->getStartDate());
         static::assertEquals($endDate, $command->getEndDate());
-        static::assertEquals(true, $command->isInternal());
+        static::assertEquals('Y', $command->getIsInternal());
     }
 }
