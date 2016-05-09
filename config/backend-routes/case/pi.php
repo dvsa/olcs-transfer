@@ -82,7 +82,7 @@ return [
                         'child_routes' => [
                             'PUT' => CommandConfig::getPutConfig(Command\Cases\Pi\UpdateSla::class)
                         ]
-                    ]
+                    ],
                 ]
             ),
             'hearing' =>         [
@@ -108,6 +108,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Cases\Pi\ReportList::class),
                 ]
             ),
+            'definition' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'definition[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Cases\Pi\PiDefinitionList::class)
+                ]
+            ],
             'POST' => CommandConfig::getPostConfig(Command\Cases\Pi\CreateAgreedAndLegislation::class)
         ],
     ]
