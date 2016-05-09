@@ -17,4 +17,19 @@ class ReasonList extends AbstractQuery implements OrderedQueryInterface
     use OrderedTrait;
     use FieldType\GoodsOrPsvOptional;
     use FieldType\IsNiOptional;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     */
+    protected $isProposeToRevoke;
+
+    /**
+     * @return string
+     */
+    public function getIsProposeToRevoke()
+    {
+        return $this->isProposeToRevoke;
+    }
 }
