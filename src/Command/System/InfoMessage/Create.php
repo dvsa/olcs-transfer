@@ -39,7 +39,7 @@ class Create extends AbstractCommand
     /**
      * @return boolean
      */
-    public function isInternal()
+    public function getIsInternal()
     {
         return $this->isInternal;
     }
