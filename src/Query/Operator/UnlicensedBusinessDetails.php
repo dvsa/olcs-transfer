@@ -9,13 +9,13 @@ namespace Dvsa\Olcs\Transfer\Query\Operator;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\CachableQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @Transfer\RouteName("backend/operator-unlicensed/single")
  */
-class UnlicensedBusinessDetails extends AbstractQuery implements CachableQueryInterface
+class UnlicensedBusinessDetails extends AbstractQuery implements CachableShortTermQueryInterface
 {
     use Identity;
 }

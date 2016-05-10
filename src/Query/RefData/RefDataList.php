@@ -9,11 +9,12 @@ namespace Dvsa\Olcs\Transfer\Query\RefData;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
+use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/ref-data")
  */
-class RefDataList extends AbstractQuery
+class RefDataList extends AbstractQuery implements CachableMediumTermQueryInterface
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

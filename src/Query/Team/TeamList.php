@@ -13,11 +13,15 @@ use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
+use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/team")
  */
-final class TeamList extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
+final class TeamList extends AbstractQuery implements
+    PagedQueryInterface,
+    OrderedQueryInterface,
+    CachableMediumTermQueryInterface
 {
     use PagedTrait;
     use OrderedTrait;
