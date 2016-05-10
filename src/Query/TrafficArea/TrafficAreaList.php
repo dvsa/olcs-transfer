@@ -11,11 +11,14 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
+use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/traffic-area")
  */
-final class TrafficAreaList extends AbstractQuery implements OrderedQueryInterface
+final class TrafficAreaList extends AbstractQuery implements
+    OrderedQueryInterface,
+    CachableMediumTermQueryInterface
 {
     use OrderedTrait;
 }

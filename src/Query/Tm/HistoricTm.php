@@ -9,12 +9,12 @@ namespace Dvsa\Olcs\Transfer\Query\Tm;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\CachableQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/historic-tm/single")
  */
-class HistoricTm extends AbstractQuery implements CachableQueryInterface
+class HistoricTm extends AbstractQuery implements CachableShortTermQueryInterface
 {
     /**
      * @var int

@@ -9,12 +9,12 @@ namespace Dvsa\Olcs\Transfer\Query\Licence;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\CachableQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/licence/single/markers")
  */
-class Markers extends AbstractQuery implements CachableQueryInterface
+class Markers extends AbstractQuery implements CachableShortTermQueryInterface
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})

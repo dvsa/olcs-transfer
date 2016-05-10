@@ -9,11 +9,14 @@ namespace Dvsa\Olcs\Transfer\Query\DocTemplate;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
+use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/doc-template")
  */
-class GetList extends AbstractQuery implements \Dvsa\Olcs\Transfer\Query\OrderedQueryInterface
+class GetList extends AbstractQuery implements
+    \Dvsa\Olcs\Transfer\Query\OrderedQueryInterface,
+    CachableMediumTermQueryInterface
 {
     use \Dvsa\Olcs\Transfer\Query\OrderedTraitOptional;
 

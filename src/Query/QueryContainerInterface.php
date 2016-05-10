@@ -21,7 +21,9 @@ interface QueryContainerInterface
 
     public function getInputFilter();
 
-    public function isCachable();
+    public function isShortTermCachable();
+
+    public function isMediumTermCachable();
 
     public function getCacheIdentifier();
 

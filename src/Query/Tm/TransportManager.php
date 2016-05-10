@@ -10,12 +10,12 @@ namespace Dvsa\Olcs\Transfer\Query\Tm;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\CachableQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/transport-manager/single")
  */
-class TransportManager extends AbstractQuery implements CachableQueryInterface
+class TransportManager extends AbstractQuery implements CachableShortTermQueryInterface
 {
     use Identity;
 }

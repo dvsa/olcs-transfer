@@ -41,17 +41,37 @@ class QueryContainer implements QueryContainerInterface
         return $this->inputFilter;
     }
 
-    public function isCachable()
+    /**
+     * Can the DTO be cached for short term
+     *
+     * @return bool
+     */
+    public function isShortTermCachable()
     {
-        return ($this->dto instanceof CachableQueryInterface);
+        return ($this->dto instanceof CachableShortTermQueryInterface);
     }
 
+    /**
+     * Can the DTO be cached for medium term
+     *
+     * @return bool
+     */
+    public function isMediumTermCachable()
+    {
+        return ($this->dto instanceof CachableMediumTermQueryInterface);
+    }
+
+    /**
+     * Get the identifier used to cache the DTO with
+     *
+     * @return string
+     */
     public function getCacheIdentifier()
     {
         $dtoClassName = get_class($this->dto);
         $jsonData = json_encode($this->dto->getArrayCopy());
 
-        return $dtoClassName . '-' . $jsonData;
+        return md5($dtoClassName . '-' . $jsonData);
     }
 
     public function setDto(QueryInterface $dto)
