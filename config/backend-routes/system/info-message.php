@@ -23,6 +23,12 @@ return [
             ),
             'GET' => QueryConfig::getConfig(Query\System\InfoMessage\GetList::class),
             'POST' => CommandConfig::getPostConfig(Command\System\InfoMessage\Create::class),
+            'active' => RouteConfig::getRouteConfig(
+                'active',
+                [
+                    'GET' => QueryConfig::getConfig(Query\System\InfoMessage\GetListActive::class),
+                ]
+            ),
         ],
     ],
 ];
