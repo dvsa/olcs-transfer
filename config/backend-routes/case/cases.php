@@ -112,6 +112,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Cases\ByLicence::class)
                 ]
             ],
+            'by-application' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'by-application[/]'
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Cases\ByApplication::class)
+                ]
+            ],
         ]
     ]
 ];
