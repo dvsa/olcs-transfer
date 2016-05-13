@@ -2,7 +2,8 @@
 
 /**
  * Create Task
- *
+ * 
+ * @todo remove after task allocation rules will be tested (OLCS-6844 & OLCS-12638)
  * @author Rob Caiger <rob@clocal.co.uk>
  */
 namespace Dvsa\Olcs\Transfer\Command\Task;
