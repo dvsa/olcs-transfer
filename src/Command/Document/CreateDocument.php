@@ -120,13 +120,6 @@ final class CreateDocument extends AbstractCommand
     protected $isExternal;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
-     * @Transfer\Optional
-     */
-    protected $isReadOnly;
-
-    /**
      * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
      * @Transfer\Optional
      */
@@ -240,14 +233,6 @@ final class CreateDocument extends AbstractCommand
     public function getIsExternal()
     {
         return $this->isExternal;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIsReadOnly()
-    {
-        return $this->isReadOnly;
     }
 
     /**
