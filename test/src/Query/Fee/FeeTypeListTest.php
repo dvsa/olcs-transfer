@@ -20,8 +20,11 @@ class FeeTypeListTest extends PHPUnit_Framework_TestCase
                 'organisation' => 14,
                 'isMiscellaneous' => 1,
                 'effectiveDate' => '2015-10-23',
+                'currentFeeType' => 123
             ]
         );
+
+        $this->assertEquals(123, $query->getCurrentFeeType());
 
         $this->assertEquals(
             [
@@ -31,6 +34,7 @@ class FeeTypeListTest extends PHPUnit_Framework_TestCase
                 'organisation' => 14,
                 'isMiscellaneous' => 1,
                 'effectiveDate' => '2015-10-23',
+                'currentFeeType' => 123
             ],
             $query->getArrayCopy()
         );

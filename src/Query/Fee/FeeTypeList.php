@@ -37,6 +37,12 @@ class FeeTypeList extends AbstractQuery implements FieldType\ApplicationInterfac
     protected $effectiveDate;
 
     /**
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 1}})
+     * @Transfer\Optional
+     */
+    protected $currentFeeType;
+
+    /**
      * @return int
      */
     public function getIsMiscellaneous()
@@ -52,5 +58,15 @@ class FeeTypeList extends AbstractQuery implements FieldType\ApplicationInterfac
     public function getEffectiveDate()
     {
         return $this->effectiveDate;
+    }
+
+    /**
+     * Gets the value of current fee type
+     *
+     * @return int
+     */
+    public function getCurrentFeeType()
+    {
+        return $this->currentFeeType;
     }
 }
