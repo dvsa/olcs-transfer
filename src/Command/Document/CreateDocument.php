@@ -109,6 +109,7 @@ final class CreateDocument extends AbstractCommand
      * })
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":2, "max":255}})
+     * @Transfer\Optional
      */
     protected $description;
 
