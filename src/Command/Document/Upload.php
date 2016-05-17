@@ -100,6 +100,7 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
      *     "options": {"pattern": "/[^a-zA-Z0-9\-\_\.]+/", "replacement": ""}
      * })
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":2, "max":255}})
      * @Transfer\Optional
      */
     protected $description;

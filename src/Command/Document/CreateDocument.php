@@ -103,8 +103,12 @@ final class CreateDocument extends AbstractCommand
     protected $subCategory;
 
     /**
+     * @Transfer\Filter({
+     *     "name":"Zend\Filter\PregReplace",
+     *     "options": {"pattern": "/[^a-zA-Z0-9\-\_\.]+/", "replacement": ""}
+     * })
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Optional
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":2, "max":255}})
      */
     protected $description;
 
