@@ -37,7 +37,7 @@ class FeeTypeList extends AbstractQuery implements FieldType\ApplicationInterfac
     protected $effectiveDate;
 
     /**
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 1}})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 1, "inclusive": true}})
      * @Transfer\Optional
      */
     protected $currentFeeType;
