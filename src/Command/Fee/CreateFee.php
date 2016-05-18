@@ -64,6 +64,14 @@ class CreateFee extends AbstractCommand implements FieldType\ApplicationInterfac
     protected $feeStatus = 'lfs_ot';
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 1,"inclusive": true}})
+     */
+    protected $quantity;
+
+    /**
      * @return mixed
      */
     public function getAmount()
@@ -101,5 +109,13 @@ class CreateFee extends AbstractCommand implements FieldType\ApplicationInterfac
     public function getFeeStatus()
     {
         return $this->feeStatus;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getQuantity()
+    {
+        return $this->quantity;
     }
 }
