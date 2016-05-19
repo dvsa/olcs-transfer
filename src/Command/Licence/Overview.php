@@ -32,7 +32,7 @@ final class Overview extends AbstractCommand
      */
     protected $version;
 
-    /*
+    /**
      * @Transfer\Optional
      */
     protected $leadTcArea;
