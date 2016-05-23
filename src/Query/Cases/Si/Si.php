@@ -13,7 +13,7 @@ use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/si/single")
+ * @Transfer\RouteName("backend/case-si/single")
  */
 class Si extends AbstractQuery implements CachableShortTermQueryInterface
 {

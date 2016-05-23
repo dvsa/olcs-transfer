@@ -7,7 +7,7 @@ use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
 
 return [
-    'si' => RouteConfig::getRouteConfig(
+    'case-si' => RouteConfig::getRouteConfig(
         'case/si',
         [
             'send-response' => RouteConfig::getRouteConfig(
@@ -19,9 +19,13 @@ return [
             'single' => RouteConfig::getSingleConfig(
                 [
                     'GET' => QueryConfig::getConfig(Query\Cases\Si\Si::class),
-                ]
+                    'PUT' => CommandConfig::getPutConfig(Command\Cases\Si\UpdateSi::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\Cases\Si\DeleteSi::class),
+                ],
+                '[0-9]+'
             ),
-            'GET' => QueryConfig::getConfig(Query\Cases\Si\GetList::class),
+            'GET' => QueryConfig::getConfig(Query\Cases\Si\SiList::class),
+            'POST' => CommandConfig::getPostConfig(Command\Cases\Si\CreateSi::class),
         ]
     )
 ];
