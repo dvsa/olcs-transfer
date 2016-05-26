@@ -22,7 +22,7 @@ class EmailAddress extends AbstractValidator
     /**
      * Should be consistent across the application, see OLCS-9884
      */
-    const EMAIL_ADDRESS_MAX_LENGTH = 60;
+    const EMAIL_ADDRESS_MAX_LENGTH = 254;
     const INVALID            = 'emailAddressInvalid';
     const INVALID_FORMAT     = 'emailAddressInvalidFormat';
     const ERROR_INVALID      = 'emailAddressLengthNotInRange';
