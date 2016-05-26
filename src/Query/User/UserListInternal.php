@@ -16,6 +16,13 @@ final class UserListInternal extends AbstractQuery implements \Dvsa\Olcs\Transfe
     use \Dvsa\Olcs\Transfer\Query\OrderedTrait;
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     */
+    protected $team;
+
+    /**
      * Get team Id
      *
      * @return int
@@ -23,5 +30,15 @@ final class UserListInternal extends AbstractQuery implements \Dvsa\Olcs\Transfe
     public function getIsInternal()
     {
         return true;
+    }
+
+    /**
+     * Get team Id
+     *
+     * @return int
+     */
+    public function getTeam()
+    {
+        return $this->team;
     }
 }
