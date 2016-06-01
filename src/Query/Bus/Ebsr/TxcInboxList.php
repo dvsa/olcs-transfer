@@ -44,7 +44,7 @@ class TxcInboxList extends AbstractQuery implements PagedQueryInterface, Ordered
      *          "haystack": {
      *              "ebsrs_expired", "ebsrs_expiring", "ebsrs_processed", "ebsrs_published", "ebsrs_expiring",
      * "ebsrs_validated", "ebsrs_processing", "ebsrs_publishing", "ebsrs_submitted", "ebsrs_submitting",
-     * "ebsrs_validating",  "ebsrs_distributed", "ebsrs_distributing"
+     * "ebsrs_validating",  "ebsrs_distributed", "ebsrs_distributing", "ebsrs_failed", "ebsrs_uploaded"
      *          }
      *      }
      * })
