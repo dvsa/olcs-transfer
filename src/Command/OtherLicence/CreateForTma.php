@@ -49,8 +49,7 @@ final class CreateForTma extends AbstractCommand
     protected $totalAuthVehicles;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $hoursPerWeek;
