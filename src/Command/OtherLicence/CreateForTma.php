@@ -51,6 +51,7 @@ final class CreateForTma extends AbstractCommand
     /**
      * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator({"name":"Zend\Validator\LessThan", "options": {"max": 99.9,"inclusive":true}})
      */
     protected $hoursPerWeek;
 
