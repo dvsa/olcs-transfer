@@ -91,7 +91,8 @@ class UpdateInterim extends AbstractCommand
      *             "int_sts_in_force",
      *             "int_sts_refused",
      *             "int_sts_revoked",
-     *             "int_sts_granted"
+     *             "int_sts_granted",
+     *             "int_sts_ended"
      *         }
      *     }
      * })
