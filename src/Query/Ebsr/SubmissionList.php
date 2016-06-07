@@ -51,7 +51,9 @@ class SubmissionList extends AbstractQuery implements PagedQueryInterface, Order
      *              "ebsrs_submitted",
      *              "ebsrs_submitting",
      *              "ebsrs_validated",
-     *              "ebsrs_validating"
+     *              "ebsrs_validating",
+     *              "ebsrs_failed",
+     *              "ebsrs_uploaded"
      *          }
      *      }
      *  }

@@ -196,16 +196,22 @@ return [
                 ],
                 '[0-9]+'
             ),
-            'process-ebsr-packs' => [
+            'queue-ebsr-packs' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => 'process-packs[/]',
+                    'route' => 'queue-ebsr-packs[/]',
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'POST' => CommandConfig::getPostConfig(Command\Bus\Ebsr\ProcessPacks::class),
+                    'POST' => CommandConfig::getPostConfig(Command\Bus\Ebsr\QueuePacks::class),
                 ]
             ],
+            'organisation-unprocessed-ebsr-list' => RouteConfig::getRouteConfig(
+                'organisation-unprocessed-ebsr-list',
+                [
+                    'GET' => QueryConfig::getConfig(Query\Bus\Ebsr\OrganisationUnprocessedList::class),
+                ]
+            ),
             'notice-period-list' => RouteConfig::getRouteConfig(
                 'notice-period-list',
                 [

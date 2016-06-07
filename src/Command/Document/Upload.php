@@ -118,6 +118,12 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     protected $isScan = 0;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $isEbsrPack = 0;
+
+    /**
      * @Transfer\Filter({"name":"Zend\Filter\DateTimeFormatter"})
      * @Transfer\Optional
      */
@@ -225,6 +231,14 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     public function getIsScan()
     {
         return $this->isScan;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getIsEbsrPack()
+    {
+        return $this->isEbsrPack;
     }
 
     /**
