@@ -446,7 +446,7 @@ $routes = [
                                 ]
                             ),
                             'cancel-schedule-41' => RouteConfig::getRouteConfig(
-                                'refuse-schedule-41',
+                                'cancel-schedule-41',
                                 [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\Schedule41Cancel::class)
                                 ]
