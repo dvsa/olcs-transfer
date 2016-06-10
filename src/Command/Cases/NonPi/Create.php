@@ -56,6 +56,7 @@ class Create extends AbstractCommand implements FieldType\CasesInterface
      *     "name":"Zend\Validator\InArray",
      *     "options": {
      *          "haystack": {
+     *              "non_pio_con",
      *              "non_pio_nfa",
      *              "non_pio_other",
      *              "non_pio_ph",
@@ -69,7 +70,9 @@ class Create extends AbstractCommand implements FieldType\CasesInterface
     protected $outcome;
 
     /**
-     * @return mixed
+     * Get agreedByTc date
+     *
+     * @return string
      */
     public function getAgreedByTcDate()
     {
@@ -77,7 +80,9 @@ class Create extends AbstractCommand implements FieldType\CasesInterface
     }
 
     /**
-     * @return mixed
+     * Get hearing date
+     *
+     * @return string
      */
     public function getHearingDate()
     {
@@ -85,6 +90,8 @@ class Create extends AbstractCommand implements FieldType\CasesInterface
     }
 
     /**
+     * Get venue other
+     *
      * @return string
      */
     public function getVenueOther()
@@ -93,6 +100,8 @@ class Create extends AbstractCommand implements FieldType\CasesInterface
     }
 
     /**
+     * Get witness count
+     *
      * @return int
      */
     public function getWitnessCount()
@@ -101,7 +110,9 @@ class Create extends AbstractCommand implements FieldType\CasesInterface
     }
 
     /**
-     * @return mixed
+     * Get outcome
+     *
+     * @return string
      */
     public function getOutcome()
     {
