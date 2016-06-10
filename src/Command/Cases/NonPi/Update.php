@@ -64,6 +64,7 @@ class Update extends AbstractCommand implements
      *     "name":"Zend\Validator\InArray",
      *     "options": {
      *          "haystack": {
+     *              "non_pio_con",
      *              "non_pio_nfa",
      *              "non_pio_other",
      *              "non_pio_ph",
@@ -77,7 +78,9 @@ class Update extends AbstractCommand implements
     protected $outcome;
 
     /**
-     * @return mixed
+     * Get agreedByTc date
+     *
+     * @return string
      */
     public function getAgreedByTcDate()
     {
@@ -85,7 +88,9 @@ class Update extends AbstractCommand implements
     }
 
     /**
-     * @return mixed
+     * Get hearing date
+     *
+     * @return string
      */
     public function getHearingDate()
     {
@@ -93,6 +98,8 @@ class Update extends AbstractCommand implements
     }
 
     /**
+     * Get venue other
+     *
      * @return string
      */
     public function getVenueOther()
@@ -101,6 +108,8 @@ class Update extends AbstractCommand implements
     }
 
     /**
+     * Get witness count
+     *
      * @return int
      */
     public function getWitnessCount()
@@ -109,7 +118,9 @@ class Update extends AbstractCommand implements
     }
 
     /**
-     * @return mixed
+     * Get outcome
+     *
+     * @return string
      */
     public function getOutcome()
     {
