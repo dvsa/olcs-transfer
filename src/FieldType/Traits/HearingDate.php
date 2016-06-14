@@ -10,8 +10,9 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait HearingDate
 {
     /**
-     * @var string"
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d H:i:s"}})
+     * @var string
+     * @Transfer\Filter({"name": "Zend\Filter\DateTimeFormatter"})
+     * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
      */
     protected $hearingDate;
 

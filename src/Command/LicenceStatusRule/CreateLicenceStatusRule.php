@@ -33,16 +33,18 @@ final class CreateLicenceStatusRule extends AbstractCommand
     protected $status;
 
     /**
-     * @var \DateTime
+     * @var string
      * @Transfer\Optional
-     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d H:i:s"}})
+     * @Transfer\Filter({"name": "Zend\Filter\DateTimeFormatter"})
+     * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
      */
     protected $startDate;
 
     /**
-     * @var \DateTime
+     * @var string
      * @Transfer\Optional
-     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d H:i:s"}})
+     * @Transfer\Filter({"name": "Zend\Filter\DateTimeFormatter"})
+     * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
      */
     protected $endDate;
 
