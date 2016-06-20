@@ -44,7 +44,7 @@ class GetList extends AbstractQuery
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\ApplicationStatus"})
      */
-    protected $appStatuses;
+    protected $appStatuses = [];
 
     public function getUser()
     {

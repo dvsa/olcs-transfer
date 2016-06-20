@@ -59,7 +59,7 @@ class UpdateEnvironmentalComplaint extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $operatingCentres = null;
+    protected $operatingCentres = [];
 
     /**
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\ContactDetails")

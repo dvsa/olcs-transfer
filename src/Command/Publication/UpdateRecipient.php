@@ -65,7 +65,7 @@ final class UpdateRecipient extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
      */
-    protected $trafficAreas;
+    protected $trafficAreas = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

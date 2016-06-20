@@ -25,7 +25,7 @@ final class UpdateTaAuthority extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":1}})
      * @Transfer\Optional
      */
-    protected $trafficAreas;
+    protected $trafficAreas = [];
 
     /**
      * @Transfer\ArrayInput
@@ -35,7 +35,7 @@ final class UpdateTaAuthority extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
-    protected $localAuthoritys;
+    protected $localAuthoritys = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

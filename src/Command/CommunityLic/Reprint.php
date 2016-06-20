@@ -28,7 +28,7 @@ final class Reprint extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    public $communityLicenceIds;
+    public $communityLicenceIds = [];
 
     public function getLicence()
     {

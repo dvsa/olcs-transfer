@@ -46,7 +46,7 @@ class UpdateDecision extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $decisions;
+    protected $decisions = [];
 
     /**
      * @Transfer\Optional
@@ -95,7 +95,7 @@ class UpdateDecision extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":1,"max":32}})
      * @Transfer\Optional
      */
-    protected $tmDecisions = null;
+    protected $tmDecisions = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

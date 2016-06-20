@@ -54,7 +54,7 @@ class FeeList extends AbstractQuery implements PagedQueryInterface,
     /**
      * @Transfer\ArrayInput
      */
-    protected $ids;
+    protected $ids = [];
 
     /**
      * @return int

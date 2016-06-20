@@ -35,7 +35,7 @@ class CompleteTransaction extends AbstractCommand
      * @Transfer\Optional
      * @Transfer\ArrayInput
      */
-    protected $cpmsData;
+    protected $cpmsData = [];
 
     /**
      * If payment is for an application submission, supply the application id here

@@ -22,7 +22,7 @@ final class Queue extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Optional
      */
-    protected $ids;
+    protected $ids = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

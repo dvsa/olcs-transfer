@@ -50,7 +50,7 @@ class UpdateIrfoPsvAuth extends AbstractCommand
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\IrfoPsvAuthNumber")
      * @Transfer\Optional
      */
-    protected $irfoPsvAuthNumbers;
+    protected $irfoPsvAuthNumbers = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -103,7 +103,7 @@ class UpdateIrfoPsvAuth extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
      * @Transfer\Optional
      */
-    protected $countrys;
+    protected $countrys = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

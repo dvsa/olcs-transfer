@@ -27,7 +27,7 @@ final class Schedule41 extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $operatingCentres;
+    protected $operatingCentres = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

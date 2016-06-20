@@ -17,7 +17,7 @@ trait TrafficAreasOptional
      *          "haystack": {"B","C","D","F","G","H","K","M","N","all"}}
      *      })
      */
-    protected $trafficAreas = null;
+    protected $trafficAreas = [];
 
     /**
      * @return array

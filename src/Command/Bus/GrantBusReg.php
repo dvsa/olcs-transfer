@@ -25,7 +25,7 @@ final class GrantBusReg extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"brvr_route", "brvr_start_end", "brvr_stops", "brvr_timetable"}}})
      * @Transfer\Optional
      */
-    public $variationReasons;
+    public $variationReasons = [];
 
     /**
      * @return array

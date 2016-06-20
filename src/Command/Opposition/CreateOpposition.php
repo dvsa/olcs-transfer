@@ -127,7 +127,7 @@ class CreateOpposition extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $operatingCentres;
+    protected $operatingCentres = [];
 
     /**
      * @Transfer\ArrayInput
@@ -141,7 +141,7 @@ class CreateOpposition extends AbstractCommand
      *  }
      * )
      */
-    protected $grounds = null;
+    protected $grounds = [];
 
     /**
      * @Transfer\Optional()

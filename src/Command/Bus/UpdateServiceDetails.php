@@ -29,7 +29,7 @@ final class UpdateServiceDetails extends AbstractCommand
      * @Transfer\ArrayInput
      * @Transfer\Optional
      */
-    public $otherServices;
+    public $otherServices = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -60,7 +60,7 @@ final class UpdateServiceDetails extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
-    protected $busServiceTypes;
+    protected $busServiceTypes = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
