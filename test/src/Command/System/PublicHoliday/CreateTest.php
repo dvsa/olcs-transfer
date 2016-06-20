@@ -10,7 +10,7 @@ use Dvsa\Olcs\Transfer\Command\System\PublicHoliday\Create as CreateCommand;
  */
 class CreateTest extends \PHPUnit_Framework_TestCase
 {
-    public function test()
+    public function testStructure()
     {
         $holidayDate = new \DateTime();
 
