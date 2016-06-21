@@ -34,7 +34,7 @@ final class UpdateIrfoDetails extends AbstractCommand
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\TradingName")
      * @Transfer\Optional
      */
-    protected $tradingNames;
+    protected $tradingNames = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -49,7 +49,7 @@ final class UpdateIrfoDetails extends AbstractCommand
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\IrfoPartner")
      * @Transfer\Optional
      */
-    protected $irfoPartners;
+    protected $irfoPartners = [];
 
     /**
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\ContactDetails")

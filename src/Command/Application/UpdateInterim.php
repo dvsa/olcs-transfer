@@ -70,7 +70,7 @@ class UpdateInterim extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
-    protected $operatingCentres;
+    protected $operatingCentres = [];
 
     /**
      * @Transfer\ArrayInput
@@ -79,7 +79,7 @@ class UpdateInterim extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
-    protected $vehicles;
+    protected $vehicles = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -108,7 +108,9 @@ class UpdateInterim extends AbstractCommand
     protected $action;
 
     /**
-     * @return mixed
+     * Get requested
+     *
+     * @return string
      */
     public function getRequested()
     {
@@ -116,7 +118,9 @@ class UpdateInterim extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get reason
+     *
+     * @return string
      */
     public function getReason()
     {
@@ -124,7 +128,9 @@ class UpdateInterim extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get start date
+     *
+     * @return string
      */
     public function getStartDate()
     {
@@ -132,7 +138,9 @@ class UpdateInterim extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get end date
+     *
+     * @return string
      */
     public function getEndDate()
     {
@@ -140,7 +148,9 @@ class UpdateInterim extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get auth vehicles
+     *
+     * @return int
      */
     public function getAuthVehicles()
     {
@@ -148,7 +158,9 @@ class UpdateInterim extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get auth trailers
+     *
+     * @return int
      */
     public function getAuthTrailers()
     {
@@ -156,7 +168,9 @@ class UpdateInterim extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get operating centres
+     *
+     * @return array
      */
     public function getOperatingCentres()
     {
@@ -164,7 +178,9 @@ class UpdateInterim extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get vehicles
+     *
+     * @return array
      */
     public function getVehicles()
     {
@@ -172,7 +188,9 @@ class UpdateInterim extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get status
+     *
+     * @return string
      */
     public function getStatus()
     {
@@ -180,7 +198,9 @@ class UpdateInterim extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get action
+     *
+     * @return string
      */
     public function getAction()
     {

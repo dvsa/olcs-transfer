@@ -18,7 +18,7 @@ trait DecisionsOptional
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $decisions;
+    protected $decisions = [];
 
     /**
      * @return array

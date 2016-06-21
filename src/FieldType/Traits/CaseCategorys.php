@@ -13,7 +13,7 @@ trait CaseCategorys
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":1,"max":32}})
      */
-    protected $categorys = null;
+    protected $categorys = [];
 
     /**
      * @return array

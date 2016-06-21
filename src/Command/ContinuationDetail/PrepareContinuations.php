@@ -22,7 +22,7 @@ final class PrepareContinuations extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Optional
      */
-    protected $ids;
+    protected $ids = [];
 
     public function getIds()
     {

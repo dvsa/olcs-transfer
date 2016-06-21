@@ -70,7 +70,7 @@ final class UpdateBusinessDetails extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
      * @Transfer\Optional
      */
-    protected $tradingNames;
+    protected $tradingNames = [];
 
     /**
      * @Transfer\Filter({"name": "Zend\Filter\Boolean"})
@@ -79,7 +79,9 @@ final class UpdateBusinessDetails extends AbstractCommand
     protected $partial;
 
     /**
-     * @return mixed
+     * Get id
+     *
+     * @return int
      */
     public function getId()
     {
@@ -87,7 +89,9 @@ final class UpdateBusinessDetails extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get licence id
+     *
+     * @return int
      */
     public function getLicence()
     {
@@ -95,7 +99,9 @@ final class UpdateBusinessDetails extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get version
+     *
+     * @return int
      */
     public function getVersion()
     {
@@ -103,7 +109,9 @@ final class UpdateBusinessDetails extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get name
+     *
+     * @return string
      */
     public function getName()
     {
@@ -111,7 +119,9 @@ final class UpdateBusinessDetails extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get trading names
+     *
+     * @return array
      */
     public function getTradingNames()
     {
@@ -119,7 +129,9 @@ final class UpdateBusinessDetails extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get nature of business
+     *
+     * @return string
      */
     public function getNatureOfBusiness()
     {
@@ -127,7 +139,9 @@ final class UpdateBusinessDetails extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get company or LLP no
+     *
+     * @return string
      */
     public function getCompanyOrLlpNo()
     {
@@ -135,7 +149,9 @@ final class UpdateBusinessDetails extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get registered address
+     *
+     * @return array
      */
     public function getRegisteredAddress()
     {
@@ -143,7 +159,9 @@ final class UpdateBusinessDetails extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get partial
+     *
+     * @return bool
      */
     public function getPartial()
     {

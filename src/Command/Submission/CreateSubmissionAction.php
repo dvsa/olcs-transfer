@@ -34,7 +34,7 @@ final class CreateSubmissionAction extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min":5,"max":32}})
      */
-    protected $actionTypes;
+    protected $actionTypes = [];
 
     /**
      * @Transfer\ArrayInput
@@ -45,7 +45,7 @@ final class CreateSubmissionAction extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
-    protected $reasons;
+    protected $reasons = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

@@ -62,7 +62,7 @@ final class UpdateBusinessDetails extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
      * @Transfer\Optional
      */
-    protected $tradingNames;
+    protected $tradingNames = [];
 
     /**
      * @Transfer\Filter({"name": "Zend\Filter\Boolean"})

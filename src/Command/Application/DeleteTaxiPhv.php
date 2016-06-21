@@ -29,7 +29,7 @@ final class DeleteTaxiPhv extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $ids;
+    protected $ids = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -68,11 +68,21 @@ final class DeleteTaxiPhv extends AbstractCommand
         return $this->ids;
     }
 
+    /**
+     * Get licence id
+     *
+     * @return int
+     */
     public function getLicence()
     {
         return $this->licence;
     }
 
+    /**
+     * Get LVA
+     *
+     * @return string
+     */
     public function getLva()
     {
         return $this->lva;

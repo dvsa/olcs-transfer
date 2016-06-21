@@ -38,7 +38,7 @@ final class FilterSubmissionSections extends AbstractCommand
      * @Transfer\ArrayInput
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
      */
-    protected $rowsToFilter;
+    protected $rowsToFilter = [];
 
     /**
      * @return mixed

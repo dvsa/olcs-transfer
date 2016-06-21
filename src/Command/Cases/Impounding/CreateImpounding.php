@@ -48,7 +48,7 @@ class CreateImpounding extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":1,"max":32}})
      */
-    protected $impoundingLegislationTypes = null;
+    protected $impoundingLegislationTypes = [];
 
     /**
      * @Transfer\Optional()

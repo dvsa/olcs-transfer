@@ -22,7 +22,7 @@ final class DeleteCompanySubsidiary extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $ids;
+    protected $ids = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})

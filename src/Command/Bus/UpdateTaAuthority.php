@@ -25,7 +25,7 @@ final class UpdateTaAuthority extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":1}})
      * @Transfer\Optional
      */
-    protected $trafficAreas;
+    protected $trafficAreas = [];
 
     /**
      * @Transfer\ArrayInput
@@ -35,7 +35,7 @@ final class UpdateTaAuthority extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
-    protected $localAuthoritys;
+    protected $localAuthoritys = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -45,6 +45,8 @@ final class UpdateTaAuthority extends AbstractCommand
     protected $stoppingArrangements;
 
     /**
+     * Get traffic areas
+     *
      * @return array
      */
     public function getTrafficAreas()
@@ -53,6 +55,8 @@ final class UpdateTaAuthority extends AbstractCommand
     }
 
     /**
+     * get local authorities
+     *
      * @return array
      */
     public function getLocalAuthoritys()
@@ -61,7 +65,9 @@ final class UpdateTaAuthority extends AbstractCommand
     }
 
     /**
-     * @return array
+     * Get stopping arrangements
+     *
+     * @return string
      */
     public function getStoppingArrangements()
     {

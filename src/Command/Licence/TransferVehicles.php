@@ -32,7 +32,7 @@ final class TransferVehicles extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $licenceVehicles;
+    protected $licenceVehicles = [];
 
     /**
      * @return mixed

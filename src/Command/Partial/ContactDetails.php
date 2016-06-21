@@ -60,14 +60,14 @@ class ContactDetails
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\PhoneContact")
      * @Transfer\Optional
      */
-    protected $phoneContacts;
+    protected $phoneContacts = [];
 
     /**
      * @Transfer\ArrayInput
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Person")
      * @Transfer\Optional
      */
-    protected $person;
+    protected $person = [];
 
     /**
      * @return mixed
