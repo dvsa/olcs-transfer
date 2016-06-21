@@ -54,7 +54,7 @@ final class EditSuspension extends AbstractCommand
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    public $reasons;
+    public $reasons = [];
 
     /**
      * Get community licence id

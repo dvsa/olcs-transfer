@@ -26,7 +26,7 @@ final class Stop extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    public $communityLicenceIds;
+    public $communityLicenceIds = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -53,7 +53,7 @@ final class Stop extends AbstractCommand
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    public $reasons;
+    public $reasons = [];
 
     public function getCommunityLicenceIds()
     {
