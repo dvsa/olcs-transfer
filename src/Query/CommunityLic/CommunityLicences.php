@@ -10,9 +10,9 @@ use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 
 /**
  * Class History
- * @Transfer\RouteName("backend/community-lic")
+ * @Transfer\RouteName("backend/community-lic/list")
  */
-class CommunityLic extends AbstractQuery implements OrderedQueryInterface
+class CommunityLicences extends AbstractQuery implements OrderedQueryInterface
 {
     use OrderedTrait,
         LicenceOptional;
@@ -25,6 +25,8 @@ class CommunityLic extends AbstractQuery implements OrderedQueryInterface
     protected $statuses;
 
     /**
+     * Get statuses
+     *
      * @return string
      */
     public function getStatuses()
