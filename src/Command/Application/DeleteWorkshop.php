@@ -32,7 +32,9 @@ final class DeleteWorkshop extends AbstractCommand
     protected $ids = [];
 
     /**
-     * @return mixed
+     * Get application id
+     *
+     * @return int
      */
     public function getApplication()
     {
@@ -40,6 +42,8 @@ final class DeleteWorkshop extends AbstractCommand
     }
 
     /**
+     * Get ids
+     *
      * @return array
      */
     public function getIds()

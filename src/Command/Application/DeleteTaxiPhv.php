@@ -68,11 +68,21 @@ final class DeleteTaxiPhv extends AbstractCommand
         return $this->ids;
     }
 
+    /**
+     * Get licence id
+     *
+     * @return int
+     */
     public function getLicence()
     {
         return $this->licence;
     }
 
+    /**
+     * Get LVA
+     *
+     * @return string
+     */
     public function getLva()
     {
         return $this->lva;

@@ -45,6 +45,8 @@ final class UpdateTaAuthority extends AbstractCommand
     protected $stoppingArrangements;
 
     /**
+     * Get traffic areas
+     *
      * @return array
      */
     public function getTrafficAreas()
@@ -53,6 +55,8 @@ final class UpdateTaAuthority extends AbstractCommand
     }
 
     /**
+     * get local authorities
+     *
      * @return array
      */
     public function getLocalAuthoritys()
@@ -61,7 +65,9 @@ final class UpdateTaAuthority extends AbstractCommand
     }
 
     /**
-     * @return array
+     * Get stopping arrangements
+     *
+     * @return string
      */
     public function getStoppingArrangements()
     {

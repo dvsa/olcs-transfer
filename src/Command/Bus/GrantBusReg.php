@@ -22,12 +22,19 @@ final class GrantBusReg extends AbstractCommand
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"brvr_route", "brvr_start_end", "brvr_stops", "brvr_timetable"}}})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *         "haystack": {"brvr_route", "brvr_start_end", "brvr_stops", "brvr_timetable"}
+     *     }
+     * })
      * @Transfer\Optional
      */
     public $variationReasons = [];
 
     /**
+     * Get variation reasons
+     *
      * @return array
      */
     public function getVariationReasons()

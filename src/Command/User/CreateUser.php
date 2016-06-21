@@ -25,7 +25,12 @@ final class CreateUser extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"internal","local-authority","partner","operator","transport-manager"}}})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *         "haystack": {"internal","local-authority","partner","operator","transport-manager"}
+     *     }
+     * })
      */
     protected $userType;
 
@@ -79,7 +84,24 @@ final class CreateUser extends AbstractCommand
     /**
      * @Transfer\ArrayInput
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"internal-limited-read-only","internal-read-only","internal-case-worker","internal-admin","operator-admin","operator-user","operator-tm","partner-admin","partner-user","local-authority-admin","local-authority-user"}}})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *         "haystack": {
+     *             "internal-limited-read-only",
+     *             "internal-read-only",
+     *             "internal-case-worker",
+     *             "internal-admin",
+     *             "operator-admin",
+     *             "operator-user",
+     *             "operator-tm",
+     *             "partner-admin",
+     *             "partner-user",
+     *             "local-authority-admin",
+     *             "local-authority-user"
+     *         }
+     *     }
+     * })
      */
     protected $roles = [];
 

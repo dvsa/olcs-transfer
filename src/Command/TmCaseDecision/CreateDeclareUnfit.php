@@ -50,7 +50,12 @@ final class CreateDeclareUnfit extends AbstractCommand
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"tm_unfit_inc", "tm_unfit_inn"}}})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *         "haystack": {"tm_unfit_inc", "tm_unfit_inn"}
+     *     }
+     * })
      */
     protected $unfitnessReasons = [];
 
@@ -60,7 +65,12 @@ final class CreateDeclareUnfit extends AbstractCommand
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"tm_rehab_adc", "tm_rehab_adt", "tm_rehab_oth", "tm_rehab_rlc", "tm_rehab_rpt"}}})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *         "haystack": {"tm_rehab_adc", "tm_rehab_adt", "tm_rehab_oth", "tm_rehab_rlc", "tm_rehab_rpt"}
+     *     }
+     * })
      */
     protected $rehabMeasures = [];
 

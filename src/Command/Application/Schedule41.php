@@ -37,7 +37,9 @@ final class Schedule41 extends AbstractCommand
     protected $surrenderLicence;
 
     /**
-     * @return mixed
+     * Get operating centres ids
+     *
+     * @return array
      */
     public function getOperatingCentres()
     {
@@ -45,7 +47,9 @@ final class Schedule41 extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get surrender licence
+     *
+     * @return string
      */
     public function getSurrenderLicence()
     {
