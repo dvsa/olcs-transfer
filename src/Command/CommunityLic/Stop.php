@@ -26,13 +26,13 @@ final class Stop extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    public $communityLicenceIds = [];
+    protected $communityLicenceIds = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"withdrawal", "suspension"}}})
      */
-    public $type;
+    protected $type;
 
     /**
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
@@ -53,7 +53,7 @@ final class Stop extends AbstractCommand
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    public $reasons = [];
+    protected $reasons = [];
 
     public function getCommunityLicenceIds()
     {

@@ -24,7 +24,7 @@ final class EditSuspension extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    public $communityLicenceId;
+    protected $communityLicenceId;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -33,7 +33,7 @@ final class EditSuspension extends AbstractCommand
      *  "options": {"haystack": {"cl_sts_active", "cl_sts_suspended"}}
      * })
      */
-    public $status;
+    protected $status;
 
     /**
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
@@ -54,7 +54,7 @@ final class EditSuspension extends AbstractCommand
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    public $reasons = [];
+    protected $reasons = [];
 
     /**
      * Get community licence id
