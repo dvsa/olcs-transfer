@@ -14,7 +14,21 @@ return [
         ],
         'may_terminate' => false,
         'child_routes' => [
-            'GET' => QueryConfig::getConfig(Query\CommunityLic\CommunityLic::class),
+            'single' => RouteConfig::getSingleConfig(
+                [
+                    'GET' => QueryConfig::getConfig(Query\CommunityLic\CommunityLicence::class),
+                ]
+            ),
+            'list' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'list[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\CommunityLic\CommunityLicences::class),
+                ]
+            ],
             'application' => [
                 'type' => 'Segment',
                 'options' => [
@@ -135,6 +149,20 @@ return [
                         CommandConfig::getPostConfig(
                             Command\CommunityLic\Reprint::class
                         ),
+                ]
+            ],
+            'edit-suspension' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'edit-suspension[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'PUT' => CommandConfig::getPutConfig(Command\CommunityLic\EditSuspension::class),
+                        ]
+                    ),
                 ]
             ],
         ],
