@@ -22,7 +22,7 @@ final class DeleteCompanySubsidiary extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $ids;
+    protected $ids = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -32,7 +32,9 @@ final class DeleteCompanySubsidiary extends AbstractCommand
     protected $application;
 
     /**
-     * @return mixed
+     * Get ids
+     *
+     * @return array
      */
     public function getIds()
     {
@@ -40,7 +42,9 @@ final class DeleteCompanySubsidiary extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get application id
+     *
+     * @return int
      */
     public function getApplication()
     {

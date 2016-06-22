@@ -28,7 +28,7 @@ final class GetList extends AbstractQuery
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\LicenceStatus"})
      * @Transfer\Optional
      */
-    protected $licenceStatus;
+    protected $licenceStatus = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

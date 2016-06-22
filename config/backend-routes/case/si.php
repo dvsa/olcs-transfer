@@ -10,10 +10,10 @@ return [
     'case-si' => RouteConfig::getRouteConfig(
         'case/si',
         [
-            'send-response' => RouteConfig::getRouteConfig(
-                'send-response',
+            'create-response' => RouteConfig::getRouteConfig(
+                'create-response',
                 [
-                    'POST' => CommandConfig::getPostConfig(Command\Cases\Si\SendResponse::class)
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\Si\CreateResponse::class)
                 ]
             ),
             'single' => RouteConfig::getSingleConfig(

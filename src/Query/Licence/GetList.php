@@ -29,7 +29,7 @@ final class GetList extends AbstractQuery implements \Dvsa\Olcs\Transfer\Query\O
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\LicenceStatus"})
      */
-    protected $excludeStatuses;
+    protected $excludeStatuses = [];
 
     /**
      * Get a Organsation ID

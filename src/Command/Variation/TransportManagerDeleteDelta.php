@@ -29,7 +29,7 @@ final class TransportManagerDeleteDelta extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $transportManagerLicenceIds;
+    protected $transportManagerLicenceIds = [];
 
     /**
      * Get Application ID

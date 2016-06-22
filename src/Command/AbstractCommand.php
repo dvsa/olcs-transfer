@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Abstract Command
- *
- * @author Rob Caiger <rob@clocal.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Command;
 
 /**
@@ -32,7 +27,7 @@ abstract class AbstractCommand implements CommandInterface
         $values = get_object_vars($this);
 
         foreach (array_keys($values) as $property) {
-            if (isset($array[$property])) {
+            if (array_key_exists($property, $array)) {
                 $this->$property = $array[$property];
             }
         }

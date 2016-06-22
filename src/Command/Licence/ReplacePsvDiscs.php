@@ -29,7 +29,7 @@ final class ReplacePsvDiscs extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $ids;
+    protected $ids = [];
 
     /**
      * @return mixed

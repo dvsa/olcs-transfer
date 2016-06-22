@@ -52,7 +52,7 @@ class DocumentList extends AbstractQuery implements OrderedQueryInterface, Paged
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $documentSubCategory;
+    protected $documentSubCategory = [];
 
     /**
      * @return mixed

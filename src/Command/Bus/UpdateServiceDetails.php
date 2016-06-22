@@ -29,7 +29,7 @@ final class UpdateServiceDetails extends AbstractCommand
      * @Transfer\ArrayInput
      * @Transfer\Optional
      */
-    public $otherServices;
+    public $otherServices = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -60,7 +60,7 @@ final class UpdateServiceDetails extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
-    protected $busServiceTypes;
+    protected $busServiceTypes = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -98,6 +98,8 @@ final class UpdateServiceDetails extends AbstractCommand
     public $busNoticePeriod;
 
     /**
+     * Get service no
+     *
      * @return string
      */
     public function getServiceNo()
@@ -106,6 +108,8 @@ final class UpdateServiceDetails extends AbstractCommand
     }
 
     /**
+     * Get other services
+     *
      * @return array
      */
     public function getOtherServices()
@@ -114,6 +118,8 @@ final class UpdateServiceDetails extends AbstractCommand
     }
 
     /**
+     * Get start point
+     *
      * @return string
      */
     public function getStartPoint()
@@ -122,6 +128,8 @@ final class UpdateServiceDetails extends AbstractCommand
     }
 
     /**
+     * Get finish point
+     *
      * @return string
      */
     public function getFinishPoint()
@@ -130,6 +138,8 @@ final class UpdateServiceDetails extends AbstractCommand
     }
 
     /**
+     * Get via
+     *
      * @return string
      */
     public function getVia()
@@ -138,6 +148,8 @@ final class UpdateServiceDetails extends AbstractCommand
     }
 
     /**
+     * Get bus service types
+     *
      * @return array
      */
     public function getBusServiceTypes()
@@ -146,6 +158,8 @@ final class UpdateServiceDetails extends AbstractCommand
     }
 
     /**
+     * Get other details
+     *
      * @return string
      */
     public function getOtherDetails()
@@ -154,6 +168,8 @@ final class UpdateServiceDetails extends AbstractCommand
     }
 
     /**
+     * Get received date
+     *
      * @return string
      */
     public function getReceivedDate()
@@ -162,6 +178,8 @@ final class UpdateServiceDetails extends AbstractCommand
     }
 
     /**
+     * Get effective date
+     *
      * @return string
      */
     public function getEffectiveDate()
@@ -170,6 +188,8 @@ final class UpdateServiceDetails extends AbstractCommand
     }
 
     /**
+     * Get end date
+     *
      * @return string
      */
     public function getEndDate()
@@ -178,6 +198,8 @@ final class UpdateServiceDetails extends AbstractCommand
     }
 
     /**
+     * Get bus notice period
+     *
      * @return int
      */
     public function getBusNoticePeriod()

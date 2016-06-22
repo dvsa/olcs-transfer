@@ -33,7 +33,7 @@ class ReportList extends AbstractQuery implements PagedQueryInterface, OrderedQu
      * })
      * @Transfer\Optional
      */
-    protected $trafficAreas;
+    protected $trafficAreas = [];
 
     /**
      * @return array

@@ -37,7 +37,7 @@ final class UpdateForResponsibilities extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
-    protected $operatingCentres;
+    protected $operatingCentres = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

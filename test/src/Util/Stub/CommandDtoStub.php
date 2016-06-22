@@ -30,7 +30,7 @@ class CommandDtoStub extends AbstractCommand
      * @Transfer\ArrayValidator({"name":"Zend\Validator\NotEmpty", "options": {"type":"array"}})
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    protected $list;
+    protected $list = [];
 
     /**
      * @Transfer\Partial("Dvsa\OlcsTest\Transfer\Util\Stub\PartialStub")

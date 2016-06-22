@@ -7,10 +7,10 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
 
 /**
- * @Transfer\RouteName("backend/case-si/send-response")
+ * @Transfer\RouteName("backend/case-si/create-response")
  * @Transfer\Method("POST")
  */
-class SendResponse extends AbstractCommand
+class CreateResponse extends AbstractCommand
 {
     use FieldType\Cases;
 }

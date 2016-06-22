@@ -29,7 +29,7 @@ final class CreateProposeToRevoke extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $reasons;
+    protected $reasons = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})

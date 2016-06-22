@@ -36,7 +36,7 @@ final class ChecklistReminders extends AbstractQuery
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Optional
      */
-    protected $ids;
+    protected $ids = [];
 
     /**
      * Get a month
