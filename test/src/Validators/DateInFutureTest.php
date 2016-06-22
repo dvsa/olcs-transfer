@@ -13,7 +13,6 @@ class DateInFutureTest extends MockeryTestCase
 {
     /**
      * @dataProvider dataProvider
-     * @group test123
      */
     public function testIsValid($expected, $value, $options)
     {
