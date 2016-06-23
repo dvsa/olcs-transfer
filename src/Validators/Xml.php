@@ -58,7 +58,7 @@ class Xml extends AbstractValidator
     {
         try {
             $validator = $this->securityValidator;
-            $valid = $validator::scan($value);
+            $valid = $validator::scan($value, new \DOMDocument('1.0'));
         } catch (RuntimeException $e) {
             $this->error(self::XML_CONTAINS_EXTERNAL_ENTITIES);
             return false;

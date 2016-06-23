@@ -22,7 +22,9 @@ class XmlTest extends TestCase
         $xmlString = 'xml string';
 
         $xmlSecurityValidator = m::mock(XmlSecurityValidator::class);
-        $xmlSecurityValidator->shouldReceive('scan')->with($xmlString)->andThrow(RuntimeException::class);
+        $xmlSecurityValidator->shouldReceive('scan')
+            ->with($xmlString, m::type(\DOMDocument::class))
+            ->andThrow(RuntimeException::class);
 
         $sut = new XmlValidator();
         $sut->setSecurityValidator($xmlSecurityValidator);
@@ -38,7 +40,7 @@ class XmlTest extends TestCase
         $xmlString = 'xml string';
 
         $xmlSecurityValidator = m::mock(XmlSecurityValidator::class);
-        $xmlSecurityValidator->shouldReceive('scan')->with($xmlString)->andReturn(true);
+        $xmlSecurityValidator->shouldReceive('scan')->with($xmlString, m::type(\DOMDocument::class))->andReturn(true);
 
         $sut = new XmlValidator();
         $sut->setSecurityValidator($xmlSecurityValidator);
@@ -54,7 +56,7 @@ class XmlTest extends TestCase
         $xmlString = 'xml string';
 
         $xmlSecurityValidator = m::mock(XmlSecurityValidator::class);
-        $xmlSecurityValidator->shouldReceive('scan')->with($xmlString)->andReturn(false);
+        $xmlSecurityValidator->shouldReceive('scan')->with($xmlString, m::type(\DOMDocument::class))->andReturn(false);
 
         $sut = new XmlValidator();
         $sut->setSecurityValidator($xmlSecurityValidator);
