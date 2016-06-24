@@ -29,6 +29,10 @@ return [
                     'undo-disqualification' => RouteConfig::getRouteConfig(
                         'undo-disqualification',
                         ['PUT' => CommandConfig::getPutConfig(Command\Tm\UndoDisqualification::class)]
+                    ),
+                    'update-nysiis-name' => RouteConfig::getRouteConfig(
+                        'update-nysiis-name',
+                        ['PUT' => CommandConfig::getPutConfig(Command\Tm\UpdateNysiisName::class)]
                     )
                 ],
                 '[0-9]+'
