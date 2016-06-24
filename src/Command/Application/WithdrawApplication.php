@@ -23,6 +23,10 @@ final class WithdrawApplication extends AbstractCommand
      */
     protected $id;
 
+    /**
+     * @Transfer\Filter({"name": "Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"withdrawn","reg_in_error"}}})
+     */
     protected $reason = false;
 
     /**
