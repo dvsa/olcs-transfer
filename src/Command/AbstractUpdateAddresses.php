@@ -1,5 +1,9 @@
 <?php
 
+namespace Dvsa\Olcs\Transfer\Command;
+
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+
 /**
  * Update Addresses
  *
@@ -13,11 +17,6 @@
  * I'd sort this myself but won't have time before leaving. Consider
  * this my parting gift to one unfortunate developer of the future...
  */
-namespace Dvsa\Olcs\Transfer\Command;
-
-use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\Command\AbstractCommand;
-
 abstract class AbstractUpdateAddresses extends AbstractCommand
 {
     /**
