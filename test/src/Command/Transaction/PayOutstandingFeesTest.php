@@ -25,6 +25,9 @@ class PayOutstandingFeesTest extends PHPUnit_Framework_TestCase
             'chequeNo' => '2345',
             'chequeDate' => '2015-06-17',
             'poNo' => '3456',
+            'customerReference' => 'foo',
+            'customerName' => 'bar',
+            'address' => 'cake'
         ];
 
         $command = PayOutstandingFees::create($data);
@@ -41,5 +44,8 @@ class PayOutstandingFeesTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('2345', $command->getChequeNo());
         $this->assertEquals('2015-06-17', $command->getChequeDate());
         $this->assertEquals('3456', $command->getPoNo());
+        $this->assertEquals('foo', $command->getCustomerReference());
+        $this->assertEquals('bar', $command->getCustomerName());
+        $this->assertEquals('cake', $command->getAddress());
     }
 }

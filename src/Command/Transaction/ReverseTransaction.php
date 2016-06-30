@@ -28,10 +28,59 @@ final class ReverseTransaction extends AbstractCommand implements FieldType\Iden
     protected $reason;
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     */
+    protected $customerReference;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     */
+    protected $customerName;
+
+    /**
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\AddressOptional")
+     */
+    protected $address;
+
+    /**
+     * Get reason
+     *
      * @return string
      */
     public function getReason()
     {
         return $this->reason;
+    }
+
+    /**
+     * Get customer reference
+     *
+     * @return string
+     */
+    public function getCustomerReference()
+    {
+        return $this->customerReference;
+    }
+
+    /**
+     * Get customer name
+     *
+     * @return string
+     */
+    public function getCustomerName()
+    {
+        return $this->customerName;
+    }
+
+    /**
+     * Get address
+     * 
+     * @return array
+     */
+    public function getAddress()
+    {
+        return $this->address;
     }
 }
