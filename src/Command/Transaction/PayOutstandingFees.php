@@ -9,6 +9,7 @@ namespace Dvsa\Olcs\Transfer\Command\Transaction;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 
 /**
  * @Transfer\RouteName("backend/transaction/pay-outstanding-fees")
@@ -16,6 +17,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class PayOutstandingFees extends AbstractCommand
 {
+    use FieldTypeTraits\MiscFeesDetails;
+
     /**
      * @Transfer\ArrayInput
      */
@@ -106,23 +109,6 @@ final class PayOutstandingFees extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
     protected $storedCardReference;
-
-    /**
-     * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     */
-    protected $customerReference;
-
-    /**
-     * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     */
-    protected $customerName;
-
-    /**
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\AddressOptional")
-     */
-    protected $address;
 
     /**
      * Get fee ids
@@ -252,35 +238,5 @@ final class PayOutstandingFees extends AbstractCommand
     public function getStoredCardReference()
     {
         return $this->storedCardReference;
-    }
-
-    /**
-     * Get customer reference
-     *
-     * @return string
-     */
-    public function getCustomerReference()
-    {
-        return $this->customerReference;
-    }
-
-    /**
-     * Get customer name
-     *
-     * @return string
-     */
-    public function getCustomerName()
-    {
-        return $this->customerName;
-    }
-
-    /**
-     * Get address
-     *
-     * @return array
-     */
-    public function getAddress()
-    {
-        return $this->address;
     }
 }
