@@ -42,9 +42,6 @@ class DateInFutureTest extends MockeryTestCase
         ];
     }
 
-    /**
-     * @group test123
-     */
     public function testIsValidNoMock()
     {
         $sut = new DateInFuture();

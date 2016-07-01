@@ -9,6 +9,7 @@ namespace Dvsa\Olcs\Transfer\Command\Transaction;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 
 /**
  * @Transfer\RouteName("backend/transaction/pay-outstanding-fees")
@@ -16,6 +17,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class PayOutstandingFees extends AbstractCommand
 {
+    use FieldTypeTraits\MiscFeesDetails;
+
     /**
      * @Transfer\ArrayInput
      */
@@ -108,6 +111,8 @@ final class PayOutstandingFees extends AbstractCommand
     protected $storedCardReference;
 
     /**
+     * Get fee ids
+     *
      * @return array
      */
     public function getFeeIds()
@@ -116,6 +121,8 @@ final class PayOutstandingFees extends AbstractCommand
     }
 
     /**
+     * Get organisation id
+     *
      * @return int
      */
     public function getOrganisationId()
@@ -124,6 +131,8 @@ final class PayOutstandingFees extends AbstractCommand
     }
 
     /**
+     * Get application id
+     *
      * @return int
      */
     public function getApplicationId()
@@ -132,6 +141,8 @@ final class PayOutstandingFees extends AbstractCommand
     }
 
     /**
+     * Get cmps redirect url
+     *
      * @return string
      */
     public function getCpmsRedirectUrl()
@@ -140,6 +151,8 @@ final class PayOutstandingFees extends AbstractCommand
     }
 
     /**
+     * Get payment method
+     *
      * @return string
      */
     public function getPaymentMethod()
@@ -148,6 +161,8 @@ final class PayOutstandingFees extends AbstractCommand
     }
 
     /**
+     * Get received
+     *
      * @return string
      */
     public function getReceived()
@@ -156,6 +171,8 @@ final class PayOutstandingFees extends AbstractCommand
     }
 
     /**
+     * Get receipt date
+     *
      * @return \DateTime
      */
     public function getReceiptDate()
@@ -164,6 +181,8 @@ final class PayOutstandingFees extends AbstractCommand
     }
 
     /**
+     * Get payer
+     *
      * @return string
      */
     public function getPayer()
@@ -172,6 +191,8 @@ final class PayOutstandingFees extends AbstractCommand
     }
 
     /**
+     * Get slip no
+     *
      * @return string
      */
     public function getSlipNo()
@@ -180,6 +201,8 @@ final class PayOutstandingFees extends AbstractCommand
     }
 
     /**
+     * Get cheque no
+     *
      * @return string
      */
     public function getChequeNo()
@@ -188,6 +211,8 @@ final class PayOutstandingFees extends AbstractCommand
     }
 
     /**
+     * Get cheque date
+     *
      * @return \DateTime
      */
     public function getChequeDate()
@@ -196,6 +221,8 @@ final class PayOutstandingFees extends AbstractCommand
     }
 
     /**
+     * Get po no
+     *
      * @return string
      */
     public function getPoNo()
@@ -204,6 +231,8 @@ final class PayOutstandingFees extends AbstractCommand
     }
 
     /**
+     * Get stored card reference
+     *
      * @return string
      */
     public function getStoredCardReference()

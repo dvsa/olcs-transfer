@@ -20,4 +20,5 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 final class RefundFee extends AbstractCommand implements FieldType\IdentityInterface
 {
     use FieldTypeTraits\Identity;
+    use FieldTypeTraits\MiscFeesDetails;
 }
