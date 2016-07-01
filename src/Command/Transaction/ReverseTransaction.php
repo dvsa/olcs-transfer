@@ -76,7 +76,7 @@ final class ReverseTransaction extends AbstractCommand implements FieldType\Iden
 
     /**
      * Get address
-     * 
+     *
      * @return array
      */
     public function getAddress()
