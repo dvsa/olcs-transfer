@@ -14,7 +14,12 @@ return [
         ],
         'may_terminate' => false,
         'child_routes' => [
-            'GET' => QueryConfig::getConfig(Query\Bus\Ebsr\EbsrSubmissionList::class)
+            'GET' => QueryConfig::getConfig(Query\Bus\Ebsr\EbsrSubmissionList::class),
+            'single' => RouteConfig::getSingleConfig(
+                [
+                    'GET' => QueryConfig::getConfig(Query\Bus\Ebsr\EbsrSubmission::class)
+                ]
+            )
         ]
     ]
 ];
