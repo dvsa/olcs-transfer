@@ -37,13 +37,6 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Task\ReassignTasks::class),
                 ]
             ),
-            // @todo remove after task allocation rules will be tested (OLCS-6844 & OLCS-12638)
-            'create-task-temp' => RouteConfig::getRouteConfig(
-                'create-task-temp',
-                [
-                    'POST' => CommandConfig::getPostConfig(Command\Task\CreateTaskTemp::class),
-                ]
-            ),
         ]
     )
 ];
