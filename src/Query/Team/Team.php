@@ -9,13 +9,13 @@ namespace Dvsa\Olcs\Transfer\Query\Team;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @Transfer\RouteName("backend/team/single")
  */
-class Team extends AbstractQuery implements CachableMediumTermQueryInterface
+class Team extends AbstractQuery implements CachableShortTermQueryInterface
 {
     use Identity;
 }
