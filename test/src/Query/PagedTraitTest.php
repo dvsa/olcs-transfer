@@ -14,12 +14,12 @@ class PagedTraitTest extends MockeryTestCase
     {
         $sut = new DummyPagedTrait();
 
-        //  chech limit
+        //  check limit
         $actual = $sut->setLimit(1234);
         static::assertInstanceOf(DummyPagedTrait::class, $actual);
         static::assertEquals(1234, $sut->getLimit());
 
-        //  chech page
+        //  check page
         $actual = $sut->setPage(9999);
         static::assertInstanceOf(DummyPagedTrait::class, $actual);
         static::assertEquals(9999, $sut->getPage());

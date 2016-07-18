@@ -5,6 +5,7 @@ use Dvsa\Olcs\Transfer\Query;
 use Dvsa\Olcs\Transfer\Router\CommandConfig;
 use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
+use Zend\Mvc\Router\Http\Segment;
 
 $routes = [
     'api' => [
@@ -278,6 +279,14 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\GoodsVehicles::class),
                                     'POST' => CommandConfig::getPostConfig(
                                         Command\Application\CreateGoodsVehicle::class
+                                    ),
+                                    'export' => RouteConfig::getRouteConfig(
+                                        'export',
+                                        [
+                                            'GET' => QueryConfig::getConfig(
+                                                Query\Application\GoodsVehiclesExport::class
+                                            ),
+                                        ]
                                     ),
                                 ]
                             ),
@@ -680,6 +689,12 @@ $routes = [
                                 'goods-vehicles',
                                 [
                                     'GET' => QueryConfig::getConfig(Query\Variation\GoodsVehicles::class),
+                                    'export' => RouteConfig::getRouteConfig(
+                                        'export',
+                                        [
+                                            'GET' => QueryConfig::getConfig(Query\Variation\GoodsVehiclesExport::class),
+                                        ]
+                                    ),
                                 ]
                             ),
                             'grant' => RouteConfig::getRouteConfig(
@@ -959,6 +974,12 @@ $routes = [
                                     ),
                                     'PUT' => CommandConfig::getPutConfig(
                                         Command\Licence\UpdateVehicles::class
+                                    ),
+                                    'export' => RouteConfig::getRouteConfig(
+                                        'export',
+                                        [
+                                            'GET' => QueryConfig::getConfig(Query\Licence\GoodsVehiclesExport::class),
+                                        ]
                                     ),
                                     'transfer' => RouteConfig::getRouteConfig(
                                         'transfer',
