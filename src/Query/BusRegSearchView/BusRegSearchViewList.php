@@ -30,24 +30,6 @@ class BusRegSearchViewList extends AbstractQuery implements PagedQueryInterface,
     protected $licId;
 
     /**
-     * @var int
-     * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $organisationId;
-
-    /**
-     * @var int
-     * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $localAuthorityId;
-
-    /**
      * @var String
      * @Transfer\Optional
      * @Transfer\Validator({
@@ -69,40 +51,6 @@ class BusRegSearchViewList extends AbstractQuery implements PagedQueryInterface,
     public function getLicId()
     {
         return $this->licId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getOrganisationId()
-    {
-        return $this->organisationId;
-    }
-
-    /**
-     * Setter required to apply default Organisation ID for Operator queries.
-     *
-     * @param int $organisationId
-     */
-    public function setOrganisationId($organisationId)
-    {
-        $this->organisationId = $organisationId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getLocalAuthorityId()
-    {
-        return $this->localAuthorityId;
-    }
-
-    /**
-     * @param int $localAuthorityId
-     */
-    public function setLocalAuthorityId($localAuthorityId)
-    {
-        $this->localAuthorityId = $localAuthorityId;
     }
 
     /**
