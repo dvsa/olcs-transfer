@@ -1,0 +1,85 @@
+<?php
+
+namespace Dvsa\Olcs\Transfer\Query\Lva;
+
+use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\Query\AbstractQuery;
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+
+/**
+ * @author Dmitry Golubev <dmitrij.golubev@valtech.co.uk>
+ */
+abstract class AbstractGoodsVehicles extends AbstractQuery
+{
+    use Identity;
+
+    /**
+     * @var string
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
+     */
+    protected $vrm;
+
+    /**
+     * @var string
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Optional
+     */
+    protected $specified;
+
+    /**
+     * @var boolean
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $includeRemoved;
+
+    /**
+     * @var string
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Optional
+     */
+    protected $disc;
+
+    /**
+     * Get Vehicle vrm
+     *
+     * @return string
+     */
+    public function getVrm()
+    {
+        return $this->vrm;
+    }
+
+    /**
+     * Get Specified (Yes|No)
+     *
+     * @return boolean
+     */
+    public function getSpecified()
+    {
+        return $this->specified;
+    }
+
+    /**
+     * Get Should Removed be Included
+     *
+     * @return boolean
+     */
+    public function getIncludeRemoved()
+    {
+        return $this->includeRemoved;
+    }
+
+    /**
+     * Get Disc Number
+     *
+     * @return string
+     */
+    public function getDisc()
+    {
+        return $this->disc;
+    }
+}
