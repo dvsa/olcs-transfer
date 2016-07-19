@@ -20,7 +20,7 @@ trait PagedTrait
      * @var int
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {0, 10, 25, 50, 100}}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {10, 25, 50, 100}}})
      */
     protected $limit;
 
@@ -61,7 +61,7 @@ trait PagedTrait
     /**
      * Set count of records per page
      *
-     * @param int $limit Count of records. possible valies 0, 10, 25, 50, 100
+     * @param int $limit Count of records. possible valies 10, 25, 50, 100
      *
      * @return $this
      */
