@@ -84,6 +84,12 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Document\Download::class),
                 ]
             ),
+            'download-guide' => RouteConfig::getRouteConfig(
+                'download-guide',
+                [
+                    'GET' => QueryConfig::getConfig(Query\Document\DownloadGuide::class),
+                ]
+            ),
             'upload' => RouteConfig::getRouteConfig(
                 'upload',
                 [
