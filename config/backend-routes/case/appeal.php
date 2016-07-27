@@ -21,9 +21,6 @@ return [
                     )
                 ]
             ),
-            'GET' => QueryConfig::getConfig(
-                Query\Cases\Hearing\AppealList::class
-            ),
             'single' => RouteConfig::getSingleConfig(
                 [
                     'GET'    => QueryConfig::getConfig(

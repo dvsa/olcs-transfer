@@ -10,17 +10,6 @@ return [
     'stay' => RouteConfig::getRouteConfig(
         'stay',
         [
-            'case' => RouteConfig::getRouteConfig(
-                'case',
-                [
-                    'named-single' => RouteConfig::getNamedSingleConfig(
-                        'case',
-                        [
-                            'GET'    => QueryConfig::getConfig(Query\Cases\Hearing\StayByCase::class),
-                        ]
-                    )
-                ]
-            ),
             'GET' => QueryConfig::getConfig(
                 Query\Cases\Hearing\StayList::class
             ),
