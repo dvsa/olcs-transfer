@@ -2,21 +2,23 @@
 
 namespace Dvsa\Olcs\Transfer\Query\Document;
 
-use Dvsa\Olcs\Transfer\Query\LoggerOmitResponseInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
  * @Transfer\RouteName("backend/document/download-guide")
  */
-class DownloadGuide extends AbstractQuery implements LoggerOmitResponseInterface
+class DownloadGuide extends AbstractDownload
 {
+    /**
+     * @var  string
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     */
     protected $identifier;
 
     /**
-     * Get identifier, Eg filename
+     * Get file identifier
      *
-     * @return mixed
+     * @return string
      */
     public function getIdentifier()
     {
