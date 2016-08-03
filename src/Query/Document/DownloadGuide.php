@@ -9,4 +9,19 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class DownloadGuide extends AbstractDownload
 {
+    /**
+     * @var  string
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     */
+    protected $identifier;
+
+    /**
+     * Get file identifier
+     *
+     * @return string
+     */
+    public function getIdentifier()
+    {
+        return $this->identifier;
+    }
 }

@@ -9,4 +9,19 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class Download extends AbstractDownload
 {
+    /**
+     * @var  int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     */
+    protected $identifier;
+
+    /**
+     * Get file identifier
+     *
+     * @return int
+     */
+    public function getIdentifier()
+    {
+        return $this->identifier;
+    }
 }
