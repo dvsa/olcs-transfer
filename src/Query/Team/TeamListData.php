@@ -7,11 +7,11 @@ namespace Dvsa\Olcs\Transfer\Query\Team;
 
 use Dvsa\Olcs\Transfer\Query\AbstractListData;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/team/list-data")
  */
-final class TeamListData extends AbstractListData implements CachableMediumTermQueryInterface
+final class TeamListData extends AbstractListData implements CachableShortTermQueryInterface
 {
 }
