@@ -19,6 +19,17 @@ return [
                     ),
                 ]
             ),
+            'si-penalty-type' => RouteConfig::getRouteConfig(
+                'si-penalty-type',
+                [
+                    'list-data' => RouteConfig::getRouteConfig(
+                        'list-data',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Si\SiPenaltyTypeListData::class),
+                        ]
+                    ),
+                ]
+            ),
         ]
     ),
 ];
