@@ -40,17 +40,9 @@ class SubmissionList extends AbstractQuery implements PagedQueryInterface, Order
      *      "name":"Zend\Validator\InArray",
      *      "options": {
      *          "haystack": {
-     *              "ebsrs_distributed",
-     *              "ebsrs_distributing",
-     *              "ebsrs_expired",
-     *              "ebsrs_expiring",
      *              "ebsrs_processed",
      *              "ebsrs_processing",
-     *              "ebsrs_published",
-     *              "ebsrs_publishing",
      *              "ebsrs_submitted",
-     *              "ebsrs_submitting",
-     *              "ebsrs_validated",
      *              "ebsrs_validating",
      *              "ebsrs_failed",
      *              "ebsrs_uploaded"
