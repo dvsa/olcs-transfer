@@ -54,6 +54,8 @@ class SubmissionList extends AbstractQuery implements PagedQueryInterface, Order
     protected $ebsrSubmissionStatus;
 
     /**
+     * Get EBSR submission type
+     *
      * @return string
      */
     public function getEbsrSubmissionType()
@@ -62,6 +64,8 @@ class SubmissionList extends AbstractQuery implements PagedQueryInterface, Order
     }
 
     /**
+     * Get EBSR submission status
+     *
      * @return string
      */
     public function getEbsrSubmissionStatus()
