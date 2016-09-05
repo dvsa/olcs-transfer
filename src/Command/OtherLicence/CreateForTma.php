@@ -31,7 +31,13 @@ final class CreateForTma extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"ol_role_applicant","ol_role_lic_holder","ol_role_tm"}}})
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"ol_role_applicant","ol_role_lic_holder","ol_role_tm"}}
+     *  }
+     * )
+     * @Transfer\Optional
      */
     protected $role;
 
@@ -45,6 +51,7 @@ final class CreateForTma extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
      */
     protected $totalAuthVehicles;
 
