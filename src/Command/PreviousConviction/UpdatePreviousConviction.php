@@ -69,7 +69,6 @@ final class UpdatePreviousConviction extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Optional
      */
     protected $categoryText;
 
