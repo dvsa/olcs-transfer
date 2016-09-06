@@ -40,7 +40,12 @@ final class UpdatePreviousConviction extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"title_dr","title_miss","title_mr","title_mrs","title_ms"}}})
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"title_dr","title_miss","title_mr","title_mrs","title_ms"}}
+     *  }
+     * )
      * @Transfer\Optional
      */
     protected $title;
@@ -82,56 +87,111 @@ final class UpdatePreviousConviction extends AbstractCommand
      */
     protected $penalty;
 
+    /**
+     * Get id
+     *
+     * @return int
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * Get version
+     *
+     * @return int
+     */
     public function getVersion()
     {
         return $this->version;
     }
 
+    /**
+     * Get transport manager
+     *
+     * @return int
+     */
     public function getTransportManager()
     {
         return $this->transportManager;
     }
 
+    /**
+     * Get title
+     *
+     * @return string
+     */
     public function getTitle()
     {
         return $this->title;
     }
 
+    /**
+     * Get forename
+     *
+     * @return string
+     */
     public function getForename()
     {
         return $this->forename;
     }
 
+    /**
+     * Get family name
+     *
+     * @return string
+     */
     public function getFamilyName()
     {
         return $this->familyName;
     }
 
+    /**
+     * Get conviction date
+     *
+     * @return string
+     */
     public function getConvictionDate()
     {
         return $this->convictionDate;
     }
 
+    /**
+     * Get court fpn
+     *
+     * @return string
+     */
     public function getCourtFpn()
     {
         return $this->courtFpn;
     }
 
+    /**
+     * Get category text
+     *
+     * @return string
+     */
     public function getCategoryText()
     {
         return $this->categoryText;
     }
 
+    /**
+     * Get notes
+     *
+     * @return string
+     */
     public function getNotes()
     {
         return $this->notes;
     }
 
+    /**
+     * Get penalty
+     *
+     * @return string
+     */
     public function getPenalty()
     {
         return $this->penalty;
