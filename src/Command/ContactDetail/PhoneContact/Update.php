@@ -2,7 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Command\ContactDetail\PhoneContact;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\FieldType\Traits;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
@@ -11,5 +11,6 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class Update extends Create
 {
-    use Identity;
+    use Traits\Identity;
+    use Traits\Version;
 }

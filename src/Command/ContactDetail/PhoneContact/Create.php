@@ -22,7 +22,6 @@ class Create extends AbstractCommand
      *          }
      *     }
      * })
-     * @Transfer\Optional
      */
     public $phoneContactType;
 
@@ -62,7 +61,7 @@ class Create extends AbstractCommand
     }
 
     /**
-     * Get Contact Defails Id
+     * Get Contact Details Id
      *
      * @return int
      */
