@@ -31,17 +31,4 @@ class GetList extends AbstractQuery implements OrderedQueryInterface
     {
         return $this->contactDetailsId;
     }
-
-    /**
-     * Set contact details id
-     *
-     * @param int $id Contact Details Id
-     *
-     * @return $this
-     */
-    public function setContactDetailsId($id)
-    {
-        $this->contactDetailsId = $id;
-        return $this;
-    }
 }

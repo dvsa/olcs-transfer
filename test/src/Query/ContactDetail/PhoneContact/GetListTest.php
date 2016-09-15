@@ -16,8 +16,5 @@ class GetListTest extends MockeryTestCase
         $sut = GetList::create(['contactDetailsId' => 9999]);
 
         static::assertEquals(9999, $sut->getContactDetailsId());
-
-        $sut->setContactDetailsId(8888);
-        static::assertEquals(8888, $sut->getContactDetailsId());
     }
 }
