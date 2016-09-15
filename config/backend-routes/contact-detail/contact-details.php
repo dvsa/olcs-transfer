@@ -11,6 +11,22 @@ return [
         'contact-details',
         [
             'GET' => QueryConfig::getConfig(Query\ContactDetail\ContactDetailsList::class),
+            'phone-contact' => RouteConfig::getRouteConfig(
+                'phone-contact',
+                [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\ContactDetail\PhoneContact\Get::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\ContactDetail\PhoneContact\Update::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(
+                                Command\ContactDetail\PhoneContact\Delete::class
+                            ),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\ContactDetail\PhoneContact\GetList::class),
+                    'POST' => CommandConfig::getPostConfig(Command\ContactDetail\PhoneContact\Create::class),
+                ]
+            ),
         ]
-    )
+    ),
 ];

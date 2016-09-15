@@ -2,6 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Command;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
@@ -19,12 +20,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 abstract class AbstractUpdateAddresses extends AbstractCommand
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $id;
+    use Traits\Identity;
 
     /**
      * @Transfer\Optional
@@ -37,7 +33,7 @@ abstract class AbstractUpdateAddresses extends AbstractCommand
     protected $contact;
 
     /**
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\Address")
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\AddressOptional")
      * @Transfer\Optional
      */
     protected $correspondenceAddress;
@@ -59,15 +55,9 @@ abstract class AbstractUpdateAddresses extends AbstractCommand
     protected $consultant;
 
     /**
-     * @return mixed
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @return mixed
+     * Get Correspondence
+     *
+     * @return array|null
      */
     public function getCorrespondence()
     {
@@ -75,7 +65,9 @@ abstract class AbstractUpdateAddresses extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get Contact
+     *
+     * @return array|null
      */
     public function getContact()
     {
@@ -83,7 +75,9 @@ abstract class AbstractUpdateAddresses extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get Corr Address
+     *
+     * @return array|null
      */
     public function getCorrespondenceAddress()
     {
@@ -91,7 +85,9 @@ abstract class AbstractUpdateAddresses extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get Establishment
+     *
+     * @return array|null
      */
     public function getEstablishment()
     {
@@ -99,7 +95,9 @@ abstract class AbstractUpdateAddresses extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get Establishment Address
+     *
+     * @return array|null
      */
     public function getEstablishmentAddress()
     {
@@ -107,7 +105,9 @@ abstract class AbstractUpdateAddresses extends AbstractCommand
     }
 
     /**
-     * @return mixed
+     * Get Consultant
+     *
+     * @return array|null
      */
     public function getConsultant()
     {
