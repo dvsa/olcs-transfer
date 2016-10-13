@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Task List
- *
- * @author Rob Caiger <rob@clocal.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Query\Task;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
@@ -86,13 +81,27 @@ class TaskList extends AbstractQuery implements PagedQueryInterface, OrderedQuer
     protected $status;
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *          "haystack": {"tsw_all", "tsw_self_only"}
+     *     }
+     * })
+     */
+    protected $showTasks = null;
+
+    /**
      * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
      * @Transfer\Optional
      */
     protected $urgent;
 
     /**
-     * @return mixed
+     * Get Assigned To User
+     *
+     * @return int
      */
     public function getAssignedToUser()
     {
@@ -100,7 +109,9 @@ class TaskList extends AbstractQuery implements PagedQueryInterface, OrderedQuer
     }
 
     /**
-     * @return mixed
+     * Get Assigned To Team
+     *
+     * @return int
      */
     public function getAssignedToTeam()
     {
@@ -108,7 +119,9 @@ class TaskList extends AbstractQuery implements PagedQueryInterface, OrderedQuer
     }
 
     /**
-     * @return mixed
+     * Get Category
+     *
+     * @return int
      */
     public function getCategory()
     {
@@ -116,7 +129,9 @@ class TaskList extends AbstractQuery implements PagedQueryInterface, OrderedQuer
     }
 
     /**
-     * @return mixed
+     * Get Task Sub Category
+     *
+     * @return int
      */
     public function getTaskSubCategory()
     {
@@ -124,7 +139,9 @@ class TaskList extends AbstractQuery implements PagedQueryInterface, OrderedQuer
     }
 
     /**
-     * @return mixed
+     * Get Date
+     *
+     * @return string
      */
     public function getDate()
     {
@@ -132,7 +149,9 @@ class TaskList extends AbstractQuery implements PagedQueryInterface, OrderedQuer
     }
 
     /**
-     * @return mixed
+     * Get Status
+     *
+     * @return string
      */
     public function getStatus()
     {
@@ -140,7 +159,19 @@ class TaskList extends AbstractQuery implements PagedQueryInterface, OrderedQuer
     }
 
     /**
-     * @return mixed
+     * Get Show Tasks
+     *
+     * @return string
+     */
+    public function getShowTasks()
+    {
+        return $this->showTasks;
+    }
+
+    /**
+     * Get Urgent
+     *
+     * @return bool
      */
     public function getUrgent()
     {
