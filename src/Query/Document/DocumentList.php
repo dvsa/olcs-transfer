@@ -1,12 +1,9 @@
 <?php
 
-/**
- * Document List
- *
- * @author Rob Caiger <rob@clocal.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Query\Document;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\BusRegOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\CasesOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerOptional;
@@ -25,8 +22,10 @@ class DocumentList extends AbstractQuery implements OrderedQueryInterface, Paged
 {
     use OrderedTrait,
         PagedTrait,
+        ApplicationOptional,
         LicenceOptional,
         CasesOptional,
+        BusRegOptional,
         TransportManagerOptional,
         IrfoOrganisationOptional;
 
@@ -55,7 +54,21 @@ class DocumentList extends AbstractQuery implements OrderedQueryInterface, Paged
     protected $documentSubCategory = [];
 
     /**
-     * @return mixed
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *          "haystack": {"self-only"}
+     *     }
+     * })
+     */
+    protected $showDocs = null;
+
+    /**
+     * Is External
+     *
+     * @return string
      */
     public function getIsExternal()
     {
@@ -63,7 +76,9 @@ class DocumentList extends AbstractQuery implements OrderedQueryInterface, Paged
     }
 
     /**
-     * @return mixed
+     * Get Category
+     *
+     * @return int
      */
     public function getCategory()
     {
@@ -71,10 +86,22 @@ class DocumentList extends AbstractQuery implements OrderedQueryInterface, Paged
     }
 
     /**
-     * @return mixed
+     * Get Document Sub Category
+     *
+     * @return int
      */
     public function getDocumentSubCategory()
     {
         return $this->documentSubCategory;
+    }
+
+    /**
+     * Get Show Docuements
+     *
+     * @return string
+     */
+    public function getShowDocs()
+    {
+        return $this->showDocs;
     }
 }
