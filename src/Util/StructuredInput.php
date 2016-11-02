@@ -358,7 +358,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
         $valid               = true;
 
         foreach ($this->inputs as $name => $input) {
-            $dataExists = array_key_exists($name, $data);
+            $dataExists = is_array($data) && array_key_exists($name, $data);
 
             // key doesn't exist, but input is not required; valid
             if (!$dataExists && $input instanceof InputInterface && !$input->isRequired()) {
