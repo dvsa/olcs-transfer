@@ -87,91 +87,204 @@ class StructuredInput implements InputInterface, InputFilterInterface
 
     protected $messages;
 
+    /**
+     * Construct
+     *
+     * @param string $name Name
+     *
+     * @return void
+     */
     public function __construct($name = null)
     {
         $this->name = $name;
     }
 
+    /**
+     * Set allowEmpty
+     *
+     * @param bool $allowEmpty Allow empty
+     *
+     * @return void
+     */
     public function setAllowEmpty($allowEmpty)
     {
         $this->allowEmpty = $allowEmpty;
     }
 
+    /**
+     * Set breakOnFailure
+     *
+     * @param bool $breakOnFailure Break on failure
+     *
+     * @return void
+     */
     public function setBreakOnFailure($breakOnFailure)
     {
         $this->breakOnFailure = $breakOnFailure;
     }
 
+    /**
+     * Set errorMessage
+     *
+     * @param string $errorMessage Error message
+     *
+     * @return void
+     */
     public function setErrorMessage($errorMessage)
     {
         $this->errorMessage = $errorMessage;
     }
 
+    /**
+     * Set filterChain
+     *
+     * @param \Zend\Filter\FilterChain $filterChain Filter chain
+     *
+     * @return void
+     */
     public function setFilterChain(FilterChain $filterChain)
     {
         $this->filterChain = $filterChain;
     }
 
+    /**
+     * Set name
+     *
+     * @param string $name Name
+     *
+     * @return void
+     */
     public function setName($name)
     {
         $this->name = $name;
     }
 
+    /**
+     * Set required
+     *
+     * @param bool $required Required
+     *
+     * @return void
+     */
     public function setRequired($required)
     {
         $this->required = $required;
     }
 
+    /**
+     * Set validatorChain
+     *
+     * @param \Zend\Validator\ValidatorChain $validatorChain Validator chain
+     *
+     * @return void
+     */
     public function setValidatorChain(ValidatorChain $validatorChain)
     {
         $this->validatorChain = $validatorChain;
     }
 
+    /**
+     * Set value
+     *
+     * @param mixed $value Value
+     *
+     * @return void
+     */
     public function setValue($value)
     {
         $this->setData($value);
     }
 
+    /**
+     * Merge
+     *
+     * @param \Zend\InputFilter\InputInterface $input Value
+     *
+     * @return void
+     */
     public function merge(InputInterface $input)
     {
         // no-op
     }
 
+    /**
+     * Get allowEmpty
+     *
+     * @return bool
+     */
     public function allowEmpty()
     {
         return $this->allowEmpty;
     }
 
+    /**
+     * Get breakOnFailure
+     *
+     * @return bool
+     */
     public function breakOnFailure()
     {
         return $this->breakOnFailure;
     }
 
+    /**
+     * Get errorMessage
+     *
+     * @return string
+     */
     public function getErrorMessage()
     {
         return $this->errorMessage;
     }
 
+    /**
+     * Get filterChain
+     *
+     * @return \Zend\Filter\FilterChain
+     */
     public function getFilterChain()
     {
         return $this->filterChain;
     }
 
+    /**
+     * Get name
+     *
+     * @return string
+     */
     public function getName()
     {
         return $this->name;
     }
 
+    /**
+     * Is required
+     *
+     * @return bool
+     */
     public function isRequired()
     {
         return $this->required;
     }
 
+    /**
+     * Get validatorChain
+     *
+     * @return \Zend\Validator\ValidatorChain
+     */
     public function getValidatorChain()
     {
         return $this->validatorChain;
     }
 
+    /**
+     * Add
+     *
+     * @param \Zend\InputFilter\InputInterface $input Input
+     * @param string                           $name  Name
+     *
+     * @return void
+     */
     public function add($input, $name = null)
     {
         if ($name === null) {
@@ -181,27 +294,62 @@ class StructuredInput implements InputInterface, InputFilterInterface
         $this->inputs[$name] = $input;
     }
 
+    /**
+     * Get
+     *
+     * @param string $name Name
+     *
+     * @return \Zend\InputFilter\InputInterface
+     */
     public function get($name)
     {
         return $this->inputs[$name];
     }
 
+    /**
+     * Has
+     *
+     * @param string $name Name
+     *
+     * @return bool
+     */
     public function has($name)
     {
         return isset($this->inputs[$name]);
     }
 
+    /**
+     * Remove
+     *
+     * @param string $name Name
+     *
+     * @return void
+     */
     public function remove($name)
     {
         unset($this->inputs[$name]);
     }
 
+    /**
+     * Set data
+     *
+     * @param mixed $data Data
+     *
+     * @return void
+     */
     public function setData($data)
     {
         $this->data = $data;
         $this->populate();
     }
 
+    /**
+     * Is valid
+     *
+     * @param mixed $context Context
+     *
+     * @return bool
+     */
     public function isValid($context = null)
     {
         if (empty($this->data) && !$this->isRequired()) {
@@ -218,21 +366,45 @@ class StructuredInput implements InputInterface, InputFilterInterface
         }
     }
 
+    /**
+     * Set validationGroup
+     *
+     * @param string $name Name
+     *
+     * @return void
+     */
     public function setValidationGroup($name)
     {
         // no-op
     }
 
+    /**
+     * Get invalidInputs
+     *
+     * @return array
+     */
     public function getInvalidInput()
     {
         return $this->invalidInputs;
     }
 
+    /**
+     * Get validInputs
+     *
+     * @return array
+     */
     public function getValidInput()
     {
         return $this->validInputs;
     }
 
+    /**
+     * Get value
+     *
+     * @param string $name Name
+     *
+     * @return mixed
+     */
     public function getValue($name = null)
     {
         if ($name !== null) {
@@ -242,6 +414,11 @@ class StructuredInput implements InputInterface, InputFilterInterface
         return $this->getValues();
     }
 
+    /**
+     * Get values
+     *
+     * @return array
+     */
     public function getValues()
     {
         if (empty($this->data)) {
@@ -250,7 +427,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
 
         $values = [];
 
-        foreach($this->inputs as $name => $input) {
+        foreach ($this->inputs as $name => $input) {
             $values[$name] = $input->getValue();
         }
 
@@ -261,6 +438,13 @@ class StructuredInput implements InputInterface, InputFilterInterface
         return $values;
     }
 
+    /**
+     * Get raw value
+     *
+     * @param string $name Name
+     *
+     * @return mixed
+     */
     public function getRawValue($name = null)
     {
         if ($name !== null) {
@@ -270,17 +454,27 @@ class StructuredInput implements InputInterface, InputFilterInterface
         return $this->getRawValues();
     }
 
+    /**
+     * Get raw values
+     *
+     * @return array
+     */
     public function getRawValues()
     {
         $values = [];
 
-        foreach($this->inputs as $name => $input) {
+        foreach ($this->inputs as $name => $input) {
             $values[$name] = $input->getRawValue();
         }
 
         return $values;
     }
 
+    /**
+     * Get messages
+     *
+     * @return array
+     */
     public function getMessages()
     {
         if ($this->messages !== null) {
@@ -295,6 +489,11 @@ class StructuredInput implements InputInterface, InputFilterInterface
         return $messages;
     }
 
+    /**
+     * Count
+     *
+     * @return int
+     */
     public function count()
     {
         return count($this->inputs);
@@ -344,8 +543,6 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Validate a set of inputs against the current data
      *
-     * @param  array $inputs
-     * @param  array $data
      * @return bool
      */
     protected function validateInputs()
