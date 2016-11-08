@@ -7,9 +7,9 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\Operator;
 
+use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\FieldType\Traits\IdentityOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
  * @Transfer\RouteName("backend/operator/single")
@@ -37,7 +37,14 @@ final class Update extends AbstractCommand
      * @Transfer\Optional
      * @Transfer\Validator({
      *     "name":"Zend\Validator\InArray",
-     *     "options": {"haystack": {"op_cpid_central","op_cpid_local","op_cpid_corporation","op_cpid_default"}}
+     *     "options": {
+     *         "haystack": {
+     *             "op_cpid_central_government",
+     *             "op_cpid_local_government",
+     *             "op_cpid_public_corporation",
+     *             "op_cpid_default",
+     *         }
+     *     }
      * })
      */
     protected $cpid;
