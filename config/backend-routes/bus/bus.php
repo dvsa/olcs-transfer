@@ -193,6 +193,17 @@ return [
                             'POST' => CommandConfig::getPostConfig(Command\Bus\Ebsr\RequestMap::class),
                         ]
                     ],
+                    'print' => RouteConfig::getRouteConfig(
+                        'print',
+                        [
+                            'reg-letter' => RouteConfig::getRouteConfig(
+                                'reg-letter',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(Command\Bus\PrintLetter::class),
+                                ]
+                            ),
+                        ]
+                    ),
                 ],
                 '[0-9]+'
             ),
