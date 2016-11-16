@@ -14,12 +14,10 @@ class PrintLicenceTest extends PHPUnit_Framework_TestCase
     {
         $data = [
             'id' => 111,
-            'isDispatch' => 'unit_IsDispatch',
         ];
 
         $command = PrintLicence::create($data);
 
         $this->assertEquals(111, $command->getId());
-        static::assertEquals('unit_IsDispatch', $command->isDispatch());
     }
 }
