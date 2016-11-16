@@ -1,18 +1,11 @@
 <?php
 
-/**
- * CpidOrganisation.php
- *
- * @author Joshua Curtis <josh.curtis@valtech.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Query\Organisation;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
-use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
-use Dvsa\Olcs\Transfer\Query\OrderedTrait;
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @Transfer\RouteName("backend/organisation/cpid")
@@ -29,11 +22,12 @@ class CpidOrganisation extends AbstractQuery implements PagedQueryInterface
      *     "name":"Zend\Validator\InArray",
      *     "options": {
      *         "haystack": {
-     *             "op_cpid_central",
-     *             "op_cpid_local",
-     *             "op_cpid_corporation",
+     *             "op_cpid_central_government",
+     *             "op_cpid_local_government",
+     *             "op_cpid_public_corporation",
      *             "op_cpid_default",
-     *             "op_cpid_all"
+     *             "op_cpid_default",
+     *             "op_cpid_all",
      *         }
      *     }
      * })
@@ -41,7 +35,9 @@ class CpidOrganisation extends AbstractQuery implements PagedQueryInterface
     protected $cpid;
 
     /**
-     * @return mixed
+     * Get Cpid
+     *
+     * @return string
      */
     public function getCpid()
     {

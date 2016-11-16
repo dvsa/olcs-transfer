@@ -1,14 +1,9 @@
 <?php
 
-/**
- * CpidOrganisationExport.php
- *
- * @author Josh Curtis <josh.curtis@valtech.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Command\Organisation;
 
-use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @Transfer\RouteName("backend/organisation/cpid")
@@ -24,11 +19,11 @@ final class CpidOrganisationExport extends AbstractCommand
      *     "name":"Zend\Validator\InArray",
      *     "options": {
      *         "haystack": {
-     *             "op_cpid_central",
-     *             "op_cpid_local",
-     *             "op_cpid_corporation",
+     *             "op_cpid_central_government",
+     *             "op_cpid_local_government",
+     *             "op_cpid_public_corporation",
      *             "op_cpid_default",
-     *             "op_cpid_all"
+     *             "op_cpid_all",
      *         }
      *     }
      * })
@@ -36,7 +31,9 @@ final class CpidOrganisationExport extends AbstractCommand
     protected $cpid;
 
     /**
-     * @return mixed
+     * Get Cpid
+     *
+     * @return string
      */
     public function getCpid()
     {
