@@ -3,13 +3,11 @@
 namespace Dvsa\Olcs\Transfer\Query\BusRegSearchView;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
+use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
-use Dvsa\Olcs\Transfer\Query\OrderedTrait;
-
-use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * Class Bus Reg List for Organisation or LA
@@ -19,6 +17,15 @@ class BusRegSearchViewList extends AbstractQuery implements PagedQueryInterface,
 {
     use PagedTrait;
     use OrderedTrait;
+
+    /**
+     * @var int
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $organisationId;
 
     /**
      * @var int
@@ -46,6 +53,8 @@ class BusRegSearchViewList extends AbstractQuery implements PagedQueryInterface,
     protected $busRegStatus;
 
     /**
+     * Get Licence Id
+     *
      * @return int
      */
     public function getLicId()
@@ -54,6 +63,18 @@ class BusRegSearchViewList extends AbstractQuery implements PagedQueryInterface,
     }
 
     /**
+     * Get Organisation Id
+     *
+     * @return int
+     */
+    public function getOrganisationId()
+    {
+        return $this->organisationId;
+    }
+
+    /**
+     * Get Bus registration status
+     *
      * @return String
      */
     public function getBusRegStatus()
