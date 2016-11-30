@@ -25,7 +25,9 @@ final class ConfirmPrinting extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}})
+     * @Transfer\Validator(
+     *  {"name":"Zend\Validator\InArray", "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}}
+     * )
      * @Transfer\Optional
      */
     protected $licenceType;
@@ -56,6 +58,13 @@ final class ConfirmPrinting extends AbstractCommand
      * @Transfer\Optional
      */
     protected $isSuccessfull;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    public $queueId;
 
     /**
      * Get a NI flag
@@ -115,5 +124,15 @@ final class ConfirmPrinting extends AbstractCommand
     public function getIsSuccessfull()
     {
         return $this->isSuccessfull;
+    }
+
+    /**
+     * Get queue id
+     *
+     * @return int
+     */
+    public function getQueueId()
+    {
+        return $this->queueId;
     }
 }
