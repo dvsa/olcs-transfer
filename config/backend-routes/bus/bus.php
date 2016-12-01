@@ -240,6 +240,23 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Bus\BusServiceTypeList::class),
                 ]
             ),
+            'browse' => RouteConfig::getRouteConfig(
+                'browse',
+                [
+                    'context-list' => RouteConfig::getRouteConfig(
+                        'context-list',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Bus\BusRegBrowseContextList::class),
+                        ]
+                    ),
+                    'export' => RouteConfig::getRouteConfig(
+                        'export',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Bus\BusRegBrowseExport::class),
+                        ]
+                    ),
+                ]
+            ),
         ]
     ]
 ];
