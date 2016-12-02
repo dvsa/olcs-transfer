@@ -50,6 +50,18 @@ final class UpdateDeclaration extends AbstractCommand
      */
     protected $interimReason;
 
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"sig_physical_signature", "sig_digital_signature", "sig_signature_not_required"}}
+     *  }
+     * )
+     */
+    protected $signatureType;
+
     public function getId()
     {
         return $this->id;
@@ -73,5 +85,10 @@ final class UpdateDeclaration extends AbstractCommand
     public function getInterimReason()
     {
         return $this->interimReason;
+    }
+
+    public function getSignatureType()
+    {
+        return $this->signatureType;
     }
 }
