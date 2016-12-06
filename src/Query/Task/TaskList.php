@@ -86,7 +86,7 @@ class TaskList extends AbstractQuery implements PagedQueryInterface, OrderedQuer
      * @Transfer\Validator({
      *     "name":"Zend\Validator\InArray",
      *     "options": {
-     *          "haystack": {"self-only"}
+     *          "haystack": {"tsw_all", "tsw_self_only"}
      *     }
      * })
      */

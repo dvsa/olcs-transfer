@@ -59,7 +59,7 @@ class DocumentList extends AbstractQuery implements OrderedQueryInterface, Paged
      * @Transfer\Validator({
      *     "name":"Zend\Validator\InArray",
      *     "options": {
-     *          "haystack": {"self-only"}
+     *          "haystack": {"tsw_all", "tsw_self_only"}
      *     }
      * })
      */
@@ -88,7 +88,7 @@ class DocumentList extends AbstractQuery implements OrderedQueryInterface, Paged
     /**
      * Get Document Sub Category
      *
-     * @return int
+     * @return array
      */
     public function getDocumentSubCategory()
     {
