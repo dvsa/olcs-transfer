@@ -1,14 +1,8 @@
 <?php
 
-/**
- * Query Container
- *
- * @author Rob Caiger <rob@clocal.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Query;
 
 use Zend\InputFilter\InputFilterInterface;
-use Dvsa\Olcs\Transfer\Query\QueryInterface;
 
 /**
  * Query Container
@@ -59,6 +53,16 @@ class QueryContainer implements QueryContainerInterface
     public function isMediumTermCachable()
     {
         return ($this->dto instanceof CachableMediumTermQueryInterface);
+    }
+
+    /**
+     * Is query should use stream
+     *
+     * @return bool
+     */
+    public function isStream()
+    {
+        return ($this->dto instanceof StreamInterface);
     }
 
     /**

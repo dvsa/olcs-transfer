@@ -2,21 +2,20 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\Variation;
 
-use PHPUnit_Framework_TestCase;
-use Dvsa\Olcs\Transfer\Query\QueryContainer;
-use Mockery as m;
-use Dvsa\Olcs\Transfer\Query\QueryInterface;
 use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
 use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\QueryContainer;
+use Dvsa\Olcs\Transfer\Query\QueryInterface;
+use Dvsa\Olcs\Transfer\Query\StreamInterface;
+use Mockery as m;
+use Mockery\Adapter\Phpunit\MockeryTestCase;
 
 /**
- * QueryContainerTest
+ * @covers \Dvsa\Olcs\Transfer\Query\QueryContainer
  */
-class QueryContainerTest extends PHPUnit_Framework_TestCase
+class QueryContainerTest extends MockeryTestCase
 {
-    /**
-     * @var QueryContainer
-     */
+    /** @var QueryContainer */
     private $sut;
 
     public function setUp()
@@ -30,52 +29,61 @@ class QueryContainerTest extends PHPUnit_Framework_TestCase
         $mockDto->shouldReceive('getArrayCopy')->with()->once()->andReturn(['foo' => 'bar']);
         $this->sut->setDto($mockDto);
 
-        $expected = md5(get_class($mockDto) .'-'. json_encode(['foo' => 'bar']));
+        $expected = md5(get_class($mockDto) . '-' . json_encode(['foo' => 'bar']));
 
         $this->assertSame($expected, $this->sut->getCacheIdentifier());
     }
 
-    public function testIsShortTermCachable()
+    /**
+     * @dataProvider dpTestIsX
+     */
+    public function testIsX($dto, $expect)
     {
-        $mockDto = m::mock(QueryInterface::class);
-        $this->sut->setDto($mockDto);
+        $this->sut = new QueryContainer();
+        $this->sut->setDto($dto);
 
-        $sut = new QueryContainer();
-        $sut->setDto($mockDto);
-
-        $this->assertFalse($this->sut->isShortTermCachable());
+        static::assertEquals($expect['isShortCache'], $this->sut->isShortTermCachable());
+        static::assertEquals($expect['isMediumCache'], $this->sut->isMediumTermCachable());
+        static::assertEquals($expect['isStream'], $this->sut->isStream());
     }
 
-    public function testIsShortTermCachableTrue()
+    public function dpTestIsX()
     {
-        $mockDto = m::mock(QueryInterface::class, CachableShortTermQueryInterface::class);
-        $this->sut->setDto($mockDto);
-
-        $sut = new QueryContainer();
-        $sut->setDto($mockDto);
-
-        $this->assertTrue($this->sut->isShortTermCachable());
-    }
-
-    public function testIsMediumTermCachable()
-    {
-        $mockDto = m::mock(QueryInterface::class);
-        $this->sut->setDto($mockDto);
-
-        $sut = new QueryContainer();
-        $sut->setDto($mockDto);
-
-        $this->assertFalse($this->sut->isMediumTermCachable());
-    }
-
-    public function testIsMediumTermCachableTrue()
-    {
-        $mockDto = m::mock(QueryInterface::class, CachableMediumTermQueryInterface::class);
-        $this->sut->setDto($mockDto);
-
-        $sut = new QueryContainer();
-        $sut->setDto($mockDto);
-
-        $this->assertTrue($this->sut->isMediumTermCachable());
+        return [
+            [
+                'dto' => m::mock(
+                    implode(
+                        ',',
+                        [
+                            QueryInterface::class,
+                            CachableShortTermQueryInterface::class,
+                            CachableMediumTermQueryInterface::class,
+                            StreamInterface::class,
+                        ]
+                    )
+                ),
+                'expect' => [
+                    'isShortCache' => true,
+                    'isMediumCache' => true,
+                    'isStream' => true,
+                ],
+            ],
+            [
+                'dto' => m::mock(QueryInterface::class . ',' . StreamInterface::class),
+                'expect' => [
+                    'isShortCache' => false,
+                    'isMediumCache' => false,
+                    'isStream' => true,
+                ],
+            ],
+            [
+                'dto' => m::mock(QueryInterface::class . ',' . CachableShortTermQueryInterface::class),
+                'expect' => [
+                    'isShortCache' => true,
+                    'isMediumCache' => false,
+                    'isStream' => false,
+                ],
+            ],
+        ];
     }
 }

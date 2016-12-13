@@ -1,14 +1,8 @@
 <?php
 
-/**
- * Query Container Interface
- *
- * @author Rob Caiger <rob@clocal.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Query;
 
 use Zend\InputFilter\InputFilterInterface;
-use Dvsa\Olcs\Transfer\Query\QueryInterface;
 
 /**
  * Query Container Interface
@@ -24,6 +18,8 @@ interface QueryContainerInterface
     public function isShortTermCachable();
 
     public function isMediumTermCachable();
+
+    public function isStream();
 
     public function getCacheIdentifier();
 
