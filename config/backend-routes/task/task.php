@@ -38,5 +38,11 @@ return [
                 ]
             ),
         ]
+    ),
+    'flag-urgent-tasks' => RouteConfig::getRouteConfig(
+        'flag-urgent-tasks',
+        [
+            'POST' => CommandConfig::getPostConfig(Command\Task\FlagUrgentTasks::class),
+        ]
     )
 ];

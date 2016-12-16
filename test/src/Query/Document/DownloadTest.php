@@ -7,7 +7,7 @@ use Mockery as m;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
 
 /**
- * @covers Dvsa\Olcs\Transfer\Query\Document\Download
+ * @covers \Dvsa\Olcs\Transfer\Query\Document\Download
  */
 class DownloadTest extends MockeryTestCase
 {
