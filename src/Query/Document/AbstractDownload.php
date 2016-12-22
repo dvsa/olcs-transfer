@@ -4,12 +4,15 @@ namespace Dvsa\Olcs\Transfer\Query\Document;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\LoggerOmitResponseInterface;
+use Dvsa\Olcs\Transfer\Query\StreamInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @author Dmitry Golubev <dmitrij.golubev@valtech.co.uk>
  */
-class AbstractDownload extends AbstractQuery implements LoggerOmitResponseInterface
+class AbstractDownload extends AbstractQuery implements
+    LoggerOmitResponseInterface,
+    StreamInterface
 {
     /**
      * @var  bool
