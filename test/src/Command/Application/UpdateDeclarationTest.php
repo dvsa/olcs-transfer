@@ -18,6 +18,7 @@ class UpdateDeclarationTest extends PHPUnit_Framework_TestCase
             'declarationConfirmation' => 'Y',
             'interimRequested' => 'N',
             'interimReason' => 'foobar',
+            'signatureType' => 'sig_physical_signature',
         ];
 
         $command = UpdateDeclaration::create($data);
@@ -27,5 +28,6 @@ class UpdateDeclarationTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('Y', $command->getDeclarationConfirmation());
         $this->assertEquals('N', $command->getInterimRequested());
         $this->assertEquals('foobar', $command->getInterimReason());
+        $this->assertEquals('sig_physical_signature', $command->getSignatureType());
     }
 }
