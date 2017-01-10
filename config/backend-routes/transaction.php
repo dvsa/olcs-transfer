@@ -19,7 +19,7 @@ return [
                 'options' => [
                     'route' => 'ref/:reference[/]',
                     'constraints' => [
-                        'reference' => '(OLCS|WAIVE)-[0-9A-F\-]+',
+                        'reference' => '(OLCS|WAIVE|OLNI)-[0-9A-F\-]+',
                     ],
                 ],
                 'child_routes' => [
