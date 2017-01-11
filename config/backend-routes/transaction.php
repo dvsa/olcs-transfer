@@ -35,12 +35,6 @@ return [
                         [
                             'PUT' => CommandConfig::getPutConfig(Command\Transaction\ReverseTransaction::class),
                         ]
-                    ),
-                    'adjust' => RouteConfig::getRouteConfig(
-                        'adjust',
-                        [
-                            'PUT' => CommandConfig::getPutConfig(Command\Transaction\AdjustTransaction::class),
-                        ]
                     )
                 ]
             ),
