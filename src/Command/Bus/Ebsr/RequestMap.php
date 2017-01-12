@@ -18,9 +18,15 @@ class RequestMap extends AbstractCommand
 
     /**
      * @var string
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"small","large"}}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"small","large","auto"}}})
      */
     protected $scale;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $fromNewEbsr;
 
     /**
      * @return string
@@ -28,5 +34,13 @@ class RequestMap extends AbstractCommand
     public function getScale()
     {
         return $this->scale;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getFromNewEbsr()
+    {
+        return $this->fromNewEbsr;
     }
 }
