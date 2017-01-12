@@ -19,7 +19,7 @@ return [
                 'options' => [
                     'route' => 'ref/:reference[/]',
                     'constraints' => [
-                        'reference' => '(OLCS|WAIVE)-[0-9A-F\-]+',
+                        'reference' => '[0-9A-Za-z]+-[0-9A-F\-]+',
                     ],
                 ],
                 'child_routes' => [
@@ -34,12 +34,6 @@ return [
                         'reverse',
                         [
                             'PUT' => CommandConfig::getPutConfig(Command\Transaction\ReverseTransaction::class),
-                        ]
-                    ),
-                    'adjust' => RouteConfig::getRouteConfig(
-                        'adjust',
-                        [
-                            'PUT' => CommandConfig::getPutConfig(Command\Transaction\AdjustTransaction::class),
                         ]
                     )
                 ]
