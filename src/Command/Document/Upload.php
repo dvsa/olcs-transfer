@@ -138,6 +138,12 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     protected $user;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $shouldUploadOnly = false;
+
+    /**
      * @return mixed
      */
     public function getFilename()
@@ -255,5 +261,13 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getShouldUploadOnly()
+    {
+        return $this->shouldUploadOnly;
     }
 }
