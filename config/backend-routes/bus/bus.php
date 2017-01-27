@@ -254,6 +254,7 @@ return [
             'browse' => RouteConfig::getRouteConfig(
                 'browse',
                 [
+                    'GET' => QueryConfig::getConfig(Query\Bus\BusRegBrowseList::class),
                     'context-list' => RouteConfig::getRouteConfig(
                         'context-list',
                         [
