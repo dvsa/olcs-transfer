@@ -4,20 +4,13 @@ namespace Dvsa\Olcs\Transfer\Query\Opposition;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
-use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
-use Dvsa\Olcs\Transfer\Query\PagedTrait;
-use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 
 /**
  * Class OppositionList
  * @Transfer\RouteName("backend/opposition")
  */
-class OppositionList extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
+class OppositionList extends AbstractQuery
 {
-    use PagedTrait;
-    use OrderedTrait;
-
     /**
      * @Transfer\Optional()
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
