@@ -28,6 +28,7 @@ class DocumentListTest extends MockeryTestCase
             'limit' => 'unit_limit',
             'sort' => 'unit_sort',
             'order' => 'unit_order',
+            'format' => 'foo',
         ];
 
         $sut = DocumentList::create($data);
@@ -46,5 +47,6 @@ class DocumentListTest extends MockeryTestCase
         static::assertEquals('unit_limit', $sut->getLimit());
         static::assertEquals('unit_sort', $sut->getSort());
         static::assertEquals('unit_order', $sut->getOrder());
+        static::assertEquals('foo', $sut->getFormat());
     }
 }

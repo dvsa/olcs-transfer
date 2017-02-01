@@ -14,11 +14,15 @@ use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
+use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/document")
  */
-class DocumentList extends AbstractQuery implements OrderedQueryInterface, PagedQueryInterface
+class DocumentList extends AbstractQuery implements
+    OrderedQueryInterface,
+    PagedQueryInterface,
+    CachableShortTermQueryInterface
 {
     use OrderedTrait,
         PagedTrait,
@@ -66,6 +70,14 @@ class DocumentList extends AbstractQuery implements OrderedQueryInterface, Paged
     protected $showDocs = null;
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\Alnum"})
+     */
+    protected $format = null;
+
+
+    /**
      * Is External
      *
      * @return string
@@ -103,5 +115,15 @@ class DocumentList extends AbstractQuery implements OrderedQueryInterface, Paged
     public function getShowDocs()
     {
         return $this->showDocs;
+    }
+
+    /**
+     * Get Format (ie the extension of the document)
+     *
+     * @return string
+     */
+    public function getFormat()
+    {
+        return $this->format;
     }
 }
