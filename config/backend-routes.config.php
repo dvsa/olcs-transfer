@@ -1122,6 +1122,14 @@ $routes = [
                                     ),
                                 ]
                             ),
+                            'export-psv-vehicles' => RouteConfig::getRouteConfig(
+                                'export-psv-vehicles',
+                                [
+                                    'GET' => QueryConfig::getConfig(
+                                        Query\Licence\PsvVehiclesExport::class
+                                    ),
+                                ]
+                            ),
                             'trailers' => RouteConfig::getRouteConfig(
                                 'trailers',
                                 [
