@@ -51,6 +51,12 @@ final class UpdateGoodsVehicle extends AbstractCommand
      * @Transfer\Optional
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
+    protected $sentDate;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     */
     protected $removalDate;
 
     /**
@@ -83,6 +89,14 @@ final class UpdateGoodsVehicle extends AbstractCommand
     public function getSeedDate()
     {
         return $this->seedDate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSentDate()
+    {
+        return $this->sentDate;
     }
 
     /**
