@@ -27,7 +27,8 @@ class PayOutstandingFeesTest extends PHPUnit_Framework_TestCase
             'poNo' => '3456',
             'customerReference' => 'foo',
             'customerName' => 'bar',
-            'address' => 'cake'
+            'address' => 'cake',
+            'shouldResolveOnly' => true,
         ];
 
         $command = PayOutstandingFees::create($data);
@@ -47,5 +48,6 @@ class PayOutstandingFeesTest extends PHPUnit_Framework_TestCase
         $this->assertEquals('foo', $command->getCustomerReference());
         $this->assertEquals('bar', $command->getCustomerName());
         $this->assertEquals('cake', $command->getAddress());
+        $this->assertTrue($command->getShouldResovleOnly());
     }
 }

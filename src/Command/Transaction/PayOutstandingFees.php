@@ -59,6 +59,7 @@ final class PayOutstandingFees extends AbstractCommand
      *      }
      *  }
      * })
+     * @Transfer\Optional
      */
     protected $paymentMethod;
 
@@ -109,6 +110,13 @@ final class PayOutstandingFees extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
     protected $storedCardReference;
+
+    /**
+     * Should resolve only
+     * @Transfer\Filter({"name": "Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $shouldResolveOnly;
 
     /**
      * Get fee ids
@@ -238,5 +246,15 @@ final class PayOutstandingFees extends AbstractCommand
     public function getStoredCardReference()
     {
         return $this->storedCardReference;
+    }
+
+    /**
+     * Get should resolve only
+     *
+     * @return bool
+     */
+    public function getShouldResovleOnly()
+    {
+        return $this->shouldResolveOnly;
     }
 }
