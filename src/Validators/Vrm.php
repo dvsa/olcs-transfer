@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Ensure the VRM matches the required criteria
- *
- * @author Nick Payne <nick.payne@valtech.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Validators;
 
 use Zend\Validator\AbstractValidator;
@@ -22,7 +17,7 @@ class Vrm extends AbstractValidator
      * @var array
      */
     protected $messageTemplates = array(
-        'invalid' => 'error.vrm.invalid'
+        'invalid' => 'vehicle.error.vrm.invalid',
     );
 
     /**
@@ -135,7 +130,8 @@ class Vrm extends AbstractValidator
      * Retrieve a subset of regular expressions which *might* match
      * the given input
      *
-     * @param string $input
+     * @param string $input Input
+     *
      * @return array
      */
     protected function getPatterns($input)
@@ -167,7 +163,8 @@ class Vrm extends AbstractValidator
     /**
      * Construct a regular expression from a given DVSA format
      *
-     * @param string $formatter
+     * @param string $formatter Formatter
+     *
      * @return string
      */
     protected function buildRegex($formatter)
@@ -182,7 +179,8 @@ class Vrm extends AbstractValidator
     /**
      * Check if VRM is valid
      *
-     * @param string $value
+     * @param string $value Value
+     *
      * @return bool
      */
     public function isValid($value)
