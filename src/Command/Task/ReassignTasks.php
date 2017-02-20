@@ -1,15 +1,10 @@
 <?php
 
-/**
- * Reassign Tasks
- *
- * @author Rob Caiger <rob@clocal.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Command\Task;
 
+use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Ids;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
  * @Transfer\RouteName("backend/task/reassign")
@@ -28,6 +23,7 @@ final class ReassignTasks extends AbstractCommand
     protected $user;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -35,6 +31,8 @@ final class ReassignTasks extends AbstractCommand
     protected $team;
 
     /**
+     * Get User
+     *
      * @return mixed
      */
     public function getUser()
@@ -43,6 +41,8 @@ final class ReassignTasks extends AbstractCommand
     }
 
     /**
+     * Get Team
+     *
      * @return mixed
      */
     public function getTeam()
