@@ -2,12 +2,11 @@
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
- * Trait ApplicationOptional
+ * Trait TransportManagerApplicationOptional
  *
  * @package Dvsa\Olcs\Transfer\Command\Traits\FieldType
- * @author Valtech <uk@valtech.co.uk>
  */
-trait ApplicationOptional
+trait TransportManagerApplicationOptional
 {
     /**
      * @var int
@@ -16,21 +15,21 @@ trait ApplicationOptional
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $application;
+    protected $transportManagerApplication;
 
     /**
      * @return int
      */
-    public function getApplication()
+    public function getTransportManagerApplication()
     {
-        return $this->application;
+        return $this->transportManagerApplication;
     }
 
     /**
-     * @param $applicationId Application ID
+     * @param int $transportManagerApplicationId
      */
-    public function setApplication($applicationId)
+    public function setTransportManagerApplication($transportManagerApplicationId)
     {
-        $this->application = (int) $applicationId;
+        $this->transportManagerApplication = (int) $transportManagerApplicationId;
     }
 }
