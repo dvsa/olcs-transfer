@@ -2,7 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Command\Bus;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -14,5 +14,6 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 class PrintLetter extends AbstractCommand
 {
-    use Identity;
+    use FieldType\Identity;
+    use FieldType\PrintCopiesCount;
 }
