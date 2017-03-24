@@ -15,5 +15,5 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 class PrintLetter extends AbstractCommand
 {
     use FieldType\Identity;
-    use FieldType\PrintCopiesCount;
+    use FieldType\PrintOptional;
 }
