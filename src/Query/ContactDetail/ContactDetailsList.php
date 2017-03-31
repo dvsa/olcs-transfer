@@ -1,25 +1,20 @@
 <?php
 
-/**
- * Get a list of ContactDetails
- *
- * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Query\ContactDetail;
 
-use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
-use Dvsa\Olcs\Transfer\Query\PagedTrait;
+use Dvsa\Olcs\Transfer\Query\PagedTraitOptional;
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @Transfer\RouteName("backend/contact-details")
  */
 class ContactDetailsList extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
 {
-    use PagedTrait;
+    use PagedTraitOptional;
     use OrderedTrait;
 
     /**
@@ -41,6 +36,11 @@ class ContactDetailsList extends AbstractQuery implements PagedQueryInterface, O
      */
     protected $contactType;
 
+    /**
+     * Returns contact type
+     *
+     * @return int
+     */
     public function getContactType()
     {
         return $this->contactType;
