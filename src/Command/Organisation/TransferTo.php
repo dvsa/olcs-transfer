@@ -31,6 +31,15 @@ final class TransferTo extends AbstractCommand
      */
     protected $receivingOrganisation;
 
+    /**
+     * @Transfer\ArrayInput
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    protected $licenceIds = [];
+
     public function getId()
     {
         return $this->id;
@@ -39,5 +48,15 @@ final class TransferTo extends AbstractCommand
     public function getReceivingOrganisation()
     {
         return $this->receivingOrganisation;
+    }
+
+    /**
+     * Licence IDs
+     *
+     * @return array
+     */
+    public function getLicenceIds()
+    {
+        return $this->licenceIds;
     }
 }
