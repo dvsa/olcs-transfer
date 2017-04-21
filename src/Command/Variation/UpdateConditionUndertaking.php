@@ -36,6 +36,19 @@ final class UpdateConditionUndertaking extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {
+     *          "haystack": {"cu_cat_env", "cu_cat_busreg", "cu_cat_fin", "cu_cat_other"}
+     *      }
+     *  }
+     * )
+     */
+    protected $conditionCategory;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":5,"max":8000}})
      */
     protected $notes;
@@ -68,6 +81,16 @@ final class UpdateConditionUndertaking extends AbstractCommand
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Get condition category
+     *
+     * @return string
+     */
+    public function getConditionCategory()
+    {
+        return $this->conditionCategory;
     }
 
     public function getNotes()
