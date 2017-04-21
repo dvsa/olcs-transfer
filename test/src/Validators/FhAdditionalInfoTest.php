@@ -2,20 +2,20 @@
 
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
-use Dvsa\Olcs\Transfer\Validators\FHAdditionalInfo;
+use Dvsa\Olcs\Transfer\Validators\FhAdditionalInfo;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
 
 /**
- * @covers \Dvsa\Olcs\Transfer\Validators\FHAdditionalInfo
+ * @covers \Dvsa\Olcs\Transfer\Validators\FhAdditionalInfo
  */
-class FHAdditionalInfoTest extends MockeryTestCase
+class FhAdditionalInfoTest extends MockeryTestCase
 {
-    /** @var FHAdditionalInfo */
+    /** @var FhAdditionalInfo */
     private $sut;
 
     public function setUp()
     {
-        $this->sut = new FHAdditionalInfo();
+        $this->sut = new FhAdditionalInfo();
     }
 
     /**
@@ -49,7 +49,7 @@ class FHAdditionalInfoTest extends MockeryTestCase
                 'value' => '',
                 'expect' => false,
                 'errMsg' => [
-                    FHAdditionalInfo::IS_EMPTY => 'FHAdditionalInfo.validation.is_empty',
+                    FhAdditionalInfo::IS_EMPTY => 'FhAdditionalInfo.validation.is_empty',
                 ],
             ],
             'not need details text is short' => [
@@ -60,7 +60,7 @@ class FHAdditionalInfoTest extends MockeryTestCase
                 'value' => 'to short message',
                 'expect' => false,
                 'errMsg' => [
-                    FHAdditionalInfo::TOO_SHORT => 'FHAdditionalInfo.validation.too_short',
+                    FhAdditionalInfo::TOO_SHORT => 'FhAdditionalInfo.validation.too_short',
                 ],
             ],
             '' => [
@@ -68,7 +68,7 @@ class FHAdditionalInfoTest extends MockeryTestCase
                     'bankrupt' => 'Y',
                     'liquidation' => 'N',
                 ],
-                'value' => str_repeat('a', FHAdditionalInfo::MIN_LEN),
+                'value' => str_repeat('a', FhAdditionalInfo::MIN_LEN),
                 'expect' => true,
             ],
         ];

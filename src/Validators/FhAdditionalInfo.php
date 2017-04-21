@@ -12,7 +12,7 @@ use Zend\Validator as ZendValidator;
  *
  * @author Jakub Igla <jakub.igla@valtech.co.uk>
  */
-class FHAdditionalInfo extends ZendValidator\AbstractValidator
+class FhAdditionalInfo extends ZendValidator\AbstractValidator
 {
     const TOO_SHORT = 'stringLengthTooShort';
     const IS_EMPTY  = 'isEmpty';
@@ -25,8 +25,8 @@ class FHAdditionalInfo extends ZendValidator\AbstractValidator
      * @var array
      */
     protected $messageTemplates = array(
-        self::TOO_SHORT => 'FHAdditionalInfo.validation.too_short',
-        self::IS_EMPTY => 'FHAdditionalInfo.validation.is_empty',
+        self::TOO_SHORT => 'FhAdditionalInfo.validation.too_short',
+        self::IS_EMPTY => 'FhAdditionalInfo.validation.is_empty',
     );
 
     /**
