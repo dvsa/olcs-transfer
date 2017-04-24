@@ -36,6 +36,19 @@ final class UpdateConditionUndertaking extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {
+     *          "haystack": {"cu_cat_env", "cu_cat_busreg", "cu_cat_fin", "cu_cat_other"}
+     *      }
+     *  }
+     * )
+     */
+    protected $conditionCategory;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":5,"max":8000}})
      */
     protected $notes;
@@ -60,31 +73,71 @@ final class UpdateConditionUndertaking extends AbstractCommand
      */
     protected $operatingCentre;
 
+    /**
+     * Get condition undertaking id
+     *
+     * @return int
+     */
     public function getConditionUndertaking()
     {
         return $this->conditionUndertaking;
     }
 
+    /**
+     * Get type
+     *
+     * @return string
+     */
     public function getType()
     {
         return $this->type;
     }
 
+    /**
+     * Get condition category
+     *
+     * @return string
+     */
+    public function getConditionCategory()
+    {
+        return $this->conditionCategory;
+    }
+
+    /**
+     * Get notes
+     *
+     * @return string
+     */
     public function getNotes()
     {
         return $this->notes;
     }
 
+    /**
+     * Get fulfilled
+     *
+     * @return string
+     */
     public function getFulfilled()
     {
         return $this->fulfilled;
     }
 
+    /**
+     * Get attached to
+     *
+     * @return string
+     */
     public function getAttachedTo()
     {
         return $this->attachedTo;
     }
 
+    /**
+     * Get operating centre id
+     *
+     * @return int
+     */
     public function getOperatingCentre()
     {
         return $this->operatingCentre;
