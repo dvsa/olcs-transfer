@@ -73,11 +73,21 @@ final class UpdateConditionUndertaking extends AbstractCommand
      */
     protected $operatingCentre;
 
+    /**
+     * Get condition undertaking id
+     *
+     * @return int
+     */
     public function getConditionUndertaking()
     {
         return $this->conditionUndertaking;
     }
 
+    /**
+     * Get type
+     *
+     * @return string
+     */
     public function getType()
     {
         return $this->type;
@@ -93,21 +103,41 @@ final class UpdateConditionUndertaking extends AbstractCommand
         return $this->conditionCategory;
     }
 
+    /**
+     * Get notes
+     *
+     * @return string
+     */
     public function getNotes()
     {
         return $this->notes;
     }
 
+    /**
+     * Get fulfilled
+     *
+     * @return string
+     */
     public function getFulfilled()
     {
         return $this->fulfilled;
     }
 
+    /**
+     * Get attached to
+     *
+     * @return string
+     */
     public function getAttachedTo()
     {
         return $this->attachedTo;
     }
 
+    /**
+     * Get operating centre id
+     *
+     * @return int
+     */
     public function getOperatingCentre()
     {
         return $this->operatingCentre;
