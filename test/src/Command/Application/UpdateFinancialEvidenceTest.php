@@ -15,13 +15,13 @@ class UpdateFinancialEvidenceTest extends PHPUnit_Framework_TestCase
         $data = [
             'id' => 111,
             'version' => 222,
-            'financialEvidenceUploaded' => 'Y',
+            'financialEvidenceUploaded' => '1',
         ];
 
         $command = UpdateFinancialEvidence::create($data);
 
         $this->assertEquals(111, $command->getId());
         $this->assertEquals(222, $command->getVersion());
-        $this->assertEquals('Y', $command->getFinancialEvidenceUploaded());
+        $this->assertEquals(1, $command->getFinancialEvidenceUploaded());
     }
 }

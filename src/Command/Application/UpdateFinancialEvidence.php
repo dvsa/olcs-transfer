@@ -32,7 +32,7 @@ final class UpdateFinancialEvidence extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      */
     protected $financialEvidenceUploaded;
 
