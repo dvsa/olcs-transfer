@@ -48,9 +48,8 @@ return [
                             'print' => RouteConfig::getRouteConfig(
                                 'print',
                                 [
-                                    'POST' => CommandConfig::getPostConfig(
-                                        Command\Document\PrintLetter::class
-                                    )
+                                    'POST' => CommandConfig::getPostConfig(Command\Document\PrintLetter::class),
+                                    'GET' => QueryConfig::getConfig(Query\Document\PrintLetter::class),
                                 ]
                             )
                         ]
