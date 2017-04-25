@@ -581,6 +581,13 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\OutstandingFees::class),
                                 ]
                             ),
+                            'upload-evidence' => RouteConfig::getRouteConfig(
+                                'upload-evidence',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\UploadEvidence::class),
+                                    'PUT' => CommandConfig::getPutConfig(Command\Application\UploadEvidence::class),
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
