@@ -7,6 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\Licence;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -16,12 +17,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class CreatePeople extends AbstractCommand
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $id;
+    use Traits\Identity;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -31,7 +27,12 @@ final class CreatePeople extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"title_dr","title_miss","title_mr","title_mrs","title_ms"}}})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *          "haystack": {"title_dr","title_miss","title_mr","title_mrs","title_ms"}
+     *     }
+     * })
      * @Transfer\Optional
      */
     protected $title;
@@ -51,13 +52,9 @@ final class CreatePeople extends AbstractCommand
 
     /**
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Optional
      */
     protected $birthDate;
-
-    public function getId()
-    {
-        return $this->id;
-    }
 
     public function getForename()
     {

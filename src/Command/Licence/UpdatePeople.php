@@ -7,6 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\Licence;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -16,12 +17,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdatePeople extends AbstractCommand
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $id;
+    use Traits\Identity,
+        Traits\Version;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -31,13 +28,6 @@ final class UpdatePeople extends AbstractCommand
     protected $person;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $version;
-
-    /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":0,"max":35}})
      */
@@ -45,7 +35,12 @@ final class UpdatePeople extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"title_dr","title_miss","title_mr","title_mrs","title_ms"}}})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *          "haystack": {"title_dr","title_miss","title_mr","title_mrs","title_ms"},
+     *     }
+     * })
      * @Transfer\Optional
      */
     protected $title;
@@ -65,27 +60,13 @@ final class UpdatePeople extends AbstractCommand
 
     /**
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Optional
      */
     protected $birthDate;
-
-    public function getId()
-    {
-        return $this->id;
-    }
 
     public function getPerson()
     {
         return $this->person;
-    }
-
-    /**
-     * Get the Person version
-     *
-     * @return int
-     */
-    public function getVersion()
-    {
-        return $this->version;
     }
 
     public function getForename()
