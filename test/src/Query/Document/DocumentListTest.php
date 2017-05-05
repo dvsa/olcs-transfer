@@ -29,6 +29,7 @@ class DocumentListTest extends MockeryTestCase
             'sort' => 'unit_sort',
             'order' => 'unit_order',
             'format' => 'foo',
+            'onlyUnlinked' => 'Y',
         ];
 
         $sut = DocumentList::create($data);
@@ -48,5 +49,6 @@ class DocumentListTest extends MockeryTestCase
         static::assertEquals('unit_sort', $sut->getSort());
         static::assertEquals('unit_order', $sut->getOrder());
         static::assertEquals('foo', $sut->getFormat());
+        static::assertEquals('Y', $sut->getOnlyUnlinked());
     }
 }
