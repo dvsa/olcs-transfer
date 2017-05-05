@@ -76,6 +76,13 @@ class DocumentList extends AbstractQuery implements
      */
     protected $format = null;
 
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Optional
+     */
+    protected $onlyUnlinked = null;
+
 
     /**
      * Is External
@@ -125,5 +132,15 @@ class DocumentList extends AbstractQuery implements
     public function getFormat()
     {
         return $this->format;
+    }
+
+    /**
+     * Get onlyUnlinked (only retrieve records with no link to a licence, case, bus reg etc.)
+     *
+     * @return string
+     */
+    public function getOnlyUnlinked()
+    {
+        return $this->onlyUnlinked;
     }
 }
