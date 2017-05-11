@@ -13,4 +13,22 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class UploadEvidence extends AbstractCommand
 {
     use Identity;
+
+    /**
+     * @Transfer\ArrayInput
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\OperatingCentreEvidence")
+     * @Transfer\Optional
+     */
+    protected $operatingCentres = [];
+
+    /**
+     * Get operating centres
+     *
+     * @return array
+     */
+    public function getOperatingCentres()
+    {
+        return $this->operatingCentres;
+    }
 }
