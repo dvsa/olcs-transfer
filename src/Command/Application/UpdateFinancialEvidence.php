@@ -33,6 +33,7 @@ final class UpdateFinancialEvidence extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 2}})
      */
     protected $financialEvidenceUploaded;
 
