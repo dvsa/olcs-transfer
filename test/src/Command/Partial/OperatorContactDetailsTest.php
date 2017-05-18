@@ -17,10 +17,10 @@ class OperatorContactDetailsTest extends PHPUnit_Framework_TestCase
             'version' => 1,
             'emailAddress' => 'foo@bar.com',
             'address' => ['address details'],
-            'businessPhoneContact' => ['business phone'],
-            'homePhoneContact' => ['home phone'],
-            'mobilePhoneContact' => ['mobile phone'],
-            'faxPhoneContact' => ['fax phone'],
+            'phoneContacts' => [
+                ['phoneNumber' => 1],
+                ['phoneNumber' => 2],
+            ]
         ];
 
         $command = OperatorContactDetails::create($data);
@@ -29,9 +29,12 @@ class OperatorContactDetailsTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(1, $command->getVersion());
         $this->assertEquals('foo@bar.com', $command->getEmailAddress());
         $this->assertEquals(['address details'], $command->getAddress());
-        $this->assertEquals(['business phone'], $command->getBusinessPhoneContact());
-        $this->assertEquals(['home phone'], $command->getHomePhoneContact());
-        $this->assertEquals(['mobile phone'], $command->getMobilePhoneContact());
-        $this->assertEquals(['fax phone'], $command->getFaxPhoneContact());
+        $this->assertEquals(
+            [
+                ['phoneNumber' => 1],
+                ['phoneNumber' => 2],
+            ],
+            $command->getPhoneContacts()
+        );
     }
 }

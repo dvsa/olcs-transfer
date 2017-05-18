@@ -42,28 +42,12 @@ class OperatorContactDetails extends AbstractCommand
     protected $address;
 
     /**
+     * @Transfer\ArrayInput
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\PhoneContact")
      * @Transfer\Optional
      */
-    protected $businessPhoneContact;
-
-    /**
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\PhoneContact")
-     * @Transfer\Optional
-     */
-    protected $homePhoneContact;
-
-    /**
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\PhoneContact")
-     * @Transfer\Optional
-     */
-    protected $mobilePhoneContact;
-
-    /**
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\PhoneContact")
-     * @Transfer\Optional
-     */
-    protected $faxPhoneContact;
+    protected $phoneContacts = [];
 
     /**
      * Gets the value of id.
@@ -106,42 +90,12 @@ class OperatorContactDetails extends AbstractCommand
     }
 
     /**
-     * Gets the value of businessPhoneContact.
+     * Gets phone contacts
      *
-     * @return mixed
+     * @return array
      */
-    public function getBusinessPhoneContact()
+    public function getPhoneContacts()
     {
-        return $this->businessPhoneContact;
-    }
-
-    /**
-     * Gets the value of homePhoneContact.
-     *
-     * @return mixed
-     */
-    public function getHomePhoneContact()
-    {
-        return $this->homePhoneContact;
-    }
-
-    /**
-     * Gets the value of mobilePhoneContact.
-     *
-     * @return mixed
-     */
-    public function getMobilePhoneContact()
-    {
-        return $this->mobilePhoneContact;
-    }
-
-    /**
-     * Gets the value of faxPhoneContact.
-     *
-     * @return mixed
-     */
-    public function getFaxPhoneContact()
-    {
-        return $this->faxPhoneContact;
+        return $this->phoneContacts;
     }
 }
