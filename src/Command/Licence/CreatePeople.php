@@ -1,83 +1,14 @@
 <?php
 
-/**
- * CreatePeople
- *
- * @author Mat Evans <mat.evans@valtech.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Command\Licence;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits;
+use Dvsa\Olcs\Transfer\Command\AbstractPeople;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
  * @Transfer\RouteName("backend/licence/single/people")
  * @Transfer\Method("POST")
  */
-final class CreatePeople extends AbstractCommand
+final class CreatePeople extends AbstractPeople
 {
-    use Traits\Identity;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":0,"max":35}})
-     */
-    protected $forename;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Zend\Validator\InArray",
-     *     "options": {
-     *          "haystack": {"title_dr","title_miss","title_mr","title_mrs","title_ms"}
-     *     }
-     * })
-     * @Transfer\Optional
-     */
-    protected $title;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":0,"max":35}})
-     */
-    protected $familyName;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":0,"max":35}})
-     * @Transfer\Optional
-     */
-    protected $otherName;
-
-    /**
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
-     * @Transfer\Optional
-     */
-    protected $birthDate;
-
-    public function getForename()
-    {
-        return $this->forename;
-    }
-
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    public function getFamilyName()
-    {
-        return $this->familyName;
-    }
-
-    public function getOtherName()
-    {
-        return $this->otherName;
-    }
-
-    public function getBirthDate()
-    {
-        return $this->birthDate;
-    }
 }
