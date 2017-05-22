@@ -11,8 +11,4 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 final class CreatePeople extends AbstractPeople
 {
-    /**
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
-     */
-    protected $birthDate;
 }

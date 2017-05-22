@@ -23,11 +23,6 @@ final class UpdatePeople extends AbstractPeople
     protected $person;
 
     /**
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
-     */
-    protected $birthDate;
-
-    /**
      * Get Person Id
      *
      * @return int
