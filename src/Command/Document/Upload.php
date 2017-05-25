@@ -144,7 +144,29 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     protected $shouldUploadOnly = false;
 
     /**
-     * @return mixed
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $additionalCopy;
+
+    /**
+     * @Transfer\ArrayInput
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {"application","licence","transportManager","case","busReg"}}
+     *  }
+     * )
+     * @Transfer\Optional
+     */
+    protected $additionalEntities;
+
+    /**
+     * Get filename
+     *
+     * @return string
      */
     public function getFilename()
     {
@@ -152,7 +174,9 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     }
 
     /**
-     * @return mixed
+     * Get content
+     *
+     * @return string
      */
     public function getContent()
     {
@@ -160,7 +184,9 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     }
 
     /**
-     * @return mixed
+     * Get irfo organisation
+     *
+     * @return int
      */
     public function getIrfoOrganisation()
     {
@@ -168,7 +194,9 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     }
 
     /**
-     * @return mixed
+     * Get submission
+     *
+     * @return int
      */
     public function getSubmission()
     {
@@ -176,7 +204,9 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     }
 
     /**
-     * @return mixed
+     * Get traffic area
+     *
+     * @return string
      */
     public function getTrafficArea()
     {
@@ -184,7 +214,9 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     }
 
     /**
-     * @return mixed
+     * Get operating centre
+     *
+     * @return int
      */
     public function getOperatingCentre()
     {
@@ -192,7 +224,9 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     }
 
     /**
-     * @return mixed
+     * Get opposition
+     *
+     * @return int
      */
     public function getOpposition()
     {
@@ -200,7 +234,9 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     }
 
     /**
-     * @return mixed
+     * Get category
+     *
+     * @return int
      */
     public function getCategory()
     {
@@ -208,7 +244,9 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     }
 
     /**
-     * @return mixed
+     * Get sub category
+     *
+     * @return int
      */
     public function getSubCategory()
     {
@@ -216,7 +254,9 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     }
 
     /**
-     * @return mixed
+     * Get description
+     *
+     * @return string
      */
     public function getDescription()
     {
@@ -224,7 +264,9 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     }
 
     /**
-     * @return mixed
+     * Get is external
+     *
+     * @return bool
      */
     public function getIsExternal()
     {
@@ -232,7 +274,9 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     }
 
     /**
-     * @return mixed
+     * Get is scan
+     *
+     * @return bool
      */
     public function getIsScan()
     {
@@ -240,6 +284,8 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     }
 
     /**
+     * Get is ebsr pack
+     *
      * @return bool
      */
     public function getIsEbsrPack()
@@ -248,7 +294,9 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     }
 
     /**
-     * @return mixed
+     * Get issued date
+     *
+     * @return string
      */
     public function getIssuedDate()
     {
@@ -256,7 +304,9 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     }
 
     /**
-     * @return mixed
+     * Get user
+     *
+     * @return int
      */
     public function getUser()
     {
@@ -264,10 +314,32 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     }
 
     /**
-     * @return mixed
+     * Get should upload only
+     *
+     * @return bool
      */
     public function getShouldUploadOnly()
     {
         return $this->shouldUploadOnly;
+    }
+
+    /**
+     * Get additional copy
+     *
+     * @return bool
+     */
+    public function getAdditionalCopy()
+    {
+        return $this->additionalCopy;
+    }
+
+    /**
+     * Get additional entities
+     *
+     * @return array
+     */
+    public function getAdditionalEntities()
+    {
+        return $this->additionalEntities;
     }
 }

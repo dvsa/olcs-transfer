@@ -28,6 +28,8 @@ class UploadTest extends PHPUnit_Framework_TestCase
         $issuedDate = '01/01/2017';
         $user = 7;
         $shouldUploadOnly = true;
+        $additionalCopy = true;
+        $additionalEntities = ['application', 'licence'];
 
         $data = [
             'filename' => $filename,
@@ -46,6 +48,8 @@ class UploadTest extends PHPUnit_Framework_TestCase
             'issuedDate' => $issuedDate,
             'user' => $user,
             'shouldUploadOnly' => $shouldUploadOnly,
+            'additionalCopy' => $additionalCopy,
+            'additionalEntities' => $additionalEntities
         ];
 
         /** @var Upload $command */
@@ -67,5 +71,7 @@ class UploadTest extends PHPUnit_Framework_TestCase
         static::assertEquals($issuedDate, $command->getIssuedDate());
         static::assertEquals($user, $command->getUser());
         static::assertEquals($shouldUploadOnly, $command->getShouldUploadOnly());
+        static::assertEquals($additionalCopy, $command->getAdditionalCopy());
+        static::assertEquals($additionalEntities, $command->getAdditionalEntities());
     }
 }

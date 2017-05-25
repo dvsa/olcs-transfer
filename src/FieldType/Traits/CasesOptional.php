@@ -21,10 +21,24 @@ trait CasesOptional
     protected $case;
 
     /**
+     * Get case
+     *
      * @return int
      */
     public function getCase()
     {
         return $this->case;
+    }
+
+    /**
+     * Set case
+     *
+     * @param int $caseId case id
+     *
+     * @return void
+     */
+    public function setCase($caseId)
+    {
+        $this->case = (int) $caseId;
     }
 }
