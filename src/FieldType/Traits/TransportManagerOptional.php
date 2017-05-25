@@ -19,10 +19,24 @@ trait TransportManagerOptional
     protected $transportManager;
 
     /**
+     * Get transport manager
+     *
      * @return int
      */
     public function getTransportManager()
     {
         return $this->transportManager;
+    }
+
+    /**
+     * Set transport manager id
+     *
+     * @param int $tmId transport manager id
+     *
+     * @return void
+     */
+    public function setTransportManager($tmId)
+    {
+        $this->transportManager = (int) $tmId;
     }
 }

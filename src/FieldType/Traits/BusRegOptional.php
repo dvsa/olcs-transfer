@@ -19,10 +19,24 @@ trait BusRegOptional
     protected $busReg;
 
     /**
+     * Get bus reg
+     *
      * @return int
      */
     public function getBusReg()
     {
         return $this->busReg;
+    }
+
+    /**
+     * Set bus reg
+     *
+     * @param int $busRegId bus reg id
+     *
+     * @return void
+     */
+    public function setBusReg($busRegId)
+    {
+        $this->busReg = (int) $busRegId;
     }
 }

@@ -19,10 +19,24 @@ trait LicenceOptional
     protected $licence;
 
     /**
+     * Get licence
+     *
      * @return int
      */
     public function getLicence()
     {
         return $this->licence;
+    }
+
+    /**
+     * Set licence
+     *
+     * @param int $licenceId licence id
+     *
+     * @return void
+     */
+    public function setLicence($licenceId)
+    {
+        $this->licence = (int) $licenceId;
     }
 }
