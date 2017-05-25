@@ -94,6 +94,12 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Organisation\CpidOrganisation::class),
                 ]
             ),
+            'generate-name' => RouteConfig::getRouteConfig(
+                'generate-name',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\Organisation\GenerateName::class),
+                ]
+            ),
         ]
     )
 ];

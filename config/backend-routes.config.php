@@ -5,7 +5,6 @@ use Dvsa\Olcs\Transfer\Query;
 use Dvsa\Olcs\Transfer\Router\CommandConfig;
 use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
-use Zend\Mvc\Router\Http\Segment;
 
 $routes = [
     'api' => [
@@ -458,14 +457,6 @@ $routes = [
                                 'cancel-schedule-41',
                                 [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\Schedule41Cancel::class)
-                                ]
-                            ),
-                            'generate-organisation-name' => RouteConfig::getRouteConfig(
-                                'generate-organisation-name',
-                                [
-                                    'PUT' => CommandConfig::getPutConfig(
-                                        Command\Application\GenerateOrganisationName::class
-                                    ),
                                 ]
                             ),
                             'operating-centre' => RouteConfig::getRouteConfig(
