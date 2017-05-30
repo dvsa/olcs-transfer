@@ -12,6 +12,16 @@ return [
         [
             'single' => RouteConfig::getSingleConfig(
                 [
+                    'licence-checklist' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'licence-checklist[/]'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\ContinuationDetail\LicenceChecklist::class),
+                        ]
+                    ],
                     'PUT' => CommandConfig::getPutConfig(Command\ContinuationDetail\Update::class),
                 ]
             ),
