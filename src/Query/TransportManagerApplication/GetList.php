@@ -46,6 +46,12 @@ class GetList extends AbstractQuery
      */
     protected $appStatuses = [];
 
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     */
+    protected $filterByOrgUser;
+
     public function getUser()
     {
         return $this->user;
@@ -67,5 +73,15 @@ class GetList extends AbstractQuery
     public function getAppStatuses()
     {
         return $this->appStatuses;
+    }
+
+    /**
+     * Filter by organisation user
+     *
+     * @return bool
+     */
+    public function getFilterByOrgUser()
+    {
+        return $this->filterByOrgUser;
     }
 }
