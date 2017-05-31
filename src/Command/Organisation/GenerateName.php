@@ -13,5 +13,5 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class GenerateName extends AbstractCommand
 {
     use Traits\ApplicationOptional,
-        Traits\LicenceOptional;
+        Traits\Organisation;
 }
