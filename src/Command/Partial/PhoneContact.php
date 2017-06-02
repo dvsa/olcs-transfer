@@ -27,7 +27,7 @@ class PhoneContact
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"phone_t_tel","phone_t_fax","phone_t_gtn","phone_t_home","phone_t_mobile"}}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"phone_t_primary","phone_t_secondary"}}})
      */
     protected $phoneContactType;
 

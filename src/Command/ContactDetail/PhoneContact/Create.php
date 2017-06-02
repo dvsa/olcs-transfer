@@ -18,7 +18,7 @@ class Create extends AbstractCommand
      *      "name":"Zend\Validator\InArray",
      *      "options": {
      *          "haystack": {
-     *              "phone_t_tel", "phone_t_fax", "phone_t_home", "phone_t_mobile"
+     *              "phone_t_primary", "phone_t_secondary"
      *          }
      *     }
      * })
