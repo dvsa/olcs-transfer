@@ -22,6 +22,16 @@ return [
                             'GET' => QueryConfig::getConfig(Query\ContinuationDetail\LicenceChecklist::class),
                         ]
                     ],
+                    'review' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'review[/]'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\ContinuationDetail\Review::class),
+                        ]
+                    ],
                     'PUT' => CommandConfig::getPutConfig(Command\ContinuationDetail\Update::class),
                 ]
             ),
