@@ -32,20 +32,20 @@ final class GetList extends AbstractQuery implements OrderedQueryInterface, Page
      *     "options":{
      *          "haystack": {
      *              "apsts_not_submitted",
+     *              "apsts_cancelled",
+     *              "apsts_curtailed",
      *              "apsts_granted",
      *              "apsts_consideration",
+     *              "apsts_ntu",
+     *              "apsts_refused",
      *              "apsts_valid",
      *              "apsts_withdrawn",
-     *              "apsts_refused",
-     *              "apsts_ntu",
-     *              "apsts_cancelled",
      *           },
      *     },
      * })
      * @Transfer\Optional
      */
     protected $status;
-
 
     /**
      * Get a Organsation ID
