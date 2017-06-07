@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Get a list of Application
- *
- * @author Mat Evans <mat.evans@valtech.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Query\Application;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -19,7 +14,8 @@ use Dvsa\Olcs\Transfer\Query\PagedTrait;
  */
 final class GetList extends AbstractQuery implements OrderedQueryInterface, PagedQueryInterface
 {
-    use OrderedTraitOptional, PagedTrait;
+    use OrderedTraitOptional,
+        PagedTrait;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -29,6 +25,29 @@ final class GetList extends AbstractQuery implements OrderedQueryInterface, Page
     protected $organisation;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Zend\Filter\StringToLower"})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options":{
+     *          "haystack": {
+     *              "apsts_not_submitted",
+     *              "apsts_granted",
+     *              "apsts_consideration",
+     *              "apsts_valid",
+     *              "apsts_withdrawn",
+     *              "apsts_refused",
+     *              "apsts_ntu",
+     *              "apsts_cancelled",
+     *           },
+     *     },
+     * })
+     * @Transfer\Optional
+     */
+    protected $status;
+
+
+    /**
      * Get a Organsation ID
      *
      * @return int
@@ -36,5 +55,15 @@ final class GetList extends AbstractQuery implements OrderedQueryInterface, Page
     public function getOrganisation()
     {
         return $this->organisation;
+    }
+
+    /**
+     * Get a Status
+     *
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->status;
     }
 }
