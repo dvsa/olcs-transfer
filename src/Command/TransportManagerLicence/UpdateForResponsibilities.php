@@ -1,10 +1,5 @@
 <?php
 
-/**
- * UpdateForResponsibilities Transport Manager Licence
- *
- * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Command\TransportManagerLicence;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -47,49 +42,49 @@ final class UpdateForResponsibilities extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursMon;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursTue;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursWed;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursThu;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursFri;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursSat;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursSun;
@@ -117,6 +112,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Get Version
+     *
      * @return int
      */
     public function getVersion()
@@ -125,6 +122,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Get Operating Centres
+     *
      * @return array
      */
     public function getOperatingCentres()
@@ -133,6 +132,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Get Transport Manager Type
+     *
      * @return string
      */
     public function getTmType()
@@ -141,6 +142,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Hours at Monday
+     *
      * @return int
      */
     public function getHoursMon()
@@ -149,6 +152,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Hours at Tuesday
+     *
      * @return int
      */
     public function getHoursTue()
@@ -157,6 +162,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Hours at Wednesday
+     *
      * @return int
      */
     public function getHoursWed()
@@ -165,6 +172,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Hours at Thuesday
+     *
      * @return int
      */
     public function getHoursThu()
@@ -173,6 +182,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Hours at Friday
+     *
      * @return int
      */
     public function getHoursFri()
@@ -181,6 +192,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Hours at Saturday
+     *
      * @return int
      */
     public function getHoursSat()
@@ -189,6 +202,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Hours at Sunday
+     *
      * @return int
      */
     public function getHoursSun()
@@ -197,6 +212,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Get Additional Information
+     *
      * @return string
      */
     public function getAdditionalInformation()
@@ -205,6 +222,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Is owner
+     *
      * @return string
      */
     public function getIsOwner()

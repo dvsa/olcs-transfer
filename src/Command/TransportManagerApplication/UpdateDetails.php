@@ -1,10 +1,5 @@
 <?php
 
-/**
- * UpdateDetails Transport Manager Application
- *
- * @author Mat Evans <mat.evans@valtech.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Command\TransportManagerApplication;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -77,49 +72,49 @@ final class UpdateDetails extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursMon;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursTue;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursWed;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursThu;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursFri;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursSat;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursSun;
@@ -154,6 +149,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Get Version
+     *
      * @return int
      */
     public function getVersion()
@@ -162,6 +159,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Get Email
+     *
      * @return string
      */
     public function getEmail()
@@ -170,6 +169,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Get Place of Birth
+     *
      * @return string
      */
     public function getPlaceOfBirth()
@@ -178,6 +179,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Get Home Address
+     *
      * @return \Dvsa\Olcs\Transfer\Command\Partial\AddressOptional
      */
     public function getHomeAddress()
@@ -186,6 +189,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Get Work Address
+     *
      * @return \Dvsa\Olcs\Transfer\Command\Partial\AddressOptional
      */
     public function getWorkAddress()
@@ -194,6 +199,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Get Operating Centres
+     *
      * @return array
      */
     public function getOperatingCentres()
@@ -202,6 +209,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Get Transport manager Type
+     *
      * @return string
      */
     public function getTmType()
@@ -210,6 +219,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Is Owner
+     *
      * @return string
      */
     public function getIsOwner()
@@ -218,6 +229,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Hours at Monday
+     *
      * @return int
      */
     public function getHoursMon()
@@ -226,6 +239,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Hours at Tuesday
+     *
      * @return int
      */
     public function getHoursTue()
@@ -234,6 +249,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Hours at Wednesday
+     *
      * @return int
      */
     public function getHoursWed()
@@ -242,6 +259,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Hours at Thuesday
+     *
      * @return int
      */
     public function getHoursThu()
@@ -250,6 +269,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Hours at Friday
+     *
      * @return int
      */
     public function getHoursFri()
@@ -258,6 +279,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Hours at Saturday
+     *
      * @return int
      */
     public function getHoursSat()
@@ -266,6 +289,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Hours at Sunday
+     *
      * @return int
      */
     public function getHoursSun()
@@ -274,6 +299,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Get Additional Info
+     *
      * @return string
      */
     public function getAdditionalInfo()
@@ -282,6 +309,8 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
+     * Get submit
+     *
      * @return string
      */
     public function getSubmit()
