@@ -1,14 +1,10 @@
 <?php
 
-/**
- * UpdateForResponsibilities Transport Manager Application
- *
- * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Command\TransportManagerApplication;
 
-use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits;
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @Transfer\RouteName("backend/tm-responsibilities/transport-manager-application/single")
@@ -16,19 +12,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateForResponsibilities extends AbstractCommand
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $id;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $version;
+    use Traits\Identity,
+        Traits\Version;
 
     /**
      * @Transfer\ArrayInput
@@ -54,49 +39,49 @@ final class UpdateForResponsibilities extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursMon;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursTue;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursWed;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursThu;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursFri;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursSat;
 
     /**
      * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursSun;
@@ -134,6 +119,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Get version
+     *
      * @return int
      */
     public function getVersion()
@@ -142,6 +129,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Get operating centres
+     *
      * @return array
      */
     public function getOperatingCentres()
@@ -150,6 +139,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Get Transport manager type
+     *
      * @return string
      */
     public function getTmType()
@@ -158,6 +149,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Is Owner
+     *
      * @return string
      */
     public function getIsOwner()
@@ -166,6 +159,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Hours at Monday
+     *
      * @return int
      */
     public function getHoursMon()
@@ -174,6 +169,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Hours at Tuesday
+     *
      * @return int
      */
     public function getHoursTue()
@@ -182,6 +179,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Hours at Wednesday
+     *
      * @return int
      */
     public function getHoursWed()
@@ -190,6 +189,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Hours at Thuesday
+     *
      * @return int
      */
     public function getHoursThu()
@@ -198,6 +199,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Hours at Friday
+     *
      * @return int
      */
     public function getHoursFri()
@@ -206,6 +209,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Hours at Saturday
+     *
      * @return int
      */
     public function getHoursSat()
@@ -214,6 +219,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Hours at Sunday
+     *
      * @return int
      */
     public function getHoursSun()
@@ -222,6 +229,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Get additional information
+     *
      * @return string
      */
     public function getAdditionalInformation()
@@ -230,6 +239,8 @@ final class UpdateForResponsibilities extends AbstractCommand
     }
 
     /**
+     * Get Transport manager status
+     *
      * @return string
      */
     public function getTmApplicationStatus()

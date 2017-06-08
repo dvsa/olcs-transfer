@@ -161,7 +161,7 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
      * )
      * @Transfer\Optional
      */
-    protected $additionalEntities;
+    protected $additionalEntities = [];
 
     /**
      * Get filename

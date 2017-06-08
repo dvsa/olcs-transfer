@@ -1,14 +1,10 @@
 <?php
 
-/**
- * Update Other Licence for a Transport manager application
- *
- * @author Mat Evans <mat.evans@valtech.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Command\OtherLicence;
 
-use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits;
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @Transfer\RouteName("backend/other-licence/single/tma")
@@ -16,19 +12,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateForTma extends AbstractCommand
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $id;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $version;
+    use Traits\Identity,
+        Traits\Version;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -37,7 +22,12 @@ final class UpdateForTma extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"ol_role_applicant","ol_role_lic_holder","ol_role_tm"}}})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *          "haystack": {"ol_role_applicant","ol_role_lic_holder","ol_role_tm"},
+     *     },
+     * })
      * @Transfer\Optional
      */
     public $role;
@@ -58,7 +48,7 @@ final class UpdateForTma extends AbstractCommand
     public $totalAuthVehicles;
 
     /**
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Float"})
+     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Validator({"name":"Zend\Validator\LessThan", "options": {"max": 99.9,"inclusive":true}})
      * @Transfer\Optional
@@ -72,6 +62,8 @@ final class UpdateForTma extends AbstractCommand
     public $holderName;
 
     /**
+     * Get Id
+     *
      * @return int
      */
     public function getId()
@@ -80,6 +72,8 @@ final class UpdateForTma extends AbstractCommand
     }
 
     /**
+     * Get Version
+     *
      * @return int
      */
     public function getVersion()
@@ -88,6 +82,8 @@ final class UpdateForTma extends AbstractCommand
     }
 
     /**
+     * Get Licence No
+     *
      * @return string
      */
     public function getLicNo()
@@ -95,7 +91,9 @@ final class UpdateForTma extends AbstractCommand
         return $this->licNo;
     }
 
-        /**
+    /**
+     * Get Role
+     *
      * @return string RefData
      */
     public function getRole()
@@ -104,6 +102,8 @@ final class UpdateForTma extends AbstractCommand
     }
 
     /**
+     * Get Operation Centers
+     *
      * @return string
      */
     public function getOperatingCentres()
@@ -112,6 +112,8 @@ final class UpdateForTma extends AbstractCommand
     }
 
     /**
+     * Get Total Auth Vehicles
+     *
      * @return int
      */
     public function getTotalAuthVehicles()
@@ -120,6 +122,8 @@ final class UpdateForTma extends AbstractCommand
     }
 
     /**
+     * Get Hours per week
+     *
      * @return int
      */
     public function getHoursPerWeek()
@@ -128,6 +132,8 @@ final class UpdateForTma extends AbstractCommand
     }
 
     /**
+     * Get Holder name
+     *
      * @return string
      */
     public function getHolderName()
