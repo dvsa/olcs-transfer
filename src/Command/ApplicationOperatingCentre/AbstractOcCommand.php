@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Abstract Oc Command
- *
- * @author Rob Caiger <rob@clocal.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Command\ApplicationOperatingCentre;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Application;
@@ -34,13 +29,6 @@ abstract class AbstractOcCommand extends AbstractCommand
      * @Transfer\Optional
      */
     protected $noOfTrailersRequired;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
-     * @Transfer\Optional
-     */
-    protected $sufficientParking;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -91,14 +79,6 @@ abstract class AbstractOcCommand extends AbstractCommand
     public function getNoOfTrailersRequired()
     {
         return $this->noOfTrailersRequired;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSufficientParking()
-    {
-        return $this->sufficientParking;
     }
 
     /**
