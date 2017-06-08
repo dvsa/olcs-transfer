@@ -2,6 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Command\TransportManagerApplication;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -11,19 +12,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateDetails extends AbstractCommand
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $id;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $version;
+    use Traits\Identity,
+        Traits\Version;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -46,15 +36,6 @@ final class UpdateDetails extends AbstractCommand
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\AddressOptional")
      */
     protected $workAddress;
-
-    /**
-     * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
-     */
-    protected $operatingCentres = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -139,26 +120,6 @@ final class UpdateDetails extends AbstractCommand
     protected $submit;
 
     /**
-     * Get Transport Manager Application ID
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Get Version
-     *
-     * @return int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
      * Get Email
      *
      * @return string
@@ -199,17 +160,7 @@ final class UpdateDetails extends AbstractCommand
     }
 
     /**
-     * Get Operating Centres
-     *
-     * @return array
-     */
-    public function getOperatingCentres()
-    {
-        return $this->operatingCentres;
-    }
-
-    /**
-     * Get Transport manager Type
+     * Get Tm Type
      *
      * @return string
      */

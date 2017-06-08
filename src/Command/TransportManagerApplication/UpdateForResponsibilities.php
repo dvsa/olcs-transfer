@@ -7,6 +7,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
+ * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  * @Transfer\RouteName("backend/tm-responsibilities/transport-manager-application/single")
  * @Transfer\Method("PUT")
  */
@@ -14,15 +15,6 @@ final class UpdateForResponsibilities extends AbstractCommand
 {
     use Traits\Identity,
         Traits\Version;
-
-    /**
-     * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
-     */
-    protected $operatingCentres = [];
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -110,36 +102,6 @@ final class UpdateForResponsibilities extends AbstractCommand
 
     /**
      * Get Transport Manager Application ID
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Get version
-     *
-     * @return int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
-     * Get operating centres
-     *
-     * @return array
-     */
-    public function getOperatingCentres()
-    {
-        return $this->operatingCentres;
-    }
-
-    /**
-     * Get Transport manager type
      *
      * @return string
      */

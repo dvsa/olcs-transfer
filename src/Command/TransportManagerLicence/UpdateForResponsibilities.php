@@ -2,37 +2,19 @@
 
 namespace Dvsa\Olcs\Transfer\Command\TransportManagerLicence;
 
-use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits;
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
+ * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  * @Transfer\RouteName("backend/tm-responsibilities/transport-manager-licence/single")
  * @Transfer\Method("PUT")
  */
 final class UpdateForResponsibilities extends AbstractCommand
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $id;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $version;
-
-    /**
-     * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Optional
-     */
-    protected $operatingCentres = [];
+    use Traits\Identity,
+        Traits\Version;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -102,37 +84,7 @@ final class UpdateForResponsibilities extends AbstractCommand
     protected $isOwner;
 
     /**
-     * Get Transport Manager Application ID
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Get Version
-     *
-     * @return int
-     */
-    public function getVersion()
-    {
-        return $this->version;
-    }
-
-    /**
-     * Get Operating Centres
-     *
-     * @return array
-     */
-    public function getOperatingCentres()
-    {
-        return $this->operatingCentres;
-    }
-
-    /**
-     * Get Transport Manager Type
+     * Get  Transport Manager Application ID
      *
      * @return string
      */
