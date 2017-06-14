@@ -99,16 +99,16 @@ return [
                     ],
                 ]
             ],
-            'void' => [
+            'annul' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => 'void[/]',
+                    'route' => 'annul[/]',
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
                     'POST' =>
                         CommandConfig::getPostConfig(
-                            Command\CommunityLic\Void::class
+                            Command\CommunityLic\Annul::class
                         ),
                 ]
             ],
