@@ -38,10 +38,12 @@ return [
     ],
     'validators' => [
         'invokables' => [
-            \Dvsa\Olcs\Transfer\Validators\Vrm::class => \Dvsa\Olcs\Transfer\Validators\Vrm::class
+            \Dvsa\Olcs\Transfer\Validators\Vrm::class => \Dvsa\Olcs\Transfer\Validators\Vrm::class,
+            \Dvsa\Olcs\Transfer\Validators\UploadEvidence::class =>
+                \Dvsa\Olcs\Transfer\Validators\UploadEvidence::class,
         ],
         'factories' => [
-            \Dvsa\Olcs\Transfer\Validators\Xml::class => \Dvsa\Olcs\Transfer\Validators\XmlFactory::class
+            \Dvsa\Olcs\Transfer\Validators\Xml::class => \Dvsa\Olcs\Transfer\Validators\XmlFactory::class,
         ],
     ],
 ];
