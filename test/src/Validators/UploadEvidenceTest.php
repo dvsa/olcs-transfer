@@ -21,9 +21,9 @@ class UploadEvidenceTest extends MockeryTestCase
     }
 
     /**
-     * @dataProvider isValidProvider
+     * @dataProvider isNotValidProvider
      */
-    public function testIsValid($value, $expected, $context)
+    public function testIsNotValid($value, $expected, $context)
     {
         $this->sut->shouldReceive('getTranslator')
             ->andReturn(
@@ -31,17 +31,20 @@ class UploadEvidenceTest extends MockeryTestCase
                     ->shouldReceive('translate')
                     ->with('upload_evidence_validator_please_upload_advert')
                     ->andReturn('translated')
+                    ->once()
                     ->getMock()
             )
             ->shouldReceive('setMessage')
             ->with('translated', UploadEvidence::UPLOAD_ADVERT)
+            ->once()
             ->shouldReceive('error')
-            ->with('transalted')
+            ->with(UploadEvidence::UPLOAD_ADVERT)
+            ->once()
             ->getMock();
         $this->assertEquals($expected, $this->sut->isValid($value, $context));
     }
 
-    public function isValidProvider()
+    public function isNotValidProvider()
     {
         return [
             [
@@ -69,14 +72,6 @@ class UploadEvidenceTest extends MockeryTestCase
             ],
             [
                 '',
-                true,
-                [
-                    'adPlacedIn' => 'foo',
-                    'file' => ['list' => ['bar']]
-                ]
-            ],
-            [
-                '',
                 false,
                 [
                     'adPlacedDate' => ['day' => '1']
@@ -94,6 +89,28 @@ class UploadEvidenceTest extends MockeryTestCase
                 false,
                 [
                     'adPlacedDate' => ['year' => '2000']
+                ]
+            ],
+        ];
+    }
+
+    /**
+     * @dataProvider isValidProvider
+     */
+    public function testIsValid($value, $expected, $context)
+    {
+        $this->assertEquals($expected, $this->sut->isValid($value, $context));
+    }
+
+    public function isValidProvider()
+    {
+        return [
+            [
+                '',
+                true,
+                [
+                    'adPlacedIn' => 'foo',
+                    'file' => ['list' => ['bar']]
                 ]
             ],
             [
