@@ -122,6 +122,17 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Cases\ByApplication::class)
                 ]
             ],
+            'report' => RouteConfig::getRouteConfig(
+                'report',
+                [
+                    'open' => RouteConfig::getRouteConfig(
+                        'open',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Cases\Report\OpenList::class),
+                        ]
+                    ),
+                ]
+            ),
         ]
     ]
 ];

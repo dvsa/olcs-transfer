@@ -27,22 +27,7 @@ final class GetList extends AbstractQuery implements OrderedQueryInterface, Page
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Filter({"name":"Zend\Filter\StringToLower"})
-     * @Transfer\Validator({
-     *     "name":"Zend\Validator\InArray",
-     *     "options":{
-     *          "haystack": {
-     *              "apsts_not_submitted",
-     *              "apsts_cancelled",
-     *              "apsts_curtailed",
-     *              "apsts_granted",
-     *              "apsts_consideration",
-     *              "apsts_ntu",
-     *              "apsts_refused",
-     *              "apsts_valid",
-     *              "apsts_withdrawn",
-     *           },
-     *     },
-     * })
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\ApplicationStatus"})
      * @Transfer\Optional
      */
     protected $status;
