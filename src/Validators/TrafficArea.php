@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Traffic Area Validator
- *
- * @author Mat Evans <mat.evans@valtech.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Validators;
 
 /**
@@ -12,7 +7,7 @@ namespace Dvsa\Olcs\Transfer\Validators;
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-class TrafficArea extends \Zend\Validator\InArray
+class TrafficArea extends InArrayExtra
 {
     protected $haystack = ['B', 'C', 'D', 'F', 'G', 'H', 'K', 'M', 'N'];
 

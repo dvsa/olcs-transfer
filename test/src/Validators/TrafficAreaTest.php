@@ -1,27 +1,24 @@
 <?php
 
-/**
- * TrafficAreaTest
- *
- * @author Mat Evans <mat.evans@valtech.co.uk>
- */
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
 use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Validators\TrafficArea;
 
 /**
- * TrafficAreaTest
- *
  * @author Mat Evans <mat.evans@valtech.co.uk>
+ * @covers \Dvsa\Olcs\Transfer\Validators\TrafficArea
  */
 class TrafficAreaTest extends PHPUnit_Framework_TestCase
 {
+    /** @var TrafficArea */
     protected $sut;
 
     public function setUp()
     {
         $this->sut = new TrafficArea();
+
+        $this->sut->setExtraHaystack(['extra_1']);
     }
 
     /**
@@ -56,6 +53,9 @@ class TrafficAreaTest extends PHPUnit_Framework_TestCase
             [1, false],
             [' ', false],
             [null, false],
+            //  extra haystack
+            ['extra_1', true],
+            ['extra_3', false],
         ];
     }
 }
