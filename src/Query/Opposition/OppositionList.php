@@ -3,14 +3,18 @@
 namespace Dvsa\Olcs\Transfer\Query\Opposition;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
+use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
+use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * Class OppositionList
  * @Transfer\RouteName("backend/opposition")
  */
-class OppositionList extends AbstractQuery
+class OppositionList extends AbstractQuery implements OrderedQueryInterface
 {
+    use OrderedTrait;
+
     /**
      * @Transfer\Optional()
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
