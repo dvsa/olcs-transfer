@@ -16,19 +16,27 @@ use Zend\Validator\AbstractValidator;
  */
 class Money extends AbstractValidator
 {
+    const INVALID  = 'invalid';
+
     /**
      * Holds the templates
      *
      * @var array
      */
     protected $messageTemplates = array(
-        'invalid' => 'money-element-invalid'
+        self::INVALID => 'money-element-invalid'
     );
+
+    /**
+     * @var bool
+     */
+    private $allowNegative = false;
 
     /**
      * Check if money amount is valid
      *
-     * @param string $value
+     * @param string $value Value to check
+     *
      * @return bool
      */
     public function isValid($value)
@@ -40,9 +48,11 @@ class Money extends AbstractValidator
         }
 
         // Disallow negative amounts
-        if ($value < 0) {
-            $this->error('invalid');
-            return false;
+        if ($this->allowNegative === false) {
+            if ($value < 0) {
+                $this->error('invalid');
+                return false;
+            }
         }
 
         // We can allow ints
@@ -59,5 +69,21 @@ class Money extends AbstractValidator
 
         $this->error('invalid');
         return false;
+    }
+
+    /**
+     * Set validator options
+     *
+     * @param array $options Options to set
+     *
+     * @return void
+     */
+    public function setOptions($options = [])
+    {
+        if (isset($options['allow_negative']) && $options['allow_negative'] == true) {
+            $this->allowNegative = true;
+        }
+
+        parent::setOptions($options);
     }
 }

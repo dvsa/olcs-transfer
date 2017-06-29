@@ -87,4 +87,67 @@ class MoneyTest extends PHPUnit_Framework_TestCase
             ],
         ];
     }
+
+    /**
+     * @dataProvider isValidNegativeProvider
+     */
+    public function testIsValidNegative($value, $expected)
+    {
+        $this->sut->setOptions(['allow_negative' => true]);
+        $this->assertEquals($expected, $this->sut->isValid($value));
+    }
+
+    public function isValidNegativeProvider()
+    {
+        return [
+            [
+                'abc',
+                false
+            ],
+            [
+                'abc123',
+                false
+            ],
+            [
+                '123',
+                true
+            ],
+            [
+                123,
+                true
+            ],
+            [
+                '123.45',
+                true
+            ],
+            [
+                123.45,
+                true
+            ],
+            [
+                '123.4',
+                true
+            ],
+            [
+                123.4,
+                true
+            ],
+            [
+                '123.456',
+                false
+            ],
+            [
+                123.456,
+                false
+            ],
+            [
+                '-123.45',
+                true
+            ],
+            [
+                -123,
+                true
+            ],
+        ];
+    }
 }
