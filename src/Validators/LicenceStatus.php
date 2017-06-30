@@ -23,6 +23,8 @@ class LicenceStatus extends \Zend\Validator\InArray
         'lsts_ntu',
         'lsts_terminated',
         'lsts_cns',
+        'lsts_unlicenced',
+        'lsts_cancelled',
     ];
 
     protected $messageTemplates = array(
