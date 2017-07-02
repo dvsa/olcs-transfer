@@ -62,9 +62,9 @@ class Hostname implements RouteInterface
     /**
      * Create a new hostname route.
      *
-     * @param  string $route
-     * @param  array  $constraints
-     * @param  array  $defaults
+     * @param string $route       route
+     * @param array  $constraints contraints
+     * @param array  $defaults    defaults
      */
     public function __construct($route, array $constraints = array(), array $defaults = array())
     {
@@ -76,8 +76,9 @@ class Hostname implements RouteInterface
     /**
      * factory(): defined by RouteInterface interface.
      *
-     * @see    \Zend\Mvc\Router\RouteInterface::factory()
-     * @param  array|Traversable $options
+     * @param array|Traversable $options options
+     *
+     * @see \Zend\Mvc\Router\RouteInterface::factory()
      * @return Hostname
      * @throws Exception\InvalidArgumentException
      */
@@ -86,7 +87,8 @@ class Hostname implements RouteInterface
         if ($options instanceof Traversable) {
             $options = ArrayUtils::iteratorToArray($options);
         } elseif (!is_array($options)) {
-            throw new Exception\InvalidArgumentException(__METHOD__ . ' expects an array or Traversable set of options');
+            $msg = __METHOD__ . ' expects an array or Traversable set of options';
+            throw new Exception\InvalidArgumentException($msg);
         }
 
         if (!isset($options['route'])) {
@@ -107,7 +109,8 @@ class Hostname implements RouteInterface
     /**
      * Parse a route definition.
      *
-     * @param  string $def
+     * @param string $def route definition
+     *
      * @return array
      * @throws Exception\RuntimeException
      */
@@ -129,16 +132,22 @@ class Hostname implements RouteInterface
             }
 
             if ($matches['token'] === ':') {
-                if (!preg_match('(\G(?P<name>[^:.{\[\]]+)(?:{(?P<delimiters>[^}]+)})?:?)', $def, $matches, 0, $currentPos)) {
+                $pattern = '(\G(?P<name>[^:.{\[\]]+)(?:{(?P<delimiters>[^}]+)})?:?)';
+
+                if (!preg_match($pattern, $def, $matches, 0, $currentPos)) {
                     throw new Exception\RuntimeException('Found empty parameter name');
                 }
 
-                $levelParts[$level][] = array('parameter', $matches['name'], isset($matches['delimiters']) ? $matches['delimiters'] : null);
+                $levelParts[$level][] = array(
+                    'parameter',
+                    $matches['name'],
+                    isset($matches['delimiters']) ? $matches['delimiters'] : null
+                );
 
                 $currentPos += strlen($matches[0]);
             } elseif ($matches['token'] === '[') {
                 $levelParts[$level][] = array('optional', array());
-                $levelParts[$level + 1] = &$levelParts[$level][count($levelParts[$level]) - 1][1];
+                $levelParts[$level + 1] = $levelParts[$level][count($levelParts[$level]) - 1][1];
 
                 $level++;
             } elseif ($matches['token'] === ']') {
@@ -163,9 +172,10 @@ class Hostname implements RouteInterface
     /**
      * Build the matching regex from parsed parts.
      *
-     * @param  array   $parts
-     * @param  array   $constraints
-     * @param  int $groupIndex
+     * @param array $parts       parts
+     * @param array $constraints constraints
+     * @param int   $groupIndex  group index
+     *
      * @return string
      * @throws Exception\RuntimeException
      */
@@ -205,9 +215,10 @@ class Hostname implements RouteInterface
     /**
      * Build host.
      *
-     * @param  array   $parts
-     * @param  array   $mergedParams
-     * @param  bool    $isOptional
+     * @param array $parts        parts
+     * @param array $mergedParams merged params
+     * @param bool  $isOptional   is optional
+     *
      * @return string
      * @throws Exception\RuntimeException
      * @throws Exception\InvalidArgumentException
@@ -233,7 +244,10 @@ class Hostname implements RouteInterface
                         }
 
                         return '';
-                    } elseif (!$isOptional || !isset($this->defaults[$part[1]]) || $this->defaults[$part[1]] !== $mergedParams[$part[1]]) {
+                    } elseif (!$isOptional
+                        || !isset($this->defaults[$part[1]])
+                        || $this->defaults[$part[1]] !== $mergedParams[$part[1]]
+                    ) {
                         $skip = false;
                     }
 
@@ -264,8 +278,9 @@ class Hostname implements RouteInterface
     /**
      * match(): defined by RouteInterface interface.
      *
-     * @see    \Zend\Mvc\Router\RouteInterface::match()
-     * @param  Request $request
+     * @param Request $request request
+     *
+     * @see \Zend\Mvc\Router\RouteInterface::match()
      * @return RouteMatch|null
      */
     public function match(Request $request)
@@ -297,10 +312,11 @@ class Hostname implements RouteInterface
     /**
      * assemble(): Defined by RouteInterface interface.
      *
-     * @see    \Zend\Mvc\Router\RouteInterface::assemble()
-     * @param  array $params
-     * @param  array $options
-     * @return mixed
+     * @param array $params  params
+     * @param array $options options
+     *
+     * @see \Zend\Mvc\Router\RouteInterface::assemble()
+     * @return string
      */
     public function assemble(array $params = array(), array $options = array())
     {
@@ -323,7 +339,8 @@ class Hostname implements RouteInterface
     /**
      * getAssembledParams(): defined by RouteInterface interface.
      *
-     * @see    RouteInterface::getAssembledParams
+     * @see RouteInterface::getAssembledParams
+     *
      * @return array
      */
     public function getAssembledParams()
