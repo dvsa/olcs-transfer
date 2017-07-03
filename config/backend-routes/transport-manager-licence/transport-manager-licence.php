@@ -11,6 +11,7 @@ return [
         'transport-manager-licence',
         [
             'GET' => QueryConfig::getConfig(Query\TransportManagerLicence\GetList::class),
+            'DELETE' => CommandConfig::getDeleteConfig(Command\TransportManagerLicence\Delete::class),
             'variation' => RouteConfig::getRouteConfig(
                 'variation',
                 ['GET' => QueryConfig::getConfig(Query\TransportManagerLicence\GetListByVariation::class)]
