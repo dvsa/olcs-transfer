@@ -32,7 +32,18 @@ return [
                             'GET' => QueryConfig::getConfig(Query\ContinuationDetail\Review::class),
                         ]
                     ],
+                    'finances' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'finances[/]'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\ContinuationDetail\UpdateFinances::class),
+                        ]
+                    ],
                     'PUT' => CommandConfig::getPutConfig(Command\ContinuationDetail\Update::class),
+                    'GET' => QueryConfig::getConfig(Query\ContinuationDetail\Get::class),
                 ]
             ),
             'checklist-reminders' => RouteConfig::getRouteConfig(
