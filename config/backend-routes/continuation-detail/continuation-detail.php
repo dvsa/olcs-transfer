@@ -42,6 +42,18 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\ContinuationDetail\UpdateFinances::class),
                         ]
                     ],
+                    'insufficient-finances' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'insufficient-finances[/]'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\ContinuationDetail\UpdateInsufficientFinances::class
+                            ),
+                        ]
+                    ],
                     'PUT' => CommandConfig::getPutConfig(Command\ContinuationDetail\Update::class),
                     'GET' => QueryConfig::getConfig(Query\ContinuationDetail\Get::class),
                 ]
