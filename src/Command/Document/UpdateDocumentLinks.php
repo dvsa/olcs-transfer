@@ -81,6 +81,15 @@ final class UpdateDocumentLinks extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
+    protected $continuationDetail;
+
+    /**
+     * @var int
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
     protected $hearing;
 
     /**
@@ -163,5 +172,13 @@ final class UpdateDocumentLinks extends AbstractCommand
     public function getComplaint()
     {
         return $this->complaint;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getContinuationDetail()
+    {
+        return $this->continuationDetail;
     }
 }

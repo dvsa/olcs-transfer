@@ -84,6 +84,14 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
+    protected $continuationDetail;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
     protected $category;
 
     /**
@@ -341,5 +349,13 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     public function getAdditionalEntities()
     {
         return $this->additionalEntities;
+    }
+
+    /**
+     * @return int
+     */
+    public function getContinuationDetail()
+    {
+        return $this->continuationDetail;
     }
 }
