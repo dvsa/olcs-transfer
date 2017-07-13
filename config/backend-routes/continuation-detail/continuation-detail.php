@@ -54,6 +54,16 @@ return [
                             ),
                         ]
                     ],
+                    'submit' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'submit[/]'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\ContinuationDetail\Submit::class),
+                        ]
+                    ],
                     'PUT' => CommandConfig::getPutConfig(Command\ContinuationDetail\Update::class),
                     'GET' => QueryConfig::getConfig(Query\ContinuationDetail\Get::class),
                 ]
