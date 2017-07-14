@@ -20,6 +20,31 @@ class ProcessSignatureResponse extends AbstractCommand
     protected $samlResponse;
 
     /**
+     * @var int
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $continuationDetail;
+
+    /**
+     * @return int
+     */
+    public function getContinuationDetail()
+    {
+        return $this->continuationDetail;
+    }
+
+    /**
+     * @param int $continuationDetailId ContinuationDetail ID
+     */
+    public function setContinuationDetail($continuationDetailId)
+    {
+        $this->continuationDetail = (int) $continuationDetailId;
+    }
+
+    /**
      * @return string
      */
     public function getSamlResponse()
