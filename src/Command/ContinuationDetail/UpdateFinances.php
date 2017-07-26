@@ -20,12 +20,14 @@ final class UpdateFinances extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money"})
      * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": -99999999, "max": 99999999}})
+     * @Transfer\Optional
      */
     protected $averageBalanceAmount;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Optional
      */
     protected $hasOverdraft;
 
@@ -40,6 +42,22 @@ final class UpdateFinances extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Optional
+     */
+    protected $hasFactoring;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money"})
+     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 99999999}})
+     * @Transfer\Optional
+     */
+    protected $factoringAmount;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Optional
      */
     protected $hasOtherFinances;
 
@@ -104,5 +122,21 @@ final class UpdateFinances extends AbstractCommand
     public function getOtherFinancesDetails()
     {
         return $this->otherFinancesDetails;
+    }
+
+    /**
+     * @return string Y or N
+     */
+    public function getHasFactoring()
+    {
+        return $this->hasFactoring;
+    }
+
+    /**
+     * @return float
+     */
+    public function getFactoringAmount()
+    {
+        return $this->factoringAmount;
     }
 }

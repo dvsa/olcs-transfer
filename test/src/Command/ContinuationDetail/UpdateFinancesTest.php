@@ -21,6 +21,8 @@ class UpdateFinancesTest extends PHPUnit_Framework_TestCase
             'hasOtherFinances' => 'Y',
             'otherFinancesAmount' => '345.12',
             'otherFinancesDetails' => 'FOO',
+            'hasFactoring' => 'FOO',
+            'factoringAmount' => '98',
         ];
 
         $command = UpdateFinances::create($data);
@@ -33,5 +35,7 @@ class UpdateFinancesTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($data['hasOtherFinances'], $command->getHasOtherFinances());
         $this->assertEquals($data['otherFinancesAmount'], $command->getOtherFinancesAmount());
         $this->assertEquals($data['otherFinancesDetails'], $command->getOtherFinancesDetails());
+        $this->assertEquals($data['hasFactoring'], $command->getHasFactoring());
+        $this->assertEquals($data['factoringAmount'], $command->getFactoringAmount());
     }
 }
