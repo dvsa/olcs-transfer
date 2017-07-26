@@ -18,7 +18,7 @@ final class UpdateFinances extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money", "options": {"allow_negative": true}})
      * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": -9999999999, "max": 9999999999}})
      * @Transfer\Optional
      */
