@@ -15,7 +15,7 @@ class UpdateFinancesTest extends PHPUnit_Framework_TestCase
         $data = [
             'id' => 1,
             'version' => 2,
-            'averageBalanceAmount' => '123.33',
+            'averageBalanceAmount' => '-123.33',
             'hasOverdraft' => 'Y',
             'overdraftAmount' => '234.45',
             'hasOtherFinances' => 'Y',
