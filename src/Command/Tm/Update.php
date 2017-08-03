@@ -161,12 +161,14 @@ final class Update extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 90}})
+     * @Transfer\Optional
      */
     public $homeAddressLine1;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 90}})
+     * @Transfer\Optional
      * @Transfer\Optional
      */
     public $homeAddressLine2;
@@ -175,6 +177,7 @@ final class Update extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 100}})
      * @Transfer\Optional
+     * @Transfer\Optional
      */
     public $homeAddressLine3;
 
@@ -182,24 +185,28 @@ final class Update extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 35}})
      * @Transfer\Optional
+     * @Transfer\Optional
      */
     public $homeAddressLine4;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 30}})
+     * @Transfer\Optional
      */
     public $homeTown;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 8}})
+     * @Transfer\Optional
      */
     public $homePostcode;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1, "max": 2}})
+     * @Transfer\Optional
      */
     public $homeCountryCode;
 
