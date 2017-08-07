@@ -34,7 +34,7 @@ final class UpdateFinances extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 1, "max": 9999999999}})
+     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 9999999999}})
      * @Transfer\Optional
      */
     protected $overdraftAmount;
@@ -49,7 +49,7 @@ final class UpdateFinances extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 1, "max": 9999999999}})
+     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 9999999999}})
      * @Transfer\Optional
      */
     protected $factoringAmount;
@@ -64,7 +64,7 @@ final class UpdateFinances extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 1, "max": 9999999999}})
+     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 9999999999}})
      * @Transfer\Optional
      */
     protected $otherFinancesAmount;
