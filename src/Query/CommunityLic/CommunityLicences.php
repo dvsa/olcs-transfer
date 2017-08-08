@@ -5,6 +5,8 @@ namespace Dvsa\Olcs\Transfer\Query\CommunityLic;
 use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
+use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
+use Dvsa\Olcs\Transfer\Query\PagedTrait;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 
@@ -12,10 +14,12 @@ use Dvsa\Olcs\Transfer\Query\OrderedTrait;
  * Class History
  * @Transfer\RouteName("backend/community-lic/list")
  */
-class CommunityLicences extends AbstractQuery implements OrderedQueryInterface
+class CommunityLicences extends AbstractQuery implements
+    OrderedQueryInterface, PagedQueryInterface
 {
     use OrderedTrait,
-        LicenceOptional;
+        LicenceOptional,
+        PagedTrait;
 
     /**
      * @var string
