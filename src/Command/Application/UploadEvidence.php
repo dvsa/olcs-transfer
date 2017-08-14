@@ -23,6 +23,11 @@ final class UploadEvidence extends AbstractCommand
     protected $operatingCentres = [];
 
     /**
+     * @Transfer\Optional
+     */
+    protected $financialEvidence;
+
+    /**
      * Get operating centres
      *
      * @return array
@@ -30,5 +35,15 @@ final class UploadEvidence extends AbstractCommand
     public function getOperatingCentres()
     {
         return $this->operatingCentres;
+    }
+
+    /**
+     * Get financial evidence
+     *
+     * @return bool
+     */
+    public function getFinancialEvidence()
+    {
+        return $this->financialEvidence;
     }
 }
