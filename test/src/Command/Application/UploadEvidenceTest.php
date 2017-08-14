@@ -20,11 +20,13 @@ class UploadEvidenceTest extends PHPUnit_Framework_TestCase
         $data = [
             'id' => 111,
             'operatingCentres' => [$oc1],
+            'financialEvidence' => true,
         ];
 
         $command = UploadEvidence::create($data);
 
         $this->assertEquals(111, $command->getId());
         $this->assertEquals([$oc1], $command->getOperatingCentres());
+        $this->assertTrue($command->getFinancialEvidence());
     }
 }
