@@ -18,4 +18,11 @@ final class RuleList extends AbstractQuery implements
 {
     use PagedTrait;
     use OrderedTrait;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Optional
+     */
+    protected $isReview = 'Y';
 }
