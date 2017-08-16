@@ -17,4 +17,20 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 class Overview extends AbstractQuery
 {
     use Identity;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $validateAppCompletion;
+
+    /**
+     * Get a validate application completion flag
+     *
+     * @return bool
+     */
+    public function getValidateAppCompletion()
+    {
+        return $this->validateAppCompletion;
+    }
 }
