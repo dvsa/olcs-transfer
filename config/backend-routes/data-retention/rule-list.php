@@ -2,16 +2,24 @@
 
 use Dvsa\Olcs\Transfer\Query;
 use Dvsa\Olcs\Transfer\Router\QueryConfig;
+use Dvsa\Olcs\Transfer\Router\RouteConfig;
 
 return [
-    'data-retention' => [
-        'type' => 'Segment',
-        'options' => [
-            'route' => 'data-retention[/]',
-        ],
-        'may_terminate' => false,
-        'child_routes' => [
+    'data-retention' => RouteConfig::getRouteConfig(
+        'data-retention',
+        [
             'GET' => QueryConfig::getConfig(Query\DataRetention\RuleList::class),
+            'rule-list' => RouteConfig::getRouteConfig(
+                'rule-list',
+                [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\DataRetention\GetRule::class),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\DataRetention\RuleList::class),
+                ]
+            ),
         ]
-    ],
+    ),
 ];
