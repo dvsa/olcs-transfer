@@ -25,7 +25,7 @@ final class Records extends AbstractQuery implements
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $dataRetentionRuleId = 'Y';
+    protected $dataRetentionRuleId;
 
     /**
      * @return int
