@@ -20,6 +20,12 @@ return [
                     'GET' => QueryConfig::getConfig(Query\DataRetention\RuleList::class),
                 ]
             ),
+            'processed-list' => RouteConfig::getRouteConfig(
+                'processed-list',
+                [
+                    'GET' => QueryConfig::getConfig(Query\DataRetention\GetProcessedList::class),
+                ]
+            ),
         ]
     ),
 ];
