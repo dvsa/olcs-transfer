@@ -13,11 +13,25 @@ class PrintLicenceTest extends PHPUnit_Framework_TestCase
     public function testStructure()
     {
         $data = [
-            'id' => 111,
+            'id' => 111
         ];
 
         $command = PrintLicence::create($data);
 
         $this->assertEquals(111, $command->getId());
+        $this->assertEquals(true, $command->getDispatch());
+    }
+
+    public function testStructureDispatch()
+    {
+        $data = [
+            'id' => 111,
+            'dispatch' => false
+        ];
+
+        $command = PrintLicence::create($data);
+
+        $this->assertEquals(111, $command->getId());
+        $this->assertEquals(false, $command->getDispatch());
     }
 }

@@ -18,4 +18,20 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class PrintLicence extends AbstractCommand
 {
     use Identity;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $dispatch = true;
+
+    /**
+     * Should the document be dispatched after generation
+     *
+     * @return boolean
+     */
+    public function getDispatch()
+    {
+        return (bool)$this->dispatch;
+    }
 }
