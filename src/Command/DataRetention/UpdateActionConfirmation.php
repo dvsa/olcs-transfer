@@ -12,4 +12,15 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 final class UpdateActionConfirmation extends AbstractCommand
 {
     use Ids;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"delete", "review"}}})
+     */
+    protected $status;
+
+    public function getStatus()
+    {
+        return $this->status;
+    }
 }
