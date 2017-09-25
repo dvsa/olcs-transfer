@@ -3,6 +3,8 @@
 use Dvsa\Olcs\Transfer\Query;
 use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
+use Dvsa\Olcs\Transfer\Router\CommandConfig;
+use Dvsa\Olcs\Transfer\Command\DataRetention;
 
 return [
     'data-retention' => RouteConfig::getRouteConfig(
@@ -18,6 +20,18 @@ return [
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\DataRetention\RuleList::class),
+                ]
+            ),
+            'mark-for-delete' => RouteConfig::getRouteConfig(
+                'mark-for-delete',
+                [
+                    'POST' => CommandConfig::getPostConfig(DataRetention\MarkForDelete::class),
+                ]
+            ),
+            'mark-for-review' => RouteConfig::getRouteConfig(
+                'mark-for-review',
+                [
+                    'POST' => CommandConfig::getPostConfig(DataRetention\MarkForReview::class),
                 ]
             ),
             'processed-list' => RouteConfig::getRouteConfig(
