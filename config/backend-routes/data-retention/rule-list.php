@@ -22,6 +22,12 @@ return [
                     'GET' => QueryConfig::getConfig(Query\DataRetention\RuleList::class),
                 ]
             ),
+            'records' => RouteConfig::getRouteConfig(
+                'records',
+                [
+                    'GET' => QueryConfig::getConfig(Query\DataRetention\Records::class),
+                ]
+            ),
             'mark-for-delete' => RouteConfig::getRouteConfig(
                 'mark-for-delete',
                 [
@@ -32,6 +38,12 @@ return [
                 'mark-for-review',
                 [
                     'POST' => CommandConfig::getPostConfig(DataRetention\MarkForReview::class),
+                ]
+            ),
+            'delay-items' => RouteConfig::getRouteConfig(
+                'delay-items',
+                [
+                    'PUT' => QueryConfig::getConfig(DataRetention\DelayItems::class),
                 ]
             ),
             'processed-list' => RouteConfig::getRouteConfig(
