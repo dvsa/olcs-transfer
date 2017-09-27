@@ -7,7 +7,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @Transfer\RouteName("backend/data-retention/delay-items")
- * @Transfer\Method("PUT")
+ * @Transfer\Method("POST")
  */
 final class DelayItems extends AbstractCommand
 {

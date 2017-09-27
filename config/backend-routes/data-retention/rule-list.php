@@ -43,7 +43,7 @@ return [
             'delay-items' => RouteConfig::getRouteConfig(
                 'delay-items',
                 [
-                    'PUT' => QueryConfig::getConfig(DataRetention\DelayItems::class),
+                    'POST' => CommandConfig::getPostConfig(DataRetention\DelayItems::class),
                 ]
             ),
             'processed-list' => RouteConfig::getRouteConfig(
