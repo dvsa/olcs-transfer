@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
 
 /**
- * @Transfer\RouteName("backend/data-retention-records")
+ * @Transfer\RouteName("backend/data-retention/records")
  */
 final class Records extends AbstractQuery implements
     PagedQueryInterface,
