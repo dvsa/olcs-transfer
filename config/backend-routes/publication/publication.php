@@ -86,6 +86,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Publication\PendingList::class),
                 ]
             ],
+            'published-list' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'published-list[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Publication\PublishedList::class),
+                ]
+            ],
             'link' => [
                 'type' => 'Segment',
                 'options' => [
