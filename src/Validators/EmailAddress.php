@@ -45,6 +45,15 @@ class EmailAddress extends AbstractValidator
     );
 
     /**
+     * Array of valid top-level-domains in addition to those used in Zend hostname validator
+     *
+     * @var array
+     */
+    protected $additionalValidTlds = array(
+        'ltd'
+    );
+
+    /**
      * @var string
      */
     protected $hostname;
@@ -227,7 +236,17 @@ class EmailAddress extends AbstractValidator
     protected function validateHostnamePart()
     {
         return $this->getHostnameValidator()->setTranslator($this->getTranslator())
-            ->isValid($this->hostname);
+            ->isValid($this->hostname) ? true : $this->isAdditionalValidTld();
+    }
+
+    /**
+     * Internal method to validate additional valid top-level-domains not included in Zend validTlds
+     *
+     * @return bool
+     */
+    protected function isAdditionalValidTld() {
+        $tld = substr($this->hostname, strrpos($this->hostname, '.') + 1);
+        return in_array(strtolower($tld),$this->additionalValidTlds);
     }
 
     /**
