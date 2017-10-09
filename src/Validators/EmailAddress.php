@@ -235,8 +235,16 @@ class EmailAddress extends AbstractValidator
      */
     protected function validateHostnamePart()
     {
-        return $this->getHostnameValidator()->setTranslator($this->getTranslator())
-            ->isValid($this->hostname) ? true : $this->isAdditionalValidTld();
+
+        $valid = $this->getHostnameValidator()->setTranslator($this->getTranslator())->isValid($this->hostname);
+
+        if (!$valid) {
+            $this->setHostnameValidator(new Hostname(array('allow' => $this->getAllow(), 'useTldCheck' => false)));
+            $valid = $this->getHostnameValidator()->setTranslator($this->getTranslator())
+                ->isValid($this->hostname) ? $this->isAdditionalValidTld() : false;
+        }
+
+        return $valid;
     }
 
     /**
@@ -244,9 +252,10 @@ class EmailAddress extends AbstractValidator
      *
      * @return bool
      */
-    protected function isAdditionalValidTld() {
+    protected function isAdditionalValidTld()
+    {
         $tld = substr($this->hostname, strrpos($this->hostname, '.') + 1);
-        return in_array(strtolower($tld),$this->additionalValidTlds);
+        return in_array(strtolower($tld), $this->additionalValidTlds);
     }
 
     /**
