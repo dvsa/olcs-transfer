@@ -239,8 +239,8 @@ class EmailAddress extends AbstractValidator
         $valid = $this->getHostnameValidator()->setTranslator($this->getTranslator())->isValid($this->hostname);
 
         if (!$valid) {
-            $this->setHostnameValidator(new Hostname(array('allow' => $this->getAllow(), 'useTldCheck' => false)));
-            $valid = $this->getHostnameValidator()->setTranslator($this->getTranslator())
+            $hostnameValidatorTldDisabled = new Hostname(array('allow' => $this->getAllow(), 'useTldCheck' => false));
+            $valid = $hostnameValidatorTldDisabled->setTranslator($this->getTranslator())
                 ->isValid($this->hostname) ? $this->isAdditionalValidTld() : false;
         }
 
