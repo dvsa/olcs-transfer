@@ -22,6 +22,17 @@ return [
                     'GET' => QueryConfig::getConfig(Query\DataRetention\RuleList::class),
                 ]
             ),
+            'rule-admin' => RouteConfig::getRouteConfig(
+                'rule-admin',
+                [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'GET' => QueryConfig::getConfig(Query\DataRetention\GetRule::class),
+                        ]
+                    ),
+                    'GET' => QueryConfig::getConfig(Query\DataRetention\RuleAdmin::class),
+                ]
+            ),
             'records' => RouteConfig::getRouteConfig(
                 'records',
                 [
