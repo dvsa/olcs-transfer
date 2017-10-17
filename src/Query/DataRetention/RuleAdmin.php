@@ -10,7 +10,7 @@ use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
 
 /**
- * @Transfer\RouteName("backend/data-retention/rule-list")
+ * @Transfer\RouteName("backend/data-retention/rule-admin")
  */
 final class RuleAdmin extends AbstractQuery implements
     PagedQueryInterface,
