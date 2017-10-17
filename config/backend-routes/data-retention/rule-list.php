@@ -57,6 +57,12 @@ return [
                     'POST' => CommandConfig::getPostConfig(DataRetention\DelayItems::class),
                 ]
             ),
+            'assign-items' => RouteConfig::getRouteConfig(
+                'assign-items',
+                [
+                    'POST' => CommandConfig::getPostConfig(DataRetention\AssignItems::class),
+                ]
+            ),
             'processed-list' => RouteConfig::getRouteConfig(
                 'processed-list',
                 [
