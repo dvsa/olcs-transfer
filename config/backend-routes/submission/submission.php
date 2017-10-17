@@ -42,6 +42,16 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\Submission\ReopenSubmission::class),
                         ]
                     ],
+                    'store' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'store[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Submission\StoreSubmissionSnapshot::class),
+                        ]
+                    ],
                 ]
             ),
             'refresh' => [
