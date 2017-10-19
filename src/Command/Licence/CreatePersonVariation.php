@@ -9,8 +9,8 @@ namespace Dvsa\Olcs\Transfer\Command\Licence;
 use Dvsa\Olcs\Transfer\Command\AbstractPeople;
 
 /**
- * Class CreatePersonVariation
- * @package Dvsa\Olcs\Transfer\Command\Licence
+ * @Transfer\RouteName("backend/licence/add-person")
+ * @Transfer\Method("POST")
  */
 final class CreatePersonVariation extends AbstractPeople
 {
