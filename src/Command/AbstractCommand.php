@@ -25,7 +25,6 @@ abstract class AbstractCommand implements CommandInterface
     public function exchangeArray(array $array)
     {
         $values = get_object_vars($this);
-
         foreach (array_keys($values) as $property) {
             if (array_key_exists($property, $array)) {
                 $this->$property = $array[$property];

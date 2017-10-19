@@ -751,6 +751,16 @@ $routes = [
                             'GET' => QueryConfig::getConfig(Query\Licence\LicenceByNumber::class)
                         ]
                     ],
+                    'person' =>[
+                        'type'=>'Segment',
+                        'may_terminate' => false,
+                        'options' =>[
+                          'route'=>'person'
+                        ],
+                        'child_routes'=>[
+                            'POST'=>CommandConfig::getPostConfig(Command\Licence\CreatePersonVariation::class)
+                        ]
+                    ],
                     'registered-address' => [
                         'type' => 'Segment',
                         'options' => [
