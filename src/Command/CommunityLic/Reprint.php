@@ -30,11 +30,21 @@ final class Reprint extends AbstractCommand
      */
     public $communityLicenceIds = [];
 
+    /**
+     * Get the licence
+     *
+     * @return mixed
+     */
     public function getLicence()
     {
         return $this->licence;
     }
 
+    /**
+     * get the community licence id
+     *
+     * @return array
+     */
     public function getCommunityLicenceIds()
     {
         return $this->communityLicenceIds;
