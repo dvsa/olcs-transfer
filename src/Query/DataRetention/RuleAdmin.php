@@ -18,5 +18,4 @@ final class RuleAdmin extends AbstractQuery implements
 {
     use PagedTrait;
     use OrderedTrait;
-
 }
