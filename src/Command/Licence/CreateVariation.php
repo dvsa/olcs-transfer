@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Licence;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
@@ -59,6 +60,21 @@ final class CreateVariation extends AbstractCommand
     protected $appliedVia;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray", "options": {
+     *          "haystack": {"vtyp_director_change"}
+     *      }
+     *  }
+     * )
+     * @Transfer\Optional
+     *
+     * @var string|null
+     */
+    protected $variationType;
+
+    /**
      * @return mixed
      */
     public function getReceivedDate()
@@ -88,5 +104,15 @@ final class CreateVariation extends AbstractCommand
     public function getAppliedVia()
     {
         return $this->appliedVia;
+    }
+
+    /**
+     * Get the value of variationType
+     *
+     * @return string|null
+     */
+    public function getVariationType()
+    {
+        return $this->variationType;
     }
 }
