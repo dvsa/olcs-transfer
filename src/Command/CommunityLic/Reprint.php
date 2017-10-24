@@ -9,6 +9,7 @@ namespace Dvsa\Olcs\Transfer\Command\CommunityLic;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
 
 /**
  * @Transfer\RouteName("backend/community-lic/reprint")
@@ -16,6 +17,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Reprint extends AbstractCommand
 {
+    use ApplicationOptional;
+
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
@@ -31,9 +34,9 @@ final class Reprint extends AbstractCommand
     public $communityLicenceIds = [];
 
     /**
-     * Get the licence
+     * Get licence ID
      *
-     * @return mixed
+     * @return int
      */
     public function getLicence()
     {
@@ -41,7 +44,7 @@ final class Reprint extends AbstractCommand
     }
 
     /**
-     * get the community licence id
+     * Get list of community licence IDs
      *
      * @return array
      */
