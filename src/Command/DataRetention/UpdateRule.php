@@ -43,23 +43,53 @@ final class UpdateRule extends AbstractCommand
      */
     protected $actionType = null;
 
-    public function getDescription() {
+    /**
+     * Get Description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
         return $this->description;
     }
 
-    public function getRetentionPeriod() {
+    /**
+     * Get Retention period
+     *
+     * @return int
+     */
+    public function getRetentionPeriod()
+    {
         return $this->retentionPeriod;
     }
 
-    public function getMaxDataSet() {
+    /**
+     * Get Max data set
+     *
+     * @return int
+     */
+    public function getMaxDataSet()
+    {
         return $this->maxDataSet;
     }
 
-    public function getIsEnabled() {
+    /**
+     * Get Is Enabled
+     *
+     * @return bool
+     */
+    public function getIsEnabled()
+    {
         return $this->isEnabled;
     }
 
-    public function getActionType() {
+    /**
+     * Get Action Type
+     *
+     * @return string
+     */
+    public function getActionType()
+    {
         return $this->actionType;
     }
 }
