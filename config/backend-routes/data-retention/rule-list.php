@@ -28,6 +28,12 @@ return [
                     'GET' => QueryConfig::getConfig(Query\DataRetention\RuleAdmin::class),
                 ]
             ),
+            'update-rule' => RouteConfig::getRouteConfig(
+                'update-rule',
+                [
+                    'POST' => CommandConfig::getPostConfig(DataRetention\UpdateRule::class),
+                ]
+            ),
             'records' => RouteConfig::getRouteConfig(
                 'records',
                 [
