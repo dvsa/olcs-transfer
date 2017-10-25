@@ -33,13 +33,13 @@ final class UpdateRule extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {1, 0}}})
      */
     protected $isEnabled = null;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"haystack": {"Automate", "Review"}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Automate", "Review"}}})
      */
     protected $actionType = null;
 
