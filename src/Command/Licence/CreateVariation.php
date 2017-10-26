@@ -5,7 +5,6 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-
 namespace Dvsa\Olcs\Transfer\Command\Licence;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
@@ -75,6 +74,8 @@ final class CreateVariation extends AbstractCommand
     protected $variationType;
 
     /**
+     * Get Received date
+     *
      * @return mixed
      */
     public function getReceivedDate()
@@ -83,6 +84,8 @@ final class CreateVariation extends AbstractCommand
     }
 
     /**
+     * Get Fee required
+     *
      * @return mixed
      */
     public function getFeeRequired()
@@ -91,6 +94,8 @@ final class CreateVariation extends AbstractCommand
     }
 
     /**
+     * Get Licence Type
+     *
      * @return mixed
      */
     public function getLicenceType()
@@ -99,6 +104,8 @@ final class CreateVariation extends AbstractCommand
     }
 
     /**
+     * Get applied
+     *
      * @return mixed
      */
     public function getAppliedVia()

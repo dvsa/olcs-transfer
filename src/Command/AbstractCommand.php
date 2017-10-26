@@ -9,13 +9,6 @@ namespace Dvsa\Olcs\Transfer\Command;
  */
 abstract class AbstractCommand implements CommandInterface
 {
-    /**
-     * Create a command
-     *
-     * @param array $data data from the command
-     *
-     * @return static
-     */
     public static function create(array $data)
     {
         $command = new static();
@@ -26,13 +19,13 @@ abstract class AbstractCommand implements CommandInterface
     /**
      * Exchange internal values from provided array
      *
-     * @param array $array data to be mapped to object
-     *
+     * @param  array $array
      * @return void
      */
     public function exchangeArray(array $array)
     {
         $values = get_object_vars($this);
+
         foreach (array_keys($values) as $property) {
             if (array_key_exists($property, $array)) {
                 $this->$property = $array[$property];
@@ -40,11 +33,6 @@ abstract class AbstractCommand implements CommandInterface
         }
     }
 
-    /**
-     * Get the object properties
-     *
-     * @return array
-     */
     public function getArrayCopy()
     {
         return get_object_vars($this);
