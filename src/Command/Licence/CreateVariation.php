@@ -59,6 +59,23 @@ final class CreateVariation extends AbstractCommand
     protected $appliedVia;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray", "options": {
+     *          "haystack": {"vtyp_director_change"}
+     *      }
+     *  }
+     * )
+     * @Transfer\Optional
+     *
+     * @var string|null
+     */
+    protected $variationType;
+
+    /**
+     * Get Received date
+     *
      * @return mixed
      */
     public function getReceivedDate()
@@ -67,6 +84,8 @@ final class CreateVariation extends AbstractCommand
     }
 
     /**
+     * Get Fee required
+     *
      * @return mixed
      */
     public function getFeeRequired()
@@ -75,6 +94,8 @@ final class CreateVariation extends AbstractCommand
     }
 
     /**
+     * Get Licence Type
+     *
      * @return mixed
      */
     public function getLicenceType()
@@ -83,10 +104,22 @@ final class CreateVariation extends AbstractCommand
     }
 
     /**
+     * Get applied
+     *
      * @return mixed
      */
     public function getAppliedVia()
     {
         return $this->appliedVia;
+    }
+
+    /**
+     * Get the value of variationType
+     *
+     * @return string|null
+     */
+    public function getVariationType()
+    {
+        return $this->variationType;
     }
 }
