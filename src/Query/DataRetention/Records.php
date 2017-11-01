@@ -54,6 +54,12 @@ final class Records extends AbstractQuery implements
     protected $markedForDeletion;
 
     /**
+     * @var string
+     * @Transfer\Optional
+     */
+    protected $assignedToUser;
+
+    /**
      * @return int
      */
     public function getDataRetentionRuleId()
@@ -74,6 +80,14 @@ final class Records extends AbstractQuery implements
      */
     public function getMarkedForDeletion()
     {
-        return $this->nextReview;
+        return $this->markedForDeletion;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAssignedToUser()
+    {
+        return $this->assignedToUser;
     }
 }
