@@ -60,7 +60,10 @@ final class Records extends AbstractQuery implements
     protected $assignedToUser;
 
     /**
+     * Get Data retention rule id
+     *
      * @return int
+     *
      */
     public function getDataRetentionRuleId()
     {
@@ -68,7 +71,10 @@ final class Records extends AbstractQuery implements
     }
 
     /**
+     * Get next review
+     *
      * @return string
+     *
      */
     public function getNextReview()
     {
@@ -76,7 +82,10 @@ final class Records extends AbstractQuery implements
     }
 
     /**
+     * Get marked for deletion
+     *
      * @return string
+     *
      */
     public function getMarkedForDeletion()
     {
@@ -84,7 +93,10 @@ final class Records extends AbstractQuery implements
     }
 
     /**
+     * Get assigned to User
+     *
      * @return int
+     *
      */
     public function getAssignedToUser()
     {
