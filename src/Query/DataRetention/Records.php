@@ -3,6 +3,7 @@
 namespace Dvsa\Olcs\Transfer\Query\DataRetention;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\FieldType\Traits\UserOptional;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
@@ -19,6 +20,7 @@ final class Records extends AbstractQuery implements
 {
     use PagedTrait;
     use OrderedTrait;
+    use UserOptional;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -28,10 +30,76 @@ final class Records extends AbstractQuery implements
     protected $dataRetentionRuleId;
 
     /**
+     * @var string
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *          "haystack": {
+     *              "pending",
+     *              "deferred"
+     *          }
+     *     }
+     * })
+     */
+    protected $nextReview;
+
+    /**
+     * @var string
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     */
+    protected $markedForDeletion;
+
+    /**
+     * @var string
+     * @Transfer\Optional
+     */
+    protected $assignedToUser;
+
+    /**
+     * Get Data retention rule id
+     *
      * @return int
+     *
      */
     public function getDataRetentionRuleId()
     {
         return $this->dataRetentionRuleId;
+    }
+
+    /**
+     * Get next review
+     *
+     * @return string
+     *
+     */
+    public function getNextReview()
+    {
+        return $this->nextReview;
+    }
+
+    /**
+     * Get marked for deletion
+     *
+     * @return string
+     *
+     */
+    public function getMarkedForDeletion()
+    {
+        return $this->markedForDeletion;
+    }
+
+    /**
+     * Get assigned to User
+     *
+     * @return int
+     *
+     */
+    public function getAssignedToUser()
+    {
+        return $this->assignedToUser;
     }
 }
