@@ -1059,6 +1059,14 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Licence\People::class),
                                     'POST' => CommandConfig::getPostConfig(Command\Licence\CreatePeople::class),
                                     'DELETE' => CommandConfig::getDeleteConfig(Command\Licence\DeletePeople::class),
+                                    'via-variation' => RouteConfig::getRouteConfig(
+                                        'via-variation',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Licence\DeletePeopleViaVariation::class
+                                            )
+                                        ]
+                                    ),
                                     'person' => RouteConfig::getNamedSingleConfig(
                                         'person',
                                         [
