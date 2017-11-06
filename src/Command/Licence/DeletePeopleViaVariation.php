@@ -1,10 +1,4 @@
 <?php
-
-/**
- * DeletePeople
- *
- * @author Mat Evans <mat.evans@valtech.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Command\Licence;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
