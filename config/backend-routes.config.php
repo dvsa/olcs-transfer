@@ -703,6 +703,14 @@ $routes = [
                                     )
                                 ]
                             ),
+                            'grant-director-change' => RouteConfig::getRouteConfig(
+                                'grant-director-change',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Variation\GrantDirectorChange::class
+                                    )
+                                ]
+                            ),
                             'condition-undertaking' => RouteConfig::getRouteConfig(
                                 'condition-undertaking',
                                 [
