@@ -649,6 +649,7 @@ $routes = [
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\Variation\Variation::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\Variation\DeleteVariation::class),
                             'type-of-licence' => [
                                 'type' => 'Segment',
                                 'options' => [
