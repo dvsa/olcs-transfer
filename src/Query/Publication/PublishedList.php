@@ -16,4 +16,20 @@ class PublishedList extends AbstractQuery implements PagedQueryInterface, Ordere
 {
     use PagedTrait;
     use OrderedTrait;
+
+    /**
+     * TODO: add validation
+     * @var string|null
+     */
+    protected $publicationType;
+
+    /**
+     * Get the value of publicationType
+     *
+     * @return string|null
+     */
+    public function getPublicationType()
+    {
+        return $this->publicationType;
+    }
 }
