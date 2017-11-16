@@ -649,6 +649,7 @@ $routes = [
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\Variation\Variation::class),
+                            'DELETE' => CommandConfig::getDeleteConfig(Command\Variation\DeleteVariation::class),
                             'type-of-licence' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -700,6 +701,14 @@ $routes = [
                                 [
                                     'PUT' => CommandConfig::getPutConfig(
                                         Command\Variation\Grant::class
+                                    )
+                                ]
+                            ),
+                            'grant-director-change' => RouteConfig::getRouteConfig(
+                                'grant-director-change',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Variation\GrantDirectorChange::class
                                     )
                                 ]
                             ),
@@ -1059,6 +1068,14 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Licence\People::class),
                                     'POST' => CommandConfig::getPostConfig(Command\Licence\CreatePeople::class),
                                     'DELETE' => CommandConfig::getDeleteConfig(Command\Licence\DeletePeople::class),
+                                    'via-variation' => RouteConfig::getRouteConfig(
+                                        'via-variation',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Licence\DeletePeopleViaVariation::class
+                                            )
+                                        ]
+                                    ),
                                     'person' => RouteConfig::getNamedSingleConfig(
                                         'person',
                                         [
