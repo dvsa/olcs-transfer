@@ -39,6 +39,7 @@ final class UpdatePreviousConvictions extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Optional
      */
     protected $convictionsConfirmation;
 
