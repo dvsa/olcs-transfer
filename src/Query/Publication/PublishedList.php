@@ -18,18 +18,17 @@ class PublishedList extends AbstractQuery implements PagedQueryInterface, Ordere
     use OrderedTrait;
 
     /**
-     * TODO: add validation
-     * @var string|null
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional()
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"A&D", "N&P"}}})
      */
-    protected $publicationType;
+    protected $pubType;
 
     /**
-     * Get the value of publicationType
-     *
-     * @return string|null
+     * @return string|null|fals-y
      */
-    public function getPublicationType()
+    public function getPubType()
     {
-        return $this->publicationType;
+        return $this->pubType;
     }
 }
