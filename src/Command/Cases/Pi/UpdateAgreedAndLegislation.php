@@ -43,6 +43,14 @@ class UpdateAgreedAndLegislation extends AbstractCommand
     protected $agreedByTcRole;
 
     /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $assignedTo;
+
+    /**
      * @Transfer\ArrayInput
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -81,6 +89,14 @@ class UpdateAgreedAndLegislation extends AbstractCommand
     public function getAgreedByTcRole()
     {
         return $this->agreedByTcRole;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAssignedTo()
+    {
+        return $this->assignedTo;
     }
 
     /**
