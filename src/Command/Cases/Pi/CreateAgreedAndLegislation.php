@@ -50,6 +50,18 @@ class CreateAgreedAndLegislation extends AbstractCommand
     protected $assignedTo;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     */
+    protected $isEcmsCase = null;
+
+    /**
+     * @var string
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     */
+    protected $ecmsFirstReceivedDate;
+
+    /**
      * @Transfer\ArrayInput
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -96,6 +108,22 @@ class CreateAgreedAndLegislation extends AbstractCommand
     public function getAssignedTo()
     {
         return $this->assignedTo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIsEcmsCase()
+    {
+        return $this->isEcmsCase;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEcmsFirstReceivedDate()
+    {
+        return $this->ecmsFirstReceivedDate;
     }
 
     /**
