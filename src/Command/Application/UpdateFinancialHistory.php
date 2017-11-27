@@ -68,6 +68,7 @@ final class UpdateFinancialHistory extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
      */
     protected $insolvencyConfirmation = false;
 
