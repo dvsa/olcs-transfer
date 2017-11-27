@@ -43,11 +43,12 @@ class CreateAgreedAndLegislation extends AbstractCommand
 
     /**
      * @var int
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $assignedTo;
+    protected $assignedCaseworker;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -57,6 +58,7 @@ class CreateAgreedAndLegislation extends AbstractCommand
 
     /**
      * @var string
+     * @Transfer\Optional
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $ecmsFirstReceivedDate;
@@ -105,9 +107,9 @@ class CreateAgreedAndLegislation extends AbstractCommand
     /**
      * @return int
      */
-    public function getAssignedTo()
+    public function getAssignedCaseworker()
     {
-        return $this->assignedTo;
+        return $this->assignedCaseworker;
     }
 
     /**

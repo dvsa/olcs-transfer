@@ -44,11 +44,12 @@ class UpdateAgreedAndLegislation extends AbstractCommand
 
     /**
      * @var int
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $assignedTo;
+    protected $assignedCaseworker;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -107,9 +108,9 @@ class UpdateAgreedAndLegislation extends AbstractCommand
     /**
      * @return int
      */
-    public function getAssignedTo()
+    public function getAssignedCaseworker()
     {
-        return $this->assignedTo;
+        return $this->assignedCaseworker;
     }
 
     /**
