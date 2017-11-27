@@ -82,6 +82,8 @@ class UpdateAgreedAndLegislation extends AbstractCommand
     protected $reasons = [];
 
     /**
+     * Get Agreed Date
+     *
      * @return string
      */
     public function getAgreedDate()
@@ -90,6 +92,8 @@ class UpdateAgreedAndLegislation extends AbstractCommand
     }
 
     /**
+     * Get Agreed by Tc
+     *
      * @return int
      */
     public function getAgreedByTc()
@@ -98,6 +102,8 @@ class UpdateAgreedAndLegislation extends AbstractCommand
     }
 
     /**
+     * Get Agreed by Tc Role
+     *
      * @return string
      */
     public function getAgreedByTcRole()
@@ -106,6 +112,8 @@ class UpdateAgreedAndLegislation extends AbstractCommand
     }
 
     /**
+     * Get Assigned Caseworker
+     *
      * @return int
      */
     public function getAssignedCaseworker()
@@ -114,6 +122,8 @@ class UpdateAgreedAndLegislation extends AbstractCommand
     }
 
     /**
+     * Get isEcmsCase
+     *
      * @return string
      */
     public function getIsEcmsCase()
@@ -122,6 +132,8 @@ class UpdateAgreedAndLegislation extends AbstractCommand
     }
 
     /**
+     * Get Ecms First Received Date
+     *
      * @return string
      */
     public function getEcmsFirstReceivedDate()
@@ -130,6 +142,8 @@ class UpdateAgreedAndLegislation extends AbstractCommand
     }
 
     /**
+     * Get Pi Types
+     *
      * @return array
      */
     public function getPiTypes()
@@ -138,6 +152,8 @@ class UpdateAgreedAndLegislation extends AbstractCommand
     }
 
     /**
+     * Get Reasons
+     *
      * @return array
      */
     public function getReasons()
