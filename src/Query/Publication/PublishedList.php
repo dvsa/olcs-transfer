@@ -2,6 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Query\Publication;
 
+use DateTime;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
@@ -27,20 +28,18 @@ class PublishedList extends AbstractQuery implements PagedQueryInterface, Ordere
     protected $pubType;
 
     /**
-     * @var integer
+     * @var DateTime|string in format "D-m-y H:i:s"
      *
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 1, "max": 12}})
+     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d H:i:s"}})
      */
-    protected $pubDateMonth;
+    protected $pubDateFrom;
 
     /**
-     * @var integer
+     * @var DateTime|string in format "D-m-y H:i:s"
      *
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d H:i:s"}})
      */
-    protected $pubDateYear;
+    protected $pubDateTo;
 
     /**
      * @return string|null|fals-y
@@ -51,22 +50,22 @@ class PublishedList extends AbstractQuery implements PagedQueryInterface, Ordere
     }
 
     /**
-     * Get the value of pubDateMonth
+     * Get the value of pubDateFrom
      *
-     * @return int
+     * @return DateTime|string in format "D-m-y H:i:s"
      */
-    public function getPubDateMonth()
+    public function getPubDateFrom()
     {
-        return $this->pubDateMonth;
+        return $this->pubDateFrom;
     }
 
     /**
-     * Get the value of pubDateYear
+     * Get the value of pubDateTo
      *
-     * @return int
+     * @return DateTime|string in format "D-m-y H:i:s"
      */
-    public function getPubDateYear()
+    public function getPubDateTo()
     {
-        return $this->pubDateYear;
+        return $this->pubDateTo;
     }
 }

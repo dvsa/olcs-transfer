@@ -2,6 +2,7 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\Published;
 
+use DateTime;
 use Dvsa\Olcs\Transfer\Query\Publication\PublishedList;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
 use PHPUnit_Framework_TestCase;
@@ -22,18 +23,13 @@ class PublishedListTest extends PHPUnit_Framework_TestCase
                 'A&D',
                 'N&P',
             ],
-            'pubDateMonth' => [
-                '1',
-                '01',
-                '2',
-                '02',
-                '11',
-                '12',
+            'pubDateFrom' => [
+                '2015-12-13 12:24:56',
+                new DateTime('2015-12-13 15:45'),
             ],
-            'pubDateYear' => [
-                '2017',
-                '2199',
-                '0',
+            'pubDateTo' => [
+                '2015-12-13 12:24:56',
+                new DateTime('2015-12-13 15:45'),
             ],
         ];
     }
@@ -49,15 +45,6 @@ class PublishedListTest extends PHPUnit_Framework_TestCase
     {
         return [
             'pubType' => [[' test ', 'test']],
-            'pubDateMonth' => [
-                [12, '12'],
-                [' a1b2c3 ', '123'],
-            ],
-            'pubDateYear' => [
-                [12, '12'],
-                [' a1b2c3 ', '123'],
-                ['-1', '1'],
-            ],
         ];
     }
 
@@ -65,8 +52,8 @@ class PublishedListTest extends PHPUnit_Framework_TestCase
     {
         return [
             'pubType' => ['bad-value'],
-            'pubDateMonth' => [0, 13, [], false, null, ''],
-            'pubDateYear' => [[], false, null, ''],
+            'pubDateFrom' => ['2015-12-13', '2015-13-13 12:24:56', 0, [], false, null, ''],
+            'pubDateTo' => ['2015-12-13', '2015-13-13 12:24:56', 0, [], false, null, ''],
         ];
     }
 }
