@@ -15,13 +15,6 @@ class PublishedListTest extends PHPUnit_Framework_TestCase
         return new PublishedList();
     }
 
-    protected function getOptionalQueryFields()
-    {
-        return [
-            'pubType',
-        ];
-    }
-
     protected function getValidFieldValues()
     {
         return [
@@ -29,13 +22,42 @@ class PublishedListTest extends PHPUnit_Framework_TestCase
                 'A&D',
                 'N&P',
             ],
+            'pubDateMonth' => [
+                '1',
+                '01',
+                '2',
+                '02',
+                '11',
+                '12',
+            ],
+            'pubDateYear' => [
+                '2017',
+                '2199',
+                '0',
+            ],
+        ];
+    }
+
+    protected function getOptionalQueryFields()
+    {
+        return [
+            'pubType',
         ];
     }
 
     protected function getFilterTransformations()
     {
         return [
-            'pubType' => [' test ' => 'test'],
+            'pubType' => [[' test ', 'test']],
+            'pubDateMonth' => [
+                [12, '12'],
+                [' a1b2c3 ', '123'],
+            ],
+            'pubDateYear' => [
+                [12, '12'],
+                [' a1b2c3 ', '123'],
+                ['-1', '1'],
+            ],
         ];
     }
 
@@ -43,6 +65,8 @@ class PublishedListTest extends PHPUnit_Framework_TestCase
     {
         return [
             'pubType' => ['bad-value'],
+            'pubDateMonth' => [0, 13, [], false, null, ''],
+            'pubDateYear' => [[], false, null, ''],
         ];
     }
 }

@@ -69,8 +69,11 @@ trait QueryTest
      * for example:
      *
      * return [
-     *     'fieldWhichGetsTrimmed' => [' string ' => 'string'],
-     *     'fieldWhichFiltersOutNonNumeric => ['a1b2c3' => '123'],
+     *     'fieldWhichGetsTrimmed' => [[' string ', 'string']],
+     *     'fieldWhichFiltersOutNonNumericDigits => [
+     *         ['a1b2c3', '123'],
+     *         [99 => '99'],
+     *     ],
      * ];
      *
      * Tests expect the function 'getFoo' to exist for the function 'foo'.
@@ -82,15 +85,41 @@ trait QueryTest
     abstract protected function getFilterTransformations();
 
     /**
-     * @dataProvider provideValidFieldCases
+     * @dataProvider provideValidFieldsValidateCases
      *
      * @param array  $fieldValues
      * @param string $fieldName
      */
-    public function testValidFields(array $fieldValues, $fieldName)
+    public function testValidFieldsValidate(array $fieldValues, $fieldName)
     {
         $query = $this->createPopulatedQuery($fieldValues);
         $this->assertQueryFieldValid($query, $fieldName);
+    }
+
+    /**
+     * @dataProvider provideValidFieldsRemainUnchangedCases
+     *
+     * @param $fieldName
+     * @param $fieldValue
+     */
+    public function testValidFieldsRemainUnchanged($fieldName, $fieldValue)
+    {
+        $query = $this->createPopulatedQuery([$fieldName => $fieldValue]);
+        $queryContainer = $this->createQueryContainer($query);
+        $queryContainer->getInputFilter()->setValidationGroup([$fieldName]);
+        $queryContainer->isValid();
+
+        $actual = $query->getArrayCopy()[$fieldName];
+        PHPUnit_Framework_Assert::assertSame(
+            $fieldValue,
+            $actual,
+            sprintf(
+                "Expected %s value %s to remain the same, but it got transformed to %s",
+                $fieldName,
+                var_export($fieldValue, true),
+                var_export($actual, true)
+            )
+        );
     }
 
     /**
@@ -196,7 +225,7 @@ trait QueryTest
         }
     }
 
-    public function provideValidFieldCases()
+    public function provideValidFieldsValidateCases()
     {
         foreach ($this->getOptionalQueryFields() as $field) {
             yield "$field optional - null" => [[$field => null], $field];
@@ -216,6 +245,15 @@ trait QueryTest
         }
     }
 
+    public function provideValidFieldsRemainUnchangedCases()
+    {
+        foreach ($this->getValidFieldValues() as $fieldName => $validValues) {
+            foreach ($validValues as $validValue) {
+                yield [$fieldName, $validValue];
+            }
+        }
+    }
+
     public function provideInvalidFieldCases()
     {
         $invalidFieldValues = $this->getInvalidFieldValues();
@@ -229,7 +267,7 @@ trait QueryTest
     public function provideFieldTransformationCases()
     {
         foreach ($this->getFilterTransformations() as $fieldName => $transformations) {
-            foreach ($transformations as $inputValue => $expectedValue) {
+            foreach ($transformations as list($inputValue, $expectedValue)) {
                 yield [$fieldName, $inputValue, $expectedValue];
             }
         }
@@ -260,7 +298,10 @@ trait QueryTest
         $inputFilter = $queryContainer->getInputFilter();
         $inputFilter->setValidationGroup([$fieldName]);
 
-        PHPUnit_Framework_Assert::assertFalse($queryContainer->isValid(), "Expected $fieldName to be invalid");
+        PHPUnit_Framework_Assert::assertFalse(
+            $queryContainer->isValid(),
+            "Expected $fieldName to be invalid \n" . print_r($query, true)
+        );
 
         $actualInvalidFieldNames = array_keys($inputFilter->getInvalidInput());
 
@@ -268,8 +309,9 @@ trait QueryTest
             [$fieldName],
             $actualInvalidFieldNames,
             sprintf(
-                "Expected a single validation failure on $fieldName, instead recieved the following violations: %s",
-                json_encode($actualInvalidFieldNames)
+                "Expected single validation failure on $fieldName, instead recieved the following violations: %sa\n %s",
+                json_encode($actualInvalidFieldNames),
+                print_r($query, true)
             )
         );
     }
