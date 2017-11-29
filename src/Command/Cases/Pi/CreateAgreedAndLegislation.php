@@ -42,6 +42,28 @@ class CreateAgreedAndLegislation extends AbstractCommand
     protected $agreedByTcRole;
 
     /**
+     * @var int
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $assignedCaseworker;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     */
+    protected $isEcmsCase = null;
+
+    /**
+     * @var string
+     * @Transfer\Optional
+     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     */
+    protected $ecmsFirstReceivedDate;
+
+    /**
      * @Transfer\ArrayInput
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -59,6 +81,8 @@ class CreateAgreedAndLegislation extends AbstractCommand
     protected $reasons = [];
 
     /**
+     * Get Agreed Date
+     *
      * @return string
      */
     public function getAgreedDate()
@@ -67,6 +91,8 @@ class CreateAgreedAndLegislation extends AbstractCommand
     }
 
     /**
+     * Get Agreed by Tc
+     *
      * @return int
      */
     public function getAgreedByTc()
@@ -75,6 +101,8 @@ class CreateAgreedAndLegislation extends AbstractCommand
     }
 
     /**
+     * Get Agreed by Tc Role
+     *
      * @return string
      */
     public function getAgreedByTcRole()
@@ -83,6 +111,38 @@ class CreateAgreedAndLegislation extends AbstractCommand
     }
 
     /**
+     * Get Assigned Caseworker
+     *
+     * @return int
+     */
+    public function getAssignedCaseworker()
+    {
+        return $this->assignedCaseworker;
+    }
+
+    /**
+     * Get isEcmsCase
+     *
+     * @return string
+     */
+    public function getIsEcmsCase()
+    {
+        return $this->isEcmsCase;
+    }
+
+    /**
+     * Get Ecms First Received Date
+     *
+     * @return string
+     */
+    public function getEcmsFirstReceivedDate()
+    {
+        return $this->ecmsFirstReceivedDate;
+    }
+
+    /**
+     * Get Pi Types
+     *
      * @return array
      */
     public function getPiTypes()
@@ -91,6 +151,8 @@ class CreateAgreedAndLegislation extends AbstractCommand
     }
 
     /**
+     * Get Reasons
+     *
      * @return array
      */
     public function getReasons()
