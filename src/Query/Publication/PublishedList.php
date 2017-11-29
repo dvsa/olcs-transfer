@@ -42,6 +42,18 @@ class PublishedList extends AbstractQuery implements PagedQueryInterface, Ordere
     protected $pubDateTo;
 
     /**
+     * @var int|string
+     *
+     * @Transfer\Optional()
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {"haystack": {"B","C","D","F","G","H","K","M","N"}}
+     * })
+     */
+    protected $trafficArea;
+
+    /**
      * @return string|null|fals-y
      */
     public function getPubType()
@@ -67,5 +79,15 @@ class PublishedList extends AbstractQuery implements PagedQueryInterface, Ordere
     public function getPubDateTo()
     {
         return $this->pubDateTo;
+    }
+
+    /**
+     * Get the value of trafficArea
+     *
+     * @return int|string
+     */
+    public function getTrafficArea()
+    {
+        return $this->trafficArea;
     }
 }

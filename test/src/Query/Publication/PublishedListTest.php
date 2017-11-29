@@ -31,6 +31,7 @@ class PublishedListTest extends PHPUnit_Framework_TestCase
                 '2015-12-13 12:24:56',
                 new DateTime('2015-12-13 15:45'),
             ],
+            'trafficArea' => ['F', 'K', 'B', 'C', 'N', 'M', 'G', 'D', 'H'],
         ];
     }
 
@@ -38,6 +39,7 @@ class PublishedListTest extends PHPUnit_Framework_TestCase
     {
         return [
             'pubType',
+            'trafficArea',
         ];
     }
 
@@ -45,6 +47,7 @@ class PublishedListTest extends PHPUnit_Framework_TestCase
     {
         return [
             'pubType' => [[' test ', 'test']],
+            'trafficArea' => [[' test ', 'test']],
         ];
     }
 
@@ -54,6 +57,7 @@ class PublishedListTest extends PHPUnit_Framework_TestCase
             'pubType' => ['bad-value'],
             'pubDateFrom' => ['2015-12-13', '2015-13-13 12:24:56', 0, [], false, null, ''],
             'pubDateTo' => ['2015-12-13', '2015-13-13 12:24:56', 0, [], false, null, ''],
+            'trafficArea' => ['P', 'Q'],
         ];
     }
 }
