@@ -27,6 +27,15 @@ class CreateStatement extends AbstractCommand
      */
     protected $statementType = null;
 
+
+    /**
+     * @var int
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     */
+    protected $assignedCaseworker = null;
+
     /**
      * @Transfer\Filter({"name":"\Dvsa\Olcs\Transfer\Filter\Vrm"})
      * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\Vrm"})
@@ -99,6 +108,16 @@ class CreateStatement extends AbstractCommand
     public function getContactType()
     {
         return $this->contactType;
+    }
+
+    /**
+     * Get the value of assignedCaseworker
+     *
+     * @return int
+     */
+    public function getAssignedCaseworker()
+    {
+        return $this->assignedCaseworker;
     }
 
     /**
