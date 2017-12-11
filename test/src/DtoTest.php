@@ -79,7 +79,7 @@ trait DtoTest
      *     'fieldWhichGetsTrimmed' => [[' string ', 'string']],
      *     'fieldWhichFiltersOutNonNumericDigits => [
      *         ['a1b2c3', '123'],
-     *         [99 => '99'],
+     *         [99, '99'],
      *     ],
      * ];
      *
