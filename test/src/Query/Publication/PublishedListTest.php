@@ -11,7 +11,7 @@ class PublishedListTest extends PHPUnit_Framework_TestCase
 {
     use QueryTest;
 
-    protected function createBlankQuery()
+    protected function createBlankDto()
     {
         return new PublishedList();
     }
@@ -35,7 +35,7 @@ class PublishedListTest extends PHPUnit_Framework_TestCase
         ];
     }
 
-    protected function getOptionalQueryFields()
+    protected function getOptionalDtoFields()
     {
         return [
             'pubType',
