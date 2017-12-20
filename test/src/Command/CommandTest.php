@@ -1,18 +1,17 @@
 <?php
 
-namespace Dvsa\OlcsTest\Transfer\Query;
+namespace Dvsa\OlcsTest\Transfer\Command;
 
 use Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilder;
 use Dvsa\OlcsTest\Transfer\DtoTest;
 use Zend\Stdlib\ArraySerializableInterface;
 
-trait QueryTest
+trait CommandTest
 {
     use DtoTest;
 
     protected function createDtoContainer(ArraySerializableInterface $dto)
     {
-        $annotationBuilder = new AnnotationBuilder();
-        return $annotationBuilder->createQuery($dto);
+        return (new AnnotationBuilder())->createCommand($dto);
     }
 }

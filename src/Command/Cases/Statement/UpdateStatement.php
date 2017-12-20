@@ -29,6 +29,14 @@ class UpdateStatement extends AbstractCommand implements
     protected $statementType = null;
 
     /**
+     * @var int
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     */
+    protected $assignedCaseworker = null;
+
+    /**
      * @Transfer\Filter({"name":"\Dvsa\Olcs\Transfer\Filter\Vrm"})
      * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\Vrm"})
      */
@@ -132,6 +140,16 @@ class UpdateStatement extends AbstractCommand implements
     public function getStatementType()
     {
         return $this->statementType;
+    }
+
+    /**
+     * Get the value of assignedCaseworker
+     *
+     * @return int
+     */
+    public function getAssignedCaseworker()
+    {
+        return $this->assignedCaseworker;
     }
 
     /**
