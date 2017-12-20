@@ -18,7 +18,7 @@ class Bootstrap
 
     public static function init()
     {
-        ini_set('memory_limit', '1G');
+        ini_set('memory_limit', '1500M');
         // Setup the autoloader
         $loader = static::initAutoloader();
         $loader->addPsr4('Dvsa\\OlcsTest\\Transfer\\', __DIR__ . '/src');
