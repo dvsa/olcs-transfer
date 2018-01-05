@@ -39,6 +39,14 @@ final class UpdateProposeToRevoke extends AbstractCommand
     protected $reasons = [];
 
     /**
+     * @var int
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     */
+    protected $assignedCaseworker = null;
+
+    /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -87,6 +95,16 @@ final class UpdateProposeToRevoke extends AbstractCommand
     public function getReasons()
     {
         return $this->reasons;
+    }
+
+    /**
+     * Get the value of assignedCaseworker
+     *
+     * @return int
+     */
+    public function getAssignedCaseworker()
+    {
+        return $this->assignedCaseworker;
     }
 
     /**
