@@ -9,7 +9,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/propose-to-revoke/single")
+ * @Transfer\RouteName("backend/propose-to-revoke-sla/single")
  * @Transfer\Method("PUT")
  */
 final class UpdateProposeToRevokeSla extends AbstractCommand
@@ -98,7 +98,7 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\Date"})
+     *
      */
     protected $actionToBeTaken;
 
