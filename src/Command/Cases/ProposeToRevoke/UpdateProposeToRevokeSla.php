@@ -35,18 +35,21 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     protected $isSubmissionRequiredForApproval;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\Date"})
      */
     protected $approvalSubmissionIssuedDate;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\Date"})
      */
     protected $approvalSubmissionReturnedDate;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -78,18 +81,21 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     protected $isSubmissionRequiredForAction;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\Date"})
      */
     protected $finalSubmissionIssuedDate;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\Date"})
      */
     protected $finalSubmissionReturnedDate;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -98,35 +104,52 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Zend\Validator\InArray",
+     *      "options": {"haystack": {
+     *          "ptr_action_to_be_taken_revoke",
+     *          "ptr_action_to_be_taken_pi",
+     *          "ptr_action_to_be_taken_warning",
+     *          "ptr_action_to_be_taken_nfa",
+     *          "ptr_action_to_be_taken_other"
+     *      }}
+     *  }
+     * )
      *
      */
     protected $actionToBeTaken;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\Date"})
      */
     protected $revocationLetterIssuedDate;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\Date"})
      */
     protected $nfaLetterIssuedDate;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\Date"})
      */
     protected $warningLetterIssuedDate;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\Date"})
      */
     protected $piAgreedDate;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\Date"})
      */

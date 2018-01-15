@@ -4,7 +4,7 @@
 namespace Dvsa\OlcsTest\Transfer\Command\Cases\ProposeToRevoke;
 
 
-use Dvsa\Olcs\Api\Domain\CommandHandler\Cases\ProposeToRevoke\UpdateProposeToRevokeSla;
+use Dvsa\Olcs\Transfer\Command\Cases\ProposeToRevoke\UpdateProposeToRevokeSla;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
 
 class UpdateProposeToRevokeSlaTest extends \PHPUnit_Framework_TestCase
@@ -19,27 +19,13 @@ class UpdateProposeToRevokeSlaTest extends \PHPUnit_Framework_TestCase
 
     protected function getOptionalDtoFields()
     {
-        return [];
-    }
-
-    protected function getValidFieldValues()
-    {
         return [
-            'id' => [1],
-            'version' => [1],
-            'isSubmissionRequiredForApproval' => [
-                0
-            ],
-            'approvalSubmissionReturnedDate' => [['day' => '11', 'month' => '11', 'year' => '2017']],
-            'approvalSubmissionPresidingTc' => [['day' => '11', 'month' => '11', 'year' => '2017']],
-            'iorLetterIssuedDate' => [['day' => '11', 'month' => '11', 'year' => '2017']],
-            'operatorResponseDueDate' => [['day' => '11', 'month' => '11', 'year' => '2017']],
-            'operatorResponseReceivedDate' => [['day' => '11', 'month' => '11', 'year' => '2017']],
-            'isSubmissionRequiredForAction' => [1],
-            'finalSubmissionIssuedDate' => ['day' => '11', 'month' => '11', 'year' => '2017'],
-            'finalSubmissionReturnedDate' => ['day' => '11', 'month' => '11', 'year' => '2017'],
-            'finalSubmissionPresidingTc' => [41],
-            'actionToBeTaken' => [0],
+            'approvalSubmissionIssuedDate',
+            'approvalSubmissionReturnedDate',
+            'approvalSubmissionPresidingTc',
+            'finalSubmissionIssuedDate',
+            'finalSubmissionReturnedDate',
+            'finalSubmissionPresidingTc',
             'revocationLetterIssuedDate',
             'nfaLetterIssuedDate',
             'warningLetterIssuedDate',
@@ -48,13 +34,85 @@ class UpdateProposeToRevokeSlaTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
+    protected function getValidFieldValues()
+    {
+        return [
+            'id' => ['1'],
+            'version' => ['1'],
+            'isSubmissionRequiredForApproval' => ['0','1'],
+            'approvalSubmissionReturnedDate' => ['2017-11-11'],
+            'approvalSubmissionPresidingTc' => ['1'],
+            'iorLetterIssuedDate' => ['2017-11-11'],
+            'operatorResponseDueDate' => ['2017-11-11'],
+            'operatorResponseReceivedDate' => ['2017-11-11'],
+            'isSubmissionRequiredForAction' => ['0','1'],
+            'finalSubmissionIssuedDate' => ['2017-11-11'],
+            'finalSubmissionReturnedDate' => ['2017-11-11'],
+            'finalSubmissionPresidingTc' => ['1'],
+            'actionToBeTaken' => [
+                'ptr_action_to_be_taken_revoke',
+                'ptr_action_to_be_taken_pi',
+                'ptr_action_to_be_taken_warning',
+                'ptr_action_to_be_taken_nfa',
+                'ptr_action_to_be_taken_other'
+                ],
+            'revocationLetterIssuedDate' => ['2017-11-11'],
+            'nfaLetterIssuedDate' => ['2017-11-11'],
+            'warningLetterIssuedDate' => ['2017-11-11'],
+            'piAgreedDate' => ['2017-11-11'],
+            'otherActionAgreedDate' => ['2017-11-11']
+        ];
+    }
+
     protected function getInvalidFieldValues()
     {
-        // TODO: Implement getInvalidFieldValues() method.
+        return [
+            'id' => ['not a number'],
+            'version' => ['not a number'],
+            'isSubmissionRequiredForApproval' => ['not a number','not a number'],
+            'approvalSubmissionReturnedDate' => ['not a date'],
+            'approvalSubmissionPresidingTc' => [['not a number']],
+            'iorLetterIssuedDate' => ['not a date'],
+            'operatorResponseDueDate' => ['not a date'],
+            'operatorResponseReceivedDate' => ['not a date'],
+            'isSubmissionRequiredForAction' => ['not a number','not a number'],
+            'finalSubmissionIssuedDate' => ['not a date'],
+            'finalSubmissionReturnedDate' => ['not a date'],
+            'finalSubmissionPresidingTc' => [['not a number']],
+            'actionToBeTaken' => [
+                'not a valid option'
+            ],
+            'revocationLetterIssuedDate' => ['not a date'],
+            'nfaLetterIssuedDate' => ['not a date'],
+            'warningLetterIssuedDate' => ['not a date'],
+            'piAgreedDate' => ['not a date'],
+            'otherActionAgreedDate' => ['not a date']
+        ];
     }
 
     protected function getFilterTransformations()
     {
-        // TODO: Implement getFilterTransformations() method.
+        return [
+            'id' => [
+                [1, '1']
+            ],
+            'version' => [
+                [1, '1']
+            ],
+            'isSubmissionRequiredForApproval' => [
+                [1, '1'],
+                [0, '0']
+            ],
+            'isSubmissionRequiredForAction' => [
+                [1, '1'],
+                [0, '0']
+            ],
+            'finalSubmissionPresidingTc' => [
+                [1, '1']
+            ],
+            'approvalSubmissionPresidingTc' => [
+                [1, '1']
+            ]
+        ];
     }
 }
