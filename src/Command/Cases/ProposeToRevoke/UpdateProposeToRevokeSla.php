@@ -29,6 +29,7 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     protected $version;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {1, 0}}})
      */
@@ -57,24 +58,28 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     protected $approvalSubmissionPresidingTc;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\Date"})
      */
     protected $iorLetterIssuedDate;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\Date"})
      */
     protected $operatorResponseDueDate;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\Date"})
      */
     protected $operatorResponseReceivedDate;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {1, 0}}})
      */
@@ -103,6 +108,7 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     protected $finalSubmissionPresidingTc;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator(
      *  {
