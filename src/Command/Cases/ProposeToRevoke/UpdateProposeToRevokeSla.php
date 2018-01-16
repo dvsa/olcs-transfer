@@ -157,6 +157,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
 
 
     /**
+     * Getter ID
+     *
      * @return mixed
      */
     public function getId()
@@ -165,6 +167,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     * Getter version
+     *
      * @return mixed
      */
     public function getVersion()
@@ -173,6 +177,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     *  Getter IsSubmissionRequiredForApproval
+     *
      * @return mixed
      */
     public function getIsSubmissionRequiredForApproval()
@@ -181,6 +187,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     *  Getter ApprovalSubmissionIssuedDate
+     *
      * @return mixed
      */
     public function getApprovalSubmissionIssuedDate()
@@ -189,6 +197,7 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     * Getter
      *
      * @return mixed
      */
@@ -198,6 +207,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     * Getter
+     *
      * @return mixed
      */
     public function getApprovalSubmissionPresidingTc()
@@ -206,6 +217,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     * Getter
+     *
      * @return mixed
      */
     public function getIorLetterIssuedDate()
@@ -214,6 +227,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     * Getter
+     *
      * @return mixed
      */
     public function getOperatorResponseDueDate()
@@ -222,6 +237,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     * Getter
+     *
      * @return mixed
      */
     public function getOperatorResponseReceivedDate()
@@ -230,6 +247,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     * Getter
+     *
      * @return mixed
      */
     public function getIsSubmissionRequiredForAction()
@@ -238,6 +257,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     * Getter
+     *
      * @return mixed
      */
     public function getFinalSubmissionIssuedDate()
@@ -246,6 +267,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     * Getter
+     *
      * @return mixed
      */
     public function getFinalSubmissionReturnedDate()
@@ -254,6 +277,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     * Getter
+     *
      * @return mixed
      */
     public function getFinalSubmissionPresidingTc()
@@ -262,6 +287,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     * Getter
+     *
      * @return mixed
      */
     public function getActionToBeTaken()
@@ -270,6 +297,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     * Getter
+     *
      * @return mixed
      */
     public function getRevocationLetterIssuedDate()
@@ -278,6 +307,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     * Getter
+     *
      * @return mixed
      */
     public function getNfaLetterIssuedDate()
@@ -286,6 +317,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     * Getter
+     *
      * @return mixed
      */
     public function getWarningLetterIssuedDate()
@@ -294,6 +327,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     * Getter
+     *
      * @return mixed
      */
     public function getPiAgreedDate()
@@ -302,6 +337,8 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     }
 
     /**
+     * Getter
+     *
      * @return mixed
      */
     public function getOtherActionAgreedDate()
