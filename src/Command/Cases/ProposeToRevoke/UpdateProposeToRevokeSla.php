@@ -308,5 +308,4 @@ final class UpdateProposeToRevokeSla extends AbstractCommand
     {
         return $this->otherActionAgreedDate;
     }
-
 }
