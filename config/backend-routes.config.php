@@ -1341,6 +1341,23 @@ $routes = [
                     )
                 ]
             ],
+            'propose-to-revoke-sla' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'propose-to-revoke-sla[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'single' => RouteConfig::getSingleConfig(
+                        [
+                            'PUT' => CommandConfig::getPutConfig(
+                                Command\Cases\ProposeToRevoke\UpdateProposeToRevokeSla::class
+                            ),
+                        ]
+                    )
+                ]
+            ],
+
             'prohibition' => [
                 'type' => 'Segment',
                 'options' => [
