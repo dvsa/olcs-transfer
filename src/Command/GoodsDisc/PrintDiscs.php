@@ -43,6 +43,14 @@ final class PrintDiscs extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    public $maxPages;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     public $discSequence;
 
@@ -64,5 +72,15 @@ final class PrintDiscs extends AbstractCommand
     public function getDiscSequence()
     {
         return $this->discSequence;
+    }
+
+    /**
+     * Get the value of maxPages
+     *
+     * @return mixed
+     */
+    public function getMaxPages()
+    {
+        return $this->maxPages;
     }
 }
