@@ -52,6 +52,14 @@ final class DiscsNumbering extends AbstractQuery
     public $startNumberEntered;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    public $maxPages;
+
+    /**
      * Get a NI flag
      *
      * @return string
@@ -99,5 +107,15 @@ final class DiscsNumbering extends AbstractQuery
     public function getStartNumberEntered()
     {
         return $this->startNumberEntered;
+    }
+
+    /**
+     * Get the value of maxPages
+     *
+     * @return mixed
+     */
+    public function getMaxPages()
+    {
+        return $this->maxPages;
     }
 }
