@@ -39,7 +39,7 @@ final class Update extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 0, "max": 100}})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 0, "max": 300}})
      * @Transfer\Optional
      */
     protected $hoursPerWeek;
