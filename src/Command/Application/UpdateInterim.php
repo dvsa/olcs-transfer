@@ -16,4 +16,11 @@ use Dvsa\Olcs\Transfer\Command\AbstractUpdateInterim;
 */
 final class UpdateInterim extends AbstractUpdateInterim
 {
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 1, "inclusive": true}})
+     * @Transfer\Optional
+     */
+    protected $authVehicles;
 }

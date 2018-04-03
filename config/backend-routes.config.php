@@ -739,6 +739,33 @@ $routes = [
                                     ),
                                 ]
                             ),
+                            'interim' => RouteConfig::getRouteConfig(
+                                'interim',
+                                [
+                                    'GET' => QueryConfig::getConfig(
+                                        Query\Application\Interim::class
+                                    ),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Variation\UpdateInterim::class
+                                    ),
+                                    'refuse' => RouteConfig::getRouteConfig(
+                                        'refuse',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Application\RefuseInterim::class
+                                            ),
+                                        ]
+                                    ),
+                                    'grant' => RouteConfig::getRouteConfig(
+                                        'grant',
+                                        [
+                                            'POST' => CommandConfig::getPostConfig(
+                                                Command\Application\GrantInterim::class
+                                            ),
+                                        ]
+                                    ),
+                                ]
+                            ),
                         ]
                     ),
                 ]

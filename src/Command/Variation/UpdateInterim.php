@@ -6,7 +6,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractUpdateInterim;
 
 /**
- * @Transfer\RouteName("backend/application/single/interim")
+ * @Transfer\RouteName("backend/variation/single/interim")
  * @Transfer\Method("PUT")
  */
 final class UpdateInterim extends AbstractUpdateInterim
