@@ -739,6 +739,14 @@ $routes = [
                                     ),
                                 ]
                             ),
+                            'interim' => RouteConfig::getRouteConfig(
+                                'interim',
+                                [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Variation\UpdateInterim::class
+                                    ),
+                                ]
+                            ),
                         ]
                     ),
                 ]
