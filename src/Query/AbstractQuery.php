@@ -7,6 +7,10 @@
  */
 namespace Dvsa\Olcs\Transfer\Query;
 
+use Doctrine\Common\Annotations\AnnotationReader;
+use Dvsa\Olcs\Transfer\Util\Annotation\DoNotExchange;
+use ReflectionProperty;
+
 /**
  * Abstract Query
  *
@@ -32,7 +36,7 @@ abstract class AbstractQuery implements QueryInterface
         $values = get_object_vars($this);
 
         foreach (array_keys($values) as $property) {
-            if (isset($array[$property])) {
+            if (isset($array[$property]) && $this->doNotExchange($property) === false) {
                 $this->$property = $array[$property];
             }
         }
@@ -41,5 +45,21 @@ abstract class AbstractQuery implements QueryInterface
     public function getArrayCopy()
     {
         return get_object_vars($this);
+    }
+
+    private function doNotExchange($property) {
+        $annotationReader = new AnnotationReader();
+        $reflectionProperty = new ReflectionProperty(static::class, $property);
+        $propertyAnnotations = $annotationReader->getPropertyAnnotations($reflectionProperty);
+
+        if (count($propertyAnnotations) > 0) {
+            foreach ($propertyAnnotations as $annotation) {
+                if ($annotation instanceof DoNotExchange) {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }

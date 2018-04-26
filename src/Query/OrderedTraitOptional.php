@@ -10,6 +10,7 @@ trait OrderedTraitOptional
      * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\NotEmpty"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Sort"})
      */
     protected $sort = 'id';
 
@@ -23,6 +24,15 @@ trait OrderedTraitOptional
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Order"})
      */
     protected $order = 'ASC';
+
+    /**
+     * Set this property in you constructor to only enable specified values for $sort property
+     *
+     * @var array
+     * @Transfer\DoNotExchange
+     * @Transfer\Optional
+     */
+    protected $sortWhitelist = [];
 
     /**
      * @return string
@@ -54,5 +64,21 @@ trait OrderedTraitOptional
     public function setOrder($order)
     {
         $this->order = $order;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSortWhitelisted() {
+
+        if (empty($this->sortWhitelist)) {
+            return true;
+        }
+
+        if (!in_array($this->sort, $this->sortWhitelist)) {
+            return false;
+        }
+
+        return true;
     }
 }
