@@ -7,8 +7,6 @@
  */
 namespace Dvsa\Olcs\Transfer\Query;
 
-use Doctrine\Common\Annotations\AnnotationReader;
-use Dvsa\Olcs\Transfer\Util\Annotation\DoNotExchange;
 use ReflectionProperty;
 
 /**
@@ -47,19 +45,39 @@ abstract class AbstractQuery implements QueryInterface
         return get_object_vars($this);
     }
 
-    private function doNotExchange($property) {
-        $annotationReader = new AnnotationReader();
-        $reflectionProperty = new ReflectionProperty(static::class, $property);
-        $propertyAnnotations = $annotationReader->getPropertyAnnotations($reflectionProperty);
+    /**
+     * @param string $property
+     * @return bool
+     */
+    private function doNotExchange($property)
+    {
+        $propertyAnnotations = $this->readPropertyAnnotations($property);
 
         if (count($propertyAnnotations) > 0) {
             foreach ($propertyAnnotations as $annotation) {
-                if ($annotation instanceof DoNotExchange) {
+                if ($annotation === 'Transfer\DoNotExchange' ) {
                     return true;
                 }
             }
         }
 
         return false;
+    }
+
+    /**
+     * @param string $property
+     * @return array
+     * @throws \ReflectionException
+     */
+    private function readPropertyAnnotations($property)
+    {
+        $output = [];
+        $reflectionProperty = new ReflectionProperty(static::class, $property);
+        $docBlock = $reflectionProperty->getDocComment();
+        $matches = preg_match_all('#@(.*?)\n#s', $docBlock, $propertyAnnotations);
+        if ($matches) {
+            $output = $propertyAnnotations[1];
+        }
+        return $output;
     }
 }

@@ -67,6 +67,22 @@ trait OrderedTraitOptional
     }
 
     /**
+     * @return array
+     */
+    public function getSortWhitelist()
+    {
+        return $this->sortWhitelist;
+    }
+
+    /**
+     * @param array $sortWhitelist
+     */
+    public function setSortWhitelist($sortWhitelist)
+    {
+        $this->sortWhitelist = $sortWhitelist;
+    }
+
+    /**
      * @return bool
      */
     public function isSortWhitelisted() {
