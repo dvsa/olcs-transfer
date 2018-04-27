@@ -12,7 +12,7 @@ class Sort extends \Zend\Validator\AbstractValidator
 
     public function isValid($value)
     {
-        if(preg_match('/[^a-zA-Z0-9 \.\-_]/', $value) !== 0) {
+        if (preg_match('/[^a-zA-Z0-9 \.\-_]/', $value) !== 0) {
             $this->error(self::INVALID_SORT);
             return false;
         }

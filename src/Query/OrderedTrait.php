@@ -42,6 +42,7 @@ trait OrderedTrait
 
     /**
      * @param string $sort
+     * @return void
      */
     public function setSort($sort)
     {
@@ -58,6 +59,7 @@ trait OrderedTrait
 
     /**
      * @param string $order
+     * @return void
      */
     public function setOrder($order)
     {
@@ -74,6 +76,7 @@ trait OrderedTrait
 
     /**
      * @param array $sortWhitelist
+     * @return void
      */
     public function setSortWhitelist($sortWhitelist)
     {
@@ -83,8 +86,8 @@ trait OrderedTrait
     /**
      * @return bool
      */
-    public function isSortWhitelisted() {
-
+    public function isSortWhitelisted()
+    {
         if (empty($this->sortWhitelist)) {
             return true;
         }

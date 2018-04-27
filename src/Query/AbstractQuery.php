@@ -55,7 +55,7 @@ abstract class AbstractQuery implements QueryInterface
 
         if (count($propertyAnnotations) > 0) {
             foreach ($propertyAnnotations as $annotation) {
-                if ($annotation === 'Transfer\DoNotExchange' ) {
+                if ($annotation === 'Transfer\DoNotExchange') {
                     return true;
                 }
             }

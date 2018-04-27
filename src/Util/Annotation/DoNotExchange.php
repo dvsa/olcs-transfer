@@ -42,5 +42,4 @@ class DoNotExchange
     {
         return $this->doNotExchange;
     }
-
 }
