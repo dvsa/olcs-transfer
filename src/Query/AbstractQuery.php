@@ -51,33 +51,10 @@ abstract class AbstractQuery implements QueryInterface
      */
     private function doNotExchange($property)
     {
-        $propertyAnnotations = $this->readPropertyAnnotations($property);
-
-        if (count($propertyAnnotations) > 0) {
-            foreach ($propertyAnnotations as $annotation) {
-                if ($annotation === 'Transfer\DoNotExchange') {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * @param string $property
-     * @return array
-     * @throws \ReflectionException
-     */
-    private function readPropertyAnnotations($property)
-    {
-        $output = [];
         $reflectionProperty = new ReflectionProperty(static::class, $property);
         $docBlock = $reflectionProperty->getDocComment();
-        $matches = preg_match_all('#@(.*?)\n#s', $docBlock, $propertyAnnotations);
-        if ($matches) {
-            $output = $propertyAnnotations[1];
-        }
-        return $output;
+        return strpos($docBlock, '@Transfer\\DoNotExchange') !== false ? true : false;
     }
+
+
 }
