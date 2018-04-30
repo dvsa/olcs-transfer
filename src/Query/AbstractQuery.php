@@ -7,6 +7,8 @@
  */
 namespace Dvsa\Olcs\Transfer\Query;
 
+use ReflectionProperty;
+
 /**
  * Abstract Query
  *
@@ -32,7 +34,7 @@ abstract class AbstractQuery implements QueryInterface
         $values = get_object_vars($this);
 
         foreach (array_keys($values) as $property) {
-            if (isset($array[$property])) {
+            if (isset($array[$property]) && $this->doNotExchange($property) === false) {
                 $this->$property = $array[$property];
             }
         }
@@ -42,4 +44,17 @@ abstract class AbstractQuery implements QueryInterface
     {
         return get_object_vars($this);
     }
+
+    /**
+     * @param string $property
+     * @return bool
+     */
+    private function doNotExchange($property)
+    {
+        $reflectionProperty = new ReflectionProperty(static::class, $property);
+        $docBlock = $reflectionProperty->getDocComment();
+        return strpos($docBlock, '@Transfer\\DoNotExchange') !== false ? true : false;
+    }
+
+
 }

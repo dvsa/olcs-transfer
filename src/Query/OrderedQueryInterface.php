@@ -18,4 +18,9 @@ interface OrderedQueryInterface
      * @return string
      */
     public function getOrder();
+
+    /**
+     * @return bool
+     */
+    public function isSortWhitelisted();
 }
