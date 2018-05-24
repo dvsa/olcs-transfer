@@ -30,7 +30,6 @@ final class DeleteUpdateOptOutTmLetter extends AbstractCommand
 
     /**
      * @return mixed
-     *
      */
     public function getYesNo()
     {
