@@ -4,7 +4,7 @@ namespace Dvsa\Olcs\Transfer\Command\Licence;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
-use Dvsa\Olcs\Transfer\FieldType\Traits\Ids;
+use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 
 /**
  * @Transfer\RouteName("backend/licence/single/delete-update-opt-out-tm-letter")
@@ -12,10 +12,11 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Ids;
  */
 final class DeleteUpdateOptOutTmLetter extends AbstractCommand
 {
-    use Ids;
+    use Identity;
 
     /**
-
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
     protected $yesNo;
 
@@ -29,6 +30,7 @@ final class DeleteUpdateOptOutTmLetter extends AbstractCommand
 
     /**
      * @return mixed
+     *
      */
     public function getYesNo()
     {
