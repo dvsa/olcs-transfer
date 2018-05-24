@@ -18,4 +18,28 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class Delete extends AbstractCommand
 {
     use Ids;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     */
+    protected $yesNo = null;
+
+    /**
+     * @param mixed $yesNo
+     */
+    public function setYesNo($yesNo)
+    {
+        $this->yesNo = $yesNo;
+    }
+
+    /**
+     * @return mixed
+     *
+     */
+    public function getYesNo()
+    {
+        return $this->yesNo;
+    }
 }
