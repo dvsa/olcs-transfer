@@ -1098,12 +1098,6 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Licence\OperatingCentre::class),
                                 ]
                             ),
-                            'delete-update-opt-out-tm-letter' => RouteConfig::getRouteConfig(
-                                'delete-update-opt-out-tm-letter',
-                                [
-                                    'PUT' => CommandConfig::getPutConfig(Command\Licence\DeleteUpdateOptOutTmLetter::class),
-                                ]
-                            ),
                             'taxi-phv' => RouteConfig::getRouteConfig(
                                 'taxi-phv',
                                 [
