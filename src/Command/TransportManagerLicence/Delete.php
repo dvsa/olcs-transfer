@@ -27,21 +27,18 @@ final class Delete extends AbstractCommand
     protected $yesNo = null;
 
     /**
-     * @param mixed $yesNo
-     *
-     * @return void
-     */
-    public function setYesNo($yesNo)
-    {
-        $this->yesNo = $yesNo;
-    }
-
-    /**
      * @return mixed
-     *
      */
     public function getYesNo()
     {
         return $this->yesNo;
+    }
+
+    /**
+     * @param mixed $yesNo
+     */
+    public function setYesNo($yesNo): void
+    {
+        $this->yesNo = $yesNo;
     }
 }
