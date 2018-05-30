@@ -17,6 +17,26 @@ $routes = [
         ],
         'may_terminate' => false,
         'child_routes' => [
+
+          'permits' => [
+            'type' => 'Segment',
+            'options' => [
+              'route' => 'permits[/]',
+            ],
+            'may_terminate' => false,
+            'child_routes' => [
+              'sectors' => [
+                'type' => 'Segment',
+                'options' => [
+                  'route' => 'sectors[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                  'GET' => QueryConfig::getConfig(Query\Permits\SectorsList::class),
+                ]
+              ],
+            ]
+          ],
             'legacy-offence' => [
                 'type' => 'Segment',
                 'options' => [
