@@ -45,6 +45,16 @@ $routes = [
                   'GET' => QueryConfig::getConfig(Query\Permits\ConstrainedCountries::class),
                 ]
               ],
+              'ecmt-applications' => [
+                'type' => 'Segment',
+                'options' => [
+                  'route' => 'ecmt-applications[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                  'GET' => QueryConfig::getConfig(Query\Permits\EcmtApplications::class),
+                ]
+              ],
             ]
           ],
             'legacy-offence' => [
