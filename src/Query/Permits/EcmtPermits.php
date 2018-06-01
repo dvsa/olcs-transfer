@@ -15,7 +15,7 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 /**
  * @Transfer\RouteName("backend/permits/ecmt-applications")
  */
-class EcmtApplications extends AbstractQuery implements CachableShortTermQueryInterface
+class EcmtPermits extends AbstractQuery implements CachableShortTermQueryInterface
 {
     //use Identity;
 }
