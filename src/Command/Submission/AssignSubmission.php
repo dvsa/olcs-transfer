@@ -33,6 +33,13 @@ final class AssignSubmission extends AbstractCommand
      */
     protected $urgent;
 
+
+    /**
+     * @Transfer\Optional
+     *
+     */
+    protected $dateFirstAssigned;
+
     /**
      * @return mixed
      */
