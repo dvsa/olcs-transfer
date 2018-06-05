@@ -20,7 +20,7 @@ final class CreateEcmtPermits extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    public $status;
+    public $applicationStatus;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -38,16 +38,10 @@ final class CreateEcmtPermits extends AbstractCommand
      */
     public $paymentStatus;
 
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Optional
-     */
-    public $countries;
 
-
-    public function getStatus()
+    public function getApplicationStatus()
     {
-        return $this->status;
+        return $this->applicationStatus;
     }
     public function getEcmtPermitsApplication()
     {
@@ -60,9 +54,5 @@ final class CreateEcmtPermits extends AbstractCommand
     public function getPaymentStatus()
     {
         return $this->paymentStatus;
-    }
-    public function getCountries()
-    {
-        return $this->countries;
     }
 }
