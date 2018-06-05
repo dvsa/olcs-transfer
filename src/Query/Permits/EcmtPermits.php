@@ -13,7 +13,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/permits/ecmt-applications")
+ * @Transfer\RouteName("backend/permits/ecmt-permits")
  */
 class EcmtPermits extends AbstractQuery implements CachableShortTermQueryInterface
 {
