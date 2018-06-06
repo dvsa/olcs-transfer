@@ -13,7 +13,7 @@ use Dvsa\Olcs\Transfer\FieldType as FieldType;
  * @Transfer\RouteName("backend/submission/assign")
  * @Transfer\Method("PUT")
  */
-final class AssignSubmission extends AbstractCommand
+class AssignSubmission extends AbstractCommand
 {
     // Identity & Locking
     use FieldType\Traits\Identity;
@@ -36,9 +36,19 @@ final class AssignSubmission extends AbstractCommand
 
     /**
      * @Transfer\Optional
-     *
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\Date"})
      */
     protected $dateFirstAssigned;
+
+
+    /**
+     * @return mixed
+     */
+    public function getDateFirstAssigned()
+    {
+        return $this->dateFirstAssigned;
+    }
 
     /**
      * @return mixed
