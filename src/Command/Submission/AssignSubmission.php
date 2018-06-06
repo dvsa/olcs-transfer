@@ -33,7 +33,6 @@ class AssignSubmission extends AbstractCommand
      */
     protected $urgent;
 
-
     /**
      * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
