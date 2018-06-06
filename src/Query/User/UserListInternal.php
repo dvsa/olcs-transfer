@@ -23,6 +23,20 @@ final class UserListInternal extends AbstractQuery implements \Dvsa\Olcs\Transfe
     protected $team;
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     */
+    protected $excludeLimitedReadOnly;
+
+    /**
+     * @return bool
+     */
+    public function getExcludeLimitedReadOnly()
+    {
+        return $this->excludeLimitedReadOnly;
+    }
+
+    /**
      * Get team Id
      *
      * @return int
