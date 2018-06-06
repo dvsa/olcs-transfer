@@ -39,16 +39,8 @@ class AssignSubmission extends AbstractCommand
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\Date"})
      */
-    protected $dateFirstAssigned;
+    protected $assignedDate;
 
-
-    /**
-     * @return mixed
-     */
-    public function getDateFirstAssigned()
-    {
-        return $this->dateFirstAssigned;
-    }
 
     /**
      * @return mixed
@@ -64,5 +56,13 @@ class AssignSubmission extends AbstractCommand
     public function getUrgent()
     {
         return $this->urgent;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAssignedDate()
+    {
+        return $this->assignedDate;
     }
 }
