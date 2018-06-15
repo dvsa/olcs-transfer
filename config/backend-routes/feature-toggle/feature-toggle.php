@@ -23,6 +23,18 @@ return [
             ),
             'GET' => QueryConfig::getConfig(Query\FeatureToggle\GetList::class),
             'POST' => CommandConfig::getPostConfig(Command\FeatureToggle\Create::class),
+            'check' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'check',
+                    'defaults' => [
+                        'controller' => 'Api\Generic'
+                    ]
+                ],
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\FeatureToggle\IsEnabled::class),
+                ]
+            ]
         ]
     ],
 ];
