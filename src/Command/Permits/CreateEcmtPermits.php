@@ -47,7 +47,7 @@ final class CreateEcmtPermits extends AbstractCommand
 
     public function getStatus()
     {
-        return $this->applicationStatus;
+        return $this->status;
     }
     public function getEcmtPermitsApplication()
     {
