@@ -56,7 +56,7 @@ $routes = [
                   'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermits::class),
                 ]
               ],
-              'ecmt-permits-application' => [
+              'ecmt-permit-application' => [
                 'type' => 'Segment',
                 'options' => [
                   'route' => 'ecmt-permit-application[/]',
