@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Create ECMT Permit Application Country Link
+ * Create ECMT Permit Application
  *
  * @author Tonci Vidovic <tonci.vidovic@capgemini.com>
  */
@@ -11,30 +11,31 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/permits/ecmt-permits")
- * @Transfer\Method("PUT")
+ * @Transfer\RouteName("backend/permits/ecmt-permit-application")
+ * @Transfer\Method("POST")
  */
-final class CreateEcmtPermitCountry extends AbstractCommand
+final class CreateEcmtPermitApplication extends AbstractCommand
 {
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
-    public $ecmtPermitId;
+    public $status;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
      */
-    public $countryId;
+    public $paymentStatus;
 
 
-    public function getEcmtPermitId()
+    public function getStatus()
     {
-        return $this->ecmtPermitId;
+        return $this->status;
     }
-    public function getCountryId()
+    public function getPaymentStatus()
     {
-        return $this->countryId;
+        return $this->paymentStatus;
     }
 
 }
