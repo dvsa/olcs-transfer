@@ -54,7 +54,16 @@ $routes = [
                 'child_routes' => [
                   'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermits::class),
                   'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermits::class),
-                  'PUT' => CommandConfig::getPutConfig(Command\Permits\CreateEcmtPermitCountryLink::class),
+                ]
+              ],
+              'ecmt-permits-application' => [
+                'type' => 'Segment',
+                'options' => [
+                  'route' => 'ecmt-permit-application[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                  'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermitApplication::class),
                 ]
               ],
             ]

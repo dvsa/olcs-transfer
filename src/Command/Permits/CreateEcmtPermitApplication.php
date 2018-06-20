@@ -16,14 +16,26 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class CreateEcmtPermitApplication extends AbstractCommand
 {
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     */
+    public $status;
+
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Optional
      */
-    public $licence;
+    public $paymentStatus;
 
-    public function getLicence()
+
+    public function getStatus()
     {
-        return $this->licence;
+        return $this->status;
     }
+    public function getPaymentStatus()
+    {
+        return $this->paymentStatus;
+    }
+
 }
