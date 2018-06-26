@@ -11,10 +11,10 @@
         },
         {
             "type": "vcs",
-            "url": "git@repo.shd.ci.nonprod.dvsa.aws:Permits/olcs-devtools.git"
+            "url": "git@repo.shd.ci.nonprod.dvsa.aws:olcs/olcs-devtools.git"
         },
         {
-            "url": "git@repo.shd.ci.nonprod.dvsa.aws:Permits/olcs-coding-standards.git",
+            "url": "git@repo.shd.ci.nonprod.dvsa.aws:olcs/olcs-coding-standards.git",
             "type": "vcs"
         }
     ],
