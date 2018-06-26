@@ -19,6 +19,7 @@ class CreateHearing extends AbstractCommand
     use FieldType\PresidingTC;
     use FieldType\PresidedByRole;
     use FieldType\Witnesses;
+    use FieldType\Drivers;
     use FieldType\HearingDate;
     use FieldType\IsCancelled;
     use FieldType\CancelledDateOptional;

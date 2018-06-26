@@ -2,26 +2,25 @@
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
- * Trait PresidingTC
+ * Drivers
  *
  * @package Dvsa\Olcs\Transfer\Command\Traits\FieldType
- * @author Valtech <uk@valtech.co.uk>
  */
-trait PresidingTC
+trait Drivers
 {
     /**
      * @var int
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator({"name": "Zend\Validator\Between", "options": {"min":0, "max":99}})
      */
-    protected $presidingTc;
+    protected $drivers;
 
     /**
      * @return int
      */
-    public function getPresidingTc()
+    public function getDrivers()
     {
-        return $this->presidingTc;
+        return $this->drivers;
     }
 }

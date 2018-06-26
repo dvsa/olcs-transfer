@@ -34,6 +34,23 @@ final class AssignSubmission extends AbstractCommand
     protected $urgent;
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\Date"})
+     */
+    protected $assignedDate;
+
+
+    /**
+     * @return mixed
+     */
+    public function getAssignedDate()
+    {
+        return $this->assignedDate;
+    }
+
+
+    /**
      * @return mixed
      */
     public function getRecipientUser()

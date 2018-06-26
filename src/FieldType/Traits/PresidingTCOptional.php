@@ -21,7 +21,7 @@ trait PresidingTCOptional
     /**
      * @return int
      */
-    public function getPresidingTC()
+    public function getPresidingTc()
     {
         return $this->presidingTc;
     }
