@@ -17,6 +17,57 @@ $routes = [
         ],
         'may_terminate' => false,
         'child_routes' => [
+
+          'permits' => [
+            'type' => 'Segment',
+            'options' => [
+              'route' => 'permits[/]',
+            ],
+            'may_terminate' => false,
+            'child_routes' => [
+              'sectors' => [
+                'type' => 'Segment',
+                'options' => [
+                  'route' => 'sectors[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                  'GET' => QueryConfig::getConfig(Query\Permits\SectorsList::class),
+                ]
+              ],
+              'constrained-countries' => [
+                'type' => 'Segment',
+                'options' => [
+                  'route' => 'constrained-countries[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                  'GET' => QueryConfig::getConfig(Query\Permits\ConstrainedCountries::class),
+                ]
+              ],
+              'ecmt-permits' => [
+                'type' => 'Segment',
+                'options' => [
+                  'route' => 'ecmt-permits[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                  'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermits::class),
+                  'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermits::class),
+                ]
+              ],
+              'ecmt-permit-application' => [
+                'type' => 'Segment',
+                'options' => [
+                  'route' => 'ecmt-permit-application[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                  'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermitApplication::class),
+                ]
+              ],
+            ]
+          ],
             'legacy-offence' => [
                 'type' => 'Segment',
                 'options' => [
