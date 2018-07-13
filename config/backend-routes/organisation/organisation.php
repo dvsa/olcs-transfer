@@ -41,6 +41,12 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Organisation\Dashboard::class),
                         ],
                     ],
+                    'eligible-for-permits' => RouteConfig::getRouteConfig(
+                        'eligible-for-permits',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Organisation\EligibleForPermits::class),
+                        ]
+                    ),
                     'people' => RouteConfig::getRouteConfig(
                         'people',
                         [
