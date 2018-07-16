@@ -20,7 +20,7 @@
     ],
     "require": {
         "php": ">=5.4",
-        "zendframework/zendframework": "~2.4.0",
+        "zendframework/zendframework": "~3.0.0",
         "soflomo/purifier": "~0.1.0"
     },
     "require-dev": {
