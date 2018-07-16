@@ -7,6 +7,18 @@ use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
 
 return [
+    //allows to check permit eligibility based on the logged in user
+    //to do this using the organisation id, see the corresponding route below
+    'organisation-eligible-for-permits' => [
+        'type' => 'segment',
+        'options' => [
+            'route' => 'organisation-eligible-for-permits[/]',
+        ],
+        'may_terminate' => false,
+        'child_routes' => [
+            'GET' => QueryConfig::getConfig(Query\Organisation\EligibleForPermits::class),
+        ]
+    ],
     'organisation' => RouteConfig::getRouteConfig(
         'organisation',
         [
@@ -44,7 +56,7 @@ return [
                     'eligible-for-permits' => RouteConfig::getRouteConfig(
                         'eligible-for-permits',
                         [
-                            'GET' => QueryConfig::getConfig(Query\Organisation\EligibleForPermits::class),
+                            'GET' => QueryConfig::getConfig(Query\Organisation\EligibleForPermitsById::class),
                         ]
                     ),
                     'people' => RouteConfig::getRouteConfig(
