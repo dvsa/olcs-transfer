@@ -7,7 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Router;
 
-use Dvsa\Olcs\Transfer\Router\HttpQuery;
+use Dvsa\Olcs\Transfer\Router\AbstractHttpQuery;
 use Zend\Stdlib\RequestInterface as Request;
 use Zend\Mvc\Router\Http\RouteMatch;
 
@@ -16,7 +16,7 @@ use Zend\Mvc\Router\Http\RouteMatch;
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-class Query extends HttpQuery
+class Query extends AbstractHttpQuery
 {
     public function __construct(array $defaults = array())
     {
