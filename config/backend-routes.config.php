@@ -67,6 +67,19 @@ $routes = [
                   'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermitApplication::class),
                 ]
               ],
+              'single' => [
+                'type' => 'Segment',
+                'options' => [
+                  'route' => 'single[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                  'GET' => QueryConfig::getConfig(Query\Permits\ById::class),
+                ]
+              ],
+
+
+
             ]
           ],
             'legacy-offence' => [
