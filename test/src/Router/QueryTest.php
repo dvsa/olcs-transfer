@@ -2,7 +2,6 @@
 
 namespace Dvsa\OlcsTest\Transfer\Router;
 
-
 use Dvsa\Olcs\Transfer\Router\Query;
 use Zend\Http\Request;
 use Zend\Mvc\Router\Http\RouteMatch as Match;
@@ -50,5 +49,4 @@ class QueryTest extends \PHPUnit_Framework_TestCase
 
         $this->assertNull($queryMatch);
     }
-
 }

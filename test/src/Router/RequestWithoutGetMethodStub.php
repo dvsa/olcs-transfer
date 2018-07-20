@@ -8,10 +8,16 @@ use Zend\Stdlib\RequestInterface;
 class RequestWithoutGetMethodStub extends AbstractMessage implements RequestInterface
 {
 
-    public function setMetadata($spec, $value = null) {}
+    public function setMetadata($spec, $value = null)
+    {
+    }
 
-    public function setContent($content) {}
+    public function setContent($content)
+    {
+    }
 
-    public function getContent() {}
+    public function getContent()
+    {
+    }
 
 }
