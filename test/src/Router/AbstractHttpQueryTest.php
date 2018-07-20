@@ -15,7 +15,7 @@ class AbstractHttpQueryTest extends \PHPUnit_Framework_TestCase
     public function testGetAssembledParams()
     {
         $sut = new AbstractHttpQueryStub();
-        $this->assertSame([],$sut->getAssembledParams());
+        $this->assertSame([], $sut->getAssembledParams());
     }
 
     public function testFactoryArray()
@@ -33,7 +33,7 @@ class AbstractHttpQueryTest extends \PHPUnit_Framework_TestCase
         $query = new AbstractHttpQueryStub($options['defaults']);
         $factoredQuery = AbstractHttpQueryStub::factory($options);
 
-        $this->assertEquals($query,$factoredQuery);
+        $this->assertEquals($query, $factoredQuery);
     }
 
     public function testFactoryArrayNoDefaults()
@@ -48,7 +48,7 @@ class AbstractHttpQueryTest extends \PHPUnit_Framework_TestCase
         $query = new AbstractHttpQueryStub([]);
         $factoredQuery = AbstractHttpQueryStub::factory($options);
 
-        $this->assertEquals($query,$factoredQuery);
+        $this->assertEquals($query, $factoredQuery);
     }
 
     public function testFactoryTraversable()
@@ -72,7 +72,7 @@ class AbstractHttpQueryTest extends \PHPUnit_Framework_TestCase
 
         $factoredQuery = AbstractHttpQueryStub::factory($options->getIterator());
 
-        $this->assertEquals($query,$factoredQuery);
+        $this->assertEquals($query, $factoredQuery);
     }
 
 
@@ -116,7 +116,8 @@ class AbstractHttpQueryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(['a','b'], $query->getAssembledParams());
     }
 
-    public function testRecursiveUrldecode() {
+    public function testRecursiveUrldecode()
+    {
         $query = new AbstractHttpQueryStub();
 
         $encoded = [
