@@ -19,6 +19,7 @@ final class UpdateEcmtPermitApplication extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
      */
     public $status;
 
