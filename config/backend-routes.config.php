@@ -56,6 +56,16 @@ $routes = [
                   'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermits::class),
                 ]
               ],
+              'ecmt-permits-cancel' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ecmt-permits-cancel[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\CancelEcmtPermitApplication::class),
+                ]
+              ],
               'ecmt-permit-application' => [
                 'type' => 'Segment',
                 'options' => [
