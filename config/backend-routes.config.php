@@ -76,6 +76,15 @@ $routes = [
                   'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermitApplication::class),
                   'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermitApplication::class),
                   'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtPermitApplication::class),
+                  'ecmt-cabotage' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ecmt-cabotage[/]',
+                        ],
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtCabotage::class)
+                        ]
+                  ],
                   'ecmt-emissions' => [
                       'type' => 'Segment',
                       'options' => [
