@@ -18,94 +18,94 @@ $routes = [
         'may_terminate' => false,
         'child_routes' => [
 
-          'permits' => [
-            'type' => 'Segment',
-            'options' => [
-              'route' => 'permits[/]',
-            ],
-            'may_terminate' => false,
-            'child_routes' => [
-              'sectors' => [
+            'permits' => [
                 'type' => 'Segment',
                 'options' => [
-                  'route' => 'sectors[/]',
+                    'route' => 'permits[/]',
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                  'GET' => QueryConfig::getConfig(Query\Permits\SectorsList::class),
-                ]
-              ],
-              'constrained-countries' => [
-                'type' => 'Segment',
-                'options' => [
-                  'route' => 'constrained-countries[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                  'GET' => QueryConfig::getConfig(Query\Permits\ConstrainedCountries::class),
-                ]
-              ],
-              'ecmt-permits' => [
-                'type' => 'Segment',
-                'options' => [
-                  'route' => 'ecmt-permits[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                  'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermits::class),
-                  'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermits::class),
-                ]
-              ],
-              'ecmt-permits-cancel' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'ecmt-permits-cancel[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'POST' => CommandConfig::getPostConfig(Command\Permits\CancelEcmtPermitApplication::class),
-                ]
-              ],
-              'ecmt-permits-update-declaration' => [
-                  'type' => 'Segment',
-                  'options' => [
-                      'route' => 'ecmt-permits-update-declaration[/]',
-                  ],
-                  'may_terminate' => false,
-                  'child_routes' => [
-                      'POST' => CommandConfig::getPostConfig(Command\Permits\UpdateDeclaration::class),
-                  ]
-              ],
-              'ecmt-permits-update-international-journey' => [
-                  'type' => 'Segment',
-                  'options' => [
-                      'route' => 'ecmt-permits-update-international-journey[/]',
-                  ],
-                  'may_terminate' => false,
-                  'child_routes' => [
-                      'POST' => CommandConfig::getPostConfig(Command\Permits\UpdateInternationalJourney::class),
-                  ]
-              ],
-              'ecmt-permits-update-sector' => [
-                  'type' => 'Segment',
-                  'options' => [
-                      'route' => 'ecmt-permits-update-sector[/]',
-                  ],
-                  'may_terminate' => false,
-                  'child_routes' => [
-                      'POST' => CommandConfig::getPostConfig(Command\Permits\UpdateSector::class),
-                  ]
-              ],
-              'ecmt-permit-application' => [
-                'type' => 'Segment',
-                'options' => [
-                  'route' => 'ecmt-permit-application[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                  'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermitApplication::class),
-                  'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermitApplication::class),
-                  'ecmt-cabotage' => [
+                    'sectors' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'sectors[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Permits\SectorsList::class),
+                        ]
+                    ],
+                    'constrained-countries' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'constrained-countries[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Permits\ConstrainedCountries::class),
+                        ]
+                    ],
+                    'ecmt-permits' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ecmt-permits[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermits::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermits::class),
+                        ]
+                    ],
+                    'ecmt-permits-cancel' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ecmt-permits-cancel[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Permits\CancelEcmtPermitApplication::class),
+                        ]
+                    ],
+                    'ecmt-permits-update-declaration' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ecmt-permits-update-declaration[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Permits\UpdateDeclaration::class),
+                        ]
+                    ],
+                    'ecmt-permits-update-sector' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ecmt-permits-update-sector[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Permits\UpdateSector::class),
+                        ]
+                    ],
+                    'ecmt-permits-update-international-journey' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ecmt-permits-update-international-journey[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Permits\UpdateInternationalJourney::class),
+                        ]
+                    ],
+                    'ecmt-permit-application' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ecmt-permit-application[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermitApplication::class),
+                            'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermitApplication::class),
+                            'ecmt-cabotage' => [
                         'type' => 'Segment',
                         'options' => [
                             'route' => 'ecmt-cabotage[/]',
@@ -114,51 +114,50 @@ $routes = [
                             'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtCabotage::class)
                         ]
                   ],
-                  'ecmt-emissions' => [
-                      'type' => 'Segment',
-                      'options' => [
-                          'route' => 'ecmt-emissions[/]',
-                      ],
-                      'child_routes' => [
-                          'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtEmissions::class)
-                      ]
-                  ],
-                  'ecmt-permits-required' => [
-                      'type' => 'Segment',
-                      'options' => [
-                          'route' => 'ecmt-permits-required[/]',
-                      ],
-                      'child_routes' => [
-                          'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtPermitsRequired::class)
-                      ]
-                   ]
+                            'ecmt-emissions' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'ecmt-emissions[/]',
+                                ],
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtEmissions::class)
+                                ]
+                            ],
+                            'ecmt-restricted-countries' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'ecmt-restricted-countries[/]',
+                                ],
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtCountries::class)
+                                ]
+                            ],
+                            'ecmt-permits-required' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                   'route' => 'ecmt-permits-required[/]',
+                                ],
+                                'child_routes' => [
+                                  'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtPermitsRequired::class)
+                                ]
+                            ],
+                        ]
                     ],
-                    'ecmt-restricted-countries' => [
+                    'single' => [
                         'type' => 'Segment',
                         'options' => [
-                            'route' => 'ecmt-restricted-countries[/]',
+                            'route' => 'single[/]',
                         ],
+                        'may_terminate' => false,
                         'child_routes' => [
-                            'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtCountries::class)
+                            'GET' => QueryConfig::getConfig(Query\Permits\ById::class),
                         ]
-                    ]
+                    ],
+
+
+
                 ]
-              ],
-              'single' => [
-                'type' => 'Segment',
-                'options' => [
-                  'route' => 'single[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                  'GET' => QueryConfig::getConfig(Query\Permits\ById::class),
-                ]
-              ],
-
-
-
-            ]
-          ],
+            ],
             'legacy-offence' => [
                 'type' => 'Segment',
                 'options' => [
