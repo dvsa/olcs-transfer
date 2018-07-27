@@ -223,5 +223,4 @@ final class UpdateEcmtPermitApplication extends AbstractCommand
     {
         return $this->trips;
     }
-
 }

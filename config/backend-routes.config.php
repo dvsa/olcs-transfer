@@ -94,7 +94,17 @@ $routes = [
                       'child_routes' => [
                           'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtEmissions::class)
                       ]
-                  ]
+                  ],
+
+                   'ecmt-trips' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ecmt-trips[/]',
+                        ],
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtTrips::class)
+                        ]
+                    ]
                 ]
               ],
               'single' => [

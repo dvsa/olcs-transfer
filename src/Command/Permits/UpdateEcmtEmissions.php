@@ -20,5 +20,4 @@ class UpdateEcmtEmissions extends AbstractCommand
 {
     use Identity;
     use Emissions;
-
 }
