@@ -102,7 +102,16 @@ $routes = [
                       'child_routes' => [
                           'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtEmissions::class)
                       ]
-                  ]
+                    ],
+                    'ecmt-restricted-countries' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ecmt-restricted-countries[/]',
+                        ],
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtCountries::class)
+                        ]
+                    ]
                 ]
               ],
               'single' => [
