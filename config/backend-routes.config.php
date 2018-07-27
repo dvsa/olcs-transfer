@@ -86,6 +86,16 @@ $routes = [
                       'POST' => CommandConfig::getPostConfig(Command\Permits\UpdateInternationalJourney::class),
                   ]
               ],
+              'ecmt-permits-update-sector' => [
+                  'type' => 'Segment',
+                  'options' => [
+                      'route' => 'ecmt-permits-update-sector[/]',
+                  ],
+                  'may_terminate' => false,
+                  'child_routes' => [
+                      'POST' => CommandConfig::getPostConfig(Command\Permits\UpdateSector::class),
+                  ]
+              ],
               'ecmt-permit-application' => [
                 'type' => 'Segment',
                 'options' => [
