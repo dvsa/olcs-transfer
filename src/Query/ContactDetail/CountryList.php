@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Get a list of Countries
+ * Get a list of Countrys
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
