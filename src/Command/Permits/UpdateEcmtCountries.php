@@ -23,12 +23,16 @@ class UpdateEcmtCountries extends AbstractCommand
     protected $ecmtApplicationId;
 
     /**
-     * @var array
+     * @Transfer\ArrayInput
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
+     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
      */
     protected $countryIds;
 
     /**
-     * @return array
+     * @return mixed
      */
     public function getCountryIds()
     {
