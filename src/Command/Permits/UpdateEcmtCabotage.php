@@ -20,5 +20,4 @@ class UpdateEcmtCabotage extends AbstractCommand
 {
     use Identity;
     use Cabotage;
-
 }
