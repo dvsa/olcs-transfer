@@ -153,7 +153,16 @@ $routes = [
                             'GET' => QueryConfig::getConfig(Query\Permits\ById::class),
                         ]
                     ],
-
+                    'ecmt-permit-fees' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ecmt-permit-fees[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermitFees::class),
+                        ]
+                    ],
 
 
                 ]
