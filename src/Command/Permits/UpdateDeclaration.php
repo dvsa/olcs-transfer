@@ -13,16 +13,15 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
  * @Transfer\RouteName("backend/permits/ecmt-permits-update-declaration")
- * @Transfer\Method("POST")
+ * @Transfer\Method("PUT")
  */
 final class UpdateDeclaration extends AbstractCommand
 {
     use Identity;
 
     /**
-     * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @var bool
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
      */
     protected $declaration;
 

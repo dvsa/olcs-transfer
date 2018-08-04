@@ -13,7 +13,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
  * @Transfer\RouteName("backend/permits/ecmt-permits-update-international-journey")
- * @Transfer\Method("POST")
+ * @Transfer\Method("PUT")
  */
 final class UpdateInternationalJourney extends AbstractCommand
 {
