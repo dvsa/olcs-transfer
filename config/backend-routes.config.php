@@ -132,6 +132,15 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtCountries::class)
                                 ]
                             ],
+                            'ecmt-licence' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'ecmt-licence[/]',
+                                ],
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtLicence::class)
+                                ]
+                            ],
                             'ecmt-permits-required' => [
                                 'type' => 'Segment',
                                 'options' => [
