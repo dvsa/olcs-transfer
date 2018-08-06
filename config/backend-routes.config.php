@@ -115,6 +115,15 @@ $routes = [
                         'child_routes' => [
                             'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermitApplication::class),
                             'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermitApplication::class),
+                            'submit' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'submit[/]',
+                                ],
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Permits\EcmtSubmitApplication::class)
+                                ]
+                            ],
                             'ecmt-cabotage' => [
                                 'type' => 'Segment',
                                 'options' => [
