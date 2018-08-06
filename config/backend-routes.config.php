@@ -73,7 +73,17 @@ $routes = [
                         ],
                         'may_terminate' => false,
                         'child_routes' => [
-                            'POST' => CommandConfig::getPostConfig(Command\Permits\UpdateDeclaration::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateDeclaration::class),
+                        ]
+                    ],
+                    'ecmt-permits-update-answers' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ecmt-permits-update-answers[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtCheckAnswers::class),
                         ]
                     ],
                     'ecmt-permits-update-sector' => [
@@ -83,7 +93,7 @@ $routes = [
                         ],
                         'may_terminate' => false,
                         'child_routes' => [
-                            'POST' => CommandConfig::getPostConfig(Command\Permits\UpdateSector::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateSector::class),
                         ]
                     ],
                     'ecmt-permits-update-international-journey' => [
@@ -93,7 +103,7 @@ $routes = [
                         ],
                         'may_terminate' => false,
                         'child_routes' => [
-                            'POST' => CommandConfig::getPostConfig(Command\Permits\UpdateInternationalJourney::class),
+                            'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateInternationalJourney::class),
                         ]
                     ],
                     'ecmt-permit-application' => [
@@ -106,14 +116,14 @@ $routes = [
                             'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermitApplication::class),
                             'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermitApplication::class),
                             'ecmt-cabotage' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'ecmt-cabotage[/]',
-                        ],
-                        'child_routes' => [
-                            'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtCabotage::class)
-                        ]
-                  ],
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'ecmt-cabotage[/]',
+                                ],
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtCabotage::class)
+                                ]
+                            ],
                             'ecmt-emissions' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -132,6 +142,15 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtCountries::class)
                                 ]
                             ],
+                            'ecmt-licence' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'ecmt-licence[/]',
+                                ],
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtLicence::class)
+                                ]
+                            ],
                             'ecmt-permits-required' => [
                                 'type' => 'Segment',
                                 'options' => [
@@ -139,6 +158,15 @@ $routes = [
                                 ],
                                 'child_routes' => [
                                   'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtPermitsRequired::class)
+                                ]
+                            ],
+                            'ecmt-trips' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'ecmt-trips[/]',
+                                ],
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtTrips::class),
                                 ]
                             ],
                         ]

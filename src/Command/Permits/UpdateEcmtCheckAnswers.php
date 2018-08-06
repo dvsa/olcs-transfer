@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Create ECMT Permit Application
+ * Update check answers
  *
- * @author Tonci Vidovic <tonci.vidovic@capgemini.com>
+ * @author Ian Lindsay <ian@hemera-business-services.co.uk>
  */
 namespace Dvsa\Olcs\Transfer\Command\Permits;
 
@@ -12,10 +12,10 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/permits/ecmt-permits-update-declaration")
+ * @Transfer\RouteName("backend/permits/ecmt-permits-update-answers")
  * @Transfer\Method("PUT")
  */
-final class UpdateDeclaration extends AbstractCommand
+final class UpdateEcmtCheckAnswers extends AbstractCommand
 {
     use Identity;
 
@@ -23,13 +23,13 @@ final class UpdateDeclaration extends AbstractCommand
      * @var bool
      * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
      */
-    protected $declaration;
+    protected $checkAnswers;
 
     /**
      * @return int
      */
-    public function getDeclaration()
+    public function getCheckAnswers()
     {
-        return $this->declaration;
+        return $this->checkAnswers;
     }
 }
