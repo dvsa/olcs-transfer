@@ -76,6 +76,16 @@ $routes = [
                             'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateDeclaration::class),
                         ]
                     ],
+                    'ecmt-permits-update-answers' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ecmt-permits-update-answers[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtCheckAnswers::class),
+                        ]
+                    ],
                     'ecmt-permits-update-sector' => [
                         'type' => 'Segment',
                         'options' => [
