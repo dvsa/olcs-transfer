@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Update check answers
+ * Submit the ECMT application
  *
  * @author Ian Lindsay <ian@hemera-business-services.co.uk>
  */
@@ -12,10 +12,10 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/permits/ecmt-permits-update-answers")
+ * @Transfer\RouteName("backend/permits/ecmt-permit-application/submit")
  * @Transfer\Method("PUT")
  */
-final class UpdateEcmtCheckAnswers extends AbstractCommand
+final class EcmtSubmitApplication extends AbstractCommand
 {
     use Identity;
 }
