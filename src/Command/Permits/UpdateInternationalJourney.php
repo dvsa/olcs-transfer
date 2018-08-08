@@ -20,14 +20,12 @@ final class UpdateInternationalJourney extends AbstractCommand
     use Identity;
 
     /**
-     * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @var string
      */
     protected $internationalJourney;
 
     /**
-     * @return int
+     * @return string
      */
     public function getInternationalJourney()
     {
