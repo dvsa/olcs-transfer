@@ -13,9 +13,9 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
  * @Transfer\RouteName("backend/permits/ecmt-permit-application")
- * @Transfer\Method("POST")
+ * @Transfer\Method("PUT")
  */
-final class CreateEcmtPermitApplication extends AbstractCommand
+final class UpdateEcmtPermitApplication extends AbstractCommand
 {
     use EcmtApplicationLicence;
 }
