@@ -7,7 +7,6 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
-//use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
@@ -17,5 +16,5 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
  */
 class SectorsList extends AbstractQuery implements CachableShortTermQueryInterface
 {
-    //use Identity;
+
 }
