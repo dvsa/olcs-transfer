@@ -23,6 +23,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\SectorsList::class),
                 ]
             ],
+            'ecmt-application-by-licence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ecmt-application-by-licence[/]'
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\EcmtApplicationByLicence::class)
+                ]
+            ],
             'constrained-countries' => [
                 'type' => 'Segment',
                 'options' => [
@@ -94,16 +104,6 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateInternationalJourney::class),
                 ]
             ],
-            'ecmt-permit-applications' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'ecmt-permit-applications',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Permits\GetEcmtPermitApplicationList::class),
-                    ]
-                ],
             'ecmt-permit-application' => [
                 'type' => 'Segment',
                 'options' => [
