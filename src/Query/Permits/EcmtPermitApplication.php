@@ -6,6 +6,7 @@
  * @author Tonci Vidovic <tonci.vidovic@capgemini.com>
  */
 namespace Dvsa\Olcs\Transfer\Query\Permits;
+use Dvsa\Olcs\Transfer\Query\OrderedTraitOptional;
 
 use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -16,5 +17,5 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
  */
 class EcmtPermitApplication extends AbstractQuery implements CachableShortTermQueryInterface
 {
-
+    use OrderedTraitOptional;
 }
