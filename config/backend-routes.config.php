@@ -45,16 +45,16 @@ $routes = [
                             'GET' => QueryConfig::getConfig(Query\Permits\ConstrainedCountries::class),
                         ]
                     ],
-                  'ecmt-countries' => [
-                    'type' => 'Segment',
-                    'options' => [
-                      'route' => 'ecmt-countries[/]',
+                    'ecmt-countries' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ecmt-countries[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Permits\EcmtCountriesList::class),
+                        ]
                     ],
-                    'may_terminate' => false,
-                    'child_routes' => [
-                      'GET' => QueryConfig::getConfig(Query\Permits\EcmtCountriesList::class),
-                    ]
-                  ],
                     'ecmt-permits' => [
                         'type' => 'Segment',
                         'options' => [
