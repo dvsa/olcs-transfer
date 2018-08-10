@@ -11,7 +11,7 @@ trait EcmtTrips
      * @var int
      * @Transfer\Optional
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 1, "max": 999999}})
      */
     protected $ecmtTrips;
 
