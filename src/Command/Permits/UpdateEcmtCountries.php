@@ -24,6 +24,7 @@ class UpdateEcmtCountries extends AbstractCommand
 
     /**
      * @Transfer\ArrayInput
+     * @Transfer\Optional
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
