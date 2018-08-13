@@ -21,6 +21,7 @@ final class UpdateInternationalJourney extends AbstractCommand
 
     /**
      * @var string
+     * @Transfer\Optional
      */
     protected $internationalJourney;
 
