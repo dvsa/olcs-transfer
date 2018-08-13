@@ -21,6 +21,7 @@ final class UpdateSector extends AbstractCommand
 
     /**
      * @var int
+     * @Transfer\Optional
      *
      */
     protected $sector;
