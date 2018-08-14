@@ -31,7 +31,7 @@
         "preferred-install": "dist",
         "secure-http" : false,
         "platform": {
-            "php": "7.1.16"
+            "php":"7.1.16"
         }
     },
     "autoload": {
