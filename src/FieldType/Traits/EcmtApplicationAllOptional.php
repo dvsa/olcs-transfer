@@ -150,6 +150,4 @@ trait EcmtApplicationAllOptional
     {
         return $this->declaration;
     }
-
-
 }
