@@ -88,6 +88,18 @@ trait EcmtApplicationAllOptional
         return $this->noOfPermits;
     }
 
+    /**
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": -1}})
+     * @Transfer\Optional
+     */
+    public $permitsRequired;
+
+    public function getPermitsRequired()
+    {
+        return $this->permitsRequired;
+    }
+
 
     /**
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
