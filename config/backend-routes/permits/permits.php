@@ -64,6 +64,16 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Permits\CancelEcmtPermitApplication::class),
                 ]
             ],
+            'ecmt-permits-withdraw' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ecmt-permits-withdraw[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\WithdrawEcmtPermitApplication::class),
+                ]
+            ],
             'ecmt-permits-update-declaration' => [
                 'type' => 'Segment',
                 'options' => [
