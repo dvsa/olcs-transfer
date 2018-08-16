@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Create ECMT Permit Application
+ * Withdraw ECMT Permit Application
  *
  * @author Scott Callaway
  */
