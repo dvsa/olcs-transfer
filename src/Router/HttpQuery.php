@@ -7,13 +7,12 @@ use Zend\Mvc\Router\Exception;
 use Zend\Mvc\Router\Http\RouteInterface;
 use Zend\Stdlib\ArrayUtils;
 use Zend\Stdlib\RequestInterface as Request;
-use Zend\Mvc\Router\Http\RouteMatch;
 
 /*
- * Class AbstractHttpQuery
+ * Class HttpQuery
  * Replacement for Zend\Mvc\Router\Http\Query since it has been removed in ZF3
  */
-abstract class AbstractHttpQuery implements RouteInterface
+class HttpQuery implements RouteInterface
 {
     /**
      * Default values.
@@ -27,14 +26,14 @@ abstract class AbstractHttpQuery implements RouteInterface
      *
      * @var array
      */
-    protected $assembledParams = [];
+    protected $assembledParams = array();
 
     /**
      * Create a new wildcard route.
      *
      * @param array $defaults
      */
-    public function __construct(array $defaults = [])
+    public function __construct(array $defaults = array())
     {
         $this->defaults = $defaults;
     }
@@ -44,10 +43,10 @@ abstract class AbstractHttpQuery implements RouteInterface
      *
      * @see    \Zend\Mvc\Router\RouteInterface::factory()
      * @param  array|Traversable $options
-     * @return AbstractHttpQuery
+     * @return Query
      * @throws Exception\InvalidArgumentException
      */
-    public static function factory($options = [])
+    public static function factory($options = array())
     {
         if ($options instanceof Traversable) {
             $options = ArrayUtils::iteratorToArray($options);
@@ -56,7 +55,7 @@ abstract class AbstractHttpQuery implements RouteInterface
         }
 
         if (!isset($options['defaults'])) {
-            $options['defaults'] = [];
+            $options['defaults'] = array();
         }
 
         return new static($options['defaults']);
@@ -85,7 +84,7 @@ abstract class AbstractHttpQuery implements RouteInterface
      */
     protected function recursiveUrldecode(array $array)
     {
-        $matches = [];
+        $matches = array();
 
         foreach ($array as $key => $value) {
             if (is_array($value)) {
@@ -106,10 +105,10 @@ abstract class AbstractHttpQuery implements RouteInterface
      * @param  array $options
      * @return mixed
      */
-    public function assemble(array $params = [], array $options = [])
+    public function assemble(array $params = array(), array $options = array())
     {
         $mergedParams          = array_merge($this->defaults, $params);
-        $this->assembledParams = [];
+        $this->assembledParams = array();
 
         if (isset($options['uri']) && count($mergedParams)) {
             foreach ($mergedParams as $key => $value) {
@@ -134,3 +133,4 @@ abstract class AbstractHttpQuery implements RouteInterface
         return $this->assembledParams;
     }
 }
+
