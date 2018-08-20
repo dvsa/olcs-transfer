@@ -114,6 +114,16 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateInternationalJourney::class),
                 ]
             ],
+            'ecmt-full-permit-application' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ecmt-full-permit-application[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\CreateFullPermitApplication::class),
+                ]
+            ],
             'ecmt-permit-application' => [
                 'type' => 'Segment',
                 'options' => [
