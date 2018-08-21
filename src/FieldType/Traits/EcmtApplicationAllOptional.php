@@ -10,18 +10,6 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait EcmtApplicationAllOptional
 {
 
-    /**
-     * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
-     */
-    protected $fromInternal = false;
-
-
-    public function getFromInternal()
-    {
-        return $this->fromInternal;
-    }
-
 
     /**
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
@@ -102,8 +90,8 @@ trait EcmtApplicationAllOptional
 
 
     /**
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": -1}})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":255}})
      * @Transfer\Optional
      */
     public $internationalJourneys;
@@ -139,8 +127,20 @@ trait EcmtApplicationAllOptional
     }
 
     /**
+     * @Transfer\ArrayInput
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Optional
+     */
+    protected $countryIds;
+
+    public function getCountryIds()
+    {
+        return $this->countryIds;
+    }
+
+
+    /**
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
     public $trips;
@@ -162,4 +162,6 @@ trait EcmtApplicationAllOptional
     {
         return $this->declaration;
     }
+
+
 }
