@@ -23,8 +23,11 @@ class EcmtApplicationByLicence extends AbstractQuery implements PagedQueryInterf
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"ecmt_permit_nys", "emct_permit_uc", "all"}}})
      * @Transfer\Optional
      */
     protected $status = null;
+
+    public function getStatus() {
+        return $this->status;
+    }
 }
