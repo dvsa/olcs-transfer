@@ -198,6 +198,4 @@ trait EcmtApplicationAllOptional
     {
         return $this->permitType;
     }
-
-
 }

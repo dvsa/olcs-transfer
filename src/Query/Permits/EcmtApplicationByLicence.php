@@ -27,7 +27,8 @@ class EcmtApplicationByLicence extends AbstractQuery implements PagedQueryInterf
      */
     protected $status = null;
 
-    public function getStatus() {
+    public function getStatus()
+    {
         return $this->status;
     }
 }
