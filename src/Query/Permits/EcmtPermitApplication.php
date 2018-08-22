@@ -19,4 +19,19 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 class EcmtPermitApplication extends AbstractQuery implements CachableShortTermQueryInterface
 {
     use OrderedTraitOptional;
+
+    /**
+     * @var int
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $organisationId;
+
+    /**
+     * @return int
+     */
+    public function getOrganisationId()
+    {
+        return $this->organisationId;
+    }
 }
