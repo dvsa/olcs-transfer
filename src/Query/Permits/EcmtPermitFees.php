@@ -33,5 +33,4 @@ class EcmtPermitFees extends AbstractQuery
     {
         return $this->productReferences;
     }
-
 }
