@@ -127,8 +127,6 @@ trait EcmtApplicationAllOptional
     }
 
     /**
-     * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Optional
      */
     protected $countryIds;
@@ -141,6 +139,7 @@ trait EcmtApplicationAllOptional
 
     /**
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": -1}})
      * @Transfer\Optional
      */
     public $trips;
@@ -161,6 +160,43 @@ trait EcmtApplicationAllOptional
     public function getDeclaration()
     {
         return $this->declaration;
+    }
+
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":255}})
+     * @Transfer\Optional
+     */
+    public $status;
+
+    public function getStatus()
+    {
+        return $this->declaration;
+    }
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":255}})
+     * @Transfer\Optional
+     */
+    public $paymentStatus;
+
+    public function getPaymentStatus()
+    {
+        return $this->paymentStatus;
+    }
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":255}})
+     * @Transfer\Optional
+     */
+    public $permitType;
+
+    public function getPermitType()
+    {
+        return $this->permitType;
     }
 
 

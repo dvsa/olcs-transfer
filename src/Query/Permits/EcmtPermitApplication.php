@@ -34,4 +34,17 @@ class EcmtPermitApplication extends AbstractQuery implements CachableShortTermQu
     {
         return $this->organisationId;
     }
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     */
+    protected $status = null;
+
+    /**
+     * @return string
+     */
+    public function getStatus(){
+        return $this->status;
+    }
 }
