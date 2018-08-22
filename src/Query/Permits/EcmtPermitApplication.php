@@ -19,4 +19,14 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 class EcmtPermitApplication extends AbstractQuery implements CachableShortTermQueryInterface
 {
     use OrderedTraitOptional;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     */
+    protected $status = null;
+
+    public function getStatus(){
+        return $this->status;
+    }
 }
