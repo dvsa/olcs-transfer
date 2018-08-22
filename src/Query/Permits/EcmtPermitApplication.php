@@ -21,11 +21,12 @@ class EcmtPermitApplication extends AbstractQuery implements CachableShortTermQu
     use OrderedTraitOptional;
 
     /**
-      @var string
-     * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
+
     protected $organisationId;
 
     /**
