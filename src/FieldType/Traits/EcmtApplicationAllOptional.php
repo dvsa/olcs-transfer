@@ -91,7 +91,8 @@ trait EcmtApplicationAllOptional
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":255}})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":32}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"inter_journey_less_60", "inter_journey_60_90", "inter_journey_more_90"}}})
      * @Transfer\Optional
      */
     public $internationalJourneys;
