@@ -165,27 +165,17 @@ trait EcmtApplicationAllOptional
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":255}})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":32}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"ecmt_permit_awaiting", "ecmt_permit_cancelled", "ecmt_permit_issued", "ecmt_permit_nys", "ecmt_permit_uc", "ecmt_permit_unsuccessful", "cmt_permit_withdrawn"}}})
      * @Transfer\Optional
      */
     public $status;
 
     public function getStatus()
     {
-        return $this->declaration;
+        return $this->status;
     }
 
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":255}})
-     * @Transfer\Optional
-     */
-    public $paymentStatus;
-
-    public function getPaymentStatus()
-    {
-        return $this->paymentStatus;
-    }
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
