@@ -10,18 +10,6 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait EcmtApplicationAllOptional
 {
 
-    /**
-     * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
-     */
-    protected $fromInternal = false;
-
-
-    public function getFromInternal()
-    {
-        return $this->fromInternal;
-    }
-
 
     /**
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
@@ -102,8 +90,9 @@ trait EcmtApplicationAllOptional
 
 
     /**
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": -1}})
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":32}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"inter_journey_less_60", "inter_journey_60_90", "inter_journey_more_90"}}})
      * @Transfer\Optional
      */
     public $internationalJourneys;
@@ -139,8 +128,19 @@ trait EcmtApplicationAllOptional
     }
 
     /**
+     * @Transfer\Optional
+     */
+    protected $countryIds;
+
+    public function getCountryIds()
+    {
+        return $this->countryIds;
+    }
+
+
+    /**
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": -1}})
      * @Transfer\Optional
      */
     public $trips;
@@ -161,5 +161,32 @@ trait EcmtApplicationAllOptional
     public function getDeclaration()
     {
         return $this->declaration;
+    }
+
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":32}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"ecmt_permit_awaiting", "ecmt_permit_cancelled", "ecmt_permit_issued", "ecmt_permit_nys", "ecmt_permit_uc", "ecmt_permit_unsuccessful", "cmt_permit_withdrawn"}}})
+     * @Transfer\Optional
+     */
+    public $status;
+
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":255}})
+     * @Transfer\Optional
+     */
+    public $permitType;
+
+    public function getPermitType()
+    {
+        return $this->permitType;
     }
 }
