@@ -43,16 +43,6 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\EcmtCountriesList::class)
                 ]
             ],
-            'constrained-countries' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'constrained-countries[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Permits\ConstrainedCountries::class),
-                ]
-            ],
             'ecmt-permits' => [
                 'type' => 'Segment',
                 'options' => [
