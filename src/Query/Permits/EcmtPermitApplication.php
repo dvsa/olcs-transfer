@@ -47,4 +47,17 @@ class EcmtPermitApplication extends AbstractQuery implements CachableShortTermQu
     public function getStatus(){
         return $this->status;
     }
+
+    /**
+     * @Transfer\ArrayInput
+     *
+     */
+    protected $statusIds = null;
+
+    /**
+     * @return string
+     */
+    public function getStatusIds(){
+        return $this->statusIds;
+    }
 }
