@@ -31,4 +31,17 @@ class EcmtApplicationByLicence extends AbstractQuery implements PagedQueryInterf
     {
         return $this->status;
     }
+
+    /**
+     * @Transfer\ArrayInput
+     *
+     */
+    protected $statusIds = null;
+
+    /**
+     * @return string
+     */
+    public function getStatusIds(){
+        return $this->statusIds;
+    }
 }
