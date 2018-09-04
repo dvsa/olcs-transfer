@@ -44,7 +44,8 @@ class EcmtPermitApplication extends AbstractQuery implements CachableShortTermQu
     /**
      * @return string
      */
-    public function getStatus(){
+    public function getStatus()
+    {
         return $this->status;
     }
 
@@ -57,7 +58,8 @@ class EcmtPermitApplication extends AbstractQuery implements CachableShortTermQu
     /**
      * @return string
      */
-    public function getStatusIds(){
+    public function getStatusIds()
+    {
         return $this->statusIds;
     }
 }
