@@ -7,7 +7,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/organisation-eligible-for-permits")
+ * @Transfer\RouteName("backend/organisation/eligible-for-permits")
  */
 class EligibleForPermits extends AbstractQuery implements CachableShortTermQueryInterface
 {
