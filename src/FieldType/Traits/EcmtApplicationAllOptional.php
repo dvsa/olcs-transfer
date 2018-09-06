@@ -54,10 +54,15 @@ trait EcmtApplicationAllOptional
     /**
      *
      * @Transfer\Optional
+     * @var \DateTime
+     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d"}})
      */
     protected $dateReceived;
 
 
+    /**
+     * @return \DateTime
+     */
     public function getDateReceived()
     {
         return $this->dateReceived;
