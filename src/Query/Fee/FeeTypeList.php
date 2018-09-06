@@ -12,11 +12,12 @@ use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
  * Class FeeTypeList
  * @Transfer\RouteName("backend/fee-type")
  */
-class FeeTypeList extends AbstractQuery implements FieldType\ApplicationInterface,
- FieldType\BusRegInterface,
- FieldType\LicenceInterface,
- FieldType\OrganisationInterface,
- CachableMediumTermQueryInterface
+class FeeTypeList extends AbstractQuery implements
+    FieldType\ApplicationInterface,
+    FieldType\BusRegInterface,
+    FieldType\LicenceInterface,
+    FieldType\OrganisationInterface,
+    CachableMediumTermQueryInterface
 {
     // Foreign Keys
     use FieldTypeTraits\ApplicationOptional;
