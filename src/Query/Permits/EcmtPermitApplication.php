@@ -25,14 +25,14 @@ class EcmtPermitApplication extends AbstractQuery implements CachableShortTermQu
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $organisationId;
+    protected $organisation;
 
     /**
      * @return int
      */
-    public function getOrganisationId()
+    public function getOrganisation()
     {
-        return $this->organisationId;
+        return $this->organisation;
     }
 
     /**
