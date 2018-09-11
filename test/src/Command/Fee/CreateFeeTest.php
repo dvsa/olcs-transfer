@@ -24,7 +24,8 @@ class CreateFeeTest extends PHPUnit_Framework_TestCase
             'busReg' => 555,
             'irfoGvPermit' => 1,
             'irfoPsvAuth' => 2,
-            'quantity' => 3
+            'quantity' => 3,
+            'ecmtPermitApplication' => null
         ];
 
         $command = CreateFee::create($data);
@@ -41,6 +42,7 @@ class CreateFeeTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(1, $command->getIrfoGvPermit());
         $this->assertEquals(2, $command->getIrfoPsvAuth());
         $this->assertEquals(3, $command->getQuantity());
+        $this->assertEquals(null, $command->getEcmtPermitApplication());
 
         $this->assertEquals(
             [
@@ -55,7 +57,8 @@ class CreateFeeTest extends PHPUnit_Framework_TestCase
                 'busReg' => 555,
                 'irfoGvPermit' => 1,
                 'irfoPsvAuth' => 2,
-                'quantity' => 3
+                'quantity' => 3,
+                'ecmtPermitApplication' => null
             ],
             $command->getArrayCopy()
         );
