@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Withdraw ECMT Permit Application
+ * Accept ECMT awarded Permits Application
  *
- * @author Scott Callaway
+ * @author Tonci Vidovic <tonci.vidovic@capgemini.com>
  */
 namespace Dvsa\Olcs\Transfer\Command\Permits;
 
