@@ -9,6 +9,7 @@ namespace Dvsa\Olcs\Transfer\Command\Permits;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 
 /**
  * @Transfer\RouteName("backend/permits/ecmt-permit-application/ecmt-restricted-countries")
@@ -16,11 +17,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class UpdateEcmtCountries extends AbstractCommand
 {
-    /**
-     * @var int
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $ecmtApplicationId;
+    use Identity;
 
     /**
      * @Transfer\ArrayInput
@@ -37,13 +34,5 @@ class UpdateEcmtCountries extends AbstractCommand
     public function getCountryIds()
     {
         return $this->countryIds;
-    }
-
-    /**
-     * @return int
-     */
-    public function getEcmtApplicationId()
-    {
-        return $this->ecmtApplicationId;
     }
 }
