@@ -23,6 +23,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\SectorsList::class),
                 ]
             ],
+            'window' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'window[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\IrhpPermitWindow::class),
+                ]
+            ],
             'ecmt-application-by-licence' => [
                 'type' => 'Segment',
                 'options' => [
