@@ -21,24 +21,10 @@ class NextIrhpPermitStock extends AbstractQuery implements CachableShortTermQuer
     protected $permitType = null;
 
     /**
-    * @Transfer\Optional
-    * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
-    */
-    protected $date = null;
-
-    /**
      * @return string
      */
     public function getPermitType()
     {
         return $this->permitType;
-    }
-
-    /**
-     * @return date
-     */
-    public function getDate()
-    {
-        return $this->date;
     }
 }
