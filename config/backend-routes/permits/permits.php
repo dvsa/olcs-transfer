@@ -23,16 +23,6 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\SectorsList::class),
                 ]
             ],
-            'next-stock' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'next-stock[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Permits\NextIrhpPermitStock::class),
-                ]
-            ],
             'ecmt-application-by-licence' => [
                 'type' => 'Segment',
                 'options' => [
