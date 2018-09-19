@@ -107,6 +107,34 @@ final class UpdateDetails extends AbstractCommand
     protected $additionalInfo;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Optional
+     */
+    protected $hasOtherLicences;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Optional
+     */
+    protected $hasOtherEmployment;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Optional
+     */
+    protected $hasConvictions;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Optional
+     */
+    protected $hasPreviousLicences;
+
+    /**
      * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d"}})
      * @Transfer\Optional
      */
@@ -257,6 +285,38 @@ final class UpdateDetails extends AbstractCommand
     public function getAdditionalInfo()
     {
         return $this->additionalInfo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHasOtherLicences()
+    {
+        return $this->hasOtherLicences;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHasOtherEmployment()
+    {
+        return $this->hasOtherEmployment;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHasConvictions()
+    {
+        return $this->hasConvictions;
+    }
+
+    /**
+     * @return string
+     */
+    public function getHasPreviousLicences()
+    {
+        return $this->hasPreviousLicences;
     }
 
     /**
