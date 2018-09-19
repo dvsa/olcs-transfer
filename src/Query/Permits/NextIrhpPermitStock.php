@@ -11,14 +11,20 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\OrderedTraitOptional;
 
 /**
- * @Transfer\RouteName("backend/permits/window")
+ * @Transfer\RouteName("backend/permits/next-stock")
  */
-class IrhpPermitWindow extends AbstractQuery implements CachableShortTermQueryInterface
+class NextIrhpPermitStock extends AbstractQuery implements CachableShortTermQueryInterface
 {
-  /**
+    /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
     protected $permitType = null;
+
+    /**
+    * @Transfer\Optional
+    * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+    */
+    protected $date = null;
 
     /**
      * @return string
@@ -26,5 +32,13 @@ class IrhpPermitWindow extends AbstractQuery implements CachableShortTermQueryIn
     public function getPermitType()
     {
         return $this->permitType;
+    }
+
+    /**
+     * @return date
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 }
