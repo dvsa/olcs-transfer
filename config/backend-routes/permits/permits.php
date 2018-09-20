@@ -74,6 +74,26 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Permits\WithdrawEcmtPermitApplication::class),
                 ]
             ],
+            'ecmt-permits-decline' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ecmt-permits-decline[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\DeclineEcmtPermits::class),
+                ]
+            ],
+            'ecmt-permits-accept' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ecmt-permits-accept[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\AcceptEcmtPermits::class),
+                ]
+            ],
             'ecmt-permits-update-declaration' => [
                 'type' => 'Segment',
                 'options' => [
