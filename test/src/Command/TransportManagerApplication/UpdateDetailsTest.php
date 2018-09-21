@@ -27,6 +27,10 @@ class UpdateDetailsTest extends \PHPUnit_Framework_TestCase
             'hoursFri' => 'unit_hoursFri',
             'hoursSat' => 'unit_hoursSat',
             'hoursSun' => 'unit_hoursSun',
+            'hasOtherLicences' => 'has_other_licences',
+            'hasOtherEmployment' => 'has_other_employment',
+            'hasConvictions' => 'has_convictions',
+            'hasPreviousLicences' => 'has_previous_licences',
             'additionalInfo' => 'unit_additionalInfo',
             'dob' => 'unit_dob',
             'submit' => 'unit_submit',
@@ -50,6 +54,10 @@ class UpdateDetailsTest extends \PHPUnit_Framework_TestCase
         static::assertEquals('unit_hoursFri', $command->getHoursFri());
         static::assertEquals('unit_hoursSat', $command->getHoursSat());
         static::assertEquals('unit_hoursSun', $command->getHoursSun());
+        static::assertEquals('has_other_licences', $command->getHasOtherLicences());
+        static::assertEquals('has_other_employment', $command->getHasOtherEmployment());
+        static::assertEquals('has_convictions', $command->getHasConvictions());
+        static::assertEquals('has_previous_licences', $command->getHasPreviousLicences());
         static::assertEquals('unit_additionalInfo', $command->getAdditionalInfo());
         static::assertEquals('unit_dob', $command->getDob());
         static::assertEquals('unit_submit', $command->getSubmit());
