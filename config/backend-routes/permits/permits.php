@@ -239,6 +239,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermitFees::class),
                 ]
             ],
+            'valid-ecmt' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'valid-ecmt[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\ValidEcmtPermits::class),
+                ]
+            ],
             'last-open-window' => [
                 'type' => 'Segment',
                 'options' => [
