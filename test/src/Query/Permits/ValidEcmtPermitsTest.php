@@ -2,8 +2,7 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\Permits;
 
-use Mockery as m;
-use Mockery\Adapter\Phpunit\MockeryTestCase;
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\Permits\ValidEcmtPermits;
 
 /**
@@ -11,9 +10,9 @@ use Dvsa\Olcs\Transfer\Query\Permits\ValidEcmtPermits;
  */
 
 
-class ValidEcmtPermitsTest extends MockeryTestCase
+class ValidEcmtPermitsTest extends PHPUnit_Framework_TestCase
 {
-    public function testValidEcmtPermits()
+    public function testStructure()
     {
         $sut = ValidEcmtPermits::create(
             [
