@@ -16,6 +16,7 @@ class PayOutstandingFeesTest extends PHPUnit_Framework_TestCase
             'feeIds' => [1, 2],
             'organisationId' => 69,
             'applicationId' => 99,
+            'ecmtPermitApplicationId' => 7,
             'cpmsRedirectUrl' => 'http://olcs-selfserve/foo',
             'paymentMethod' => 'fpm_card_online',
             'received' => '1234.56',
@@ -36,6 +37,7 @@ class PayOutstandingFeesTest extends PHPUnit_Framework_TestCase
         $this->assertEquals([1, 2], $command->getFeeIds());
         $this->assertEquals(69, $command->getOrganisationId());
         $this->assertEquals(99, $command->getApplicationId());
+        $this->assertEquals(7, $command->getEcmtPermitApplicationId());
         $this->assertEquals('http://olcs-selfserve/foo', $command->getCpmsRedirectUrl());
         $this->assertEquals('fpm_card_online', $command->getPaymentMethod());
         $this->assertEquals('1234.56', $command->getReceived());

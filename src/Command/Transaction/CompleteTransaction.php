@@ -48,6 +48,18 @@ class CompleteTransaction extends AbstractCommand
      */
     protected $submitApplicationId;
 
+
+    /**
+     * If payment is for an application submission, supply the application id here
+     * and it will be submitted if payment succeeds
+     *
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $submitEcmtPermitApplicationId;
+
     /**
      * @return string
      */
@@ -78,5 +90,13 @@ class CompleteTransaction extends AbstractCommand
     public function getSubmitApplicationId()
     {
         return $this->submitApplicationId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSubmitEcmtPermitApplicationId()
+    {
+        return $this->submitEcmtPermitApplicationId;
     }
 }

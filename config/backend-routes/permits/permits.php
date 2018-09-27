@@ -239,8 +239,36 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermitFees::class),
                 ]
             ],
-
-
+            'valid-ecmt' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'valid-ecmt[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\ValidEcmtPermits::class),
+                ]
+            ],
+            'last-open-window' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'last-open-window[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\LastOpenWindow::class),
+                ]
+            ],
+            'open-windows' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'open-windows[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\OpenWindows::class),
+                ]
+            ],
         ]
     ]
 ];
