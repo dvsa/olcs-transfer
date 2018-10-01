@@ -11,6 +11,7 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\FieldType\Traits\Status;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
 
 /**
@@ -20,17 +21,5 @@ class UnpaidEcmtPermits extends AbstractQuery implements PagedQueryInterface
 {
     use Identity;
     use PagedTrait;
-
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     */
-    protected $status = null;
-
-    /**
-     * @return string
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
+    use Status;
 }
