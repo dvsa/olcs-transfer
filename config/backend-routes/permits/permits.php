@@ -23,6 +23,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\SectorsList::class),
                 ]
             ],
+            'randomised-score' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'randomised-score[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\CalculateRandomAppScore::class),
+                ]
+            ],
             'ecmt-application-by-licence' => [
                 'type' => 'Segment',
                 'options' => [
