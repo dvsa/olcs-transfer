@@ -19,9 +19,9 @@ class UnpaidEcmtPermitsTest extends PHPUnit_Framework_TestCase
               'id' => 1,
               'page' => 1,
               'limit' => 10,
-              'status' => 'ecmt_permit_awaiting'
+              'status' => 'permit_app_awaiting'
             ]
         );
-        static::assertEquals(['id' => 1, 'page' => 1, 'limit' => 10, 'status' => 'ecmt_permit_awaiting'], $sut->getArrayCopy());
+        static::assertEquals(['id' => 1, 'page' => 1, 'limit' => 10, 'status' => 'permit_app_awaiting'], $sut->getArrayCopy());
     }
 }
