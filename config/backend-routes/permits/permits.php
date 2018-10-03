@@ -94,6 +94,16 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Permits\AcceptEcmtPermits::class),
                 ]
             ],
+            'ecmt-permits-issue-paid' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ecmt-permits-issue-paid[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\CompleteIssuePayment::class),
+                ]
+            ],
             'ecmt-permits-update-declaration' => [
                 'type' => 'Segment',
                 'options' => [
