@@ -104,6 +104,16 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Permits\CompleteIssuePayment::class),
                 ]
             ],
+            'trigger-process-ecmt-applications' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'trigger-process-ecmt-applications[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\TriggerProcessEcmtApplications::class),
+                ]
+            ],
             'ecmt-permits-update-declaration' => [
                 'type' => 'Segment',
                 'options' => [
