@@ -43,6 +43,7 @@ class ProcessSignatureResponse extends AbstractCommand
 
     /**
      * @param int $continuationDetailId ContinuationDetail ID
+     * @return void
      */
     public function setContinuationDetail($continuationDetailId)
     {
