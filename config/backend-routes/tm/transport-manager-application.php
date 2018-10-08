@@ -51,11 +51,11 @@ return [
                             ),
                         ]
                     ),
-                    'operator-approve' => RouteConfig::getRouteConfig(
-                        'operator-approve',
+                    'operator-signed' => RouteConfig::getRouteConfig(
+                        'operator-signed',
                         [
                             'PUT' => CommandConfig::getPutConfig(
-                                Command\TransportManagerApplication\OperatorApprove::class
+                                Command\TransportManagerApplication\OperatorSigned::class
                             ),
                         ]
                     ),
