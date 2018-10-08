@@ -20,7 +20,7 @@ trait TransportManagerApplicationOperatorSignatureOptional
     /**
      * @return string
      */
-    public function getTransportManagerApplicationOperatorSignature(): string
+    public function getTransportManagerApplicationOperatorSignature()
     {
         return $this->transportManagerApplicationOperatorSignature;
     }
