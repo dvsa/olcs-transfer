@@ -25,7 +25,7 @@ class ProcessSignatureResponseCommandTest
      */
     protected function createBlankDto()
     {
-        return new ProcessSignatureResponse([]);
+        return new ProcessSignatureResponse();
     }
 
     /**
@@ -92,9 +92,9 @@ class ProcessSignatureResponseCommandTest
     protected function getInvalidFieldValues()
     {
         return [
-            'application' => ['i'],
-            'continuationId' => ['i'],
-            'transportManagerApplication' => ['i'],
+            'application' => ['i',0],
+            'continuationId' => ['i',0],
+            'transportManagerApplication' => ['i',0],
             'transportManagerApplicationOperatorSignature' => [1, 2]
         ];
     }
@@ -122,7 +122,11 @@ class ProcessSignatureResponseCommandTest
     {
         return [
             'samlResponse' => [[' string ', 'string']],
-            'transportManagerApplicationOperatorSignature' => [['Y ', ' N']]
+            'transportManagerApplicationOperatorSignature' => [['Y ', 'Y']],
+            'application' => ['i2',2],
+            'continuationId' => ['i2',2],
+            'transportManagerApplication' => ['i2',2],
+            'transportManagerApplicationOperatorSignature' => ['ab1', 1]
         ];
     }
 }
