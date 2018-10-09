@@ -11,9 +11,9 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait TransportManagerApplicationOperatorSignatureOptional
 {
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
-     * @Transfer\Optional
      */
     protected $transportManagerApplicationOperatorSignature;
 

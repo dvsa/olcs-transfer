@@ -14,9 +14,9 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 class ProcessSignatureResponse extends AbstractCommand
 {
-    use ApplicationOptional,
-        TransportManagerApplicationOptional,
-        TransportManagerApplicationOperatorSignatureOptional;
+    use ApplicationOptional;
+    use TransportManagerApplicationOptional;
+    use TransportManagerApplicationOperatorSignatureOptional;
 
 
     /**
