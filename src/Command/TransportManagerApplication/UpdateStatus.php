@@ -36,7 +36,7 @@ final class UpdateStatus extends AbstractCommand
      * @Transfer\Validator({
      *     "name":"Zend\Validator\InArray",
      *     "options": {"haystack": {"tmap_st_incomplete", "tmap_st_tm_signed", "tmap_st_operator_signed",
-     *     "tmap_st_details_submitted", "tmap_st_details_checked", "tmap_st_operator_approved","tmap_st_received"}}
+     *     "tmap_st_details_submitted", "tmap_st_details_checked", "tmap_st_operator_approved", "tmap_st_received"}}
      *     })
      */
     protected $status;
