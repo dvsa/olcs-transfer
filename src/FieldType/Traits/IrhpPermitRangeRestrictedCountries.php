@@ -11,15 +11,11 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait IrhpPermitRangeRestrictedCountries
 {
     /**
-     * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":2}})
      * @Transfer\Optional
      *
      * @var array
      */
-    protected $countrys;
+    protected $countrys = [];
 
     /**
      * @return array
