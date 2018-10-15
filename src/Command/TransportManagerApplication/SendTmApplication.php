@@ -24,6 +24,20 @@ final class SendTmApplication extends AbstractCommand
     protected $id;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\EmailAddress"})
+     */
+    protected $emailAddress;
+
+    /**
+     * @return mixed
+     */
+    public function getEmailAddress()
+    {
+        return $this->emailAddress;
+    }
+
+    /**
      * Get tm application ID
      *
      * @return int
