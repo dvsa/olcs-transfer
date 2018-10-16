@@ -30,7 +30,7 @@ final class SendTmApplication extends AbstractCommand
     protected $emailAddress;
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getEmailAddress()
     {
@@ -46,5 +46,4 @@ final class SendTmApplication extends AbstractCommand
     {
         return $this->id;
     }
-
 }

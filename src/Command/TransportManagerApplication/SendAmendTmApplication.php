@@ -28,7 +28,7 @@ class SendAmendTmApplication extends AbstractCommand
      * @return mixed
      */
     public function getEmailAddress()
-        {
+    {
         return $this->emailAddress;
     }
 
