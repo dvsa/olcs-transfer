@@ -3,19 +3,45 @@
 namespace Dvsa\OlcsTest\Transfer\Command\TransportManagerApplication;
 
 use Dvsa\Olcs\Transfer\Command\TransportManagerApplication\SendTmApplication;
+use Dvsa\OlcsTest\Transfer\Command\CommandTest;
 
 class SendTmApplicationTest extends \PHPUnit_Framework_TestCase
 {
-    public function testStructure()
+    use CommandTest;
+
+    protected function createBlankDto()
     {
-        $data = [
-            'id' => 5,
-            'emailAddress' => 'test@test.com'
+        return new SendTmApplication();
+    }
+
+    protected function getOptionalDtoFields()
+    {
+        return [];
+    }
+
+    protected function getValidFieldValues()
+    {
+        return [
+            'emailAddress' => ['test@test.com', 'kajshkj_jsahk@kfjsdsd.com'],
+            'id' => ['5', '3']
         ];
+    }
 
-        $command = SendTmApplication::create($data);
+    protected function getInvalidFieldValues()
+    {
+        return [
+            'id' => ['unexpected' => 'string'],
+            'emailAddress' => ['unexpected' => 'string']
+        ];
+    }
 
-        static::assertEquals($command->getEmailAddress(), 'test@test.com');
-        static::assertEquals($command->getId(), 5);
+
+    protected function getFilterTransformations()
+    {
+
+        return [
+            'emailAddress' => ['test@test.com ', 'test@test.com'],
+            'id' => [8, '8']
+        ];
     }
 }
