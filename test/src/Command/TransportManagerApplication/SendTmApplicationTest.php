@@ -40,8 +40,8 @@ class SendTmApplicationTest extends \PHPUnit_Framework_TestCase
     {
 
         return [
-            'emailAddress' => ['test@test.com ', 'test@test.com'],
-            'id' => [8, '8']
+            'emailAddress' => [['test@test.com ', 'test@test.com']],
+            'id' => [[8, '8']]
         ];
     }
 }
