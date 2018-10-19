@@ -1,20 +1,15 @@
 <?php
 
-/**
- * Send Transport Manager Application Email
- *
- * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Command\TransportManagerApplication;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/transport-manager-application/single/send-email")
+ * @Transfer\RouteName("backend/transport-manager-application/single/send-amend-email")
  * @Transfer\Method("POST")
  */
-final class SendTmApplication extends AbstractCommand
+class SendAmendTmApplication extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -30,7 +25,7 @@ final class SendTmApplication extends AbstractCommand
     protected $emailAddress;
 
     /**
-     * @return string
+     * @return mixed
      */
     public function getEmailAddress()
     {
