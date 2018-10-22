@@ -7,6 +7,7 @@ use Dvsa\Olcs\Transfer\Command\GdsVerify\ProcessSignatureResponse;
 use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
 use Dvsa\OlcsTest\Transfer\DtoTest;
+use PHPUnit_Framework_TestCase;
 use Zend\Stdlib\ArraySerializableInterface;
 
 /**
@@ -14,7 +15,7 @@ use Zend\Stdlib\ArraySerializableInterface;
  *
  * @package Dvsa\OlcsTest\Transfer\Command\GdsVerify
  */
-class ProcessSignatureResponseCommandTest
+class ProcessSignatureResponseCommandTest extends PHPUnit_Framework_TestCase
 {
     use CommandTest;
 
@@ -68,7 +69,7 @@ class ProcessSignatureResponseCommandTest
     {
         return [
             'application' => ['1', '2', '9999'],
-            'continuationId' => ['1', '2', '9999'],
+            'continuationDetail' => ['1', '2', '9999'],
             'transportManagerApplication' => ['1', '2', '9999'],
             'role' => ['tma_sign_as_tm', 'tma_sign_as_op','tma_sign_as_top']
         ];
@@ -92,9 +93,9 @@ class ProcessSignatureResponseCommandTest
     protected function getInvalidFieldValues()
     {
         return [
-            'application' => ['i',0],
-            'continuationId' => ['i',0],
-            'transportManagerApplication' => ['i',0],
+            'application' => [0],
+            'continuationDetail' => [0],
+            'transportManagerApplication' => [0],
             'role' => ['test', 'test2']
         ];
     }
@@ -122,10 +123,9 @@ class ProcessSignatureResponseCommandTest
     {
         return [
             'samlResponse' => [[' string ', 'string']],
-            'transportManagerApplicationOperatorSignature' => [['Y ', 'Y']],
-            'application' => [['i2',2]],
-            'continuationId' => [['i2',2]],
-            'transportManagerApplication' => [['i2',2]],
+            'application' => [['i2','2']],
+            'continuationDetail' => [['i2','2']],
+            'transportManagerApplication' => [['i2','2']],
             'role' => [['ab1 ', 'ab1']]
         ];
     }

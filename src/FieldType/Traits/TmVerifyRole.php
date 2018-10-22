@@ -27,15 +27,12 @@ trait TmVerifyRole
 
 
     /**
-     * setTransportManagerApplicationOperatorSignature
+     * setRole
      *
-     * @param string $role (Y|N operator signature)
-     *
-     * @return void
+     * @param string $role
      */
-    public function setRole(
-        string $role
-    ) {
+    public function setRole(string $role)
+    {
         $this->role = $role;
     }
 }
