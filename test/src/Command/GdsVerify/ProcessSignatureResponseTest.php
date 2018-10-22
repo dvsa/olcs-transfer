@@ -31,12 +31,4 @@ class ProcessSignatureResponseTest extends PHPUnit_Framework_TestCase
         $command->setContinuationDetail('99');
         $this->assertSame(99, $command->getContinuationDetail());
     }
-
-    public function testTransportManagerApplicationOperatorSignature()
-    {
-        $command = ProcessSignatureResponse::create([]);
-        $this->assertSame(null, $command->getRole());
-        $command->setRole('Y');
-        $this->assertSame('Y', $command->getRole());
-    }
 }
