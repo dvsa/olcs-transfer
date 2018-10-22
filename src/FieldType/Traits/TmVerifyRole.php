@@ -13,9 +13,7 @@ trait TmVerifyRole
     /**
      * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\InArray","options":{
-    'tma_sign_as_tm', 'tma_sign_as_op','tma_sign_as_tm_op'
-*     })
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\InArray","options":{'tma_sign_as_tm', 'tma_sign_as_op','tma_sign_as_top'})
      */
     protected $role;
 
