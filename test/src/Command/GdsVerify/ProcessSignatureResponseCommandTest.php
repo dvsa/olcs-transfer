@@ -45,7 +45,7 @@ class ProcessSignatureResponseCommandTest
             'application',
             'continuationDetail',
             'transportManagerApplication',
-            'transportManagerApplicationOperatorSignature'
+            'role'
         ];
     }
 
@@ -70,7 +70,7 @@ class ProcessSignatureResponseCommandTest
             'application' => ['1', '2', '9999'],
             'continuationId' => ['1', '2', '9999'],
             'transportManagerApplication' => ['1', '2', '9999'],
-            'transportManagerApplicationOperatorSignature' => ['Y', 'N']
+            'role' => ['tma_sign_as_tm', 'tma_sign_as_op','tma_sign_as_top']
         ];
     }
 
@@ -95,7 +95,7 @@ class ProcessSignatureResponseCommandTest
             'application' => ['i',0],
             'continuationId' => ['i',0],
             'transportManagerApplication' => ['i',0],
-            'transportManagerApplicationOperatorSignature' => [1, 2]
+            'role' => ['test', 'test2']
         ];
     }
 
@@ -123,10 +123,10 @@ class ProcessSignatureResponseCommandTest
         return [
             'samlResponse' => [[' string ', 'string']],
             'transportManagerApplicationOperatorSignature' => [['Y ', 'Y']],
-            'application' => ['i2',2],
-            'continuationId' => ['i2',2],
-            'transportManagerApplication' => ['i2',2],
-            'transportManagerApplicationOperatorSignature' => ['ab1', 1]
+            'application' => [['i2',2]],
+            'continuationId' => [['i2',2]],
+            'transportManagerApplication' => [['i2',2]],
+            'role' => [['ab1 ', 'ab1']]
         ];
     }
 }
