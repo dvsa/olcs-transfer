@@ -1,7 +1,6 @@
 <?php
 
 namespace Dvsa\Olcs\Transfer\Validators;
-use Common\Service\Entity\TransportManagerApplicationEntityService as Tma;
 
 class TmaStatus extends \Zend\Validator\InArray
 {
