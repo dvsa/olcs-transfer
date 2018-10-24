@@ -124,6 +124,26 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Permits\TriggerProcessEcmtApplications::class),
                 ]
             ],
+            'queue-run-scoring' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'queue-run-scoring[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\QueueRunScoring::class),
+                ]
+            ],
+            'queue-accept-scoring' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'queue-accept-scoring[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\QueueAcceptScoring::class),
+                ]
+            ],
             'ecmt-permits-update-declaration' => [
                 'type' => 'Segment',
                 'options' => [
@@ -307,6 +327,16 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Permits\OpenWindows::class),
+                ]
+            ],
+            'stock-operations-permitted' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'stock-operations-permitted[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\StockOperationsPermitted::class),
                 ]
             ],
         ]
