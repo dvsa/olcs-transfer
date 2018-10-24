@@ -14,13 +14,7 @@ return [
         ],
         'may_terminate' => false,
         'child_routes' => [
-            'single' => RouteConfig::getSingleConfig(
-                [
-                    'GET' => QueryConfig::getConfig(Query\IrhpPermitApplication\ById::class),
-                    'DELETE' => CommandConfig::getDeleteConfig(Command\IrhpPermitApplication\Delete::class),
-                ]
-            ),
-            'GET' => QueryConfig::getConfig(Query\IrhpPermitApplication\GetList::class)
+            'GET' => QueryConfig::getConfig(Query\IrhpPermitApplication\GetList::class),
         ]
     ],
 ];
