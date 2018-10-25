@@ -339,6 +339,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\StockOperationsPermitted::class),
                 ]
             ],
+            'print-permits' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'print[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\PrintPermits::class),
+                ]
+            ],
         ]
     ]
 ];
