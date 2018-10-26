@@ -39,7 +39,7 @@ final class GetList extends AbstractQuery implements PagedQueryInterface, Ordere
      * @var bool
      * @Transfer\Optional
      */
-    protected $onlyIssued;
+    protected $onlyIssued = false;
 
     /**
      * @return bool
