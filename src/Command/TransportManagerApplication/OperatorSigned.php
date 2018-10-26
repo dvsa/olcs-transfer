@@ -1,7 +1,7 @@
 <?php
 
 /**
- * OperatorApprove Transport Manager Application
+ * OperatorSigned Transport Manager Application
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
@@ -11,10 +11,10 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/transport-manager-application/single/operator-approve")
+ * @Transfer\RouteName("backend/transport-manager-application/single/operator-signed")
  * @Transfer\Method("PUT")
  */
-final class OperatorApprove extends AbstractCommand
+final class OperatorSigned extends AbstractCommand
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
