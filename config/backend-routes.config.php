@@ -1164,6 +1164,14 @@ $routes = [
                                     )
                                 ]
                             ),
+                            'surrender' => RouteConfig::getRouteConfig(
+                                'surrender',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(
+                                        Command\Surrender\Create::class
+                                    ),
+                                ]
+                            ),
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Licence\GetList::class),
