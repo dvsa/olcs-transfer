@@ -43,6 +43,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\EcmtCountriesList::class)
                 ]
             ],
+            'ecmt-constrained-countries' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ecmt-constrained-countries[/]'
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\EcmtConstrainedCountriesList::class)
+                ]
+            ],
             'ecmt-permits' => [
                 'type' => 'Segment',
                 'options' => [
@@ -62,6 +72,16 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'POST' => CommandConfig::getPostConfig(Command\Permits\CancelEcmtPermitApplication::class),
+                ]
+            ],
+            'ecmt-permits-submit' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ecmt-permits-submit[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\EcmtSubmitApplication::class),
                 ]
             ],
             'ecmt-permits-withdraw' => [
@@ -112,6 +132,26 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'POST' => CommandConfig::getPostConfig(Command\Permits\TriggerProcessEcmtApplications::class),
+                ]
+            ],
+            'queue-run-scoring' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'queue-run-scoring[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\QueueRunScoring::class),
+                ]
+            ],
+            'queue-accept-scoring' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'queue-accept-scoring[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\QueueAcceptScoring::class),
                 ]
             ],
             'ecmt-permits-update-declaration' => [
@@ -297,6 +337,26 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Permits\OpenWindows::class),
+                ]
+            ],
+            'stock-operations-permitted' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'stock-operations-permitted[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\StockOperationsPermitted::class),
+                ]
+            ],
+            'print-permits' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'print[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\PrintPermits::class),
                 ]
             ],
         ]

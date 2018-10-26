@@ -12,8 +12,8 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/permits/ecmt-permit-application/submit")
- * @Transfer\Method("PUT")
+ * @Transfer\RouteName("backend/permits/ecmt-permits-submit")
+ * @Transfer\Method("POST")
  */
 final class EcmtSubmitApplication extends AbstractCommand
 {

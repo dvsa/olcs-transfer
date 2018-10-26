@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * Update IRHP Permit Jurisdiction
+ */
+namespace Dvsa\Olcs\Transfer\Command\IrhpPermitJurisdiction;
+
+use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitStock;
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+
+/**
+ * @Transfer\RouteName("backend/irhp-permit-jurisdiction")
+ * @Transfer\Method("PUT")
+ */
+final class Update extends AbstractCommand
+{
+    use IrhpPermitStock;
+
+    /**
+     * @var array
+     * @Transfer\ArrayInput
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": -1}})
+     */
+    protected $trafficAreas;
+
+    /**
+     * @return array
+     */
+    public function getTrafficAreas(): array
+    {
+        return $this->trafficAreas;
+    }
+}

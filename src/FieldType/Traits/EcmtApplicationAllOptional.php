@@ -20,7 +20,7 @@ trait EcmtApplicationAllOptional
 
     public function getId()
     {
-        return $this->id;
+        return (int) $this->id;
     }
 
 
@@ -33,7 +33,7 @@ trait EcmtApplicationAllOptional
 
     public function getLicence()
     {
-        return $this->licence;
+        return (int) $this->licence;
     }
 
 
@@ -48,7 +48,7 @@ trait EcmtApplicationAllOptional
 
     public function getSectors()
     {
-        return $this->sectors;
+        return (int) $this->sectors;
     }
 
     /**
@@ -78,7 +78,7 @@ trait EcmtApplicationAllOptional
 
     public function getNoOfPermits()
     {
-        return $this->noOfPermits;
+        return (int) $this->noOfPermits;
     }
 
     /**
@@ -90,7 +90,7 @@ trait EcmtApplicationAllOptional
 
     public function getPermitsRequired()
     {
-        return $this->permitsRequired;
+        return (int) $this->permitsRequired;
     }
 
 
@@ -116,7 +116,7 @@ trait EcmtApplicationAllOptional
 
     public function getEmissions()
     {
-        return $this->emissions;
+        return (int) $this->emissions;
     }
 
 
@@ -129,7 +129,7 @@ trait EcmtApplicationAllOptional
 
     public function getCabotage()
     {
-        return $this->cabotage;
+        return (int) $this->cabotage;
     }
 
     /**
@@ -152,7 +152,7 @@ trait EcmtApplicationAllOptional
 
     public function getTrips()
     {
-        return $this->trips;
+        return (int) $this->trips;
     }
 
 
@@ -165,7 +165,7 @@ trait EcmtApplicationAllOptional
 
     public function getDeclaration()
     {
-        return $this->declaration;
+        return (int) $this->declaration;
     }
 
 
