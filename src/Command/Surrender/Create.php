@@ -18,8 +18,24 @@ class Create extends AbstractCommand
      */
     protected $licence;
 
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *         "haystack": {"surr_sts_start"}
+     *     }
+     * })
+     */
+    protected $status = 'surr_sts_start';
+
     public function getLicence()
     {
         return $this->licence;
+    }
+
+    public function getStatus()
+    {
+        return $this->status;
     }
 }

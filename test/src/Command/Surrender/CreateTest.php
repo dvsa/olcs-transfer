@@ -23,7 +23,8 @@ class CreateTest extends PHPUnit_Framework_TestCase
     protected function getValidFieldValues()
     {
         return [
-            'licence' => ['1', '2']
+            'licence' => ['1', '2'],
+            'status' => ['surr_sts_start']
         ];
     }
 
@@ -31,6 +32,7 @@ class CreateTest extends PHPUnit_Framework_TestCase
     {
         return [
             'licence' => ['string', ['unexpected' => 'array']],
+            'status' => ['string', ['unexpected' => 'array']],
         ];
     }
 
@@ -38,7 +40,8 @@ class CreateTest extends PHPUnit_Framework_TestCase
     protected function getFilterTransformations()
     {
         return [
-            'licence' => [[99, '99']]
+            'licence' => [[99, '99']],
+            'status' => [['surr_sts_start ', 'surr_sts_start']],
         ];
     }
 }
