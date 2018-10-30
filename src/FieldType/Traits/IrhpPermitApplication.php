@@ -1,5 +1,4 @@
 <?php
-
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**

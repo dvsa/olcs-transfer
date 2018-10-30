@@ -12,7 +12,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 
 /**
- * @Transfer\RouteName("backend/irhp-permit/single")
+ * @Transfer\RouteName("backend/irhp-permits/single")
  */
 class ById extends AbstractQuery
 {
