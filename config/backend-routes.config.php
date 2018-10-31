@@ -1170,6 +1170,9 @@ $routes = [
                                     'POST' => CommandConfig::getPostConfig(
                                         Command\Surrender\Create::class
                                     ),
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Surrender\Update::class
+                                    ),
                                 ]
                             ),
                         ]
