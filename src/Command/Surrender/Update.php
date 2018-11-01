@@ -143,14 +143,6 @@ class Update extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getLicence()
-    {
-        return $this->licence;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getLicenceDocumentStatus()
     {
         return $this->licenceDocumentStatus;
