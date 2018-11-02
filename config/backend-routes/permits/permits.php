@@ -43,6 +43,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\EcmtCountriesList::class)
                 ]
             ],
+            'ecmt-constrained-countries' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ecmt-constrained-countries[/]'
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\EcmtConstrainedCountriesList::class)
+                ]
+            ],
             'ecmt-permits' => [
                 'type' => 'Segment',
                 'options' => [
@@ -112,16 +122,6 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'POST' => CommandConfig::getPostConfig(Command\Permits\CompleteIssuePayment::class),
-                ]
-            ],
-            'trigger-process-ecmt-applications' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'trigger-process-ecmt-applications[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'POST' => CommandConfig::getPostConfig(Command\Permits\TriggerProcessEcmtApplications::class),
                 ]
             ],
             'queue-run-scoring' => [
@@ -339,7 +339,17 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\StockOperationsPermitted::class),
                 ]
             ],
-            'print-permits' => [
+            'ready-to-print' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ready-to-print[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\ReadyToPrint::class),
+                ]
+            ],
+            'print' => [
                 'type' => 'Segment',
                 'options' => [
                     'route' => 'print[/]',
