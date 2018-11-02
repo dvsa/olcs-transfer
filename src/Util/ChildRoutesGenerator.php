@@ -19,7 +19,7 @@ class ChildRoutesGenerator
         $this->directory = $directory;
     }
 
-    private function buildChildRoutes($directory, $child = [])
+    private function buildChildRoutes($directory, array $child = []): array
     {
         $paths = scandir($directory);
 
