@@ -32,6 +32,21 @@ final class Submit extends AbstractCommand
     protected $version;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\TmaStatus"})
+     * @Transfer\Optional
+     */
+    protected $nextStatus;
+
+    /**
+     * @return string|null
+     */
+    public function getNextStatus()
+    {
+        return $this->nextStatus;
+    }
+
+    /**
      * Get Transport Manager Application ID
      *
      * @return int

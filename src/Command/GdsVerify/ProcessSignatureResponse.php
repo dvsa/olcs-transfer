@@ -2,6 +2,9 @@
 
 namespace Dvsa\Olcs\Transfer\Command\GdsVerify;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\TmVerifyRole;
+use Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerApplicationOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -11,8 +14,10 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 class ProcessSignatureResponse extends AbstractCommand
 {
-    use \Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional,
-        \Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerApplicationOptional;
+    use ApplicationOptional;
+    use TransportManagerApplicationOptional;
+    use TmVerifyRole;
+
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -38,6 +43,7 @@ class ProcessSignatureResponse extends AbstractCommand
 
     /**
      * @param int $continuationDetailId ContinuationDetail ID
+     * @return void
      */
     public function setContinuationDetail($continuationDetailId)
     {
