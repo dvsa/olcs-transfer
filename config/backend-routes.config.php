@@ -908,10 +908,18 @@ $routes = [
                                         ],
                                         'may_terminate' => false,
                                         'child_routes' => [
+
+                                                    'GET' => QueryConfig::getConfig(
+                                                        Dvsa\Olcs\Transfer\Query\Surrender\GetStatus::class
+
+                                            ),
                                             'POST' => CommandConfig::getPostConfig(
                                                 Command\Licence\SurrenderLicence::class
-                                            )
-                                        ]
+                                            ),
+
+
+                                        ],
+
                                     ],
                                     'reset-to-valid' => [
                                         'type' => 'Segment',
