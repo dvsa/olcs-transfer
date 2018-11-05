@@ -5,6 +5,7 @@ use Dvsa\Olcs\Transfer\Query;
 use Dvsa\Olcs\Transfer\Router\CommandConfig;
 use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
+use Dvsa\Olcs\Transfer\Util\ChildRoutesGenerator;
 
 $routes = [
     'api' => [
@@ -1164,14 +1165,6 @@ $routes = [
                                     )
                                 ]
                             ),
-                            'surrender' => RouteConfig::getRouteConfig(
-                                'surrender',
-                                [
-                                    'POST' => CommandConfig::getPostConfig(
-                                        Command\Surrender\Create::class
-                                    ),
-                                ]
-                            ),
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Licence\GetList::class),
@@ -1604,5 +1597,9 @@ foreach ($files as $config) {
     $newRoute = include $config;
     $routes['api']['child_routes'][key($newRoute)] = current($newRoute);
 }
+
+$childRootGenerator = new ChildRoutesGenerator($routes, __DIR__ . '/child-routes');
+
+$routes = $childRootGenerator->getUpdatedRoutes();
 
 return $routes;
