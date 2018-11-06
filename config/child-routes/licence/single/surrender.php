@@ -15,12 +15,15 @@ return [
             'PUT' => CommandConfig::getPutConfig(
                 Command\Surrender\Update::class
             ),
+            'DELETE' => CommandConfig::getDeleteConfig(
+                Command\Surrender\Delete::class
+            ),
             'status' => RouteConfig::getRouteConfig(
                 'status',
                 [
                     'GET' => QueryConfig::getConfig(Dvsa\Olcs\Transfer\Query\Surrender\GetStatus::class),
                 ]
-            )
+            ),
         ]
     ),
 ];
