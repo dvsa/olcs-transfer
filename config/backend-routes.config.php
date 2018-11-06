@@ -911,7 +911,6 @@ $routes = [
                                         'child_routes' => [
                                             'POST' => CommandConfig::getPostConfig(Command\Licence\SurrenderLicence::class),
                                         ],
-
                                     ],
                                     'reset-to-valid' => [
                                         'type' => 'Segment',
