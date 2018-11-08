@@ -1,6 +1,6 @@
 <?php
 
-namespace Dvsa\OlcsTest\Transfer\Query\Permits;
+namespace Dvsa\OlcsTest\Transfer\Query\IrhpCandidatePermit;
 
 use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\IrhpCandidatePermit\GetList;
