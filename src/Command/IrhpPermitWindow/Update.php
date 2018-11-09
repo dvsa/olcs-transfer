@@ -19,9 +19,21 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 final class Update extends AbstractCommand
 {
     use Identity;
-    use StartDate;
-    use EndDate;
     use IrhpPermitStock;
+
+    /**
+     * @var string
+     * @Transfer\Filter({"name": "Zend\Filter\DateTimeFormatter"})
+     * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
+     */
+    protected $startDate;
+
+    /**
+     * @var string
+     * @Transfer\Filter({"name": "Zend\Filter\DateTimeFormatter"})
+     * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
+     */
+    protected $endDate;
 
     /**
      * @var int
@@ -37,5 +49,21 @@ final class Update extends AbstractCommand
     public function getDaysForPayment(): int
     {
         return $this->daysForPayment;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStartDate()
+    {
+        return $this->startDate;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
     }
 }
