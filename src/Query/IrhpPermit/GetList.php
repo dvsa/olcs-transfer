@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Get a list of IRHP Stocks
+ * Get a list of IRHP Permits
  *
  * @author Andy Newton <andy@vitri.ltd>
  */
