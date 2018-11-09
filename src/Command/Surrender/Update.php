@@ -17,6 +17,13 @@ class Update extends AbstractCommand
         Traits\Version;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $licence;
+
+    /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\LicenceDocumentStatus"})
      * @Transfer\Optional
@@ -84,73 +91,51 @@ class Update extends AbstractCommand
     protected $status;
 
 
-    /**
-     * @return mixed
-     */
+    public function getLicence()
+    {
+        return $this->licence;
+    }
+
     public function getCommunityLicenceDocumentStatus()
     {
         return $this->communityLicenceDocumentStatus;
     }
 
-    /**
-     * @return mixed
-     */
     public function getDigitalSignature()
     {
         return $this->digitalSignature;
     }
 
-    /**
-     * @return mixed
-     */
     public function getDiscDestroyed()
     {
         return $this->discDestroyed;
     }
 
-    /**
-     * @return mixed
-     */
     public function getDiscLost()
     {
         return $this->discLost;
     }
 
-    /**
-     * @return mixed
-     */
     public function getDiscLostInfo()
     {
         return $this->discLostInfo;
     }
 
-    /**
-     * @return mixed
-     */
     public function getDiscStolen()
     {
         return $this->discStolen;
     }
 
-    /**
-     * @return mixed
-     */
     public function getDiscStolenInfo()
     {
         return $this->discStolenInfo;
     }
 
-    /**
-     * @return mixed
-     */
     public function getLicenceDocumentStatus()
     {
         return $this->licenceDocumentStatus;
     }
 
-    /**
-     * @return mixed
-     */
     public function getStatus()
     {
         return $this->status;
