@@ -8,7 +8,6 @@
 namespace Dvsa\Olcs\Transfer\Command\IrhpPermit;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
-use Dvsa\Olcs\Transfer\FieldType\Traits\ReplacementIrhpPermit;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -21,16 +20,16 @@ final class Replace extends AbstractCommand
     use Identity;
 
     /**
-     * @var String
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":100}})
+     * @var int
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $replacementIrhpPermit;
 
     /**
      * @return int
      */
-    public function getReplacementIrhpPermit(): string
+    public function getReplacementIrhpPermit(): int
     {
         return $this->replacementIrhpPermit;
     }
