@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Get a list of IRHP Permits
+ * Get a list of IRHP Permit Applications
  *
  * @author Scott Callaway <scott.callaway@capgemini.com>
  */
