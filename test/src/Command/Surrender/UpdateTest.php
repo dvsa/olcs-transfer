@@ -23,6 +23,7 @@ class UpdateTest extends PHPUnit_Framework_TestCase
     protected function getValidFieldValues()
     {
         return [
+            'licence' => ['1', '2'],
             'communityLicenceDocumentStatus' => [
                 'doc_sts_lost',
                 'doc_sts_stolen',
@@ -56,6 +57,7 @@ class UpdateTest extends PHPUnit_Framework_TestCase
     protected function getInvalidFieldValues()
     {
         return [
+            'licence' => ['0', ['array']],
             'communityLicenceDocumentStatus' => [
                 'invalid string',
                 ['unexpected' => 'array'],
@@ -81,6 +83,7 @@ class UpdateTest extends PHPUnit_Framework_TestCase
     protected function getFilterTransformations()
     {
         return [
+            'licence' => [[99, '99'], ['string', '']],
             'communityLicenceDocumentStatus' => [['doc_sts_lost ', 'doc_sts_lost']],
             'digitalSignature' => [[99, '99'], ['string', '']],
             'discDestroyed' => [[99, '99']],
