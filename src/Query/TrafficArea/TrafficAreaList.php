@@ -21,4 +21,23 @@ final class TrafficAreaList extends AbstractQuery implements
     CachableMediumTermQueryInterface
 {
     use OrderedTrait;
+
+    /**
+     * If left null, all traffic areas will be returned
+     * @var boolean
+     *
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $isEngland;
+
+    /**
+     * Get isEngland, if null then all traffic areas will be returned
+     *
+     * @return bool|null
+     */
+    public function getIsEngland(): ?bool
+    {
+        return $this->isEngland;
+    }
 }

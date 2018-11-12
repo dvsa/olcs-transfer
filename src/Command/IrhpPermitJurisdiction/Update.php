@@ -5,7 +5,6 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\IrhpPermitJurisdiction;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitStock;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -15,8 +14,6 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Update extends AbstractCommand
 {
-    use IrhpPermitStock;
-
     /**
      * @var array
      * @Transfer\ArrayInput
