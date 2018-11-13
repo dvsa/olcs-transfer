@@ -14,12 +14,10 @@ class UpdateTest extends PHPUnit_Framework_TestCase
     {
         $data = [
             'trafficAreas' => [['B' => 100]],
-            'irhpPermitStock' => '2',
         ];
 
         $command = Update::create($data);
 
         $this->assertEquals([['B' => 100]], $command->getTrafficAreas());
-        $this->assertEquals('2', $command->getIrhpPermitStock());
     }
 }
