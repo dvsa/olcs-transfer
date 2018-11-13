@@ -7,7 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
-use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\FieldType\Traits\HasEcmtConstraints;
@@ -15,7 +15,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\HasEcmtConstraints;
 /**
  * @Transfer\RouteName("backend/permits/ecmt-constrained-countries")
  */
-class EcmtConstrainedCountriesList extends AbstractQuery implements CachableShortTermQueryInterface
+class EcmtConstrainedCountriesList extends AbstractQuery implements CachableMediumTermQueryInterface
 {
-    use hasEcmtConstraints;
+    use HasEcmtConstraints;
 }
