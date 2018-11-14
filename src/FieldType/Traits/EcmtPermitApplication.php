@@ -29,7 +29,7 @@ trait EcmtPermitApplication
     /**
      * Set ecmtPermitApplication
      *
-     * @param $ecmtPermitApplicationId
+     * @param integer $ecmtPermitApplicationId
      * @return void
      */
     public function setEcmtPermitApplication($ecmtPermitApplicationId)
