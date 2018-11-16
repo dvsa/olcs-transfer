@@ -26,7 +26,6 @@ final class TrafficAreaList extends AbstractQuery implements
      * If left null, all traffic areas will be returned
      * @var boolean
      *
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
      * @Transfer\Optional
      */
     protected $isEngland;
