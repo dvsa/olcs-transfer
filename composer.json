@@ -25,7 +25,8 @@
     "require-dev": {
         "olcs/olcs-devtools": "dev-master",
         "mockery/mockery": "~0.9.3",
-        "doctrine/annotations": "^1.2.3"
+        "doctrine/annotations": "^1.2.3",
+        "xificurk/phpstan-shim": "^0.10.4"
     },
     "config": {
         "preferred-install": "dist",
