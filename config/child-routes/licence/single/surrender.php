@@ -18,6 +18,9 @@ return [
             'DELETE' => CommandConfig::getDeleteConfig(
                 Command\Surrender\Delete::class
             ),
+            "GET" => QueryConfig::getConfig(
+                Dvsa\Olcs\Transfer\Query\Surrender\ById::class
+            ),
             'status' => RouteConfig::getRouteConfig(
                 'status',
                 [
