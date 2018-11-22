@@ -16,6 +16,7 @@ class LicenceStatus extends \Zend\Validator\InArray
         'lsts_valid',
         'lsts_curtailed',
         'lsts_granted',
+        'lsts_surr_consideration',
         'lsts_surrendered',
         'lsts_withdrawn',
         'lsts_refused',
