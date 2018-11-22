@@ -14,7 +14,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  * @Transfer\RouteName("backend/licence/single/surrender")
  * @Transfer\Method("GET")
  */
-class ById extends AbstractQuery
+class ByLicence extends AbstractQuery
 {
     use Identity;
 }

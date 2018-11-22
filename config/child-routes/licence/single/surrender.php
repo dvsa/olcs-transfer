@@ -19,7 +19,7 @@ return [
                 Command\Surrender\Delete::class
             ),
             "GET" => QueryConfig::getConfig(
-                Dvsa\Olcs\Transfer\Query\Surrender\ById::class
+                Dvsa\Olcs\Transfer\Query\Surrender\ByLicence::class
             ),
             'status' => RouteConfig::getRouteConfig(
                 'status',
