@@ -24,6 +24,16 @@ return [
                 ]
             ),
             'GET' => QueryConfig::getConfig(Query\IrhpPermit\GetList::class),
+            'by-ecmt-id' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'by-ecmt-id[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpPermit\GetListByEcmtId::class),
+                ]
+            ],
         ]
     ],
 ];
