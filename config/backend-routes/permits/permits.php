@@ -349,6 +349,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\ReadyToPrint::class),
                 ]
             ],
+            'ready-to-print-confirm' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ready-to-print-confirm[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\ReadyToPrintConfirm::class),
+                ]
+            ],
             'print' => [
                 'type' => 'Segment',
                 'options' => [
