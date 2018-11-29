@@ -15,12 +15,14 @@ class ProcessSignatureResponseTest extends PHPUnit_Framework_TestCase
         $data = [
             'application' => '321',
             'continuationDetail' => '123',
+            'surrenderId' => '123'
         ];
 
         $command = ProcessSignatureResponse::create($data);
 
         $this->assertSame('321', $command->getApplication());
         $this->assertSame('123', $command->getContinuationDetail());
+        $this->assertSame('123', $command->getSurrenderId());
     }
 
     public function testContinuationDetail()
@@ -32,6 +34,15 @@ class ProcessSignatureResponseTest extends PHPUnit_Framework_TestCase
         $this->assertSame(99, $command->getContinuationDetail());
     }
 
+    public function testSetSurrenderId()
+    {
+        $command = ProcessSignatureResponse::create([]);
+
+        $this->assertSame(null, $command->getSurrenderId());
+        $command->setSurrenderId('99');
+        $this->assertSame(99, $command->getSurrenderId());
+    }
+
     public function testSetRole()
     {
         $command = ProcessSignatureResponse::create([]);
@@ -39,4 +50,6 @@ class ProcessSignatureResponseTest extends PHPUnit_Framework_TestCase
         $command->setRole('tma_sign_as_op');
         $this->assertSame('tma_sign_as_op', $command->getRole());
     }
+
+
 }

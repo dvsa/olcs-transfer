@@ -46,7 +46,8 @@ class ProcessSignatureResponseCommandTest extends PHPUnit_Framework_TestCase
             'application',
             'continuationDetail',
             'transportManagerApplication',
-            'role'
+            'role',
+            "surrenderId"
         ];
     }
 
@@ -71,7 +72,8 @@ class ProcessSignatureResponseCommandTest extends PHPUnit_Framework_TestCase
             'application' => ['1', '2', '9999'],
             'continuationDetail' => ['1', '2', '9999'],
             'transportManagerApplication' => ['1', '2', '9999'],
-            'role' => ['tma_sign_as_tm', 'tma_sign_as_op','tma_sign_as_top']
+            'role' => ['tma_sign_as_tm', 'tma_sign_as_op','tma_sign_as_top'],
+            'surrenderId' => ['1', '2', '9999'],
         ];
     }
 
@@ -96,7 +98,8 @@ class ProcessSignatureResponseCommandTest extends PHPUnit_Framework_TestCase
             'application' => [0],
             'continuationDetail' => [0],
             'transportManagerApplication' => [0],
-            'role' => ['test', 'test2']
+            'role' => ['test', 'test2'],
+            'surrenderId' => [0],
         ];
     }
 
@@ -126,7 +129,8 @@ class ProcessSignatureResponseCommandTest extends PHPUnit_Framework_TestCase
             'application' => [['i2','2']],
             'continuationDetail' => [['i2','2']],
             'transportManagerApplication' => [['i2','2']],
-            'role' => [['ab1 ', 'ab1']]
+            'role' => [['ab1 ', 'ab1']],
+            'surrenderId' => [['i2','2']],
         ];
     }
 }

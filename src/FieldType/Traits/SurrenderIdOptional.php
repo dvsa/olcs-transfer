@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: shaunhare
- * Date: 2018-11-28
- * Time: 12:57
- */
+
 
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
@@ -27,18 +22,18 @@ trait SurrenderIdOptional
     /**
      * @return int
      */
-    public function getSurrenderId(): ?int
+    public function getSurrenderId()
     {
         return $this->surrenderId;
     }
 
     /**
      * @param int $surrenderId
+     *
+     * @return  void
      */
     public function setSurrenderId(int $surrenderId): void
     {
         $this->surrenderId = $surrenderId;
     }
-
-
 }
