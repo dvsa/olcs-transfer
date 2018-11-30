@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\CommunityLic;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\CommunityLic\CommunityLicences;
 
 /**
  *  Community licences test
  */
-class CommunityLicencesTest extends PHPUnit_Framework_TestCase
+class CommunityLicencesTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

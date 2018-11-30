@@ -5,7 +5,7 @@ namespace Dvsa\OlcsTest\Transfer\Command\TransportManagerApplication;
 use Dvsa\Olcs\Transfer\Command\TransportManagerApplication\SendAmendTmApplication;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
 
-class SendAmendTmApplicationTest extends \PHPUnit_Framework_TestCase
+class SendAmendTmApplicationTest extends \PHPUnit\Framework\TestCase
 {
     use CommandTest;
 

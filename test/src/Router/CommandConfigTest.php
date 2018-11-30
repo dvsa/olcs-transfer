@@ -9,7 +9,7 @@ use Dvsa\Olcs\Transfer\Router\CommandConfig;
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-class CommandConfigTest extends \PHPUnit_Framework_TestCase
+class CommandConfigTest extends \PHPUnit\Framework\TestCase
 {
     public function testGetDeleteConfig()
     {

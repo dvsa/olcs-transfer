@@ -2,7 +2,6 @@
 
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Validators\Order;
 
 /**
@@ -10,7 +9,7 @@ use Dvsa\Olcs\Transfer\Validators\Order;
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-class OrderTest extends PHPUnit_Framework_TestCase
+class OrderTest extends \PHPUnit\Framework\TestCase
 {
     protected $sut;
 

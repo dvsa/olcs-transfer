@@ -7,7 +7,6 @@
  */
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Validators\Postcode;
 
 /**
@@ -15,7 +14,7 @@ use Dvsa\Olcs\Transfer\Validators\Postcode;
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
-class PostcodeTest extends PHPUnit_Framework_TestCase
+class PostcodeTest extends \PHPUnit\Framework\TestCase
 {
     protected $sut;
 

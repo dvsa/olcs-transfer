@@ -3,12 +3,11 @@
 namespace Dvsa\OlcsTest\Transfer\Query\Application;
 
 use Dvsa\Olcs\Transfer\Query\System\InfoMessage\GetListActive;
-use PHPUnit_Framework_TestCase;
 
 /**
  * @covers Dvsa\Olcs\Transfer\Query\System\InfoMessage\GetListActive
  */
-class GetListActiveTest extends PHPUnit_Framework_TestCase
+class GetListActiveTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\Permits;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\Permits\ReadyToPrintConfirm;
 
 /**
  * ReadyToPrintConfirm Test
  */
-class ReadyToPrintConfirmTest extends PHPUnit_Framework_TestCase
+class ReadyToPrintConfirmTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

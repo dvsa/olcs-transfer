@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Operator;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Operator\CreateUnlicensed as Cmd;
 
 /**
  * Create Unlicensed Operator command test
  */
-class CreateUnlicensedTest extends PHPUnit_Framework_TestCase
+class CreateUnlicensedTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

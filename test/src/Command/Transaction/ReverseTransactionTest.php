@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Transaction;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Transaction\ReverseTransaction;
 
 /**
  * Reverse transaction test
  */
-class ReverseTransactionTest extends PHPUnit_Framework_TestCase
+class ReverseTransactionTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

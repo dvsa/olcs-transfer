@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\TransportManagerApplication;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\TransportManagerApplication\GetList;
 
 /**
  * Get List Test
  */
-class GetListTest extends PHPUnit_Framework_TestCase
+class GetListTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

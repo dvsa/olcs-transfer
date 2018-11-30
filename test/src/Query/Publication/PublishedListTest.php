@@ -5,9 +5,8 @@ namespace Dvsa\OlcsTest\Transfer\Query\Published;
 use DateTime;
 use Dvsa\Olcs\Transfer\Query\Publication\PublishedList;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
-use PHPUnit_Framework_TestCase;
 
-class PublishedListTest extends PHPUnit_Framework_TestCase
+class PublishedListTest extends \PHPUnit\Framework\TestCase
 {
     use QueryTest;
 
