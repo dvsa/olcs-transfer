@@ -3,7 +3,7 @@
 namespace Dvsa\Olcs\Transfer\Command\GdsVerify;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
-use Dvsa\Olcs\Transfer\FieldType\Traits\SurrenderIdOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\SurrenderLicenceOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TmVerifyRole;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerApplicationOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -18,7 +18,7 @@ class ProcessSignatureResponse extends AbstractCommand
     use ApplicationOptional;
     use TransportManagerApplicationOptional;
     use TmVerifyRole;
-    use SurrenderIdOptional;
+    use SurrenderLicenceOptional;
 
 
     /**

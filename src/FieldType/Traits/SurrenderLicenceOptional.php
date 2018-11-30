@@ -8,7 +8,7 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
  *
  * @package Dvsa\Olcs\Transfer\FieldType\Traits
  */
-trait SurrenderIdOptional
+trait SurrenderLicenceOptional
 {
     /**
      * @var int
@@ -17,23 +17,23 @@ trait SurrenderIdOptional
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $surrenderId;
+    protected $licenceId;
 
     /**
      * @return int
      */
-    public function getSurrenderId()
+    public function getLicenceId()
     {
-        return $this->surrenderId;
+        return $this->licenceId;
     }
 
     /**
-     * @param int $surrenderId
+     * @param int $licenceId
      *
      * @return  void
      */
-    public function setSurrenderId(int $surrenderId): void
+    public function setLicenceId(int $licenceId): void
     {
-        $this->surrenderId = $surrenderId;
+        $this->licenceId = $licenceId;
     }
 }
