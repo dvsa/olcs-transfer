@@ -50,6 +50,4 @@ class ProcessSignatureResponseTest extends PHPUnit_Framework_TestCase
         $command->setRole('tma_sign_as_op');
         $this->assertSame('tma_sign_as_op', $command->getRole());
     }
-
-
 }
