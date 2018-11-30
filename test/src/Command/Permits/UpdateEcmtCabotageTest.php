@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Permits;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Permits\UpdateEcmtCabotage;
 
 /**
  * Overview test
  */
-class UpdateEcmtCabotageTest extends PHPUnit_Framework_TestCase
+class UpdateEcmtCabotageTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

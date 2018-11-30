@@ -8,7 +8,7 @@ use Dvsa\Olcs\Transfer\Command\Lva\AbstractUpdateCompanySubsidiary;
  * @covers Dvsa\Olcs\Transfer\Command\Lva\AbstractCreateCompanySubsidiary
  * @covers Dvsa\Olcs\Transfer\Command\Lva\AbstractUpdateCompanySubsidiary
  */
-class AbstractUpdateCompanySubsidiaryTest extends \PHPUnit_Framework_TestCase
+class AbstractUpdateCompanySubsidiaryTest extends \PHPUnit\Framework\TestCase
 {
     public function testGetSet()
     {

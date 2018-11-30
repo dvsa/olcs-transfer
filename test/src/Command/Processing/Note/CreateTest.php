@@ -2,13 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Processing\Note;
 
-use PHPUnit_Framework_TestCase;
+use PHPUnit\Framework\TestCase as TestCase;
 use Dvsa\Olcs\Transfer\Command\Processing\Note\Create;
 
 /**
  * Create test
  */
-class CreateTest extends PHPUnit_Framework_TestCase
+class CreateTest extends TestCase
 {
     public function testStructure()
     {

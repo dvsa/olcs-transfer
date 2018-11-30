@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\IrhpPermitJurisdiction;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\IrhpPermitJurisdiction\Update;
 
 /**
  * Update test
  */
-class UpdateTest extends PHPUnit_Framework_TestCase
+class UpdateTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

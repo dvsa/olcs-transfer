@@ -4,9 +4,8 @@ namespace Dvsa\OlcsTest\Transfer\Command\Cases\ProposeToRevoke;
 
 use Dvsa\Olcs\Transfer\Command\Cases\ProposeToRevoke\CreateProposeToRevoke;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
-use PHPUnit_Framework_TestCase;
 
-class CreateProposeToRevokeTest extends PHPUnit_Framework_TestCase
+class CreateProposeToRevokeTest extends \PHPUnit\Framework\TestCase
 {
     use CommandTest;
 

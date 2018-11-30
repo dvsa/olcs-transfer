@@ -7,7 +7,6 @@
  */
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Validators\YesNo;
 
 /**
@@ -15,7 +14,7 @@ use Dvsa\Olcs\Transfer\Validators\YesNo;
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-class YesNoTest extends PHPUnit_Framework_TestCase
+class YesNoTest extends \PHPUnit\Framework\TestCase
 {
     protected $sut;
 

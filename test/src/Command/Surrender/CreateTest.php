@@ -4,9 +4,8 @@ namespace Dvsa\OlcsTest\Transfer\Command\Surrender;
 
 use Dvsa\Olcs\Transfer\Command\Surrender\Create;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
-use PHPUnit_Framework_TestCase;
 
-class CreateTest extends PHPUnit_Framework_TestCase
+class CreateTest extends \PHPUnit\Framework\TestCase
 {
     use CommandTest;
 

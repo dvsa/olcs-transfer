@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Application;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Application\Overview;
 
 /**
  * Overview test
  */
-class OverviewTest extends PHPUnit_Framework_TestCase
+class OverviewTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

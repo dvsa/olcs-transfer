@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Application;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Application\SubmitApplication;
 
 /**
  * Submit Application test
  */
-class SubmitApplicationTest extends PHPUnit_Framework_TestCase
+class SubmitApplicationTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

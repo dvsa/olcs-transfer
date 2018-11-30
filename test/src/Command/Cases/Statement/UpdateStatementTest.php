@@ -4,9 +4,8 @@ namespace Dvsa\OlcsTest\Transfer\Command\Cases\Statement;
 
 use Dvsa\Olcs\Transfer\Command\Cases\Statement\UpdateStatement;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
-use PHPUnit_Framework_TestCase;
 
-class UpdateStatementTest extends PHPUnit_Framework_TestCase
+class UpdateStatementTest extends \PHPUnit\Framework\TestCase
 {
     use CommandTest;
 

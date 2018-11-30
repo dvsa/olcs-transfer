@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Partial;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Partial\ApplicationTracking;
 
 /**
  * Application Tracking Partial test
  */
-class ApplicationTrackingTest extends PHPUnit_Framework_TestCase
+class ApplicationTrackingTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {
