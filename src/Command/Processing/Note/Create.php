@@ -13,8 +13,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
  * @Transfer\Method("POST")
  * @Transfer\RouteName("backend/processing/note")
  */
-class Create extends AbstractCommand
-    implements
+class Create extends AbstractCommand implements
     FieldType\ApplicationInterface,
     FieldType\CasesInterface,
     FieldType\LicenceInterface,
@@ -28,6 +27,7 @@ class Create extends AbstractCommand
     use FieldTypeTraits\LicenceOptional;
     use FieldTypeTraits\OrganisationOptional;
     use FieldTypeTraits\TransportManagerOptional;
+    use FieldTypeTraits\EcmtPermitApplicationOptional;
 
     // Individual Fields
     use FieldTypeTraits\CommentOptional;

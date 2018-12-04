@@ -22,6 +22,7 @@ trait NoteTypeOptional
      *              "note_t_case",
      *              "note_t_lic",
      *              "note_t_org",
+     *              "note_t_permit",
      *              "note_t_person",
      *              "note_t_tm"
      *          }
