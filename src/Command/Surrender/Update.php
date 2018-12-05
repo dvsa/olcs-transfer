@@ -13,8 +13,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 class Update extends AbstractCommand
 {
 
-    use Traits\Identity,
-        Traits\Version;
+    use Traits\Version;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
@@ -90,6 +89,18 @@ class Update extends AbstractCommand
      */
     protected $status;
 
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *         "haystack": {"sig_physical_signature","sig_digital_signature","sig_signature_not_required"}
+     *     }
+     * })
+     * @Transfer\Optional
+     */
+    protected $signatureType;
 
     public function getLicence()
     {
@@ -139,5 +150,13 @@ class Update extends AbstractCommand
     public function getStatus()
     {
         return $this->status;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSignatureType()
+    {
+        return $this->signatureType;
     }
 }

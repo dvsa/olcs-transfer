@@ -29,10 +29,10 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
                 'doc_sts_destroyed',
             ],
             'digitalSignature' => ['1', '2'],
-            'discDestroyed' => ['0','1','2'],
-            'discLost' => ['0','1','2'],
+            'discDestroyed' => ['0', '1', '2'],
+            'discLost' => ['0', '1', '2'],
             'discLostInfo' => ['text'],
-            'discStolen' => ['0','1','2'],
+            'discStolen' => ['0', '1', '2'],
             'discStolenInfo' => ['text'],
             'licenceDocumentStatus' => [
                 'doc_sts_lost',
@@ -50,6 +50,11 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
                 'surr_sts_start',
                 'surr_sts_submitted',
             ],
+            'signatureType' => [
+                'sig_physical_signature',
+                'sig_digital_signature',
+                'sig_signature_not_required'
+            ]
         ];
     }
 
@@ -75,6 +80,9 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
                 'invalid string',
                 ['unexpected' => 'array'],
             ],
+            'signatureType' => [
+                'rubbish'
+            ]
         ];
     }
 
@@ -92,6 +100,7 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
             'discStolenInfo' => [['text ', 'text']],
             'licenceDocumentStatus' => [['doc_sts_lost ', 'doc_sts_lost']],
             'status' => [['surr_sts_approved ', 'surr_sts_approved']],
+            'signatureType' => [['sig_physical_signature ', 'sig_physical_signature']]
         ];
     }
 }
