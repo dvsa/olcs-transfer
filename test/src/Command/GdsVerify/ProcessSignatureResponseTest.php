@@ -15,14 +15,14 @@ class ProcessSignatureResponseTest extends PHPUnit_Framework_TestCase
         $data = [
             'application' => '321',
             'continuationDetail' => '123',
-            'licenceId' => '123'
+            'licence' => '123'
         ];
 
         $command = ProcessSignatureResponse::create($data);
 
         $this->assertSame('321', $command->getApplication());
         $this->assertSame('123', $command->getContinuationDetail());
-        $this->assertSame('123', $command->getLicenceId());
+        $this->assertSame('123', $command->getLicence());
     }
 
     public function testContinuationDetail()
@@ -38,9 +38,9 @@ class ProcessSignatureResponseTest extends PHPUnit_Framework_TestCase
     {
         $command = ProcessSignatureResponse::create([]);
 
-        $this->assertSame(null, $command->getLicenceId());
-        $command->setLicenceId('99');
-        $this->assertSame(99, $command->getLicenceId());
+        $this->assertSame(null, $command->getLicence());
+        $command->setLicence('99');
+        $this->assertSame(99, $command->getLicence());
     }
 
     public function testSetRole()

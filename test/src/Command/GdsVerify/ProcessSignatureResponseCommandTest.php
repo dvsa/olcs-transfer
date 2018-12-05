@@ -47,7 +47,7 @@ class ProcessSignatureResponseCommandTest extends PHPUnit_Framework_TestCase
             'continuationDetail',
             'transportManagerApplication',
             'role',
-            "licenceId"
+            "licence"
         ];
     }
 
@@ -73,7 +73,7 @@ class ProcessSignatureResponseCommandTest extends PHPUnit_Framework_TestCase
             'continuationDetail' => ['1', '2', '9999'],
             'transportManagerApplication' => ['1', '2', '9999'],
             'role' => ['tma_sign_as_tm', 'tma_sign_as_op','tma_sign_as_top'],
-            'licenceId' => ['1', '2', '9999'],
+            'licence' => ['1', '2', '9999'],
         ];
     }
 
@@ -99,7 +99,7 @@ class ProcessSignatureResponseCommandTest extends PHPUnit_Framework_TestCase
             'continuationDetail' => [0],
             'transportManagerApplication' => [0],
             'role' => ['test', 'test2'],
-            'licenceId' => [0],
+            'licence' => [0],
         ];
     }
 
@@ -130,7 +130,7 @@ class ProcessSignatureResponseCommandTest extends PHPUnit_Framework_TestCase
             'continuationDetail' => [['i2','2']],
             'transportManagerApplication' => [['i2','2']],
             'role' => [['ab1 ', 'ab1']],
-            'licenceId' => [['i2','2']],
+            'licence' => [['i2','2']],
         ];
     }
 }

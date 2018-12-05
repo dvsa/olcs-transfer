@@ -17,23 +17,23 @@ trait SurrenderLicenceOptional
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $licenceId;
+    protected $licence;
 
     /**
      * @return int
      */
-    public function getLicenceId()
+    public function getLicence()
     {
-        return $this->licenceId;
+        return $this->licence;
     }
 
     /**
-     * @param int $licenceId
+     * @param int $licence
      *
      * @return  void
      */
-    public function setLicenceId(int $licenceId): void
+    public function setLicence(int $licence): void
     {
-        $this->licenceId = $licenceId;
+        $this->licence = $licence;
     }
 }
