@@ -270,7 +270,7 @@ return [
                     'store-application-snapshot' => [
                         'type' => 'Segment',
                         'options' => [
-                            'route' => 'ecmt-trips[/]',
+                            'route' => 'store-application-snapshot[/]',
                         ],
                         'may_terminate' => false,
                         'child_routes' => [
