@@ -3,12 +3,11 @@
 namespace Dvsa\OlcsTest\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\Command\Application\UpdateCompanySubsidiary;
-use PHPUnit_Framework_TestCase;
 
 /**
  * @covers Dvsa\Olcs\Transfer\Command\Application\UpdateCompanySubsidiary
  */
-class UpdateCompanySubsidiaryTest extends PHPUnit_Framework_TestCase
+class UpdateCompanySubsidiaryTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

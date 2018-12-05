@@ -2,7 +2,6 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\Permits;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\Permits\ValidEcmtPermits;
 
 /**
@@ -10,7 +9,7 @@ use Dvsa\Olcs\Transfer\Query\Permits\ValidEcmtPermits;
  */
 
 
-class ValidEcmtPermitsTest extends PHPUnit_Framework_TestCase
+class ValidEcmtPermitsTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

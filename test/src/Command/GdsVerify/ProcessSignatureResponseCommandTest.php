@@ -7,7 +7,6 @@ use Dvsa\Olcs\Transfer\Command\GdsVerify\ProcessSignatureResponse;
 use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
 use Dvsa\OlcsTest\Transfer\DtoTest;
-use PHPUnit_Framework_TestCase;
 use Zend\Stdlib\ArraySerializableInterface;
 
 /**
@@ -15,7 +14,7 @@ use Zend\Stdlib\ArraySerializableInterface;
  *
  * @package Dvsa\OlcsTest\Transfer\Command\GdsVerify
  */
-class ProcessSignatureResponseCommandTest extends PHPUnit_Framework_TestCase
+class ProcessSignatureResponseCommandTest extends \PHPUnit\Framework\TestCase
 {
     use CommandTest;
 

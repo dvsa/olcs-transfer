@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\CommunityLic;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\CommunityLic\EditSuspension;
 
 /**
  * Edit suspension test
  */
-class EditSuspensionTest extends PHPUnit_Framework_TestCase
+class EditSuspensionTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {
