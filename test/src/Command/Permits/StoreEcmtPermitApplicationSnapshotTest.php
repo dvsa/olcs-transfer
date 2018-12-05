@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Operator;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Permits\StoreEcmtPermitApplicationSnapshot as Cmd;
 
 /**
  * StoreEcmtPermitApplicationSnapshotTest
  */
-class StoreEcmtPermitApplicationSnapshotTest extends PHPUnit_Framework_TestCase
+class StoreEcmtPermitApplicationSnapshotTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {
