@@ -267,6 +267,16 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtTrips::class),
                         ]
                     ],
+                    'store-application-snapshot' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ecmt-trips[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Permits\StoreEcmtPermitApplicationSnapshot::class),
+                        ]
+                    ],
                 ]
             ],
             'single' => [
