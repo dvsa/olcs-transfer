@@ -3,11 +3,12 @@
 namespace Dvsa\OlcsTest\Transfer\Query\Variation;
 
 use Dvsa\Olcs\Transfer\Query\Lva\AbstractGoodsVehicles;
+use PHPUnit_Framework_TestCase;
 
 /**
  * @covers Dvsa\Olcs\Transfer\Query\Lva\AbstractGoodsVehicles
  */
-class AbstractGoodsVehiclesTest extends \PHPUnit\Framework\TestCase
+class AbstractGoodsVehiclesTest extends PHPUnit_Framework_TestCase
 {
     public function testGetSet()
     {

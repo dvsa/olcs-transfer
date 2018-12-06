@@ -7,7 +7,7 @@ use Dvsa\Olcs\Transfer\Command\TransportManagerApplication\OperatorSigned;
 /**
  * @covers \Dvsa\Olcs\Transfer\Command\TransportManagerApplication\OperatorSigned
  */
-class OperatorSignedTest extends \PHPUnit\Framework\TestCase
+class OperatorSignedTest extends \PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

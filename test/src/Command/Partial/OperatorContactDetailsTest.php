@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Partial;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Partial\OperatorContactDetails;
 
 /**
  * Operator Contact Details Partial test
  */
-class OperatorContactDetailsTest extends \PHPUnit\Framework\TestCase
+class OperatorContactDetailsTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

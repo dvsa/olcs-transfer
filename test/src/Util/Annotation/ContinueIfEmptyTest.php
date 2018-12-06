@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Util\Annotation;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Util\Annotation\ContinueIfEmpty;
 
 /**
  * ContinueIfEmpty test
  */
-class ContinueIfEmptyTest extends \PHPUnit\Framework\TestCase
+class ContinueIfEmptyTest extends PHPUnit_Framework_TestCase
 {
     public function testInstantiationNoValue()
     {

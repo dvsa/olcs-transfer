@@ -4,11 +4,12 @@
 namespace Dvsa\OlcsTest\Transfer\Command\Licence;
 
 use Dvsa\Olcs\Transfer\Command\Licence\CreateCompanySubsidiary;
+use PHPUnit_Framework_TestCase;
 
 /**
  * @covers Dvsa\Olcs\Transfer\Command\Licence\CreateCompanySubsidiary
  */
-class CreateCompanySubsidiaryTest extends \PHPUnit\Framework\TestCase
+class CreateCompanySubsidiaryTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

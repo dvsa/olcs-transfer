@@ -3,13 +3,14 @@
 namespace Dvsa\OlcsTest\Transfer\Query\Fee;
 
 use Dvsa\Olcs\Transfer\Query\DataRetention\GetProcessedList;
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\Fee\FeeList;
 
 /**
  * Class GetProcessedListTest
  * @package Dvsa\OlcsTest\Transfer\Query\Fee
  */
-class GetProcessedListTest extends \PHPUnit\Framework\TestCase
+class GetProcessedListTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

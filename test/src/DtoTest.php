@@ -5,7 +5,7 @@ namespace Dvsa\OlcsTest\Transfer;
 use Dvsa\Olcs\Transfer\Command\CommandContainer;
 use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
-use \PHPUnit\Framework\Assert as Assert;
+use PHPUnit_Framework_Assert;
 use ReflectionMethod;
 use Zend\Stdlib\ArraySerializableInterface;
 
@@ -124,7 +124,7 @@ trait DtoTest
         $dtoContainer->isValid();
 
         $actual = $dto->getArrayCopy()[$fieldName];
-        Assert::assertSame(
+        PHPUnit_Framework_Assert::assertSame(
             $fieldValue,
             $actual,
             sprintf(
@@ -170,7 +170,7 @@ trait DtoTest
      */
     public function testGetterNames($fieldName)
     {
-        Assert::assertSame(
+        PHPUnit_Framework_Assert::assertSame(
             "get" . ucwords($fieldName),
             (new ReflectionMethod($this->createBlankDto(), "get$fieldName"))->getName(),
             "Getter for $fieldName is named incorrectly name"
@@ -186,12 +186,12 @@ trait DtoTest
     {
         $dto = $this->createPopulatedDto([$fieldName => 'DUMMY-VALUE']);
 
-        Assert::assertTrue(
+        PHPUnit_Framework_Assert::assertTrue(
             method_exists($dto, "get$fieldName"),
             "Getter for $fieldName doesn't exit"
         );
 
-        Assert::assertSame(
+        PHPUnit_Framework_Assert::assertSame(
             'DUMMY-VALUE',
             $dto->{"get$fieldName"}(),
             "Getter for $fieldName did not return the correct data"
@@ -211,7 +211,7 @@ trait DtoTest
         $inputFilter->setValidationGroup([$fieldName]);
         $dtoContainer->isValid();
 
-        Assert::assertNull(
+        PHPUnit_Framework_Assert::assertNull(
             $inputFilter->getValues()[$fieldName],
             sprintf("Expected %s to be when omitted", $fieldName)
         );
@@ -292,7 +292,7 @@ trait DtoTest
     {
         $dtoContainer = $this->createDtoContainer($dto);
         $dtoContainer->getInputFilter()->setValidationGroup([$fieldName]);
-        Assert::assertTrue(
+        PHPUnit_Framework_Assert::assertTrue(
             $dtoContainer->isValid(),
             sprintf(
                 "Data should be valid, but failed with these messages: %s",
@@ -307,14 +307,14 @@ trait DtoTest
         $inputFilter = $dtoContainer->getInputFilter();
         $inputFilter->setValidationGroup([$fieldName]);
 
-        Assert::assertFalse(
+        PHPUnit_Framework_Assert::assertFalse(
             $dtoContainer->isValid(),
             "Expected $fieldName to be invalid \n" . print_r($dto, true)
         );
 
         $actualInvalidFieldNames = array_keys($inputFilter->getInvalidInput());
 
-        Assert::assertSame(
+        PHPUnit_Framework_Assert::assertSame(
             [$fieldName],
             $actualInvalidFieldNames,
             sprintf(
@@ -334,7 +334,7 @@ trait DtoTest
 
         $actual = $inputFilter->getValues()[$fieldName];
 
-        Assert::assertSame(
+        PHPUnit_Framework_Assert::assertSame(
             $expectedValue,
             $actual,
             sprintf(

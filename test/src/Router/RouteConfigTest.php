@@ -9,7 +9,7 @@ use Dvsa\Olcs\Transfer\Router\RouteConfig;
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-class RouteConfigTest extends \PHPUnit\Framework\TestCase
+class RouteConfigTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetSingleConfig()
     {

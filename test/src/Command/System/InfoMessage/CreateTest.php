@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\System\InfoMessage;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\System\InfoMessage\Create as CreateCommand;
 
 /**
  * @covers Dvsa\Olcs\Transfer\Command\System\InfoMessage\Create
  */
-class CreateTest extends \PHPUnit\Framework\TestCase
+class CreateTest extends PHPUnit_Framework_TestCase
 {
     public function test()
     {

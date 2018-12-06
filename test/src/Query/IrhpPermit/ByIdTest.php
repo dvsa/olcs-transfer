@@ -2,6 +2,7 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\IrhpPermit;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\IrhpPermit\ById;
 
 /**
@@ -9,7 +10,7 @@ use Dvsa\Olcs\Transfer\Query\IrhpPermit\ById;
  */
 
 
-class ByIdTest extends \PHPUnit\Framework\TestCase
+class ByIdTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

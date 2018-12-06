@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Transaction;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Transaction\CompleteTransaction;
 
 /**
  * Complete Transaction test
  */
-class CompleteTransactionTest extends \PHPUnit\Framework\TestCase
+class CompleteTransactionTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

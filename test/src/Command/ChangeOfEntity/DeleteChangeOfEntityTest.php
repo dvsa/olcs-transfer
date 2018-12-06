@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\ChangeOfEntity;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\ChangeOfEntity\DeleteChangeOfEntity as Cmd;
 
 /**
  * Delete Change Of Entity command test
  */
-class DeleteChangeOfEntityTest extends \PHPUnit\Framework\TestCase
+class DeleteChangeOfEntityTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

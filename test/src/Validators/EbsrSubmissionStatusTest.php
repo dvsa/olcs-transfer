@@ -2,6 +2,7 @@
 
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Validators\EbsrSubmissionStatus;
 
 /**
@@ -9,7 +10,7 @@ use Dvsa\Olcs\Transfer\Validators\EbsrSubmissionStatus;
  *
  * @author Ian Lindsay <ian@hemera-business-services.co.uk>
  */
-class EbsrSubmissionStatusTest extends \PHPUnit\Framework\TestCase
+class EbsrSubmissionStatusTest extends PHPUnit_Framework_TestCase
 {
     protected $sut;
 

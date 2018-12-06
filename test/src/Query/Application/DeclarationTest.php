@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\Organisation;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\Application\Declaration;
 
 /**
  * Declaration Test
  */
-class DeclarationTest extends \PHPUnit\Framework\TestCase
+class DeclarationTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

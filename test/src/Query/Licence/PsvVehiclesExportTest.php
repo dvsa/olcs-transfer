@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\Licence;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\Licence\PsvVehiclesExport;
 
 /**
  * PSV export vehicles test
  */
-class PsvVehiclesExportTest extends \PHPUnit\Framework\TestCase
+class PsvVehiclesExportTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

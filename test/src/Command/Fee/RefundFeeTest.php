@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Fee;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Fee\RefundFee;
 
 /**
  * Refund fee test
  */
-class RefundFeeTest extends \PHPUnit\Framework\TestCase
+class RefundFeeTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

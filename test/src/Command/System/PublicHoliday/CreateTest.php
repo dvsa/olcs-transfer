@@ -8,7 +8,7 @@ use Dvsa\Olcs\Transfer\Command\System\PublicHoliday\Create as CreateCommand;
  * @covers Dvsa\Olcs\Transfer\Command\System\PublicHoliday\Create
  * @covers Dvsa\Olcs\Transfer\Command\System\PublicHoliday\Update
  */
-class CreateTest extends \PHPUnit\Framework\TestCase
+class CreateTest extends \PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

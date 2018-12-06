@@ -3,11 +3,12 @@
 namespace Dvsa\OlcsTest\Transfer\Command\ContactDetail\PhoneContact;
 
 use Dvsa\Olcs\Transfer\Command\ContactDetail\PhoneContact\Update;
+use PHPUnit_Framework_TestCase;
 
 /**
  * @covers Dvsa\Olcs\Transfer\Command\ContactDetail\PhoneContact\Update
  */
-class UpdateTest extends \PHPUnit\Framework\TestCase
+class UpdateTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

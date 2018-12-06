@@ -6,7 +6,7 @@ use Dvsa\Olcs\Transfer\Query\Surrender\GetStatus;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
 use Zend\Stdlib\ArraySerializableInterface;
 
-class GetStatusTest extends \PHPUnit\Framework\TestCase
+class GetStatusTest extends \PHPUnit_Framework_TestCase
 {
     use QueryTest;
 

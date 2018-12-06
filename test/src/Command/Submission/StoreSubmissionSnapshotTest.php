@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Operator;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Submission\StoreSubmissionSnapshot as Cmd;
 
 /**
  * StoreSubmissionSnapshotTest
  */
-class StoreSubmissionSnapshotTest extends \PHPUnit\Framework\TestCase
+class StoreSubmissionSnapshotTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

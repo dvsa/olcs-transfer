@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Vehicle;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Vehicle\UpdateGoodsVehicle;
 
 /**
  * Update Goods Vehicle test
  */
-class UpdateGoodsVehicleTest extends \PHPUnit\Framework\TestCase
+class UpdateGoodsVehicleTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

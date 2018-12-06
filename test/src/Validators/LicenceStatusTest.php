@@ -2,6 +2,7 @@
 
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Validators\LicenceStatus;
 
 /**
@@ -9,7 +10,7 @@ use Dvsa\Olcs\Transfer\Validators\LicenceStatus;
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-class LicenceStatusTest extends \PHPUnit\Framework\TestCase
+class LicenceStatusTest extends PHPUnit_Framework_TestCase
 {
     protected $sut;
 

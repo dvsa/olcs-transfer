@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\Permits;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\Permits\OpenWindows;
 
 /**
  * Open Windows test
  */
-class OpenWindowsTest extends \PHPUnit\Framework\TestCase
+class OpenWindowsTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {
