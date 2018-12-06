@@ -2,9 +2,10 @@
 
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Validators\Sort;
 
-class SortTest extends \PHPUnit\Framework\TestCase
+class SortTest extends PHPUnit_Framework_TestCase
 {
     protected $sut;
 

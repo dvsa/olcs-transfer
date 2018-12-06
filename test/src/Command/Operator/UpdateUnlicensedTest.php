@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Operator;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Operator\UpdateUnlicensed as Cmd;
 
 /**
  * Update Unlicensed Operator command test
  */
-class UpdateUnlicensedTest extends \PHPUnit\Framework\TestCase
+class UpdateUnlicensedTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

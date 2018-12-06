@@ -7,7 +7,7 @@ use Dvsa\Olcs\Transfer\Command\Lva\AbstractDeleteCompanySubsidiary;
 /**
  * @covers Dvsa\Olcs\Transfer\Command\Lva\AbstractDeleteCompanySubsidiary
  */
-class AbstractDeleteCompanySubsidiaryTest extends \PHPUnit\Framework\TestCase
+class AbstractDeleteCompanySubsidiaryTest extends \PHPUnit_Framework_TestCase
 {
     public function testGetSet()
     {

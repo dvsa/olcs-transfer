@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\Organisation;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\Organisation\Dashboard;
 
 /**
  * Dashboard test
  */
-class DashboardTest extends \PHPUnit\Framework\TestCase
+class DashboardTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

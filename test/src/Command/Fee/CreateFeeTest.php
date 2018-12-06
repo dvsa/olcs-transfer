@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Fee;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Fee\CreateFee;
 
 /**
  * Create Fee test
  */
-class CreateFeeTest extends \PHPUnit\Framework\TestCase
+class CreateFeeTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

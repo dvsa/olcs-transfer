@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\GdsVerify;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\GdsVerify\ProcessSignatureResponse;
 
 /**
  * ProcessSignatureResponseTest
  */
-class ProcessSignatureResponseTest extends \PHPUnit\Framework\TestCase
+class ProcessSignatureResponseTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\Variation;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\Variation\Variation;
 
 /**
  * Variation test
  */
-class VariationTest extends \PHPUnit\Framework\TestCase
+class VariationTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

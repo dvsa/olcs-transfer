@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\Organisation;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\Application\FinancialEvidence;
 
 /**
  * Financial Evidence Test
  */
-class FinancialEvidenceTest extends \PHPUnit\Framework\TestCase
+class FinancialEvidenceTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

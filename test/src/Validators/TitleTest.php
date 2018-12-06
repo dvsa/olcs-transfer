@@ -2,6 +2,7 @@
 
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Validators\Title;
 
 /**
@@ -9,7 +10,7 @@ use Dvsa\Olcs\Transfer\Validators\Title;
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-class TitleTest extends \PHPUnit\Framework\TestCase
+class TitleTest extends PHPUnit_Framework_TestCase
 {
     protected $sut;
 

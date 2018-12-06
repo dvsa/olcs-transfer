@@ -7,7 +7,7 @@ use Dvsa\Olcs\Transfer\Command\TransportManagerApplication\UpdateForResponsibili
 /**
  * @covers \Dvsa\Olcs\Transfer\Command\TransportManagerApplication\UpdateForResponsibilities
  */
-class UpdateForResponsibilitiesTest extends \PHPUnit\Framework\TestCase
+class UpdateForResponsibilitiesTest extends \PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

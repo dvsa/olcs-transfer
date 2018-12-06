@@ -4,8 +4,9 @@ namespace Dvsa\OlcsTest\Transfer\Command\Surrender;
 
 use Dvsa\Olcs\Transfer\Command\Surrender\Update;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
+use PHPUnit_Framework_TestCase;
 
-class UpdateTest extends \PHPUnit\Framework\TestCase
+class UpdateTest extends PHPUnit_Framework_TestCase
 {
     use CommandTest;
 

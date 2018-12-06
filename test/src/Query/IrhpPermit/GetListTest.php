@@ -2,6 +2,7 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\IrhpPermit;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\IrhpPermit\GetList;
 
 /**
@@ -9,7 +10,7 @@ use Dvsa\Olcs\Transfer\Query\IrhpPermit\GetList;
  */
 
 
-class GetListTest extends \PHPUnit\Framework\TestCase
+class GetListTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

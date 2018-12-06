@@ -4,8 +4,9 @@ namespace Dvsa\OlcsTest\Transfer\Command\Operator;
 
 use Dvsa\Olcs\Transfer\Command\Submission\AssignSubmission;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
+use PHPUnit_Framework_TestCase;
 
-class AssignSubmissionTest extends \PHPUnit\Framework\TestCase
+class AssignSubmissionTest extends PHPUnit_Framework_TestCase
 {
     use CommandTest;
 

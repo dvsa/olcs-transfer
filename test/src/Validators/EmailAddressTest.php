@@ -7,6 +7,7 @@
  */
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Validators\EmailAddress;
 
 /**
@@ -14,7 +15,7 @@ use Dvsa\Olcs\Transfer\Validators\EmailAddress;
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
-class EmailAddressTest extends \PHPUnit\Framework\TestCase
+class EmailAddressTest extends PHPUnit_Framework_TestCase
 {
     protected $sut;
 

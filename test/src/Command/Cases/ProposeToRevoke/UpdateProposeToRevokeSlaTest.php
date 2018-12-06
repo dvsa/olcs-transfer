@@ -6,7 +6,7 @@ namespace Dvsa\OlcsTest\Transfer\Command\Cases\ProposeToRevoke;
 use Dvsa\Olcs\Transfer\Command\Cases\ProposeToRevoke\UpdateProposeToRevokeSla;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
 
-class UpdateProposeToRevokeSlaTest extends \PHPUnit\Framework\TestCase
+class UpdateProposeToRevokeSlaTest extends \PHPUnit_Framework_TestCase
 {
     use CommandTest;
 

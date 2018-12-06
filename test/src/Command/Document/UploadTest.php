@@ -3,11 +3,12 @@
 namespace Dvsa\OlcsTest\Transfer\Command\Document;
 
 use Dvsa\Olcs\Transfer\Command\Document\Upload;
+use PHPUnit_Framework_TestCase;
 
 /**
  * @covers Dvsa\Olcs\Transfer\Command\Document\Upload
  */
-class UploadTest extends \PHPUnit\Framework\TestCase
+class UploadTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

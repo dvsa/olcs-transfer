@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Application;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Application\Grant;
 
 /**
  * Grant test
  */
-class GrantTest extends \PHPUnit\Framework\TestCase
+class GrantTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

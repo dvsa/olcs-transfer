@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Variation;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Variation\UpdateConditionUndertaking;
 
 /**
  * UpdateConditionUndertaking test
  */
-class UpdateConditionUndertakingTest extends \PHPUnit\Framework\TestCase
+class UpdateConditionUndertakingTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {

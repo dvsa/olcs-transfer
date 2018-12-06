@@ -2,13 +2,14 @@
 
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Validators\TrafficArea;
 
 /**
  * @author Mat Evans <mat.evans@valtech.co.uk>
  * @covers \Dvsa\Olcs\Transfer\Validators\TrafficArea
  */
-class TrafficAreaTest extends \PHPUnit\Framework\TestCase
+class TrafficAreaTest extends PHPUnit_Framework_TestCase
 {
     /** @var TrafficArea */
     protected $sut;

@@ -2,6 +2,7 @@
 
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Validators\ApplicationStatus;
 
 /**
@@ -9,7 +10,7 @@ use Dvsa\Olcs\Transfer\Validators\ApplicationStatus;
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
-class ApplicationStatusTest extends \PHPUnit\Framework\TestCase
+class ApplicationStatusTest extends PHPUnit_Framework_TestCase
 {
     protected $sut;
 

@@ -8,6 +8,7 @@
  */
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Validators\Money;
 
 /**
@@ -16,7 +17,7 @@ use Dvsa\Olcs\Transfer\Validators\Money;
  * @author Rob Caiger <rob@clocal.co.uk>
  * @author Dan Eggleston <dan@stolenegg.com>
  */
-class MoneyTest extends \PHPUnit\Framework\TestCase
+class MoneyTest extends PHPUnit_Framework_TestCase
 {
     protected $sut;
 

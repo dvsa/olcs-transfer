@@ -2,12 +2,13 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Organisation;
 
+use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Organisation\TransferTo;
 
 /**
  * Transfer To test
  */
-class TransferToTest extends \PHPUnit\Framework\TestCase
+class TransferToTest extends PHPUnit_Framework_TestCase
 {
     public function testStructure()
     {
