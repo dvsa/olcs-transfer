@@ -1,6 +1,6 @@
 <?php
 
-namespace Dvsa\OlcsTest\Transfer\Command\Operator;
+namespace Dvsa\OlcsTest\Transfer\Command\Permits;
 
 use Dvsa\Olcs\Transfer\Command\Permits\StoreEcmtPermitApplicationSnapshot as Cmd;
 
