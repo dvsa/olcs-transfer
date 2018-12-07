@@ -12,4 +12,21 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class Delete extends AbstractDeleteCommand
 {
 
+    /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $licence;
+
+    /**
+     * @return mixed
+     */
+    public function getLicence()
+    {
+        return $this->licence;
+    }
+
+
 }
