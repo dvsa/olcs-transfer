@@ -56,7 +56,7 @@ class ByLicenceTest extends PHPUnit_Framework_TestCase
     protected function getValidFieldValues()
     {
         return [
-            'id' => [
+            'licence' => [
                 '1'
             ]
         ];
@@ -80,7 +80,7 @@ class ByLicenceTest extends PHPUnit_Framework_TestCase
     protected function getInvalidFieldValues()
     {
         return [
-            "id"=>[
+            "licence"=>[
                 0
             ]
         ];
@@ -108,7 +108,7 @@ class ByLicenceTest extends PHPUnit_Framework_TestCase
     protected function getFilterTransformations()
     {
         return [
-            'id' => [[99, '99']],
+            'licence' => [[99, '99']],
         ];
     }
 }
