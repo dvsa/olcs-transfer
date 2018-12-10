@@ -13,16 +13,10 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 class Update extends AbstractCommand
 {
 
-    use Traits\Version;
+    use Traits\Identity,
+        Traits\Version;
 
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $licence;
-
-    /**
+     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\LicenceDocumentStatus"})
      * @Transfer\Optional
@@ -101,11 +95,6 @@ class Update extends AbstractCommand
      * @Transfer\Optional
      */
     protected $signatureType;
-
-    public function getLicence()
-    {
-        return $this->licence;
-    }
 
     public function getCommunityLicenceDocumentStatus()
     {
