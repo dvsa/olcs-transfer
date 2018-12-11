@@ -982,6 +982,12 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Licence\PsvDiscs::class),
                                 ]
                             ],
+                            'goods-disc-count' => RouteConfig::getRouteConfig(
+                                'goods-disc-count',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\GoodsDiscCount::class)
+                                ]
+                            ),
                             'goods-vehicles' => RouteConfig::getRouteConfig(
                                 'goods-vehicles',
                                 [
