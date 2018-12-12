@@ -20,7 +20,7 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Permits\SectorsList::class),
+                    'GET' => QueryConfig::getConfig(Query\Permits\Sectors::class),
                 ]
             ],
             'ecmt-application-by-licence' => [
