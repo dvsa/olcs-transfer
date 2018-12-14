@@ -4,9 +4,8 @@ namespace Dvsa\OlcsTest\Transfer\Command\Cases\Pi;
 
 use Dvsa\Olcs\Transfer\Command\Cases\Pi\UpdateHearing;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
-use PHPUnit_Framework_TestCase;
 
-class UpdateHearingTest extends PHPUnit_Framework_TestCase
+class UpdateHearingTest extends \PHPUnit\Framework\TestCase
 {
     use CommandTest;
 

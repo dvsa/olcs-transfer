@@ -7,7 +7,7 @@ use Dvsa\Olcs\Transfer\Command\Document\PrintLetter;
 /**
  * @covers \Dvsa\Olcs\Transfer\Command\Document\PrintLetter
  */
-class PrintLetterTest extends \PHPUnit_Framework_TestCase
+class PrintLetterTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

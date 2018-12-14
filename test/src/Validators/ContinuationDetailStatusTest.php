@@ -7,7 +7,6 @@
  */
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Validators\ContinuationDetailStatus;
 
 /**
@@ -15,7 +14,7 @@ use Dvsa\Olcs\Transfer\Validators\ContinuationDetailStatus;
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-class ContinuationDetailStatusTest extends PHPUnit_Framework_TestCase
+class ContinuationDetailStatusTest extends \PHPUnit\Framework\TestCase
 {
     protected $sut;
 

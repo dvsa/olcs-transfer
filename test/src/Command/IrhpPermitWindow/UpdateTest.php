@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\IrhpPermitWindow;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\IrhpPermitWindow\Update;
 
 /**
  * Update test
  */
-class UpdateTest extends PHPUnit_Framework_TestCase
+class UpdateTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

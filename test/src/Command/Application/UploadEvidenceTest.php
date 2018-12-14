@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Application;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Application\UploadEvidence;
 
 /**
  * Upload Evidence test
  */
-class UploadEvidenceTest extends PHPUnit_Framework_TestCase
+class UploadEvidenceTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

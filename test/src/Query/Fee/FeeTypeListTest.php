@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\Fee;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\Fee\FeeTypeList;
 
 /**
  * Fee List Test
  */
-class FeeTypeListTest extends PHPUnit_Framework_TestCase
+class FeeTypeListTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

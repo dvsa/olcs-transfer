@@ -4,7 +4,7 @@ namespace Dvsa\OlcsTest\Transfer\Command\TransportManagerLicence;
 
 use Dvsa\Olcs\Transfer\Command\TransportManagerLicence\Delete;
 
-class DeleteTest extends \PHPUnit_Framework_TestCase
+class DeleteTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testSetYesNo() : void

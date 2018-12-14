@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Application;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Application\UpdateDeclaration;
 
 /**
  * Update Business Type test
  */
-class UpdateDeclarationTest extends PHPUnit_Framework_TestCase
+class UpdateDeclarationTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

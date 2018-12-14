@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Util\Annotation;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Util\Annotation\DoNotExchange;
 
 /**
  * DoNotExchange test
  */
-class DoNotExchangeTest extends PHPUnit_Framework_TestCase
+class DoNotExchangeTest extends \PHPUnit\Framework\TestCase
 {
     public function testInstantiationNoValue()
     {
