@@ -40,6 +40,8 @@ class UpdateTest extends PHPUnit_Framework_TestCase
                 'doc_sts_stolen',
                 'doc_sts_destroyed',
             ],
+            'licenceDocumentInfo' => ['some licence doc info',],
+            'communityLicenceDocumentInfo' => ['some community licence doc info'],
             'status' => [
                 'surr_sts_approved',
                 'surr_sts_comm_lic_docs_complete',
@@ -101,7 +103,15 @@ class UpdateTest extends PHPUnit_Framework_TestCase
             'discStolenInfo' => [['text ', 'text']],
             'licenceDocumentStatus' => [['doc_sts_lost ', 'doc_sts_lost']],
             'status' => [['surr_sts_approved ', 'surr_sts_approved']],
-            'signatureType' => [['sig_physical_signature ', 'sig_physical_signature']]
+            'signatureType' => [['sig_physical_signature ', 'sig_physical_signature']],
+            'communityLicenceDocumentInfo' => [
+                ['some info ', 'some info'],
+                ['oTHer INFO', 'other info']
+            ],
+            'licenceDocumentInfo' => [
+                ['some info ', 'some info'],
+                ['oTHer INFO', 'other info']
+            ]
         ];
     }
 }
