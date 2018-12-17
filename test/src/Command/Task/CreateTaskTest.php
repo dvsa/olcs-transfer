@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Task;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Task\CreateTask;
 
 /**
  * CreateTask test
  */
-class CreateTaskTest extends PHPUnit_Framework_TestCase
+class CreateTaskTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

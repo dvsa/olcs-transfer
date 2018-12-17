@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Partial;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Partial\OperatingCentreEvidence;
 
 /**
  * Operating Centre Evidence Partial test
  */
-class OperatingCentreEvidenceTest extends PHPUnit_Framework_TestCase
+class OperatingCentreEvidenceTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

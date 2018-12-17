@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Licence;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Licence\UpdateTypeOfLicence;
 
 /**
  * Update Business Type test
  */
-class UpdateTypeOfLicenceTest extends PHPUnit_Framework_TestCase
+class UpdateTypeOfLicenceTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

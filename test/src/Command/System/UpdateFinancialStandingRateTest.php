@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\System;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\System\UpdateFinancialStandingRate as Sut;
 
 /**
  * Update Financial Standing Rate test
  */
-class UpdateFinancialStandingRateTest extends PHPUnit_Framework_TestCase
+class UpdateFinancialStandingRateTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

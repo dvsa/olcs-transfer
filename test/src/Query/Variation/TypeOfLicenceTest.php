@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\Variation;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\Variation\TypeOfLicence;
 
 /**
  * Type of licence test
  */
-class TypeOfLicenceTest extends PHPUnit_Framework_TestCase
+class TypeOfLicenceTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

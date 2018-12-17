@@ -9,7 +9,7 @@ use Dvsa\Olcs\Transfer\Router\QueryConfig;
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-class QueryConfigTest extends \PHPUnit_Framework_TestCase
+class QueryConfigTest extends \PHPUnit\Framework\TestCase
 {
     public function testGetConfig()
     {

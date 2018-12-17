@@ -4,10 +4,9 @@ namespace Dvsa\OlcsTest\Transfer\Query\Surrender;
 
 use Dvsa\Olcs\Transfer\Query\Surrender\ByLicence;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
-use PHPUnit_Framework_TestCase;
 use Zend\Stdlib\ArraySerializableInterface;
 
-class ByLicenceTest extends PHPUnit_Framework_TestCase
+class ByLicenceTest extends \PHPUnit\Framework\TestCase
 {
     use QueryTest;
 

@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Transaction;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Transaction\PayOutstandingFees;
 
 /**
  * Pay Outstanding Fees test
  */
-class PayOutstandingFeesTest extends PHPUnit_Framework_TestCase
+class PayOutstandingFeesTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

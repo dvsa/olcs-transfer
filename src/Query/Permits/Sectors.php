@@ -15,7 +15,7 @@ use Dvsa\Olcs\Transfer\Query\OrderedTraitOptional;
 /**
  * @Transfer\RouteName("backend/permits/sectors")
  */
-class SectorsList extends AbstractQuery implements CachableMediumTermQueryInterface
+class Sectors extends AbstractQuery implements CachableMediumTermQueryInterface
 {
     use OrderedTraitOptional;
 }

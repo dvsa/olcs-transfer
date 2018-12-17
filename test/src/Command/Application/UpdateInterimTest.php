@@ -2,10 +2,9 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\Application;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\Application\UpdateInterim;
 
-class UpdateInterimTest extends PHPUnit_Framework_TestCase
+class UpdateInterimTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

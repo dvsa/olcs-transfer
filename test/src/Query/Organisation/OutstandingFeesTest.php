@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\Organisation;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Query\Organisation\OutstandingFees;
 
 /**
  * Outstanding Fees test
  */
-class OutstandingFeesTest extends PHPUnit_Framework_TestCase
+class OutstandingFeesTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {
