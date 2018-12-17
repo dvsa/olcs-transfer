@@ -2,13 +2,12 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\ConditionUndertaking;
 
-use PHPUnit_Framework_TestCase;
 use Dvsa\Olcs\Transfer\Command\ConditionUndertaking\Create;
 
 /**
  * Create test
  */
-class CreateTest extends PHPUnit_Framework_TestCase
+class CreateTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {

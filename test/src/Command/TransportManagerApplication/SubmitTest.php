@@ -5,7 +5,7 @@ namespace Dvsa\OlcsTest\Transfer\Command\TransportManagerApplication;
 use Dvsa\Olcs\Transfer\Command\TransportManagerApplication\Submit;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
 
-class SubmitTest extends \PHPUnit_Framework_TestCase
+class SubmitTest extends \PHPUnit\Framework\TestCase
 {
     use CommandTest;
 
