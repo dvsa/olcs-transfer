@@ -111,6 +111,15 @@ final class UpdateDocumentLinks extends AbstractCommand
     protected $complaint;
 
     /**
+     * @var int
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $ecmtApplication;
+
+    /**
      * @return int
      */
     public function getIrfoOrganisation()
@@ -180,5 +189,13 @@ final class UpdateDocumentLinks extends AbstractCommand
     public function getContinuationDetail()
     {
         return $this->continuationDetail;
+    }
+
+    /**
+     * @return int
+     */
+    public function getEcmtApplication()
+    {
+        return $this->ecmtApplication;
     }
 }

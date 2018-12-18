@@ -172,6 +172,14 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     protected $additionalEntities = [];
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Optional
+     */
+    protected $ecmtApplication;
+
+    /**
      * Get filename
      *
      * @return string
@@ -357,5 +365,15 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     public function getContinuationDetail()
     {
         return $this->continuationDetail;
+    }
+
+    /**
+     * Get ecmt application
+     *
+     * @return int
+     */
+    public function getEcmtApplication()
+    {
+        return $this->ecmtApplication;
     }
 }
