@@ -39,6 +39,8 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
                 'doc_sts_stolen',
                 'doc_sts_destroyed',
             ],
+            'licenceDocumentInfo' => [str_repeat('lice2', 100)],
+            'communityLicenceDocumentInfo' => [str_repeat('abcde', 100)],
             'status' => [
                 'surr_sts_approved',
                 'surr_sts_comm_lic_docs_complete',
@@ -72,6 +74,8 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
             'discLostInfo' => [['unexpected' => 'array']],
             'discStolen' => [['array']],
             'discStolenInfo' => [['unexpected' => 'array']],
+            'licenceDocumentInfo' => [str_repeat('hsgaa', 101)],
+            'communityLicenceDocumentInfo' => [str_repeat('failu', 101)],
             'licenceDocumentStatus' => [
                 'invalid string',
                 ['unexpected' => 'array'],
@@ -100,7 +104,13 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
             'discStolenInfo' => [['text ', 'text']],
             'licenceDocumentStatus' => [['doc_sts_lost ', 'doc_sts_lost']],
             'status' => [['surr_sts_approved ', 'surr_sts_approved']],
-            'signatureType' => [['sig_physical_signature ', 'sig_physical_signature']]
+            'signatureType' => [['sig_physical_signature ', 'sig_physical_signature']],
+            'communityLicenceDocumentInfo' => [
+                ['some Info ', 'some Info'],
+            ],
+            'licenceDocumentInfo' => [
+                ['Some info ', 'Some info'],
+            ]
         ];
     }
 }
