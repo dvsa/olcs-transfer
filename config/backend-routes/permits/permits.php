@@ -339,6 +339,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\StockOperationsPermitted::class),
                 ]
             ],
+            'ready-to-print-stock' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ready-to-print-stock[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\ReadyToPrintStock::class),
+                ]
+            ],
             'ready-to-print' => [
                 'type' => 'Segment',
                 'options' => [

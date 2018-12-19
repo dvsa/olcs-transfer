@@ -24,6 +24,13 @@ class Update extends AbstractCommand
     protected $communityLicenceDocumentStatus;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 0, "max": 500}})
+     * @Transfer\Optional
+     */
+    protected $communityLicenceDocumentInfo;
+
+    /**
      * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
@@ -75,6 +82,13 @@ class Update extends AbstractCommand
      * @Transfer\Optional
      */
     protected $licenceDocumentStatus;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 0, "max": 500}})
+     * @Transfer\Optional
+     */
+    protected $licenceDocumentInfo;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -147,5 +161,21 @@ class Update extends AbstractCommand
     public function getSignatureType()
     {
         return $this->signatureType;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCommunityLicenceDocumentInfo()
+    {
+        return $this->communityLicenceDocumentInfo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLicenceDocumentInfo()
+    {
+        return $this->licenceDocumentInfo;
     }
 }
