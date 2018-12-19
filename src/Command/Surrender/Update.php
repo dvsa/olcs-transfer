@@ -25,7 +25,6 @@ class Update extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringToLower"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 0, "max": 500}})
      * @Transfer\Optional
      */
@@ -86,7 +85,6 @@ class Update extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringToLower"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 0, "max": 500}})
      * @Transfer\Optional
      */
