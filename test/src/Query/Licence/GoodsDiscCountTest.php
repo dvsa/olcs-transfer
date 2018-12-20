@@ -4,10 +4,9 @@ namespace Dvsa\OlcsTest\Transfer\Query\Surrender;
 
 use Dvsa\Olcs\Transfer\Query\Licence\GoodsDiscCount;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
-use PHPUnit_Framework_TestCase;
 use Zend\Stdlib\ArraySerializableInterface;
 
-class GoodsDiscCountTest extends PHPUnit_Framework_TestCase
+class GoodsDiscCountTest extends \PHPUnit\Framework\TestCase
 {
     use QueryTest;
 
