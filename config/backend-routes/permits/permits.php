@@ -309,6 +309,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\UnpaidEcmtPermits::class),
                 ]
             ],
+            'available-types' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'available-types[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\AvailableTypes::class),
+                ]
+            ],
             'last-open-window' => [
                 'type' => 'Segment',
                 'options' => [
