@@ -117,7 +117,7 @@ final class UpdateDocumentLinks extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $ecmtApplication;
+    protected $ecmtPermitApplication;
 
     /**
      * @return int
@@ -194,8 +194,8 @@ final class UpdateDocumentLinks extends AbstractCommand
     /**
      * @return int
      */
-    public function getEcmtApplication()
+    public function getEcmtPermitApplication()
     {
-        return $this->ecmtApplication;
+        return $this->ecmtPermitApplication;
     }
 }
