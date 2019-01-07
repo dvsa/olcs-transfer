@@ -27,6 +27,12 @@ return [
                     'GET' => QueryConfig::getConfig(Dvsa\Olcs\Transfer\Query\Surrender\GetStatus::class),
                 ]
             ),
+            'submit-form' => RouteConfig::getRouteConfig(
+                'submit-form',
+                [
+                    'POST' => CommandConfig::getPostConfig(Dvsa\Olcs\Transfer\Command\Surrender\SubmitForm::class),
+                ]
+            )
         ]
     ),
 ];
