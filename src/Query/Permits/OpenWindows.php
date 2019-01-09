@@ -16,9 +16,25 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class OpenWindows extends AbstractQuery
 {
     /**
+     * @var int
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $permitType;
+
+    /**
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d H:i:s"}})
      */
     protected $currentDateTime;
+
+    /**
+     * @return int
+     */
+    public function getPermitType()
+    {
+        return $this->permitType;
+    }
 
    /**
      * Get current date
