@@ -29,7 +29,7 @@ class UploadTest extends \PHPUnit\Framework\TestCase
         $shouldUploadOnly = true;
         $additionalCopy = true;
         $additionalEntities = ['application', 'licence'];
-        $ecmtApplication = 3;
+        $ecmtPermitApplication = 3;
 
         $data = [
             'filename' => $filename,
@@ -50,7 +50,7 @@ class UploadTest extends \PHPUnit\Framework\TestCase
             'shouldUploadOnly' => $shouldUploadOnly,
             'additionalCopy' => $additionalCopy,
             'additionalEntities' => $additionalEntities,
-            'ecmtApplication' => $ecmtApplication,
+            'ecmtPermitApplication' => $ecmtPermitApplication,
         ];
 
         /** @var Upload $command */
@@ -74,6 +74,6 @@ class UploadTest extends \PHPUnit\Framework\TestCase
         static::assertEquals($shouldUploadOnly, $command->getShouldUploadOnly());
         static::assertEquals($additionalCopy, $command->getAdditionalCopy());
         static::assertEquals($additionalEntities, $command->getAdditionalEntities());
-        static::assertEquals($ecmtApplication, $command->getecmtApplication());
+        static::assertEquals($ecmtPermitApplication, $command->getEcmtPermitApplication());
     }
 }
