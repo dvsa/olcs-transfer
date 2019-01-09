@@ -15,6 +15,7 @@ return [
         'may_terminate' => false,
         'child_routes' => [
             'GET' => QueryConfig::getConfig(Query\IrhpPermitApplication\GetList::class),
+            'POST' => CommandConfig::getPostConfig(Command\IrhpPermitApplication\Create::class),
         ]
     ],
 ];
