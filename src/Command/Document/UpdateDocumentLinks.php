@@ -111,6 +111,11 @@ final class UpdateDocumentLinks extends AbstractCommand
     protected $complaint;
 
     /**
+     * @Transfer\Optional
+     */
+    protected $ecmtPermitApplication;
+
+    /**
      * @return int
      */
     public function getIrfoOrganisation()
@@ -180,5 +185,13 @@ final class UpdateDocumentLinks extends AbstractCommand
     public function getContinuationDetail()
     {
         return $this->continuationDetail;
+    }
+
+    /**
+     * @return int
+     */
+    public function getEcmtPermitApplication()
+    {
+        return $this->ecmtPermitApplication;
     }
 }
