@@ -19,6 +19,7 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\ById::class),
                 ]
             ),
+            'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\Create::class),
             'licence' => [
                 'type' => 'Segment',
                 'options' => [

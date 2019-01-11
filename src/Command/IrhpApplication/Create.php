@@ -1,15 +1,15 @@
 <?php
 
 /**
- * Create Irhp Permit Application
+ * Create Irhp Application
  */
-namespace Dvsa\Olcs\Transfer\Command\IrhpPermitApplication;
+namespace Dvsa\Olcs\Transfer\Command\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
- * @Transfer\RouteName("backend/irhp-permit-application")
+ * @Transfer\RouteName("backend/irhp-application")
  * @Transfer\Method("POST")
  */
 final class Create extends AbstractCommand
