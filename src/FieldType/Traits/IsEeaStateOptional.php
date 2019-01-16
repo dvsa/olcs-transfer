@@ -2,25 +2,25 @@
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
- * Trait IsEcmtState
+ * Trait IsEeaState
  *
  * @package Dvsa\Olcs\Transfer\Command\Traits\FieldType
- * @author Tonci Vidovic <tonci.vidovic@capgemini.com>
  */
-trait IsEcmtState
+trait IsEeaStateOptional
 {
     /**
      * @var int
+     * @Transfer\Optional
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
-    protected $isEcmtState;
+    protected $isEeaState;
 
     /**
      * @return int
      */
-    public function getIsEcmtState()
+    public function getIsEeaState()
     {
-        return $this->isEcmtState;
+        return $this->isEeaState;
     }
 }

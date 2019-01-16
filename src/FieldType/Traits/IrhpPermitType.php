@@ -2,12 +2,12 @@
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
- * IRHP Permit Stock Type Trait
+ * IRHP Permit Type Trait
  *
  * @package Dvsa\Olcs\Transfer\FieldType\Traits
  * @author Scott Callaway <scott.callaway@capgemini.com>
  */
-trait IrhpPermitStockType
+trait IrhpPermitType
 {
     /**
      * @var string
@@ -20,13 +20,13 @@ trait IrhpPermitStockType
      *      }
      * })
      */
-    protected $permitType;
+    protected $irhpPermitType;
 
     /**
-     * @return string
+     * @return int
      */
-    public function getPermitType(): string
+    public function getIrhpPermitType(): int
     {
-        return $this->permitType;
+        return $this->irhpPermitType;
     }
 }

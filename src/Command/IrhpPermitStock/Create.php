@@ -5,11 +5,12 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\IrhpPermitStock;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\CountryOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitStockValidFrom;
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitStockValidTo;
-use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitStockType;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitType;
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitStockInitialStock;
 
 /**
@@ -21,5 +22,6 @@ final class Create extends AbstractCommand
     use IrhpPermitStockInitialStock;
     use IrhpPermitStockValidFrom;
     use IrhpPermitStockValidTo;
-    use IrhpPermitStockType;
+    use IrhpPermitType;
+    use CountryOptional;
 }
