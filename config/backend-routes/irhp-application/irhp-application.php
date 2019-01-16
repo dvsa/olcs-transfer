@@ -29,14 +29,14 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateMultipleNoOfPermits::class),
                 ],
             ],
-            'update' => [
+            'update-check-answers' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => 'update[/]',
+                    'route' => 'update-check-answers[/]',
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\Update::class),
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateCheckAnswers::class),
                 ]
             ],
         ]
