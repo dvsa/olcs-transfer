@@ -28,7 +28,17 @@ return [
                 'child_routes' => [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateMultipleNoOfPermits::class),
                 ],
-            ], 
+            ],
+            'update' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'update[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\Update::class),
+                ]
+            ],
         ]
     ],
 ];
