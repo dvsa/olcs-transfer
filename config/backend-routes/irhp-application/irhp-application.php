@@ -59,6 +59,7 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\SubmitApplication::class),
                 ]
             ],
+            'GET' => QueryConfig::getConfig(Query\IrhpApplication\GetList::class),
         ]
     ],
 ];
