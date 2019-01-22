@@ -29,6 +29,16 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateMultipleNoOfPermits::class),
                 ],
             ],
+            'update-declaration' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'update-declaration[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateDeclaration::class),
+                ],
+            ],
             'update-check-answers' => [
                 'type' => 'Segment',
                 'options' => [
@@ -37,6 +47,16 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateCheckAnswers::class),
+                ]
+            ],
+            'submit-application' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'submit-application[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\SubmitApplication::class),
                 ]
             ],
         ]
