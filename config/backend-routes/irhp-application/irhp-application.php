@@ -85,6 +85,26 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\SubmitApplication::class),
                 ]
             ],
+            'max-stock-permits' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'max-stock-permits[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\MaxStockPermits::class),
+                ]
+            ],
+            'max-stock-permits-by-application' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'max-stock-permits-by-application[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\MaxStockPermitsByApplication::class),
+                ]
+            ],
             'GET' => QueryConfig::getConfig(Query\IrhpApplication\GetList::class),
             'cancel-application' => [
                 'type' => 'Segment',
