@@ -31,4 +31,33 @@ final class GetList extends AbstractQuery implements CachableShortTermQueryInter
     {
         return $this->status;
     }
+
+    /**
+     * @Transfer\ArrayInput
+     *
+     */
+    protected $statusIds = null;
+
+    /**
+     * @return string
+     */
+    public function getStatusIds()
+    {
+        return $this->statusIds;
+    }
+
+    /**
+     * @var int
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $organisation;
+
+    /**
+     * @return int
+     */
+    public function getOrganisation()
+    {
+        return $this->organisation;
+    }
 }

@@ -18,6 +18,8 @@ class GetListTest extends \PHPUnit\Framework\TestCase
             'status' => null,
             'sort' => 'id',
             'order' => 'DESC',
+            'statusIds' => null,
+            'organisation' => null,
             'sortWhitelist' => array()
         ], $sut->getArrayCopy());
     }
