@@ -107,6 +107,26 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateFull::class),
                 ]
             ],
+            'get-all-by-licence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'get-all-by-licence[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\GetAllByLicence::class),
+                ],
+            ],
+            'get-all-by-organisation' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'get-all-by-organisation[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\GetAllByOrganisation::class),
+                ],
+            ],
         ]
     ],
 ];
