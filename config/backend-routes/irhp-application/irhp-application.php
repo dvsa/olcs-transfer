@@ -19,6 +19,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\ById::class),
                 ]
             ),
+            'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\Create::class),
+            'licence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'licence[/]',
+                ],
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateLicence::class)
+                ]
+            ],
             'update-multiple-no-of-permits' => [
                 'type' => 'Segment',
                 'options' => [

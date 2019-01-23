@@ -2,8 +2,6 @@
 
 /**
  * Create ECMT Permit Application
- *
- * @author Tonci Vidovic <tonci.vidovic@capgemini.com>
  */
 namespace Dvsa\Olcs\Transfer\Command\Permits;
 
