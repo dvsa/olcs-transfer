@@ -70,6 +70,16 @@ return [
                 ]
             ],
             'GET' => QueryConfig::getConfig(Query\IrhpApplication\GetList::class),
+            'cancel-application' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'cancel-application[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\CancelApplication::class),
+                ]
+            ],
         ]
     ],
 ];
