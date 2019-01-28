@@ -6,7 +6,7 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 /**
  * Trait SurrenderIdOptional
  *
- * @package Dvsa\Olcs\Transfer\FieldType\Traits
+ * @package Dvsa\Olcs\Transfer\Command\Traits\FieldType
  */
 trait SurrenderOptional
 {
@@ -32,7 +32,7 @@ trait SurrenderOptional
      *
      * @return  void
      */
-    public function setSurrender(int $surrender): void
+    public function setSurrender($surrender): void
     {
         $this->surrender = $surrender;
     }
