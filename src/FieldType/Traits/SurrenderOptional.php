@@ -26,4 +26,14 @@ trait SurrenderOptional
     {
         return $this->surrender;
     }
+
+    /**
+     * @param int $surrender
+     *
+     * @return  void
+     */
+    public function setSurrender($surrender): void
+    {
+        $this->surrender = $surrender;
+    }
 }

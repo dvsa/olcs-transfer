@@ -79,4 +79,11 @@ class UploadTest extends \PHPUnit\Framework\TestCase
         static::assertEquals($ecmtPermitApplication, $command->getEcmtPermitApplication());
         static::assertEquals($surrender, $command->getSurrender());
     }
+
+    public function testSurrenderSetter()
+    {
+        $upload = new Upload();
+        $upload->setSurrender(1);
+        $this->assertEquals(1, $upload->getSurrender());
+    }
 }
