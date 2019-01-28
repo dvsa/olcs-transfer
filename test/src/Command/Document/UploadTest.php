@@ -30,6 +30,7 @@ class UploadTest extends \PHPUnit\Framework\TestCase
         $additionalCopy = true;
         $additionalEntities = ['application', 'licence'];
         $ecmtPermitApplication = 3;
+        $surrender = 1;
 
         $data = [
             'filename' => $filename,
@@ -51,6 +52,7 @@ class UploadTest extends \PHPUnit\Framework\TestCase
             'additionalCopy' => $additionalCopy,
             'additionalEntities' => $additionalEntities,
             'ecmtPermitApplication' => $ecmtPermitApplication,
+            'surrender' => $surrender
         ];
 
         /** @var Upload $command */
@@ -75,5 +77,6 @@ class UploadTest extends \PHPUnit\Framework\TestCase
         static::assertEquals($additionalCopy, $command->getAdditionalCopy());
         static::assertEquals($additionalEntities, $command->getAdditionalEntities());
         static::assertEquals($ecmtPermitApplication, $command->getEcmtPermitApplication());
+        static::assertEquals($surrender, $command->getSurrender());
     }
 }
