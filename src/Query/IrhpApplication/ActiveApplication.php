@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Get a single IRHP application by id
+ * Retrieve active IRHP application by licence and permit type
  */
 namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 
