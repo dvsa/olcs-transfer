@@ -17,6 +17,16 @@ return [
             'single' => RouteConfig::getSingleConfig(
                 [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\ById::class),
+                    'countries' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'countries[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateCountries::class),
+                        ]
+                    ],
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\Create::class),

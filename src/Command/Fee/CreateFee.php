@@ -28,6 +28,7 @@ class CreateFee extends AbstractCommand implements
         FieldTypeTraits\BusRegOptional,
         FieldTypeTraits\LicenceOptional,
         FieldTypeTraits\EcmtPermitApplicationOptional,
+        FieldTypeTraits\IrhpApplicationOptional,
         FieldTypeTraits\TaskOptional,
         FieldTypeTraits\IrfoGvPermitOptional,
         FieldTypeTraits\IrfoPsvAuthOptional;
