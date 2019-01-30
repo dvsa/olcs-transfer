@@ -51,6 +51,7 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
                 'surr_sts_signed',
                 'surr_sts_start',
                 'surr_sts_submitted',
+                'surr_sts_withdrawn'
             ],
             'signatureType' => [
                 'sig_physical_signature',
