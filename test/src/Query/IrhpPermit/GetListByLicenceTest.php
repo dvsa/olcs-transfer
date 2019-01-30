@@ -5,10 +5,8 @@ namespace Dvsa\OlcsTest\Transfer\Query\IrhpPermit;
 use Dvsa\Olcs\Transfer\Query\IrhpPermit\GetListByLicence;
 
 /**
- * @covers \Dvsa\Olcs\Transfer\Query\IrhpPermit\GetListByEcmtId
+ * @covers \Dvsa\Olcs\Transfer\Query\IrhpPermit\GetListByLicence
  */
-
-
 class GetListByLicenceTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
