@@ -34,6 +34,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpPermit\GetListByEcmtId::class),
                 ]
             ],
+            'by-licence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'by-licence[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpPermit\GetListByLicence::class),
+                ]
+            ],
         ]
     ],
 ];
