@@ -36,7 +36,13 @@ return [
                     'route' => 'licence[/]',
                 ],
                 'child_routes' => [
-                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateLicence::class)
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateLicence::class),
+                    'active' => RouteConfig::getRouteConfig(
+                        'active',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\IrhpApplication\ActiveApplication::class),
+                        ]
+                    ),
                 ]
             ],
             'update-multiple-no-of-permits' => [
