@@ -14,6 +14,7 @@ class SurrenderStatus extends \Zend\Validator\InArray
         'surr_sts_signed',
         'surr_sts_start',
         'surr_sts_submitted',
+        'surr_sts_withdrawn'
     ];
 
     protected $messageTemplates = array(
