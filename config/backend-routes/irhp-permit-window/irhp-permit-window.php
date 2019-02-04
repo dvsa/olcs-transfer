@@ -23,6 +23,16 @@ return [
             ),
             'GET' => QueryConfig::getConfig(Query\IrhpPermitWindow\GetList::class),
             'POST' => CommandConfig::getPostConfig(Command\IrhpPermitWindow\Create::class),
+            'open-by-country' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'open-by-country[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpPermitWindow\OpenByCountry::class),
+                ]
+            ],
         ]
     ],
 ];

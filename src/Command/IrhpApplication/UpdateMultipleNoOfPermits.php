@@ -8,6 +8,7 @@
 namespace Dvsa\Olcs\Transfer\Command\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits\MultipleNoOfPermits;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 
@@ -18,17 +19,5 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 class UpdateMultipleNoOfPermits extends AbstractCommand
 {
     use Identity;
-
-    /**
-     * @Transfer\ArrayInput
-     */
-    protected $permitsRequired;
-
-    /**
-     * @return mixed
-     */
-    public function getPermitsRequired()
-    {
-        return $this->permitsRequired;
-    }
+    use MultipleNoOfPermits;
 }

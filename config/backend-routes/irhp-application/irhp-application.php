@@ -96,6 +96,17 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\CancelApplication::class),
                 ]
             ],
+            'full' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'full[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\CreateFull::class),
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateFull::class),
+                ]
+            ],
         ]
     ],
 ];
