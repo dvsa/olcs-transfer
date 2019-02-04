@@ -18,6 +18,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 final class PayOutstandingFees extends AbstractCommand
 {
     use FieldTypeTraits\MiscFeesDetails;
+    use FieldTypeTraits\IrhpApplicationOptional;
 
     /**
      * @Transfer\ArrayInput
@@ -164,7 +165,6 @@ final class PayOutstandingFees extends AbstractCommand
     {
         return $this->ecmtPermitApplicationId;
     }
-
 
     /**
      * Get cmps redirect url
