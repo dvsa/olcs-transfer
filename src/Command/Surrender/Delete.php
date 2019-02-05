@@ -12,8 +12,5 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class Delete extends AbstractDeleteCommand
 {
-
     use Identity;
-
-
 }
