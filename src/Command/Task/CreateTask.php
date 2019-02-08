@@ -7,6 +7,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\BusRegOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\CasesOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\EcmtPermitApplicationOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\SurrenderOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\SubmissionOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -24,7 +25,9 @@ final class CreateTask extends AbstractCommand
         SubmissionOptional,
         BusRegOptional,
         CasesOptional,
-        EcmtPermitApplicationOptional;
+        EcmtPermitApplicationOptional,
+        SurrenderOptional;
+
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -170,4 +173,6 @@ final class CreateTask extends AbstractCommand
     {
         return $this->isClosed;
     }
+
+
 }
