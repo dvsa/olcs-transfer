@@ -173,6 +173,4 @@ final class CreateTask extends AbstractCommand
     {
         return $this->isClosed;
     }
-
-
 }
