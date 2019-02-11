@@ -33,6 +33,12 @@ return [
                     'GET' => QueryConfig::getConfig(Dvsa\Olcs\Transfer\Query\Surrender\GetStatus::class),
                 ]
             ),
+            'open-bus-reg' => RouteConfig::getRouteConfig(
+                'open-bus-reg',
+                [
+                    'GET' => QueryConfig::getConfig(Dvsa\Olcs\Transfer\Query\Surrender\OpenBusReg::class),
+                ]
+            ),
             'submit-form' => RouteConfig::getRouteConfig(
                 'submit-form',
                 [
