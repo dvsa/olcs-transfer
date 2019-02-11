@@ -2,6 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Query\Surrender;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -15,21 +16,6 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class OpenBusReg extends AbstractQuery
 {
-    use OrderedTrait;
+    use Identity;
 
-    /**
-     * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $licId;
-
-    /**
-     * @return int
-     */
-    public function getLicId()
-    {
-        return $this->licId;
-    }
 }
