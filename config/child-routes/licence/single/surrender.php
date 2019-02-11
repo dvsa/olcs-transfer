@@ -21,6 +21,12 @@ return [
             "GET" => QueryConfig::getConfig(
                 Dvsa\Olcs\Transfer\Query\Surrender\ByLicence::class
             ),
+            'open-cases' => RouteConfig::getRouteConfig(
+                'open-cases',
+                [
+                    'GET' => QueryConfig::getConfig(\Dvsa\Olcs\Transfer\Query\Surrender\OpenCases::class)
+                ]
+            ),
             'status' => RouteConfig::getRouteConfig(
                 'status',
                 [
@@ -32,7 +38,9 @@ return [
                 [
                     'POST' => CommandConfig::getPostConfig(Dvsa\Olcs\Transfer\Command\Surrender\SubmitForm::class),
                 ]
-            )
+            ),
+
+
         ]
     ),
 ];
