@@ -17,5 +17,4 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class OpenBusReg extends AbstractQuery
 {
     use Identity;
-
 }
