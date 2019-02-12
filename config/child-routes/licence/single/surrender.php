@@ -21,10 +21,22 @@ return [
             "GET" => QueryConfig::getConfig(
                 Dvsa\Olcs\Transfer\Query\Surrender\ByLicence::class
             ),
+            'open-cases' => RouteConfig::getRouteConfig(
+                'open-cases',
+                [
+                    'GET' => QueryConfig::getConfig(\Dvsa\Olcs\Transfer\Query\Surrender\OpenCases::class)
+                ]
+            ),
             'status' => RouteConfig::getRouteConfig(
                 'status',
                 [
                     'GET' => QueryConfig::getConfig(Dvsa\Olcs\Transfer\Query\Surrender\GetStatus::class),
+                ]
+            ),
+            'open-bus-reg' => RouteConfig::getRouteConfig(
+                'open-bus-reg',
+                [
+                    'GET' => QueryConfig::getConfig(Dvsa\Olcs\Transfer\Query\Surrender\OpenBusReg::class),
                 ]
             ),
             'submit-form' => RouteConfig::getRouteConfig(
@@ -32,7 +44,9 @@ return [
                 [
                     'POST' => CommandConfig::getPostConfig(Dvsa\Olcs\Transfer\Command\Surrender\SubmitForm::class),
                 ]
-            )
+            ),
+
+
         ]
     ),
 ];

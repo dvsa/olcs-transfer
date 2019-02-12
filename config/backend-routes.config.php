@@ -1614,5 +1614,4 @@ foreach ($files as $config) {
 $childRootGenerator = new ChildRoutesGenerator($routes, __DIR__ . '/child-routes');
 
 $routes = $childRootGenerator->getUpdatedRoutes();
-
 return $routes;
