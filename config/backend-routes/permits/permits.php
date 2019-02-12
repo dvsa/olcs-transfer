@@ -339,6 +339,26 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\StockOperationsPermitted::class),
                 ]
             ],
+            'ready-to-print-type' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ready-to-print-type[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\ReadyToPrintType::class),
+                ]
+            ],
+            'ready-to-print-country' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ready-to-print-country[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\ReadyToPrintCountry::class),
+                ]
+            ],
             'ready-to-print-stock' => [
                 'type' => 'Segment',
                 'options' => [
