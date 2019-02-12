@@ -80,12 +80,4 @@ class CompleteTransaction extends AbstractCommand
     {
         return $this->submitApplicationId;
     }
-
-    /**
-     * @return int
-     */
-    public function getSubmitEcmtPermitApplicationId()
-    {
-        return $this->submitEcmtPermitApplicationId;
-    }
 }
