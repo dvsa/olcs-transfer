@@ -45,6 +45,18 @@ return [
                     'POST' => CommandConfig::getPostConfig(Dvsa\Olcs\Transfer\Command\Surrender\SubmitForm::class),
                 ]
             ),
+            'approve' => RouteConfig::getRouteConfig(
+                'approve',
+                [
+                    'POST' => CommandConfig::getPostConfig(Dvsa\Olcs\Transfer\Command\Surrender\Approve::class),
+                ]
+            ),
+            'withdraw' => RouteConfig::getRouteConfig(
+                'withdraw',
+                [
+                    'POST' => CommandConfig::getPostConfig(Dvsa\Olcs\Transfer\Command\Surrender\Withdraw::class),
+                ]
+            )
 
 
         ]
