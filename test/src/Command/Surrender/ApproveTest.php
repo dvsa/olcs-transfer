@@ -22,16 +22,30 @@ class ApproveTest extends TestCase
 
     protected function getValidFieldValues()
     {
+        $now = new \DateTime();
+        $yesterday = new \DateTime("yesterday");
+        $format = 'Y-m-d';
         return [
             'id' => ['1', '2'],
-
+            'surrenderDate' => [
+                $now->format($format),
+                $yesterday->format($format)
+            ]
         ];
     }
 
     protected function getInvalidFieldValues()
     {
+        $now = new \DateTime();
+        $format = 'Y-m-d-s';
         return [
             'id' => ['0', ['array']],
+            'surrenderDate' => [
+                $now->format($format),
+                '1',
+                'aaaaaa',
+                []
+            ]
         ];
     }
 

@@ -14,4 +14,18 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class Approve extends AbstractCommand
 {
     use Identity;
+
+    /**
+     * @var \DateTime
+     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d"}})
+     */
+    protected $surrenderDate;
+
+    /**
+     * @return mixed
+     */
+    public function getSurrenderDate()
+    {
+        return $this->surrenderDate;
+    }
 }
