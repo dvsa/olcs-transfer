@@ -105,6 +105,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\MaxStockPermitsByApplication::class),
                 ]
             ],
+            'fee-per-permit' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'fee-per-permit[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\FeePerPermit::class),
+                ]
+            ],
             'GET' => QueryConfig::getConfig(Query\IrhpApplication\GetList::class),
             'cancel-application' => [
                 'type' => 'Segment',
