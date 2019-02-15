@@ -24,6 +24,11 @@ class WithdrawTest extends TestCase
     {
         return [
             'id' => ['1', '2'],
+            'status' => [
+                'lsts_valid',
+                'lsts_curtailed',
+                'lsts_suspended',
+            ]
 
         ];
     }
@@ -32,6 +37,12 @@ class WithdrawTest extends TestCase
     {
         return [
             'id' => ['0', ['array']],
+            'status' => [
+                'lsts_revoked',
+                'lsts_refused',
+                'lsts_terminated',
+                'lsts_surrendered',
+            ]
         ];
     }
 

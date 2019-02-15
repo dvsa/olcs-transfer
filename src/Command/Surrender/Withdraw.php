@@ -13,4 +13,25 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class Withdraw extends AbstractCommand
 {
     use Identity;
+
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *         "haystack": {
+     *              "lsts_valid",
+     *              "lsts_curtailed",
+     *              "lsts_suspended",
+     *          }
+     *     }
+     * })
+     */
+    protected $status;
+
+    public function getStatus()
+    {
+        return $this->status;
+    }
 }
