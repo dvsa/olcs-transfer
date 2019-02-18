@@ -56,8 +56,13 @@ return [
                 [
                     'POST' => CommandConfig::getPostConfig(Dvsa\Olcs\Transfer\Command\Surrender\Withdraw::class),
                 ]
+            ),
+            'previous-licence-status' => RouteConfig::getRouteConfig(
+                'previous-licence-status',
+                [
+                    'GET' => QueryConfig::getConfig(\Dvsa\Olcs\Transfer\Query\Surrender\PreviousLicenceStatus::class)
+                ]
             )
-
 
         ]
     ),
