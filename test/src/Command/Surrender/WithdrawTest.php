@@ -23,26 +23,14 @@ class WithdrawTest extends TestCase
     protected function getValidFieldValues()
     {
         return [
-            'id' => ['1', '2'],
-            'status' => [
-                'lsts_valid',
-                'lsts_curtailed',
-                'lsts_suspended',
-            ]
-
+            'id' => ['1', '2']
         ];
     }
 
     protected function getInvalidFieldValues()
     {
         return [
-            'id' => ['0', ['array']],
-            'status' => [
-                'lsts_revoked',
-                'lsts_refused',
-                'lsts_terminated',
-                'lsts_surrendered',
-            ]
+            'id' => ['0', ['array']]
         ];
     }
 
