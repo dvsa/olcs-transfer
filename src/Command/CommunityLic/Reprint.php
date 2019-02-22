@@ -10,6 +10,7 @@ namespace Dvsa\Olcs\Transfer\Command\CommunityLic;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\UserOptional;
 
 /**
  * @Transfer\RouteName("backend/community-lic/reprint")
@@ -18,6 +19,8 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
 final class Reprint extends AbstractCommand
 {
     use ApplicationOptional;
+
+    use UserOptional;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
