@@ -2,7 +2,7 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\Surrender;
 
-use Dvsa\Olcs\Transfer\Query\Surrender\GetStatus;
+use Dvsa\Olcs\Transfer\Query\Surrender\GetSignature;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
 use Zend\Stdlib\ArraySerializableInterface;
 
@@ -17,7 +17,7 @@ class GetStatusTest extends \PHPUnit\Framework\TestCase
      */
     protected function createBlankDto()
     {
-        return new GetStatus();
+        return new GetSignature();
     }
 
     /**
