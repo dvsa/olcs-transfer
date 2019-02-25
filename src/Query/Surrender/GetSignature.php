@@ -11,10 +11,10 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  * Class GetStatus
  *
  * @package Dvsa\Olcs\Transfer\Query\Surrender
- * @Transfer\RouteName("backend/licence/single/surrender/status")
+ * @Transfer\RouteName("backend/licence/single/surrender/signature")
  * @Transfer\Method("GET")
  */
-class GetStatus extends AbstractQuery
+class GetSignature extends AbstractQuery
 {
     use Identity;
 }

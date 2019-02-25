@@ -27,10 +27,10 @@ return [
                     'GET' => QueryConfig::getConfig(\Dvsa\Olcs\Transfer\Query\Surrender\OpenCases::class)
                 ]
             ),
-            'status' => RouteConfig::getRouteConfig(
-                'status',
+            'signature' => RouteConfig::getRouteConfig(
+                'signature',
                 [
-                    'GET' => QueryConfig::getConfig(Dvsa\Olcs\Transfer\Query\Surrender\GetStatus::class),
+                    'GET' => QueryConfig::getConfig(Dvsa\Olcs\Transfer\Query\Surrender\GetSignature::class),
                 ]
             ),
             'open-bus-reg' => RouteConfig::getRouteConfig(
@@ -62,7 +62,7 @@ return [
                 [
                     'GET' => QueryConfig::getConfig(\Dvsa\Olcs\Transfer\Query\Surrender\PreviousLicenceStatus::class)
                 ]
-            )
+            ),
 
         ]
     ),
