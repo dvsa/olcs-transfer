@@ -64,6 +64,16 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Permits\CancelEcmtPermitApplication::class),
                 ]
             ],
+            'ecmt-permits-expire' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ecmt-permits-expire[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\ExpireEcmtPermitApplication::class),
+                ]
+            ],
             'ecmt-permits-submit' => [
                 'type' => 'Segment',
                 'options' => [

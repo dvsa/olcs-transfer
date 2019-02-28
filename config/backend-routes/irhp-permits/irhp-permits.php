@@ -20,6 +20,10 @@ return [
                     'replace' => RouteConfig::getRouteConfig(
                         'replace',
                         ['POST' => CommandConfig::getPostConfig(Command\IrhpPermit\Replace::class)]
+                    ),
+                    'terminate' => RouteConfig::getRouteConfig(
+                        'terminate',
+                        ['POST' => CommandConfig::getPostConfig(Command\IrhpPermit\Terminate::class)]
                     )
                 ]
             ),
