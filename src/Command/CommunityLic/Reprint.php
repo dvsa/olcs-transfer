@@ -23,7 +23,6 @@ final class Reprint extends AbstractCommand
     use UserOptional;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
@@ -35,6 +34,12 @@ final class Reprint extends AbstractCommand
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
      */
     public $communityLicenceIds = [];
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $isBatchReprint;
 
     /**
      * Get licence ID
@@ -54,5 +59,15 @@ final class Reprint extends AbstractCommand
     public function getCommunityLicenceIds()
     {
         return $this->communityLicenceIds;
+    }
+
+    /**
+     * Get whether this is a batch reprint
+     *
+     * @return bool
+     */
+    public function getIsBatchReprint()
+    {
+        return $this->isBatchReprint;
     }
 }
