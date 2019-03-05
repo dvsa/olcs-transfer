@@ -23,16 +23,6 @@ return [
             ),
             'GET' => QueryConfig::getConfig(Query\IrhpPermitStock\GetList::class),
             'POST' => CommandConfig::getPostConfig(Command\IrhpPermitStock\Create::class),
-            'next-stock' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'next-stock[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\IrhpPermitStock\NextIrhpPermitStock::class),
-                ]
-            ],
             'available-countries' => [
                 'type' => 'Segment',
                 'options' => [
