@@ -19,7 +19,7 @@ trait IrhpApplicationStatusesOptional
      *          "haystack": {
      *              "permit_app_cancelled", "permit_app_nys", "permit_app_uc", "permit_app_withdrawn",
      *              "permit_app_awaiting", "permit_app_fee_paid", "permit_app_unsuccessful", "permit_app_issuing",
-     *              "permit_app_valid"
+     *              "permit_app_valid", "permit_app_expired"
      *          }
      *      }
      * })
