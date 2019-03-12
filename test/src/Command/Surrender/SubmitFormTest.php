@@ -23,7 +23,7 @@ class SubmitFormTest extends \PHPUnit\Framework\TestCase
     {
         return [
             'id' => ['1', '2'],
-
+            'version' => ['2', '32'],
         ];
     }
 
@@ -39,6 +39,7 @@ class SubmitFormTest extends \PHPUnit\Framework\TestCase
     {
         return [
             'id' => [[99, '99'], ['string', '']],
+            'version' => [[99, '99'], ['string', '']],
         ];
     }
 }

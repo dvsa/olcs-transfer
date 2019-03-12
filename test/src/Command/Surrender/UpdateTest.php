@@ -16,7 +16,20 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
 
     protected function getOptionalDtoFields()
     {
-        return [];
+        return [
+            'communityLicenceDocumentStatus',
+            'communityLicenceDocumentInfo',
+            'digitalSignature',
+            'discDestroyed',
+            'discLost',
+            'discLostInfo',
+            'discStolen',
+            'discStolenInfo',
+            'licenceDocumentStatus',
+            'licenceDocumentInfo',
+            'status',
+            'signatureType'
+        ];
     }
 
     protected function getValidFieldValues()
