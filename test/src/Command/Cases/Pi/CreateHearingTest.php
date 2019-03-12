@@ -80,6 +80,10 @@ class CreateHearingTest extends \PHPUnit\Framework\TestCase
 
     protected function getFilterTransformations()
     {
-        return [];
+        return [
+            'pi' => [
+                [' 222', '222']
+            ]
+        ];
     }
 }

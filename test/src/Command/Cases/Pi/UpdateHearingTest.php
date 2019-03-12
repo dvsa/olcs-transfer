@@ -78,6 +78,10 @@ class UpdateHearingTest extends \PHPUnit\Framework\TestCase
 
     protected function getFilterTransformations()
     {
-        return [];
+        return [
+            'id' => [
+                [' 222', '222']
+            ]
+        ];
     }
 }

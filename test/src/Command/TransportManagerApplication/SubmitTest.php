@@ -16,7 +16,10 @@ class SubmitTest extends \PHPUnit\Framework\TestCase
 
     protected function getOptionalDtoFields()
     {
-        return [];
+        return [
+            'version',
+            'nextStatus'
+        ];
     }
 
     protected function getValidFieldValues()
