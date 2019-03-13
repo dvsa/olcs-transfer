@@ -21,7 +21,7 @@
     "require": {
         "php": ">=5.4",
         "zendframework/zendframework": "~3.0.0",
-        "soflomo/purifier": "~0.1.0"
+        "soflomo/purifier": "~1.0.0"
     },
     "require-dev": {
         "olcs/olcs-devtools": "dev-master",
