@@ -15,7 +15,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  * @Transfer\RouteName("backend/application-operating-centre/single")
  * @Transfer\Method("PUT")
  */
-class Update extends AbstractOcCommand
+class Update extends AbstractOperatingCentreCommand
 {
     use Identity,
         Version;

@@ -7,7 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\VariationOperatingCentre;
 
-use Dvsa\Olcs\Transfer\Command\ApplicationOperatingCentre\AbstractOcCommand;
+use Dvsa\Olcs\Transfer\Command\ApplicationOperatingCentre\AbstractOperatingCentreCommand;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Application;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Version;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -16,7 +16,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  * @Transfer\RouteName("backend/application/named-single/variation-operating-centre/single")
  * @Transfer\Method("PUT")
  */
-class Update extends AbstractOcCommand
+class Update extends AbstractOperatingCentreCommand
 {
     use Application,
         Version;
