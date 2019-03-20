@@ -20,4 +20,5 @@ class Update extends AbstractOcCommand
 {
     use Identity,
         Version;
+
 }

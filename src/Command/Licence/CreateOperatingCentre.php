@@ -8,6 +8,7 @@
 namespace Dvsa\Olcs\Transfer\Command\Licence;
 
 use Dvsa\Olcs\Transfer\Command\ApplicationOperatingCentre\AbstractOcCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IsTaOverridden;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Licence;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
@@ -18,4 +19,5 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 final class CreateOperatingCentre extends AbstractOcCommand
 {
     use Licence;
+    use IsTaOverridden;
 }
