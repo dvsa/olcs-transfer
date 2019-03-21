@@ -8,6 +8,7 @@
 namespace Dvsa\Olcs\Transfer\Command\ApplicationOperatingCentre;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IsTaOverridden;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Version;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
@@ -19,4 +20,5 @@ class Update extends AbstractOperatingCentreCommand
 {
     use Identity,
         Version;
+    use IsTaOverridden;
 }
