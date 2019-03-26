@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-abstract class AbstractOcCommand extends AbstractCommand
+abstract class AbstractOperatingCentreCommand extends AbstractCommand
 {
     /**
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\AddressOptionalPostcode")
