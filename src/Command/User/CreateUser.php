@@ -88,6 +88,7 @@ final class CreateUser extends AbstractCommand
      *     "name":"Zend\Validator\InArray",
      *     "options": {
      *         "haystack": {
+     *             "system-admin",
      *             "internal-limited-read-only",
      *             "internal-read-only",
      *             "internal-case-worker",
