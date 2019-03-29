@@ -21,7 +21,8 @@
     "require": {
         "php": ">=5.4",
         "zendframework/zendframework": "~2.4.0",
-        "soflomo/purifier": "~0.1.0"
+        "soflomo/purifier": "~0.1.0",
+        "elendev/nexus-composer-push": "^0.0.4"
     },
     "require-dev": {
         "olcs/olcs-devtools": "dev-master",
@@ -50,5 +51,13 @@
         "coverage": "vendor/bin/phpunit -c test/phpunit.xml --coverage-html ./test/coverage/html",
         "sonar": "vendor/bin/phpunit -c test/phpunit.xml --coverage-clover ./test/coverage/coverage-report.clover --log-junit ./test/coverage/log.junit",
         "update-syms": "vendor/bin/composer-update-syms"
+    },
+    "extra": {
+        "nexus-push": {
+            "url": "http://nexus.shd.ci.nonprod.dvsa.aws/repository/OLCS/olcs/olcs-devtools",
+            "ignore-dirs": [
+                "test"
+            ]
+        }
     }
 }
