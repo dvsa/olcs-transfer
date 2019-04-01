@@ -16,6 +16,13 @@ use ReflectionProperty;
  */
 abstract class AbstractQuery implements QueryInterface
 {
+    /**
+     * Create instance of a query
+     *
+     * @param array $data data
+     *
+     * @return static
+     */
     public static function create(array $data)
     {
         $command = new static();
@@ -26,7 +33,8 @@ abstract class AbstractQuery implements QueryInterface
     /**
      * Exchange internal values from provided array
      *
-     * @param  array $array
+     * @param array $array array of variables
+     *
      * @return void
      */
     public function exchangeArray(array $array)
@@ -40,13 +48,21 @@ abstract class AbstractQuery implements QueryInterface
         }
     }
 
+    /**
+     * Return variables as an array
+     *
+     * @return array
+     */
     public function getArrayCopy()
     {
         return get_object_vars($this);
     }
 
     /**
-     * @param string $property
+     * do not exchange
+     *
+     * @param string $property property
+     *
      * @return bool
      */
     private function doNotExchange($property)
