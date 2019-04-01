@@ -13,7 +13,7 @@
             "type": "vcs",
             "url": "git@repo.shd.ci.nonprod.dvsa.aws:olcs/olcs-devtools.git"
         },
-       {
+        {
             "url": "git@repo.shd.ci.nonprod.dvsa.aws:olcs/olcs-coding-standards.git",
             "type": "vcs"
         }
@@ -34,9 +34,9 @@
     },
     "config": {
         "preferred-install": "dist",
-        "secure-http" : false,
+        "secure-http": false,
         "platform": {
-            "php":"7.1.16"
+            "php": "7.1.16"
         }
     },
     "autoload": {
@@ -50,11 +50,12 @@
         "cs": "vendor/bin/phpcs --severity=1 --standard=vendor/olcs/coding-standards/Profiles/DVSA/CS/ruleset.xml",
         "coverage": "vendor/bin/phpunit -c test/phpunit.xml --coverage-html ./test/coverage/html",
         "sonar": "vendor/bin/phpunit -c test/phpunit.xml --coverage-clover ./test/coverage/coverage-report.clover --log-junit ./test/coverage/log.junit",
-        "update-syms": "vendor/bin/composer-update-syms"
+        "update-syms": "vendor/bin/composer-update-syms",
+        "release": "release"
     },
     "extra": {
         "nexus-push": {
-            "url": "http://nexus.shd.ci.nonprod.dvsa.aws/repository/OLCS/olcs/olcs-devtools",
+            "url": "http://nexus.shd.ci.nonprod.dvsa.aws/repository/olcs-transfer",
             "ignore-dirs": [
                 "test"
             ]
