@@ -6,25 +6,22 @@
             "packagist": false
         },
         {
-            "url": "http://devrepo.shd.ci.nonprod.dvsa.aws",
+            "url": "http://nexus.shd.ci.nonprod.dvsa.aws/repository/OLCS",
             "type": "composer"
         },
         {
-            "type": "vcs",
-            "url": "git@repo.shd.ci.nonprod.dvsa.aws:olcs/olcs-devtools.git"
-        },
-       {
-            "url": "git@repo.shd.ci.nonprod.dvsa.aws:olcs/olcs-coding-standards.git",
-            "type": "vcs"
+            "url": "http://nexus.shd.ci.nonprod.dvsa.aws/repository/Packagist-Proxy",
+            "type": "composer"
         }
     ],
     "require": {
         "php": ">=5.4",
         "zendframework/zendframework": "~2.4.0",
-        "soflomo/purifier": "~0.1.0"
+        "soflomo/purifier": "~0.1.0",
+        "elendev/nexus-composer-push": "^0.0.4"
     },
     "require-dev": {
-        "olcs/olcs-devtools": "dev-master",
+        "olcs/olcs-devtools": "^4.203",
         "doctrine/annotations": "^1.2.3",
         "phpstan/phpstan-shim": "^0.10.5",
         "phpstan/phpstan-mockery": "^0.10.2",
@@ -33,9 +30,9 @@
     },
     "config": {
         "preferred-install": "dist",
-        "secure-http" : false,
+        "secure-http": false,
         "platform": {
-            "php":"7.1.16"
+            "php": "7.1.16"
         }
     },
     "autoload": {
@@ -49,6 +46,15 @@
         "cs": "vendor/bin/phpcs --severity=1 --standard=vendor/olcs/coding-standards/Profiles/DVSA/CS/ruleset.xml",
         "coverage": "vendor/bin/phpunit -c test/phpunit.xml --coverage-html ./test/coverage/html",
         "sonar": "vendor/bin/phpunit -c test/phpunit.xml --coverage-clover ./test/coverage/coverage-report.clover --log-junit ./test/coverage/log.junit",
-        "update-syms": "vendor/bin/composer-update-syms"
+        "update-syms": "vendor/bin/composer-update-syms",
+        "release": "release"
+    },
+    "extra": {
+        "nexus-push": {
+            "url": "http://nexus.shd.ci.nonprod.dvsa.aws/repository/olcs-transfer",
+            "ignore-dirs": [
+                "test"
+            ]
+        }
     }
 }
