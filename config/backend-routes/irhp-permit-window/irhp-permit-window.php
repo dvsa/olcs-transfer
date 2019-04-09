@@ -33,6 +33,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpPermitWindow\OpenByCountry::class),
                 ]
             ],
+            'open-by-type' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'open-by-type[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpPermitWindow\OpenByType::class),
+                ]
+            ],
         ]
     ],
 ];

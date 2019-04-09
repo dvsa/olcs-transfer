@@ -7,6 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\CurrentDateTime;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
@@ -15,6 +16,8 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class OpenWindows extends AbstractQuery
 {
+    use CurrentDateTime;
+
     /**
      * @var int
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
@@ -23,25 +26,10 @@ class OpenWindows extends AbstractQuery
     protected $permitType;
 
     /**
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d H:i:s"}})
-     */
-    protected $currentDateTime;
-
-    /**
      * @return int
      */
     public function getPermitType()
     {
         return $this->permitType;
-    }
-
-   /**
-     * Get current date
-     *
-     * @return string
-     */
-    public function getCurrentDateTime()
-    {
-        return $this->currentDateTime;
     }
 }
