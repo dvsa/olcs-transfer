@@ -7,7 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\IrhpPermit;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\Licence;
+use Dvsa\Olcs\Transfer\FieldType\Traits;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
@@ -19,5 +19,6 @@ use Dvsa\Olcs\Transfer\Query\PagedTrait;
 final class GetListByLicence extends AbstractQuery implements PagedQueryInterface
 {
     use PagedTrait;
-    use Licence;
+    use Traits\Licence;
+    use Traits\IrhpPermitType;
 }
