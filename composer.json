@@ -18,10 +18,10 @@
         "php": ">=5.4",
         "zendframework/zendframework": "~2.4.0",
         "soflomo/purifier": "~0.1.0",
-        "elendev/nexus-composer-push": "^0.0.4"
+        "elendev/nexus-composer-push": "^0.1"
     },
     "require-dev": {
-        "olcs/olcs-devtools": "^4.203",
+        "olcs/olcs-devtools": "^4.205",
         "doctrine/annotations": "^1.2.3",
         "phpstan/phpstan-shim": "^0.10.5",
         "phpstan/phpstan-mockery": "^0.10.2",
@@ -51,7 +51,12 @@
     },
     "extra": {
         "nexus-push": {
-            "url": "http://nexus.shd.ci.nonprod.dvsa.aws/repository/olcs-transfer"
+            "url": "http://nexus.shd.ci.nonprod.dvsa.aws/repository/olcs-transfer",
+            "ignore": [
+                "test/",
+                "sonar-project.properties",
+                "build.xml"
+            ]
         }
     }
 }
