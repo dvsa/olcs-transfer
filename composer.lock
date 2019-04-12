@@ -1031,29 +1031,42 @@
         },
         {
             "name": "olcs/coding-standards",
-            "version": "4.203.0",
-            "dist": {
-                "type": "zip",
-                "url": "http://nexus.shd.ci.nonprod.dvsa.aws/repository/OLCS/olcs/coding-standards/4.203.0/olcs-coding-standards-4.203.0.zip",
-                "reference": "c9ffe593535ef589179c353ec381e0e7f563dc25",
-                "shasum": "c9ffe593535ef589179c353ec381e0e7f563dc25"
-            },
-            "type": "library",
-            "description": "OLCS CodeSniffer and MessDetector rule sets",
-            "time": "2019-04-04T14:04:08+00:00"
-        },
-        {
-            "name": "olcs/olcs-devtools",
             "version": "4.205.0",
             "dist": {
                 "type": "zip",
-                "url": "http://nexus.shd.ci.nonprod.dvsa.aws/repository/OLCS/olcs/olcs-devtools/4.205.0/olcs-olcs-devtools-4.205.0.zip",
-                "reference": "9bc82e6a0522f461b5d5358c0f1c37e26bc0a76e",
-                "shasum": "9bc82e6a0522f461b5d5358c0f1c37e26bc0a76e"
+                "url": "http://nexus.shd.ci.nonprod.dvsa.aws/repository/OLCS/olcs/coding-standards/4.205.0/olcs-coding-standards-4.205.0.zip",
+                "reference": "bbde1459a0eb5d7c4bd735915ef4340f5739cee3",
+                "shasum": "bbde1459a0eb5d7c4bd735915ef4340f5739cee3"
+            },
+            "require": {
+                "elendev/nexus-composer-push": "^0.1"
+            },
+            "type": "library",
+            "extra": {
+                "nexus-push": {
+                    "url": "http://nexus.shd.ci.nonprod.dvsa.aws/repository/olcs-coding-standards"
+                }
+            },
+            "scripts": {
+                "release": [
+                    "release"
+                ]
+            },
+            "description": "OLCS CodeSniffer and MessDetector rule sets",
+            "time": "2019-04-12T15:31:03+00:00"
+        },
+        {
+            "name": "olcs/olcs-devtools",
+            "version": "4.205.1",
+            "dist": {
+                "type": "zip",
+                "url": "http://nexus.shd.ci.nonprod.dvsa.aws/repository/OLCS/olcs/olcs-devtools/4.205.1/olcs-olcs-devtools-4.205.1.zip",
+                "reference": "dd97e2670dd2cbad9d9158ef25af605c6ed55271",
+                "shasum": "dd97e2670dd2cbad9d9158ef25af605c6ed55271"
             },
             "require": {
                 "elendev/nexus-composer-push": "^0.1",
-                "olcs/coding-standards": "^4.203",
+                "olcs/coding-standards": "^4.205",
                 "php": ">=5.4",
                 "phpmd/phpmd": "~2.2",
                 "phpunit/phpcov": "5.*",
@@ -1077,7 +1090,7 @@
                 }
             },
             "description": "Dev tools",
-            "time": "2019-04-12T10:43:19+00:00"
+            "time": "2019-04-12T15:35:43+00:00"
         },
         {
             "name": "pdepend/pdepend",
