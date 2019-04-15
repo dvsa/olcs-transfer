@@ -110,6 +110,34 @@ class Update extends AbstractCommand
      */
     protected $signatureType;
 
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $signatureChecked;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $ecmsChecked;
+
+    /**
+     * @return mixed
+     */
+    public function getSignatureChecked()
+    {
+        return $this->signatureChecked;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEcmsChecked()
+    {
+        return $this->ecmsChecked;
+    }
+
     public function getCommunityLicenceDocumentStatus()
     {
         return $this->communityLicenceDocumentStatus;
