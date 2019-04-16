@@ -9,7 +9,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\DateReceived;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Declaration;
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitType;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Licence;
-use Dvsa\Olcs\Transfer\FieldType\Traits\MultipleNoOfPermits;
+use Dvsa\Olcs\Transfer\FieldType\Traits\MultipleNoOfPermitsOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -21,7 +21,7 @@ final class CreateFull extends AbstractCommand
 {
     use Licence;
     use IrhpPermitType;
-    use MultipleNoOfPermits;
+    use MultipleNoOfPermitsOptional;
     use DateReceived;
     use Declaration;
 }
