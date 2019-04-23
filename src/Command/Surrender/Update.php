@@ -111,13 +111,13 @@ class Update extends AbstractCommand
     protected $signatureType;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Filter({"name":"Dvsa\Olcs\Transfer\Filter\Boolean"})
      * @Transfer\Optional
      */
     protected $signatureChecked;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Filter({"name":"Dvsa\Olcs\Transfer\Filter\Boolean"})
      * @Transfer\Optional
      */
     protected $ecmsChecked;

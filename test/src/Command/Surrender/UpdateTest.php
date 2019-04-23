@@ -28,7 +28,9 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
             'licenceDocumentStatus',
             'licenceDocumentInfo',
             'status',
-            'signatureType'
+            'signatureType',
+            'signatureChecked',
+            'ecmsChecked',
         ];
     }
 
@@ -70,6 +72,14 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
                 'sig_physical_signature',
                 'sig_digital_signature',
                 'sig_signature_not_required'
+            ],
+            'signatureChecked' => [
+                true,
+                false
+            ],
+            'ecmsChecked' => [
+                true,
+                false
             ]
         ];
     }
@@ -100,7 +110,7 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
             ],
             'signatureType' => [
                 'rubbish'
-            ]
+            ],
         ];
     }
 
@@ -124,6 +134,18 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
             ],
             'licenceDocumentInfo' => [
                 ['Some info ', 'Some info'],
+            ],
+            'signatureChecked' => [
+                [1 , true],
+                [0, false],
+                ["1", true],
+                ["0", false]
+            ],
+            'ecmsChecked' => [
+                [1 , true],
+                [0, false],
+                ["1", true],
+                ["0", false]
             ]
         ];
     }
