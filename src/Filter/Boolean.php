@@ -3,7 +3,7 @@
 namespace Dvsa\Olcs\Transfer\Filter;
 
 /**
- * Same as \Zend\Filter\Boolean except it does not transforn null to false
+ * Same as \Zend\Filter\Boolean except it does not transform null to false
  *
  * Class Boolean
  *
