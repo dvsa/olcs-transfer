@@ -13,17 +13,18 @@ class GetListByLicenceTest extends \PHPUnit\Framework\TestCase
     {
         $sut = GetListByLicence::create(
             [
-              'licence' => 7,
-              'page' => 1,
-              'limit' => 10,
-
+                'licence' => 7,
+                'irhpPermitType' => 2,
+                'page' => 1,
+                'limit' => 10,
             ]
         );
         static::assertEquals(
             [
-            'licence' => 7,
-            'page' => 1,
-            'limit' => 10,
+                'licence' => 7,
+                'irhpPermitType' => 2,
+                'page' => 1,
+                'limit' => 10,
             ],
             $sut->getArrayCopy()
         );
