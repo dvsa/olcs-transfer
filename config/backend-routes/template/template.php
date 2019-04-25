@@ -53,6 +53,16 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\Template\UpdateTemplateSource::class),
                 ]
             ],
+            'template-categories' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'template-categories[/]'
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Template\TemplateCategories::class)
+                ]
+            ],
         ]
     ]
 ];

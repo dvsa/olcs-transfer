@@ -12,7 +12,14 @@ class AvailableTemplatesTest extends TestCase
 {
     public function testStructure()
     {
-        $data = [];
+        $data = [
+            'page' => null,
+            'limit' => null,
+            'sort' => null,
+            'order' => null,
+            'sortWhitelist' => [],
+            'emailTemplateCategory' => null
+        ];
         $sut = AvailableTemplates::create($data);
 
         $this->assertEquals(
