@@ -74,12 +74,12 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
                 'sig_signature_not_required'
             ],
             'signatureChecked' => [
-                true,
-                false
+                '1',
+                '0'
             ],
             'ecmsChecked' => [
-                true,
-                false
+                '1',
+                '0'
             ]
         ];
     }
@@ -111,9 +111,18 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
             'signatureType' => [
                 'rubbish'
             ],
+            'signatureChecked' => [
+                -99,
+                2,
+                ['array']
+            ],
+            'ecmsChecked' => [
+                -99,
+                2,
+                ['array']
+            ]
         ];
     }
-
 
     protected function getFilterTransformations()
     {
@@ -136,16 +145,16 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
                 ['Some info ', 'Some info'],
             ],
             'signatureChecked' => [
-                [1 , true],
-                [0, false],
-                ["1", true],
-                ["0", false]
+                [1 , '1'],
+                [0, '0'],
+                ["1", "1"],
+                ["0", "0"]
             ],
             'ecmsChecked' => [
-                [1 , true],
-                [0, false],
-                ["1", true],
-                ["0", false]
+                [1 , '1'],
+                [0, '0'],
+                ["1", "1"],
+                ["0", "0"]
             ]
         ];
     }

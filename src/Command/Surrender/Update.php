@@ -113,6 +113,7 @@ class Update extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 1}})
      * @Transfer\Optional
      */
     protected $signatureChecked;
@@ -120,6 +121,7 @@ class Update extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 1}})
      * @Transfer\Optional
      */
     protected $ecmsChecked;
