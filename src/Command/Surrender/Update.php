@@ -110,6 +110,38 @@ class Update extends AbstractCommand
      */
     protected $signatureType;
 
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 1}})
+     * @Transfer\Optional
+     */
+    protected $signatureChecked;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 1}})
+     * @Transfer\Optional
+     */
+    protected $ecmsChecked;
+
+    /**
+     * @return mixed
+     */
+    public function getSignatureChecked()
+    {
+        return $this->signatureChecked;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEcmsChecked()
+    {
+        return $this->ecmsChecked;
+    }
+
     public function getCommunityLicenceDocumentStatus()
     {
         return $this->communityLicenceDocumentStatus;

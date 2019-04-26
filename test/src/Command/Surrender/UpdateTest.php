@@ -28,7 +28,9 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
             'licenceDocumentStatus',
             'licenceDocumentInfo',
             'status',
-            'signatureType'
+            'signatureType',
+            'signatureChecked',
+            'ecmsChecked',
         ];
     }
 
@@ -70,6 +72,14 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
                 'sig_physical_signature',
                 'sig_digital_signature',
                 'sig_signature_not_required'
+            ],
+            'signatureChecked' => [
+                '1',
+                '0'
+            ],
+            'ecmsChecked' => [
+                '1',
+                '0'
             ]
         ];
     }
@@ -100,10 +110,19 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
             ],
             'signatureType' => [
                 'rubbish'
+            ],
+            'signatureChecked' => [
+                -99,
+                2,
+                ['array']
+            ],
+            'ecmsChecked' => [
+                -99,
+                2,
+                ['array']
             ]
         ];
     }
-
 
     protected function getFilterTransformations()
     {
@@ -124,6 +143,18 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
             ],
             'licenceDocumentInfo' => [
                 ['Some info ', 'Some info'],
+            ],
+            'signatureChecked' => [
+                [1 , '1'],
+                [0, '0'],
+                ["1", "1"],
+                ["0", "0"]
+            ],
+            'ecmsChecked' => [
+                [1 , '1'],
+                [0, '0'],
+                ["1", "1"],
+                ["0", "0"]
             ]
         ];
     }
