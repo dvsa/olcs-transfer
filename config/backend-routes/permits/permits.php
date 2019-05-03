@@ -309,16 +309,6 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\AvailableTypes::class),
                 ]
             ],
-            'last-open-window' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'last-open-window[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Permits\LastOpenWindow::class),
-                ]
-            ],
             'open-windows' => [
                 'type' => 'Segment',
                 'options' => [
