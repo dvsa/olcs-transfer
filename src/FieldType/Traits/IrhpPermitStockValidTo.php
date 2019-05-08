@@ -11,13 +11,14 @@ trait IrhpPermitStockValidTo
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Optional
      */
     protected $validTo;
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getValidTo(): string
+    public function getValidTo()
     {
         return $this->validTo;
     }
