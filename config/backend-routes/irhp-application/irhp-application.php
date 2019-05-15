@@ -177,6 +177,26 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\GetAllByOrganisation::class),
                 ],
             ],
+            'application-step' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'application-step[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\ApplicationStep::class),
+                ],
+            ],
+            'submit-application-step' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'submit-application-step[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\SubmitApplicationStep::class),
+                ],
+            ],
         ]
     ],
 ];
