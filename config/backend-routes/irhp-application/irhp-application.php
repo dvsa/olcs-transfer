@@ -27,6 +27,16 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateCountries::class),
                         ]
                     ],
+                    'question-answer' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'question-answer[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\IrhpApplication\QuestionAnswer::class),
+                        ]
+                    ],
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\Create::class),
