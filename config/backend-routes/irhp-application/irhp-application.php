@@ -27,6 +27,16 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateCountries::class),
                         ]
                     ],
+                    'question-answer' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'question-answer[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\IrhpApplication\QuestionAnswer::class),
+                        ]
+                    ],
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\Create::class),
@@ -165,6 +175,26 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\GetAllByOrganisation::class),
+                ],
+            ],
+            'application-step' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'application-step[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\ApplicationStep::class),
+                ],
+            ],
+            'submit-application-step' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'submit-application-step[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\SubmitApplicationStep::class),
                 ],
             ],
         ]
