@@ -24,6 +24,7 @@ class DocumentListTest extends MockeryTestCase
             'case' => 'unit_case',
             'licence' => 'unit_licence',
             'application' => 'unit_application',
+            'irhpApplication' => 'unit_irhpApplication',
             'page' => 'unit_page',
             'limit' => 'unit_limit',
             'sort' => 'unit_sort',
@@ -44,6 +45,7 @@ class DocumentListTest extends MockeryTestCase
         static::assertEquals('unit_case', $sut->getCase());
         static::assertEquals('unit_licence', $sut->getLicence());
         static::assertEquals('unit_application', $sut->getApplication());
+        static::assertEquals('unit_irhpApplication', $sut->getIrhpApplication());
         static::assertEquals('unit_page', $sut->getPage());
         static::assertEquals('unit_limit', $sut->getLimit());
         static::assertEquals('unit_sort', $sut->getSort());
