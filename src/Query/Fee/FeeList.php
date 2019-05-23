@@ -33,6 +33,7 @@ class FeeList extends AbstractQuery implements
     use FieldTypeTraits\OrganisationOptional;
     use FieldTypeTraits\ApplicationOptional;
     use FieldTypeTraits\EcmtPermitApplicationOptional;
+    use FieldTypeTraits\IrhpApplicationOptional;
     use FieldTypeTraits\LicenceOptional;
     use FieldTypeTraits\TaskOptional;
     use FieldTypeTraits\BusRegOptional;
