@@ -40,6 +40,7 @@ $routes = [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+
                     'named-single' => RouteConfig::getNamedSingleConfig(
                         'application',
                         [
@@ -573,6 +574,7 @@ $routes = [
                                     'GET' => QueryConfig::getConfig(Query\Application\OutstandingFees::class),
                                 ]
                             ),
+
                             'upload-evidence' => RouteConfig::getRouteConfig(
                                 'upload-evidence',
                                 [
