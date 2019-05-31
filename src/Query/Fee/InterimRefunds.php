@@ -14,7 +14,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\EndDate;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * @Transfer\RouteName("backend/Fee/interim-refunds")
+ * @Transfer\RouteName("backend/fee/interim-refunds")
  */
 class InterimRefunds extends AbstractQuery
 {
