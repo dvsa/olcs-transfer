@@ -8,6 +8,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\CasesOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrfoOrganisationOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpApplicationOptional;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
@@ -31,7 +32,8 @@ class DocumentList extends AbstractQuery implements
         CasesOptional,
         BusRegOptional,
         TransportManagerOptional,
-        IrfoOrganisationOptional;
+        IrfoOrganisationOptional,
+        IrhpApplicationOptional;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
