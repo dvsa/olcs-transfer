@@ -14,6 +14,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\CasesOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\SurrenderOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpApplicationOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -28,7 +29,8 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
         CasesOptional,
         TransportManagerOptional,
         LicenceOptional,
-        SurrenderOptional;
+        SurrenderOptional,
+        IrhpApplicationOptional;
 
     /**
      * @Transfer\Filter({
@@ -166,7 +168,17 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
      * @Transfer\Validator(
      *  {
      *      "name":"Zend\Validator\InArray",
-     *      "options": {"haystack": {"application","licence","transportManager", "surrender", "case","busReg"}}
+     *      "options": {
+     *          "haystack": {
+     *              "application",
+     *              "licence",
+     *              "transportManager",
+     *              "surrender",
+     *              "case",
+     *              "busReg",
+     *              "irhpApplication"
+     *          }
+     *      }
      *  }
      * )
      * @Transfer\Optional
