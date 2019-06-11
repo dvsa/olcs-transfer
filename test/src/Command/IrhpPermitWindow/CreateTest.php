@@ -24,25 +24,5 @@ class CreateTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('2020-02-02', $command->getEndDate());
         $this->assertEquals('2', $command->getIrhpPermitStock());
         $this->assertEquals('14', $command->getDaysForPayment());
-        $this->assertEquals('emissions_cat_na', $command->getEmissionsCategory());
-    }
-
-    public function testStructureForEcmt()
-    {
-        $data = [
-            'startDate' => '2020-01-01',
-            'endDate' => '2020-02-02',
-            'irhpPermitStock' => '2',
-            'daysForPayment' => '14',
-            'emissionsCategory' => 'emissions_cat_euro5'
-        ];
-
-        $command = Create::create($data);
-
-        $this->assertEquals('2020-01-01', $command->getStartDate());
-        $this->assertEquals('2020-02-02', $command->getEndDate());
-        $this->assertEquals('2', $command->getIrhpPermitStock());
-        $this->assertEquals('14', $command->getDaysForPayment());
-        $this->assertEquals('emissions_cat_euro5', $command->getEmissionsCategory());
     }
 }
