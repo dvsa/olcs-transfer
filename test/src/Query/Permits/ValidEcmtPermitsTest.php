@@ -15,11 +15,11 @@ class ValidEcmtPermitsTest extends \PHPUnit\Framework\TestCase
     {
         $sut = ValidEcmtPermits::create(
             [
-              'id' => 1,
+              'licence' => 1,
               'page' => 1,
               'limit' => 10
             ]
         );
-        static::assertEquals(['id' => 1, 'page' => 1, 'limit' => 10], $sut->getArrayCopy());
+        static::assertEquals(['licence' => 1, 'page' => 1, 'limit' => 10], $sut->getArrayCopy());
     }
 }

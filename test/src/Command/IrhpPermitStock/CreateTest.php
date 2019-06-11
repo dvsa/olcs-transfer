@@ -24,5 +24,25 @@ class CreateTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($data['validTo'], $command->getValidTo());
         $this->assertEquals($data['irhpPermitType'], $command->getIrhpPermitType());
         $this->assertEquals($data['initialStock'], $command->getInitialStock());
+        $this->assertEquals('emissions_cat_na', $command->getEmissionsCategory());
+    }
+
+    public function testStructureWithEmissionsCategory()
+    {
+        $data = [
+            'irhpPermitType' => '1',
+            'validFrom' => '2029-01-01',
+            'validTo' => '2029-12-31',
+            'initialStock' => 1400,
+            'emissionsCategory' => 'emissions_cat_euro5'
+        ];
+
+        $command = Create::create($data);
+
+        $this->assertEquals($data['validFrom'], $command->getValidFrom());
+        $this->assertEquals($data['validTo'], $command->getValidTo());
+        $this->assertEquals($data['irhpPermitType'], $command->getIrhpPermitType());
+        $this->assertEquals($data['initialStock'], $command->getInitialStock());
+        $this->assertEquals('emissions_cat_euro5', $command->getEmissionsCategory());
     }
 }

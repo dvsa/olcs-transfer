@@ -6,7 +6,6 @@
 namespace Dvsa\Olcs\Transfer\Command\IrhpPermitWindow;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\DaysForPayment;
-use Dvsa\Olcs\Transfer\FieldType\Traits\EmissionsCategory;
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitStock;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Iso8601EndDate;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Iso8601StartDate;
@@ -22,7 +21,6 @@ final class Update extends AbstractCommand
 {
     use Identity;
     use IrhpPermitStock;
-    use EmissionsCategory;
     use Iso8601StartDate;
     use Iso8601EndDate;
     use DaysForPayment;
