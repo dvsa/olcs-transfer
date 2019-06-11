@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Dvsa\Olcs\Transfer\Query\Fee;
-
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TrafficAreaOptional;
@@ -23,5 +21,4 @@ class InterimRefunds extends AbstractQuery
     use StartDate;
     use EndDate;
     use TrafficAreaOptional;
-
 }
