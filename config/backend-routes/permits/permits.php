@@ -309,6 +309,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\AvailableTypes::class),
                 ]
             ],
+            'available-years' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'available-years[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\AvailableYears::class),
+                ]
+            ],
             'open-windows' => [
                 'type' => 'Segment',
                 'options' => [
