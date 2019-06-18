@@ -212,6 +212,15 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtCabotage::class)
                         ]
                     ],
+                    'ecmt-roadworthiness' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ecmt-roadworthiness[/]',
+                        ],
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtRoadworthiness::class)
+                        ]
+                    ],
                     'ecmt-emissions' => [
                         'type' => 'Segment',
                         'options' => [
