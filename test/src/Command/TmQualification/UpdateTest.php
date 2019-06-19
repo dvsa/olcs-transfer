@@ -70,5 +70,4 @@ class UpdateTest extends TestCase
             'countryCode' => [['a ', 'a']],
         ];
     }
-
 }

@@ -65,5 +65,4 @@ class CreateTest extends TestCase
             'countryCode' => [['a ', 'a']],
         ];
     }
-
 }
