@@ -53,7 +53,7 @@ class UpdateTest extends TestCase
             'id' => ['0', ['array']],
             'version' => [['an_array']],
             'qualificationType' => ['sasdsd', ['an_array']],
-            'serialNo' => [['an_array']],
+            'serialNo' => [str_repeat('a', 51), ['an_array']],
             'countryCode' => [['aaa']],
             'issuedDate' => [['20-01-2001']]
         ];

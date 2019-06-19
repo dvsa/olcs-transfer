@@ -49,7 +49,7 @@ class CreateTest extends TestCase
         return [
             'transportManager' => ['0', ['array']],
             'qualificationType' => ['sasdsd', ['an_array']],
-            'serialNo' => [['an_array']],
+            'serialNo' => [str_repeat('a', 51), ['an_array']],
             'countryCode' => [['aaa']],
             'issuedDate' => [['20-01-2001']]
         ];
