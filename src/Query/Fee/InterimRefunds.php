@@ -2,14 +2,11 @@
 
 namespace Dvsa\Olcs\Transfer\Query\Fee;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
-use Dvsa\Olcs\Transfer\FieldType\Traits\TrafficAreaOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\EndDate;
+use Dvsa\Olcs\Transfer\FieldType\Traits\StartDate;
+use Dvsa\Olcs\Transfer\FieldType\Traits\TrafficAreasOptional;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
-use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
-use Dvsa\Olcs\Transfer\Query\PagedTrait;
-use Dvsa\Olcs\Transfer\FieldType\Traits\StartDate;
-use Dvsa\Olcs\Transfer\FieldType\Traits\EndDate;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
@@ -20,5 +17,5 @@ class InterimRefunds extends AbstractQuery
     use OrderedTrait;
     use StartDate;
     use EndDate;
-    use TrafficAreaOptional;
+    use TrafficAreasOptional;
 }
