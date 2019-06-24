@@ -10,6 +10,8 @@ namespace Dvsa\Olcs\Transfer\Command\Permits;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\FieldType\Traits\PermitsRequired;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits\RequiredEuro5;
+use Dvsa\Olcs\Transfer\FieldType\Traits\RequiredEuro6;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
@@ -19,5 +21,6 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class UpdateEcmtPermitsRequired extends AbstractCommand
 {
     use Identity;
-    use PermitsRequired;
+    use RequiredEuro5;
+    use RequiredEuro6;
 }
