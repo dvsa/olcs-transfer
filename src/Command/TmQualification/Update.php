@@ -50,7 +50,7 @@ final class Update extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name": "Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":0,"max":20}})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":0,"max":50}})
      * @Transfer\Optional
      */
     protected $serialNo;
