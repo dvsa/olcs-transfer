@@ -9,6 +9,8 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
  */
 trait EcmtApplicationAllOptional
 {
+    use YearOptional;
+
     /**
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -193,15 +195,5 @@ trait EcmtApplicationAllOptional
         return $this->permitType;
     }
 
-    /**
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 2018}})
-     * @Transfer\Optional
-     */
-    public $year;
 
-    public function getYear()
-    {
-        return (int) $this->year;
-    }
 }
