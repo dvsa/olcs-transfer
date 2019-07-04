@@ -11,11 +11,8 @@ class OpenWindowsTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {
-        $query = OpenWindows::create(['currentDateTime' => '2017-02-03 15:11:43']);
+        $query = OpenWindows::create(['permitType' => 1]);
 
-        $this->assertEquals(
-            '2017-02-03 15:11:43',
-            $query->getCurrentDateTime()
-        );
+        $this->assertEquals(1, $query->getPermitType());
     }
 }

@@ -7,7 +7,6 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\CurrentDateTime;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
@@ -16,8 +15,6 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class OpenWindows extends AbstractQuery
 {
-    use CurrentDateTime;
-
     /**
      * @var int
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
