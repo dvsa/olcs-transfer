@@ -7,7 +7,6 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\IrhpPermitWindow;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\CurrentDateTime;
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitType;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -18,5 +17,4 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class OpenByType extends AbstractQuery
 {
     use IrhpPermitType;
-    use CurrentDateTime;
 }
