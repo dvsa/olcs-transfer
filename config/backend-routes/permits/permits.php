@@ -328,6 +328,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\AvailableYears::class),
                 ]
             ],
+            'emissions-by-year' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'emissions-by-year[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\EmissionsByYear::class),
+                ]
+            ],
             'open-windows' => [
                 'type' => 'Segment',
                 'options' => [
