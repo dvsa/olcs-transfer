@@ -2,12 +2,12 @@
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
- * Trait ApplicationStepPostData
+ * Trait PostData
  *
  * @package Dvsa\Olcs\Transfer\Command\Traits\FieldType
  * @author Jonathan Thomas <jonathan@opalise.co.uk>
  */
-trait ApplicationStepPostData
+trait PostData
 {
     /**
      * @Transfer\ArrayInput
