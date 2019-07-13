@@ -207,6 +207,26 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\SubmitApplicationStep::class),
                 ],
             ],
+            'application-path' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'application-path[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\ApplicationPath::class),
+                ],
+            ],
+            'submit-application-path' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'submit-application-path[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\SubmitApplicationPath::class),
+                ],
+            ],
         ]
     ],
 ];
