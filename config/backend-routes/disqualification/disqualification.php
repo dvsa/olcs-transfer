@@ -14,7 +14,7 @@ return [
             'single' => RouteConfig::getSingleConfig(
                 [
                     'PUT' => CommandConfig::getPutConfig(Command\Disqualification\Update::class),
-                    'DELETE' =>CommandConfig::getDeleteConfig(Command\Disqualification\Delete::class)
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\Disqualification\Delete::class)
                 ]
             ),
         ]
