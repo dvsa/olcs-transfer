@@ -61,7 +61,9 @@ class DeleteTest extends TestCase
     protected function getValidFieldValues()
     {
         return [
-            ["id" => 1]
+
+                'id' => ['1', '2']
+
         ];
     }
 
