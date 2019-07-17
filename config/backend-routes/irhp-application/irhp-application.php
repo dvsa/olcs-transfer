@@ -146,6 +146,16 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\CancelApplication::class),
                 ]
             ],
+            'withdraw' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'withdraw[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\Withdraw::class),
+                ],
+            ],
             'full' => [
                 'type' => 'Segment',
                 'options' => [
