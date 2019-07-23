@@ -9,6 +9,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\DateReceived;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Declaration;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\FieldType\Traits\MultipleNoOfPermitsOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\PostDataOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -22,4 +23,5 @@ final class UpdateFull extends AbstractCommand
     use DateReceived;
     use MultipleNoOfPermitsOptional;
     use Declaration;
+    use PostDataOptional;
 }
