@@ -104,6 +104,16 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Permits\AcceptEcmtPermits::class),
                 ]
             ],
+            'irhp-permits-accept' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'irhp-permits-accept[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\AcceptIrhpPermits::class),
+                ]
+            ],
             'ecmt-permits-issue-paid' => [
                 'type' => 'Segment',
                 'options' => [
