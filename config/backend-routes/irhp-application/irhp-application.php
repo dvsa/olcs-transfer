@@ -156,6 +156,16 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\Withdraw::class),
                 ],
             ],
+            'grant' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'grant[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\Grant::class),
+                ],
+            ],
             'full' => [
                 'type' => 'Segment',
                 'options' => [
