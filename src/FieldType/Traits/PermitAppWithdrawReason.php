@@ -16,7 +16,10 @@ trait PermitAppWithdrawReason
      *      "name":"Zend\Validator\InArray",
      *      "options": {
      *          "haystack": {
-     *              "permits_app_withdraw_by_user", "permits_app_withdraw_declined", "permits_app_withdraw_not_paid"
+     *              "permits_app_withdraw_by_user",
+     *              "permits_app_withdraw_declined",
+     *              "permits_app_withdraw_not_paid",
+     *              "permits_app_withdraw_notsuccess"
      *          }
      *      }
      * })
