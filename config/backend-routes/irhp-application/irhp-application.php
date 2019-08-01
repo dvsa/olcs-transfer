@@ -237,6 +237,26 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\SubmitApplicationPath::class),
                 ],
             ],
+            'permits-available' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'permits-available[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\PermitsAvailable::class),
+                ]
+            ],
+            'permits-available-by-year' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'permits-available-by-year[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\PermitsAvailableByYear::class),
+                ]
+            ],
         ]
     ],
 ];
