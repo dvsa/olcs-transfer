@@ -6,6 +6,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\BusRegOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\CasesOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\EcmtPermitApplicationOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpApplicationOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\SurrenderOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerOptional;
@@ -26,6 +27,7 @@ final class CreateTask extends AbstractCommand
         BusRegOptional,
         CasesOptional,
         EcmtPermitApplicationOptional,
+        IrhpApplicationOptional,
         SurrenderOptional;
 
 
