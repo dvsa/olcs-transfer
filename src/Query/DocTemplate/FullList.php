@@ -8,6 +8,7 @@
 
 namespace Dvsa\Olcs\Transfer\Query\DocTemplate;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\CategoryOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
@@ -22,4 +23,5 @@ final class FullList extends AbstractQuery implements PagedQueryInterface, Order
 {
     use PagedTrait;
     use OrderedTrait;
+    use CategoryOptional;
 }
