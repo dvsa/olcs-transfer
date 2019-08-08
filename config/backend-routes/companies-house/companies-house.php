@@ -11,6 +11,12 @@ return [
         'companies-house',
         [
             'GET' => QueryConfig::getConfig(Query\CompaniesHouse\GetList::class),
+            'insolvency-practitioner' => RouteConfig::getRouteConfig(
+                'insolvency-practitioner',
+                [
+                    'GET' => QueryConfig::getConfig(Query\CompaniesHouse\InsolvencyPractitioner::class)
+                ]
+            )
         ]
     ),
 ];
