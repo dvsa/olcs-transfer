@@ -10,9 +10,11 @@ namespace Dvsa\Olcs\Transfer\Command\DocTemplate;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Category;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Description;
 use Dvsa\Olcs\Transfer\FieldType\Traits\FilenameAndContent;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IsNiOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\SubCategoryOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\SuppressFromOp;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TemplateFolder;
+use Dvsa\Olcs\Transfer\FieldType\Traits\TemplateSlugOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -28,4 +30,6 @@ final class Create extends AbstractCommand
     use Description;
     use FilenameAndContent;
     use SuppressFromOp;
+    use IsNiOptional;
+    use TemplateSlugOptional;
 }
