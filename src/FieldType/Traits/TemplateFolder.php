@@ -19,7 +19,8 @@ trait TemplateFolder
      *              "root",
      *              "gb",
      *              "ni",
-     *              "image"
+     *              "image",
+     *              "guides"
      *          }
      *      }
      * })
