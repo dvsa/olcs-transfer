@@ -2,6 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Query\Document;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\IsSlugOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
@@ -9,6 +10,8 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class DownloadGuide extends AbstractDownload
 {
+    use IsSlugOptional;
+
     /**
      * @var  string
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

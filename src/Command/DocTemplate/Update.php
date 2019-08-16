@@ -10,6 +10,7 @@ namespace Dvsa\Olcs\Transfer\Command\DocTemplate;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Category;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Description;
 use Dvsa\Olcs\Transfer\FieldType\Traits\FilenameAndContentOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IsNiOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\SubCategoryOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\SuppressFromOp;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TemplateFolder;
@@ -30,4 +31,5 @@ final class Update extends AbstractCommand
     use Description;
     use FilenameAndContentOptional;
     use SuppressFromOp;
+    use IsNiOptional;
 }
