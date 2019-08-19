@@ -186,6 +186,12 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     protected $additionalEntities = [];
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $postSubmissionUpload = 0;
+
+    /**
      * @Transfer\Optional
      */
     protected $ecmtPermitApplication;
@@ -386,5 +392,10 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     public function getEcmtPermitApplication()
     {
         return $this->ecmtPermitApplication;
+    }
+
+    public function getPostSubmissionUpload()
+    {
+        return $this->postSubmissionUpload;
     }
 }
