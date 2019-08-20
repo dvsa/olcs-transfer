@@ -189,7 +189,7 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
      * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
      * @Transfer\Optional
      */
-    protected $postSubmissionUpload = 0;
+    protected $isPostSubmissionUpload = 0;
 
     /**
      * @Transfer\Optional
@@ -394,8 +394,8 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
         return $this->ecmtPermitApplication;
     }
 
-    public function getPostSubmissionUpload()
+    public function getIsPostSubmissionUpload()
     {
-        return $this->postSubmissionUpload;
+        return $this->isPostSubmissionUpload;
     }
 }
