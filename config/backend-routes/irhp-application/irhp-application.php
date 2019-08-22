@@ -261,6 +261,16 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\SubmitApplicationPath::class),
                 ],
             ],
+            'answers-summary' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'answers-summary[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\AnswersSummary::class),
+                ],
+            ],
             'permits-available' => [
                 'type' => 'Segment',
                 'options' => [
