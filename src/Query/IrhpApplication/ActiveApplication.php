@@ -7,6 +7,7 @@ namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitType;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Licence;
+use Dvsa\Olcs\Transfer\FieldType\Traits\YearOptional;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
@@ -17,4 +18,5 @@ class ActiveApplication extends AbstractQuery
 {
     use Licence;
     use IrhpPermitType;
+    use YearOptional;
 }
