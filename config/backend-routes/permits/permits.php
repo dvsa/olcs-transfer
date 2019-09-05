@@ -222,6 +222,15 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtCabotage::class)
                         ]
                     ],
+                    'ecmt-roadworthiness' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'ecmt-roadworthiness[/]',
+                        ],
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtRoadworthiness::class)
+                        ]
+                    ],
                     'ecmt-emissions' => [
                         'type' => 'Segment',
                         'options' => [
@@ -267,6 +276,16 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtTrips::class),
                         ]
                     ],
+                ],
+            ],
+            'active-ecmt-application' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'active-ecmt-application[/]'
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\ActiveEcmtApplication::class)
                 ]
             ],
             'single' => [
@@ -327,6 +346,16 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Permits\AvailableYears::class),
+                ]
+            ],
+            'emissions-by-year' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'emissions-by-year[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\EmissionsByYear::class),
                 ]
             ],
             'open-windows' => [

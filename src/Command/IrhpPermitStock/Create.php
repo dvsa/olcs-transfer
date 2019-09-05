@@ -6,6 +6,7 @@
 namespace Dvsa\Olcs\Transfer\Command\IrhpPermitStock;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\CountryOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\EmissionsCategory;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitStockValidFrom;
@@ -21,6 +22,7 @@ final class Create extends AbstractCommand
 {
     use IrhpPermitStockInitialStock;
     use IrhpPermitStockValidFrom;
+    use EmissionsCategory;
     use IrhpPermitStockValidTo;
     use IrhpPermitType;
     use CountryOptional;

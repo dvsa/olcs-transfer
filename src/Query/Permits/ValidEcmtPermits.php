@@ -10,7 +10,7 @@ namespace Dvsa\Olcs\Transfer\Query\Permits;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\FieldType\Traits\Licence;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
 
 /**
@@ -18,6 +18,6 @@ use Dvsa\Olcs\Transfer\Query\PagedTrait;
  */
 class ValidEcmtPermits extends AbstractQuery implements PagedQueryInterface
 {
-    use Identity;
+    use Licence;
     use PagedTrait;
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
@@ -9,7 +10,10 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
  */
 trait EcmtApplicationAllOptional
 {
-
+    use YearOptional;
+    use RequiredEuro5Optional;
+    use RequiredEuro6Optional;
+    use RoadworthinessOptional;
 
     /**
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
@@ -20,10 +24,8 @@ trait EcmtApplicationAllOptional
 
     public function getId()
     {
-        return (int) $this->id;
+        return (int)$this->id;
     }
-
-
 
     /**
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
@@ -33,11 +35,8 @@ trait EcmtApplicationAllOptional
 
     public function getLicence()
     {
-        return (int) $this->licence;
+        return (int)$this->licence;
     }
-
-
-
 
     /**
      * @Transfer\Optional()
@@ -48,7 +47,7 @@ trait EcmtApplicationAllOptional
 
     public function getSectors()
     {
-        return (int) $this->sectors;
+        return (int)$this->sectors;
     }
 
     /**
@@ -59,7 +58,6 @@ trait EcmtApplicationAllOptional
      */
     protected $dateReceived;
 
-
     /**
      * @return \DateTime
      */
@@ -67,7 +65,6 @@ trait EcmtApplicationAllOptional
     {
         return $this->dateReceived;
     }
-
 
     /**
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
@@ -78,21 +75,8 @@ trait EcmtApplicationAllOptional
 
     public function getNoOfPermits()
     {
-        return (int) $this->noOfPermits;
+        return (int)$this->noOfPermits;
     }
-
-    /**
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": -1}})
-     * @Transfer\Optional
-     */
-    public $permitsRequired;
-
-    public function getPermitsRequired()
-    {
-        return (int) $this->permitsRequired;
-    }
-
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -116,9 +100,8 @@ trait EcmtApplicationAllOptional
 
     public function getEmissions()
     {
-        return (int) $this->emissions;
+        return (int)$this->emissions;
     }
-
 
     /**
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
@@ -129,7 +112,7 @@ trait EcmtApplicationAllOptional
 
     public function getCabotage()
     {
-        return (int) $this->cabotage;
+        return (int)$this->cabotage;
     }
 
     /**
@@ -142,7 +125,6 @@ trait EcmtApplicationAllOptional
         return $this->countryIds;
     }
 
-
     /**
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": -1}})
@@ -152,9 +134,8 @@ trait EcmtApplicationAllOptional
 
     public function getTrips()
     {
-        return (int) $this->trips;
+        return (int)$this->trips;
     }
-
 
     /**
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
@@ -165,9 +146,8 @@ trait EcmtApplicationAllOptional
 
     public function getDeclaration()
     {
-        return (int) $this->declaration;
+        return (int)$this->declaration;
     }
-
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
@@ -181,7 +161,6 @@ trait EcmtApplicationAllOptional
     {
         return $this->status;
     }
-
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
