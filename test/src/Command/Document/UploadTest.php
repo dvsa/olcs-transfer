@@ -3,11 +3,12 @@
 namespace Dvsa\OlcsTest\Transfer\Command\Document;
 
 use Dvsa\Olcs\Transfer\Command\Document\Upload;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers Dvsa\Olcs\Transfer\Command\Document\Upload
  */
-class UploadTest extends \PHPUnit\Framework\TestCase
+class UploadTest extends TestCase
 {
     public function testStructure()
     {
@@ -32,6 +33,7 @@ class UploadTest extends \PHPUnit\Framework\TestCase
         $ecmtPermitApplication = 3;
         $irhpApplication = 17;
         $surrender = 1;
+        $isPostSubmissionUpload = 1;
 
         $data = [
             'filename' => $filename,
@@ -54,7 +56,8 @@ class UploadTest extends \PHPUnit\Framework\TestCase
             'additionalEntities' => $additionalEntities,
             'ecmtPermitApplication' => $ecmtPermitApplication,
             'irhpApplication' => $irhpApplication,
-            'surrender' => $surrender
+            'surrender' => $surrender,
+            'isPostSubmissionUpload' => $isPostSubmissionUpload
         ];
 
         /** @var Upload $command */
@@ -81,6 +84,7 @@ class UploadTest extends \PHPUnit\Framework\TestCase
         static::assertEquals($ecmtPermitApplication, $command->getEcmtPermitApplication());
         static::assertEquals($irhpApplication, $command->getIrhpApplication());
         static::assertEquals($surrender, $command->getSurrender());
+        $this->assertEquals($isPostSubmissionUpload, $command->getIsPostSubmissionUpload());
     }
 
     public function testSurrenderSetter()

@@ -14,13 +14,15 @@ class ActiveApplicationTest extends \PHPUnit\Framework\TestCase
         $sut = ActiveApplication::create(
             [
                 'licence' => 1,
-                'irhpPermitType' => 1
+                'irhpPermitType' => 1,
+                'year' => '2021',
             ]
         );
         static::assertEquals(
             [
                 'licence' => 1,
-                'irhpPermitType' => 1
+                'irhpPermitType' => 1,
+                'year' => '2021',
             ],
             $sut->getArrayCopy()
         );
