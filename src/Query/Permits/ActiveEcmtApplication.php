@@ -5,6 +5,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\IdentityOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Licence;
 use Dvsa\Olcs\Transfer\FieldType\Traits\YearOptional;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
@@ -17,4 +18,5 @@ class ActiveEcmtApplication extends AbstractQuery
 {
     use Licence;
     use YearOptional;
+    use IdentityOptional;
 }
