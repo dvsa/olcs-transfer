@@ -17,12 +17,25 @@ return [
             'single' => RouteConfig::getSingleConfig(
                 [
                     'GET' => QueryConfig::getConfig(Query\Fee\FeeType::class),
+                    'PUT' => CommandConfig::getPutConfig(Command\FeeType\Update::class)
                 ]
             ),
             'latest' => RouteConfig::getRouteConfig(
                 'latest',
                 [
                     'GET' => QueryConfig::getConfig(Query\Fee\GetLatestFeeType::class),
+                ]
+            ),
+            'fee-rates' => RouteConfig::getRouteConfig(
+                'fee-rates',
+                [
+                    'GET' => QueryConfig::getConfig(Query\FeeType\GetList::class),
+                ]
+            ),
+            'fee-types-distinct' => RouteConfig::getRouteConfig(
+                'fee-types-distinct',
+                [
+                    'GET' => QueryConfig::getConfig(Query\FeeType\GetDistinctList::class),
                 ]
             ),
             'GET' => QueryConfig::getConfig(Query\Fee\FeeTypeList::class),
