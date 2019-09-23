@@ -15,7 +15,10 @@ class CreateTest extends \PHPUnit\Framework\TestCase
             'irhpPermitType' => '1',
             'validFrom' => '2029-01-01',
             'validTo' => '2029-12-31',
-            'initialStock' => 1400
+            'initialStock' => 1400,
+            'businessProcess' => 'app_business_process_apg',
+            'applicationPathGroup' => 2,
+            'periodNameKey' => 'this.is.a.key'
         ];
 
         $command = Create::create($data);
@@ -25,6 +28,9 @@ class CreateTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($data['irhpPermitType'], $command->getIrhpPermitType());
         $this->assertEquals($data['initialStock'], $command->getInitialStock());
         $this->assertEquals('emissions_cat_na', $command->getEmissionsCategory());
+        $this->assertEquals('app_business_process_apg', $command->getBusinessProcess());
+        $this->assertEquals(2, $command->getApplicationPathGroup());
+        $this->assertEquals('this.is.a.key', $command->getPeriodNameKey());
     }
 
     public function testStructureWithEmissionsCategory()

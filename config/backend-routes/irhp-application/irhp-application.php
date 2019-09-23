@@ -257,6 +257,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\PermitsAvailableByYear::class),
                 ]
             ],
+            'application-path-list' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'application-path-list[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\ApplicationPathGroupList::class),
+                ]
+            ],
         ]
     ],
 ];
