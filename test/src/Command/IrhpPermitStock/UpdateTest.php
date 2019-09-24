@@ -17,7 +17,8 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
             'validFrom' => '2029-01-01',
             'validTo' => '2029-12-31',
             'initialStock' => '1400',
-            'irhpPermitType' => '1'
+            'irhpPermitType' => '1',
+            'periodNameKey' => 'this.is.a.key'
         ];
 
         $command = Update::create($data);
@@ -28,6 +29,7 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($data['irhpPermitType'], $command->getIrhpPermitType());
         $this->assertEquals($data['initialStock'], $command->getInitialStock());
         $this->assertEquals('emissions_cat_na', $command->getEmissionsCategory());
+        $this->assertEquals('this.is.a.key', $command->getPeriodNameKey());
     }
 
     public function testStructureWithEmissionsCategory()
