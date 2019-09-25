@@ -6,7 +6,7 @@
 namespace Dvsa\Olcs\Transfer\Command\IrhpPermitStock;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationPathGroupOptional;
-use Dvsa\Olcs\Transfer\FieldType\Traits\BusinessProcessOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\BusinessProcess;
 use Dvsa\Olcs\Transfer\FieldType\Traits\CountryOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\EmissionsCategory;
 use Dvsa\Olcs\Transfer\FieldType\Traits\PeriodNameKeyOptional;
@@ -30,6 +30,6 @@ final class Create extends AbstractCommand
     use IrhpPermitType;
     use CountryOptional;
     use ApplicationPathGroupOptional;
-    use BusinessProcessOptional;
+    use BusinessProcess;
     use PeriodNameKeyOptional;
 }
