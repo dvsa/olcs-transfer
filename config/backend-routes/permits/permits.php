@@ -348,6 +348,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\AvailableYears::class),
                 ]
             ],
+            'available-stocks' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'available-stocks[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\AvailableStocks::class),
+                ]
+            ],
             'emissions-by-year' => [
                 'type' => 'Segment',
                 'options' => [
