@@ -3,6 +3,7 @@
 /**
  * Update User
  */
+
 namespace Dvsa\Olcs\Transfer\Command\User;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\TranslateToWelshOptional;
@@ -139,6 +140,19 @@ final class UpdateUser extends AbstractCommand
      */
     protected $resetPassword = null;
 
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *          "haystack": {
+     *              "os_type_windows_7", "os_type_windows_10"
+     *          }
+     *     }
+     * })
+     */
+    protected $osType = "os_type_windows_7";
+
     public function getId()
     {
         return $this->id;
@@ -207,5 +221,21 @@ final class UpdateUser extends AbstractCommand
     public function getResetPassword()
     {
         return $this->resetPassword;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOsType(): string
+    {
+        return $this->osType;
+    }
+
+    /**
+     * @param string $osType
+     */
+    public function setOsType(string $osType): void
+    {
+        $this->osType = $osType;
     }
 }

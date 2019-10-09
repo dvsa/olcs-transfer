@@ -107,6 +107,19 @@ final class CreateUser extends AbstractCommand
     protected $roles = [];
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *          "haystack": {
+     *              "os_type_windows_7", "os_type_windows_10"
+     *          }
+     *     }
+     * })
+     */
+    protected $osType = "os_type_windows_7";
+
+    /**
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\ContactDetails")
      */
     protected $contactDetails;
@@ -159,5 +172,21 @@ final class CreateUser extends AbstractCommand
     public function getLoginId()
     {
         return $this->loginId;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOsType(): string
+    {
+        return $this->osType;
+    }
+
+    /**
+     * @param string $osType
+     */
+    public function setOsType(string $osType): void
+    {
+        $this->osType = $osType;
     }
 }
