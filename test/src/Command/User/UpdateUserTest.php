@@ -58,8 +58,8 @@ class UpdateUserTest extends TestCase
             'accountDisabled' => ['Y', 'N'],
             'resetPassword' => ['post', 'email'],
             'osType' => [
-                'os_type_windows_7',
-                'os_type_windows_10'
+                'windows_7',
+                'windows_10'
             ]
         ];
     }

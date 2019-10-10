@@ -54,8 +54,8 @@ class CreateUserTest extends TestCase
                 ]
             ],
             'osType' => [
-                'os_type_windows_7',
-                'os_type_windows_10'
+                'windows_7',
+                'windows_10'
             ]
         ];
     }

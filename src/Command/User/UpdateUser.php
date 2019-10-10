@@ -146,12 +146,12 @@ final class UpdateUser extends AbstractCommand
      *     "name":"Zend\Validator\InArray",
      *     "options": {
      *          "haystack": {
-     *              "os_type_windows_7", "os_type_windows_10"
+     *              "windows_7", "windows_10"
      *          }
      *     }
      * })
      */
-    protected $osType = "os_type_windows_7";
+    protected $osType = "windows_7";
 
     public function getId()
     {
