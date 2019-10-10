@@ -116,6 +116,7 @@ final class CreateUser extends AbstractCommand
      *          }
      *     }
      * })
+     * @Transfer\Optional
      */
     protected $osType = "windows_7";
 
