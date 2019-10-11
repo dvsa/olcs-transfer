@@ -20,7 +20,16 @@ class UpdateUserTest extends TestCase
 
     protected function getOptionalDtoFields()
     {
-        return [];
+        return [
+            'translateToWelsh',
+            'team',
+            'application',
+            'transportManager',
+            'localAuthority',
+            'partnerContactDetails',
+            'accountDisabled',
+            'resetPassword'
+        ];
     }
 
     protected function getValidFieldValues()
@@ -82,8 +91,17 @@ class UpdateUserTest extends TestCase
     protected function getFilterTransformations()
     {
         return [
-            'id' => [[99, '99']],
-            'version' => [[99, '99']],
+            'id' => [[1, '1']],
+            'version' => [[2, '2']],
+            'loginId' => [['local-authority ', 'local-authority']],
+            'resetPassword' => [['email ', 'email']],
+            'osType' => [['windows_71 ', 'windows_71']],
+            'userType' => [['partner ', 'partner']],
+            'application' => [[54, '54']],
+            'transportManager' => [[7, '7']],
+            'localAuthority' => [[11, '11']],
+            'partnerContactDetails' => [[12, '12']],
+            'accountDisabled' => [[10, '10']],
         ];
     }
 }

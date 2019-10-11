@@ -150,7 +150,6 @@ final class UpdateUser extends AbstractCommand
      *          }
      *     }
      * })
-     * @Transfer\Optional
      */
     protected $osType = "windows_7";
 
