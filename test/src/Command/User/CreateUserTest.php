@@ -2,20 +2,20 @@
 
 namespace Dvsa\OlcsTest\Transfer\Command\User;
 
-use Dvsa\Olcs\Transfer\Command\User\UpdateUser;
+use Dvsa\Olcs\Transfer\Command\User\CreateUser;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
 use PHPUnit\Framework\TestCase;
 
 /**
  * Pay Outstanding Fees test
  */
-class UpdateUserTest extends TestCase
+class CreateUserTest extends TestCase
 {
     use CommandTest;
 
     protected function createBlankDto()
     {
-        return new UpdateUser();
+        return new CreateUser();
     }
 
     protected function getOptionalDtoFields()
@@ -27,8 +27,6 @@ class UpdateUserTest extends TestCase
             'transportManager',
             'localAuthority',
             'partnerContactDetails',
-            'accountDisabled',
-            'resetPassword',
             'osType'
         ];
     }
@@ -36,8 +34,6 @@ class UpdateUserTest extends TestCase
     protected function getValidFieldValues()
     {
         return [
-            'id' => ['1', '2'],
-            'version' => ['1', '2'],
             'userType' => [
                 "internal",
                 "local-authority",
@@ -65,8 +61,6 @@ class UpdateUserTest extends TestCase
                     "local-authority-user"
                 ]
             ],
-            'accountDisabled' => ['Y', 'N'],
-            'resetPassword' => ['post', 'email'],
             'osType' => [
                 'windows_7',
                 'windows_10'
@@ -77,13 +71,9 @@ class UpdateUserTest extends TestCase
     protected function getInvalidFieldValues()
     {
         return [
-            'id' => ['string', ['unexpected' => 'array']],
-            'version' => ['string', ['unexpected' => 'array']],
             'userType' => ["incorrect", ['unexpected' => 'array']],
             'licenceNumber' => ['1', str_repeat('a', 19)],
             'roles' => [["wrong_role"], ['unexpected' => 'array']],
-            'accountDisabled' => ['string', ['unexpected' => 'array']],
-            'resetPassword' => ['string', ['unexpected' => 'array']],
             'osType' => ["incorrect", ['unexpected' => 'array']]
         ];
     }
@@ -92,17 +82,13 @@ class UpdateUserTest extends TestCase
     protected function getFilterTransformations()
     {
         return [
-            'id' => [[1, '1']],
-            'version' => [[2, '2']],
             'loginId' => [['local-authority ', 'local-authority']],
-            'resetPassword' => [['email ', 'email']],
             'osType' => [['windows_71 ', 'windows_71']],
             'userType' => [['partner ', 'partner']],
             'application' => [[54, '54']],
             'transportManager' => [[7, '7']],
             'localAuthority' => [[11, '11']],
-            'partnerContactDetails' => [[12, '12']],
-            'accountDisabled' => [[10, '10']],
+            'partnerContactDetails' => [[12, '12']]
         ];
     }
 }
