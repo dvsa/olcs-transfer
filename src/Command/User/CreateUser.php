@@ -178,7 +178,7 @@ final class CreateUser extends AbstractCommand
     /**
      * @return string
      */
-    public function getOsType(): string
+    public function getOsType(): ?string
     {
         return $this->osType;
     }
@@ -186,7 +186,7 @@ final class CreateUser extends AbstractCommand
     /**
      * @param string $osType
      */
-    public function setOsType(string $osType): void
+    public function setOsType(?string $osType): void
     {
         $this->osType = $osType;
     }
