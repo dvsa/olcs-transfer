@@ -1,6 +1,6 @@
 <?php
 
-namespace Dvsa\OlcsTest\Transfer\Command\Transaction;
+namespace Dvsa\OlcsTest\Transfer\Command\User;
 
 use Dvsa\Olcs\Transfer\Command\User\UpdateUser;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
