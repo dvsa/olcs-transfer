@@ -116,8 +116,9 @@ final class CreateUser extends AbstractCommand
      *          }
      *     }
      * })
+     * @Transfer\Optional
      */
-    protected $osType = "windows_7";
+    protected $osType = null;
 
     /**
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\ContactDetails")

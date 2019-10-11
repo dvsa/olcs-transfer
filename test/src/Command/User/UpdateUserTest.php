@@ -28,7 +28,8 @@ class UpdateUserTest extends TestCase
             'localAuthority',
             'partnerContactDetails',
             'accountDisabled',
-            'resetPassword'
+            'resetPassword',
+            'osType'
         ];
     }
 

@@ -26,7 +26,8 @@ class CreateUserTest extends TestCase
             'application',
             'transportManager',
             'localAuthority',
-            'partnerContactDetails'
+            'partnerContactDetails',
+            'osType'
         ];
     }
 
