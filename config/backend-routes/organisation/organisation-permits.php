@@ -10,7 +10,7 @@ return [
         [
             'single' => RouteConfig::getSingleConfig(
                 [
-                    'GET' => QueryConfig::getConfig(Query\Organisation\OrganisationPermits::class),
+                    'GET' => QueryConfig::getConfig(Query\Organisation\OrganisationAvailableLicences::class),
 
                 ]
             ),
