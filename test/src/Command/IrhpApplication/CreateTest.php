@@ -14,15 +14,15 @@ class CreateTest extends \PHPUnit\Framework\TestCase
     public function testStructure()
     {
         $data = [
-            'type' => 2,
+            'irhpPermitType' => 2,
             'licence' => 7,
-            'year' => 2029
+            'irhpPermitStock' => 3
         ];
 
         $command = Create::create($data);
 
-        $this->assertEquals($data['type'], $command->getType());
+        $this->assertEquals($data['irhpPermitType'], $command->getIrhpPermitType());
         $this->assertEquals($data['licence'], $command->getLicence());
-        $this->assertEquals($data['year'], $command->getYear());
+        $this->assertEquals($data['irhpPermitStock'], $command->getIrhpPermitStock());
     }
 }
