@@ -18,3 +18,4 @@ node_modules
 test/review
 test/coverage/
 .scannerwork/
+composer.lock
