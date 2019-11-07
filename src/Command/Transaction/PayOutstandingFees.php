@@ -22,6 +22,7 @@ final class PayOutstandingFees extends AbstractCommand
 
     /**
      * @Transfer\ArrayInput
+     * @Transfer\Optional
      */
     protected $feeIds = [];
 
