@@ -261,6 +261,28 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\ApplicationPathGroupList::class),
                 ]
             ],
+            'ranges-by-application' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ranges-by-application[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\RangesByIrhpApplication::class),
+                ]
+            ],
+            'get-grantability' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'get-grantability[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\GetGrantability::class),
+                ]
+            ],
+
+
         ]
     ],
 ];
