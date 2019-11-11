@@ -139,6 +139,20 @@ final class UpdateUser extends AbstractCommand
      */
     protected $resetPassword = null;
 
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\InArray",
+     *     "options": {
+     *          "haystack": {
+     *              "windows_7", "windows_10"
+     *          }
+     *     }
+     * })
+     * @Transfer\Optional
+     */
+    protected $osType = null;
+
     public function getId()
     {
         return $this->id;
@@ -207,5 +221,21 @@ final class UpdateUser extends AbstractCommand
     public function getResetPassword()
     {
         return $this->resetPassword;
+    }
+
+    /**
+     * @return string
+     */
+    public function getOsType(): ?string
+    {
+        return $this->osType;
+    }
+
+    /**
+     * @param string $osType
+     */
+    public function setOsType(?string $osType): void
+    {
+        $this->osType = $osType;
     }
 }
