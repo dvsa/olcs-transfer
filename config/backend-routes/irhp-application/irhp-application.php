@@ -37,6 +37,16 @@ return [
                             'GET' => QueryConfig::getConfig(Query\IrhpApplication\QuestionAnswer::class),
                         ]
                     ],
+                    'available-licences' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'available-licences[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\IrhpApplication\AvailableLicences::class),
+                        ],
+                    ],
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\Create::class),
@@ -47,12 +57,6 @@ return [
                 ],
                 'child_routes' => [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateLicence::class),
-                    'active' => RouteConfig::getRouteConfig(
-                        'active',
-                        [
-                            'GET' => QueryConfig::getConfig(Query\IrhpApplication\ActiveApplication::class),
-                        ]
-                    ),
                 ]
             ],
             'update-multiple-no-of-permits' => [
@@ -247,14 +251,14 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\PermitsAvailable::class),
                 ]
             ],
-            'permits-available-by-year' => [
+            'application-path-list' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => 'permits-available-by-year[/]',
+                    'route' => 'application-path-list[/]',
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\PermitsAvailableByYear::class),
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\ApplicationPathGroupList::class),
                 ]
             ],
         ]

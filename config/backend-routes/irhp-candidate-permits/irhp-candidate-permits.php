@@ -12,6 +12,16 @@ return [
         'may_terminate' => false,
         'child_routes' => [
             'GET' => QueryConfig::getConfig(Query\IrhpCandidatePermit\GetList::class),
+            'by-irhp-application' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'by-irhp-application[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpCandidatePermit\GetListByIrhpApplication::class),
+                ]
+            ],
         ]
     ],
 ];

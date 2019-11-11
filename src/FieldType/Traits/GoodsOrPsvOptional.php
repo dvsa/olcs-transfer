@@ -17,7 +17,7 @@ trait GoodsOrPsvOptional
      * @Transfer\Validator(
      *  {
      *      "name":"Zend\Validator\InArray",
-     *      "options": {"haystack": {"lcat_gv","lcat_psv", "NULL"}}
+     *      "options": {"haystack": {"lcat_gv","lcat_psv", "lcat_permit", "NULL"}}
      *  }
      * )
      */

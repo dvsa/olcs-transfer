@@ -10,7 +10,6 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
  */
 trait EcmtApplicationAllOptional
 {
-    use YearOptional;
     use RequiredEuro5Optional;
     use RequiredEuro6Optional;
     use RoadworthinessOptional;
@@ -25,17 +24,6 @@ trait EcmtApplicationAllOptional
     public function getId()
     {
         return (int)$this->id;
-    }
-
-    /**
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    public $licence;
-
-    public function getLicence()
-    {
-        return (int)$this->licence;
     }
 
     /**

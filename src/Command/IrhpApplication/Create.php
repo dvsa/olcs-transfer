@@ -5,10 +5,13 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\IrhpApplication;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\Licence;
-use Dvsa\Olcs\Transfer\FieldType\Traits\YearOptional;
-use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits\EcmtApplicationAllOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\FromInternal;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitStockOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitType;
+use Dvsa\Olcs\Transfer\FieldType\Traits\Licence;
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @Transfer\RouteName("backend/irhp-application")
@@ -17,26 +20,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class Create extends AbstractCommand
 {
     use Licence;
-    use YearOptional;
-
-    /**
-     * @var string
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *      "name":"Zend\Validator\Between",
-     *      "options": {
-     *          "min": 0,
-     *          "max": 999999
-     *      }
-     * })
-     */
-    protected $type;
-
-    /**
-     * @return int
-     */
-    public function getType(): int
-    {
-        return $this->type;
-    }
+    use IrhpPermitType;
+    use FromInternal;
+    use IrhpPermitStockOptional;
+    use EcmtApplicationAllOptional;
 }
