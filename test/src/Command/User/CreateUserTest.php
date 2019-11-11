@@ -83,7 +83,7 @@ class CreateUserTest extends TestCase
     {
         return [
             'loginId' => [['local-authority ', 'local-authority']],
-            'osType' => [['windows_71 ', 'windows_71'," windows_10"]],
+            'osType' => [['windows_71 ', 'windows_71'],[' windows_10', 'windows_7']],
             'userType' => [['partner ', 'partner']],
             'application' => [[54, '54']],
             'transportManager' => [[7, '7']],
