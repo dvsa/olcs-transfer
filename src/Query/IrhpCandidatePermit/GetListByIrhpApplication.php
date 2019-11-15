@@ -6,6 +6,7 @@
 namespace Dvsa\Olcs\Transfer\Query\IrhpCandidatePermit;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpApplication;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IsPreGrant;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
@@ -21,4 +22,5 @@ class GetListByIrhpApplication extends AbstractQuery implements PagedQueryInterf
     use IrhpApplication;
     use PagedTrait;
     use OrderedTrait;
+    use IsPreGrant;
 }
