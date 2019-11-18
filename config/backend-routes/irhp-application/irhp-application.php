@@ -160,6 +160,16 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\Withdraw::class),
                 ],
             ],
+            'revive-from-withdrawn' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'revive-from-withdrawn[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\ReviveFromWithdrawn::class),
+                ],
+            ],
             'grant' => [
                 'type' => 'Segment',
                 'options' => [
@@ -281,8 +291,6 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\GetGrantability::class),
                 ]
             ],
-
-
         ]
     ],
 ];

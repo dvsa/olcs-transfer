@@ -194,6 +194,16 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Permits\CreateFullPermitApplication::class),
                 ]
             ],
+            'ecmt-revive-from-withdrawn' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ecmt-revive-from-withdrawn[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\Permits\ReviveEcmtPermitApplicationFromWithdrawn::class),
+                ]
+            ],
             'ecmt-permit-application' => [
                 'type' => 'Segment',
                 'options' => [
