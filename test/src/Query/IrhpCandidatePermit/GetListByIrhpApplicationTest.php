@@ -13,21 +13,23 @@ class GetListByIrhpApplicationTest extends \PHPUnit\Framework\TestCase
     {
         $sut = GetListByIrhpApplication::create(
             [
-              'irhpApplication' => 2,
-              'page' => 1,
-              'limit' => 10,
-              'sort' => 'id',
-              'order' => 'ASC',
+                'irhpApplication' => 2,
+                'page' => 1,
+                'limit' => 10,
+                'sort' => 'id',
+                'order' => 'ASC',
+                'isPreGrant' => false
             ]
         );
         static::assertEquals(
             [
-            'irhpApplication' => 2,
-            'page' => 1,
-            'limit' => 10,
-            'sort' => 'id',
-            'order' => 'ASC',
-            'sortWhitelist' => []
+                'irhpApplication' => 2,
+                'page' => 1,
+                'limit' => 10,
+                'sort' => 'id',
+                'order' => 'ASC',
+                'sortWhitelist' => [],
+                'isPreGrant' => false
             ],
             $sut->getArrayCopy()
         );

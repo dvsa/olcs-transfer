@@ -7,6 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\Permits;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationCheckedOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\EcmtApplicationAllOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Licence;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -20,4 +21,5 @@ final class UpdateEcmtPermitApplication extends AbstractCommand
 {
     use Licence;
     use EcmtApplicationAllOptional;
+    use ApplicationCheckedOptional;
 }
