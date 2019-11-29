@@ -40,6 +40,7 @@ class GetList extends AbstractQuery
     protected $transportManager;
 
     /**
+     * @Transfer\Optional
      * @Transfer\ArrayInput
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\ApplicationStatus"})

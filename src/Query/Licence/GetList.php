@@ -25,6 +25,7 @@ final class GetList extends AbstractQuery implements \Dvsa\Olcs\Transfer\Query\O
     protected $organisation;
 
     /**
+     * @Transfer\Optional
      * @Transfer\ArrayInput
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\LicenceStatus"})
