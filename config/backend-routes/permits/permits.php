@@ -398,6 +398,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\StockOperationsPermitted::class),
                 ]
             ],
+            'ecmt-application-issue-fee-per-permit' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ecmt-application-issue-fee-per-permit[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\EcmtApplicationIssueFeePerPermit::class),
+                ]
+            ],
             'ready-to-print-type' => [
                 'type' => 'Segment',
                 'options' => [
