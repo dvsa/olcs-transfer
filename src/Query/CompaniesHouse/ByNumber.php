@@ -8,14 +8,13 @@ use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * Class GetList
+ * Class ByNumber
  * @Transfer\RouteName("backend/companies-house/number")
  */
 
 class ByNumber extends AbstractQuery implements CachableShortTermQueryInterface
 {
     /**
-     * @Transfer\Required()
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\Digits"})
      * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
@@ -28,13 +27,5 @@ class ByNumber extends AbstractQuery implements CachableShortTermQueryInterface
     public function getCompanyNumber()
     {
         return $this->companyNumber;
-    }
-
-    /**
-     * @param mixed $companyNumber
-     */
-    public function setCompanyNumber($companyNumber): void
-    {
-        $this->companyNumber = $companyNumber;
     }
 }
