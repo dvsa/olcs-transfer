@@ -16,6 +16,12 @@ return [
                 [
                     'GET' => QueryConfig::getConfig(Query\CompaniesHouse\InsolvencyPractitioner::class)
                 ]
+            ),
+            'number' => RouteConfig::getRouteConfig(
+                'number',
+                [
+                    'GET' => QueryConfig::getConfig(Query\CompaniesHouse\ByNumber::class)
+                ]
             )
         ]
     ),
