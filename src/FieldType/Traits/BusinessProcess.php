@@ -12,7 +12,7 @@ trait BusinessProcess
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":32}})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"app_business_process_apg", "app_business_process_apgg", "app_business_process_apsg"}}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"app_business_process_apg", "app_business_process_apgg", "app_business_process_apsg", "app_business_process_ag"}}})
      */
     public $businessProcess;
 
