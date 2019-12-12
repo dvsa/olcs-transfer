@@ -204,6 +204,16 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\Permits\ReviveEcmtPermitApplicationFromWithdrawn::class),
                 ]
             ],
+            'ecmt-revive-from-unsuccessful' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ecmt-revive-from-unsuccessful[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\Permits\ReviveEcmtPermitApplicationFromUnsuccessful::class),
+                ]
+            ],
             'ecmt-permit-application' => [
                 'type' => 'Segment',
                 'options' => [

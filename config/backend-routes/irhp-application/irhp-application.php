@@ -170,6 +170,16 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\ReviveFromWithdrawn::class),
                 ],
             ],
+            'revive-from-unsuccessful' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'revive-from-unsuccessful[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\ReviveFromUnsuccessful::class),
+                ],
+            ],
             'grant' => [
                 'type' => 'Segment',
                 'options' => [
