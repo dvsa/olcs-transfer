@@ -15,9 +15,9 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class ByNumber extends AbstractQuery implements CachableShortTermQueryInterface
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":8,"max":8}})
      */
     protected $companyNumber;
 

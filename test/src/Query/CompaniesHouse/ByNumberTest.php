@@ -58,7 +58,8 @@ class ByNumberTest extends TestCase
     {
         return [
             'companyNumber'=>[
-                '00001234'
+                '00001234',
+                'SC123456'
             ]
         ];
     }
@@ -81,7 +82,7 @@ class ByNumberTest extends TestCase
     protected function getInvalidFieldValues()
     {
         return [
-            'companyNumber' => ["AAAA"]
+            'companyNumber' => ["AAAA","1234","x"]
         ];
     }
 
@@ -107,7 +108,7 @@ class ByNumberTest extends TestCase
     protected function getFilterTransformations()
     {
         return [
-            'companyNumber' => ['a1b2c3', '123']
+            'companyNumber' => ['a1b2c3 ', 'a1b2c3']
         ];
     }
 }
