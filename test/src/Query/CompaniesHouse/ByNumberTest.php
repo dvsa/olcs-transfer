@@ -3,7 +3,6 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\CompaniesHouse;
 
-
 use Dvsa\Olcs\Transfer\Query\CompaniesHouse\ByNumber;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
 use PHPUnit\Framework\TestCase;
