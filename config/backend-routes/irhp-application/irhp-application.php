@@ -139,7 +139,6 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\FeePerPermit::class),
                 ]
             ],
-            'GET' => QueryConfig::getConfig(Query\IrhpApplication\GetList::class),
             'cancel-application' => [
                 'type' => 'Segment',
                 'options' => [
