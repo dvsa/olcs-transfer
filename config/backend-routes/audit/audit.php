@@ -55,6 +55,13 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Audit\ReadCase::class),
                         ]
                     ),
+                    'irhp-application' => RouteConfig::getRouteConfig(
+                        'irhp-application',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\Audit\ReadIrhpApplication::class),
+                            'GET' => QueryConfig::getConfig(Query\Audit\ReadIrhpApplication::class),
+                        ]
+                    ),
                 ]
             )
         ]
