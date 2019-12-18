@@ -269,15 +269,6 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtCountries::class)
                         ]
                     ],
-                    'ecmt-licence' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'ecmt-licence[/]',
-                        ],
-                        'child_routes' => [
-                            'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtLicence::class)
-                        ]
-                    ],
                     'ecmt-permits-required' => [
                         'type' => 'Segment',
                         'options' => [
@@ -306,16 +297,6 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Permits\ById::class),
-                    'available-licences' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'available-licences[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'GET' => QueryConfig::getConfig(Query\Permits\AvailableLicences::class),
-                        ],
-                    ],
                 ]
             ],
             'ecmt-permit-fees' => [
