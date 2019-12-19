@@ -2,6 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Query\Processing;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpApplicationOptional;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
@@ -13,11 +14,11 @@ use Dvsa\Olcs\Transfer\Query\OrderedTrait;
  * Class History
  * @Transfer\RouteName("backend/processing/history")
  */
-class History extends AbstractQuery
-    implements PagedQueryInterface, OrderedQueryInterface
+class History extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
 {
     use PagedTrait;
     use OrderedTrait;
+    use IrhpApplicationOptional;
 
     /**
      * @var int
