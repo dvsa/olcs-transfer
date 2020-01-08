@@ -114,26 +114,6 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Permits\CreateFullPermitApplication::class),
                 ]
             ],
-            'ecmt-revive-from-withdrawn' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'ecmt-revive-from-withdrawn[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'PUT' => CommandConfig::getPutConfig(Command\Permits\ReviveEcmtPermitApplicationFromWithdrawn::class),
-                ]
-            ],
-            'ecmt-revive-from-unsuccessful' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'ecmt-revive-from-unsuccessful[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'PUT' => CommandConfig::getPutConfig(Command\Permits\ReviveEcmtPermitApplicationFromUnsuccessful::class),
-                ]
-            ],
             'ecmt-permit-application' => [
                 'type' => 'Segment',
                 'options' => [
@@ -244,16 +224,6 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Permits\StockOperationsPermitted::class),
-                ]
-            ],
-            'ecmt-application-issue-fee-per-permit' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'ecmt-application-issue-fee-per-permit[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Permits\EcmtApplicationIssueFeePerPermit::class),
                 ]
             ],
             'ready-to-print-type' => [
