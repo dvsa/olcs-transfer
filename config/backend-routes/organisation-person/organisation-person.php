@@ -17,15 +17,7 @@ return [
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(Command\OrganisationPerson\Create::class),
-            'DELETE' => CommandConfig::getDeleteConfig(Command\OrganisationPerson\DeleteList::class),
-            'populate-from-companies-house' => RouteConfig::getRouteConfig(
-                'populate-from-companies-house',
-                [
-                    'POST' => CommandConfig::getPostConfig(
-                        Command\OrganisationPerson\PopulateFromCompaniesHouse::class
-                    ),
-                ]
-            )
+            'DELETE' => CommandConfig::getDeleteConfig(Command\OrganisationPerson\DeleteList::class)
         ]
     )
 ];
