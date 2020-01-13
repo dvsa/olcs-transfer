@@ -122,8 +122,6 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermitApplication::class),
-                    'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermitApplication::class),
-                    'PUT' => CommandConfig::getPutConfig(Command\Permits\UpdateEcmtPermitApplication::class),
                 ],
             ],
             'single' => [
