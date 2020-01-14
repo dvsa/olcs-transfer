@@ -23,16 +23,6 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\Sectors::class),
                 ]
             ],
-            'ecmt-application-by-licence' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'ecmt-application-by-licence[/]'
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Permits\EcmtApplicationByLicence::class)
-                ]
-            ],
             'ecmt-constrained-countries' => [
                 'type' => 'Segment',
                 'options' => [
@@ -52,16 +42,6 @@ return [
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermits::class),
                     'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermits::class),
-                ]
-            ],
-            'ecmt-permits-cancel' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'ecmt-permits-cancel[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'POST' => CommandConfig::getPostConfig(Command\Permits\CancelEcmtPermitApplication::class),
                 ]
             ],
             'ecmt-permits-withdraw' => [
