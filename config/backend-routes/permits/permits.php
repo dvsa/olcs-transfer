@@ -124,26 +124,6 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermitFees::class),
                 ]
             ],
-            'valid-ecmt' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'valid-ecmt[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Permits\ValidEcmtPermits::class),
-                ]
-            ],
-            'unpaid-ecmt' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'unpaid-ecmt[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Permits\UnpaidEcmtPermits::class),
-                ]
-            ],
             'available-types' => [
                 'type' => 'Segment',
                 'options' => [
