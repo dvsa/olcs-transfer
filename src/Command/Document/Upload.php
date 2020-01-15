@@ -192,11 +192,6 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     protected $isPostSubmissionUpload = 0;
 
     /**
-     * @Transfer\Optional
-     */
-    protected $ecmtPermitApplication;
-
-    /**
      * Get filename
      *
      * @return string
@@ -382,16 +377,6 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     public function getContinuationDetail()
     {
         return $this->continuationDetail;
-    }
-
-    /**
-     * Get ecmt application
-     *
-     * @return int
-     */
-    public function getEcmtPermitApplication()
-    {
-        return $this->ecmtPermitApplication;
     }
 
     public function getIsPostSubmissionUpload()

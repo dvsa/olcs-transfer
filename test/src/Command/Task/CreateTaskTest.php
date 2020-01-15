@@ -28,7 +28,6 @@ class CreateTaskTest extends \PHPUnit\Framework\TestCase
             'submission' => 765,
             'transportManager' => 125,
             'irfoOrganisation' => 126,
-            'ecmtPermitApplication' => 97,
             'irhpApplication' => 107,
             'assignedByUser' => 7,
             'surrender' => 666
@@ -50,7 +49,6 @@ class CreateTaskTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(124, $command->getCase());
         $this->assertEquals(125, $command->getTransportManager());
         $this->assertEquals(126, $command->getIrfoOrganisation());
-        $this->assertEquals(97, $command->getEcmtPermitApplication());
         $this->assertEquals(107, $command->getIrhpApplication());
         $this->assertEquals(765, $command->getSubmission());
         $this->assertEquals(7, $command->getAssignedByUser());
@@ -73,7 +71,6 @@ class CreateTaskTest extends \PHPUnit\Framework\TestCase
                 'submission' => 765,
                 'transportManager' => 125,
                 'irfoOrganisation' => 126,
-                'ecmtPermitApplication' => 97,
                 'irhpApplication' => 107,
                 'assignedByUser' => 7,
                 'surrender' => 666

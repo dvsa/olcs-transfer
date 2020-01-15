@@ -30,7 +30,6 @@ class UploadTest extends TestCase
         $shouldUploadOnly = true;
         $additionalCopy = true;
         $additionalEntities = ['application', 'licence'];
-        $ecmtPermitApplication = 3;
         $irhpApplication = 17;
         $surrender = 1;
         $isPostSubmissionUpload = 1;
@@ -54,7 +53,6 @@ class UploadTest extends TestCase
             'shouldUploadOnly' => $shouldUploadOnly,
             'additionalCopy' => $additionalCopy,
             'additionalEntities' => $additionalEntities,
-            'ecmtPermitApplication' => $ecmtPermitApplication,
             'irhpApplication' => $irhpApplication,
             'surrender' => $surrender,
             'isPostSubmissionUpload' => $isPostSubmissionUpload
@@ -81,7 +79,6 @@ class UploadTest extends TestCase
         static::assertEquals($shouldUploadOnly, $command->getShouldUploadOnly());
         static::assertEquals($additionalCopy, $command->getAdditionalCopy());
         static::assertEquals($additionalEntities, $command->getAdditionalEntities());
-        static::assertEquals($ecmtPermitApplication, $command->getEcmtPermitApplication());
         static::assertEquals($irhpApplication, $command->getIrhpApplication());
         static::assertEquals($surrender, $command->getSurrender());
         $this->assertEquals($isPostSubmissionUpload, $command->getIsPostSubmissionUpload());

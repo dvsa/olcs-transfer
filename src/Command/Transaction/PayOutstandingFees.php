@@ -43,13 +43,6 @@ final class PayOutstandingFees extends AbstractCommand
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     */
-    protected $ecmtPermitApplicationId;
-
-    /**
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      */
     protected $cpmsRedirectUrl;
@@ -154,16 +147,6 @@ final class PayOutstandingFees extends AbstractCommand
     public function getApplicationId()
     {
         return $this->applicationId;
-    }
-
-    /**
-     * Get ecmt permit application id
-     *
-     * @return int
-     */
-    public function getEcmtPermitApplicationId()
-    {
-        return $this->ecmtPermitApplicationId;
     }
 
     /**

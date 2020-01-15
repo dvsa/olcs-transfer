@@ -5,7 +5,6 @@ namespace Dvsa\Olcs\Transfer\Query\Document;
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\BusRegOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\CasesOptional;
-use Dvsa\Olcs\Transfer\FieldType\Traits\EcmtPermitApplicationOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrfoOrganisationOptional;
@@ -34,8 +33,7 @@ class DocumentList extends AbstractQuery implements
         BusRegOptional,
         TransportManagerOptional,
         IrfoOrganisationOptional,
-        IrhpApplicationOptional,
-        EcmtPermitApplicationOptional;
+        IrhpApplicationOptional;
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

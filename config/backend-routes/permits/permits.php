@@ -13,47 +13,6 @@ return [
         ],
         'may_terminate' => false,
         'child_routes' => [
-            'sectors' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'sectors[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Permits\Sectors::class),
-                ]
-            ],
-            'ecmt-constrained-countries' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'ecmt-constrained-countries[/]'
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Permits\EcmtConstrainedCountriesList::class)
-                ]
-            ],
-            'ecmt-permits' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'ecmt-permits[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermits::class),
-                    'POST' => CommandConfig::getPostConfig(Command\Permits\CreateEcmtPermits::class),
-                ]
-            ],
-            'ecmt-permits-withdraw' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'ecmt-permits-withdraw[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'POST' => CommandConfig::getPostConfig(Command\Permits\WithdrawEcmtPermitApplication::class),
-                ]
-            ],
             'irhp-permits-accept' => [
                 'type' => 'Segment',
                 'options' => [
@@ -82,36 +41,6 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'POST' => CommandConfig::getPostConfig(Command\Permits\QueueAcceptScoring::class),
-                ]
-            ],
-            'ecmt-full-permit-application' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'ecmt-full-permit-application[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'POST' => CommandConfig::getPostConfig(Command\Permits\CreateFullPermitApplication::class),
-                ]
-            ],
-            'ecmt-permit-application' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'ecmt-permit-application[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Permits\EcmtPermitApplication::class),
-                ],
-            ],
-            'single' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'single[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Permits\ById::class),
                 ]
             ],
             'ecmt-permit-fees' => [

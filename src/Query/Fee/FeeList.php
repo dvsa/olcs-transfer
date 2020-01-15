@@ -32,7 +32,6 @@ class FeeList extends AbstractQuery implements
     // Foreign Keys
     use FieldTypeTraits\OrganisationOptional;
     use FieldTypeTraits\ApplicationOptional;
-    use FieldTypeTraits\EcmtPermitApplicationOptional;
     use FieldTypeTraits\IrhpApplicationOptional;
     use FieldTypeTraits\LicenceOptional;
     use FieldTypeTraits\TaskOptional;

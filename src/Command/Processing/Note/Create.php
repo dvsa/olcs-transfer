@@ -27,7 +27,7 @@ class Create extends AbstractCommand implements
     use FieldTypeTraits\LicenceOptional;
     use FieldTypeTraits\OrganisationOptional;
     use FieldTypeTraits\TransportManagerOptional;
-    use FieldTypeTraits\EcmtPermitApplicationOptional;
+    use FieldTypeTraits\IrhpApplicationOptional;
 
     // Individual Fields
     use FieldTypeTraits\CommentOptional;

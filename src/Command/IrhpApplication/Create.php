@@ -23,5 +23,4 @@ final class Create extends AbstractCommand
     use IrhpPermitType;
     use FromInternal;
     use IrhpPermitStockOptional;
-    use EcmtApplicationAllOptional;
 }
