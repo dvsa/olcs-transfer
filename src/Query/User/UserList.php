@@ -7,6 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\User;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\RolesOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
@@ -16,6 +17,7 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 final class UserList extends AbstractQuery implements \Dvsa\Olcs\Transfer\Query\OrderedQueryInterface
 {
     use \Dvsa\Olcs\Transfer\Query\OrderedTraitOptional;
+    use RolesOptional;
 
     /**
      * @Transfer\Optional
