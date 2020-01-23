@@ -20,7 +20,7 @@ class CreateTest extends TestCase
             'licence' => 4,
             'organisation' => 5,
             'transportManager' => 6,
-            'ecmtPermitApplication' => 7,
+            'irhpApplication' => 7,
             'comment' => 'Some text',
             'priority' => 'Y',
         ];
@@ -33,7 +33,7 @@ class CreateTest extends TestCase
         $this->assertEquals(4, $command->getLicence());
         $this->assertEquals(5, $command->getOrganisation());
         $this->assertEquals(6, $command->getTransportManager());
-        $this->assertEquals(7, $command->getEcmtPermitApplication());
+        $this->assertEquals(7, $command->getIrhpApplication());
         $this->assertEquals('Some text', $command->getComment());
         $this->assertEquals('Y', $command->getPriority());
 
@@ -45,7 +45,7 @@ class CreateTest extends TestCase
                 'licence' => 4,
                 'organisation' => 5,
                 'transportManager' => 6,
-                'ecmtPermitApplication' => 7,
+                'irhpApplication' => 7,
                 'comment' => 'Some text',
                 'priority' => 'Y',
             ],

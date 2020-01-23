@@ -22,7 +22,6 @@ return [
                     'DELETE' => CommandConfig::getDeleteConfig(Command\IrhpCandidatePermit\Delete::class),
                 ]
             ),
-            'GET' => QueryConfig::getConfig(Query\IrhpCandidatePermit\GetList::class),
             'by-irhp-application' => [
                 'type' => 'Segment',
                 'options' => [

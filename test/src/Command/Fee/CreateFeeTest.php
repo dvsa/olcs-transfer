@@ -24,7 +24,6 @@ class CreateFeeTest extends \PHPUnit\Framework\TestCase
             'irfoGvPermit' => 1,
             'irfoPsvAuth' => 2,
             'quantity' => 3,
-            'ecmtPermitApplication' => null,
             'irhpApplication' => 27,
         ];
 
@@ -42,7 +41,6 @@ class CreateFeeTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(1, $command->getIrfoGvPermit());
         $this->assertEquals(2, $command->getIrfoPsvAuth());
         $this->assertEquals(3, $command->getQuantity());
-        $this->assertEquals(null, $command->getEcmtPermitApplication());
         $this->assertEquals(27, $command->getIrhpApplication());
 
         $this->assertEquals(
@@ -59,7 +57,6 @@ class CreateFeeTest extends \PHPUnit\Framework\TestCase
                 'irfoGvPermit' => 1,
                 'irfoPsvAuth' => 2,
                 'quantity' => 3,
-                'ecmtPermitApplication' => null,
                 'irhpApplication' => 27,
             ],
             $command->getArrayCopy()
