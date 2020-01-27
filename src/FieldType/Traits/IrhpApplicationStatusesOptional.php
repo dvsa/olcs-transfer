@@ -10,6 +10,7 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait IrhpApplicationStatusesOptional
 {
     /**
+     * @Transfer\Optional
      * @Transfer\ArrayInput
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

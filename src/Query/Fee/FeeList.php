@@ -55,6 +55,7 @@ class FeeList extends AbstractQuery implements
 
     /**
      * @Transfer\ArrayInput
+     * @Transfer\Optional
      */
     protected $ids = [];
 

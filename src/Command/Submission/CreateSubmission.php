@@ -38,6 +38,7 @@ final class CreateSubmission extends AbstractCommand
     protected $submissionType;
 
     /**
+     * @Transfer\Optional
      * @Transfer\ArrayInput
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\SubmissionSection"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
