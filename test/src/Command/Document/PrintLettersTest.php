@@ -59,4 +59,11 @@ class PrintLettersTest extends TestCase
             'method' => [[['invalid-array']], 'post'],
         ];
     }
+
+    public function testGetMethod()
+    {
+        $command = PrintLetters::create(['ids' => [1], 'method' => 'printAndPost']);
+
+        $this->assertEquals('printAndPost', $command->getMethod());
+    }
 }
