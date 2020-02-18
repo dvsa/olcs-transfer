@@ -40,6 +40,7 @@ class Vrm extends AbstractValidator
         'G0',
         'G1',
         'HS0',
+        'IG99',
         'KHW004',
         'KI1',
         'LM0',
