@@ -12,12 +12,14 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\PublicQueryCacheInterface;
 
 /**
  * @Transfer\RouteName("backend/traffic-area")
  */
 final class TrafficAreaList extends AbstractQuery implements
     OrderedQueryInterface,
+    PublicQueryCacheInterface,
     CachableMediumTermQueryInterface
 {
     use OrderedTrait;

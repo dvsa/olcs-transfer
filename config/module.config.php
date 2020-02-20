@@ -1,5 +1,7 @@
 <?php
 
+use Dvsa\Olcs\Transfer\Service;
+
 return [
     'api_router' => [
         'routes' => [
@@ -25,6 +27,7 @@ return [
     'service_manager' => [
         'factories' => [
             'ApiRouter' => \Dvsa\Olcs\Transfer\Router\RouterFactory::class,
+            Service\CacheEncryption::class => Service\CacheEncryptionFactory::class,
             'TransferAnnotationBuilder' => \Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilderFactory::class
         ],
         'invokables' => [

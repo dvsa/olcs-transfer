@@ -19,6 +19,10 @@ interface QueryContainerInterface
 
     public function isMediumTermCachable();
 
+    public function isPublicCachable(): bool;
+
+    public function isSharedEncryptionCachable(): bool;
+
     public function isStream();
 
     public function getCacheIdentifier();
@@ -27,6 +31,8 @@ interface QueryContainerInterface
 
     public function getDto();
 
+    public function getDtoClassName(): string;
+
     public function setRouteName($routeName);
 
     public function getRouteName();
@@ -34,4 +40,6 @@ interface QueryContainerInterface
     public function isValid();
 
     public function getMessages();
+
+    public function getEncryptionMode(): string;
 }

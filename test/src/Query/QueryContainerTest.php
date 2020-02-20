@@ -4,9 +4,13 @@ namespace Dvsa\OlcsTest\Transfer\Query\Variation;
 
 use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
 use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\PublicQueryCacheInterface;
 use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\Olcs\Transfer\Query\QueryInterface;
+use Dvsa\Olcs\Transfer\Query\SharedEncryptionCacheInterface;
 use Dvsa\Olcs\Transfer\Query\StreamInterface;
+use Dvsa\Olcs\Transfer\Router\Query;
+use Dvsa\Olcs\Transfer\Service\CacheEncryption;
 use Mockery as m;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
 
@@ -35,6 +39,47 @@ class QueryContainerTest extends MockeryTestCase
     }
 
     /**
+     * @dataProvider dpGetCacheEncryptionMode
+     */
+    public function testGetDtoClassName()
+    {
+        $dto = m::mock(QueryInterface::class);
+        $className = get_class($dto);
+        $this->sut->setDto($dto);
+
+        self::assertEquals($className, $this->sut->getDtoClassName());
+    }
+
+    /**
+     * @dataProvider dpGetCacheEncryptionMode
+     */
+    public function testGetCacheEncryptionMode($dto, $encryptionMode)
+    {
+        $sut = new QueryContainer();
+        $sut->setDto($dto);
+
+        self::assertEquals($encryptionMode, $sut->getEncryptionMode());
+    }
+
+    public function dpGetCacheEncryptionMode()
+    {
+        return [
+            [
+                m::mock(QueryInterface::class . ',' . PublicQueryCacheInterface::class),
+                CacheEncryption::ENCRYPTION_MODE_PUBLIC
+            ],
+            [
+                m::mock(QueryInterface::class . ',' . SharedEncryptionCacheInterface::class),
+                CacheEncryption::ENCRYPTION_MODE_SHARED
+            ],
+            [
+                m::mock(QueryInterface::class),
+                CacheEncryption::ENCRYPTION_MODE_NODE
+            ],
+        ];
+    }
+
+    /**
      * @dataProvider dpTestIsX
      */
     public function testIsX($dto, $expect)
@@ -44,6 +89,8 @@ class QueryContainerTest extends MockeryTestCase
 
         static::assertEquals($expect['isShortCache'], $this->sut->isShortTermCachable());
         static::assertEquals($expect['isMediumCache'], $this->sut->isMediumTermCachable());
+        static::assertEquals($expect['isPublicCache'], $this->sut->isPublicCachable());
+        static::assertEquals($expect['isSharedEncryptionCache'], $this->sut->isSharedEncryptionCachable());
         static::assertEquals($expect['isStream'], $this->sut->isStream());
     }
 
@@ -58,6 +105,8 @@ class QueryContainerTest extends MockeryTestCase
                             QueryInterface::class,
                             CachableShortTermQueryInterface::class,
                             CachableMediumTermQueryInterface::class,
+                            PublicQueryCacheInterface::class,
+                            SharedEncryptionCacheInterface::class,
                             StreamInterface::class,
                         ]
                     )
@@ -65,6 +114,8 @@ class QueryContainerTest extends MockeryTestCase
                 'expect' => [
                     'isShortCache' => true,
                     'isMediumCache' => true,
+                    'isPublicCache' => true,
+                    'isSharedEncryptionCache' => true,
                     'isStream' => true,
                 ],
             ],
@@ -73,6 +124,8 @@ class QueryContainerTest extends MockeryTestCase
                 'expect' => [
                     'isShortCache' => false,
                     'isMediumCache' => false,
+                    'isPublicCache' => false,
+                    'isSharedEncryptionCache' => false,
                     'isStream' => true,
                 ],
             ],
@@ -81,6 +134,38 @@ class QueryContainerTest extends MockeryTestCase
                 'expect' => [
                     'isShortCache' => true,
                     'isMediumCache' => false,
+                    'isPublicCache' => false,
+                    'isSharedEncryptionCache' => false,
+                    'isStream' => false,
+                ],
+            ],
+            [
+                'dto' => m::mock(QueryInterface::class . ',' . CachableMediumTermQueryInterface::class),
+                'expect' => [
+                    'isShortCache' => false,
+                    'isMediumCache' => true,
+                    'isPublicCache' => false,
+                    'isSharedEncryptionCache' => false,
+                    'isStream' => false,
+                ],
+            ],
+            [
+                'dto' => m::mock(QueryInterface::class . ',' . SharedEncryptionCacheInterface::class),
+                'expect' => [
+                    'isShortCache' => false,
+                    'isMediumCache' => false,
+                    'isPublicCache' => false,
+                    'isSharedEncryptionCache' => true,
+                    'isStream' => false,
+                ],
+            ],
+            [
+                'dto' => m::mock(QueryInterface::class . ',' . PublicQueryCacheInterface::class),
+                'expect' => [
+                    'isShortCache' => false,
+                    'isMediumCache' => false,
+                    'isPublicCache' => true,
+                    'isSharedEncryptionCache' => false,
                     'isStream' => false,
                 ],
             ],

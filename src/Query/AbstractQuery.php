@@ -71,6 +71,4 @@ abstract class AbstractQuery implements QueryInterface
         $docBlock = $reflectionProperty->getDocComment();
         return strpos($docBlock, '@Transfer\\DoNotExchange') !== false ? true : false;
     }
-
-
 }
