@@ -33,6 +33,7 @@ class ProposeToRevokeTest extends TestCase
     {
         return [
             'licence' => [[5, '5']],
+            'document' => [[5, '5']],
         ];
     }
 
@@ -43,6 +44,7 @@ class ProposeToRevokeTest extends TestCase
     {
         return [
             'licence' => ['6'],
+            'document' => ['6'],
         ];
     }
 
@@ -53,6 +55,7 @@ class ProposeToRevokeTest extends TestCase
     {
         return [
             'licence' => [[['invalid-array']]],
+            'document' => [[['invalid-array']]],
         ];
     }
 }
