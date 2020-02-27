@@ -139,6 +139,46 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\FeePerPermit::class),
                 ]
             ],
+            'internal-applications-summary' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'internal-applications-summary[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\InternalApplicationsSummary::class),
+                ]
+            ],
+            'internal-issued-permits-summary' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'internal-issued-permits-summary[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\InternalIssuedPermitsSummary::class),
+                ]
+            ],
+            'selfserve-applications-summary' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'selfserve-applications-summary[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\SelfserveApplicationsSummary::class),
+                ]
+            ],
+            'selfserve-issued-permits-summary' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'selfserve-issued-permits-summary[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\SelfserveIssuedPermitsSummary::class),
+                ]
+            ],
             'cancel-application' => [
                 'type' => 'Segment',
                 'options' => [
@@ -199,26 +239,6 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\CreateFull::class),
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateFull::class),
                 ]
-            ],
-            'get-all-by-licence' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'get-all-by-licence[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\GetAllByLicence::class),
-                ],
-            ],
-            'get-all-by-organisation' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'get-all-by-organisation[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\GetAllByOrganisation::class),
-                ],
             ],
             'application-step' => [
                 'type' => 'Segment',
