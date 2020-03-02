@@ -26,6 +26,13 @@ final class CreateLetter extends AbstractCommand
     protected $data;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Optional
+     */
+    protected $disableBookmarks;
+
+    /**
      * @Transfer\Escape(false)
      */
     protected $meta;
@@ -52,5 +59,13 @@ final class CreateLetter extends AbstractCommand
     public function getMeta()
     {
         return $this->meta;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDisableBookmarks()
+    {
+        return $this->disableBookmarks;
     }
 }
