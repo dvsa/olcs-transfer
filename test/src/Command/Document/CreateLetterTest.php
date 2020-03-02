@@ -6,9 +6,6 @@ use PHPUnit\Framework\TestCase;
 use \Dvsa\Olcs\Transfer\Command\Document\CreateLetter;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
 
-/**
- * @covers CreateLetter
- */
 class CreateLetterTest extends TestCase
 {
     use CommandTest;
