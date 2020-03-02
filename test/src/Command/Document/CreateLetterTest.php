@@ -23,9 +23,7 @@ class CreateLetterTest extends TestCase
      */
     protected function getOptionalDtoFields()
     {
-        return [
-            'disableBookmarks',
-        ];
+        return [];
     }
 
     /**
@@ -45,8 +43,8 @@ class CreateLetterTest extends TestCase
                 '10.1'
             ],
             'disableBookmarks' => [
-                'Y',
-                'N'
+                true,
+                false,
             ],
             'meta' => [
                 'a-string',
@@ -67,12 +65,6 @@ class CreateLetterTest extends TestCase
                 ['array' => 'stuff'],
                 []
             ],
-            'disableBookmarks' => [
-                'Hello',
-                ['array'],
-                123,
-                '123'
-            ],
         ];
     }
 
@@ -87,8 +79,8 @@ class CreateLetterTest extends TestCase
                 ['2 ', '2']
             ],
             'disableBookmarks' => [
-                ['Y ', 'Y'],
-                ['N ', 'N']
+                [1, true],
+                [0, false]
             ]
         ];
     }

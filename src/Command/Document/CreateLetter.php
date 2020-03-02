@@ -26,11 +26,10 @@ final class CreateLetter extends AbstractCommand
     protected $data;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter({"name": "Zend\Filter\Boolean"})
      * @Transfer\Optional
      */
-    protected $disableBookmarks;
+    protected $disableBookmarks = false;
 
     /**
      * @Transfer\Escape(false)
