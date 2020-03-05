@@ -31,9 +31,11 @@ class CreateTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($data['lostReplacement'], $command->getIsLostReplacement());
         $this->assertEquals($data['ssReserve'], $command->getSsReserve());
         $this->assertEquals($data['countrys'], $command->getRestrictedCountries());
+        $this->assertNull($command->getJourney());
+        $this->assertNull($command->getCabotage());
     }
 
-    public function testStructureWithEmissionsCategory()
+    public function testStructureWithOptionalData()
     {
         $data = [
             'irhpPermitStock' => '1',
@@ -43,7 +45,9 @@ class CreateTest extends \PHPUnit\Framework\TestCase
             'lostReplacement' => 1,
             'ssReserve' => 1,
             'countrys' => ['DE'],
-            'emissionsCategory' => 'emissions_cat_euro5'
+            'emissionsCategory' => 'emissions_cat_euro5',
+            'journey' => 'journey_single',
+            'cabotage' => 1,
         ];
 
         $command = Create::create($data);
@@ -56,5 +60,7 @@ class CreateTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($data['lostReplacement'], $command->getIsLostReplacement());
         $this->assertEquals($data['ssReserve'], $command->getSsReserve());
         $this->assertEquals($data['countrys'], $command->getRestrictedCountries());
+        $this->assertEquals($data['journey'], $command->getJourney());
+        $this->assertEquals($data['cabotage'], $command->getCabotage());
     }
 }
