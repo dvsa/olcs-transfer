@@ -11,6 +11,7 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationStepSlug;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitApplicationOptional;
 
 /**
  * @Transfer\RouteName("backend/irhp-application/application-step")
@@ -18,5 +19,6 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 class ApplicationStep extends AbstractQuery
 {
     use Identity;
+    use IrhpPermitApplicationOptional;
     use ApplicationStepSlug;
 }
