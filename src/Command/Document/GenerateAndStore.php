@@ -83,6 +83,19 @@ class GenerateAndStore extends AbstractCommand
     protected $issuedDate;
 
     /**
+     * @Transfer\Optional
+     */
+    protected $disableBookmarks;
+
+    /**
+     * @return mixed
+     */
+    public function getDisableBookmarks()
+    {
+        return $this->disableBookmarks;
+    }
+
+    /**
      * @return mixed
      */
     public function getTemplate()
