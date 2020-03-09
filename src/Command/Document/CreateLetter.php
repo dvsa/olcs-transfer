@@ -26,6 +26,12 @@ final class CreateLetter extends AbstractCommand
     protected $data;
 
     /**
+     * @Transfer\Filter({"name": "Zend\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $disableBookmarks = false;
+
+    /**
      * @Transfer\Escape(false)
      */
     protected $meta;
@@ -52,5 +58,13 @@ final class CreateLetter extends AbstractCommand
     public function getMeta()
     {
         return $this->meta;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDisableBookmarks()
+    {
+        return $this->disableBookmarks;
     }
 }

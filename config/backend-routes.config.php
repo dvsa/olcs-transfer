@@ -769,6 +769,16 @@ $routes = [
                             'GET' => QueryConfig::getConfig(Query\Licence\LicenceByNumber::class)
                         ]
                     ],
+                    'propose-to-revoke' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'propose-to-revoke'
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'POST' => CommandConfig::getPostConfig(Command\Licence\ProposeToRevoke::class)
+                        ]
+                    ],
                     'registered-address' => [
                         'type' => 'Segment',
                         'options' => [
