@@ -27,6 +27,16 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateCountries::class),
                         ]
                     ],
+                    'period' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'period[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdatePeriod::class),
+                        ]
+                    ],
                     'question-answer' => [
                         'type' => 'Segment',
                         'options' => [

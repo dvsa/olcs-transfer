@@ -33,6 +33,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpPermitStock\AvailableCountries::class),
                 ]
             ],
+            'available-bilateral' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'available-bilateral[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpPermitStock\AvailableBilateral::class),
+                ]
+            ],
         ]
     ],
 ];
