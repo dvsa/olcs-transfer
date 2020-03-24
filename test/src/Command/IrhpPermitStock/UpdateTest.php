@@ -18,7 +18,8 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
             'validTo' => '2029-12-31',
             'initialStock' => '1400',
             'irhpPermitType' => '1',
-            'periodNameKey' => 'this.is.a.key'
+            'periodNameKey' => 'this.is.a.key',
+            'hiddenSs' => false
         ];
 
         $command = Update::create($data);
@@ -30,6 +31,7 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($data['initialStock'], $command->getInitialStock());
         $this->assertEquals('emissions_cat_na', $command->getEmissionsCategory());
         $this->assertEquals('this.is.a.key', $command->getPeriodNameKey());
+        $this->assertFalse($command->getHiddenSs());
     }
 
     public function testStructureWithEmissionsCategory()
@@ -40,7 +42,8 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
             'validTo' => '2029-12-31',
             'initialStock' => '1400',
             'irhpPermitType' => '1',
-            'emissionsCategory' => 'emissions_cat_euro6'
+            'emissionsCategory' => 'emissions_cat_euro6',
+            'hiddenSs' => true
         ];
 
         $command = Update::create($data);
@@ -51,5 +54,6 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($data['irhpPermitType'], $command->getIrhpPermitType());
         $this->assertEquals($data['initialStock'], $command->getInitialStock());
         $this->assertEquals('emissions_cat_euro6', $command->getEmissionsCategory());
+        $this->assertTrue($command->getHiddenSs());
     }
 }
