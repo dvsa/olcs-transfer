@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Update peroiod (stock selection)
+ * Update period (stock selection)
  */
 namespace Dvsa\Olcs\Transfer\Command\IrhpApplication;
 
@@ -18,3 +18,4 @@ class UpdatePeriod extends AbstractCommand
     use Traits\Identity;
     use Traits\IrhpPermitStock;
 }
+#
