@@ -41,6 +41,12 @@ final class CreateUnlicensed extends AbstractCommand
     protected $contactDetails;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     */
+    protected $isExempt;
+
+    /**
      * Gets the value of name.
      *
      * @return mixed
@@ -78,5 +84,13 @@ final class CreateUnlicensed extends AbstractCommand
     public function getContactDetails()
     {
         return $this->contactDetails;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsExempt()
+    {
+        return $this->isExempt;
     }
 }
