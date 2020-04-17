@@ -10,6 +10,7 @@ namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitApplicationOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TranslateToWelshOptional;
 
 /**
@@ -17,5 +18,5 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\TranslateToWelshOptional;
  */
 class AnswersSummary extends AbstractQuery
 {
-    use Identity, TranslateToWelshOptional;
+    use Identity, IrhpPermitApplicationOptional, TranslateToWelshOptional;
 }
