@@ -15,6 +15,7 @@ class GetListByLicenceTest extends \PHPUnit\Framework\TestCase
             [
                 'licence' => 7,
                 'irhpPermitType' => 2,
+                'country' => 'DE',
                 'page' => 1,
                 'limit' => 10,
             ]
@@ -23,6 +24,7 @@ class GetListByLicenceTest extends \PHPUnit\Framework\TestCase
             [
                 'licence' => 7,
                 'irhpPermitType' => 2,
+                'country' => 'DE',
                 'page' => 1,
                 'limit' => 10,
             ],
