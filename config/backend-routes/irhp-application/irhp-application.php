@@ -189,6 +189,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\SelfserveIssuedPermitsSummary::class),
                 ]
             ],
+            'bilateral-country-accessible' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'bilateral-country-accessible[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\BilateralCountryAccessible::class),
+                ]
+            ],
             'cancel-application' => [
                 'type' => 'Segment',
                 'options' => [
