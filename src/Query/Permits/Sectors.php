@@ -8,6 +8,7 @@
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
 use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\PublicQueryCacheInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\OrderedTraitOptional;
@@ -15,7 +16,7 @@ use Dvsa\Olcs\Transfer\Query\OrderedTraitOptional;
 /**
  * @Transfer\RouteName("backend/permits/sectors")
  */
-class Sectors extends AbstractQuery implements CachableMediumTermQueryInterface
+class Sectors extends AbstractQuery implements CachableMediumTermQueryInterface, PublicQueryCacheInterface
 {
     use OrderedTraitOptional;
 }

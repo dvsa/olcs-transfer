@@ -2,6 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Query;
 
+use Dvsa\Olcs\Transfer\Service\CacheEncryption;
 use Zend\InputFilter\InputFilterInterface;
 
 /**
@@ -56,6 +57,26 @@ class QueryContainer implements QueryContainerInterface
     }
 
     /**
+     * Whether the cached query response should be encrypted - see notes on PublicQueryCacheInterface
+     *
+     * @return bool
+     */
+    public function isPublicCachable(): bool
+    {
+        return ($this->dto instanceof PublicQueryCacheInterface);
+    }
+
+    /**
+     * whether to encrypt and decrypt using the shared encryption key - see notes on SharedEncryptionCacheInterface
+     *
+     * @return bool
+     */
+    public function isSharedEncryptionCachable(): bool
+    {
+        return ($this->dto instanceof SharedEncryptionCacheInterface);
+    }
+
+    /**
      * Is query should use stream
      *
      * @return bool
@@ -88,6 +109,16 @@ class QueryContainer implements QueryContainerInterface
         return $this->dto;
     }
 
+    /**
+     * Get the class name of the current DTO
+     *
+     * @return string
+     */
+    public function getDtoClassName(): string
+    {
+        return get_class($this->dto);
+    }
+
     public function setRouteName($routeName)
     {
         $this->routeName = $routeName;
@@ -115,5 +146,23 @@ class QueryContainer implements QueryContainerInterface
         }
 
         return $this->inputFilter->getMessages();
+    }
+
+    /**
+     * Return the encryption mode to be used if this query is cached
+     *
+     * @return string
+     */
+    public function getEncryptionMode(): string
+    {
+        if ($this->isPublicCachable()) {
+            return CacheEncryption::ENCRYPTION_MODE_PUBLIC;
+        }
+
+        if ($this->isSharedEncryptionCachable()) {
+            return CacheEncryption::ENCRYPTION_MODE_SHARED;
+        }
+
+        return CacheEncryption::ENCRYPTION_MODE_NODE;
     }
 }

@@ -16,6 +16,8 @@
     ],
     "require": {
         "php": "^5.5 || ^7.0",
+        "ext-openssl": "*",
+        "zendframework/zend-crypt": "^3.0",
         "zendframework/zend-filter": "^2.5",
         "zendframework/zend-form": "^2.5",
         "zendframework/zend-i18n": "^2.5",

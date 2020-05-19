@@ -2,6 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Query\Category;
 
+use Dvsa\Olcs\Transfer\Query\PublicQueryCacheInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
@@ -11,7 +12,8 @@ use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
  */
 class GetList extends AbstractQuery implements
     \Dvsa\Olcs\Transfer\Query\OrderedQueryInterface,
-    CachableMediumTermQueryInterface
+    CachableMediumTermQueryInterface,
+    PublicQueryCacheInterface
 {
     use \Dvsa\Olcs\Transfer\Query\OrderedTrait;
 
