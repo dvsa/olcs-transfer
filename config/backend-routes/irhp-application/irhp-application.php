@@ -189,6 +189,16 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\CancelApplication::class),
                 ]
             ],
+            'terminate' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'terminate[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\Terminate::class),
+                ]
+            ],
             'withdraw' => [
                 'type' => 'Segment',
                 'options' => [
