@@ -1,17 +1,13 @@
 <?php
 
-/**
- * Update User Last Login At
- */
 namespace Dvsa\Olcs\Transfer\Command\User;
+
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
-use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
-use Dvsa\Olcs\Transfer\FieldType\Traits\Version;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
- * @Transfer\RouteName("backend/user/login/single")
- * @Transfer\Method("PUT")
+ * @Transfer\RouteName("backend/user/login/update-last-login")
+ * @Transfer\Method("POST")
  */
 final class UpdateUserLastLoginAt extends AbstractCommand
 {

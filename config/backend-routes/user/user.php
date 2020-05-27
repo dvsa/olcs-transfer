@@ -31,9 +31,10 @@ return [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
+                    'update-last-login' => RouteConfig::getRouteConfig(
+                        'update-last-login',
                         [
-                            'PUT' => CommandConfig::getPutConfig(Command\User\UpdateUserLastLoginAt::class)
+                            'POST' => CommandConfig::getPostConfig(Command\User\UpdateUserLastLoginAt::class),
                         ]
                     )
                 ]
