@@ -3,7 +3,7 @@
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
- * Identity
+ * SecureToken
  */
 trait SecureToken
 {

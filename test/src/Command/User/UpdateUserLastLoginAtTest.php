@@ -7,7 +7,7 @@ use Dvsa\OlcsTest\Transfer\Command\CommandTest;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Pay Outstanding Fees test
+ * Update User Last Login At test
  */
 class UpdateUserLastLoginAtTest extends TestCase
 {
