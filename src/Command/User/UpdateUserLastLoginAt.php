@@ -12,16 +12,5 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 final class UpdateUserLastLoginAt extends AbstractCommand
 {
-    /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Username"})
-     */
-    protected $id;
-
-    public function getId()
-    {
-        return $this->id;
-    }
-
     use SecureToken;
 }
