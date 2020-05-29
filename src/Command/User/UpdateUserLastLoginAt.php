@@ -3,6 +3,7 @@
 namespace Dvsa\Olcs\Transfer\Command\User;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits\SecureToken;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
@@ -21,4 +22,6 @@ final class UpdateUserLastLoginAt extends AbstractCommand
     {
         return $this->id;
     }
+
+    use SecureToken;
 }
