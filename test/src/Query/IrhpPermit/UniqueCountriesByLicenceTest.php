@@ -17,10 +17,36 @@ class UniqueCountriesByLicenceTest extends \PHPUnit\Framework\TestCase
                 'irhpPermitType' => 2,
             ]
         );
+        static::assertEquals(7, $sut->getLicence());
+        static::assertEquals(2, $sut->getIrhpPermitType());
+        static::assertNull($sut->getValidOnly());
         static::assertEquals(
             [
                 'licence' => 7,
                 'irhpPermitType' => 2,
+                'validOnly' => null,
+            ],
+            $sut->getArrayCopy()
+        );
+    }
+
+    public function testStructureOptional()
+    {
+        $sut = UniqueCountriesByLicence::create(
+            [
+                'licence' => 7,
+                'irhpPermitType' => 2,
+                'validOnly' => true,
+            ]
+        );
+        static::assertEquals(7, $sut->getLicence());
+        static::assertEquals(2, $sut->getIrhpPermitType());
+        static::assertEquals(true, $sut->getValidOnly());
+        static::assertEquals(
+            [
+                'licence' => 7,
+                'irhpPermitType' => 2,
+                'validOnly' => true,
             ],
             $sut->getArrayCopy()
         );

@@ -18,4 +18,5 @@ final class UniqueCountriesByLicence extends AbstractQuery
 {
     use Traits\Licence;
     use Traits\IrhpPermitType;
+    use Traits\ValidOnlyOptional;
 }

@@ -159,16 +159,6 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\InternalApplicationsSummary::class),
                 ]
             ],
-            'internal-issued-permits-summary' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'internal-issued-permits-summary[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\InternalIssuedPermitsSummary::class),
-                ]
-            ],
             'selfserve-applications-summary' => [
                 'type' => 'Segment',
                 'options' => [

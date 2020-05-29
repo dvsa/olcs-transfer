@@ -20,6 +20,8 @@ final class GetListByLicence extends AbstractQuery implements PagedQueryInterfac
 {
     use PagedTrait;
     use Traits\Licence;
-    use Traits\IrhpPermitType;
+    use Traits\IrhpPermitTypeOptional;
     use Traits\CountryOptional;
+    use Traits\IrhpPermitStatusOptional;
+    use Traits\ValidOnlyOptional;
 }
