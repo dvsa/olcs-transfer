@@ -24,6 +24,21 @@ return [
                     'GET' => QueryConfig::getConfig(Query\User\RoleList::class),
                 ]
             ],
+            'login' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'login[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'update-last-login' => RouteConfig::getRouteConfig(
+                        'update-last-login',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\User\UpdateUserLastLoginAt::class),
+                        ]
+                    )
+                ]
+            ],
             'internal' => [
                 'type' => 'Segment',
                 'options' => [
