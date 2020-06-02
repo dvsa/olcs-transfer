@@ -175,6 +175,16 @@ $routes = [
                                     )
                                 ]
                             ],
+                            'completion' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'completion[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Completion::class),
+                                ],
+                            ],
                             'declaration' => [
                                 'type' => 'Segment',
                                 'options' => [
