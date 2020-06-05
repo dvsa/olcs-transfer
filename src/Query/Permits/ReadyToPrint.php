@@ -5,6 +5,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitRangeTypeOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitStockOptional;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
@@ -21,4 +22,5 @@ final class ReadyToPrint extends AbstractQuery implements PagedQueryInterface, O
     use PagedTrait;
     use OrderedTrait;
     use IrhpPermitStockOptional;
+    use IrhpPermitRangeTypeOptional;
 }

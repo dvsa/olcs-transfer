@@ -143,6 +143,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\ReadyToPrintStock::class),
                 ]
             ],
+            'ready-to-print-range-type' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'ready-to-print-range-type[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\ReadyToPrintRangeType::class),
+                ]
+            ],
             'ready-to-print' => [
                 'type' => 'Segment',
                 'options' => [
