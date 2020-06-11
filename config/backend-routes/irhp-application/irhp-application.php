@@ -179,6 +179,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\SelfserveIssuedPermitsSummary::class),
                 ]
             ],
+            'bilateral-metadata' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'bilateral-metadata[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\BilateralMetadata::class),
+                ]
+            ],
             'bilateral-country-accessible' => [
                 'type' => 'Segment',
                 'options' => [
