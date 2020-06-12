@@ -47,6 +47,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpPermit\GetListByLicence::class),
                 ]
             ],
+            'unique-countries-by-licence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'unique-countries-by-licence[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpPermit\UniqueCountriesByLicence::class),
+                ]
+            ],
         ]
     ],
 ];

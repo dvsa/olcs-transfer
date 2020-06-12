@@ -51,7 +51,17 @@ return [
                 [
                     'GET' => QueryConfig::getConfig(Query\Fee\InterimRefunds::class)
                 ]
-            )
+            ),
+            'irhp-bilateral-by-country' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'irhp-bilateral-by-country[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Fee\IrhpBilateralByCountry::class),
+                ]
+            ],
         ]
     ],
 ];

@@ -25,6 +25,7 @@ class CreateFeeTest extends \PHPUnit\Framework\TestCase
             'irfoPsvAuth' => 2,
             'quantity' => 3,
             'irhpApplication' => 27,
+            'irhpPermitApplication' => 440,
         ];
 
         $command = CreateFee::create($data);
@@ -42,6 +43,7 @@ class CreateFeeTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2, $command->getIrfoPsvAuth());
         $this->assertEquals(3, $command->getQuantity());
         $this->assertEquals(27, $command->getIrhpApplication());
+        $this->assertEquals(440, $command->getIrhpPermitApplication());
 
         $this->assertEquals(
             [
@@ -58,6 +60,7 @@ class CreateFeeTest extends \PHPUnit\Framework\TestCase
                 'irfoPsvAuth' => 2,
                 'quantity' => 3,
                 'irhpApplication' => 27,
+                'irhpPermitApplication' => 440,
             ],
             $command->getArrayCopy()
         );

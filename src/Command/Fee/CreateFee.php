@@ -20,6 +20,8 @@ class CreateFee extends AbstractCommand implements
     FieldType\ApplicationInterface,
     FieldType\BusRegInterface,
     FieldType\LicenceInterface,
+    FieldType\IrhpApplicationInterface,
+    FieldType\IrhpPermitApplicationInterface,
     FieldType\TaskInterface,
     FieldType\IrfoGvPermitInterface,
     FieldType\IrfoPsvAuthInterface
@@ -28,6 +30,7 @@ class CreateFee extends AbstractCommand implements
         FieldTypeTraits\BusRegOptional,
         FieldTypeTraits\LicenceOptional,
         FieldTypeTraits\IrhpApplicationOptional,
+        FieldTypeTraits\IrhpPermitApplicationOptional,
         FieldTypeTraits\TaskOptional,
         FieldTypeTraits\IrfoGvPermitOptional,
         FieldTypeTraits\IrfoPsvAuthOptional;

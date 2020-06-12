@@ -7,6 +7,7 @@ namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpApplicationStatusOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Licence;
 
 /**
@@ -14,5 +15,5 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Licence;
  */
 class InternalApplicationsSummary extends AbstractQuery
 {
-    use Licence;
+    use Licence, IrhpApplicationStatusOptional;
 }

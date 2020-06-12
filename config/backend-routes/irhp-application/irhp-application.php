@@ -27,6 +27,16 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateCountries::class),
                         ]
                     ],
+                    'period' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'period[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdatePeriod::class),
+                        ]
+                    ],
                     'question-answer' => [
                         'type' => 'Segment',
                         'options' => [
@@ -149,16 +159,6 @@ return [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\InternalApplicationsSummary::class),
                 ]
             ],
-            'internal-issued-permits-summary' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'internal-issued-permits-summary[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\InternalIssuedPermitsSummary::class),
-                ]
-            ],
             'selfserve-applications-summary' => [
                 'type' => 'Segment',
                 'options' => [
@@ -177,6 +177,26 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\IrhpApplication\SelfserveIssuedPermitsSummary::class),
+                ]
+            ],
+            'bilateral-metadata' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'bilateral-metadata[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\BilateralMetadata::class),
+                ]
+            ],
+            'bilateral-country-accessible' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'bilateral-country-accessible[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\BilateralCountryAccessible::class),
                 ]
             ],
             'cancel-application' => [
