@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": "^5.5 || ^7.0",
+        "php": ">=7.2",
         "ext-openssl": "*",
         "zendframework/zend-crypt": "^3.0",
         "zendframework/zend-filter": "^2.5",
@@ -32,17 +32,13 @@
     },
     "require-dev": {
         "olcs/olcs-devtools": "~4.206.0",
-        "doctrine/annotations": "^1.2.3",
-        "phpstan/phpstan-shim": "^0.10.5",
-        "phpstan/phpstan-mockery": "^0.10.2",
-        "mockery/mockery": "^1.2.0",
-        "johnkary/phpunit-speedtrap": "^3.0"
+        "doctrine/annotations": "^1.2.3"
     },
     "config": {
         "preferred-install": "dist",
         "secure-http": false,
         "platform": {
-            "php": "7.1.16"
+            "php": "7.2.31"
         }
     },
     "autoload": {

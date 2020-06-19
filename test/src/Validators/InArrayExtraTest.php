@@ -14,7 +14,7 @@ class InArrayExtraTest extends MockeryTestCase
     /** @var  InArrayExtra */
     protected $sut;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->sut = m::mock(InArrayExtra::class)->makePartial();
     }

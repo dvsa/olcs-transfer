@@ -21,7 +21,7 @@ class DtoTest extends MockeryTestCase
      */
     protected $annotationBuilder;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->annotationBuilder = new AnnotationBuilder();
     }
