@@ -9,7 +9,7 @@ trait IrhpApplicationStatusOptional
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":32}})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"permit_app_awaiting", "permit_app_cancelled", "permit_app_declined", "permit_app_expired", "permit_app_fee_paid", "permit_app_issued", "permit_app_issuing", "permit_app_nys", "permit_app_terminated", "permit_app_uc", "permit_app_unsuccessful", "permit_app_valid", "permit_app_withdrawn"}}})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"permit_app_awaiting", "permit_app_cancelled", "permit_app_declined", "permit_app_expired", "permit_app_fee_paid", "permit_app_issuing", "permit_app_nys", "permit_app_terminated", "permit_app_uc", "permit_app_unsuccessful", "permit_app_valid", "permit_app_withdrawn"}}})
      * @Transfer\Optional
      */
     public $status;
