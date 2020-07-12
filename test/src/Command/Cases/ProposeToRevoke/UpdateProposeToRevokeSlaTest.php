@@ -10,7 +10,6 @@ class UpdateProposeToRevokeSlaTest extends \PHPUnit\Framework\TestCase
 {
     use CommandTest;
 
-
     protected function createBlankDto()
     {
         return new UpdateProposeToRevokeSla();
@@ -75,14 +74,14 @@ class UpdateProposeToRevokeSlaTest extends \PHPUnit\Framework\TestCase
         return [
             'id' => ['not a number'],
             'version' => ['not a number'],
-            'isSubmissionRequiredForApproval' => ['not a number','not a number'],
+            'isSubmissionRequiredForApproval' => ['not a number'],
             'approvalSubmissionIssuedDate' => ['not a date'],
             'approvalSubmissionReturnedDate' => ['not a date'],
             'approvalSubmissionPresidingTc' => [['not a number']],
             'iorLetterIssuedDate' => ['not a date'],
             'operatorResponseDueDate' => ['not a date'],
             'operatorResponseReceivedDate' => ['not a date'],
-            'isSubmissionRequiredForAction' => ['not a number','not a number'],
+            'isSubmissionRequiredForAction' => ['not a number'],
             'finalSubmissionIssuedDate' => ['not a date'],
             'finalSubmissionReturnedDate' => ['not a date'],
             'finalSubmissionPresidingTc' => [['not a number']],

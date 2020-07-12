@@ -15,7 +15,7 @@ class UsernameTest extends MockeryTestCase
 {
     private $validator;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->validator = new Username();
     }

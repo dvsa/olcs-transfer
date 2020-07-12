@@ -13,7 +13,7 @@ class TrafficAreaTest extends \PHPUnit\Framework\TestCase
     /** @var TrafficArea */
     protected $sut;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->sut = new TrafficArea();
 
