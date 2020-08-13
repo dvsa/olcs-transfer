@@ -22,7 +22,7 @@ final class UpdateSystemParameter extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":255}})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":1024}})
      */
     protected $paramValue;
 
