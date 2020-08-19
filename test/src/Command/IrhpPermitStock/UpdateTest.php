@@ -19,7 +19,8 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
             'initialStock' => '1400',
             'irhpPermitType' => '1',
             'periodNameKey' => 'this.is.a.key',
-            'hiddenSs' => false
+            'hiddenSs' => false,
+            'permitCategory' => 'permit_cat_hors_contingent',
         ];
 
         $command = Update::create($data);
@@ -31,6 +32,7 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($data['initialStock'], $command->getInitialStock());
         $this->assertEquals('emissions_cat_na', $command->getEmissionsCategory());
         $this->assertEquals('this.is.a.key', $command->getPeriodNameKey());
+        $this->assertEquals('permit_cat_hors_contingent', $command->getPermitCategory());
         $this->assertFalse($command->getHiddenSs());
     }
 
@@ -43,7 +45,8 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
             'initialStock' => '1400',
             'irhpPermitType' => '1',
             'emissionsCategory' => 'emissions_cat_euro6',
-            'hiddenSs' => true
+            'hiddenSs' => true,
+            'permitCategory' => 'permit_cat_hors_contingent',
         ];
 
         $command = Update::create($data);
@@ -54,6 +57,7 @@ class UpdateTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals($data['irhpPermitType'], $command->getIrhpPermitType());
         $this->assertEquals($data['initialStock'], $command->getInitialStock());
         $this->assertEquals('emissions_cat_euro6', $command->getEmissionsCategory());
+        $this->assertEquals('permit_cat_hors_contingent', $command->getPermitCategory());
         $this->assertTrue($command->getHiddenSs());
     }
 }
