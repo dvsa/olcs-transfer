@@ -250,6 +250,16 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\Grant::class),
                 ],
             ],
+            'reset-to-not-yet-submitted' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'reset-to-not-yet-submitted[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\ResetToNotYetSubmitted::class),
+                ],
+            ],
             'full' => [
                 'type' => 'Segment',
                 'options' => [
