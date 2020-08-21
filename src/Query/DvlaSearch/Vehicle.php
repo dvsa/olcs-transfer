@@ -14,7 +14,15 @@ class Vehicle extends AbstractQuery
     /**
      * @var string
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({
+     *     "name":"Zend\Filter\PregReplace",
+     *     "options": {"pattern": "/[\s]/", "replacement": ""}
+     * })
      * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 3, "max":10}})
+     * @Transfer\Validator({
+     *     "name":"Zend\Validator\Regex",
+     *     "options": {"pattern": "/^[a-zA-Z0-9]*$/"}
+     * })
      */
     protected $vrn;
 
