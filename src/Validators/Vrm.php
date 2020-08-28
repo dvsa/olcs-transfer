@@ -5,9 +5,9 @@ namespace Dvsa\Olcs\Transfer\Validators;
 use Zend\Validator\AbstractValidator;
 
 /**
- * Ensure the VRM matches the required criteria
+ * VRM Validator
  *
- * @author Nick Payne <nick.payne@valtech.co.uk>
+ * Ensure the VRM matches the required criteria for a VRM.
  */
 class Vrm extends AbstractValidator
 {
