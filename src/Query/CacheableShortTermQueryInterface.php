@@ -12,7 +12,7 @@ namespace Dvsa\Olcs\Transfer\Query;
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-interface CachableShortTermQueryInterface
+interface CacheableShortTermQueryInterface
 {
 
 }

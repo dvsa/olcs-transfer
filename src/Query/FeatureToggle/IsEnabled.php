@@ -7,7 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\FeatureToggle;
 
-use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableMediumTermQueryInterface;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\PublicQueryCacheInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -15,7 +15,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 /**
  * @Transfer\RouteName("backend/feature-toggle/check")
  */
-class IsEnabled extends AbstractQuery implements CachableMediumTermQueryInterface, PublicQueryCacheInterface
+class IsEnabled extends AbstractQuery implements CacheableMediumTermQueryInterface, PublicQueryCacheInterface
 {
     /**
      * @Transfer\ArrayInput

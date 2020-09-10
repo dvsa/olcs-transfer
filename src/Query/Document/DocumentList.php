@@ -15,7 +15,7 @@ use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableShortTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/document")
@@ -23,7 +23,7 @@ use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
 class DocumentList extends AbstractQuery implements
     OrderedQueryInterface,
     PagedQueryInterface,
-    CachableShortTermQueryInterface
+    CacheableShortTermQueryInterface
 {
     use OrderedTrait,
         PagedTrait,

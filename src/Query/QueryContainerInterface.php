@@ -15,13 +15,17 @@ interface QueryContainerInterface
 
     public function getInputFilter();
 
-    public function isShortTermCachable();
+    public function isShortTermCacheable();
 
-    public function isMediumTermCachable();
+    public function isMediumTermCacheable();
 
-    public function isPublicCachable(): bool;
+    public function isLongTermCacheable(): bool;
 
-    public function isSharedEncryptionCachable(): bool;
+    public function isPersistentCacheable(): bool;
+
+    public function isPublicCacheable(): bool;
+
+    public function isSharedEncryptionCacheable(): bool;
 
     public function isStream();
 

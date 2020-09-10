@@ -9,12 +9,12 @@ namespace Dvsa\Olcs\Transfer\Query\Address;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableMediumTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/address/details")
  */
-final class GetAddress extends AbstractQuery implements CachableMediumTermQueryInterface
+final class GetAddress extends AbstractQuery implements CacheableMediumTermQueryInterface
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\Digits"})

@@ -7,6 +7,7 @@ use Aws\SecretsManager\SecretsManagerClient;
 use Dvsa\Olcs\Transfer\Service\CacheEncryption;
 use Mockery as m;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
+use Zend\Cache\Storage\Adapter\AdapterOptions;
 use Zend\Cache\Storage\StorageInterface;
 use Zend\Crypt\BlockCipher;
 
@@ -56,8 +57,10 @@ class CacheEncryptionTest extends MockeryTestCase
         $valueToBeEncrypted = new \stdClass();
         $serializedValue = igbinary_serialize($valueToBeEncrypted);
         $cacheKey = $this->cacheIdentifier . $nodeSuffix;
+        $ttl = 300;
 
         $cache = m::mock(StorageInterface::class);
+        $cache->expects('getOptions->setTtl')->with($ttl)->andReturn(m::mock(AdapterOptions::class));
         $cache->expects('setItem')->with($cacheKey, $this->encryptedValue)->andReturnTrue();
 
         $encryptor = m::mock(BlockCipher::class);
@@ -66,7 +69,7 @@ class CacheEncryptionTest extends MockeryTestCase
 
         $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
 
-        self::assertTrue($sut->setItem($this->cacheIdentifier, $encryptionMode, $valueToBeEncrypted));
+        self::assertTrue($sut->setItem($this->cacheIdentifier, $encryptionMode, $valueToBeEncrypted, $ttl));
     }
 
     public function dpGetSetItemProvider()
@@ -85,14 +88,16 @@ class CacheEncryptionTest extends MockeryTestCase
         $valueToBeEncrypted = new \stdClass();
         $serializedValue = igbinary_serialize($valueToBeEncrypted);
         $cacheKey = $this->cacheIdentifier . CacheEncryption::ENCRYPTION_PUBLIC_NODE_SUFFIX;
+        $ttl = 300;
 
         $cache = m::mock(StorageInterface::class);
+        $cache->expects('getOptions->setTtl')->with($ttl)->andReturn(m::mock(AdapterOptions::class));
         $cache->expects('setItem')->with($cacheKey, $serializedValue)->andReturnTrue();
 
         $encryptor = m::mock(BlockCipher::class);
 
         $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
-        self::assertTrue($sut->setItem($this->cacheIdentifier, CacheEncryption::ENCRYPTION_MODE_PUBLIC, $valueToBeEncrypted));
+        self::assertTrue($sut->setItem($this->cacheIdentifier, CacheEncryption::ENCRYPTION_MODE_PUBLIC, $valueToBeEncrypted, $ttl));
     }
 
     /**

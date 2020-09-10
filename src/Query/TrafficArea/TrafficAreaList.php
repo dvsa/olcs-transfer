@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
-use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableLongTermQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PublicQueryCacheInterface;
 
 /**
@@ -20,7 +20,7 @@ use Dvsa\Olcs\Transfer\Query\PublicQueryCacheInterface;
 final class TrafficAreaList extends AbstractQuery implements
     OrderedQueryInterface,
     PublicQueryCacheInterface,
-    CachableMediumTermQueryInterface
+    CacheableLongTermQueryInterface
 {
     use OrderedTrait;
 }

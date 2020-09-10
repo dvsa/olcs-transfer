@@ -8,14 +8,14 @@
 namespace Dvsa\Olcs\Transfer\Query\Variation;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
-use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableShortTermQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
  * @Transfer\RouteName("backend/variation/single")
  */
-class Variation extends AbstractQuery implements CachableShortTermQueryInterface
+class Variation extends AbstractQuery implements CacheableShortTermQueryInterface
 {
     use Identity;
 }

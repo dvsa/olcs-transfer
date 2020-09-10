@@ -11,12 +11,12 @@ namespace Dvsa\Olcs\Transfer\Query\Permits;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\PublicQueryCacheInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableLongTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/permits/ecmt-permit-fees")
  */
-class EcmtPermitFees extends AbstractQuery implements CachableMediumTermQueryInterface, PublicQueryCacheInterface
+class EcmtPermitFees extends AbstractQuery implements CacheableLongTermQueryInterface, PublicQueryCacheInterface
 {
     /**
      * @Transfer\ArrayInput
