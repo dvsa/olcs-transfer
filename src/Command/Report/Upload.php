@@ -18,4 +18,6 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
 {
     use FieldTypeTraits\ReportType;
     use FieldTypeTraits\FilenameAndContent;
+    use FieldTypeTraits\TemplateSlugOptional;
+    use FieldTypeTraits\TemplateNameOptional;
 }
