@@ -9,12 +9,12 @@ namespace Dvsa\Olcs\Transfer\Query\Address;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableMediumTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/address/list")
  */
-final class GetList extends AbstractQuery implements CachableMediumTermQueryInterface
+final class GetList extends AbstractQuery implements CacheableMediumTermQueryInterface
 {
     /**
      * @var String

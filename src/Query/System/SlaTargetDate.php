@@ -9,13 +9,13 @@ namespace Dvsa\Olcs\Transfer\Query\System;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableShortTermQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @Transfer\RouteName("backend/sla-target-date")
  */
-class SlaTargetDate extends AbstractQuery implements CachableShortTermQueryInterface
+class SlaTargetDate extends AbstractQuery implements CacheableShortTermQueryInterface
 {
     /**
      * @var int

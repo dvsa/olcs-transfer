@@ -8,7 +8,7 @@
 namespace Dvsa\Olcs\Transfer\Query\Application;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
-use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableShortTermQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
@@ -20,7 +20,7 @@ use Dvsa\Olcs\Transfer\Query\OrderedTrait;
  * @Transfer\RouteName("backend/application/single/psv-vehicles")
  */
 class PsvVehicles extends AbstractQuery implements
-    CachableShortTermQueryInterface,
+    CacheableShortTermQueryInterface,
     PagedQueryInterface,
     OrderedQueryInterface
 {

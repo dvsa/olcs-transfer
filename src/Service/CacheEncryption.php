@@ -2,6 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Service;
 
+use Zend\Cache\Storage\Adapter\AdapterOptions;
 use Zend\Cache\Storage\StorageInterface;
 use Zend\Crypt\BlockCipher;
 
@@ -75,15 +76,17 @@ class CacheEncryption
      * Public mode: value won't be encrypted
      * Shared mode: value will be encrypted using a key shared between all nodes
      * Node specific mode: value wil be encrypted for a single group of nodes only e.g. ssweb, iuweb or api
+     * TTL is specified in seconds - 3600 means a default of one hour
      *
      * @param string $cacheKey
      * @param string $encryptionMode
      * @param mixed  $value
+     * @param int    $ttl
      *
      * @throws \Exception
      * @return bool
      */
-    public function setItem(string $cacheKey, string $encryptionMode, $value): bool
+    public function setItem(string $cacheKey, string $encryptionMode, $value, int $ttl = 3600): bool
     {
         $value = igbinary_serialize($value);
 
@@ -94,6 +97,7 @@ class CacheEncryption
         }
 
         $nodeSuffix = $this->getSuffix($encryptionMode);
+        $this->setTtlOption($ttl);
 
         return $this->cache->setItem($cacheKey . $nodeSuffix, $value);
     }
@@ -119,6 +123,20 @@ class CacheEncryption
         }
 
         return igbinary_unserialize($cacheValue);
+    }
+
+    /**
+     * @note This isn't a great way of going about this, but there isn't a way of doing it on the zend client and
+     * would rather not extend it at this stage. By making the method private we make sure only the TTL passed through
+     * when each item is set will be used
+     *
+     * @param int $ttl time in seconds
+     *
+     * @return AdapterOptions
+     */
+    private function setTtlOption(int $ttl): AdapterOptions
+    {
+        return $this->cache->getOptions()->setTtl($ttl);
     }
 
     /**

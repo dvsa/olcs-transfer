@@ -10,12 +10,12 @@ namespace Dvsa\Olcs\Transfer\Query\RefData;
 use Dvsa\Olcs\Transfer\Query\PublicQueryCacheInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableLongTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/ref-data")
  */
-class RefDataList extends AbstractQuery implements CachableMediumTermQueryInterface, PublicQueryCacheInterface
+class RefDataList extends AbstractQuery implements CacheableLongTermQueryInterface, PublicQueryCacheInterface
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})

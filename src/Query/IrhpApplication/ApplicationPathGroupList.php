@@ -9,11 +9,11 @@ namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableShortTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/irhp-application/application-path-list")
  */
-final class ApplicationPathGroupList extends AbstractQuery implements CachableShortTermQueryInterface
+final class ApplicationPathGroupList extends AbstractQuery implements CacheableShortTermQueryInterface
 {
 }

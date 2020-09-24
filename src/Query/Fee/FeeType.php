@@ -8,7 +8,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 use Dvsa\Olcs\Transfer\FieldType;
 use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
-use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableLongTermQueryInterface;
 
 /**
  * Class FeeType
@@ -16,7 +16,7 @@ use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
  */
 class FeeType extends AbstractQuery implements
     FieldType\IdentityInterface,
-    CachableMediumTermQueryInterface,
+    CacheableLongTermQueryInterface,
     PublicQueryCacheInterface
 {
     use FieldTypeTraits\Identity;
