@@ -183,6 +183,16 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Permits\PrintPermits::class),
                 ]
             ],
+            'max-permitted-reached' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'max-permitted-reached[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\MaxPermittedReached::class),
+                ]
+            ],
         ]
     ]
 ];
