@@ -15,7 +15,9 @@ trait ReportType
      *      "name":"Zend\Validator\InArray",
      *      "options": {
      *          "haystack": {
-     *              "rep_typ_comm_lic_bulk_reprint"
+     *              "rep_typ_comm_lic_bulk_reprint",
+     *              "rep_typ_bulk_letter",
+     *              "rep_typ_bulk_email"
      *          }
      *      }
      * })
