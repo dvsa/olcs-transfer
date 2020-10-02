@@ -69,7 +69,8 @@ class UpdateUserTest extends TestCase
             'resetPassword' => ['post', 'email'],
             'osType' => [
                 'windows_7',
-                'windows_10'
+                'windows_10',
+                'northern_i'
             ]
         ];
     }

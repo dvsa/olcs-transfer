@@ -112,7 +112,7 @@ final class CreateUser extends AbstractCommand
      *     "name":"Zend\Validator\InArray",
      *     "options": {
      *          "haystack": {
-     *              "windows_7", "windows_10"
+     *              "windows_7", "windows_10", "northern_i"
      *          }
      *     }
      * })
