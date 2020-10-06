@@ -65,7 +65,7 @@ class DocumentList extends AbstractQuery implements
      * @Transfer\Validator({
      *     "name":"Zend\Validator\InArray",
      *     "options": {
-     *          "haystack": {"tsw_all", "tsw_self_only"}
+     *          "haystack": {"tsw_all", "tsw_self_only", "tsw_exclude_irhp"}
      *     }
      * })
      */
