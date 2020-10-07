@@ -113,6 +113,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\StockOperationsPermitted::class),
                 ]
             ],
+            'post-scoring-report' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'post-scoring-report[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\PostScoringReport::class),
+                ]
+            ],
             'ready-to-print-type' => [
                 'type' => 'Segment',
                 'options' => [

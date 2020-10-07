@@ -17,7 +17,8 @@ trait ReportType
      *          "haystack": {
      *              "rep_typ_comm_lic_bulk_reprint",
      *              "rep_typ_bulk_letter",
-     *              "rep_typ_bulk_email"
+     *              "rep_typ_bulk_email",
+     *              "rep_typ_post_scoring_email"
      *          }
      *      }
      * })
