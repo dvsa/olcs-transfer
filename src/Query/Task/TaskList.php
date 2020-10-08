@@ -62,6 +62,16 @@ class TaskList extends AbstractQuery implements PagedQueryInterface, OrderedQuer
     protected $taskSubCategory;
 
     /**
+     * @Transfer\Optional
+     */
+    protected $excludeCategory;
+
+    /**
+     * @Transfer\Optional
+     */
+    protected $excludeTaskSubCategory;
+
+    /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
      * @Transfer\Filter({"name":"Zend\Filter\StringToLower"})
      * @Transfer\Validator({"name":"Zend\Validator\InArray", "options":{"haystack": {"tdt_today", "tdt_all"}}})
@@ -136,6 +146,16 @@ class TaskList extends AbstractQuery implements PagedQueryInterface, OrderedQuer
     public function getTaskSubCategory()
     {
         return $this->taskSubCategory;
+    }
+
+    public function getExcludeCategory()
+    {
+        return $this->excludeCategory;
+    }
+
+    public function getExcludeTaskSubCategory()
+    {
+        return $this->excludeTaskSubCategory;
     }
 
     /**
