@@ -2,8 +2,6 @@
 
 namespace Dvsa\OlcsTest\Transfer\Service;
 
-use Aws\Result as AwsResult;
-use Aws\SecretsManager\SecretsManagerClient;
 use Dvsa\Olcs\Transfer\Service\CacheEncryption;
 use Mockery as m;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
@@ -45,6 +43,27 @@ class CacheEncryptionTest extends MockeryTestCase
         $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
 
         self::assertEquals($unserialisedValue, $sut->getItem($this->cacheIdentifier, $encryptionMode));
+    }
+
+    /**
+     * Test getting a custom item (use translations as sample for config purposes)
+     */
+    public function testGetCustomItem()
+    {
+        $unserialisedValue = new \stdClass();
+        $serialisedValue = igbinary_serialize($unserialisedValue);
+        $identifier = CacheEncryption::TRANSLATION_KEY_IDENTIFIER;
+        $uniqueId = 'uniqueid';
+        $cacheKey = $identifier . $uniqueId . CacheEncryption::ENCRYPTION_PUBLIC_NODE_SUFFIX;
+
+        $cache = m::mock(StorageInterface::class);
+        $cache->expects('getItem')->with($cacheKey)->andReturn($serialisedValue);
+
+        $encryptor = m::mock(BlockCipher::class);
+
+        $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+
+        self::assertEquals($unserialisedValue, $sut->getCustomItem($identifier, $uniqueId));
     }
 
     /**
@@ -101,6 +120,27 @@ class CacheEncryptionTest extends MockeryTestCase
     }
 
     /**
+     * Test setting a custom item (use translations as sample for config purposes)
+     */
+    public function testSetCustomItem()
+    {
+        $valueToBeEncrypted = new \stdClass();
+        $serializedValue = igbinary_serialize($valueToBeEncrypted);
+        $identifier = CacheEncryption::TRANSLATION_KEY_IDENTIFIER;
+        $config = CacheEncryption::CUSTOM_CACHE_TYPE[CacheEncryption::TRANSLATION_KEY_IDENTIFIER];
+        $encryptor = m::mock(BlockCipher::class);
+        $uniqueId = 'uniqueid';
+        $cacheKey = $identifier . $uniqueId . CacheEncryption::ENCRYPTION_PUBLIC_NODE_SUFFIX;
+
+        $cache = m::mock(StorageInterface::class);
+        $cache->expects('getOptions->setTtl')->with($config['ttl'])->andReturn(m::mock(AdapterOptions::class));
+        $cache->expects('setItem')->with($cacheKey, $serializedValue)->andReturnTrue();
+
+        $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+        self::assertTrue($sut->setCustomItem($identifier, $valueToBeEncrypted, $uniqueId));
+    }
+
+    /**
      * @dataProvider dpHasItemProvider
      */
     public function testHasItem($hasItem, $encryptionMode, $nodeSuffix)
@@ -126,6 +166,45 @@ class CacheEncryptionTest extends MockeryTestCase
             [true, CacheEncryption::ENCRYPTION_MODE_PUBLIC, CacheEncryption::ENCRYPTION_PUBLIC_NODE_SUFFIX],
             [false, CacheEncryption::ENCRYPTION_MODE_PUBLIC, CacheEncryption::ENCRYPTION_PUBLIC_NODE_SUFFIX],
         ];
+    }
+
+    /**
+     * Test has custom item (use translations as sample for config purposes)
+     *
+     * @dataProvider dpTrueFalseProvider
+     */
+    public function testHasCustomItem($hasItem)
+    {
+        $identifier = CacheEncryption::TRANSLATION_KEY_IDENTIFIER;
+        $encryptor = m::mock(BlockCipher::class);
+        $uniqueId = 'uniqueid';
+        $cacheIdentifier = $identifier . $uniqueId . CacheEncryption::ENCRYPTION_PUBLIC_NODE_SUFFIX;
+
+        $cache = m::mock(StorageInterface::class);
+        $cache->expects('hasItem')->with($cacheIdentifier)->andReturn($hasItem);
+
+        $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+        self::assertEquals($sut->hasCustomItem($identifier, $uniqueId), $hasItem);
+    }
+
+    public function dpTrueFalseProvider()
+    {
+        return [
+            [true],
+            [false]
+        ];
+    }
+
+    public function testMissingCustomConfig()
+    {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage('missing config for cache type missing_cache_type');
+
+        $cache = m::mock(StorageInterface::class);
+        $encryptor = m::mock(BlockCipher::class);
+
+        $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+        $sut->hasCustomItem('missing_cache_type', '');
     }
 
     /**
