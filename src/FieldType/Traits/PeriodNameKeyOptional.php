@@ -11,7 +11,7 @@ trait PeriodNameKeyOptional
 {
     /**
      * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":255}})
+     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":512}})
      * @Transfer\Optional
      */
     protected $periodNameKey;
