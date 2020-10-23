@@ -1198,6 +1198,13 @@ $routes = [
                                     )
                                 ]
                             ),
+                            'vehicles' => RouteConfig::getRouteConfig(
+                                'vehicles',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Licence\Vehicles::class)
+                                ]
+                            )
+
                         ]
                     ),
                     'GET' => QueryConfig::getConfig(Query\Licence\GetList::class),
