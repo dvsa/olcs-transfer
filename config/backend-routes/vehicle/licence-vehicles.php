@@ -10,6 +10,7 @@ return [
     'licence-vehicle' => RouteConfig::getRouteConfig(
         'licence-vehicle',
         [
+            'GET' => QueryConfig::getConfig(Query\LicenceVehicle\LicenceVehiclesById::class),
             'single' => RouteConfig::getSingleConfig(
                 [
                     'GET' => QueryConfig::getConfig(Query\LicenceVehicle\LicenceVehicle::class),
