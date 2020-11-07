@@ -18,7 +18,8 @@ class GetListByIrhpApplicationTest extends \PHPUnit\Framework\TestCase
                 'limit' => 10,
                 'sort' => 'id',
                 'order' => 'ASC',
-                'isPreGrant' => false
+                'isPreGrant' => false,
+                'wantedOnly' => true,
             ]
         );
         static::assertEquals(
@@ -29,7 +30,8 @@ class GetListByIrhpApplicationTest extends \PHPUnit\Framework\TestCase
                 'sort' => 'id',
                 'order' => 'ASC',
                 'sortWhitelist' => [],
-                'isPreGrant' => false
+                'isPreGrant' => false,
+                'wantedOnly' => true
             ],
             $sut->getArrayCopy()
         );

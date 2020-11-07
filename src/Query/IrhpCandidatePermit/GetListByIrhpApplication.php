@@ -23,4 +23,18 @@ class GetListByIrhpApplication extends AbstractQuery implements PagedQueryInterf
     use PagedTrait;
     use OrderedTrait;
     use IsPreGrant;
+
+    /**
+     * @var bool
+     * @Transfer\Optional
+     */
+    protected $wantedOnly = false;
+
+    /**
+     * @return bool
+     */
+    public function getWantedOnly()
+    {
+        return $this->wantedOnly;
+    }
 }
