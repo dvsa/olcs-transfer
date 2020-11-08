@@ -113,6 +113,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\StockOperationsPermitted::class),
                 ]
             ],
+            'stock-alignment-report' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'stock-alignment-report[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\StockAlignmentReport::class),
+                ]
+            ],
             'post-scoring-report' => [
                 'type' => 'Segment',
                 'options' => [
