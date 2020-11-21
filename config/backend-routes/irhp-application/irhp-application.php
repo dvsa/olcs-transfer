@@ -311,6 +311,16 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\SubmitApplicationPath::class),
                 ],
             ],
+            'documents' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'documents[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\Documents::class),
+                ],
+            ],
             'update-candidate-permit-selection' => [
                 'type' => 'Segment',
                 'options' => [
