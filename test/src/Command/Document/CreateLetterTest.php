@@ -3,12 +3,15 @@
 namespace Dvsa\OlcsTest\Transfer\Command\Document;
 
 use PHPUnit\Framework\TestCase;
-use \Dvsa\Olcs\Transfer\Command\Document\CreateLetter;
+use Dvsa\Olcs\Transfer\Command\Document\CreateLetter;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
+use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 
 class CreateLetterTest extends TestCase
 {
-    use CommandTest;
+    use CommandTest, DtoWithoutOptionalFieldsTest {
+        DtoWithoutOptionalFieldsTest::testDefaultValues insteadof CommandTest;
+    }
 
     /**
      * @inheritDoc
@@ -16,14 +19,6 @@ class CreateLetterTest extends TestCase
     protected function createBlankDto()
     {
         return new CreateLetter();
-    }
-
-    /**
-     * @inheritDoc
-     */
-    protected function getOptionalDtoFields()
-    {
-        return [];
     }
 
     /**

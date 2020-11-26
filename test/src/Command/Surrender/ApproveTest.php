@@ -4,20 +4,18 @@ namespace Dvsa\OlcsTest\Transfer\Command\Surrender;
 
 use Dvsa\Olcs\Transfer\Command\Surrender\Approve;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
-use \PHPUnit\Framework\TestCase;
+use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
+use PHPUnit\Framework\TestCase;
 
 class ApproveTest extends TestCase
 {
-    use CommandTest;
+    use CommandTest, DtoWithoutOptionalFieldsTest {
+        DtoWithoutOptionalFieldsTest::testDefaultValues insteadof CommandTest;
+    }
 
     protected function createBlankDto()
     {
         return new Approve();
-    }
-
-    protected function getOptionalDtoFields()
-    {
-        return [];
     }
 
     protected function getValidFieldValues()

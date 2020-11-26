@@ -4,7 +4,8 @@ namespace Dvsa\OlcsTest\Transfer\Command\Disqualification;
 
 use Dvsa\Olcs\Transfer\Command\Disqualification\Delete;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
-use Dvsa\OlcsTest\Transfer\Util\DtoTest;
+use Dvsa\OlcsTest\Transfer\DtoWithoutFieldTransformationsTest;
+use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\ArraySerializableInterface;
 
@@ -15,7 +16,10 @@ use Zend\Stdlib\ArraySerializableInterface;
  */
 class DeleteTest extends TestCase
 {
-    use CommandTest;
+    use CommandTest, DtoWithoutFieldTransformationsTest, DtoWithoutOptionalFieldsTest {
+        DtoWithoutFieldTransformationsTest::testFieldTransformations insteadof CommandTest;
+        DtoWithoutOptionalFieldsTest::testDefaultValues insteadof CommandTest;
+    }
 
     /**
      * Should return a new blank DTO on which to run tests
@@ -25,22 +29,6 @@ class DeleteTest extends TestCase
     protected function createBlankDto()
     {
         return new Delete();
-    }
-
-    /**
-     * Should return a list of optional fields
-     *
-     * for example:
-     *
-     * return ['optionalField', 'anotherOptionalField']
-     *
-     * Each field is expected to be set to null after validation
-     *
-     * @return string[]
-     */
-    protected function getOptionalDtoFields()
-    {
-        return [];
     }
 
     /**
@@ -61,9 +49,7 @@ class DeleteTest extends TestCase
     protected function getValidFieldValues()
     {
         return [
-
-                'id' => ['1', '2']
-
+            'id' => ['1', '2']
         ];
     }
 
@@ -87,29 +73,5 @@ class DeleteTest extends TestCase
         return [
             'id' => ['string', ['unexpected' => 'array']]
         ];
-    }
-
-    /**
-     * Should return an array of expected transformations which input filters should apply to fields
-     *
-     * for example:
-     *
-     * return [
-     *     'fieldWhichGetsTrimmed' => [[' string ', 'string']],
-     *     'fieldWhichFiltersOutNonNumericDigits => [
-     *         ['a1b2c3', '123'],
-     *         [99, '99'],
-     *     ],
-     * ];
-     *
-     * Tests expect the function 'getFoo' to exist for the function 'foo'.
-     *
-     * This DOES NOT assert that the value gets validated. To do that @see DtoTest::getValidFieldValues
-     *
-     * @return array
-     */
-    protected function getFilterTransformations()
-    {
-        return [];
     }
 }

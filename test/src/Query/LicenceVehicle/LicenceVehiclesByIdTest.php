@@ -3,12 +3,15 @@
 namespace Dvsa\OlcsTest\Transfer\Query\LicenceVehicle;
 
 use Dvsa\Olcs\Transfer\Query\LicenceVehicle\LicenceVehiclesById;
+use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
 use Zend\Stdlib\ArraySerializableInterface;
 
 class LicenceVehiclesByIdTest extends \PHPUnit\Framework\TestCase
 {
-    use QueryTest;
+    use QueryTest, DtoWithoutOptionalFieldsTest {
+        DtoWithoutOptionalFieldsTest::testDefaultValues insteadof QueryTest;
+    }
 
     /**
      * Should return a new blank DTO on which to run tests
@@ -18,22 +21,6 @@ class LicenceVehiclesByIdTest extends \PHPUnit\Framework\TestCase
     protected function createBlankDto()
     {
         return new LicenceVehiclesById();
-    }
-
-    /**
-     * Should return a list of optional fields
-     *
-     * for example:
-     *
-     * return ['optionalField', 'anotherOptionalField']
-     *
-     * Each field is expected to be set to null after validation
-     *
-     * @return string[]
-     */
-    protected function getOptionalDtoFields()
-    {
-        return [];
     }
 
     /**

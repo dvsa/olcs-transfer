@@ -4,19 +4,17 @@ namespace Dvsa\OlcsTest\Transfer\Command\Surrender;
 
 use Dvsa\Olcs\Transfer\Command\Surrender\SubmitForm;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
+use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 
 class SubmitFormTest extends \PHPUnit\Framework\TestCase
 {
-    use CommandTest;
+    use CommandTest, DtoWithoutOptionalFieldsTest {
+        DtoWithoutOptionalFieldsTest::testDefaultValues insteadof CommandTest;
+    }
 
     protected function createBlankDto()
     {
         return new SubmitForm();
-    }
-
-    protected function getOptionalDtoFields()
-    {
-        return [];
     }
 
     protected function getValidFieldValues()
@@ -33,7 +31,6 @@ class SubmitFormTest extends \PHPUnit\Framework\TestCase
             'id' => ['0', ['array']],
         ];
     }
-
 
     protected function getFilterTransformations()
     {
