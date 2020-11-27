@@ -5,13 +5,15 @@ namespace Dvsa\OlcsTest\Transfer\Query\CompaniesHouse;
 
 use Dvsa\Olcs\Transfer\Query\CompaniesHouse\ByNumber;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
+use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 use PHPUnit\Framework\TestCase;
 use Zend\Stdlib\ArraySerializableInterface;
 
 class ByNumberTest extends TestCase
 {
-    use QueryTest;
-
+    use QueryTest, DtoWithoutOptionalFieldsTest {
+        DtoWithoutOptionalFieldsTest::testDefaultValues insteadof QueryTest;
+    }
 
     /**
      * Should return a new blank DTO on which to run tests
@@ -21,22 +23,6 @@ class ByNumberTest extends TestCase
     protected function createBlankDto()
     {
         return new ByNumber();
-    }
-
-    /**
-     * Should return a list of optional fields
-     *
-     * for example:
-     *
-     * return ['optionalField', 'anotherOptionalField']
-     *
-     * Each field is expected to be set to null after validation
-     *
-     * @return string[]
-     */
-    protected function getOptionalDtoFields()
-    {
-        return [];
     }
 
     /**

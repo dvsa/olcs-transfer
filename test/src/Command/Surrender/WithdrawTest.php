@@ -4,20 +4,18 @@ namespace Dvsa\OlcsTest\Transfer\Command\Surrender;
 
 use Dvsa\Olcs\Transfer\Command\Surrender\Withdraw;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
-use \PHPUnit\Framework\TestCase;
+use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
+use PHPUnit\Framework\TestCase;
 
 class WithdrawTest extends TestCase
 {
-    use CommandTest;
+    use CommandTest, DtoWithoutOptionalFieldsTest {
+        DtoWithoutOptionalFieldsTest::testDefaultValues insteadof CommandTest;
+    }
 
     protected function createBlankDto()
     {
         return new Withdraw();
-    }
-
-    protected function getOptionalDtoFields()
-    {
-        return [];
     }
 
     protected function getValidFieldValues()
@@ -33,7 +31,6 @@ class WithdrawTest extends TestCase
             'id' => ['0', ['array']]
         ];
     }
-
 
     protected function getFilterTransformations()
     {

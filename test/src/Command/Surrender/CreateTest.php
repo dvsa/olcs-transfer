@@ -4,19 +4,17 @@ namespace Dvsa\OlcsTest\Transfer\Command\Surrender;
 
 use Dvsa\Olcs\Transfer\Command\Surrender\Create;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
+use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 
 class CreateTest extends \PHPUnit\Framework\TestCase
 {
-    use CommandTest;
+    use CommandTest, DtoWithoutOptionalFieldsTest {
+        DtoWithoutOptionalFieldsTest::testDefaultValues insteadof CommandTest;
+    }
 
     protected function createBlankDto()
     {
         return new Create();
-    }
-
-    protected function getOptionalDtoFields()
-    {
-        return [];
     }
 
     protected function getValidFieldValues()
@@ -34,7 +32,6 @@ class CreateTest extends \PHPUnit\Framework\TestCase
             'status' => ['string', ['unexpected' => 'array']],
         ];
     }
-
 
     protected function getFilterTransformations()
     {

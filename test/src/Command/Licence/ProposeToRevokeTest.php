@@ -4,11 +4,14 @@ namespace Dvsa\OlcsTest\Transfer\Command\Licence;
 
 use Dvsa\Olcs\Transfer\Command\Licence\ProposeToRevoke;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
+use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 use PHPUnit\Framework\TestCase;
 
 class ProposeToRevokeTest extends TestCase
 {
-    use CommandTest;
+    use CommandTest, DtoWithoutOptionalFieldsTest {
+        DtoWithoutOptionalFieldsTest::testDefaultValues insteadof CommandTest;
+    }
 
     /**
      * @inheritDoc
@@ -16,14 +19,6 @@ class ProposeToRevokeTest extends TestCase
     protected function createBlankDto()
     {
         return new ProposeToRevoke();
-    }
-
-    /**
-     * @inheritDoc
-     */
-    protected function getOptionalDtoFields()
-    {
-        return [];
     }
 
     /**
