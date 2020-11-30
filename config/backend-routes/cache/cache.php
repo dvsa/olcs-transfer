@@ -4,14 +4,14 @@ use Dvsa\Olcs\Transfer\Query;
 use Dvsa\Olcs\Transfer\Router\QueryConfig;
 
 return [
-    'translation-cache-key' => [
+    'cache' => [
         'type' => 'Segment',
         'options' => [
-            'route' => 'translation-cache-key[/]',
+            'route' => 'cache[/]',
         ],
         'may_terminate' => false,
         'child_routes' => [
-            'GET' => QueryConfig::getConfig(Query\TranslationCache\Key::class),
+            'GET' => QueryConfig::getConfig(Query\Cache\ById::class),
         ],
     ],
 ];

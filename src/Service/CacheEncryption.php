@@ -21,9 +21,14 @@ class CacheEncryption
     const TTL_60_DAYS = 5184000;
 
     const TRANSLATION_KEY_IDENTIFIER = 'translation_key';
+    const TRANSLATION_REPLACEMENT_IDENTIFIER = 'translation_replacement';
 
     const CUSTOM_CACHE_TYPE = [
         self::TRANSLATION_KEY_IDENTIFIER => [
+            'mode' => self::ENCRYPTION_MODE_PUBLIC,
+            'ttl' => self::TTL_60_DAYS,
+        ],
+        self::TRANSLATION_REPLACEMENT_IDENTIFIER => [
             'mode' => self::ENCRYPTION_MODE_PUBLIC,
             'ttl' => self::TTL_60_DAYS,
         ],
