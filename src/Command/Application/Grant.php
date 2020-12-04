@@ -39,6 +39,12 @@ final class Grant extends AbstractCommand
     protected $notes;
 
     /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"grant_authority_dl", "grant_authority_tc", "grant_authority_tr"}}})
+     */
+    protected $grantAuthority;
+
+    /**
      * @return mixed
      */
     public function getShouldCreateInspectionRequest()
@@ -60,5 +66,13 @@ final class Grant extends AbstractCommand
     public function getNotes()
     {
         return $this->notes;
+    }
+
+    /**
+     * @return string
+     */
+    public function getGrantAuthority()
+    {
+        return $this->grantAuthority;
     }
 }

@@ -18,4 +18,18 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class Grant extends AbstractCommand
 {
     use Identity;
+
+    /**
+     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"grant_authority_dl", "grant_authority_tc", "grant_authority_tr"}}})
+     */
+    protected $grantAuthority;
+
+    /**
+     * @return string
+     */
+    public function getGrantAuthority()
+    {
+        return $this->grantAuthority;
+    }
 }
