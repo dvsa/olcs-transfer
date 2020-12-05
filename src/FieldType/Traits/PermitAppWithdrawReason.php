@@ -19,7 +19,8 @@ trait PermitAppWithdrawReason
      *              "permits_app_withdraw_by_user",
      *              "permits_app_withdraw_declined",
      *              "permits_app_withdraw_not_paid",
-     *              "permits_app_withdraw_notsuccess"
+     *              "permits_app_withdraw_notsuccess",
+     *              "permits_app_withdraw_permits_rev"
      *          }
      *      }
      * })
