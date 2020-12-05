@@ -2,19 +2,19 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query\Permits;
 
-use Dvsa\Olcs\Transfer\Query\Permits\MaxPermittedReached;
+use Dvsa\Olcs\Transfer\Query\Permits\MaxPermittedReachedByStockAndLicence;
 
 /**
- * Max permitted reached test
+ * Max permitted reached by stock and licence test
  */
-class MaxPermittedReachedTest extends \PHPUnit\Framework\TestCase
+class MaxPermittedReachedByStockAndLicenceTest extends \PHPUnit\Framework\TestCase
 {
     public function testStructure()
     {
         $irhpPermitStockId = 40;
         $licenceId = 9;
 
-        $query = MaxPermittedReached::create(
+        $query = MaxPermittedReachedByStockAndLicence::create(
             [
                 'irhpPermitStock' => $irhpPermitStockId,
                 'licence' => $licenceId

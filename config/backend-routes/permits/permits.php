@@ -203,14 +203,24 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Permits\PrintPermits::class),
                 ]
             ],
-            'max-permitted-reached' => [
+            'max-permitted-reached-by-type-and-organisation' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => 'max-permitted-reached[/]',
+                    'route' => 'max-permitted-reached-by-type-and-organisation[/]',
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'GET' => QueryConfig::getConfig(Query\Permits\MaxPermittedReached::class),
+                    'GET' => QueryConfig::getConfig(Query\Permits\MaxPermittedReachedByTypeAndOrganisation::class),
+                ]
+            ],
+            'max-permitted-reached-by-stock-and-licence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'max-permitted-reached-by-stock-and-licence[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\MaxPermittedReachedByStockAndLicence::class),
                 ]
             ],
         ]
