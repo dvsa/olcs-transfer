@@ -250,14 +250,24 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\Grant::class),
                 ],
             ],
-            'reset-to-not-yet-submitted' => [
+            'reset-to-not-yet-submitted-from-valid' => [
                 'type' => 'Segment',
                 'options' => [
-                    'route' => 'reset-to-not-yet-submitted[/]',
+                    'route' => 'reset-to-not-yet-submitted-from-valid[/]',
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
-                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\ResetToNotYetSubmitted::class),
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\ResetToNotYetSubmittedFromValid::class),
+                ],
+            ],
+            'reset-to-not-yet-submitted-from-cancelled' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'reset-to-not-yet-submitted-from-cancelled[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\ResetToNotYetSubmittedFromCancelled::class),
                 ],
             ],
             'full' => [
