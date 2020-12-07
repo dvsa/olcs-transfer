@@ -2,7 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Validators;
 
-class LicenceDocumentStatus extends \Zend\Validator\InArray
+class LicenceDocumentStatus extends \Laminas\Validator\InArray
 {
     protected $haystack = [
         'doc_sts_destroyed',

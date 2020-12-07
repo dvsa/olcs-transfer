@@ -18,12 +18,12 @@ class RequestMap extends AbstractCommand
 
     /**
      * @var string
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"small","large","auto"}}})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"small","large","auto"}}})
      */
     protected $scale;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
      * @Transfer\Optional
      */
     protected $fromNewEbsr;

@@ -5,7 +5,7 @@ namespace Dvsa\OlcsTest\Transfer\Query\Licence;
 use Dvsa\Olcs\Transfer\Query\Licence\GoodsDiscCount;
 use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 class GoodsDiscCountTest extends \PHPUnit\Framework\TestCase
 {

@@ -13,8 +13,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
  * @Transfer\Method("PUT")
  * @Transfer\RouteName("backend/processing/note/single")
  */
-class Update extends AbstractCommand
-    implements
+class Update extends AbstractCommand implements
     FieldType\IdentityInterface,
     FieldType\VersionInterface
 {
@@ -23,8 +22,8 @@ class Update extends AbstractCommand
     use FieldTypeTraits\Version;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      * @Transfer\Optional
      */
     protected $priority;

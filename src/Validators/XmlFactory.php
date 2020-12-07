@@ -2,9 +2,9 @@
 
 namespace Dvsa\Olcs\Transfer\Validators;
 
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
-use ZendXml\Security as XmlSecurityValidator;
+use Laminas\ServiceManager\FactoryInterface;
+use Laminas\ServiceManager\ServiceLocatorInterface;
+use Laminas\Xml\Security as XmlSecurityValidator;
 
 /**
  * Class XmlFactory

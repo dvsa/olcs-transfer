@@ -16,7 +16,7 @@ final class UpdateInsufficientFinances extends AbstractCommand
     use Identity,
         Version;
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
      * @Transfer\Optional
      */
     protected $financialEvidenceUploaded;

@@ -18,11 +18,11 @@ class ContactDetailsList extends AbstractQuery implements PagedQueryInterface, O
     use OrderedTrait;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringToLower"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringToLower"})
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options":{
      *          "haystack": {
      *              "ct_complainant", "ct_corr", "ct_driver", "ct_est", "ct_hackney", "ct_irfo_op",

@@ -7,9 +7,9 @@
  */
 namespace Dvsa\Olcs\Transfer\Validators;
 
-use Zend\Validator\AbstractValidator;
-use ZendXml\Security as XmlSecurityValidator;
-use ZendXml\Exception\RuntimeException;
+use Laminas\Validator\AbstractValidator;
+use Laminas\Xml\Security as XmlSecurityValidator;
+use Laminas\Xml\Exception\RuntimeException;
 
 /**
  * XML validator

@@ -7,7 +7,7 @@ use Dvsa\Olcs\Transfer\Query\CompaniesHouse\ByNumber;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
 use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 use PHPUnit\Framework\TestCase;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 class ByNumberTest extends TestCase
 {

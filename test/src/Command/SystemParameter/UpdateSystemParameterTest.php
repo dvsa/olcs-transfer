@@ -5,7 +5,7 @@ namespace Dvsa\OlcsTest\Transfer\Command\SystemParameter;
 use Dvsa\Olcs\Transfer\Command\SystemParameter\UpdateSystemParameter;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
 use Dvsa\OlcsTest\Transfer\DtoTest;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 /**
  * Class UpdateSystemParameterTest

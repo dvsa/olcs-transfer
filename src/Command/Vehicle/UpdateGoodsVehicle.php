@@ -22,9 +22,9 @@ final class UpdateGoodsVehicle extends AbstractCommand
         Version;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 999999}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 999999}})
      * @Transfer\Optional
      */
     protected $platedWeight;
@@ -37,7 +37,7 @@ final class UpdateGoodsVehicle extends AbstractCommand
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name": "Zend\Filter\DateTimeFormatter"})
+     * @Transfer\Filter({"name": "Laminas\Filter\DateTimeFormatter"})
      * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
      */
     protected $specifiedDate;

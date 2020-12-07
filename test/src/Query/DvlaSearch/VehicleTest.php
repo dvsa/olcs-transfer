@@ -6,7 +6,7 @@ use Dvsa\Olcs\Transfer\Query\DvlaSearch\Vehicle;
 use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
 use PHPUnit\Framework\TestCase;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 class VehicleTest extends TestCase
 {

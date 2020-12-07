@@ -12,7 +12,7 @@ trait AdjournedDateOptional
     /**
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name": "Zend\Filter\DateTimeFormatter"})
+     * @Transfer\Filter({"name": "Laminas\Filter\DateTimeFormatter"})
      * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
      */
     protected $adjournedDate;

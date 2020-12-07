@@ -20,7 +20,7 @@ final class PrintLicence extends AbstractCommand
     use Identity;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
      * @Transfer\Optional
      */
     protected $dispatch = true;

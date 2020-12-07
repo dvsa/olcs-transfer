@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Get a list of TmApplications and TmLicences 
+ * Get a list of TmApplications and TmLicences
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
@@ -16,9 +16,9 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 final class TmResponsibilitiesList extends AbstractQuery
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $transportManager;
 

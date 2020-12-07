@@ -2,7 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Validators;
 
-use Zend\Validator as ZendValidator;
+use Laminas\Validator as LaminasValidator;
 
 /**
  * Custom validator for Finacial History additional info.
@@ -12,7 +12,7 @@ use Zend\Validator as ZendValidator;
  *
  * @author Jakub Igla <jakub.igla@valtech.co.uk>
  */
-class FhAdditionalInfo extends ZendValidator\AbstractValidator
+class FhAdditionalInfo extends LaminasValidator\AbstractValidator
 {
     const TOO_SHORT = 'stringLengthTooShort';
     const IS_EMPTY  = 'isEmpty';
@@ -74,14 +74,14 @@ class FhAdditionalInfo extends ZendValidator\AbstractValidator
         }
 
         // check if value is not empty
-        $notEmptyValidator = new ZendValidator\NotEmpty();
+        $notEmptyValidator = new LaminasValidator\NotEmpty();
         if (!$notEmptyValidator->isValid($value)) {
             $this->error(self::IS_EMPTY);
             return false;
         }
 
         // check if value length is at least 150
-        $strLenValidator = new ZendValidator\Regex('/(\S\s*){' . self::MIN_LEN . ',}/m');
+        $strLenValidator = new LaminasValidator\Regex('/(\S\s*){' . self::MIN_LEN . ',}/m');
         if (!$strLenValidator->isValid($value)) {
             $this->error(self::TOO_SHORT);
             return false;

@@ -18,15 +18,15 @@ use Dvsa\Olcs\Transfer\Query\CacheableLongTermQueryInterface;
 class RefDataList extends AbstractQuery implements CacheableLongTermQueryInterface, PublicQueryCacheInterface
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringToLower"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringToLower"})
      */
     protected $refDataCategory;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringToLower"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray","options":{"haystack": {"en", "cy"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringToLower"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray","options":{"haystack": {"en", "cy"}}})
      */
     protected $language;
 

@@ -3,10 +3,10 @@
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
 use Dvsa\Olcs\Transfer\Validators\Xml as XmlValidator;
-use ZendXml\Security as XmlSecurityValidator;
+use Laminas\Xml\Security as XmlSecurityValidator;
 use Mockery\Adapter\Phpunit\MockeryTestCase as TestCase;
 use Mockery as m;
-use ZendXml\Exception\RuntimeException;
+use Laminas\Xml\Exception\RuntimeException;
 
 /**
  * Class XmlTest

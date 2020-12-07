@@ -16,13 +16,13 @@ final class UpdateDetails extends AbstractCommand
         Traits\Version;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Optional
      */
     protected $email;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Optional
      */
     protected $placeOfBirth;
@@ -38,111 +38,111 @@ final class UpdateDetails extends AbstractCommand
     protected $workAddress;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"tm_t_i","tm_t_e"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"tm_t_i","tm_t_e"}}})
      * @Transfer\Optional
      */
     protected $tmType;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
      * @Transfer\Optional
      */
     protected $isOwner;
 
     /**
-     * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
+     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
+     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursMon;
 
     /**
-     * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
+     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
+     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursTue;
 
     /**
-     * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
+     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
+     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursWed;
 
     /**
-     * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
+     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
+     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursThu;
 
     /**
-     * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
+     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
+     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursFri;
 
     /**
-     * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
+     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
+     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursSat;
 
     /**
-     * @Transfer\Filter({"name":"Zend\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
+     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
+     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
      * @Transfer\Optional
      */
     protected $hoursSun;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Optional
      */
     protected $additionalInfo;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
      * @Transfer\Optional
      */
     protected $hasOtherLicences;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
      * @Transfer\Optional
      */
     protected $hasOtherEmployment;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
      * @Transfer\Optional
      */
     protected $hasConvictions;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
      * @Transfer\Optional
      */
     protected $hasPreviousLicences;
 
     /**
-     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Date", "options": {"format": "Y-m-d"}})
      * @Transfer\Optional
      */
     protected $dob;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
      * @Transfer\Optional
      */
     protected $submit;

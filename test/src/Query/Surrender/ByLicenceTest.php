@@ -5,7 +5,7 @@ namespace Dvsa\OlcsTest\Transfer\Query\Surrender;
 use Dvsa\Olcs\Transfer\Query\Surrender\ByLicence;
 use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 class ByLicenceTest extends \PHPUnit\Framework\TestCase
 {

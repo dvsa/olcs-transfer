@@ -12,7 +12,7 @@ namespace Dvsa\Olcs\Transfer\Validators;
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-class YesNo extends \Zend\Validator\InArray
+class YesNo extends \Laminas\Validator\InArray
 {
     protected $haystack = ['Y', 'N'];
 

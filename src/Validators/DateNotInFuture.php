@@ -8,7 +8,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Validators;
 
-use Zend\Validator\AbstractValidator as AbstractValidator;
+use Laminas\Validator\AbstractValidator as AbstractValidator;
 
 /**
  * Checks a date is not in the future

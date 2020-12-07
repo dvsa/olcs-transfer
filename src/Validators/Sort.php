@@ -2,7 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Validators;
 
-class Sort extends \Zend\Validator\AbstractValidator
+class Sort extends \Laminas\Validator\AbstractValidator
 {
     const INVALID_SORT = 'invalidSort';
 

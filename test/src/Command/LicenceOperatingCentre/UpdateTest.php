@@ -5,7 +5,7 @@ namespace Dvsa\OlcsTest\Transfer\Command\LicenceOperatingCentre;
 use Dvsa\Olcs\Transfer\Command\LicenceOperatingCentre\Update;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
 use PHPUnit\Framework\TestCase;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 class UpdateTest extends TestCase
 {

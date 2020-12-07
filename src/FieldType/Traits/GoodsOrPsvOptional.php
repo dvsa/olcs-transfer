@@ -13,10 +13,10 @@ trait GoodsOrPsvOptional
      * @var String
      *
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"lcat_gv","lcat_psv", "lcat_permit", "NULL"}}
      *  }
      * )

@@ -20,7 +20,7 @@ final class InformationCompleteSubmission extends AbstractCommand
     use FieldType\Traits\Version;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\DateNotInFuture"})
      */

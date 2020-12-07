@@ -10,7 +10,7 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait ValidOnlyOptional
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
      * @Transfer\Optional
      */
     protected $validOnly;

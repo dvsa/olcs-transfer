@@ -18,9 +18,9 @@ class UpdateSla extends AbstractCommand
     /**
      * @var String
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({
-     *     "name":"Zend\Validator\InArray",
+     *     "name":"Laminas\Validator\InArray",
      *     "options": {
      *          "haystack": {"piwo_verbal", "piwo_reason", "piwo_decision"}
      *      }

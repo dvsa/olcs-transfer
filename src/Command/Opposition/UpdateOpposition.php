@@ -12,16 +12,16 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class UpdateOpposition extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $id;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $version;
 
@@ -29,7 +29,7 @@ class UpdateOpposition extends AbstractCommand
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"otf_eob", "otf_obj", "otf_rep"}}
      *  }
      * )
@@ -46,7 +46,7 @@ class UpdateOpposition extends AbstractCommand
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"obj_t_local_auth", "obj_t_other", "obj_t_police", "obj_t_rta",
      *                  "obj_t_trade_union"}}
      *  }
@@ -58,7 +58,7 @@ class UpdateOpposition extends AbstractCommand
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"opp_v_yes","opp_v_no","opp_v_nd"}}
      *  }
      * )
@@ -67,8 +67,8 @@ class UpdateOpposition extends AbstractCommand
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"max":4000}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"max":4000}})
      */
     protected $validNotes;
 
@@ -76,7 +76,7 @@ class UpdateOpposition extends AbstractCommand
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"Y","N"}}
      *  }
      * )
@@ -87,7 +87,7 @@ class UpdateOpposition extends AbstractCommand
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"Y","N"}}
      *  }
      * )
@@ -98,7 +98,7 @@ class UpdateOpposition extends AbstractCommand
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"Y","N"}}
      *  }
      * )
@@ -109,7 +109,7 @@ class UpdateOpposition extends AbstractCommand
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"Y","N"}}
      *  }
      * )
@@ -120,7 +120,7 @@ class UpdateOpposition extends AbstractCommand
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"opp_ack","opp_cu_acc","opp_cu_prop","opp_cu_ref","opp_pro_rec"}}
      *  }
      * )
@@ -130,9 +130,9 @@ class UpdateOpposition extends AbstractCommand
     /**
      * @Transfer\ArrayInput
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $operatingCentres = [];
 
@@ -141,7 +141,7 @@ class UpdateOpposition extends AbstractCommand
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"ogf_both","ogf_env","ogf_fin_stan","ogf_fitness","ogf_fumes","ogf_noise","ogf_o",
      *      "ogf_o_ccap","ogf_parking","ogf_pollution","ogf_prof_com","ogf_repute","ogf_safety","ogf_size",
      *      "ogf_unsochrs","ogf_vib","ogf_vis"}}
@@ -152,8 +152,8 @@ class UpdateOpposition extends AbstractCommand
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"max":4000}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"max":4000}})
      */
     protected $notes = null;
 

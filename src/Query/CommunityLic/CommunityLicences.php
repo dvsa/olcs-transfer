@@ -15,7 +15,8 @@ use Dvsa\Olcs\Transfer\Query\OrderedTrait;
  * @Transfer\RouteName("backend/community-lic/list")
  */
 class CommunityLicences extends AbstractQuery implements
-    OrderedQueryInterface, PagedQueryInterface
+    OrderedQueryInterface,
+    PagedQueryInterface
 {
     use OrderedTrait,
         LicenceOptional,
@@ -23,7 +24,7 @@ class CommunityLicences extends AbstractQuery implements
 
     /**
      * @var string
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @transfer\Optional
      */
     protected $statuses;

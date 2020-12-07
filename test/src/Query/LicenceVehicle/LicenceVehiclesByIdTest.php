@@ -5,7 +5,7 @@ namespace Dvsa\OlcsTest\Transfer\Query\LicenceVehicle;
 use Dvsa\Olcs\Transfer\Query\LicenceVehicle\LicenceVehiclesById;
 use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 class LicenceVehiclesByIdTest extends \PHPUnit\Framework\TestCase
 {

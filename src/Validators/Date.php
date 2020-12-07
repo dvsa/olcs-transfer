@@ -1,20 +1,15 @@
 <?php
 
-/**
- * Override ZFs date validation messages (As they are a bit rubbish)
- *
- * @author Rob Caiger <rob@clocal.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Validators;
 
-use Zend\Validator\Date as ZendDate;
+use Laminas\Validator\Date as LaminasDate;
 
 /**
- * Override ZFs date validation messages (As they are a bit rubbish)
+ * Override Laminas date validation messages (As they are a bit rubbish)
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-class Date extends ZendDate
+class Date extends LaminasDate
 {
 
     /**

@@ -3,7 +3,7 @@
 namespace Dvsa\Olcs\Transfer\Query;
 
 use Dvsa\Olcs\Transfer\Service\CacheEncryption;
-use Zend\InputFilter\InputFilterInterface;
+use Laminas\InputFilter\InputFilterInterface;
 
 /**
  * Query Container

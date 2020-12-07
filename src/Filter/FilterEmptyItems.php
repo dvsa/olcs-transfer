@@ -2,7 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Filter;
 
-use Zend\Filter\AbstractFilter;
+use Laminas\Filter\AbstractFilter;
 use Dvsa\Olcs\Api\Domain\Exception\RuntimeException;
 
 /**

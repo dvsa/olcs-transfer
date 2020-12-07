@@ -2,9 +2,9 @@
 
 namespace Dvsa\Olcs\Transfer\Service;
 
-use Zend\Cache\Storage\Adapter\AdapterOptions;
-use Zend\Cache\Storage\StorageInterface;
-use Zend\Crypt\BlockCipher;
+use Laminas\Cache\Storage\Adapter\AdapterOptions;
+use Laminas\Cache\Storage\StorageInterface;
+use Laminas\Crypt\BlockCipher;
 
 class CacheEncryption
 {
@@ -189,7 +189,7 @@ class CacheEncryption
     }
 
     /**
-     * @note This isn't a great way of going about this, but there isn't a way of doing it on the zend client and
+     * @note This isn't a great way of going about this, but there isn't a way of doing it on the Laminas client and
      * would rather not extend it at this stage. By making the method private we make sure only the TTL passed through
      * when each item is set will be used
      *

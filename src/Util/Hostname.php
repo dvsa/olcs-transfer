@@ -1,20 +1,13 @@
 <?php
-/**
- * Zend Framework (http://framework.zend.com/)
- *
- * @link      http://github.com/zendframework/zf2 for the canonical source repository
- * @copyright Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
- * @license   http://framework.zend.com/license/new-bsd New BSD License
- */
 
 namespace Dvsa\Olcs\Transfer\Util;
 
-use Zend\Mvc\Router\Http\RouteInterface;
-use Zend\Mvc\Router\Http\RouteMatch;
+use Laminas\Mvc\Router\Http\RouteInterface;
+use Laminas\Mvc\Router\Http\RouteMatch;
 use Traversable;
-use Zend\Mvc\Router\Exception;
-use Zend\Stdlib\ArrayUtils;
-use Zend\Stdlib\RequestInterface as Request;
+use Laminas\Mvc\Router\Exception;
+use Laminas\Stdlib\ArrayUtils;
+use Laminas\Stdlib\RequestInterface as Request;
 
 /**
  * Hostname route.
@@ -78,7 +71,7 @@ class Hostname implements RouteInterface
      *
      * @param array|Traversable $options options
      *
-     * @see \Zend\Mvc\Router\RouteInterface::factory()
+     * @see \Laminas\Mvc\Router\RouteInterface::factory()
      * @return Hostname
      * @throws Exception\InvalidArgumentException
      */
@@ -280,7 +273,7 @@ class Hostname implements RouteInterface
      *
      * @param Request $request request
      *
-     * @see \Zend\Mvc\Router\RouteInterface::match()
+     * @see \Laminas\Mvc\Router\RouteInterface::match()
      * @return RouteMatch|null
      */
     public function match(Request $request)
@@ -315,7 +308,7 @@ class Hostname implements RouteInterface
      * @param array $params  params
      * @param array $options options
      *
-     * @see \Zend\Mvc\Router\RouteInterface::assemble()
+     * @see \Laminas\Mvc\Router\RouteInterface::assemble()
      * @return string
      */
     public function assemble(array $params = array(), array $options = array())

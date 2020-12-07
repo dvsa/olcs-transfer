@@ -7,8 +7,8 @@ trait OrderedTrait
      * The field to sort by - must not be empty.
      *
      * @var string
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\NotEmpty"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\NotEmpty"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Sort"})
      */
     protected $sort;
@@ -17,8 +17,8 @@ trait OrderedTrait
      * Can only be one of ASC or DESC in upper case.
      *
      * @var string
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringToUpper"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringToUpper"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Order"})
      */
     protected $order;
