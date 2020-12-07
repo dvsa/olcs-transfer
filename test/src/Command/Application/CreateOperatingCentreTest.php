@@ -6,7 +6,7 @@ namespace Dvsa\OlcsTest\Transfer\Command\Application;
 use Dvsa\Olcs\Transfer\Command\Application\CreateOperatingCentre;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
 use PHPUnit\Framework\TestCase;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 class CreateOperatingCentreTest extends TestCase
 {

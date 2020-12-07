@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class GetListActive extends AbstractQuery
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
      * @Transfer\Optional
      */
     protected $isInternal;

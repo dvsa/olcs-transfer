@@ -12,15 +12,15 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class CreateStay extends AbstractCommand
 {
     /**
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $case = null;
 
     /**
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"stay_t_tc","stay_t_ut"}}
      *  }
      *)
@@ -42,7 +42,7 @@ class CreateStay extends AbstractCommand
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"stay_s_granted","stay_s_refused"}}
      *  }
      * )
@@ -51,15 +51,15 @@ class CreateStay extends AbstractCommand
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":4000}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":4000}})
      */
     protected $notes = null;
 
     /**
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"Y","N"}}
      *  }
      * )
@@ -76,7 +76,7 @@ class CreateStay extends AbstractCommand
      * @Transfer\Optional
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"Y","N"}}
      *  }
      * )

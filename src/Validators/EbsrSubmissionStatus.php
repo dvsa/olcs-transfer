@@ -2,7 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Validators;
 
-use Zend\Validator\InArray;
+use Laminas\Validator\InArray;
 
 /**
  * EBSR submission status Validator

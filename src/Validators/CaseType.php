@@ -5,7 +5,7 @@ namespace Dvsa\Olcs\Transfer\Validators;
 /**
  * @author Dmitry Golubev <d.e.golubev@gmail.com>
  */
-class CaseType extends \Zend\Validator\InArray
+class CaseType extends \Laminas\Validator\InArray
 {
     protected $haystack = [
         'case_t_app',

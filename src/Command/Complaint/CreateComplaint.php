@@ -12,8 +12,8 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class CreateComplaint extends AbstractCommand
 {
     /**
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $case = null;
 
@@ -24,20 +24,20 @@ class CreateComplaint extends AbstractCommand
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
-     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": true}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Identical", "options": {"token": true}})
      */
     protected $isCompliance = true;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":35}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":35}})
      */
     protected $complainantForename = null;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":35}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":35}})
      */
     protected $complainantFamilyName = null;
 
@@ -50,7 +50,7 @@ class CreateComplaint extends AbstractCommand
     /**
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"ct_cor","ct_cov","ct_dgm","ct_dsk","ct_fls","ct_lvu","ct_ndl","ct_nol","ct_olr",
      *      "ct_ovb","ct_pvo","ct_rds","ct_rta","ct_sln","ct_spe","ct_tgo","ct_ufl","ct_ump","ct_urd","ct_vpo"}}
      *  }
@@ -61,7 +61,7 @@ class CreateComplaint extends AbstractCommand
     /**
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"cs_ack","cs_pin","cs_rfs","cs_vfr","cs_yst"}}
      *  }
      * )
@@ -70,7 +70,7 @@ class CreateComplaint extends AbstractCommand
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":5,"max":4000}})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":5,"max":4000}})
      */
     protected $description = null;
 
@@ -83,13 +83,13 @@ class CreateComplaint extends AbstractCommand
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":35}})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":35}})
      */
     protected $driverForename = null;
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":35}})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":35}})
      */
     protected $driverFamilyName = null;
 

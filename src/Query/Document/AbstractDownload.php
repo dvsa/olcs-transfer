@@ -17,7 +17,7 @@ class AbstractDownload extends AbstractQuery implements
     /**
      * @var  bool
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
      */
     protected $isInline;
 

@@ -11,7 +11,7 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait IsSlugOptional
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
      * @Transfer\Optional
      */
     protected $isSlug;

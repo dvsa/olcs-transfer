@@ -7,7 +7,7 @@ namespace Dvsa\Olcs\Transfer\Validators;
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-class Order extends \Zend\Validator\AbstractValidator
+class Order extends \Laminas\Validator\AbstractValidator
 {
     const NOT_ASC_OR_DESC = 'notAscOrDesc';
 

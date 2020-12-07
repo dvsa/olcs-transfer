@@ -23,14 +23,14 @@ class BusRegList extends AbstractQuery implements PagedQueryInterface, OrderedQu
     /**
      * @var int
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      */
     protected $licNo;
 
     /**
      * @var int
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      */
     protected $organisationName;
 
@@ -38,7 +38,7 @@ class BusRegList extends AbstractQuery implements PagedQueryInterface, OrderedQu
      * @var String
      * @Transfer\Optional
      * @Transfer\Validator({
-     *     "name":"Zend\Validator\InArray",
+     *     "name":"Laminas\Validator\InArray",
      *     "options": {
      *          "haystack": {
      *              "breg_s_admin","breg_s_cancellation","breg_s_cancelled","breg_s_cns","breg_s_curt","breg_s_expired",

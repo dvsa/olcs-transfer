@@ -11,7 +11,7 @@ trait Placeholder
     /**
      * @var string
      * @Transfer\Escape(true)
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":255}})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":255}})
      */
     protected $placeholder;
 

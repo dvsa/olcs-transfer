@@ -17,29 +17,29 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class CreateOtherLicence extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      */
     public $licNo;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      */
     public $application;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      */
     public $holderName;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      * @Transfer\Optional
      */
     public $willSurrender;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Optional
      */
     public $previousLicenceType;
@@ -51,7 +51,7 @@ final class CreateOtherLicence extends AbstractCommand
     public $disqualificationDate;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Optional
      */
     public $disqualificationLength;

@@ -9,10 +9,10 @@ trait RequiredEuro5Optional
 {
     /**
      * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
      * @Transfer\Optional
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": -1}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": -1}})
      */
     public $requiredEuro5;
 

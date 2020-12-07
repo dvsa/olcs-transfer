@@ -5,7 +5,7 @@ namespace Dvsa\Olcs\Transfer\Validators;
 /**
  * @author Dmitry Golubev <d.e.golubev@gmail.com>
  */
-abstract class InArrayExtra extends \Zend\Validator\InArray
+abstract class InArrayExtra extends \Laminas\Validator\InArray
 {
     /** @var  array */
     protected $extraHaystack;

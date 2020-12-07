@@ -21,16 +21,16 @@ final class UpdateFinancialStandingRate extends AbstractCommand
         FieldTypeTraits\Version;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"lcat_gv","lcat_psv"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"lcat_gv","lcat_psv"}}})
      * @Transfer\Optional
      */
     protected $goodsOrPsv;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}
      * })
      * @Transfer\Optional
@@ -38,13 +38,13 @@ final class UpdateFinancialStandingRate extends AbstractCommand
     protected $licenceType;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money"})
      */
     protected $firstVehicleRate;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money"})
      */
     protected $additionalVehicleRate;

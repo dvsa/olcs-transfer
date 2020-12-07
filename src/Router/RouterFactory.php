@@ -5,8 +5,8 @@
  */
 namespace Dvsa\Olcs\Transfer\Router;
 
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Laminas\ServiceManager\FactoryInterface;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 
 /**
  * Custom Router Factory for api routing
@@ -18,7 +18,7 @@ class RouterFactory implements FactoryInterface
         $config = $serviceLocator->has('Config') ? $serviceLocator->get('Config') : [];
 
         // Defaults
-        $routerClass = 'Zend\Mvc\Router\Http\TreeRouteStack';
+        $routerClass = 'Laminas\Mvc\Router\Http\TreeRouteStack';
         $routerConfig = isset($config['api_router']) ? $config['api_router'] : [];
 
         // Obtain the configured router class, if any

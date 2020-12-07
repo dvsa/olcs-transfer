@@ -17,19 +17,19 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class CreateUnlicensed extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\NotEmpty"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\NotEmpty"})
      */
     protected $name;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"lcat_gv","lcat_psv"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"lcat_gv","lcat_psv"}}})
      */
     protected $operatorType;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\TrafficArea"})
      */
     protected $trafficArea;
@@ -41,8 +41,8 @@ final class CreateUnlicensed extends AbstractCommand
     protected $contactDetails;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
     protected $isExempt;
 

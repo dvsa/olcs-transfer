@@ -9,7 +9,7 @@ trait Xml
     /**
      * @var string
      * @Transfer\Escape(false)
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\Xml", "options":{"usePluginManager":true}})
      */
     public $xml;

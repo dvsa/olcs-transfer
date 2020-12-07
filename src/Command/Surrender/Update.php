@@ -17,91 +17,91 @@ class Update extends AbstractCommand
         Traits\Version;
 
      /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\LicenceDocumentStatus"})
      * @Transfer\Optional
      */
     protected $communityLicenceDocumentStatus;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 0, "max": 500}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min": 0, "max": 500}})
      * @Transfer\Optional
      */
     protected $communityLicenceDocumentInfo;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $digitalSignature;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0, "inclusive": true}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0, "inclusive": true}})
      * @Transfer\Optional
      */
     protected $discDestroyed;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0, "inclusive": true}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0, "inclusive": true}})
      * @Transfer\Optional
      */
     protected $discLost;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min": 1}})
      * @Transfer\Optional
      */
     protected $discLostInfo;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0, "inclusive": true}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0, "inclusive": true}})
      * @Transfer\Optional
      */
     protected $discStolen;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min": 1}})
      * @Transfer\Optional
      */
     protected $discStolenInfo;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\LicenceDocumentStatus"})
      * @Transfer\Optional
      */
     protected $licenceDocumentStatus;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 0, "max": 500}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min": 0, "max": 500}})
      * @Transfer\Optional
      */
     protected $licenceDocumentInfo;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\SurrenderStatus"})
      * @Transfer\Optional
      */
     protected $status;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min": 1}})
      * @Transfer\Validator({
-     *     "name":"Zend\Validator\InArray",
+     *     "name":"Laminas\Validator\InArray",
      *     "options": {
      *         "haystack": {"sig_physical_signature","sig_digital_signature","sig_signature_not_required"}
      *     }
@@ -111,17 +111,17 @@ class Update extends AbstractCommand
     protected $signatureType;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 1}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 1}})
      * @Transfer\Optional
      */
     protected $signatureChecked;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 1}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 1}})
      * @Transfer\Optional
      */
     protected $ecmsChecked;

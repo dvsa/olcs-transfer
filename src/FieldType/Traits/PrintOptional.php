@@ -9,7 +9,7 @@ trait PrintOptional
 {
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
      */
     protected $isEnforcePrint;
@@ -17,10 +17,10 @@ trait PrintOptional
     /**
      * @var int
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
      * @Transfer\Validator({
-     *     "name":"Zend\Validator\GreaterThan",
+     *     "name":"Laminas\Validator\GreaterThan",
      *     "options": {
      *          "min": 1,
      *     },

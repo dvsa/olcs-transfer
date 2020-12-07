@@ -15,7 +15,7 @@ final class StoreSubmissionSnapshot extends AbstractCommand
     use FieldType\Traits\Identity;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Escape(false)
      */
     protected $html;

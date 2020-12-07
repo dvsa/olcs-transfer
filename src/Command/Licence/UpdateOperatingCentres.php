@@ -22,13 +22,13 @@ final class UpdateOperatingCentres extends AbstractCommand
         Version;
 
     /**
-     * @Transfer\Filter({"name":"\Zend\Filter\Boolean"})
+     * @Transfer\Filter({"name":"\Laminas\Filter\Boolean"})
      * @Transfer\Optional
      */
     protected $partial;
 
     /**
-     * @Transfer\Filter({"name":"\Zend\Filter\ToInt"})
+     * @Transfer\Filter({"name":"\Laminas\Filter\ToInt"})
      * @Transfer\Validator({"name": "Digits"})
      * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 1000000}})
      * @Transfer\Optional
@@ -36,7 +36,7 @@ final class UpdateOperatingCentres extends AbstractCommand
     protected $totAuthVehicles;
 
     /**
-     * @Transfer\Filter({"name":"\Zend\Filter\ToInt"})
+     * @Transfer\Filter({"name":"\Laminas\Filter\ToInt"})
      * @Transfer\Validator({"name": "Digits"})
      * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 1000000}})
      * @Transfer\Optional
@@ -44,8 +44,8 @@ final class UpdateOperatingCentres extends AbstractCommand
     protected $totAuthTrailers;
 
     /**
-     * @Transfer\Filter({"name":"\Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"\Zend\Validator\StringLength", "options": {"min": 1, "max": "4"}})
+     * @Transfer\Filter({"name":"\Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"\Laminas\Validator\StringLength", "options": {"min": 1, "max": "4"}})
      * @Transfer\Optional
      */
     protected $enforcementArea;

@@ -21,8 +21,8 @@ final class UpdateTaAuthority extends AbstractCommand
     /**
      * @Transfer\ArrayInput
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":1}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":1, "max":1}})
      * @Transfer\Optional
      */
     protected $trafficAreas = [];
@@ -30,16 +30,16 @@ final class UpdateTaAuthority extends AbstractCommand
     /**
      * @Transfer\ArrayInput
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
     protected $localAuthoritys = [];
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":5, "max":800}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":5, "max":800}})
      * @Transfer\Optional
      */
     protected $stoppingArrangements;

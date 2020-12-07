@@ -24,8 +24,8 @@ class GetList extends AbstractQuery implements
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
      */
     protected $subCategory;
 

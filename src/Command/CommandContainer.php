@@ -7,7 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Command;
 
-use Zend\InputFilter\InputFilterInterface;
+use Laminas\InputFilter\InputFilterInterface;
 use Dvsa\Olcs\Transfer\Command\CommandInterface;
 
 /**

@@ -12,27 +12,27 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class CreateConditionUndertaking extends AbstractCommand
 {
     /**
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $licence = null;
 
     /**
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $application = null;
 
     /**
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $case = null;
 
     /**
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"cdt_con","cdt_und"}}
      *  }
      * )
@@ -40,8 +40,8 @@ class CreateConditionUndertaking extends AbstractCommand
     protected $conditionType = null;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":5,"max":8000}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":5,"max":8000}})
      */
     protected $notes = null;
 
@@ -49,7 +49,7 @@ class CreateConditionUndertaking extends AbstractCommand
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"Y","N"}}
      *  }
      * )
@@ -57,10 +57,10 @@ class CreateConditionUndertaking extends AbstractCommand
     protected $isFulfilled = null;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"cat_lic","cat_oc"}}
      *  }
      * )
@@ -69,8 +69,8 @@ class CreateConditionUndertaking extends AbstractCommand
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $operatingCentre = null;
 
@@ -78,7 +78,7 @@ class CreateConditionUndertaking extends AbstractCommand
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"cav_case","cav_lic","cav_app"}}
      *  }
      * )

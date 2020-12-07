@@ -5,9 +5,9 @@ namespace Dvsa\OlcsTest\Transfer\Service;
 use Dvsa\Olcs\Transfer\Service\CacheEncryption;
 use Mockery as m;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
-use Zend\Cache\Storage\Adapter\AdapterOptions;
-use Zend\Cache\Storage\StorageInterface;
-use Zend\Crypt\BlockCipher;
+use Laminas\Cache\Storage\Adapter\AdapterOptions;
+use Laminas\Cache\Storage\StorageInterface;
+use Laminas\Crypt\BlockCipher;
 
 /**
  * CacheEncryptionTest

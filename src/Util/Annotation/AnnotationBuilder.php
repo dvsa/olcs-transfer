@@ -11,10 +11,10 @@ use Doctrine\Common\Annotations\AnnotationReader;
 use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\Olcs\Transfer\Command\CommandContainer;
 use Dvsa\Olcs\Transfer\Util\StructuredInput;
-use Zend\Filter\FilterPluginManager;
-use Zend\Filter\StripTags as Escaper;
-use Zend\Validator\ValidatorPluginManager;
-use Zend\InputFilter\InputFilter;
+use Laminas\Filter\FilterPluginManager;
+use Laminas\Filter\StripTags as Escaper;
+use Laminas\Validator\ValidatorPluginManager;
+use Laminas\InputFilter\InputFilter;
 
 /**
  * Annotation Builder
@@ -89,7 +89,7 @@ class AnnotationBuilder
 
         $routeName = null;
 
-        $inputFilterClass = '\Zend\InputFilter\InputFilter';
+        $inputFilterClass = '\Laminas\InputFilter\InputFilter';
 
         foreach ($classAnnotations as $annotation) {
             if ($annotation instanceof RouteName) {
@@ -126,7 +126,7 @@ class AnnotationBuilder
 
         $routeName = null;
         $method = null;
-        $inputFilterClass = '\Zend\InputFilter\InputFilter';
+        $inputFilterClass = '\Laminas\InputFilter\InputFilter';
 
         foreach ($classAnnotations as $annotation) {
             if ($annotation instanceof RouteName) {
@@ -188,7 +188,7 @@ class AnnotationBuilder
         $input = null;
 
         $filterChain = $this->getNewFilterChain();
-        $validatorChain = new \Zend\Validator\ValidatorChain();
+        $validatorChain = new \Laminas\Validator\ValidatorChain();
 
         $escape = true;
 
@@ -199,8 +199,8 @@ class AnnotationBuilder
 
                 $input = new \Dvsa\Olcs\Transfer\Util\ArrayInput($property->getName());
 
-                $arrayFilterChain = new \Zend\Filter\FilterChain();
-                $arrayValidatorChain = new \Zend\Validator\ValidatorChain();
+                $arrayFilterChain = new \Laminas\Filter\FilterChain();
+                $arrayValidatorChain = new \Laminas\Validator\ValidatorChain();
                 break;
             }
 
@@ -220,12 +220,11 @@ class AnnotationBuilder
         }
 
         if ($input === null) {
-            $input = new \Zend\InputFilter\Input($property->getName());
+            $input = new \Laminas\InputFilter\Input($property->getName());
         }
 
         if ($isArrayInput) {
             foreach ($propertyAnnotations as $annotation) {
-
                 if ($annotation instanceof ArrayFilter) {
                     $arrayFilterChain->attachByName($annotation->getName());
                     continue;
@@ -257,7 +256,6 @@ class AnnotationBuilder
     protected function attachFiltersAndValidators($annotations, $filterChain, $validatorChain, $input)
     {
         foreach ($annotations as $annotation) {
-
             if (!($annotation instanceof ArrayFilter) && $annotation instanceof Filter) {
                 $filterChain->attachByName($annotation->getName(), $annotation->getOptions());
                 continue;
@@ -290,11 +288,11 @@ class AnnotationBuilder
     }
 
     /**
-     * @return \Zend\Filter\FilterChain
+     * @return \Laminas\Filter\FilterChain
      */
     protected function getNewFilterChain()
     {
-        $filterChain = new \Zend\Filter\FilterChain();
+        $filterChain = new \Laminas\Filter\FilterChain();
         $filterChain->setPluginManager($this->getFilterManager());
         return $filterChain;
     }

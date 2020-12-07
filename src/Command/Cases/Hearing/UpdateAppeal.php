@@ -31,15 +31,15 @@ class UpdateAppeal extends AbstractCommand implements
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":20}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":20}})
      */
     protected $appealNo = null;
 
     /**
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {
      *          "haystack": {
      *              "appeal_r_app","appeal_r_lic_non_pi","appeal_r_lic_pi","appeal_r_tm_non_pi","appeal_r_tm_pi"
@@ -52,8 +52,8 @@ class UpdateAppeal extends AbstractCommand implements
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":5,"max":4000}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":5,"max":4000}})
      */
     protected $outlineGround = null;
 
@@ -97,7 +97,7 @@ class UpdateAppeal extends AbstractCommand implements
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"appeal_o_dis","appeal_o_pas","appeal_o_ref","appeal_o_suc"}}
      *  }
      * )
@@ -105,9 +105,9 @@ class UpdateAppeal extends AbstractCommand implements
     protected $outcome = null;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Optional()
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":4000}})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":4000}})
      */
     protected $comment = null;
 
@@ -115,7 +115,7 @@ class UpdateAppeal extends AbstractCommand implements
      * @Transfer\Optional
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"Y","N"}}
      *  }
      * )
@@ -132,7 +132,7 @@ class UpdateAppeal extends AbstractCommand implements
      * @Transfer\Optional
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"Y","N"}}
      *  }
      * )

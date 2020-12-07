@@ -21,23 +21,23 @@ class PublishedList extends AbstractQuery implements PagedQueryInterface, Ordere
     /**
      * @var string
      *
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Optional()
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"A&D", "N&P"}}})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"A&D", "N&P"}}})
      */
     protected $pubType;
 
     /**
      * @var DateTime|string in format "D-m-y H:i:s"
      *
-     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d H:i:s"}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Date", "options": {"format": "Y-m-d H:i:s"}})
      */
     protected $pubDateFrom;
 
     /**
      * @var DateTime|string in format "D-m-y H:i:s"
      *
-     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d H:i:s"}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Date", "options": {"format": "Y-m-d H:i:s"}})
      */
     protected $pubDateTo;
 
@@ -45,9 +45,9 @@ class PublishedList extends AbstractQuery implements PagedQueryInterface, Ordere
      * @var int|string
      *
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({
-     *     "name":"Zend\Validator\InArray",
+     *     "name":"Laminas\Validator\InArray",
      *     "options": {"haystack": {"B","C","D","F","G","H","K","M","N"}}
      * })
      */

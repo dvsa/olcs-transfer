@@ -7,7 +7,7 @@ namespace Dvsa\Olcs\Transfer\Validators;
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-class Title extends \Zend\Validator\InArray
+class Title extends \Laminas\Validator\InArray
 {
     protected $haystack = ['title_dr', 'title_miss', 'title_mr', 'title_mrs', 'title_ms'];
 

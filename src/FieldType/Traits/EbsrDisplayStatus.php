@@ -12,9 +12,9 @@ trait EbsrDisplayStatus
     /**
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {
      *          "haystack": {
      *              "ebsrd_processing", "ebsrd_processed", "ebsrd_failed"

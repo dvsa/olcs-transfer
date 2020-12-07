@@ -18,7 +18,7 @@ class BusRegSearchViewContextList extends AbstractQuery implements OrderedQueryI
     /**
      * @var string
      * @Transfer\Validator({
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {
      *          "haystack": {
      *              "organisation","licence","busRegStatus"

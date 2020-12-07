@@ -11,9 +11,9 @@ trait IrhpPermitTypeOptional
     /**
      * @var int
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({
-     *      "name":"Zend\Validator\Between",
+     *      "name":"Laminas\Validator\Between",
      *      "options": {
      *          "min": 0,
      *          "max": 99999

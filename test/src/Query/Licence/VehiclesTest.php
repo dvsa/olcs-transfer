@@ -5,7 +5,7 @@ namespace Dvsa\OlcsTest\Transfer\Query\Licence;
 use Dvsa\Olcs\Transfer\Query\Licence\Vehicles;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
 use PHPUnit\Framework\TestCase;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 class VehiclesTest extends TestCase
 {

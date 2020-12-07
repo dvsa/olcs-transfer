@@ -7,7 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Filter;
 
-use Zend\Filter\StringTrim;
+use Laminas\Filter\StringTrim;
 
 /**
  * Postcode filter

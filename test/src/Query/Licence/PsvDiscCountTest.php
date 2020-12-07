@@ -5,7 +5,7 @@ namespace Dvsa\OlcsTest\Transfer\Query\Licence;
 use Dvsa\Olcs\Transfer\Query\Licence\PsvDiscCount;
 use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 class PsvDiscCountTest extends \PHPUnit\Framework\TestCase
 {

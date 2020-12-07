@@ -5,7 +5,7 @@ use Dvsa\Olcs\Transfer\Query;
 use Dvsa\Olcs\Transfer\Router\CommandConfig;
 use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
-use Zend\Mvc\Router\Http\Segment;
+use Laminas\Mvc\Router\Http\Segment;
 
 return [
     'public-holiday' => [

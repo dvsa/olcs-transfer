@@ -21,7 +21,7 @@ class OutstandingFees extends AbstractQuery implements CacheableShortTermQueryIn
 
     /**
      * @return mixed
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
      * @Transfer\Optional
      */
     protected $hideExpired;

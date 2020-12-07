@@ -10,8 +10,7 @@ use Dvsa\Olcs\Transfer\FieldType as FieldType;
  * @Transfer\RouteName("backend/defect/single")
  * @Transfer\Method("PUT")
  */
-class Update extends AbstractCommand
-    implements
+class Update extends AbstractCommand implements
     FieldType\IdentityInterface,
     FieldType\VersionInterface
 {
@@ -26,8 +25,8 @@ class Update extends AbstractCommand
     /**
      * @var string
      *
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":255}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":255}})
      */
     public $defectType = null;
 

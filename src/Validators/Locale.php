@@ -7,7 +7,7 @@ namespace Dvsa\Olcs\Transfer\Validators;
  *
  * @author Ian Lindsay <ian@hemera-business-services.co.uk>
  */
-class Locale extends \Zend\Validator\InArray
+class Locale extends \Laminas\Validator\InArray
 {
     protected $haystack = [
         'en_GB',

@@ -6,7 +6,7 @@ use Dvsa\Olcs\Transfer\Query\CompaniesHouse\InsolvencyPractitioner;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
 use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 use PHPUnit\Framework\TestCase;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 class InsolvencyPractitionerTest extends TestCase
 {

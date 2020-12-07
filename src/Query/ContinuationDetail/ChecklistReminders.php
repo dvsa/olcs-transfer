@@ -16,24 +16,24 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 final class ChecklistReminders extends AbstractQuery
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 1, "max": 12}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 1, "max": 12}})
      * @Transfer\Optional
      */
     public $month;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
      * @Transfer\Optional
      */
     public $year;
 
     /**
      * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
      * @Transfer\Optional
      */
     protected $ids = [];

@@ -19,32 +19,32 @@ final class UpdateLicenceStatusRule extends AbstractCommand
 
     /**
      * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $id;
 
     /**
      * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $licence;
 
     /**
      * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $version;
 
     /**
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name": "Zend\Filter\DateTimeFormatter"})
+     * @Transfer\Filter({"name": "Laminas\Filter\DateTimeFormatter"})
      * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
      */
     protected $startDate;
@@ -52,7 +52,7 @@ final class UpdateLicenceStatusRule extends AbstractCommand
     /**
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name": "Zend\Filter\DateTimeFormatter"})
+     * @Transfer\Filter({"name": "Laminas\Filter\DateTimeFormatter"})
      * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
      */
     protected $endDate;

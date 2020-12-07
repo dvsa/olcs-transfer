@@ -11,7 +11,7 @@ class Download extends AbstractDownload
 {
     /**
      * @var  int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
      */
     protected $identifier;
 

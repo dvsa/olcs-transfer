@@ -3,10 +3,10 @@
 namespace Dvsa\Olcs\Transfer\Service;
 
 use Interop\Container\ContainerInterface;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
-use Zend\Cache\Storage\Adapter\Redis;
-use Zend\Crypt\BlockCipher;
+use Laminas\ServiceManager\FactoryInterface;
+use Laminas\ServiceManager\ServiceLocatorInterface;
+use Laminas\Cache\Storage\Adapter\Redis;
+use Laminas\Crypt\BlockCipher;
 
 class CacheEncryptionFactory implements FactoryInterface
 {

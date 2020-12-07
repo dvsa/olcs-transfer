@@ -17,23 +17,23 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class CreateForTma extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $tmaId;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 0, "max": 18}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options": {"min": 0, "max": 18}})
      */
     protected $licNo;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"ol_role_applicant","ol_role_lic_holder","ol_role_tm"}}
      *  }
      * )
@@ -42,23 +42,23 @@ final class CreateForTma extends AbstractCommand
     protected $role;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 0, "max": 255}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options": {"min": 0, "max": 255}})
      */
     protected $operatingCentres;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      * @Transfer\Optional
      */
     protected $totalAuthVehicles;
 
     /**
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Validator({"name":"Zend\Validator\LessThan", "options": {"max": 99.9,"inclusive":true}})
+     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator({"name":"Laminas\Validator\LessThan", "options": {"max": 99.9,"inclusive":true}})
      */
     protected $hoursPerWeek;
 

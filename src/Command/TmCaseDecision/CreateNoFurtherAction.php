@@ -18,8 +18,8 @@ final class CreateNoFurtherAction extends AbstractCommand
     use FieldType\Cases;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      */
     protected $isMsi;
 
@@ -36,8 +36,8 @@ final class CreateNoFurtherAction extends AbstractCommand
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":4000}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":4000}})
      */
     protected $noFurtherActionReason = null;
 

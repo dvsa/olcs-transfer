@@ -12,8 +12,8 @@ trait Declaration
     /**
      * @var int
      * @Transfer\Optional
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 1}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 1}})
      */
     protected $declaration;
 

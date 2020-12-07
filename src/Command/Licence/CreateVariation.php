@@ -25,10 +25,10 @@ final class CreateVariation extends AbstractCommand
     protected $receivedDate;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringToUpper"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringToUpper"})
      * @Transfer\Validator({
-     *     "name":"Zend\Validator\InArray",
+     *     "name":"Laminas\Validator\InArray",
      *     "options": {"haystack": {"Y","N"}}
      * })
      * @Transfer\Optional
@@ -36,9 +36,9 @@ final class CreateVariation extends AbstractCommand
     protected $feeRequired;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({
-     *     "name":"Zend\Validator\InArray",
+     *     "name":"Laminas\Validator\InArray",
      *     "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}
      * })
      * @Transfer\Optional
@@ -46,10 +46,10 @@ final class CreateVariation extends AbstractCommand
     protected $licenceType;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray", "options": {
+     *      "name":"Laminas\Validator\InArray", "options": {
      *          "haystack": {"applied_via_post","applied_via_phone"}
      *      }
      *  }
@@ -59,10 +59,10 @@ final class CreateVariation extends AbstractCommand
     protected $appliedVia;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray", "options": {
+     *      "name":"Laminas\Validator\InArray", "options": {
      *          "haystack": {"vtyp_director_change"}
      *      }
      *  }

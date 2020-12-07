@@ -7,7 +7,7 @@ use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
 use \PHPUnit\Framework\Assert as Assert;
 use ReflectionMethod;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 /**
  * Trait DtoTest

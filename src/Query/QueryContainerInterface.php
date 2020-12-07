@@ -2,7 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Query;
 
-use Zend\InputFilter\InputFilterInterface;
+use Laminas\InputFilter\InputFilterInterface;
 
 /**
  * Query Container Interface

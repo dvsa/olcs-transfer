@@ -2,7 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Validators;
 
-class TmaStatus extends \Zend\Validator\InArray
+class TmaStatus extends \Laminas\Validator\InArray
 {
     protected $haystack = [
         'tmap_st_incomplete',

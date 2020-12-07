@@ -17,61 +17,61 @@ final class UpdateFinances extends AbstractCommand
         Version;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money", "options": {"allow_negative": true}})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": -9999999999, "max": 9999999999}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": -9999999999, "max": 9999999999}})
      * @Transfer\Optional
      */
     protected $averageBalanceAmount;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
      * @Transfer\Optional
      */
     protected $hasOverdraft;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 9999999999}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 9999999999}})
      * @Transfer\Optional
      */
     protected $overdraftAmount;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
      * @Transfer\Optional
      */
     protected $hasFactoring;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 9999999999}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 9999999999}})
      * @Transfer\Optional
      */
     protected $factoringAmount;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
      * @Transfer\Optional
      */
     protected $hasOtherFinances;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 9999999999}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 9999999999}})
      * @Transfer\Optional
      */
     protected $otherFinancesAmount;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":1,"max":200}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":1,"max":200}})
      * @Transfer\Optional
      */
     protected $otherFinancesDetails;

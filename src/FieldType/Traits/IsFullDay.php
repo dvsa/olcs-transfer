@@ -10,8 +10,8 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait IsFullDay
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N","not-set"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N","not-set"}}})
      */
     protected $isFullDay;
 

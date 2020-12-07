@@ -2,7 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Validators;
 
-use Zend\Validator\AbstractValidator;
+use Laminas\Validator\AbstractValidator;
 
 /**
  * An abstract Compare Validator class

@@ -7,7 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Util\Annotation;
 
-use Zend\Form\Annotation\AbstractStringAnnotation;
+use Laminas\Form\Annotation\AbstractStringAnnotation;
 
 /**
  * @Annotation

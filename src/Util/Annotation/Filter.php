@@ -7,12 +7,12 @@
  */
 namespace Dvsa\Olcs\Transfer\Util\Annotation;
 
-use Zend\Form\Annotation\Filter as ZendFilter;
+use Laminas\Form\Annotation\Filter as LaminasFilter;
 
 /**
  * @Annotation
  */
-class Filter extends ZendFilter
+class Filter extends LaminasFilter
 {
     public function getName()
     {

@@ -9,7 +9,7 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait EndDate
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
      */
     protected $endDate;

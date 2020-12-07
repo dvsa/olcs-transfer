@@ -23,14 +23,14 @@ final class Stop extends AbstractCommand
 
     /**
      * @Transfer\ArrayInput
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $communityLicenceIds = [];
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"withdrawal", "suspension"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"withdrawal", "suspension"}}})
      */
     protected $type;
 
@@ -48,10 +48,10 @@ final class Stop extends AbstractCommand
 
     /**
      * @Transfer\ArrayInput
-     * @Transfer\ArrayValidator({"name":"Zend\Validator\NotEmpty"})
+     * @Transfer\ArrayValidator({"name":"Laminas\Validator\NotEmpty"})
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      */
     protected $reasons = [];
 

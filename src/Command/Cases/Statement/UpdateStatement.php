@@ -21,7 +21,7 @@ class UpdateStatement extends AbstractCommand implements
     /**
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"statement_t_ni", "statement_t_43", "statement_t_9"}}
      *  }
      * )
@@ -31,8 +31,8 @@ class UpdateStatement extends AbstractCommand implements
     /**
      * @var int
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
      */
     protected $assignedCaseworker = null;
 
@@ -48,8 +48,8 @@ class UpdateStatement extends AbstractCommand implements
     protected $requestorsContactDetails;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":40}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":40}})
      */
     protected $requestorsBody = null;
 
@@ -73,7 +73,7 @@ class UpdateStatement extends AbstractCommand implements
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"cm_email", "cm_fax", "cm_letter", "cm_tel"}}
      *  }
      * )
@@ -81,8 +81,8 @@ class UpdateStatement extends AbstractCommand implements
     protected $contactType = null;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":5,"max":4000}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":5,"max":4000}})
      */
     protected $authorisersDecision = null;
 

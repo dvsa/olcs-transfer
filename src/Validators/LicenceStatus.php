@@ -7,7 +7,7 @@ namespace Dvsa\Olcs\Transfer\Validators;
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-class LicenceStatus extends \Zend\Validator\InArray
+class LicenceStatus extends \Laminas\Validator\InArray
 {
     protected $haystack = [
         'lsts_consideration',

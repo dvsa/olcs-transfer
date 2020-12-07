@@ -13,7 +13,7 @@ trait Markup
 {
     /**
      * @var string
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Escape(false)
      */
     protected $markup;

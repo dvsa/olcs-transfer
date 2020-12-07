@@ -2,12 +2,12 @@
 
 namespace Dvsa\Olcs\Transfer\Util;
 
-use Zend\InputFilter\InputFilterInterface;
-use Zend\InputFilter\InputInterface;
-use Zend\Filter\FilterChain;
-use Zend\Validator\ValidatorChain;
-use Zend\InputFilter\CollectionInputFilter;
-use Zend\InputFilter\EmptyContextInterface;
+use Laminas\InputFilter\InputFilterInterface;
+use Laminas\InputFilter\InputInterface;
+use Laminas\Filter\FilterChain;
+use Laminas\Validator\ValidatorChain;
+use Laminas\InputFilter\CollectionInputFilter;
+use Laminas\InputFilter\EmptyContextInterface;
 
 /**
  * Structured Input (Kind of a mashup between an Input and InputFilter)
@@ -138,7 +138,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Set filterChain
      *
-     * @param \Zend\Filter\FilterChain $filterChain Filter chain
+     * @param \Laminas\Filter\FilterChain $filterChain Filter chain
      *
      * @return void
      */
@@ -174,7 +174,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Set validatorChain
      *
-     * @param \Zend\Validator\ValidatorChain $validatorChain Validator chain
+     * @param \Laminas\Validator\ValidatorChain $validatorChain Validator chain
      *
      * @return void
      */
@@ -198,7 +198,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Merge
      *
-     * @param \Zend\InputFilter\InputInterface $input Value
+     * @param \Laminas\InputFilter\InputInterface $input Value
      *
      * @return void
      */
@@ -240,7 +240,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Get filterChain
      *
-     * @return \Zend\Filter\FilterChain
+     * @return \Laminas\Filter\FilterChain
      */
     public function getFilterChain()
     {
@@ -270,7 +270,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Get validatorChain
      *
-     * @return \Zend\Validator\ValidatorChain
+     * @return \Laminas\Validator\ValidatorChain
      */
     public function getValidatorChain()
     {
@@ -280,7 +280,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Add
      *
-     * @param \Zend\InputFilter\InputInterface $input Input
+     * @param \Laminas\InputFilter\InputInterface $input Input
      * @param string                           $name  Name
      *
      * @return void
@@ -299,7 +299,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param string $name Name
      *
-     * @return \Zend\InputFilter\InputInterface
+     * @return \Laminas\InputFilter\InputInterface
      */
     public function get($name)
     {
@@ -507,7 +507,6 @@ class StructuredInput implements InputInterface, InputFilterInterface
     protected function populate()
     {
         foreach ($this->inputs as $name => $input) {
-
             if ($input instanceof CollectionInputFilter) {
                 $input->clearValues();
                 $input->clearRawValues();

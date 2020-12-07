@@ -7,7 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Command;
 
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 /**
  * Command Interface

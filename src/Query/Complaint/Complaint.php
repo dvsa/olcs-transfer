@@ -16,8 +16,8 @@ class Complaint extends AbstractQuery
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
-     * @Transfer\Validator({"name":"Zend\Validator\Identical", "options": {"token": true}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Identical", "options": {"token": true}})
      */
     protected $isCompliance = true;
 

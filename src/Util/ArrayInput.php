@@ -2,16 +2,16 @@
 
 namespace Dvsa\Olcs\Transfer\Util;
 
-use Zend\Filter\FilterChain;
-use Zend\Validator\ValidatorChain;
-use Zend\InputFilter\Input;
+use Laminas\Filter\FilterChain;
+use Laminas\Validator\ValidatorChain;
+use Laminas\InputFilter\Input;
 
 /**
  * Custom ArrayInput type which allows filters and validators on the whole array
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-class ArrayInput extends \Zend\InputFilter\ArrayInput
+class ArrayInput extends \Laminas\InputFilter\ArrayInput
 {
     protected $arrayFilterChain;
 

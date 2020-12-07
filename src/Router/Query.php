@@ -7,16 +7,16 @@
  */
 namespace Dvsa\Olcs\Transfer\Router;
 
-use Zend\Mvc\Router\Http\Query as ZendQuery;
-use Zend\Stdlib\RequestInterface as Request;
-use Zend\Mvc\Router\Http\RouteMatch;
+use Laminas\Mvc\Router\Http\Query as LaminasQuery;
+use Laminas\Stdlib\RequestInterface as Request;
+use Laminas\Mvc\Router\Http\RouteMatch;
 
 /**
  * Query
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
-class Query extends ZendQuery
+class Query extends LaminasQuery
 {
     public function __construct(array $defaults = array())
     {
@@ -26,7 +26,7 @@ class Query extends ZendQuery
     /**
      * match(): defined by RouteInterface interface.
      *
-     * @see    \Zend\Mvc\Router\RouteInterface::match()
+     * @see    \Laminas\Mvc\Router\RouteInterface::match()
      * @param  Request $request
      * @return RouteMatch|null
      */

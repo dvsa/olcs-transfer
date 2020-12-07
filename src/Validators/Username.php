@@ -5,7 +5,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Validators;
 
-use Zend\Validator\StringLength;
+use Laminas\Validator\StringLength;
 
 /**
  * Ensure the username matches the required criteria

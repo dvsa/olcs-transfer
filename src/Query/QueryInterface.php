@@ -7,7 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Query;
 
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 /**
  * Query Interface
