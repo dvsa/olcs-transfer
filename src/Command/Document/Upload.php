@@ -109,7 +109,7 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     /**
      * @Transfer\Filter({
      *     "name":"Laminas\Filter\PregReplace",
-     *     "options": {"pattern": "/[^a-zA-Z0-9\-\_\.]+/", "replacement": ""}
+     *     "options": {"pattern": "/[^a-zA-Z0-9\-\_\.\ ]+/", "replacement": ""}
      * })
      * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":2, "max":255}})
