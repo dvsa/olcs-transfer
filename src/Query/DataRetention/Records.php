@@ -60,22 +60,6 @@ final class Records extends AbstractQuery implements
     protected $assignedToUser;
 
     /**
-     * @var string|null
-     * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
-     *          "haystack": {
-     *              "lcat_gv",
-     *              "lcat_psv"
-     *          }
-     *     }
-     * })
-     */
-    protected $goodsOrPsv;
-
-    /**
      * Get Data retention rule id
      *
      * @return int
@@ -117,13 +101,5 @@ final class Records extends AbstractQuery implements
     public function getAssignedToUser()
     {
         return $this->assignedToUser;
-    }
-
-    /**
-     * @return string|null
-     */
-    public function getGoodsOrPsv(): ?string
-    {
-        return $this->goodsOrPsv;
     }
 }
