@@ -12,7 +12,7 @@ class CreateTest extends \PHPUnit\Framework\TestCase
     public function testStructure()
     {
         $data = [
-            'id' => 'STRID',
+            'translationKey' => 'STRID',
             'description' => 'descr',
             'translationsArray' => [
                 'en_GB' => 'English',
@@ -24,7 +24,7 @@ class CreateTest extends \PHPUnit\Framework\TestCase
 
         $command = Create::create($data);
 
-        $this->assertEquals($data['id'], $command->getId());
+        $this->assertEquals($data['translationKey'], $command->getTranslationKey());
         $this->assertEquals($data['description'], $command->getDescription());
         $this->assertEquals($data['translationsArray'], $command->getTranslationsArray());
     }

@@ -7,7 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\TranslationKey;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\IdentityString;
+use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
@@ -16,5 +16,5 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class ById extends AbstractQuery
 {
-    use IdentityString;
+    use Identity;
 }
