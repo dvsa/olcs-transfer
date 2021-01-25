@@ -54,11 +54,6 @@ final class Overview extends AbstractCommand
     protected $targetCompletionDate;
 
     /**
-     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\ApplicationTracking")
-     */
-    protected $tracking;
-
-    /**
      * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
      */
@@ -112,16 +107,6 @@ final class Overview extends AbstractCommand
     public function getTargetCompletionDate()
     {
         return $this->targetCompletionDate;
-    }
-
-    /**
-     * Gets the value of tracking.
-     *
-     * @return mixed
-     */
-    public function getTracking()
-    {
-        return $this->tracking;
     }
 
     /**

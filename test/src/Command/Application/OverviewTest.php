@@ -17,11 +17,6 @@ class OverviewTest extends \PHPUnit\Framework\TestCase
             'leadTcArea' => 'B',
             'receivedDate' => '2015-06-10',
             'targetCompletionDate' => '2016-01-02',
-            'tracking' => [
-                'id' => 333,
-                'version' => 444,
-                'addressesStatus' => 2,
-            ],
         ];
 
         $command = Overview::create($data);
@@ -31,13 +26,5 @@ class OverviewTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('B', $command->getLeadTcArea());
         $this->assertEquals('2015-06-10', $command->getReceivedDate());
         $this->assertEquals('2016-01-02', $command->getTargetCompletionDate());
-        $this->assertEquals(
-            [
-                'id' => 333,
-                'version' => 444,
-                'addressesStatus' => 2,
-            ],
-            $command->getTracking()
-        );
     }
 }
