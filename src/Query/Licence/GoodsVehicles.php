@@ -12,8 +12,34 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 /**
  * @Transfer\RouteName("backend/licence/single/goods-vehicles")
  */
-class GoodsVehicles extends AbstractGoodsVehicles implements PagedQueryInterface, OrderedQueryInterface
+class GoodsVehicles extends AbstractGoodsVehicles implements PagedQueryInterface, OrderedQueryInterface, FiltersByVehicleIdsInterface
 {
-    use PagedTrait,
-        OrderedTrait;
+    use PagedTrait, OrderedTrait;
+
+    /**
+     * @var array|null
+     * @Transfer\Validator({
+     *     "name":"\Dvsa\Olcs\Transfer\Validators\ValidateEach",
+     *     "options": {
+     *         "min": 1,
+     *         "max": 100,
+     *         "children": {
+     *             {"name": "\Laminas\Validator\Digits", "options": {}},
+     *             {"name": "\Laminas\Validator\GreaterThan", "options": {"min": 0}}
+     *         },
+     *     }
+     * })
+     * @Transfer\Optional
+     */
+    protected $vehicleIds;
+
+    /**
+     * Gets the vehicle ids which should be used to filter results.
+     *
+     * @return array|null
+     */
+    public function getVehicleIds(): ?array
+    {
+        return $this->vehicleIds;
+    }
 }
