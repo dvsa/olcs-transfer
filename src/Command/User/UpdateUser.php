@@ -107,6 +107,7 @@ final class UpdateUser extends AbstractCommand
      *             "internal-read-only",
      *             "internal-case-worker",
      *             "internal-admin",
+     *             "internal-irhp-admin",
      *             "operator-admin",
      *             "operator-user",
      *             "operator-tm",
