@@ -56,6 +56,7 @@ class UpdateUserTest extends TestCase
                     "internal-read-only",
                     "internal-case-worker",
                     "internal-admin",
+                    "internal-irhp-admin",
                     "operator-admin",
                     "operator-user",
                     "operator-tm",
