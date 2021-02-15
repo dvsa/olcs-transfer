@@ -7,7 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Validators;
 
-use Zend\Validator\AbstractValidator;
+use Laminas\Validator\AbstractValidator;
 
 /**
  * Money amount validator

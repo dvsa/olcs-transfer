@@ -8,7 +8,7 @@ namespace Dvsa\Olcs\Transfer\Query;
  * Implement this interface to signify data from a query can be cached unencrypted (avoids overhead)
  * Used for data that is public and/or non-sensitive - refdata, translations, categories, feature toggles etc.
  *
- * Only affects data cached by CachableMediumTermQueryInterface and higher (Short term is cached per request only)
+ * Only affects data cached by CacheableMediumTermQueryInterface and higher (Short term is cached per request only)
  *
  * @author Ian Lindsay <ian@hemera-business-services.co.uk>
  */

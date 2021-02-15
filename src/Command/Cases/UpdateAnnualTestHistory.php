@@ -17,8 +17,8 @@ class UpdateAnnualTestHistory extends AbstractCommand
     use FieldType\Version;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"max":4000}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"max":4000}})
      * @Transfer\Optional
      */
     protected $annualTestHistory = null;

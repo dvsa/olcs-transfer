@@ -113,6 +113,26 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\StockOperationsPermitted::class),
                 ]
             ],
+            'stock-alignment-report' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'stock-alignment-report[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\StockAlignmentReport::class),
+                ]
+            ],
+            'post-scoring-report' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'post-scoring-report[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\PostScoringReport::class),
+                ]
+            ],
             'ready-to-print-type' => [
                 'type' => 'Segment',
                 'options' => [
@@ -181,6 +201,26 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'POST' => CommandConfig::getPostConfig(Command\Permits\PrintPermits::class),
+                ]
+            ],
+            'max-permitted-reached-by-type-and-organisation' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'max-permitted-reached-by-type-and-organisation[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\MaxPermittedReachedByTypeAndOrganisation::class),
+                ]
+            ],
+            'max-permitted-reached-by-stock-and-licence' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'max-permitted-reached-by-stock-and-licence[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\MaxPermittedReachedByStockAndLicence::class),
                 ]
             ],
         ]

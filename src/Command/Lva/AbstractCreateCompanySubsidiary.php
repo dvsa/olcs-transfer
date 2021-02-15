@@ -14,13 +14,13 @@ abstract class AbstractCreateCompanySubsidiary extends AbstractCommand
 {
     /**
      * @var string
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      */
     protected $name;
 
     /**
      * @var string
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      */
     protected $companyNo;
 

@@ -7,7 +7,7 @@ namespace Dvsa\Olcs\Transfer\Validators;
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
-class ApplicationStatus extends \Zend\Validator\InArray
+class ApplicationStatus extends \Laminas\Validator\InArray
 {
     protected $haystack = [
         'apsts_not_submitted',

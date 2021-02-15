@@ -10,8 +10,8 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait FeatureToggleFriendlyName
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min":1, "max":255}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":1, "max":255}})
      */
     protected $friendlyName;
 

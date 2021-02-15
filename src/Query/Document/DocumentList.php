@@ -15,7 +15,7 @@ use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableShortTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/document")
@@ -23,7 +23,7 @@ use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
 class DocumentList extends AbstractQuery implements
     OrderedQueryInterface,
     PagedQueryInterface,
-    CachableShortTermQueryInterface
+    CacheableShortTermQueryInterface
 {
     use OrderedTrait,
         PagedTrait,
@@ -36,17 +36,17 @@ class DocumentList extends AbstractQuery implements
         IrhpApplicationOptional;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      * @Transfer\Optional
      */
     protected $isExternal;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $category;
 
@@ -54,18 +54,18 @@ class DocumentList extends AbstractQuery implements
      * @Transfer\Optional
      * @Transfer\ArrayInput
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $documentSubCategory = [];
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({
-     *     "name":"Zend\Validator\InArray",
+     *     "name":"Laminas\Validator\InArray",
      *     "options": {
-     *          "haystack": {"tsw_all", "tsw_self_only"}
+     *          "haystack": {"tsw_all", "tsw_self_only", "tsw_exclude_irhp"}
      *     }
      * })
      */
@@ -73,14 +73,14 @@ class DocumentList extends AbstractQuery implements
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Alnum"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\I18n\Validator\Alnum"})
      */
     protected $format = null;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
      * @Transfer\Optional
      */
     protected $onlyUnlinked = null;

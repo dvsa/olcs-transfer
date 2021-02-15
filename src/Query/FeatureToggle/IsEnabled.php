@@ -7,7 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\FeatureToggle;
 
-use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableMediumTermQueryInterface;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\PublicQueryCacheInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -15,12 +15,12 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 /**
  * @Transfer\RouteName("backend/feature-toggle/check")
  */
-class IsEnabled extends AbstractQuery implements CachableMediumTermQueryInterface, PublicQueryCacheInterface
+class IsEnabled extends AbstractQuery implements CacheableMediumTermQueryInterface, PublicQueryCacheInterface
 {
     /**
      * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":255}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":255}})
      */
     protected $ids = [];
 

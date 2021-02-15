@@ -21,15 +21,15 @@ final class EditSuspension extends AbstractCommand
     use FieldTypeTraits\Version;
 
     /**
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $communityLicenceId;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({
-     *  "name":"Zend\Validator\InArray",
+     *  "name":"Laminas\Validator\InArray",
      *  "options": {"haystack": {"cl_sts_active", "cl_sts_suspended"}}
      * })
      */
@@ -49,10 +49,10 @@ final class EditSuspension extends AbstractCommand
 
     /**
      * @Transfer\ArrayInput
-     * @Transfer\ArrayValidator({"name":"Zend\Validator\NotEmpty"})
+     * @Transfer\ArrayValidator({"name":"Laminas\Validator\NotEmpty"})
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      */
     protected $reasons = [];
 

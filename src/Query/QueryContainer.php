@@ -3,7 +3,7 @@
 namespace Dvsa\Olcs\Transfer\Query;
 
 use Dvsa\Olcs\Transfer\Service\CacheEncryption;
-use Zend\InputFilter\InputFilterInterface;
+use Laminas\InputFilter\InputFilterInterface;
 
 /**
  * Query Container
@@ -41,9 +41,9 @@ class QueryContainer implements QueryContainerInterface
      *
      * @return bool
      */
-    public function isShortTermCachable()
+    public function isShortTermCacheable()
     {
-        return ($this->dto instanceof CachableShortTermQueryInterface);
+        return ($this->dto instanceof CacheableShortTermQueryInterface);
     }
 
     /**
@@ -51,9 +51,29 @@ class QueryContainer implements QueryContainerInterface
      *
      * @return bool
      */
-    public function isMediumTermCachable()
+    public function isMediumTermCacheable()
     {
-        return ($this->dto instanceof CachableMediumTermQueryInterface);
+        return ($this->dto instanceof CacheableMediumTermQueryInterface);
+    }
+
+    /**
+     * Can the DTO be cached for long term?
+     *
+     * @return bool
+     */
+    public function isLongTermCacheable(): bool
+    {
+        return ($this->dto instanceof CacheableLongTermQueryInterface);
+    }
+
+    /**
+     * Can the DTO be cached in the persistent cache?
+     *
+     * @return bool
+     */
+    public function isPersistentCacheable(): bool
+    {
+        return $this->isLongTermCacheable() || $this->isMediumTermCacheable();
     }
 
     /**
@@ -61,7 +81,7 @@ class QueryContainer implements QueryContainerInterface
      *
      * @return bool
      */
-    public function isPublicCachable(): bool
+    public function isPublicCacheable(): bool
     {
         return ($this->dto instanceof PublicQueryCacheInterface);
     }
@@ -71,7 +91,7 @@ class QueryContainer implements QueryContainerInterface
      *
      * @return bool
      */
-    public function isSharedEncryptionCachable(): bool
+    public function isSharedEncryptionCacheable(): bool
     {
         return ($this->dto instanceof SharedEncryptionCacheInterface);
     }
@@ -155,11 +175,11 @@ class QueryContainer implements QueryContainerInterface
      */
     public function getEncryptionMode(): string
     {
-        if ($this->isPublicCachable()) {
+        if ($this->isPublicCacheable()) {
             return CacheEncryption::ENCRYPTION_MODE_PUBLIC;
         }
 
-        if ($this->isSharedEncryptionCachable()) {
+        if ($this->isSharedEncryptionCacheable()) {
             return CacheEncryption::ENCRYPTION_MODE_SHARED;
         }
 

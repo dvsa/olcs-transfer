@@ -23,8 +23,8 @@ final class ReverseTransaction extends AbstractCommand implements FieldType\Iden
     use FieldTypeTraits\MiscFeesDetails;
 
     /**
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 1, "max": 1000}})
-     * @Transfer\Filter({"name": "Zend\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options": {"min": 1, "max": 1000}})
+     * @Transfer\Filter({"name": "Laminas\Filter\StringTrim"})
      */
     protected $reason;
 

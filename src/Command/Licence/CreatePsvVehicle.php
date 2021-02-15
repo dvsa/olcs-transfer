@@ -22,8 +22,8 @@ final class CreatePsvVehicle extends AbstractCommand
         Vrm;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":100}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":100}})
      * @Transfer\Optional
      */
     protected $makeModel;
@@ -36,7 +36,7 @@ final class CreatePsvVehicle extends AbstractCommand
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name": "Zend\Filter\DateTimeFormatter"})
+     * @Transfer\Filter({"name": "Laminas\Filter\DateTimeFormatter"})
      * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
      */
     protected $specifiedDate;

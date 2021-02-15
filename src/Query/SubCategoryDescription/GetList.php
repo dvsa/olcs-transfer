@@ -10,22 +10,22 @@ namespace Dvsa\Olcs\Transfer\Query\SubCategoryDescription;
 use Dvsa\Olcs\Transfer\Query\PublicQueryCacheInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableLongTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/subcategory-description")
  */
 class GetList extends AbstractQuery implements
     \Dvsa\Olcs\Transfer\Query\OrderedQueryInterface,
-    CachableMediumTermQueryInterface,
+    CacheableLongTermQueryInterface,
     PublicQueryCacheInterface
 {
     use \Dvsa\Olcs\Transfer\Query\OrderedTraitOptional;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
      */
     protected $subCategory;
 

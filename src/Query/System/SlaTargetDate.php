@@ -9,26 +9,26 @@ namespace Dvsa\Olcs\Transfer\Query\System;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableShortTermQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @Transfer\RouteName("backend/sla-target-date")
  */
-class SlaTargetDate extends AbstractQuery implements CachableShortTermQueryInterface
+class SlaTargetDate extends AbstractQuery implements CacheableShortTermQueryInterface
 {
     /**
      * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $entityId;
 
     /**
      * @var int
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"document"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"document"}}})
      */
     protected $entityType;
 

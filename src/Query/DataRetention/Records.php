@@ -23,18 +23,18 @@ final class Records extends AbstractQuery implements
     use UserOptional;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $dataRetentionRuleId;
 
     /**
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({
-     *     "name":"Zend\Validator\InArray",
+     *     "name":"Laminas\Validator\InArray",
      *     "options": {
      *          "haystack": {
      *              "pending",
@@ -48,7 +48,7 @@ final class Records extends AbstractQuery implements
     /**
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
      */
     protected $markedForDeletion;
@@ -58,6 +58,22 @@ final class Records extends AbstractQuery implements
      * @Transfer\Optional
      */
     protected $assignedToUser;
+
+    /**
+     * @var string|null
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *     "name":"Laminas\Validator\InArray",
+     *     "options": {
+     *          "haystack": {
+     *              "lcat_gv",
+     *              "lcat_psv"
+     *          }
+     *     }
+     * })
+     */
+    protected $goodsOrPsv;
 
     /**
      * Get Data retention rule id
@@ -101,5 +117,13 @@ final class Records extends AbstractQuery implements
     public function getAssignedToUser()
     {
         return $this->assignedToUser;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getGoodsOrPsv(): ?string
+    {
+        return $this->goodsOrPsv;
     }
 }

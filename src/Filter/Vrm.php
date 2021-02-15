@@ -1,18 +1,13 @@
 <?php
 
-/**
- * VRM filter
- *
- * @author Nick Payne <nick.payne@valtech.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Filter;
 
-use Zend\Filter\AbstractFilter;
+use Laminas\Filter\AbstractFilter;
 
 /**
- * VRM filter
+ * VRM Filter
  *
- * @author Nick Payne <nick.payne@valtech.co.uk>
+ * Parses a VRM stripping whitespace, converting to UPPERCASE and translates commonly mistyped / printed old plates.
  */
 class Vrm extends AbstractFilter
 {
@@ -47,9 +42,13 @@ class Vrm extends AbstractFilter
      */
     public function filter($input)
     {
-        // ab04 CVA -> AB04CVA
-        $input = strtoupper(str_replace(' ', '', $input));
+        // Strip all whitespace
+        $input = preg_replace('/\s+/', '', $input);
 
+        // Convert to uppercase
+        $input = strtoupper($input);
+
+        // Translate some commonly mis-typed / printed old plates
         if (isset($this->translations[$input])) {
             $input = $this->translations[$input];
         }

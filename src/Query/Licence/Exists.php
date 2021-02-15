@@ -16,7 +16,7 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 class Exists extends AbstractQuery
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      */
     protected $licNo;
 

@@ -22,14 +22,14 @@ final class UpdateVehicles extends AbstractCommand
         Version;
 
     /**
-     * @Transfer\Filter({"name": "Zend\Filter\StringTrim"})
-     * @Transfer\Filter({"name": "Zend\Filter\StringToUpper"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter({"name": "Laminas\Filter\StringTrim"})
+     * @Transfer\Filter({"name": "Laminas\Filter\StringToUpper"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
      */
     protected $hasEnteredReg;
 
     /**
-     * @Transfer\Filter({"name": "Zend\Filter\Boolean"})
+     * @Transfer\Filter({"name": "Laminas\Filter\Boolean"})
      * @Transfer\Optional
      */
     protected $partial = false;

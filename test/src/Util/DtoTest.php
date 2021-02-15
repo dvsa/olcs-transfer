@@ -5,7 +5,7 @@ namespace Dvsa\OlcsTest\Transfer\Util;
 use Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilder;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
 use Dvsa\Olcs\Transfer\Command\CommandContainerInterface;
-use Zend\InputFilter\InputFilterInterface;
+use Laminas\InputFilter\InputFilterInterface;
 
 /**
  * Dto Test

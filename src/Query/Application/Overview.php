@@ -19,7 +19,7 @@ class Overview extends AbstractQuery
     use Identity;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
      * @Transfer\Optional
      */
     protected $validateAppCompletion;

@@ -11,15 +11,16 @@ trait PermitAppWithdrawReason
 {
     /**
      * @var string
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {
      *          "haystack": {
      *              "permits_app_withdraw_by_user",
      *              "permits_app_withdraw_declined",
      *              "permits_app_withdraw_not_paid",
-     *              "permits_app_withdraw_notsuccess"
+     *              "permits_app_withdraw_notsuccess",
+     *              "permits_app_withdraw_permits_rev"
      *          }
      *      }
      * })

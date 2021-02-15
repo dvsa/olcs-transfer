@@ -6,6 +6,7 @@
 namespace Dvsa\Olcs\Transfer\Command\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationCheckedOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\CorCertificateNumberOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\DateReceived;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Declaration;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
@@ -26,4 +27,5 @@ final class UpdateFull extends AbstractCommand
     use Declaration;
     use PostDataOptional;
     use ApplicationCheckedOptional;
+    use CorCertificateNumberOptional;
 }

@@ -13,7 +13,7 @@ use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
-use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableShortTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/team")
@@ -21,7 +21,7 @@ use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
 final class TeamList extends AbstractQuery implements
     PagedQueryInterface,
     OrderedQueryInterface,
-    CachableShortTermQueryInterface
+    CacheableShortTermQueryInterface
 {
     use PagedTrait;
     use OrderedTrait;

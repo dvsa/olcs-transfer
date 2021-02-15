@@ -12,7 +12,7 @@ namespace Dvsa\Olcs\Transfer\Validators;
  *
  * @author Shaun Lizzio <shaun@lizzio.co.uk>
  */
-class SubmissionSection extends \Zend\Validator\InArray
+class SubmissionSection extends \Laminas\Validator\InArray
 {
     protected $haystack = ['introduction', 'case-summary', 'case-outline', 'most-serious-infringement',
         'outstanding-applications', 'people', 'operating-centres', 'conditions-and-undertakings',

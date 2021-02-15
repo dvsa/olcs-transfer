@@ -60,15 +60,6 @@ return [
                 ]
             ),
             'POST' => CommandConfig::getPostConfig(Command\IrhpApplication\Create::class),
-            'licence' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'licence[/]',
-                ],
-                'child_routes' => [
-                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateLicence::class),
-                ]
-            ],
             'update-multiple-no-of-permits' => [
                 'type' => 'Segment',
                 'options' => [
@@ -259,6 +250,26 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\Grant::class),
                 ],
             ],
+            'reset-to-not-yet-submitted-from-valid' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'reset-to-not-yet-submitted-from-valid[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\ResetToNotYetSubmittedFromValid::class),
+                ],
+            ],
+            'reset-to-not-yet-submitted-from-cancelled' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'reset-to-not-yet-submitted-from-cancelled[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\ResetToNotYetSubmittedFromCancelled::class),
+                ],
+            ],
             'full' => [
                 'type' => 'Segment',
                 'options' => [
@@ -308,6 +319,26 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\SubmitApplicationPath::class),
+                ],
+            ],
+            'documents' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'documents[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\IrhpApplication\Documents::class),
+                ],
+            ],
+            'update-candidate-permit-selection' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'update-candidate-permit-selection[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\UpdateCandidatePermitSelection::class),
                 ],
             ],
             'answers-summary' => [

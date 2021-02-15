@@ -8,7 +8,7 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait TranslateToWelshOptional
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
      * @Transfer\Optional
      */

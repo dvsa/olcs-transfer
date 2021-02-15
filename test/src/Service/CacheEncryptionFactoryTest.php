@@ -6,9 +6,9 @@ use Dvsa\Olcs\Transfer\Service\CacheEncryption;
 use Dvsa\Olcs\Transfer\Service\CacheEncryptionFactory;
 use Mockery as m;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
-use Zend\Cache\Storage\Adapter\Redis;
-use Zend\Cache\Storage\StorageInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Laminas\Cache\Storage\Adapter\Redis;
+use Laminas\Cache\Storage\StorageInterface;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 
 /**
  * CacheEncryptionFactoryTest

@@ -3,7 +3,7 @@
 namespace Dvsa\Olcs\Transfer\Query\CompaniesHouse;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\CachableShortTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableShortTermQueryInterface;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\OrderedTraitOptional;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
@@ -17,21 +17,21 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class AlertList extends AbstractQuery implements
     PagedQueryInterface,
     OrderedQueryInterface,
-    CachableShortTermQueryInterface
+    CacheableShortTermQueryInterface
 {
     use PagedTraitOptional;
     use OrderedTraitOptional;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\Boolean"})
+     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
      */
     protected $includeClosed = false;
 
     /**
      * @Transfer\Optional
      * @Transfer\Validator({
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {
      *          "haystack": {
      *              "company_status_change",

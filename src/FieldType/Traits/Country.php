@@ -9,10 +9,10 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait Country
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringToUpper"})
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\Alpha"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 2, "max": 2}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringToUpper"})
+     * @Transfer\Validator({"name":"Laminas\I18n\Validator\Alpha"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options": {"min": 2, "max": 2}})
      */
     public $country;
 

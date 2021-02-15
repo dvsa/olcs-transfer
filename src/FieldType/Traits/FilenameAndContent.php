@@ -11,7 +11,7 @@ trait FilenameAndContent
 {
     /**
      * @Transfer\Filter({
-     *     "name":"Zend\Filter\PregReplace",
+     *     "name":"Laminas\Filter\PregReplace",
      *     "options": {"pattern": "/[^a-zA-Z0-9\-\_\.]+/", "replacement": ""}
      * })
      */

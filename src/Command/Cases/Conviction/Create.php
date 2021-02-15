@@ -11,9 +11,7 @@ use Dvsa\Olcs\Transfer\FieldType as FieldType;
  * @Transfer\RouteName("backend/conviction")
  * @Transfer\Method("POST")
  */
-class Create extends AbstractCommand
-    implements
-    FieldType\CasesInterface
+class Create extends AbstractCommand implements FieldType\CasesInterface
 {
     use FieldType\Traits\Cases;
     use FieldType\Traits\DefendantType;
@@ -23,16 +21,16 @@ class Create extends AbstractCommand
     /**
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":70}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":70}})
      */
     protected $personFirstName;
 
     /**
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":70}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":70}})
      */
     protected $personLastName;
 
@@ -46,8 +44,8 @@ class Create extends AbstractCommand
      * @var string
      *
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":255}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":255}})
      */
     protected $categoryText;
 
@@ -63,9 +61,9 @@ class Create extends AbstractCommand
 
     /**
      * @var String
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({
-     *     "name":"Zend\Validator\InArray",
+     *     "name":"Laminas\Validator\InArray",
      *     "options": {
      *          "haystack": {
      *              "Y",
@@ -80,8 +78,8 @@ class Create extends AbstractCommand
      * @var string
      *
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":70}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":70}})
      */
     protected $court;
 
@@ -89,8 +87,8 @@ class Create extends AbstractCommand
      * @var string
      *
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":255}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":255}})
      */
     protected $penalty;
 
@@ -98,8 +96,8 @@ class Create extends AbstractCommand
      * @var string
      *
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":255}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":255}})
      */
     protected $costs;
 
@@ -107,8 +105,8 @@ class Create extends AbstractCommand
      * @var string
      *
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":4000}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":4000}})
      */
     protected $notes;
 
@@ -116,16 +114,16 @@ class Create extends AbstractCommand
      * @var string
      *
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":4000}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":4000}})
      */
     protected $takenIntoConsideration;
 
     /**
      * @var String
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({
-     *     "name":"Zend\Validator\InArray",
+     *     "name":"Laminas\Validator\InArray",
      *     "options": {
      *          "haystack": {
      *              "Y",
@@ -138,9 +136,9 @@ class Create extends AbstractCommand
 
     /**
      * @var String
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({
-     *     "name":"Zend\Validator\InArray",
+     *     "name":"Laminas\Validator\InArray",
      *     "options": {
      *          "haystack": {
      *              "Y",

@@ -15,6 +15,8 @@ class UploadTest extends \PHPUnit\Framework\TestCase
             'reportType' => 'type',
             'filename' => 'file_name.txt',
             'content' => 'file content',
+            'templateSlug' => 'imaslug',
+            'name' => 'imaname'
         ];
 
         $command = Upload::create($data);
@@ -27,6 +29,8 @@ class UploadTest extends \PHPUnit\Framework\TestCase
                 'reportType' => 'type',
                 'filename' => 'file_name.txt',
                 'content' => 'file content',
+                'templateSlug' => 'imaslug',
+                'name' => 'imaname'
             ],
             $command->getArrayCopy()
         );

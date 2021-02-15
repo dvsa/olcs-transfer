@@ -11,8 +11,8 @@ trait DeviationOptional
 {
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name":"Zend\I18n\Validator\IsFloat"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $deviation;
 

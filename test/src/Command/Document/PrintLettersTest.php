@@ -4,11 +4,14 @@ namespace Dvsa\OlcsTest\Transfer\Command\Document;
 
 use Dvsa\Olcs\Transfer\Command\Document\PrintLetters;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
+use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 use PHPUnit\Framework\TestCase;
 
 class PrintLettersTest extends TestCase
 {
-    use CommandTest;
+    use CommandTest, DtoWithoutOptionalFieldsTest {
+        DtoWithoutOptionalFieldsTest::testDefaultValues insteadof CommandTest;
+    }
 
     /**
      * @inheritDoc
@@ -16,15 +19,6 @@ class PrintLettersTest extends TestCase
     protected function createBlankDto()
     {
         return new PrintLetters();
-    }
-
-    /**
-     * @inheritDoc
-     */
-    protected function getOptionalDtoFields()
-    {
-        $this->markTestSkipped('No optional fields to test');
-        return [];
     }
 
     /**

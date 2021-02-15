@@ -9,10 +9,10 @@ trait Countries
 {
     /**
      * @Transfer\ArrayInput
-     * @Transfer\ArrayValidator({"name":"Zend\Validator\NotEmpty"})
+     * @Transfer\ArrayValidator({"name":"Laminas\Validator\NotEmpty"})
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options": {"min": 2, "max": 2}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options": {"min": 2, "max": 2}})
      */
     protected $countries = [];
 

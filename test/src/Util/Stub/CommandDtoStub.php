@@ -17,9 +17,9 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 class CommandDtoStub extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $id;
 
@@ -27,8 +27,8 @@ class CommandDtoStub extends AbstractCommand
      * @Transfer\ArrayInput
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
-     * @Transfer\ArrayValidator({"name":"Zend\Validator\NotEmpty", "options": {"type":"array"}})
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\ArrayValidator({"name":"Laminas\Validator\NotEmpty", "options": {"type":"array"}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      */
     protected $list = [];
 

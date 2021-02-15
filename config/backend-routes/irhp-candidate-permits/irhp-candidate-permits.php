@@ -30,6 +30,16 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'GET' => QueryConfig::getConfig(Query\IrhpCandidatePermit\GetListByIrhpApplication::class),
+                    'unpaged' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'unpaged[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\IrhpCandidatePermit\GetListByIrhpApplicationUnpaged::class),
+                        ]
+                    ],
                 ]
             ],
         ]

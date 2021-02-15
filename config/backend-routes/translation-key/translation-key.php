@@ -17,10 +17,12 @@ return [
             'single' => RouteConfig::getSingleConfig(
                 [
                     'GET' => QueryConfig::getConfig(Query\TranslationKey\ById::class),
-                    'PUT' => CommandConfig::getPutConfig(Command\TranslationKey\Update::class)
+                    'PUT' => CommandConfig::getPutConfig(Command\TranslationKey\Update::class),
+                    'DELETE' => CommandConfig::getDeleteConfig(Command\TranslationKey\Delete::class),
                 ]
             ),
             'GET' => QueryConfig::getConfig(Query\TranslationKey\GetList::class),
+            'POST' => CommandConfig::getPostConfig(Command\TranslationKey\Create::class),
         ]
     ],
 ];

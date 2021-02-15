@@ -16,7 +16,7 @@ class QueuePacks extends AbstractCommand
 {
     /**
      * @var string
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"ebsrt_new","ebsrt_refresh"}}})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"ebsrt_new","ebsrt_refresh"}}})
      */
     protected $submissionType;
 

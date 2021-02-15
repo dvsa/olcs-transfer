@@ -7,13 +7,13 @@
  */
 namespace Dvsa\Olcs\Transfer\Validators;
 
-use Zend\Validator\Hostname;
-use Zend\Validator\AbstractValidator;
+use Laminas\Validator\Hostname;
+use Laminas\Validator\AbstractValidator;
 
 /**
  * Custom email validator
  *
- * @NOTE Mostly moved from Zend's validator, however re-formatted to present friendlier errors
+ * @NOTE Mostly moved from Laminas validator, however re-formatted to present friendlier errors
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
@@ -45,7 +45,7 @@ class EmailAddress extends AbstractValidator
     );
 
     /**
-     * Array of valid top-level-domains in addition to those used in Zend hostname validator
+     * Array of valid top-level-domains in addition to those used in Laminas hostname validator
      *
      * @var array
      */
@@ -76,8 +76,8 @@ class EmailAddress extends AbstractValidator
      * Instantiates hostname validator for local use
      *
      * The following additional option keys are supported:
-     * 'hostnameValidator' => A hostname validator, see Zend\Validator\Hostname
-     * 'allow'             => Options for the hostname validator, see Zend\Validator\Hostname::ALLOW_*
+     * 'hostnameValidator' => A hostname validator, see Laminas\Validator\Hostname
+     * 'allow'             => Options for the hostname validator, see Laminas\Validator\Hostname::ALLOW_*
      *
      * @param array|\Traversable $options OPTIONAL
      */
@@ -248,7 +248,7 @@ class EmailAddress extends AbstractValidator
     }
 
     /**
-     * Internal method to validate additional valid top-level-domains not included in Zend validTlds
+     * Internal method to validate additional valid top-level-domains not included in Laminas validTlds
      *
      * @return bool
      */
@@ -279,7 +279,7 @@ class EmailAddress extends AbstractValidator
     }
 
     /**
-     * Defined by Zend\Validator\ValidatorInterface
+     * Defined by Laminas\Validator\ValidatorInterface
      *
      * Returns true if and only if $value is a valid email address
      * according to RFC2822

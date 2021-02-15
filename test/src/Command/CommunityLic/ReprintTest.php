@@ -6,7 +6,7 @@ namespace Dvsa\OlcsTest\Transfer\Command\CommunityLic;
 use Dvsa\Olcs\Transfer\Command\CommunityLic\Reprint;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
 use PHPUnit\Framework\TestCase;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 class ReprintTest extends TestCase
 {

@@ -7,7 +7,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\PublicQueryCacheInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableLongTermQueryInterface;
 
 /**
  * Class FeeTypeList
@@ -18,7 +18,7 @@ class FeeTypeList extends AbstractQuery implements
     FieldType\BusRegInterface,
     FieldType\LicenceInterface,
     FieldType\OrganisationInterface,
-    CachableMediumTermQueryInterface,
+    CacheableLongTermQueryInterface,
     PublicQueryCacheInterface
 {
     // Foreign Keys
@@ -40,7 +40,7 @@ class FeeTypeList extends AbstractQuery implements
     protected $effectiveDate;
 
     /**
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 1, "inclusive": true}})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 1, "inclusive": true}})
      * @Transfer\Optional
      */
     protected $currentFeeType;

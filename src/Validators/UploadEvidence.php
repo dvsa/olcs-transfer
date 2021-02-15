@@ -2,7 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Validators;
 
-use Zend\Validator\AbstractValidator;
+use Laminas\Validator\AbstractValidator;
 
 /**
  * Upload evidence validator
@@ -28,19 +28,13 @@ class UploadEvidence extends AbstractValidator
     public function isValid($value, $context = null)
     {
         $isValid = true;
-        if (
-            (
-                !empty($context['adPlacedIn'])
-                || !empty($context['adPlacedDate']['day'])
-                || !empty($context['adPlacedDate']['month'])
-                || !empty($context['adPlacedDate']['year'])
-            )
-            &&
-            (
-                !isset($context['file']['list'])
-                || count($context['file']['list']) === 0
-            )
-        ) {
+        if ((!empty($context['adPlacedIn'])
+            || !empty($context['adPlacedDate']['day'])
+            || !empty($context['adPlacedDate']['month'])
+            || !empty($context['adPlacedDate']['year'])
+        ) && (!isset($context['file']['list'])
+            || count($context['file']['list']) === 0
+        )) {
             $isValid = false;
         }
 

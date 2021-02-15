@@ -10,8 +10,8 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait EmailTemplateCategory
 {
     /**
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": -1}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": -1}})
      * @Transfer\Optional
      * @var int
      */

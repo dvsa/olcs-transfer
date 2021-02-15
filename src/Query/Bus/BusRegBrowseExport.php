@@ -15,8 +15,8 @@ class BusRegBrowseExport extends AbstractQuery
     use FieldType\TrafficAreas;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"max":36}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":36}})
      * @Transfer\Optional
      */
     protected $status;

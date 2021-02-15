@@ -11,19 +11,19 @@ namespace Dvsa\Olcs\Transfer\Query\Permits;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\PublicQueryCacheInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
-use Dvsa\Olcs\Transfer\Query\CachableMediumTermQueryInterface;
+use Dvsa\Olcs\Transfer\Query\CacheableLongTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/permits/ecmt-permit-fees")
  */
-class EcmtPermitFees extends AbstractQuery implements CachableMediumTermQueryInterface, PublicQueryCacheInterface
+class EcmtPermitFees extends AbstractQuery implements CacheableLongTermQueryInterface, PublicQueryCacheInterface
 {
     /**
      * @Transfer\ArrayInput
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
      * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min": 1}})
      */
     protected $productReferences;
 

@@ -12,7 +12,7 @@ namespace Dvsa\Olcs\Transfer\Validators;
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
-class ContinuationDetailStatus extends \Zend\Validator\InArray
+class ContinuationDetailStatus extends \Laminas\Validator\InArray
 {
     protected $haystack = [
         'con_det_sts_prepared',

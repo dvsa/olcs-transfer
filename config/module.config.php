@@ -31,7 +31,7 @@ return [
             'TransferAnnotationBuilder' => \Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilderFactory::class
         ],
         'invokables' => [
-            \ZendXml\Security::class => \ZendXml\Security::class
+            \Laminas\Xml\Security::class => \Laminas\Xml\Security::class
         ]
     ],
     'filters' => [

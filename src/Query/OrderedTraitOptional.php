@@ -8,8 +8,8 @@ trait OrderedTraitOptional
      *
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\NotEmpty"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\NotEmpty"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Sort"})
      */
     protected $sort = 'id';
@@ -19,8 +19,8 @@ trait OrderedTraitOptional
      *
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Zend\Filter\StringToUpper"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringToUpper"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Order"})
      */
     protected $order = 'ASC';

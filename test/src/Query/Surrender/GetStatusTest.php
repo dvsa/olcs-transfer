@@ -3,12 +3,15 @@
 namespace Dvsa\OlcsTest\Transfer\Query\Surrender;
 
 use Dvsa\Olcs\Transfer\Query\Surrender\GetSignature;
+use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 class GetStatusTest extends \PHPUnit\Framework\TestCase
 {
-    use QueryTest;
+    use QueryTest, DtoWithoutOptionalFieldsTest {
+        DtoWithoutOptionalFieldsTest::testDefaultValues insteadof QueryTest;
+    }
 
     /**
      * Should return a new blank DTO on which to run tests
@@ -18,22 +21,6 @@ class GetStatusTest extends \PHPUnit\Framework\TestCase
     protected function createBlankDto()
     {
         return new GetSignature();
-    }
-
-    /**
-     * Should return a list of optional fields
-     *
-     * for example:
-     *
-     * return ['optionalField', 'anotherOptionalField']
-     *
-     * Each field is expected to be set to null after validation
-     *
-     * @return string[]
-     */
-    protected function getOptionalDtoFields()
-    {
-        return [];
     }
 
     /**

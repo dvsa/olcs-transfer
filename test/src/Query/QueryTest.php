@@ -4,7 +4,7 @@ namespace Dvsa\OlcsTest\Transfer\Query;
 
 use Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilder;
 use Dvsa\OlcsTest\Transfer\DtoTest;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 trait QueryTest
 {

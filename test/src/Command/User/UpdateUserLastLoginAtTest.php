@@ -4,6 +4,8 @@ namespace Dvsa\OlcsTest\Transfer\Command\User;
 
 use Dvsa\Olcs\Transfer\Command\User\UpdateUserLastLoginAt;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
+use Dvsa\OlcsTest\Transfer\DtoWithoutInvalidFieldTest;
+use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -11,16 +13,14 @@ use PHPUnit\Framework\TestCase;
  */
 class UpdateUserLastLoginAtTest extends TestCase
 {
-    use CommandTest;
+    use CommandTest, DtoWithoutInvalidFieldTest, DtoWithoutOptionalFieldsTest {
+        DtoWithoutInvalidFieldTest::testInvalidField insteadof CommandTest;
+        DtoWithoutOptionalFieldsTest::testDefaultValues insteadof CommandTest;
+    }
 
     protected function createBlankDto()
     {
         return new UpdateUserLastLoginAt();
-    }
-
-    protected function getOptionalDtoFields()
-    {
-        return [];
     }
 
     protected function getValidFieldValues()
@@ -32,12 +32,6 @@ class UpdateUserLastLoginAtTest extends TestCase
             ]
         ];
     }
-
-    protected function getInvalidFieldValues()
-    {
-        return [];
-    }
-
 
     protected function getFilterTransformations()
     {

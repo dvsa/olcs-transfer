@@ -24,7 +24,7 @@ final class RecommendWaive extends AbstractCommand implements FieldType\Identity
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name": "Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name": "Laminas\Filter\StringTrim"})
      */
     protected $waiveReason;
 

@@ -33,7 +33,7 @@ class UpdateStay extends AbstractCommand implements
      * @Transfer\Optional()
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"stay_s_granted","stay_s_refused"}}
      *  }
      * )
@@ -42,15 +42,15 @@ class UpdateStay extends AbstractCommand implements
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":2,"max":4000}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":4000}})
      */
     protected $notes = null;
 
     /**
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"Y","N"}}
      *  }
      * )
@@ -67,7 +67,7 @@ class UpdateStay extends AbstractCommand implements
      * @Transfer\Optional
      * @Transfer\Validator(
      *  {
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {"haystack": {"Y","N"}}
      *  }
      * )

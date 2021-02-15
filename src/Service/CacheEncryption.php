@@ -2,8 +2,9 @@
 
 namespace Dvsa\Olcs\Transfer\Service;
 
-use Zend\Cache\Storage\StorageInterface;
-use Zend\Crypt\BlockCipher;
+use Laminas\Cache\Storage\Adapter\AdapterOptions;
+use Laminas\Cache\Storage\StorageInterface;
+use Laminas\Crypt\BlockCipher;
 
 class CacheEncryption
 {
@@ -15,6 +16,23 @@ class CacheEncryption
 
     const ENCRYPTION_PUBLIC_NODE_SUFFIX = 'public';
     const ENCRYPTION_SHARED_NODE_SUFFIX = 'shared';
+
+    const TTL_DEFAULT = 3600;
+    const TTL_60_DAYS = 5184000;
+
+    const TRANSLATION_KEY_IDENTIFIER = 'translation_key';
+    const TRANSLATION_REPLACEMENT_IDENTIFIER = 'translation_replacement';
+
+    const CUSTOM_CACHE_TYPE = [
+        self::TRANSLATION_KEY_IDENTIFIER => [
+            'mode' => self::ENCRYPTION_MODE_PUBLIC,
+            'ttl' => self::TTL_60_DAYS,
+        ],
+        self::TRANSLATION_REPLACEMENT_IDENTIFIER => [
+            'mode' => self::ENCRYPTION_MODE_PUBLIC,
+            'ttl' => self::TTL_60_DAYS,
+        ],
+    ];
 
     /** @var StorageInterface $cache */
     private $cache;
@@ -70,20 +88,37 @@ class CacheEncryption
     }
 
     /**
+     * Whether a custom (non-CQRS) cache item exists
+     *
+     * @param string $cacheType
+     * @param string $uniqueId
+     *
+     * @return bool
+     * @throws \Exception
+     */
+    public function hasCustomItem(string $cacheType, string $uniqueId = ''): bool
+    {
+        $cacheConfig = $this->getCustomCacheConfig($cacheType);
+        return $this->hasItem($cacheType . $uniqueId, $cacheConfig['mode']);
+    }
+
+    /**
      * Set an item to the cache, based on the encryption mode
      *
      * Public mode: value won't be encrypted
      * Shared mode: value will be encrypted using a key shared between all nodes
      * Node specific mode: value wil be encrypted for a single group of nodes only e.g. ssweb, iuweb or api
+     * TTL is specified in seconds - 3600 means a default of one hour
      *
      * @param string $cacheKey
      * @param string $encryptionMode
      * @param mixed  $value
+     * @param int    $ttl
      *
      * @throws \Exception
      * @return bool
      */
-    public function setItem(string $cacheKey, string $encryptionMode, $value): bool
+    public function setItem(string $cacheKey, string $encryptionMode, $value, int $ttl = 3600): bool
     {
         $value = igbinary_serialize($value);
 
@@ -94,8 +129,25 @@ class CacheEncryption
         }
 
         $nodeSuffix = $this->getSuffix($encryptionMode);
+        $this->setTtlOption($ttl);
 
         return $this->cache->setItem($cacheKey . $nodeSuffix, $value);
+    }
+
+    /**
+     * Set a custom (non-CQRS) cache, based on config for TTL and encryption mode.
+     *
+     * @param string $cacheType must exist in the config or exception will be thrown
+     * @param mixed  $value     value to be set in the cache
+     * @param string $uniqueId  optional suffix to add uniqueness, such as a translation locale or user id
+     *
+     * @throws \Exception
+     * @return bool
+     */
+    public function setCustomItem(string $cacheType, $value, $uniqueId = ''): bool
+    {
+        $cacheConfig = $this->getCustomCacheConfig($cacheType);
+        return $this->setItem($cacheType . $uniqueId, $cacheConfig['mode'], $value, $cacheConfig['ttl']);
     }
 
     /**
@@ -119,6 +171,35 @@ class CacheEncryption
         }
 
         return igbinary_unserialize($cacheValue);
+    }
+
+    /**
+     * Retrieve a custom (non-CQRS) cache based on the config
+     *
+     * @param string $cacheType must exist in the config or exception will be thrown
+     * @param string $uniqueId  optional suffix to add uniqueness, such as a translation locale or user id
+     *
+     * @return mixed|null
+     * @throws \Exception
+     */
+    public function getCustomItem(string $cacheType, string $uniqueId = '')
+    {
+        $cacheConfig = $this->getCustomCacheConfig($cacheType);
+        return $this->getItem($cacheType . $uniqueId, $cacheConfig['mode']);
+    }
+
+    /**
+     * @note This isn't a great way of going about this, but there isn't a way of doing it on the Laminas client and
+     * would rather not extend it at this stage. By making the method private we make sure only the TTL passed through
+     * when each item is set will be used
+     *
+     * @param int $ttl time in seconds
+     *
+     * @return AdapterOptions
+     */
+    private function setTtlOption(int $ttl): AdapterOptions
+    {
+        return $this->cache->getOptions()->setTtl($ttl);
     }
 
     /**
@@ -147,6 +228,33 @@ class CacheEncryption
     {
         $this->encryptor->setKey($encryptionKey);
         return $this->encryptor->decrypt($encryptedValue);
+    }
+
+    /**
+     * Get (and check validity of) config for a custom cache type
+     *
+     * @param $cacheType
+     *
+     * @return array
+     * @throws \Exception
+     */
+    private function getCustomCacheConfig($cacheType): array
+    {
+        if (!isset(self::CUSTOM_CACHE_TYPE[$cacheType])) {
+            throw new \Exception('missing config for cache type ' . $cacheType);
+        }
+
+        $cacheConfig = self::CUSTOM_CACHE_TYPE[$cacheType];
+
+        if (!isset($cacheConfig['mode'])) {
+            throw new \Exception('missing encryption mode for cache type ' . $cacheType);
+        }
+
+        if (!isset($cacheConfig['ttl'])) {
+            $cacheConfig['ttl'] = self::TTL_DEFAULT;
+        }
+
+        return $cacheConfig;
     }
 
     /**

@@ -15,16 +15,16 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class CreateSubmission extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $case;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {
      *          "haystack": {
      *              "submission_type_o_bus_reg", "submission_type_o_clo_fep", "submission_type_o_clo_g",
@@ -41,7 +41,7 @@ final class CreateSubmission extends AbstractCommand
      * @Transfer\Optional
      * @Transfer\ArrayInput
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\SubmissionSection"})
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min": 1}})
      */
     protected $sections = [];
 

@@ -3,13 +3,18 @@
 namespace Dvsa\OlcsTest\Transfer\Query\Fee;
 
 use Dvsa\Olcs\Transfer\Query\Fee\InterimRefunds;
+use Dvsa\OlcsTest\Transfer\DtoWithoutFieldTransformationsTest;
+use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
 use PHPUnit\Framework\TestCase;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 class InterimRefundsTest extends TestCase
 {
-    use QueryTest;
+    use QueryTest, DtoWithoutFieldTransformationsTest, DtoWithoutOptionalFieldsTest {
+        DtoWithoutFieldTransformationsTest::testFieldTransformations insteadof QueryTest;
+        DtoWithoutOptionalFieldsTest::testDefaultValues insteadof QueryTest;
+    }
 
     /**
      * Should return a new blank DTO on which to run tests
@@ -19,22 +24,6 @@ class InterimRefundsTest extends TestCase
     protected function createBlankDto()
     {
         return new InterimRefunds();
-    }
-
-    /**
-     * Should return a list of optional fields
-     *
-     * for example:
-     *
-     * return ['optionalField', 'anotherOptionalField']
-     *
-     * Each field is expected to be set to null after validation
-     *
-     * @return string[]
-     */
-    protected function getOptionalDtoFields()
-    {
-        return [];
     }
 
     /**
@@ -126,29 +115,5 @@ class InterimRefundsTest extends TestCase
                 ['GTRR', 'GHY']
             ]
         ];
-    }
-
-    /**
-     * Should return an array of expected transformations which input filters should apply to fields
-     *
-     * for example:
-     *
-     * return [
-     *     'fieldWhichGetsTrimmed' => [[' string ', 'string']],
-     *     'fieldWhichFiltersOutNonNumericDigits => [
-     *         ['a1b2c3', '123'],
-     *         [99, '99'],
-     *     ],
-     * ];
-     *
-     * Tests expect the function 'getFoo' to exist for the function 'foo'.
-     *
-     * This DOES NOT assert that the value gets validated. To do that @return array
-     * @see DtoTest::getValidFieldValues
-     *
-     */
-    protected function getFilterTransformations()
-    {
-        return [];
     }
 }

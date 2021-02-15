@@ -52,6 +52,7 @@ class CreateUserTest extends TestCase
                     "internal-read-only",
                     "internal-case-worker",
                     "internal-admin",
+                    "internal-irhp-admin",
                     "operator-admin",
                     "operator-user",
                     "operator-tm",
@@ -63,7 +64,8 @@ class CreateUserTest extends TestCase
             ],
             'osType' => [
                 'windows_7',
-                'windows_10'
+                'windows_10',
+                'northern_i'
             ]
         ];
     }

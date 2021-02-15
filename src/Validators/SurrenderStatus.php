@@ -2,7 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Validators;
 
-class SurrenderStatus extends \Zend\Validator\InArray
+class SurrenderStatus extends \Laminas\Validator\InArray
 {
     protected $haystack = [
         'surr_sts_approved',

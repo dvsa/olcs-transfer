@@ -7,12 +7,12 @@
  */
 namespace Dvsa\Olcs\Transfer\Util\Annotation;
 
-use Zend\Form\Annotation\Validator as ZendValidator;
+use Laminas\Form\Annotation\Validator as LaminasValidator;
 
 /**
  * @Annotation
  */
-class Validator extends ZendValidator
+class Validator extends LaminasValidator
 {
     public function getName()
     {

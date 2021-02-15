@@ -10,7 +10,7 @@ trait Iso8601StartDate
 {
     /**
      * @var string
-     * @Transfer\Filter({"name": "Zend\Filter\DateTimeFormatter"})
+     * @Transfer\Filter({"name": "Laminas\Filter\DateTimeFormatter"})
      * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
      */
     protected $startDate;

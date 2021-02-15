@@ -4,19 +4,17 @@ namespace Dvsa\OlcsTest\Transfer\Command\TransportManagerApplication;
 
 use Dvsa\Olcs\Transfer\Command\TransportManagerApplication\SendAmendTmApplication;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
+use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 
 class SendAmendTmApplicationTest extends \PHPUnit\Framework\TestCase
 {
-    use CommandTest;
+    use CommandTest, DtoWithoutOptionalFieldsTest {
+        DtoWithoutOptionalFieldsTest::testDefaultValues insteadof CommandTest;
+    }
 
     protected function createBlankDto()
     {
         return new SendAmendTmApplication();
-    }
-
-    protected function getOptionalDtoFields()
-    {
-        return [];
     }
 
     protected function getValidFieldValues()
@@ -35,10 +33,8 @@ class SendAmendTmApplicationTest extends \PHPUnit\Framework\TestCase
         ];
     }
 
-
     protected function getFilterTransformations()
     {
-
         return [
             'emailAddress' => [['test@test.com ', 'test@test.com']],
             'id' => [[8, '8']]

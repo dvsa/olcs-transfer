@@ -20,33 +20,33 @@ abstract class AbstractOperatingCentreCommand extends AbstractCommand
     protected $address;
 
     /**
-     * @Transfer\Validator({"name": "Zend\Validator\Between", "options": {"min":0, "max":1000000}})
+     * @Transfer\Validator({"name": "Laminas\Validator\Between", "options": {"min":0, "max":1000000}})
      */
     protected $noOfVehiclesRequired;
 
     /**
-     * @Transfer\Validator({"name": "Zend\Validator\Between", "options": {"min":0, "max":1000000}})
+     * @Transfer\Validator({"name": "Laminas\Validator\Between", "options": {"min":0, "max":1000000}})
      * @Transfer\Optional
      */
     protected $noOfTrailersRequired;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
      * @Transfer\Optional
      */
     protected $permission;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Between", "options": {"min": 0, "max": 2}})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 2}})
      * @Transfer\Optional
      */
     protected $adPlaced;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Optional
      */
     protected $adPlacedIn;

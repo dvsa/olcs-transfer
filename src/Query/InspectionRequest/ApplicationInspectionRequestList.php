@@ -11,7 +11,7 @@ use Dvsa\Olcs\Transfer\Query\PagedTrait;
 
 /**
  * Class InspectionRequest
- * 
+ *
  * @Transfer\RouteName("backend/inspection-request/application")
  */
 class ApplicationInspectionRequestList extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
@@ -20,9 +20,9 @@ class ApplicationInspectionRequestList extends AbstractQuery implements PagedQue
         OrderedTrait;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $application;
 

@@ -17,7 +17,7 @@ class Approve extends AbstractCommand
 
     /**
      * @var \DateTime
-     * @Transfer\Validator({"name":"Zend\Validator\Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator({"name":"Laminas\Validator\Date", "options": {"format": "Y-m-d"}})
      */
     protected $surrenderDate;
 

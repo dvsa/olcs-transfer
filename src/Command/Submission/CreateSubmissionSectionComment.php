@@ -15,16 +15,16 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class CreateSubmissionSectionComment extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\Digits"})
-     * @Transfer\Validator({"name":"Zend\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $submission;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({
-     *      "name":"Zend\Validator\InArray",
+     *      "name":"Laminas\Validator\InArray",
      *      "options": {
      *          "haystack": {
      *              "introduction", "case-summary","case-outline", "most-serious-infringement",
@@ -45,10 +45,10 @@ final class CreateSubmissionSectionComment extends AbstractCommand
     protected $submissionSection;
 
     /**
-     * @Transfer\Filter({"name":"Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Filter({"name":"htmlpurifier"})
      * @Transfer\Escape(false)
-     * @Transfer\Validator({"name":"Zend\Validator\StringLength","options":{"min":5}})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":5}})
      */
     protected $comment;
 

@@ -16,7 +16,7 @@ final class CpidOrganisationExport extends AbstractCommand
     /**
      * @Transfer\Optional
      * @Transfer\Validator({
-     *     "name":"Zend\Validator\InArray",
+     *     "name":"Laminas\Validator\InArray",
      *     "options": {
      *         "haystack": {
      *             "op_cpid_central_government",

@@ -7,7 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Util\Annotation;
 
-use Zend\Form\Annotation\ComposedObject;
+use Laminas\Form\Annotation\ComposedObject;
 
 /**
  * @Annotation

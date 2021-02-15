@@ -7,7 +7,7 @@ use Dvsa\Olcs\Transfer\Command\GdsVerify\ProcessSignatureResponse;
 use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
 use Dvsa\OlcsTest\Transfer\DtoTest;
-use Zend\Stdlib\ArraySerializableInterface;
+use Laminas\Stdlib\ArraySerializableInterface;
 
 /**
  * Class ProcessSignatureResponseCommandTest

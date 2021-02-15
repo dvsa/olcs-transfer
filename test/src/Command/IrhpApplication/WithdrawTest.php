@@ -4,20 +4,18 @@ namespace Dvsa\OlcsTest\Transfer\Command\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\Command\IrhpApplication\Withdraw;
 use Dvsa\OlcsTest\Transfer\Command\CommandTest;
-use \PHPUnit\Framework\TestCase;
+use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
+use PHPUnit\Framework\TestCase;
 
 class WithdrawTest extends TestCase
 {
-    use CommandTest;
+    use CommandTest, DtoWithoutOptionalFieldsTest {
+        DtoWithoutOptionalFieldsTest::testDefaultValues insteadof CommandTest;
+    }
 
     protected function createBlankDto()
     {
         return new Withdraw();
-    }
-
-    protected function getOptionalDtoFields()
-    {
-        return [];
     }
 
     protected function getValidFieldValues()

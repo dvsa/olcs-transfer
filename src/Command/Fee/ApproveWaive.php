@@ -24,7 +24,7 @@ final class ApproveWaive extends AbstractCommand implements FieldType\IdentityIn
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name": "Zend\Filter\StringTrim"})
+     * @Transfer\Filter({"name": "Laminas\Filter\StringTrim"})
      */
     protected $waiveReason;
 
