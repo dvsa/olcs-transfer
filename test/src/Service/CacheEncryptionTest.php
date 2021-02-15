@@ -140,6 +140,49 @@ class CacheEncryptionTest extends MockeryTestCase
         self::assertTrue($sut->setCustomItem($identifier, $valueToBeEncrypted, $uniqueId));
     }
 
+    public function testRemoveCustomItem()
+    {
+        $identifier = CacheEncryption::TRANSLATION_KEY_IDENTIFIER;
+        $encryptor = m::mock(BlockCipher::class);
+        $uniqueId = 'uniqueid';
+        $cacheKey = $identifier . $uniqueId;
+
+        $cache = m::mock(StorageInterface::class);
+        $cache->expects('removeItem')->with($cacheKey, CacheEncryption::ENCRYPTION_MODE_PUBLIC)->andReturnTrue();
+
+        $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+        self::assertTrue($sut->removeCustomItem($identifier, $uniqueId));
+    }
+
+    public function testRemoveCustomItems()
+    {
+        $identifier = CacheEncryption::TRANSLATION_KEY_IDENTIFIER;
+        $uniqueIds = ['uniqueId1', 'uniqueId2', 'uniqueId3'];
+
+        $cacheKeysRemoved = [
+            'uniqueId1' => $identifier . 'uniqueId1' . CacheEncryption::ENCRYPTION_PUBLIC_NODE_SUFFIX,
+            'uniqueId2' => $identifier . 'uniqueId2' . CacheEncryption::ENCRYPTION_PUBLIC_NODE_SUFFIX,
+            'uniqueId3' => $identifier . 'uniqueId3' . CacheEncryption::ENCRYPTION_PUBLIC_NODE_SUFFIX,
+        ];
+
+        $encryptor = m::mock(BlockCipher::class);
+        $cache = m::mock(StorageInterface::class);
+        $cache->expects('removeItems')->with($cacheKeysRemoved)->andReturn([]);
+
+        $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+        $sut->removeCustomItems($identifier, $uniqueIds);
+    }
+
+    public function testRemoveCustomItemsMissingIds()
+    {
+        $this->expectException(\Exception::class);
+        $this->expectExceptionMessage(CacheEncryption::ERR_NO_IDS_TO_DELETE);
+        $cache = m::mock(StorageInterface::class);
+        $encryptor = m::mock(BlockCipher::class);
+        $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+        $sut->removeCustomItems('cache key', []);
+    }
+
     /**
      * @dataProvider dpHasItemProvider
      */

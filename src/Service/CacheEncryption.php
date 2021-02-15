@@ -9,6 +9,7 @@ use Laminas\Crypt\BlockCipher;
 class CacheEncryption
 {
     const ERR_NO_KEY_AVAILABLE = 'No encryption key available for this encryption mode';
+    const ERR_NO_IDS_TO_DELETE = 'Please provide ids for the items being deleted';
 
     const ENCRYPTION_MODE_PUBLIC = 'encryption_public';
     const ENCRYPTION_MODE_SHARED = 'encryption_shared';
@@ -18,10 +19,18 @@ class CacheEncryption
     const ENCRYPTION_SHARED_NODE_SUFFIX = 'shared';
 
     const TTL_DEFAULT = 3600;
+    const TTL_2_MINUTES = 120;
     const TTL_60_DAYS = 5184000;
 
     const TRANSLATION_KEY_IDENTIFIER = 'translation_key';
     const TRANSLATION_REPLACEMENT_IDENTIFIER = 'translation_replacement';
+
+    const USER_ACCOUNT_IDENTIFIER = 'user_account';
+
+    /** @var string[] a list of caches held against a user id */
+    const USER_CACHES = [
+        self::USER_ACCOUNT_IDENTIFIER
+    ];
 
     const CUSTOM_CACHE_TYPE = [
         self::TRANSLATION_KEY_IDENTIFIER => [
@@ -31,6 +40,10 @@ class CacheEncryption
         self::TRANSLATION_REPLACEMENT_IDENTIFIER => [
             'mode' => self::ENCRYPTION_MODE_PUBLIC,
             'ttl' => self::TTL_60_DAYS,
+        ],
+        self::USER_ACCOUNT_IDENTIFIER => [
+            'mode' => self::ENCRYPTION_MODE_SHARED,
+            'ttl' => self::TTL_2_MINUTES,
         ],
     ];
 
@@ -103,11 +116,73 @@ class CacheEncryption
     }
 
     /**
+     * Remove an item from the cache, based on the encryption mode
+     *
+     * Public mode: value won't be encrypted
+     * Shared mode: value will have been encrypted using a key shared between all nodes
+     * Node specific mode: value will have been encrypted for a single group of nodes only e.g. ssweb, iuweb or api
+     *
+     * @param string $cacheKey
+     * @param string $encryptionMode
+     *
+     * @throws \Exception
+     * @return bool
+     */
+    public function removeItem(string $cacheKey, string $encryptionMode): bool
+    {
+        $nodeSuffix = $this->getSuffix($encryptionMode);
+        return $this->cache->removeItem($cacheKey . $nodeSuffix);
+    }
+
+    /**
+     * Remove a custom (non CQRS) cache item
+     *
+     * @param string $cacheKey
+     * @param string $uniqueId
+     *
+     * @throws \Exception
+     * @return int
+     */
+    public function removeCustomItem(string $cacheKey, string $uniqueId = ''): bool
+    {
+        $cacheConfig = $this->getCustomCacheConfig($cacheKey);
+        return $this->cache->removeItem($cacheKey . $uniqueId, $cacheConfig['mode']);
+    }
+
+    /**
+     * Remove a series of custom caches e.g. for a series of user ids
+     * Note that the method expects that ids will be included, to delete a cache which isn't specific
+     * to a user/licence etc, use the removeCustomItem method which allows a blank value for $uniqueId
+     *
+     * @param string $cacheKey
+     * @param array  $uniqueIds
+     *
+     * @throws \Exception
+     * @return array
+     */
+    public function removeCustomItems(string $cacheKey, array $uniqueIds): array
+    {
+        if (empty($uniqueIds)) {
+            throw new \Exception(self::ERR_NO_IDS_TO_DELETE);
+        }
+
+        $cacheKeys = [];
+        $cacheConfig = $this->getCustomCacheConfig($cacheKey);
+        $nodeSuffix = $this->getSuffix($cacheConfig['mode']);
+
+        foreach ($uniqueIds as $uniqueId) {
+            $cacheKeys[$uniqueId] = $cacheKey . $uniqueId . $nodeSuffix;
+        }
+
+        return $this->cache->removeItems($cacheKeys);
+    }
+
+    /**
      * Set an item to the cache, based on the encryption mode
      *
      * Public mode: value won't be encrypted
      * Shared mode: value will be encrypted using a key shared between all nodes
-     * Node specific mode: value wil be encrypted for a single group of nodes only e.g. ssweb, iuweb or api
+     * Node specific mode: value will be encrypted for a single group of nodes only e.g. ssweb, iuweb or api
      * TTL is specified in seconds - 3600 means a default of one hour
      *
      * @param string $cacheKey
