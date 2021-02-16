@@ -24,7 +24,7 @@ final class RegisterUserSelfserve extends AbstractCommand
     protected $loginId;
 
     /**
-         * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\ContactDetails")
+     * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\ContactDetails")
      */
     protected $contactDetails;
 
