@@ -122,6 +122,10 @@ class CacheEncryption
      * Shared mode: value will have been encrypted using a key shared between all nodes
      * Node specific mode: value will have been encrypted for a single group of nodes only e.g. ssweb, iuweb or api
      *
+     * @todo https://jira.dvsacloud.uk/browse/OLCS-28306
+     * The suppression of errors here is due to Laminas using deprecated methods
+     * This will be fixed by an upgrade to the laminas-cache package, covered by the above ticket
+     *
      * @param string $cacheKey
      * @param string $encryptionMode
      *
@@ -131,11 +135,15 @@ class CacheEncryption
     public function removeItem(string $cacheKey, string $encryptionMode): bool
     {
         $nodeSuffix = $this->getSuffix($encryptionMode);
-        return $this->cache->removeItem($cacheKey . $nodeSuffix);
+        return @$this->cache->removeItem($cacheKey . $nodeSuffix);
     }
 
     /**
      * Remove a custom (non CQRS) cache item
+     *
+     * @todo https://jira.dvsacloud.uk/browse/OLCS-28306
+     * The suppression of errors here is due to Laminas using deprecated methods
+     * This will be fixed by an upgrade to the laminas-cache package, covered by the above ticket
      *
      * @param string $cacheKey
      * @param string $uniqueId
@@ -146,13 +154,17 @@ class CacheEncryption
     public function removeCustomItem(string $cacheKey, string $uniqueId = ''): bool
     {
         $cacheConfig = $this->getCustomCacheConfig($cacheKey);
-        return $this->cache->removeItem($cacheKey . $uniqueId, $cacheConfig['mode']);
+        return @$this->cache->removeItem($cacheKey . $uniqueId, $cacheConfig['mode']);
     }
 
     /**
      * Remove a series of custom caches e.g. for a series of user ids
      * Note that the method expects that ids will be included, to delete a cache which isn't specific
      * to a user/licence etc, use the removeCustomItem method which allows a blank value for $uniqueId
+     *
+     * @todo https://jira.dvsacloud.uk/browse/OLCS-28306
+     * The suppression of errors here is due to Laminas using deprecated methods
+     * This will be fixed by an upgrade to the laminas-cache package, covered by the above ticket
      *
      * @param string $cacheKey
      * @param array  $uniqueIds
@@ -174,7 +186,7 @@ class CacheEncryption
             $cacheKeys[$uniqueId] = $cacheKey . $uniqueId . $nodeSuffix;
         }
 
-        return $this->cache->removeItems($cacheKeys);
+        return @$this->cache->removeItems($cacheKeys);
     }
 
     /**
