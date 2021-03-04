@@ -10,6 +10,7 @@ use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
+use Dvsa\Olcs\Transfer\Util\Annotation\ContinueIfEmpty;
 
 /**
  * @Transfer\RouteName("backend/licence/single/vehicles")
@@ -17,7 +18,8 @@ use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 class Vehicles extends AbstractQuery implements
     CacheableShortTermQueryInterface,
     PagedQueryInterface,
-    OrderedQueryInterface
+    OrderedQueryInterface,
+    FiltersByIncludeActiveInterface
 {
     use Identity,
         PagedTrait,
@@ -28,6 +30,20 @@ class Vehicles extends AbstractQuery implements
      * @Transfer\Optional
      */
     protected $includeRemoved;
+
+    /**
+     * @Transfer\Filter({"name":"Laminas\Filter\Boolean", "options": {"casting": false, "type": {
+     *     Laminas\Filter\Boolean::TYPE_BOOLEAN,
+     *     Laminas\Filter\Boolean::TYPE_INTEGER,
+     *     Laminas\Filter\Boolean::TYPE_FALSE_STRING,
+     *     Laminas\Filter\Boolean::TYPE_ZERO_STRING
+     * }}})
+     * @Transfer\Validator({"name": "Laminas\Validator\InArray", "options": {"haystack": {true, false}, "strict": true}})
+     * @Transfer\Escape(false)
+     * @Transfer\ContinueIfEmpty(true)
+     * @Transfer\Optional
+     */
+    protected $includeActive = true;
 
     /**
      * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
@@ -49,6 +65,14 @@ class Vehicles extends AbstractQuery implements
     public function getIncludeRemoved()
     {
         return $this->includeRemoved;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIncludeActive()
+    {
+        return $this->includeActive;
     }
 
     /**

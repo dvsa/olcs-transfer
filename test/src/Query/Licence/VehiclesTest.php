@@ -36,7 +36,7 @@ class VehiclesTest extends TestCase
     {
         return [
             'vrm',
-            'disc'
+            'disc',
         ];
     }
 
@@ -63,7 +63,8 @@ class VehiclesTest extends TestCase
             ],
             'disc' => [
                 'Y', 'N'
-            ]
+            ],
+            'includeActive' => [true, false],
         ];
     }
 
@@ -93,7 +94,18 @@ class VehiclesTest extends TestCase
                 'a',
                 1,
                 true
-            ]
+            ],
+            'includeActive' => [
+                2,
+                -1,
+                'foo',
+                '2',
+                '-1',
+                '1.0',
+                '0.0',
+                '',
+                [],
+            ],
         ];
     }
 
@@ -140,7 +152,53 @@ class VehiclesTest extends TestCase
                 [' a', 'a'],
                 ['a ', 'a'],
                 [' a ', 'a'],
-            ]
+            ],
+            'includeActive' => [
+
+                // Values that should be transformed
+                [1, true],
+                ['1', true],
+                [0, false],
+                ['0', false],
+                ['true', true],
+                ['false', false],
+
+                // Values that should not be transformed
+                [true, true],
+                [false, false],
+                ['bar', 'bar'],
+                ['', ''],
+                [' ', ' '],
+                ['1.0', '1.0'],
+                ['0.0', '0.0'],
+                [-1, -1],
+                [[], []],
+                [null, true]
+            ],
         ];
+    }
+
+    /**
+     * @test
+     */
+    public function includeActive_IsOptional()
+    {
+        $sut = $this->createDtoContainer($this->createBlankDto());
+        $inputFilter = $sut->getInputFilter();
+        $inputFilter->setData([]);
+        $inputFilter->isValid();
+        $this->assertArrayNotHasKey('includeActive', $inputFilter->getMessages());
+    }
+
+    /**
+     * @test
+     */
+    public function includeActive_DefaultsToTrue()
+    {
+        $dto = $this->createBlankDto();
+        $dto->exchangeArray([]);
+        $sut = $this->createDtoContainer($dto);
+        $sut->isValid();
+        $this->assertEquals(true, $sut->getInputFilter()->get('includeActive')->getValue());
     }
 }
