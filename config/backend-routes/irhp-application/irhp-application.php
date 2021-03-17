@@ -321,6 +321,16 @@ return [
                     'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\SubmitApplicationPath::class),
                 ],
             ],
+            'remove-bilateral-country' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'remove-bilateral-country[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'PUT' => CommandConfig::getPutConfig(Command\IrhpApplication\RemoveBilateralCountry::class),
+                ],
+            ],
             'documents' => [
                 'type' => 'Segment',
                 'options' => [
