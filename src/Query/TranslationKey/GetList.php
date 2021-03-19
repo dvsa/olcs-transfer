@@ -7,8 +7,6 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\TranslationKey;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\CategoryOptional;
-use Dvsa\Olcs\Transfer\FieldType\Traits\SubCategoryOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TranslationSearchOptional;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
@@ -25,6 +23,4 @@ class GetList extends AbstractQuery implements OrderedQueryInterface, PagedQuery
     use PagedTrait;
     use OrderedTrait;
     use TranslationSearchOptional;
-    use CategoryOptional;
-    use SubCategoryOptional;
 }
