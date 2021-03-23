@@ -31,7 +31,7 @@ final class MoveDocument extends AbstractCommand
      *      "name":"Laminas\Validator\InArray",
      *      "options": {
      *          "haystack": {
-     *              "application", "busReg", "case", "irfoOrganisation", "licence", "transportManager"
+     *              "application", "busReg", "case", "irfoOrganisation", "irhpApplication", "licence", "transportManager"
      *          }
      *      }
      *  }
