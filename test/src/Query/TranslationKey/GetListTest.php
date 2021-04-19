@@ -18,8 +18,6 @@ class GetListTest extends \PHPUnit\Framework\TestCase
                 'limit' => 10,
                 'sort' => 'id',
                 'order' => 'ASC',
-                'category' => 1,
-                'subCategory' => 4
             ]
         );
         static::assertEquals(
@@ -29,8 +27,6 @@ class GetListTest extends \PHPUnit\Framework\TestCase
                 'limit' => 10,
                 'sort' => 'id',
                 'order' => 'ASC',
-                'category' => 1,
-                'subCategory' => 4,
                 'sortWhitelist' => []
             ],
             $sut->getArrayCopy()
