@@ -13,6 +13,16 @@ return [
         ],
         'may_terminate' => false,
         'child_routes' => [
+            'report' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'report[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Permits\ReportList::class),
+                ]
+            ],
             'irhp-permits-accept' => [
                 'type' => 'Segment',
                 'options' => [
