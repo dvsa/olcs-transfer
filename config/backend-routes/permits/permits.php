@@ -23,6 +23,16 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Permits\ReportList::class),
                 ]
             ],
+            'queue-report' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'queue-report[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Permits\QueueReport::class),
+                ]
+            ],
             'irhp-permits-accept' => [
                 'type' => 'Segment',
                 'options' => [
