@@ -22,7 +22,13 @@ abstract class AbstractOperatingCentreCommand extends AbstractCommand
     /**
      * @Transfer\Validator({"name": "Laminas\Validator\Between", "options": {"min":0, "max":1000000}})
      */
-    protected $noOfVehiclesRequired;
+    protected $noOfHgvVehiclesRequired;
+
+    /**
+     * @Transfer\Validator({"name": "Laminas\Validator\Between", "options": {"min":0, "max":1000000}})
+     * @Transfer\Optional
+     */
+    protected $noOfLgvVehiclesRequired;
 
     /**
      * @Transfer\Validator({"name": "Laminas\Validator\Between", "options": {"min":0, "max":1000000}})
@@ -68,9 +74,17 @@ abstract class AbstractOperatingCentreCommand extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getNoOfVehiclesRequired()
+    public function getNoOfHgvVehiclesRequired()
     {
-        return $this->noOfVehiclesRequired;
+        return $this->noOfHgvVehiclesRequired;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNoOfLgvVehiclesRequired()
+    {
+        return $this->noOfLgvVehiclesRequired;
     }
 
     /**

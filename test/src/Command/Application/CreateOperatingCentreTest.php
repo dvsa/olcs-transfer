@@ -39,6 +39,7 @@ class CreateOperatingCentreTest extends TestCase
         return [
             'taIsOverridden',
             'address',
+            'noOfLgvVehiclesRequired',
             'noOfTrailersRequired',
             'permission',
             'adPlaced',
@@ -71,7 +72,8 @@ class CreateOperatingCentreTest extends TestCase
         return [
             'taIsOverridden' => ['Y', 'N'],
             'application' => ['1', '2'],
-            'noOfVehiclesRequired' => ['1', '1000000'],
+            'noOfHgvVehiclesRequired' => ['1', '1000000'],
+            'noOfLgvVehiclesRequired' => ['1', '1000000'],
             'noOfTrailersRequired' => ['1', '1000000'],
             'address' => [
                 [
@@ -129,7 +131,8 @@ class CreateOperatingCentreTest extends TestCase
                     'countryCode' => 'GB',
                 ]
             ],
-            'noOfVehiclesRequired' => ['-1', '1000001'],
+            'noOfHgvVehiclesRequired' => ['-1', '1000001'],
+            'noOfLgvVehiclesRequired' => ['-1', '1000001'],
             'noOfTrailersRequired' => ['-1', '1000001'],
             'permission' => ['T'],
             'adPlaced' => [3]
