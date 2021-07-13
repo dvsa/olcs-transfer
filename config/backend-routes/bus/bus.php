@@ -223,6 +223,12 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Bus\Ebsr\OrganisationUnprocessedList::class),
                 ]
             ),
+            'notice-period-create' => RouteConfig::getRouteConfig(
+                'notice-period-create',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\Bus\CreateNoticePeriod::class),
+                ]
+            ),
             'notice-period-list' => RouteConfig::getRouteConfig(
                 'notice-period-list',
                 [
