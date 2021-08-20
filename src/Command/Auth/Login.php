@@ -15,4 +15,24 @@ final class Login extends AbstractCommand
 {
     use Username;
     use Password;
+
+    /**
+     * @var String
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator(
+     *  {
+     *      "name":"Laminas\Validator\InArray",
+     *      "options": {"haystack": {"selfserve","internal"}}
+     *  }
+     * )
+     */
+    protected $realm = null;
+
+    /**
+     * @return int
+     */
+    public function getRealm()
+    {
+        return $this->realm;
+    }
 }
