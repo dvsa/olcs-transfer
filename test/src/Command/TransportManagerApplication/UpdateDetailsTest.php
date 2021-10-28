@@ -31,6 +31,7 @@ class UpdateDetailsTest extends \PHPUnit\Framework\TestCase
             'hasOtherEmployment' => 'has_other_employment',
             'hasConvictions' => 'has_convictions',
             'hasPreviousLicences' => 'has_previous_licences',
+            'hasUndertakenTraining' => 'Y',
             'additionalInfo' => 'unit_additionalInfo',
             'dob' => 'unit_dob',
             'submit' => 'unit_submit',
@@ -58,6 +59,7 @@ class UpdateDetailsTest extends \PHPUnit\Framework\TestCase
         static::assertEquals('has_other_employment', $command->getHasOtherEmployment());
         static::assertEquals('has_convictions', $command->getHasConvictions());
         static::assertEquals('has_previous_licences', $command->getHasPreviousLicences());
+        static::assertEquals('Y', $command->getHasUndertakenTraining());
         static::assertEquals('unit_additionalInfo', $command->getAdditionalInfo());
         static::assertEquals('unit_dob', $command->getDob());
         static::assertEquals('unit_submit', $command->getSubmit());

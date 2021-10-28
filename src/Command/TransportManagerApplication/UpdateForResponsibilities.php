@@ -14,6 +14,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 final class UpdateForResponsibilities extends AbstractCommand
 {
     use Traits\Identity,
+        Traits\HasUndertakenTraining,
         Traits\Version;
 
     /**

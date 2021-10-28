@@ -135,6 +135,13 @@ final class UpdateDetails extends AbstractCommand
     protected $hasPreviousLicences;
 
     /**
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Optional
+     */
+    protected $hasUndertakenTraining;
+
+    /**
      * @Transfer\Validator({"name":"Laminas\Validator\Date", "options": {"format": "Y-m-d"}})
      * @Transfer\Optional
      */
@@ -317,6 +324,14 @@ final class UpdateDetails extends AbstractCommand
     public function getHasPreviousLicences()
     {
         return $this->hasPreviousLicences;
+    }
+
+    /**
+     * @return ?string
+     */
+    public function getHasUndertakenTraining(): ?string
+    {
+        return $this->hasUndertakenTraining;
     }
 
     /**

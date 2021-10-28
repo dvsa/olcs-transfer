@@ -16,6 +16,7 @@ class UpdateForResponsibilitiesTest extends \PHPUnit\Framework\TestCase
             'version' => 888,
             'tmType' => 'unit_tmType',
             'isOwner' => 'unit_isOwner',
+            'hasUndertakenTraining' => 'Y',
             'hoursMon' => 'unit_hoursMon',
             'hoursTue' => 'unit_hoursTue',
             'hoursWed' => 'unit_hoursWed',
@@ -34,6 +35,7 @@ class UpdateForResponsibilitiesTest extends \PHPUnit\Framework\TestCase
 
         static::assertEquals('unit_tmType', $command->getTmType());
         static::assertEquals('unit_isOwner', $command->getIsOwner());
+        static::assertEquals('Y', $command->getHasUndertakenTraining());
         static::assertEquals('unit_hoursMon', $command->getHoursMon());
         static::assertEquals('unit_hoursTue', $command->getHoursTue());
         static::assertEquals('unit_hoursWed', $command->getHoursWed());
