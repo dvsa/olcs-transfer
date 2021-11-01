@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Update Operating Centres
- *
- * @author Rob Caiger <rob@clocal.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
@@ -36,15 +31,23 @@ final class UpdateOperatingCentres extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"\Laminas\Filter\ToInt"})
      * @Transfer\Validator({"name": "Digits"})
-     * @Transfer\Validator({"name": "Between", "options": {"min":1, "max": 1000000}})
+     * @Transfer\Validator({"name": "Between", "options": {"min":1, "max": 5000}})
      * @Transfer\Optional
      */
-    protected $totAuthVehicles;
+    protected $totAuthHgvVehicles;
 
     /**
      * @Transfer\Filter({"name":"\Laminas\Filter\ToInt"})
      * @Transfer\Validator({"name": "Digits"})
-     * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 1000000}})
+     * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 5000}})
+     * @Transfer\Optional
+     */
+    protected $totAuthLgvVehicles;
+
+    /**
+     * @Transfer\Filter({"name":"\Laminas\Filter\ToInt"})
+     * @Transfer\Validator({"name": "Digits"})
+     * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 5000}})
      * @Transfer\Optional
      */
     protected $totAuthTrailers;
@@ -52,7 +55,7 @@ final class UpdateOperatingCentres extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"\Laminas\Filter\ToInt"})
      * @Transfer\Validator({"name": "Digits"})
-     * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 1000000}})
+     * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 10000}})
      * @Transfer\Optional
      */
     protected $totCommunityLicences;
@@ -90,9 +93,17 @@ final class UpdateOperatingCentres extends AbstractCommand
     /**
      * @return mixed
      */
-    public function getTotAuthVehicles()
+    public function getTotAuthHgvVehicles()
     {
-        return $this->totAuthVehicles;
+        return $this->totAuthHgvVehicles;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTotAuthLgvVehicles()
+    {
+        return $this->totAuthLgvVehicles;
     }
 
     /**

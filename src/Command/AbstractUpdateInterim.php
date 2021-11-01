@@ -41,10 +41,18 @@ abstract class AbstractUpdateInterim extends AbstractCommand
     /**
      * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
      * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 1, "inclusive": true}})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0, "inclusive": true}})
      * @Transfer\Optional
      */
-    protected $authVehicles;
+    protected $authHgvVehicles;
+
+    /**
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0, "inclusive": true}})
+     * @Transfer\Optional
+     */
+    protected $authLgvVehicles;
 
     /**
      * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
@@ -139,13 +147,23 @@ abstract class AbstractUpdateInterim extends AbstractCommand
     }
 
     /**
-     * Get auth vehicles
+     * Get auth HGV vehicles
      *
      * @return int
      */
-    public function getAuthVehicles()
+    public function getAuthHgvVehicles()
     {
-        return $this->authVehicles;
+        return $this->authHgvVehicles;
+    }
+
+    /**
+     * Get auth LGV vehicles
+     *
+     * @return int
+     */
+    public function getAuthLgvVehicles()
+    {
+        return $this->authLgvVehicles;
     }
 
     /**

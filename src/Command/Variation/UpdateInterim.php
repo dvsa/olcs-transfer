@@ -11,11 +11,4 @@ use Dvsa\Olcs\Transfer\Command\AbstractUpdateInterim;
  */
 final class UpdateInterim extends AbstractUpdateInterim
 {
-    /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0, "inclusive": true}})
-     * @Transfer\Optional
-     */
-    protected $authVehicles;
 }
