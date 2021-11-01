@@ -22,5 +22,5 @@ final class UpdateInterim extends AbstractUpdateInterim
      * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 1, "inclusive": true}})
      * @Transfer\Optional
      */
-    protected $authVehicles;
+    protected $authHgvVehicles;
 }

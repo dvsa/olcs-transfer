@@ -39,6 +39,16 @@ final class UpdateFinancialStandingRate extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({
+     *      "name":"Laminas\Validator\InArray",
+     *      "options": {"haystack": {"fin_sta_veh_typ_na","fin_sta_veh_typ_hgv","fin_sta_veh_typ_lgv"}}
+     * })
+     * @Transfer\Optional
+     */
+    protected $vehicleType;
+
+    /**
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money"})
      */
     protected $firstVehicleRate;
@@ -72,6 +82,16 @@ final class UpdateFinancialStandingRate extends AbstractCommand
     public function getLicenceType()
     {
         return $this->licenceType;
+    }
+
+    /**
+     * Gets the value of vehicleType.
+     *
+     * @return mixed
+     */
+    public function getVehicleType()
+    {
+        return $this->vehicleType;
     }
 
     /**

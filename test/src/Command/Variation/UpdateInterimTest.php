@@ -13,7 +13,8 @@ class UpdateInterimTest extends \PHPUnit\Framework\TestCase
             'reason' => 'many reasons',
             'startDate' => '2018-01-02',
             'endDate' => '2018-05-30',
-            'authVehicles' => 4,
+            'authHgvVehicles' => 4,
+            'authLgvVehicles' => 5,
             'authTrailers' => 6,
             'operatingCentres' => 1,
             'vehicles' => 2,
@@ -27,7 +28,8 @@ class UpdateInterimTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('many reasons', $command->getReason());
         $this->assertEquals('2018-01-02', $command->getStartDate());
         $this->assertEquals('2018-05-30', $command->getEndDate());
-        $this->assertEquals(4, $command->getAuthVehicles());
+        $this->assertEquals(4, $command->getAuthHgvVehicles());
+        $this->assertEquals(5, $command->getAuthLgvVehicles());
         $this->assertEquals(6, $command->getAuthTrailers());
         $this->assertEquals(1, $command->getOperatingCentres());
         $this->assertEquals(2, $command->getVehicles());
