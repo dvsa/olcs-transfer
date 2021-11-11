@@ -13,7 +13,13 @@ return [
                 [
                     'POST' => CommandConfig::getPostConfig(Command\Auth\Login::class),
                 ]
-            )
+            ),
+            'refresh-token' => RouteConfig::getRouteConfig(
+                'refresh-token',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\Auth\RefreshToken::class)
+                ]
+            ),
         ]
     )
 ];
