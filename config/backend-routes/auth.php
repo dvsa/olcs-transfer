@@ -2,6 +2,7 @@
 
 use Dvsa\Olcs\Transfer\Command\Auth\ChangePassword;
 use Dvsa\Olcs\Transfer\Command\Auth\Login;
+use Dvsa\Olcs\Transfer\Command\Auth\RefreshToken;
 use Dvsa\Olcs\Transfer\Router\CommandConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
 
@@ -23,6 +24,12 @@ return [
                 'change-password',
                 [
                     'POST' => CommandConfig::getPostConfig(ChangePassword::class)
+                ]
+            ),
+            'refresh-token' => RouteConfig::getRouteConfig(
+                'refresh-token',
+                [
+                    'POST' => CommandConfig::getPostConfig(RefreshToken::class)
                 ]
             ),
         ]
