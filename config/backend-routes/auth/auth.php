@@ -20,6 +20,12 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Auth\RefreshToken::class)
                 ]
             ),
+            'change-expired-password' => RouteConfig::getRouteConfig(
+                'change-expired-password',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\Auth\ChangeExpiredPassword::class),
+                ]
+            )
         ]
     )
 ];
