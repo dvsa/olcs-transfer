@@ -1,5 +1,6 @@
 <?php
 
+use Dvsa\Olcs\Transfer\Command\Auth\ChangeExpiredPassword;
 use Dvsa\Olcs\Transfer\Command\Auth\ChangePassword;
 use Dvsa\Olcs\Transfer\Command\Auth\Login;
 use Dvsa\Olcs\Transfer\Command\Auth\RefreshToken;
@@ -30,6 +31,12 @@ return [
                 'refresh-token',
                 [
                     'POST' => CommandConfig::getPostConfig(RefreshToken::class)
+                ]
+            ),
+            'change-expired-password' => RouteConfig::getRouteConfig(
+                'change-expired-password',
+                [
+                    'POST' => CommandConfig::getPostConfig(ChangeExpiredPassword::class)
                 ]
             ),
         ]
