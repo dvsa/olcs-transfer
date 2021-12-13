@@ -17,7 +17,7 @@ return [
             'refresh-token' => RouteConfig::getRouteConfig(
                 'refresh-token',
                 [
-                    'POST' => CommandConfig::getPostConfig(Command\Auth\RefreshToken::class)
+                    'POST' => CommandConfig::getPostConfig(Command\Auth\RefreshTokens::class)
                 ]
             ),
             'change-expired-password' => RouteConfig::getRouteConfig(
