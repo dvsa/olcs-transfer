@@ -4,21 +4,22 @@ declare(strict_types = 1);
 
 namespace Dvsa\OlcsTest\Transfer\Command\Auth;
 
-use Dvsa\Olcs\Transfer\Command\Auth\RefreshToken;
+use Dvsa\Olcs\Transfer\Command\Auth\RefreshTokens;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @see RefreshToken
  */
-class RefreshTokenTest extends TestCase
+class RefreshTokensTest extends TestCase
 {
     public function testStructure(): void
     {
         $refreshToken = 'refresh-token';
+        $username = 'username';
 
-        $data = ['refreshToken' => $refreshToken];
+        $data = ['refreshToken' => $refreshToken, 'username' => $username];
 
-        $command = RefreshToken::create($data);
+        $command = RefreshTokens::create($data);
 
         $this->assertEquals($refreshToken, $command->getRefreshToken());
     }
