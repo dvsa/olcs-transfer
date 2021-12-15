@@ -307,12 +307,16 @@ class CacheEncryption
      * Decrypt a value using the specified encryption key
      *
      * @param string $encryptionKey
-     * @param string $encryptedValue
+     * @param ?string $encryptedValue
      *
      * @return string
      */
-    private function decrypt(string $encryptionKey, string $encryptedValue): string
+    private function decrypt(string $encryptionKey, ?string $encryptedValue): ?string
     {
+        if (is_null($encryptedValue)) {
+            return $encryptedValue;
+        }
+
         $this->encryptor->setKey($encryptionKey);
         return $this->encryptor->decrypt($encryptedValue);
     }

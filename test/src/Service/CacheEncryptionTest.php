@@ -66,6 +66,22 @@ class CacheEncryptionTest extends MockeryTestCase
         self::assertEquals($unserialisedValue, $sut->getCustomItem($identifier, $uniqueId));
     }
 
+    public function testGetItemWhenItemNotFound()
+    {
+        $cacheKey = $this->cacheIdentifier . $this->nodeSuffix;
+
+        $cache = m::mock(StorageInterface::class);
+        $cache->expects('getItem')->with($cacheKey)->andReturnNull();
+
+        $encryptor = m::mock(BlockCipher::class);
+        $encryptor->shouldNotReceive('setKey');
+        $encryptor->shouldNotReceive('decrypt');
+
+        $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+
+        self::isNull($sut->getItem($this->cacheIdentifier, CacheEncryption::ENCRYPTION_MODE_NODE));
+    }
+
     /**
      * Test setting a cache item
      *
