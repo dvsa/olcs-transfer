@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
+        "php": ">=7.4",
         "ext-openssl": "*",
         "laminas/laminas-crypt": "^3.0",
         "laminas/laminas-filter": "^2.5",
