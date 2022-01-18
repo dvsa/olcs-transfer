@@ -2,8 +2,10 @@
 
 use Dvsa\Olcs\Transfer\Command\Auth\ChangeExpiredPassword;
 use Dvsa\Olcs\Transfer\Command\Auth\ChangePassword;
+use Dvsa\Olcs\Transfer\Command\Auth\ForgotPassword;
 use Dvsa\Olcs\Transfer\Command\Auth\Login;
 use Dvsa\Olcs\Transfer\Command\Auth\RefreshTokens;
+use Dvsa\Olcs\Transfer\Command\Auth\ResetPassword;
 use Dvsa\Olcs\Transfer\Router\CommandConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
 
@@ -25,6 +27,18 @@ return [
                 'change-password',
                 [
                     'POST' => CommandConfig::getPostConfig(ChangePassword::class)
+                ]
+            ),
+            'reset-password' => RouteConfig::getRouteConfig(
+                'reset-password',
+                [
+                    'POST' => CommandConfig::getPostConfig(ResetPassword::class)
+                ]
+            ),
+            'forgot-password' => RouteConfig::getRouteConfig(
+                'forgot-password',
+                [
+                    'POST' => CommandConfig::getPostConfig(ForgotPassword::class)
                 ]
             ),
             'refresh-tokens' => RouteConfig::getRouteConfig(
