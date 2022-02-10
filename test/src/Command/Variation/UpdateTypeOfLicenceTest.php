@@ -15,6 +15,8 @@ class UpdateTypeOfLicenceTest extends \PHPUnit\Framework\TestCase
             'id' => 111,
             'version' => 2,
             'licenceType' => 'ltyp_sn',
+            'vehicleType' => 'app_veh_type_mixed',
+            'lgvDeclarationConfirmation' => '1',
             'foo' => 'bar'
         ];
 
@@ -23,5 +25,7 @@ class UpdateTypeOfLicenceTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(111, $command->getId());
         $this->assertEquals(2, $command->getVersion());
         $this->assertEquals('ltyp_sn', $command->getLicenceType());
+        $this->assertEquals('app_veh_type_mixed', $command->getVehicleType());
+        $this->assertEquals('1', $command->getLgvDeclarationConfirmation());
     }
 }
