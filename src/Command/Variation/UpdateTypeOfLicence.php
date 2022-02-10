@@ -9,6 +9,8 @@ namespace Dvsa\Olcs\Transfer\Command\Variation;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits\LgvDeclarationConfirmation;
+use Dvsa\Olcs\Transfer\FieldType\Traits\VehicleType;
 
 /**
  * @Transfer\RouteName("backend/variation/single/type-of-licence")
@@ -16,6 +18,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateTypeOfLicence extends AbstractCommand
 {
+    use LgvDeclarationConfirmation, VehicleType;
+
     /**
      * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
      * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
