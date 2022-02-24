@@ -955,7 +955,6 @@ $routes = [
                                 'may_terminate' => false,
                                 'child_routes' => [
                                     'GET' => QueryConfig::getConfig(Query\Licence\TypeOfLicence::class),
-                                    'PUT' => CommandConfig::getPutConfig(Command\Licence\UpdateTypeOfLicence::class),
                                 ]
                             ],
                             'addresses' => [
