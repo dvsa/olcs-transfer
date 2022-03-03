@@ -2,6 +2,7 @@
 
 namespace Dvsa\OlcsTest\Transfer\Service;
 
+use Dvsa\Olcs\Transfer\Query\QueryContainerInterface;
 use Dvsa\Olcs\Transfer\Service\CacheEncryption;
 use Mockery as m;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
@@ -9,11 +10,6 @@ use Laminas\Cache\Storage\Adapter\AdapterOptions;
 use Laminas\Cache\Storage\StorageInterface;
 use Laminas\Crypt\BlockCipher;
 
-/**
- * CacheEncryptionTest
- *
- * @author Ian Lindsay <ian@hemera-business-services.co.uk>
- */
 class CacheEncryptionTest extends MockeryTestCase
 {
     private $nodeKey = 'nodeKey';
@@ -79,7 +75,7 @@ class CacheEncryptionTest extends MockeryTestCase
 
         $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
 
-        self::isNull($sut->getItem($this->cacheIdentifier, CacheEncryption::ENCRYPTION_MODE_NODE));
+        self::assertNull($sut->getItem($this->cacheIdentifier, CacheEncryption::ENCRYPTION_MODE_NODE));
     }
 
     /**
@@ -161,10 +157,10 @@ class CacheEncryptionTest extends MockeryTestCase
         $identifier = CacheEncryption::TRANSLATION_KEY_IDENTIFIER;
         $encryptor = m::mock(BlockCipher::class);
         $uniqueId = 'uniqueid';
-        $cacheKey = $identifier . $uniqueId;
+        $cacheKey = $identifier . $uniqueId . CacheEncryption::ENCRYPTION_PUBLIC_NODE_SUFFIX;
 
         $cache = m::mock(StorageInterface::class);
-        $cache->expects('removeItem')->with($cacheKey, CacheEncryption::ENCRYPTION_MODE_PUBLIC)->andReturnTrue();
+        $cache->expects('removeItem')->with($cacheKey)->andReturnTrue();
 
         $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
         self::assertTrue($sut->removeCustomItem($identifier, $uniqueId));
@@ -278,5 +274,58 @@ class CacheEncryptionTest extends MockeryTestCase
 
         $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
         self::assertTrue($sut->setItem($this->cacheIdentifier, 'made up encryption mode', 'value'));
+    }
+
+    public function testGetCustomCacheIdentifierForCqrs(): void
+    {
+        $cache = m::mock(StorageInterface::class);
+        $encryptor = m::mock(BlockCipher::class);
+        $dto = m::mock(QueryContainerInterface::class);
+
+        $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+        $map = CacheEncryption::QUERY_MAP;
+
+        foreach ($map as $dtoClass => $cacheIdentifier) {
+            $dto->expects('getDtoClassName')->andReturn($dtoClass);
+            self::assertEquals($cacheIdentifier, $sut->getCustomCacheIdentifierForCqrs($dto));
+        }
+
+        $dto->expects('getDtoClassName')->andReturn('dto');
+
+        $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+        self::assertNull($sut->getCustomCacheIdentifierForCqrs($dto));
+    }
+
+    public function testGetCustomCacheIdentifierForCqrsWhenNull(): void
+    {
+        $cache = m::mock(StorageInterface::class);
+        $encryptor = m::mock(BlockCipher::class);
+        $dto = m::mock(QueryContainerInterface::class);
+        $dto->expects('getDtoClassName')->andReturn('dto');
+
+        $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+        self::assertNull($sut->getCustomCacheIdentifierForCqrs($dto));
+    }
+
+    public function testGetQueryFromCustomIdentifier(): void
+    {
+        $cache = m::mock(StorageInterface::class);
+        $encryptor = m::mock(BlockCipher::class);
+
+        $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+        $map = CacheEncryption::QUERY_MAP;
+
+        foreach ($map as $dtoClass => $cacheIdentifier) {
+            self::assertEquals($dtoClass, $sut->getQueryFromCustomIdentifier($cacheIdentifier));
+        }
+    }
+
+    public function testGetQueryFromCustomIdentifierWhenNull(): void
+    {
+        $cache = m::mock(StorageInterface::class);
+        $encryptor = m::mock(BlockCipher::class);
+
+        $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+        self::assertNull($sut->getQueryFromCustomIdentifier('missing identifier'));
     }
 }

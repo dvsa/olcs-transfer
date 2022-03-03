@@ -7,6 +7,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Query\SystemParameter;
 
+use Dvsa\Olcs\Transfer\Query\CustomCacheableInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;

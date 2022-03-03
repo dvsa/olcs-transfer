@@ -2,6 +2,9 @@
 
 namespace Dvsa\Olcs\Transfer\Service;
 
+use Dvsa\Olcs\Transfer\Query\QueryContainerInterface;
+use Dvsa\Olcs\Transfer\Query\SystemParameter\SystemParameter;
+use Dvsa\Olcs\Transfer\Query\SystemParameter\SystemParameterList;
 use Laminas\Cache\Storage\Adapter\AdapterOptions;
 use Laminas\Cache\Storage\StorageInterface;
 use Laminas\Crypt\BlockCipher;
@@ -25,14 +28,41 @@ class CacheEncryption
     const TRANSLATION_KEY_IDENTIFIER = 'translation_key';
     const TRANSLATION_REPLACEMENT_IDENTIFIER = 'translation_replacement';
 
+    const SYS_PARAM_IDENTIFIER = 'sys_param';
+    const SYS_PARAM_LIST_IDENTIFIER = 'sys_param_list';
+    const TRAFFIC_AREA_GB_LIST_IDENTIFIER = 'traffic_area_gb_list';
+    const TRAFFIC_AREA_NI_LIST_IDENTIFIER = 'traffic_area_ni_list';
     const USER_ACCOUNT_IDENTIFIER = 'user_account';
+    const USER_TA_LIST_IDENTIFIER = 'user_ta_list';
 
     /** @var string[] a list of caches held against a user id */
     const USER_CACHES = [
+        self::USER_TA_LIST_IDENTIFIER,
         self::USER_ACCOUNT_IDENTIFIER
     ];
 
+    const QUERY_MAP = [
+        SystemParameter::class => self::SYS_PARAM_IDENTIFIER,
+        SystemParameterList::class => self::SYS_PARAM_LIST_IDENTIFIER,
+    ];
+
     const CUSTOM_CACHE_TYPE = [
+        self::SYS_PARAM_IDENTIFIER => [
+            'mode' => self::ENCRYPTION_MODE_PUBLIC,
+            'ttl' => self::TTL_60_DAYS,
+        ],
+        self::SYS_PARAM_LIST_IDENTIFIER => [
+            'mode' => self::ENCRYPTION_MODE_PUBLIC,
+            'ttl' => self::TTL_60_DAYS,
+        ],
+        self::TRAFFIC_AREA_GB_LIST_IDENTIFIER => [
+            'mode' => self::ENCRYPTION_MODE_PUBLIC,
+            'ttl' => self::TTL_60_DAYS,
+        ],
+        self::TRAFFIC_AREA_NI_LIST_IDENTIFIER => [
+            'mode' => self::ENCRYPTION_MODE_PUBLIC,
+            'ttl' => self::TTL_60_DAYS,
+        ],
         self::TRANSLATION_KEY_IDENTIFIER => [
             'mode' => self::ENCRYPTION_MODE_PUBLIC,
             'ttl' => self::TTL_60_DAYS,
@@ -154,7 +184,8 @@ class CacheEncryption
     public function removeCustomItem(string $cacheKey, string $uniqueId = ''): bool
     {
         $cacheConfig = $this->getCustomCacheConfig($cacheKey);
-        return @$this->cache->removeItem($cacheKey . $uniqueId, $cacheConfig['mode']);
+        $nodeSuffix = $this->getSuffix($cacheConfig['mode']);
+        return @$this->cache->removeItem($cacheKey . $uniqueId. $nodeSuffix);
     }
 
     /**
@@ -261,7 +292,7 @@ class CacheEncryption
             $cacheValue = $this->decrypt($encryptionKey, $cacheValue);
         }
 
-        return igbinary_unserialize($cacheValue);
+        return is_null($cacheValue) ? null : igbinary_unserialize($cacheValue);
     }
 
     /**
@@ -424,5 +455,27 @@ class CacheEncryption
     public function getNodeSuffix(): string
     {
         return $this->nodeSuffix;
+    }
+
+    /**
+     * @param QueryContainerInterface $queryContainer
+     *
+     * @return string|null
+     */
+    public function getCustomCacheIdentifierForCqrs(QueryContainerInterface $queryContainer): ?string
+    {
+        $dtoClass = $queryContainer->getDtoClassName();
+        return self::QUERY_MAP[$dtoClass] ?? null;
+    }
+
+    /**
+     * @param string $customCacheKey
+     *
+     * @return string|null
+     */
+    public function getQueryFromCustomIdentifier(string $customCacheKey): ?string
+    {
+        $map = array_flip(self::QUERY_MAP);
+        return $map[$customCacheKey] ?? null;
     }
 }
