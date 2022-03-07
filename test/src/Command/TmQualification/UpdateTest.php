@@ -39,7 +39,9 @@ class UpdateTest extends TestCase
                 "tm_qt_nicpcsi",
                 "tm_qt_nicpcsn",
                 "tm_qt_niexsi",
-                "tm_qt_niexsn"
+                "tm_qt_niexsn",
+                'tm_qt_lgvar',
+                'tm_qt_nilgvar',
             ],
             'serialNo' => [str_repeat('a', 50)],
             'countryCode' => ['a', 'aa'],

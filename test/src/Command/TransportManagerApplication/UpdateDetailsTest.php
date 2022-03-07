@@ -16,6 +16,7 @@ class UpdateDetailsTest extends \PHPUnit\Framework\TestCase
             'version' => 888,
             'email' => 'unit_email',
             'placeOfBirth' => 'unit_placeOfBirth',
+            'lgvAcquiredRightsReferenceNumber' => 'unit_lgvArRefNumber',
             'homeAddress' => 'unit_homeAddress',
             'workAddress' => 'unit_workAddress',
             'tmType' => 'unit_tmType',
@@ -44,6 +45,7 @@ class UpdateDetailsTest extends \PHPUnit\Framework\TestCase
 
         static::assertEquals('unit_email', $command->getEmail());
         static::assertEquals('unit_placeOfBirth', $command->getPlaceOfBirth());
+        static::assertEquals('unit_lgvArRefNumber', $command->getLgvAcquiredRightsReferenceNumber());
         static::assertEquals('unit_homeAddress', $command->getHomeAddress());
         static::assertEquals('unit_workAddress', $command->getWorkAddress());
         static::assertEquals('unit_tmType', $command->getTmType());

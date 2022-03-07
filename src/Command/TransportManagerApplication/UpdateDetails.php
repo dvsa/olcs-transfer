@@ -28,6 +28,13 @@ final class UpdateDetails extends AbstractCommand
     protected $placeOfBirth;
 
     /**
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options": {"min": 7, "max": 7}})
+     * @Transfer\Optional
+     */
+    protected $lgvAcquiredRightsReferenceNumber;
+
+    /**
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\AddressOptional")
      */
     protected $homeAddress;
@@ -172,6 +179,16 @@ final class UpdateDetails extends AbstractCommand
     public function getPlaceOfBirth()
     {
         return $this->placeOfBirth;
+    }
+
+    /**
+     * Get LGV Acquired Rights Reference Number
+     *
+     * @return string
+     */
+    public function getLgvAcquiredRightsReferenceNumber()
+    {
+        return $this->lgvAcquiredRightsReferenceNumber;
     }
 
     /**

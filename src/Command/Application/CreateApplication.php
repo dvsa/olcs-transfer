@@ -9,13 +9,17 @@ namespace Dvsa\Olcs\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
-
+use Dvsa\Olcs\Transfer\FieldType\Traits\LgvDeclarationConfirmation;
+use Dvsa\Olcs\Transfer\FieldType\Traits\VehicleType;
+    
 /**
  * @Transfer\RouteName("backend/application")
  * @Transfer\Method("POST")
  */
 final class CreateApplication extends AbstractCommand
 {
+    use LgvDeclarationConfirmation, VehicleType;
+
     /**
      * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"lcat_gv","lcat_psv"}}})
