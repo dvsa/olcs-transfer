@@ -96,7 +96,6 @@ class UpdateUserTest extends TestCase
         return [
             'id' => [[1, '1']],
             'version' => [[2, '2']],
-            'loginId' => [['local-authority ', 'local-authority']],
             'resetPassword' => [['email ', 'email']],
             'osType' => [['windows_71 ', 'windows_71']],
             'userType' => [['partner ', 'partner']],

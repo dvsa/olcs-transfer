@@ -251,6 +251,10 @@ class CacheEncryption
         $nodeSuffix = $this->getSuffix($encryptionMode);
         $cacheValue = $this->cache->getItem($cacheKey . $nodeSuffix);
 
+        if (is_null($cacheValue)) {
+            return null;
+        }
+
         //if the encryption mode for this query is public then it won't have been encrypted
         if ($encryptionMode !== self::ENCRYPTION_MODE_PUBLIC) {
             $encryptionKey = $this->getEncryptionKey($encryptionMode);

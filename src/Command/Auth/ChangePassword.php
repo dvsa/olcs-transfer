@@ -18,5 +18,4 @@ final class ChangePassword extends AbstractCommand
 {
     use Password;
     use NewPassword;
-    use Realm;
 }
