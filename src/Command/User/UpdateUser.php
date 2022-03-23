@@ -33,12 +33,6 @@ final class UpdateUser extends AbstractCommand
 
     /**
      * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Username"})
-     */
-    protected $loginId;
-
-    /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({
      *     "name":"Laminas\Validator\InArray",
      *     "options": {
@@ -207,11 +201,6 @@ final class UpdateUser extends AbstractCommand
     public function getContactDetails()
     {
         return $this->contactDetails;
-    }
-
-    public function getLoginId()
-    {
-        return $this->loginId;
     }
 
     public function getAccountDisabled()

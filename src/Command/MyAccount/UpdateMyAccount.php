@@ -39,12 +39,6 @@ final class UpdateMyAccount extends AbstractCommand
     protected $team;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Username"})
-     */
-    protected $loginId;
-
-    /**
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\ContactDetails")
      */
     protected $contactDetails;
@@ -71,14 +65,6 @@ final class UpdateMyAccount extends AbstractCommand
     public function getTeam()
     {
         return $this->team;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLoginId()
-    {
-        return $this->loginId;
     }
 
     /**

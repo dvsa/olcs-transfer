@@ -32,12 +32,6 @@ final class UpdateMyAccountSelfserve extends AbstractCommand
     protected $version;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Username"})
-     */
-    protected $loginId;
-
-    /**
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\ContactDetails")
      */
     protected $contactDetails;
@@ -56,14 +50,6 @@ final class UpdateMyAccountSelfserve extends AbstractCommand
     public function getVersion()
     {
         return $this->version;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLoginId()
-    {
-        return $this->loginId;
     }
 
     /**

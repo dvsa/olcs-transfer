@@ -14,6 +14,7 @@ class ChangeExpiredPasswordResult
     public const FAILURE_NEW_PASSWORD_INVALID = -1;
     public const FAILURE_CLIENT_ERROR = -2;
     public const FAILURE_NOT_AUTHORIZED = -3;
+    public const FAILURE_NEW_PASSWORD_MATCHES_OLD = -4;
 
     /**
      * @var int

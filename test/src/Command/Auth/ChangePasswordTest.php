@@ -15,18 +15,15 @@ class ChangePasswordTest extends \PHPUnit\Framework\TestCase
     {
         $password = 'password';
         $newPassword = 'new password';
-        $realm = 'realm';
 
         $data = [
             'password' => $password,
             'newPassword' => $newPassword,
-            'realm' => $realm,
         ];
 
         $command = ChangePassword::create($data);
 
         $this->assertEquals($password, $command->getPassword());
         $this->assertEquals($newPassword, $command->getNewPassword());
-        $this->assertEquals($realm, $command->getRealm());
     }
 }
