@@ -8,6 +8,7 @@
 namespace Dvsa\Olcs\Transfer\Command\Licence;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\FieldType\Traits\UnvalidatedVrm;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Vrm;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
@@ -19,7 +20,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class CreateGoodsVehicle extends AbstractCommand
 {
     use Identity,
-        Vrm;
+        Vrm,
+        UnvalidatedVrm;
 
     /**
      * @Transfer\Filter({"name":"Laminas\Filter\Digits"})

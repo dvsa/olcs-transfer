@@ -37,8 +37,6 @@ class CreateStatement extends AbstractCommand
     protected $assignedCaseworker = null;
 
     /**
-     * @Transfer\Filter({"name":"\Dvsa\Olcs\Transfer\Filter\Vrm"})
-     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\Vrm"})
      */
     protected $vrm = null;
 

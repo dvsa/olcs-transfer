@@ -86,8 +86,6 @@ class UpdateComplaint extends AbstractCommand
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"\Dvsa\Olcs\Transfer\Filter\Vrm"})
-     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\Vrm"})
      */
     protected $vrm = null;
 
