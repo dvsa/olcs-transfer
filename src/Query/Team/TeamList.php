@@ -1,9 +1,9 @@
 <?php
 
 /**
- * Get a list of Teams
- *
- * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
+ * This query is used on internal only to retrieve a list of teams.
+ * For internal users with limited permissions, the backend will proxy
+ * to Dvsa\Olcs\Api\Domain\Query\Team\TeamListByTrafficArea
  */
 namespace Dvsa\Olcs\Transfer\Query\Team;
 
@@ -13,15 +13,13 @@ use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
-use Dvsa\Olcs\Transfer\Query\CacheableShortTermQueryInterface;
 
 /**
  * @Transfer\RouteName("backend/team")
  */
 final class TeamList extends AbstractQuery implements
     PagedQueryInterface,
-    OrderedQueryInterface,
-    CacheableShortTermQueryInterface
+    OrderedQueryInterface
 {
     use PagedTrait;
     use OrderedTrait;
