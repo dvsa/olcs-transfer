@@ -30,8 +30,6 @@ class CacheEncryption
 
     const SYS_PARAM_IDENTIFIER = 'sys_param';
     const SYS_PARAM_LIST_IDENTIFIER = 'sys_param_list';
-    const TRAFFIC_AREA_GB_LIST_IDENTIFIER = 'traffic_area_gb_list';
-    const TRAFFIC_AREA_NI_LIST_IDENTIFIER = 'traffic_area_ni_list';
     const USER_ACCOUNT_IDENTIFIER = 'user_account';
     const USER_TA_LIST_IDENTIFIER = 'user_ta_list';
 
@@ -55,14 +53,6 @@ class CacheEncryption
             'mode' => self::ENCRYPTION_MODE_PUBLIC,
             'ttl' => self::TTL_60_DAYS,
         ],
-        self::TRAFFIC_AREA_GB_LIST_IDENTIFIER => [
-            'mode' => self::ENCRYPTION_MODE_PUBLIC,
-            'ttl' => self::TTL_60_DAYS,
-        ],
-        self::TRAFFIC_AREA_NI_LIST_IDENTIFIER => [
-            'mode' => self::ENCRYPTION_MODE_PUBLIC,
-            'ttl' => self::TTL_60_DAYS,
-        ],
         self::TRANSLATION_KEY_IDENTIFIER => [
             'mode' => self::ENCRYPTION_MODE_PUBLIC,
             'ttl' => self::TTL_60_DAYS,
@@ -72,6 +62,10 @@ class CacheEncryption
             'ttl' => self::TTL_60_DAYS,
         ],
         self::USER_ACCOUNT_IDENTIFIER => [
+            'mode' => self::ENCRYPTION_MODE_SHARED,
+            'ttl' => self::TTL_2_MINUTES,
+        ],
+        self::USER_TA_LIST_IDENTIFIER => [
             'mode' => self::ENCRYPTION_MODE_SHARED,
             'ttl' => self::TTL_2_MINUTES,
         ],
