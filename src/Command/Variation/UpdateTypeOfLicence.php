@@ -43,6 +43,12 @@ final class UpdateTypeOfLicence extends AbstractCommand
      */
     protected $licenceType;
 
+    /**
+     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $confirm = false;
+
     public function getId()
     {
         return $this->id;
@@ -56,5 +62,10 @@ final class UpdateTypeOfLicence extends AbstractCommand
     public function getLicenceType()
     {
         return $this->licenceType;
+    }
+
+    public function getConfirm()
+    {
+        return $this->confirm;
     }
 }
