@@ -31,11 +31,9 @@ class CacheEncryption
     const SYS_PARAM_IDENTIFIER = 'sys_param';
     const SYS_PARAM_LIST_IDENTIFIER = 'sys_param_list';
     const USER_ACCOUNT_IDENTIFIER = 'user_account';
-    const USER_TA_LIST_IDENTIFIER = 'user_ta_list';
 
     /** @var string[] a list of caches held against a user id */
     const USER_CACHES = [
-        self::USER_TA_LIST_IDENTIFIER,
         self::USER_ACCOUNT_IDENTIFIER
     ];
 
@@ -62,10 +60,6 @@ class CacheEncryption
             'ttl' => self::TTL_60_DAYS,
         ],
         self::USER_ACCOUNT_IDENTIFIER => [
-            'mode' => self::ENCRYPTION_MODE_SHARED,
-            'ttl' => self::TTL_2_MINUTES,
-        ],
-        self::USER_TA_LIST_IDENTIFIER => [
             'mode' => self::ENCRYPTION_MODE_SHARED,
             'ttl' => self::TTL_2_MINUTES,
         ],

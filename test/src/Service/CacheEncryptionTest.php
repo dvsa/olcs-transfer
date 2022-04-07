@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dvsa\OlcsTest\Transfer\Service;
 
 use Dvsa\Olcs\Transfer\Query\QueryContainerInterface;
@@ -23,7 +25,7 @@ class CacheEncryptionTest extends MockeryTestCase
      *
      * @dataProvider dpGetSetItemProvider
      */
-    public function testGetItem($encryptionMode, $encryptionKey, $nodeSuffix)
+    public function testGetItem($encryptionMode, $encryptionKey, $nodeSuffix): void
     {
         $unserialisedValue = new \stdClass();
         $decryptedValue = igbinary_serialize($unserialisedValue);
@@ -44,7 +46,7 @@ class CacheEncryptionTest extends MockeryTestCase
     /**
      * Test getting a custom item (use translations as sample for config purposes)
      */
-    public function testGetCustomItem()
+    public function testGetCustomItem(): void
     {
         $unserialisedValue = new \stdClass();
         $serialisedValue = igbinary_serialize($unserialisedValue);
@@ -62,7 +64,7 @@ class CacheEncryptionTest extends MockeryTestCase
         self::assertEquals($unserialisedValue, $sut->getCustomItem($identifier, $uniqueId));
     }
 
-    public function testGetItemWhenItemNotFound()
+    public function testGetItemWhenItemNotFound(): void
     {
         $cacheKey = $this->cacheIdentifier . $this->nodeSuffix;
 
@@ -83,7 +85,7 @@ class CacheEncryptionTest extends MockeryTestCase
      *
      * @dataProvider dpGetSetItemProvider
      */
-    public function testSetItem($encryptionMode, $encryptionKey, $nodeSuffix)
+    public function testSetItem($encryptionMode, $encryptionKey, $nodeSuffix): void
     {
         $valueToBeEncrypted = new \stdClass();
         $serializedValue = igbinary_serialize($valueToBeEncrypted);
@@ -103,7 +105,7 @@ class CacheEncryptionTest extends MockeryTestCase
         self::assertTrue($sut->setItem($this->cacheIdentifier, $encryptionMode, $valueToBeEncrypted, $ttl));
     }
 
-    public function dpGetSetItemProvider()
+    public function dpGetSetItemProvider(): array
     {
         return [
             [CacheEncryption::ENCRYPTION_MODE_NODE, $this->nodeKey, $this->nodeSuffix],
@@ -114,7 +116,7 @@ class CacheEncryptionTest extends MockeryTestCase
     /**
      * Test setting an unencrypted item to the cache
      */
-    public function testSetItemPublic()
+    public function testSetItemPublic(): void
     {
         $valueToBeEncrypted = new \stdClass();
         $serializedValue = igbinary_serialize($valueToBeEncrypted);
@@ -134,7 +136,7 @@ class CacheEncryptionTest extends MockeryTestCase
     /**
      * Test setting a custom item (use translations as sample for config purposes)
      */
-    public function testSetCustomItem()
+    public function testSetCustomItem(): void
     {
         $valueToBeEncrypted = new \stdClass();
         $serializedValue = igbinary_serialize($valueToBeEncrypted);
@@ -152,7 +154,7 @@ class CacheEncryptionTest extends MockeryTestCase
         self::assertTrue($sut->setCustomItem($identifier, $valueToBeEncrypted, $uniqueId));
     }
 
-    public function testRemoveCustomItem()
+    public function testRemoveCustomItem(): void
     {
         $identifier = CacheEncryption::TRANSLATION_KEY_IDENTIFIER;
         $encryptor = m::mock(BlockCipher::class);
@@ -166,7 +168,7 @@ class CacheEncryptionTest extends MockeryTestCase
         self::assertTrue($sut->removeCustomItem($identifier, $uniqueId));
     }
 
-    public function testRemoveCustomItems()
+    public function testRemoveCustomItems(): void
     {
         $identifier = CacheEncryption::TRANSLATION_KEY_IDENTIFIER;
         $uniqueIds = ['uniqueId1', 'uniqueId2', 'uniqueId3'];
@@ -185,7 +187,7 @@ class CacheEncryptionTest extends MockeryTestCase
         $sut->removeCustomItems($identifier, $uniqueIds);
     }
 
-    public function testRemoveCustomItemsMissingIds()
+    public function testRemoveCustomItemsMissingIds(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage(CacheEncryption::ERR_NO_IDS_TO_DELETE);
@@ -198,7 +200,7 @@ class CacheEncryptionTest extends MockeryTestCase
     /**
      * @dataProvider dpHasItemProvider
      */
-    public function testHasItem($hasItem, $encryptionMode, $nodeSuffix)
+    public function testHasItem($hasItem, $encryptionMode, $nodeSuffix): void
     {
         $cacheKey = $this->cacheIdentifier . $nodeSuffix;
         $cache = m::mock(StorageInterface::class);
@@ -211,7 +213,7 @@ class CacheEncryptionTest extends MockeryTestCase
         self::assertEquals($sut->hasItem($this->cacheIdentifier, $encryptionMode), $hasItem);
     }
 
-    public function dpHasItemProvider()
+    public function dpHasItemProvider(): array
     {
         return [
             [true, CacheEncryption::ENCRYPTION_MODE_NODE, $this->nodeSuffix],
@@ -228,7 +230,7 @@ class CacheEncryptionTest extends MockeryTestCase
      *
      * @dataProvider dpTrueFalseProvider
      */
-    public function testHasCustomItem($hasItem)
+    public function testHasCustomItem($hasItem): void
     {
         $identifier = CacheEncryption::TRANSLATION_KEY_IDENTIFIER;
         $encryptor = m::mock(BlockCipher::class);
@@ -242,7 +244,7 @@ class CacheEncryptionTest extends MockeryTestCase
         self::assertEquals($sut->hasCustomItem($identifier, $uniqueId), $hasItem);
     }
 
-    public function dpTrueFalseProvider()
+    public function dpTrueFalseProvider(): array
     {
         return [
             [true],
@@ -250,7 +252,7 @@ class CacheEncryptionTest extends MockeryTestCase
         ];
     }
 
-    public function testMissingCustomConfig()
+    public function testMissingCustomConfig(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('missing config for cache type missing_cache_type');
@@ -265,7 +267,7 @@ class CacheEncryptionTest extends MockeryTestCase
     /**
      * Test that exception is thrown for missing encryption key
      */
-    public function testMissingEncryptionKeyException()
+    public function testMissingEncryptionKeyException(): void
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage(CacheEncryption::ERR_NO_KEY_AVAILABLE);

@@ -1,14 +1,8 @@
 <?php
 
-/**
- * System Parameter
- *
- * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Query\SystemParameter;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
-use Dvsa\Olcs\Transfer\Query\CustomCacheableInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
