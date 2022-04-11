@@ -37,6 +37,16 @@ class QueryContainer implements QueryContainerInterface
     }
 
     /**
+     * Can the data come directly from the Redis cache
+     *
+     * @return bool
+     */
+    public function isCustomCacheable(): bool
+    {
+        return ($this->dto instanceof CustomCacheableInterface);
+    }
+
+    /**
      * Can the DTO be cached for short term
      *
      * @return bool

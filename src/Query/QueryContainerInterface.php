@@ -15,6 +15,8 @@ interface QueryContainerInterface
 
     public function getInputFilter();
 
+    public function isCustomCacheable(): bool;
+
     public function isShortTermCacheable();
 
     public function isMediumTermCacheable();
@@ -28,8 +30,6 @@ interface QueryContainerInterface
     public function isSharedEncryptionCacheable(): bool;
 
     public function isStream();
-
-    public function getCacheIdentifier();
 
     public function setDto(QueryInterface $dto);
 
