@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 trait ExcludeLimitedReadOnlyOptional
@@ -12,7 +10,7 @@ trait ExcludeLimitedReadOnlyOptional
      */
     protected $excludeLimitedReadOnly;
 
-    public function getExcludeLimitedReadOnly(): ?bool
+    public function getExcludeLimitedReadOnly()
     {
         return $this->excludeLimitedReadOnly;
     }

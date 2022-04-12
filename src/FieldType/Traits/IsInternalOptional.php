@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 trait IsInternalOptional
@@ -12,7 +10,7 @@ trait IsInternalOptional
      */
     protected $isInternal;
 
-    public function getIsInternal(): ?bool
+    public function getIsInternal()
     {
         return $this->isInternal;
     }

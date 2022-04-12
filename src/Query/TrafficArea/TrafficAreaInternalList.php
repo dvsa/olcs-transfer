@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types = 1);
-
 namespace Dvsa\Olcs\Transfer\Query\TrafficArea;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\TrafficAreas;
