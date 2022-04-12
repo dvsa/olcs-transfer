@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 trait TeamOptional
@@ -13,7 +11,7 @@ trait TeamOptional
      */
     protected $team;
 
-    public function getTeam(): ?int
+    public function getTeam()
     {
         return $this->team;
     }
