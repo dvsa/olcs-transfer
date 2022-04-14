@@ -16,8 +16,11 @@ class ChangePasswordResult
     public const FAILURE_OLD_PASSWORD_INVALID = -4;
     public const FAILURE_PASSWORD_REUSE = -5;
 
-    public const MESSAGE_OLD_PASSWORD_INVALID = 'auth.change-password.failed.reason.Old password is incorrect.';
-    public const MESSAGE_PASSWORD_REUSE = 'auth.change-password.failed.reason.The password must be different. Try again.';
+    public const MESSAGE_NEW_PASSWORD_INVALID = 'auth.change-password.new-invalid';
+    public const MESSAGE_OLD_PASSWORD_INVALID = 'auth.change-password.old-invalid';
+    public const MESSAGE_PASSWORD_REUSE = 'auth.change-password.reuse';
+    public const MESSAGE_GENERIC_FAIL = 'auth.change-password.fail';
+    public const MESSAGE_GENERIC_SUCCESS = 'auth.change-password.success';
 
     private int $code;
     private ?string $message;
