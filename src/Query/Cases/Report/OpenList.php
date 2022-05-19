@@ -2,6 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Query\Cases\Report;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\TrafficAreasOptionalWithOther;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
@@ -13,19 +14,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class OpenList extends AbstractQuery implements PagedQueryInterface
 {
     use PagedTrait;
-
-    /**
-     * @var string
-     * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Dvsa\Olcs\Transfer\Validators\TrafficArea",
-     *     "options": {
-     *          "extraHaystack": {"OTHER"},
-     *     },
-     * })
-     */
-    protected $trafficArea = null;
+    use TrafficAreasOptionalWithOther;
 
     /**
      * @var string
@@ -52,16 +41,6 @@ class OpenList extends AbstractQuery implements PagedQueryInterface
      * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\LicenceStatus"})
      */
     protected $licenceStatus = null;
-
-    /**
-     * Get Traffic Area
-     *
-     * @return string
-     */
-    public function getTrafficArea()
-    {
-        return $this->trafficArea;
-    }
 
     /**
      * Get Case Type

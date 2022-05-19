@@ -2,6 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Query\CompaniesHouse;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\TrafficAreasOptional;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\CacheableShortTermQueryInterface;
 use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
@@ -21,6 +22,7 @@ class AlertList extends AbstractQuery implements
 {
     use PagedTraitOptional;
     use OrderedTraitOptional;
+    use TrafficAreasOptional;
 
     /**
      * @Transfer\Optional

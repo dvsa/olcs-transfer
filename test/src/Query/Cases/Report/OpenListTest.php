@@ -1,12 +1,14 @@
 <?php
 
-namespace Dvsa\OlcsTest\Transfer\Query\Category;
+declare(strict_types=1);
+
+namespace Dvsa\OlcsTest\Transfer\Query\Cases\Report;
 
 use Dvsa\Olcs\Transfer\Query\Cases\Report\OpenList;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
 
 /**
- * @covers \Dvsa\Olcs\Transfer\Query\Cases\Report\OpenList
+ * @see OpenList
  */
 class OpenListTest extends MockeryTestCase
 {
@@ -14,14 +16,14 @@ class OpenListTest extends MockeryTestCase
     {
         $sut = OpenList::create(
             [
-                'trafficArea' => 'unit_Ta',
+                'trafficAreas' => ['unit_Ta'],
                 'caseType' => 'unit_CaseType',
                 'applicationStatus' => 'unit_App',
                 'licenceStatus' => 'unit_Lic',
             ]
         );
 
-        static::assertEquals('unit_Ta', $sut->getTrafficArea());
+        static::assertEquals(['unit_Ta'], $sut->getTrafficAreas());
         static::assertEquals('unit_CaseType', $sut->getCaseType());
         static::assertEquals('unit_Lic', $sut->getLicenceStatus());
         static::assertEquals('unit_App', $sut->getApplicationStatus());

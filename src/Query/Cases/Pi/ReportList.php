@@ -20,26 +20,5 @@ class ReportList extends AbstractQuery implements PagedQueryInterface, OrderedQu
     use OrderedTrait;
     use FieldType\StartDate;
     use FieldType\EndDate;
-
-    /**
-     * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
-     *         "haystack": {"B","C","D","F","G","H","K","M","N","other"}
-     *     }
-     * })
-     * @Transfer\Optional
-     */
-    protected $trafficAreas = [];
-
-    /**
-     * @return array
-     */
-    public function getTrafficAreas()
-    {
-        return $this->trafficAreas;
-    }
+    use FieldType\TrafficAreasOptionalWithOther;
 }
