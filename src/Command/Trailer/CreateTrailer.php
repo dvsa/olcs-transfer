@@ -22,6 +22,13 @@ final class CreateTrailer extends AbstractCommand
     protected $trailerNo;
 
     /**
+     * @var string
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     */
+    protected $isLongerSemiTrailer;
+
+    /**
      * @var int
      * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
      * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
@@ -41,6 +48,14 @@ final class CreateTrailer extends AbstractCommand
     public function getTrailerNo()
     {
         return $this->trailerNo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIsLongerSemiTrailer()
+    {
+        return $this->isLongerSemiTrailer;
     }
 
     /**
