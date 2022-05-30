@@ -8,6 +8,7 @@
 namespace Dvsa\Olcs\Transfer\Command\Trailer;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IsLongerSemiTrailer;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
@@ -16,17 +17,12 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 final class CreateTrailer extends AbstractCommand
 {
+    use IsLongerSemiTrailer;
+
     /**
      * @var string
      */
     protected $trailerNo;
-
-    /**
-     * @var string
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
-     */
-    protected $isLongerSemiTrailer;
 
     /**
      * @var int
@@ -48,14 +44,6 @@ final class CreateTrailer extends AbstractCommand
     public function getTrailerNo()
     {
         return $this->trailerNo;
-    }
-
-    /**
-     * @return string
-     */
-    public function getIsLongerSemiTrailer()
-    {
-        return $this->isLongerSemiTrailer;
     }
 
     /**
