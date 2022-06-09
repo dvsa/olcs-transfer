@@ -24,4 +24,20 @@ class ById extends AbstractQuery implements CacheableShortTermQueryInterface
 {
     use IdentityString;
     use UniqueIdStringOptional;
+
+    /**
+     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
+     * @Transfer\Optional
+     */
+    protected $shouldRegen = false;
+
+    /**
+     * Whether the cache should be regenerated before returning the value
+     *
+     * @return bool
+     */
+    public function getShouldRegen()
+    {
+        return $this->shouldRegen;
+    }
 }
