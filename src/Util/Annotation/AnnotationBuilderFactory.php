@@ -2,6 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Util\Annotation;
 
+use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\FactoryInterface;
 use Laminas\ServiceManager\ServiceLocatorInterface;
 
@@ -12,18 +13,24 @@ use Laminas\ServiceManager\ServiceLocatorInterface;
  */
 class AnnotationBuilderFactory implements FactoryInterface
 {
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null): AnnotationBuilder
+    {
+        $service = new AnnotationBuilder();
+        $service->setFilterManager($container->get('FilterManager'));
+        $service->setValidatorManager($container->get('ValidatorManager'));
+
+        return $service;
+    }
+
     /**
      * Create service
      *
      * @param ServiceLocatorInterface $serviceLocator
      * @return mixed
+     * @deprecated Not needed for Laminas 3
      */
-    public function createService(ServiceLocatorInterface $serviceLocator)
+    public function createService(ServiceLocatorInterface $serviceLocator): AnnotationBuilder
     {
-        $service = new AnnotationBuilder();
-        $service->setFilterManager($serviceLocator->get('FilterManager'));
-        $service->setValidatorManager($serviceLocator->get('ValidatorManager'));
-
-        return $service;
+        return $this($serviceLocator, AnnotationBuilder::class);
     }
 }

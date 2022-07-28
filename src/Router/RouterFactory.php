@@ -5,6 +5,7 @@
  */
 namespace Dvsa\Olcs\Transfer\Router;
 
+use Interop\Container\ContainerInterface;
 use Laminas\ServiceManager\FactoryInterface;
 use Laminas\ServiceManager\ServiceLocatorInterface;
 
@@ -13,9 +14,9 @@ use Laminas\ServiceManager\ServiceLocatorInterface;
  */
 class RouterFactory implements FactoryInterface
 {
-    public function createService(ServiceLocatorInterface $serviceLocator, $cName = null, $rName = null)
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
-        $config = $serviceLocator->has('Config') ? $serviceLocator->get('Config') : [];
+        $config = $container->has('Config') ? $container->get('Config') : [];
 
         // Defaults
         $routerClass = 'Laminas\Mvc\Router\Http\TreeRouteStack';
@@ -28,12 +29,24 @@ class RouterFactory implements FactoryInterface
 
         // Inject the route plugins
         if (!isset($routerConfig['route_plugins'])) {
-            $routePluginManager = $serviceLocator->get('RoutePluginManager');
+            $routePluginManager = $container->get('RoutePluginManager');
             $routerConfig['route_plugins'] = $routePluginManager;
         }
 
         // Obtain an instance
         $factory = sprintf('%s::factory', $routerClass);
         return call_user_func($factory, $routerConfig);
+    }
+
+    /**
+     * @param ServiceLocatorInterface $serviceLocator
+     * @param $cName
+     * @param $rName
+     * @return mixed
+     * @deprecated Not needed after Laminas 3
+     */
+    public function createService(ServiceLocatorInterface $serviceLocator, $cName = null, $rName = null)
+    {
+        return $this($serviceLocator, null);
     }
 }
