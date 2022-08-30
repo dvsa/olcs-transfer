@@ -15,10 +15,12 @@ class PrintLetterTest extends \PHPUnit\Framework\TestCase
             [
                 'id' => 'unit_id',
                 'method' => 'unit_method',
+                'forceCorrespondence' => true,
             ]
         );
 
         static::assertEquals('unit_id', $command->getId());
         static::assertEquals('unit_method', $command->getMethod());
+        static::assertEquals(true, $command->getForceCorrespondence());
     }
 }
