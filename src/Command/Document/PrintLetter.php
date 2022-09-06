@@ -33,6 +33,13 @@ final class PrintLetter extends AbstractCommand
     protected $method;
 
     /**
+     * Ignore user preferences and always create correspondence inbox for letter.
+     *
+     * @var bool
+     */
+    protected $forceCorrespondence = false;
+
+    /**
      * Get Method
      *
      * @return string
@@ -40,5 +47,15 @@ final class PrintLetter extends AbstractCommand
     public function getMethod()
     {
         return $this->method;
+    }
+
+    /**
+     * Get Method
+     *
+     * @return bool
+     */
+    public function getForceCorrespondence()
+    {
+        return $this->forceCorrespondence;
     }
 }
