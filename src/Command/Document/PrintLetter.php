@@ -36,6 +36,7 @@ final class PrintLetter extends AbstractCommand
      * Ignore user preferences and always create correspondence inbox for letter.
      *
      * @var bool
+     * @Transfer\Optional
      */
     protected $forceCorrespondence = false;
 
