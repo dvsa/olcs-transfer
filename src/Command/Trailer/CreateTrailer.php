@@ -7,8 +7,9 @@
  */
 namespace Dvsa\Olcs\Transfer\Command\Trailer;
 
-use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IsLongerSemiTrailer;
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @Transfer\RouteName("backend/trailers")
@@ -16,6 +17,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class CreateTrailer extends AbstractCommand
 {
+    use IsLongerSemiTrailer;
+
     /**
      * @var string
      */
