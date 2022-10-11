@@ -20,11 +20,24 @@ final class AssignSubmission extends AbstractCommand
     use FieldType\Traits\Version;
 
     /**
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"tc", "other"}}})
+     */
+    protected $tcOrOther;
+
+    /**
      * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
      * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
      * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $recipientUser;
+
+    /**
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $presidingTcUser;
 
     /**
      * @Transfer\Optional
@@ -34,21 +47,14 @@ final class AssignSubmission extends AbstractCommand
     protected $urgent;
 
     /**
-     * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Date"})
+     * Get attached to
+     *
+     * @return string
      */
-    protected $assignedDate;
-
-
-    /**
-     * @return mixed
-     */
-    public function getAssignedDate()
+    public function getTcOrOther()
     {
-        return $this->assignedDate;
+        return $this->tcOrOther;
     }
-
 
     /**
      * @return mixed
@@ -56,6 +62,14 @@ final class AssignSubmission extends AbstractCommand
     public function getRecipientUser()
     {
         return $this->recipientUser;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPresidingTcUser()
+    {
+        return $this->presidingTcUser;
     }
 
     /**
