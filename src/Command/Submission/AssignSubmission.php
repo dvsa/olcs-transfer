@@ -20,12 +20,14 @@ final class AssignSubmission extends AbstractCommand
     use FieldType\Traits\Version;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"tc", "other"}}})
      */
     protected $tcOrOther;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
      * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
      * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
