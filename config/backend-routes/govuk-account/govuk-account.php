@@ -14,6 +14,12 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\GovUkAccount\ProcessAuthResponse::class),
                 ]
             ),
+            'get-govuk-account-redirect' => RouteConfig::getRouteConfig(
+                'get-govuk-account-redirect',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\GovUkAccount\GetGovUkAccountRedirect::class),
+                ]
+            ),
         ]
     )
 ];
