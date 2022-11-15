@@ -1,6 +1,6 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Command\GovUKAccount;
+namespace Dvsa\Olcs\Transfer\Command\GovUkAccount;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
