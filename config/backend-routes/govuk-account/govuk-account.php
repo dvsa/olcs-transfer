@@ -11,7 +11,7 @@ return [
             'process-auth-response' => RouteConfig::getRouteConfig(
                 'process-auth-response',
                 [
-                    'POST' => CommandConfig::getPostConfig(Command\GovUKAccount\ProcessAuthResponse::class),
+                    'POST' => CommandConfig::getPostConfig(Command\GovUkAccount\ProcessAuthResponse::class),
                 ]
             ),
         ]
