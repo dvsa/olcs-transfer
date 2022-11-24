@@ -3,6 +3,7 @@
 namespace Dvsa\Olcs\Transfer\Command\GovUkAccount;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @Transfer\RouteName("backend/govuk-account/process-auth-response")
