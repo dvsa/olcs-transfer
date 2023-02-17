@@ -82,16 +82,6 @@ return [
                             'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateServiceDetails::class)
                         ]
                     ],
-                    'end-date' => [
-                        'type' => 'Segment',
-                        'options' => [
-                            'route' => 'end-date[/]',
-                        ],
-                        'may_terminate' => false,
-                        'child_routes' => [
-                            'PUT' => CommandConfig::getPutConfig(Command\Bus\UpdateEndDate::class)
-                        ]
-                    ],
                     'service-register' => [
                         'type' => 'Segment',
                         'options' => [
