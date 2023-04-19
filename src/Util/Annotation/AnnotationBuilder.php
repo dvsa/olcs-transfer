@@ -72,10 +72,17 @@ class AnnotationBuilder
         $this->reader = $reader;
     }
 
+    /*
+     * @return AnnotationReader|null
+     */
     public function getReader()
     {
         if ($this->reader === null) {
             $this->setReader(new AnnotationReader());
+            // $this->reader->addGlobalIgnoredName('RouteName');
+            // // Dvsa\Olcs\Transfer\Util\Annotation
+            // $this->reader->addGlobalIgnoredName('Method');
+            // // Dvsa\Olcs\Transfer\Util\Annotation
         }
 
         return $this->reader;

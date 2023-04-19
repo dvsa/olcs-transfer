@@ -12,7 +12,7 @@ use Laminas\Stdlib\ArraySerializableInterface;
 /**
  * Trait DtoTest
  *
- * Do not use this directly - @see QueryTest
+ * Do not use this directly - @see QueryTest and CommandTest
  */
 trait DtoTest
 {
