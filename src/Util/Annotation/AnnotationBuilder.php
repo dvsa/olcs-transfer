@@ -11,10 +11,14 @@ use Doctrine\Common\Annotations\AnnotationReader;
 use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\Olcs\Transfer\Command\CommandContainer;
 use Dvsa\Olcs\Transfer\Util\StructuredInput;
-use Laminas\Filter\FilterPluginManager;
+use Laminas\Filter\FilterChain;
 use Laminas\Filter\StripTags as Escaper;
-use Laminas\Validator\ValidatorPluginManager;
+
+use Laminas\InputFilter\Input;
 use Laminas\InputFilter\InputFilter;
+
+use Laminas\Validator\ValidatorChain;
+use Laminas\Validator\ValidatorPluginManager;
 
 /**
  * Annotation Builder
@@ -79,10 +83,6 @@ class AnnotationBuilder
     {
         if ($this->reader === null) {
             $this->setReader(new AnnotationReader());
-            // $this->reader->addGlobalIgnoredName('RouteName');
-            // // Dvsa\Olcs\Transfer\Util\Annotation
-            // $this->reader->addGlobalIgnoredName('Method');
-            // // Dvsa\Olcs\Transfer\Util\Annotation
         }
 
         return $this->reader;
@@ -195,7 +195,7 @@ class AnnotationBuilder
         $input = null;
 
         $filterChain = $this->getNewFilterChain();
-        $validatorChain = new \Laminas\Validator\ValidatorChain();
+        $validatorChain = new ValidatorChain();
 
         $escape = true;
 
@@ -206,8 +206,8 @@ class AnnotationBuilder
 
                 $input = new \Dvsa\Olcs\Transfer\Util\ArrayInput($property->getName());
 
-                $arrayFilterChain = new \Laminas\Filter\FilterChain();
-                $arrayValidatorChain = new \Laminas\Validator\ValidatorChain();
+                $arrayFilterChain = new FilterChain();
+                $arrayValidatorChain = new ValidatorChain();
                 break;
             }
 
@@ -227,7 +227,7 @@ class AnnotationBuilder
         }
 
         if ($input === null) {
-            $input = new \Laminas\InputFilter\Input($property->getName());
+            $input = new Input($property->getName());
         }
 
         if ($isArrayInput) {
@@ -295,11 +295,11 @@ class AnnotationBuilder
     }
 
     /**
-     * @return \Laminas\Filter\FilterChain
+     * @return FilterChain
      */
     protected function getNewFilterChain()
     {
-        $filterChain = new \Laminas\Filter\FilterChain();
+        $filterChain = new FilterChain();
         $filterChain->setPluginManager($this->getFilterManager());
         return $filterChain;
     }

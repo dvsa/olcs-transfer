@@ -12,7 +12,6 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class AddressOptionalPostcode
 {
     /**
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
      * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
      * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
@@ -21,7 +20,6 @@ class AddressOptionalPostcode
     protected $id;
 
     /**
-     * @Transfer\Optional
      * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
      * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
      * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
