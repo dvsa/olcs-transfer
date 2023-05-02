@@ -3,6 +3,7 @@
 namespace Dvsa\OlcsTest\Transfer;
 
 use Mockery as m;
+use Doctrine\Common\Annotations\AnnotationRegistry;
 
 error_reporting(-1);
 chdir(dirname(__DIR__));
@@ -22,7 +23,7 @@ class Bootstrap
         $loader = static::initAutoloader();
         $loader->addPsr4('Dvsa\\OlcsTest\\Transfer\\', __DIR__ . '/src');
 
-        // AnnotationRegistry::registerLoader([$loader, 'loadClass']);
+        AnnotationRegistry::registerLoader([$loader, 'loadClass']);
 
         // Grab the application config
         $config = array(

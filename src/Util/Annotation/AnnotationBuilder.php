@@ -16,6 +16,7 @@ use Laminas\Filter\StripTags as Escaper;
 
 use Laminas\InputFilter\Input;
 use Laminas\InputFilter\InputFilter;
+use Laminas\Filter\FilterPluginManager;
 
 use Laminas\Validator\ValidatorChain;
 use Laminas\Validator\ValidatorPluginManager;
