@@ -23,8 +23,6 @@ class Bootstrap
         $loader = static::initAutoloader();
         $loader->addPsr4('Dvsa\\OlcsTest\\Transfer\\', __DIR__ . '/src');
 
-        AnnotationRegistry::registerLoader([$loader, 'loadClass']);
-
         // Grab the application config
         $config = array(
             'modules' => array(

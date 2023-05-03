@@ -12,16 +12,21 @@
         {
             "url": "https://nexus.olcs.dev-dvsacloud.uk/repository/Packagist-Proxy",
             "type": "composer"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/laminas/laminas-filter"
         }
     ],
     "require": {
         "php": ">=7.4",
         "ext-openssl": "*",
-        "olcs/olcs-laminas": "~2.5.0 || ~3.0.0"
+        "olcs/olcs-laminas": "~2.5.0 || ~3.0.0",
+        "laminas/laminas-filter": "^2.9"
     },
     "require-dev": {
         "olcs/olcs-devtools": "~4.206.0",
-        "doctrine/annotations": "^1.14.2"
+        "doctrine/annotations": "2.0.1"
     },
     "config": {
         "preferred-install": "dist",
