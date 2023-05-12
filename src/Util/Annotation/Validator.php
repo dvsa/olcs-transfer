@@ -11,19 +11,32 @@ use Laminas\Form\Annotation\Validator as LaminasValidator;
 
 /**
  * @Annotation
+ * @NamedArgumentConstructor
  */
-class Validator extends LaminasValidator
+class Validator
 {
+    protected LaminasValidator $validator;
+
+    public function __construct($name, array $options = [], ?bool $breakChainOnFailure = null, ?int $priority = null)
+    {
+        $this->validator = new LaminasValidator($name, $options, $breakChainOnFailure, $priority);
+    }
+
+    public function __call($name, $arguments)
+    {
+        return $this->validator->{$name}($arguments);
+    }
+
     public function getName()
     {
-        $spec = $this->getValidator();
+        $spec = $this->getValidatorSpecification();
 
         return $spec['name'];
     }
 
     public function getOptions()
     {
-        $spec = $this->getValidator();
+        $spec = $this->getValidatorSpecification();
 
         if (empty($spec['options'])) {
             return null;
