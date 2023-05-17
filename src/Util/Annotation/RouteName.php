@@ -7,8 +7,6 @@
  */
 namespace Dvsa\Olcs\Transfer\Util\Annotation;
 
-use Laminas\Form\Annotation\AbstractStringAnnotation;
-
 /**
  * @Annotation
  */

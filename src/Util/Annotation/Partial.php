@@ -11,7 +11,19 @@ use Laminas\Form\Annotation\ComposedObject;
 
 /**
  * @Annotation
+ * @NamedArgumentConstructor
  */
-class Partial extends ComposedObject
+class Partial
 {
+    protected ComposedObject $composedObject;
+
+    public function __construct(string $name)
+    {
+        $this->composedObject = new ComposedObject($name);
+    }
+
+    public function __call($name, $arguments)
+    {
+        return $this->composedObject->{$name}($arguments);
+    }
 }

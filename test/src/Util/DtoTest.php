@@ -3,9 +3,13 @@
 namespace Dvsa\OlcsTest\Transfer\Util;
 
 use Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilder;
+use Laminas\Filter\FilterPluginManager;
+use Laminas\ServiceManager\ServiceManager;
+use Laminas\Validator\ValidatorPluginManager;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
 use Dvsa\Olcs\Transfer\Command\CommandContainerInterface;
 use Laminas\InputFilter\InputFilterInterface;
+use Mockery as m;
 
 /**
  * Dto Test
@@ -23,7 +27,14 @@ class DtoTest extends MockeryTestCase
 
     public function setUp(): void
     {
-        $this->annotationBuilder = new AnnotationBuilder();
+        $serviceManager = m::mock(ServiceManager::class);
+
+        $annotationBuilder = new AnnotationBuilder();
+
+        $annotationBuilder->setFilterManager(new FilterPluginManager($serviceManager));
+        $annotationBuilder->setValidatorManager(new ValidatorPluginManager($serviceManager));
+
+        $this->annotationBuilder = $annotationBuilder;
     }
 
     public function testCommand()
