@@ -12,12 +12,12 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class ProcessAuthResponse extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     protected $code;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     protected $state;
 

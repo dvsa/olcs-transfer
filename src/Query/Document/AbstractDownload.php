@@ -17,7 +17,7 @@ class AbstractDownload extends AbstractQuery implements
     /**
      * @var  bool
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      */
     protected $isInline;
 

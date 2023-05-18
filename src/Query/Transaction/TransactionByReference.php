@@ -16,8 +16,8 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 class TransactionByReference extends AbstractQuery
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"min":1})
      */
     protected $reference;
 

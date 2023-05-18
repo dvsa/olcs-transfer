@@ -6,7 +6,7 @@ trait IsInternalOptional
 {
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      */
     protected $isInternal;
 

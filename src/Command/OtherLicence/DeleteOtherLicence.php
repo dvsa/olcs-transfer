@@ -18,8 +18,8 @@ final class DeleteOtherLicence extends AbstractCommand
 {
     /**
      * @Transfer\ArrayInput
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $ids = [];
 

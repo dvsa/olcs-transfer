@@ -15,7 +15,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractDeleteCommand;
 final class DeletePrinter extends AbstractDeleteCommand
 {
     /**
-     * @Transfer\Filter({"name": "Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
     protected $validate;

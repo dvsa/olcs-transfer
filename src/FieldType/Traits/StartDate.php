@@ -9,8 +9,8 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait StartDate
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      */
     protected $startDate;
 

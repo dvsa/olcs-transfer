@@ -13,37 +13,37 @@ class ContactDetails
 {
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $id;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $version;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":1,"max":90}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":1,"max":90})
      */
     protected $fao;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\EmailAddress"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\EmailAddress")
      * @Transfer\Optional
      */
     public $emailAddress;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":5,"max":255}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":5,"max":255})
      * @Transfer\Optional
      */
     public $description;
@@ -56,7 +56,7 @@ class ContactDetails
 
     /**
      * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
+     * @Transfer\ArrayFilter("Dvsa\Olcs\Transfer\Filter\FilterEmptyItems")
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\PhoneContact")
      * @Transfer\Optional
      */

@@ -15,14 +15,14 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class RemindUsernameSelfserve extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":2, "max":18}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":2,"max":18})
      */
     protected $licenceNumber;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\EmailAddress"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\EmailAddress")
      */
     public $emailAddress;
 

@@ -21,49 +21,48 @@ class UpdateTmDecision extends AbstractCommand
 
     /**
      * @var int
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $decidedByTc;
 
     /**
      * @var String
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *     options={
      *          "haystack": {"tc_r_dhtru", "tc_r_dtc", "tc_r_htru", "tc_r_tc"}
      *      }
-     * })
+     * )
      */
     protected $decidedByTcRole;
 
     /**
      * @var int
      * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $decisions = [];
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      */
     protected $decisionDate;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      */
     protected $notificationDate;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":5,"max":4000}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":5,"max":4000})
      */
     protected $decisionNotes;
 

@@ -15,9 +15,8 @@ final class CpidOrganisationExport extends AbstractCommand
 {
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *     options={
      *         "haystack": {
      *             "op_cpid_central_government",
      *             "op_cpid_local_government",
@@ -26,7 +25,7 @@ final class CpidOrganisationExport extends AbstractCommand
      *             "op_cpid_all",
      *         }
      *     }
-     * })
+     * )
      */
     protected $cpid;
 

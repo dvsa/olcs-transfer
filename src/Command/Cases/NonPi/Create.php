@@ -20,14 +20,14 @@ class Create extends AbstractCommand implements FieldType\CasesInterface
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      */
     protected $agreedByTcDate;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name": "Laminas\Filter\DateTimeFormatter"})
-     * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
+     * @Transfer\Filter("Laminas\Filter\DateTimeFormatter")
+     * @Transfer\Validator("Date", options={"format": \DateTime::ISO8601})
      */
     protected $hearingDate;
 
@@ -35,8 +35,8 @@ class Create extends AbstractCommand implements FieldType\CasesInterface
      * @var string
      *
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":255}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"max":255})
      */
     protected $venueOther;
 
@@ -44,29 +44,16 @@ class Create extends AbstractCommand implements FieldType\CasesInterface
      * @var int
      *
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Between","options":{"min":0,"max":99,"inclusive":true}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Between",options={"min":0,"max":99,"inclusive":true})
      */
     protected $witnessCount;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
-     *          "haystack": {
-     *              "non_pio_con",
-     *              "non_pio_nfa",
-     *              "non_pio_other",
-     *              "non_pio_ph",
-     *              "non_pio_pi",
-     *              "non_pio_und",
-     *              "non_pio_wl"
-     *          }
-     *      }
-     * })
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack":{"non_pio_con", "non_pio_nfa", "non_pio_other", "non_pio_ph", "non_pio_pi", "non_pio_und", "non_pio_wl"}})
      */
     protected $outcome;
 

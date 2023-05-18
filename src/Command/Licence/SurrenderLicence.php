@@ -20,21 +20,21 @@ final class SurrenderLicence extends AbstractCommand
     use FieldType\Traits\DecisionsOptional;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $id;
 
     /**
      * @var \DateTime
-     * @Transfer\Validator({"name":"Laminas\Validator\Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Laminas\Validator\Date", options={"format": "Y-m-d"})
      */
     protected $surrenderDate;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name": "Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      */
     protected $terminated = false;
 

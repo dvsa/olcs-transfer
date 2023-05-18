@@ -19,33 +19,33 @@ final class UpdateQualitySchemes extends AbstractCommand
     use FieldType\Version;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      */
     public $isQualityPartnership;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":4000}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"max":4000})
      * @Transfer\Optional
      */
     protected $qualityPartnershipDetails;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      */
     protected $qualityPartnershipFacilitiesUsed;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      */
     protected $isQualityContract;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":4000}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"max":4000})
      * @Transfer\Optional
      */
     protected $qualityContractDetails;

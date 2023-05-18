@@ -17,39 +17,36 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class Overview extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      * @Transfer\Optional
      */
     protected $id;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      * @Transfer\Optional
      */
     protected $version;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {"haystack": {"B", "C", "D", "F", "G", "H", "K", "M", "N"}}
-     * })
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"B", "C", "D", "F", "G", "H", "K", "M", "N"}})
      */
     protected $leadTcArea;
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      */
     protected $receivedDate;
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      */
     protected $targetCompletionDate;
 
@@ -59,8 +56,8 @@ final class Overview extends AbstractCommand
     protected $tracking;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\YesNo")
      */
     protected $overrideOppositionDate;
 

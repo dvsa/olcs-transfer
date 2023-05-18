@@ -24,7 +24,7 @@ class CommunityLicences extends AbstractQuery implements
 
     /**
      * @var string
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @transfer\Optional
      */
     protected $statuses;

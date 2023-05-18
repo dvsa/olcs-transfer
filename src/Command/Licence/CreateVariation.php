@@ -25,48 +25,30 @@ final class CreateVariation extends AbstractCommand
     protected $receivedDate;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Laminas\Filter\StringToUpper"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {"haystack": {"Y","N"}}
-     * })
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Filter("Laminas\Filter\StringToUpper")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y","N"}})
      * @Transfer\Optional
      */
     protected $feeRequired;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}}
-     * })
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}})
      * @Transfer\Optional
      */
     protected $licenceType;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray", "options": {
-     *          "haystack": {"applied_via_post","applied_via_phone"}
-     *      }
-     *  }
-     * )
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"applied_via_post","applied_via_phone"}})
      * @Transfer\Optional
      */
     protected $appliedVia;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray", "options": {
-     *          "haystack": {"vtyp_director_change"}
-     *      }
-     *  }
-     * )
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"vtyp_director_change"}})
      * @Transfer\Optional
      *
      * @var string|null

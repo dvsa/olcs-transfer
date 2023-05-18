@@ -16,44 +16,39 @@ class CreateImpounding extends AbstractCommand
 
     /**
      * @var int
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $case = null;
 
     /**
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {"haystack": {"impt_hearing","impt_paper"}}
-     *  }
-     * )
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"impt_hearing","impt_paper"}})
      */
     protected $impoundingType = null;
 
     /**
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      */
     protected $applicationReceiptDate = null;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":1,"max":20}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":1,"max":20})
      */
     protected $vrm = null;
 
     /**
      * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":1,"max":32}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":1,"max":32})
      */
     protected $impoundingLegislationTypes = [];
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name": "Laminas\Filter\DateTimeFormatter"})
-     * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
+     * @Transfer\Filter("Laminas\Filter\DateTimeFormatter")
+     * @Transfer\Validator("Date", options={"format": \DateTime::ISO8601})
      */
     protected $hearingDate = null;
 
@@ -64,7 +59,7 @@ class CreateImpounding extends AbstractCommand
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     protected $venueOther = null;
 
@@ -75,25 +70,20 @@ class CreateImpounding extends AbstractCommand
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {"haystack": {"impo_not","impo_returned","impo_wd"}}
-     *  }
-     * )
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"impo_not","impo_returned","impo_wd"}})
      */
     protected $outcome = null;
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      */
     protected $outcomeSentDate = null;
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":5,"max":4000}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":5,"max":4000})
      */
     protected $notes = null;
 

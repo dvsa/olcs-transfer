@@ -24,7 +24,7 @@ class Update extends AbstractOperatingCentreCommand
     use IsTaOverridden;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     protected $id;
 

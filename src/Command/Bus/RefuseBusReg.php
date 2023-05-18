@@ -18,8 +18,8 @@ final class RefuseBusReg extends AbstractCommand
     use FieldType\Identity;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":255}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"max":255})
      */
     public $reason;
 

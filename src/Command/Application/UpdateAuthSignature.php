@@ -22,8 +22,8 @@ class UpdateAuthSignature extends AbstractCommand
         Version;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\YesNo")
      */
     protected $authSignature;
 

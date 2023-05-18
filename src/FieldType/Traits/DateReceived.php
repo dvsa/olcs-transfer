@@ -12,7 +12,7 @@ trait DateReceived
     /**
      * @Transfer\Optional
      * @var \DateTime
-     * @Transfer\Validator({"name":"Laminas\Validator\Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Laminas\Validator\Date", options={"format": "Y-m-d"})
      */
     protected $dateReceived;
 

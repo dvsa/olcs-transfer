@@ -17,16 +17,8 @@ class Validator
 {
     protected LaminasValidator $validator;
 
-    public function __construct(array $annotation)
+    public function __construct($name, array $options = [], ?bool $breakChainOnFailure = null, ?int $priority = null)
     {
-        // To avoid the migration path for annotations: `laminas/laminas-form:^2` -> `laminas/laminas-form:^3` -> PHP 8 native annotations.
-        // Can just be: `laminas/laminas-form:^2` -> PHP 8 native annotations. Once PHP 8 is available.
-        // Rector: https://github.com/rectorphp/rector/blob/main/rules/Php80/Rector/Class_/AnnotationToAttributeRector.php
-        $name = $annotation['name'];
-        $options = $annotation['options'] ?? [];
-        $breakChainOnFailure = $annotation['breakChainOnFailure'] ?? null;
-        $priority = $annotation['priority'] ?? null;
-
         $this->validator = new LaminasValidator($name, $options, $breakChainOnFailure, $priority);
     }
 

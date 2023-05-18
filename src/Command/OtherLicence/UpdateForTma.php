@@ -16,47 +16,46 @@ final class UpdateForTma extends AbstractCommand
         Traits\Version;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     public $licNo;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *     options={
      *          "haystack": {"ol_role_applicant","ol_role_lic_holder","ol_role_tm"},
      *     },
-     * })
+     * )
      * @Transfer\Optional
      */
     public $role;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options": {"min": 0, "max": 255}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":0,"max":255})
      * @Transfer\Optional
      */
     public $operatingCentres;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      * @Transfer\Optional
      */
     public $totalAuthVehicles;
 
     /**
-     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
-     * @Transfer\Validator({"name":"Laminas\Validator\LessThan", "options": {"max": 99.9,"inclusive":true}})
+     * @Transfer\Validator("Laminas\I18n\Validator\IsFloat")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
+     * @Transfer\Validator("Laminas\Validator\LessThan", options={"max": 99.9,"inclusive":true})
      * @Transfer\Optional
      */
     public $hoursPerWeek;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Optional
      */
     public $holderName;

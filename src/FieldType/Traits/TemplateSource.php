@@ -12,7 +12,7 @@ trait TemplateSource
 {
     /**
      * @var string
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Escape(false)
      */
     protected $source;

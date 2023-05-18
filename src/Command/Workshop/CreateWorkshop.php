@@ -17,19 +17,16 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class CreateWorkshop extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $licence;
 
     /**
-     * @Transfer\Filter({"name": "Laminas\Filter\StringTrim"})
-     * @Transfer\Filter({"name": "Laminas\Filter\StringToUpper"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {"haystack": {"Y","N"}}
-     * })
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Filter("Laminas\Filter\StringToUpper")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y","N"}})
      */
     protected $isExternal;
 

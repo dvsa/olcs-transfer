@@ -16,8 +16,8 @@ final class Update extends AbstractCommand
         \Dvsa\Olcs\Transfer\FieldType\Traits\User;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options": {"max": 50}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"max":50})
      */
     protected $letters;
 

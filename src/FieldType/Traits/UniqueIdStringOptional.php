@@ -12,8 +12,8 @@ trait UniqueIdStringOptional
     /**
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":512}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"max":512})
      */
     protected $uniqueId;
 

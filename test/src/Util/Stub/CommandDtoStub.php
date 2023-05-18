@@ -17,18 +17,18 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 class CommandDtoStub extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $id;
 
     /**
      * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
-     * @Transfer\ArrayValidator({"name":"Laminas\Validator\NotEmpty", "options": {"type":"array"}})
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\ArrayFilter("Dvsa\Olcs\Transfer\Filter\FilterEmptyItems")
+     * @Transfer\ArrayFilter("Dvsa\Olcs\Transfer\Filter\UniqueItems")
+     * @Transfer\ArrayValidator("Laminas\Validator\NotEmpty", options={"type":"array"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     protected $list = [];
 

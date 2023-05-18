@@ -17,15 +17,8 @@ class Filter
 {
     protected LaminasFilter $filter;
 
-    public function __construct(array $annotation)
+    public function __construct($name, array $options = [], ?int $priority = null)
     {
-        // To avoid the migration path for annotations: `laminas/laminas-form:^2` -> `laminas/laminas-form:^3` -> PHP 8 native annotations.
-        // Can just be: `laminas/laminas-form:^2` -> PHP 8 native annotations. Once PHP 8 is available.
-        // Rector: https://github.com/rectorphp/rector/blob/main/rules/Php80/Rector/Class_/AnnotationToAttributeRector.php
-        $name = $annotation['name'];
-        $options = $annotation['options'] ?? [];
-        $priority = $annotation['priority'] ?? null;
-
         $this->filter = new LaminasFilter($name, $options, $priority);
     }
 

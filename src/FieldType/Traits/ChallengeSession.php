@@ -5,7 +5,7 @@ trait ChallengeSession
 {
     /**
      * @var String
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":20, "max":2048}})
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":20,"max":2048})
      */
     protected ?string $challengeSession = null;
 

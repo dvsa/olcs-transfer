@@ -17,14 +17,13 @@ class BusRegSearchViewContextList extends AbstractQuery implements OrderedQueryI
 
     /**
      * @var string
-     * @Transfer\Validator({
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *      options={
      *          "haystack": {
      *              "organisation","licence","busRegStatus"
      *          }
      *      }
-     * })
+     * )
      */
     protected $context;
 

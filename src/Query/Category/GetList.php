@@ -19,28 +19,28 @@ class GetList extends AbstractQuery implements
 
     /**
      * @var string
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\YesNo")
      * @Transfer\Optional
      */
     protected $isTaskCategory;
 
     /**
      * @var string
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\YesNo")
      * @Transfer\Optional
      */
     protected $isDocCategory;
 
     /**
      * @var string
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\YesNo")
      * @Transfer\Optional
      */
     protected $isScanCategory;
 
     /**
      * @var string
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\YesNo")
      * @Transfer\Optional
      */
     protected $isOnlyWithItems;

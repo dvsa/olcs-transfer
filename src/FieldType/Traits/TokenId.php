@@ -8,7 +8,7 @@ trait TokenId
 {
     /**
      * @var String
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":1, "max":9999}})
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":1,"max":9999})
      */
     protected ?string $tokenId = null;
 

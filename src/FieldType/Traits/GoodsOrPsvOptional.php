@@ -13,12 +13,9 @@ trait GoodsOrPsvOptional
      * @var String
      *
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {"haystack": {"lcat_gv","lcat_psv", "lcat_permit", "NULL"}}
-     *  }
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *      options={"haystack": {"lcat_gv","lcat_psv", "lcat_permit", "NULL"}}
      * )
      */
     protected $goodsOrPsv = null;

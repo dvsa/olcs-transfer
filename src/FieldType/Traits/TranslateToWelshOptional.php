@@ -8,8 +8,8 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait TranslateToWelshOptional
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\YesNo")
      * @Transfer\Optional
      */
     protected $translateToWelsh;
