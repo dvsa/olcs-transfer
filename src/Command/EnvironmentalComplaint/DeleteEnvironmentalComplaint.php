@@ -15,8 +15,8 @@ class DeleteEnvironmentalComplaint extends AbstractDeleteCommand
 {
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Identical", "options": {"token": false}})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
+     * @Transfer\Validator("Laminas\Validator\Identical", options={"token": false})
      */
     protected $isCompliance = false;
 

@@ -12,10 +12,9 @@ trait ProhibitionType
 
     /**
      * @var String
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *     options={
      *          "haystack": {
      *              "pro_t_si",
      *              "pro_t_sd",
@@ -27,7 +26,7 @@ trait ProhibitionType
      *              "pro_t_vr"
      *          }
      *      }
-     * })
+     * )
      */
     protected $prohibitionType;
 

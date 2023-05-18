@@ -11,8 +11,8 @@ trait ConvictionCategory
 {
     /**
      * @var String
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":32}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"max":32})
      */
     protected $convictionCategory;
 

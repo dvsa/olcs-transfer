@@ -7,9 +7,9 @@ trait OrderedTrait
      * The field to sort by - must not be empty.
      *
      * @var string
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\NotEmpty"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Sort"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\NotEmpty")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\Sort")
      */
     protected $sort;
 
@@ -17,9 +17,9 @@ trait OrderedTrait
      * Can only be one of ASC or DESC in upper case.
      *
      * @var string
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Laminas\Filter\StringToUpper"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Order"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Filter("Laminas\Filter\StringToUpper")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\Order")
      */
     protected $order;
 

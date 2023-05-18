@@ -10,8 +10,8 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait PeriodNameKeyOptional
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":1, "max":512}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"min":1, "max":512})
      * @Transfer\Optional
      */
     protected $periodNameKey;

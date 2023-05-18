@@ -16,7 +16,7 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 class StoredCardList extends AbstractQuery
 {
     /**
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\YesNo")
      */
     protected $isNi;
 

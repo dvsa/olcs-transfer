@@ -22,17 +22,16 @@ class TxcInboxList extends AbstractQuery implements PagedQueryInterface, Ordered
     /**
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *      options={
      *          "haystack": {
      *              "breg_s_admin","breg_s_cancellation","breg_s_cancelled","breg_s_cns","breg_s_curt","breg_s_expired",
      *              "breg_s_new","breg_s_refused","breg_s_registered","breg_s_revoked","breg_s_surr","breg_s_var",
      *              "breg_s_withdrawn"
      *          }
      *      }
-     * })
+     * )
      */
     protected $status;
 

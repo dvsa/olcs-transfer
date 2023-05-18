@@ -15,15 +15,15 @@ class BusRegBrowseExport extends AbstractQuery
     use FieldType\TrafficAreas;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":36}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"max":36})
      * @Transfer\Optional
      */
     protected $status;
 
     /**
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
-     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\DateNotInFuture"})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
+     * @Transfer\Validator("\Dvsa\Olcs\Transfer\Validators\DateNotInFuture")
      */
     protected $acceptedDate;
 

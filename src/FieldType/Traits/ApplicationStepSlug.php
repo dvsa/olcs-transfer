@@ -12,7 +12,7 @@ trait ApplicationStepSlug
 {
     /**
      * @var string
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     protected $slug;
 

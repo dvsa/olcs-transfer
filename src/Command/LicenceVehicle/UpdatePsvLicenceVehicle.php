@@ -26,8 +26,8 @@ final class UpdatePsvLicenceVehicle extends AbstractCommand
         LicenceOptional;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":100}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":2,"max":100})
      * @Transfer\Optional
      */
     protected $makeModel;
@@ -44,8 +44,8 @@ final class UpdatePsvLicenceVehicle extends AbstractCommand
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name": "Laminas\Filter\DateTimeFormatter"})
-     * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
+     * @Transfer\Filter("Laminas\Filter\DateTimeFormatter")
+     * @Transfer\Validator("Date", options={"format": \DateTime::ISO8601})
      */
     protected $specifiedDate;
 

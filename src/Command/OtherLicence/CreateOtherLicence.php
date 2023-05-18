@@ -17,47 +17,47 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class CreateOtherLicence extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     public $licNo;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     public $application;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     public $holderName;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      * @Transfer\Optional
      */
     public $willSurrender;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Optional
      */
     public $previousLicenceType;
 
     /**
-     * @Transfer\Validator({"name":"Date","options":{"format":"Y-m-d"}})
+     * @Transfer\Validator("Date",options={"format":"Y-m-d"})
      * @Transfer\Optional
      */
     public $disqualificationDate;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Optional
      */
     public $disqualificationLength;
 
     /**
-     * @Transfer\Validator({"name":"Date","options":{"format":"Y-m-d"}})
+     * @Transfer\Validator("Date",options={"format":"Y-m-d"})
      * @Transfer\Optional
      */
     public $purchaseDate;

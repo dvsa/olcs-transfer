@@ -16,51 +16,46 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 final class GetList extends AbstractQuery
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $continuationId;
 
     /**
      * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\LicenceStatus"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\LicenceStatus")
      * @Transfer\Optional
      */
     protected $licenceStatus = [];
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":0,"max":18}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":0,"max":18})
      * @Transfer\Optional
      */
     protected $licenceNo;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *      options={
      *          "haystack": {
      *              "post",
      *              "email",
      *              "all"
      *          }
      *      }
-     *  }
      * )
      * @Transfer\Optional
      */
     protected $method;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *      options={
      *          "haystack": {
      *              "con_det_sts_prepared",
      *              "con_det_sts_printing",
@@ -71,7 +66,6 @@ final class GetList extends AbstractQuery
      *              "con_det_sts_error"
      *          }
      *      }
-     *  }
      * )
      * @Transfer\Optional
      */

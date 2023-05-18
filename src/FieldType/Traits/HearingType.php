@@ -11,16 +11,15 @@ trait HearingType
 {
     /**
      * @var String
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *     options={
      *          "haystack": {
      *              "non_pi_type_stl_interview",
      *              "non_pi_type_pre_hearing"
      *          }
      *      }
-     * })
+     * )
      */
     protected $hearingType;
 

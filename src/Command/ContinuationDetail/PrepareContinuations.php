@@ -18,8 +18,8 @@ final class PrepareContinuations extends AbstractCommand
 {
     /**
      * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
      * @Transfer\Optional
      */
     protected $ids = [];

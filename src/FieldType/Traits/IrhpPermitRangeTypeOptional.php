@@ -11,8 +11,8 @@ trait IrhpPermitRangeTypeOptional
     /**
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"standard.single", "standard.multiple", "cabotage.single", "cabotage.multiple"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"standard.single", "standard.multiple", "cabotage.single", "cabotage.multiple"}})
      */
     protected $irhpPermitRangeType;
 

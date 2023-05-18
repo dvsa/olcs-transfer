@@ -20,8 +20,8 @@ final class UpdateSubmissionSectionComment extends AbstractCommand
     use FieldType\Traits\Version;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"htmlpurifier"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Filter("htmlpurifier")
      * @Transfer\Escape(false)
      * @Transfer\Optional
      */

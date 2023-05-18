@@ -18,8 +18,8 @@ final class CreateUserSelfserve extends AbstractCommand
     use TranslateToWelshOptional;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Username"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\Username")
      */
     protected $loginId;
 
@@ -29,8 +29,8 @@ final class CreateUserSelfserve extends AbstractCommand
     protected $contactDetails;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"admin", "user"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"admin", "user"}})
      */
     protected $permission;
 

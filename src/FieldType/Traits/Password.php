@@ -5,7 +5,7 @@ trait Password
 {
     /**
      * @var String
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":8, "max":255}})
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":8,"max":255})
      * @Transfer\Escape(false)
      */
     protected $password = null;

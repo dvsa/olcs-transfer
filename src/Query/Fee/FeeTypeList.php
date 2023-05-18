@@ -28,19 +28,19 @@ class FeeTypeList extends AbstractQuery implements
     use FieldTypeTraits\OrganisationOptional;
 
     /**
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\YesNo")
      * @Transfer\Optional
      */
     protected $isMiscellaneous;
 
     /**
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      * @Transfer\Optional
      */
     protected $effectiveDate;
 
     /**
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 1, "inclusive": true}})
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 1, "inclusive": true})
      * @Transfer\Optional
      */
     protected $currentFeeType;

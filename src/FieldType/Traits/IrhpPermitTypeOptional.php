@@ -11,14 +11,13 @@ trait IrhpPermitTypeOptional
     /**
      * @var int
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *      "name":"Laminas\Validator\Between",
-     *      "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\Between",
+     *      options={
      *          "min": 0,
      *          "max": 99999
      *      }
-     * })
+     * )
      */
     protected $irhpPermitType;
 

@@ -25,7 +25,7 @@ final class GetList extends AbstractQuery implements PagedQueryInterface, Ordere
     use FieldTypeTraits\Licence;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Optional
      */
     protected $status = null;

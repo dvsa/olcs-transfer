@@ -9,8 +9,8 @@ trait EcmtTrips
 {
     /**
      * @var int
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 999999}})
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\Between", options={"min": 0, "max": 999999})
      */
     protected $ecmtTrips;
 
