@@ -12,6 +12,7 @@ use Laminas\Form\Annotation\Validator as LaminasValidator;
 
 /**
  * @Annotation
+ * @NamedArgumentConstructor
  */
 class Validator
 {

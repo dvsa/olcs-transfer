@@ -26,19 +26,19 @@ class Vehicles extends AbstractQuery implements
         OrderedTrait;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
     protected $includeRemoved;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Boolean", "options": {"casting": false, "type": {
+     * @Transfer\Filter("Laminas\Filter\Boolean", options={"casting": false, "type": {
      *     Laminas\Filter\Boolean::TYPE_BOOLEAN,
      *     Laminas\Filter\Boolean::TYPE_INTEGER,
      *     Laminas\Filter\Boolean::TYPE_FALSE_STRING,
      *     Laminas\Filter\Boolean::TYPE_ZERO_STRING
-     * }}})
-     * @Transfer\Validator({"name": "Laminas\Validator\InArray", "options": {"haystack": {true, false}, "strict": true}})
+     * }})
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {true, false}, "strict": true})
      * @Transfer\Escape(false)
      * @Transfer\ContinueIfEmpty(true)
      * @Transfer\Optional
@@ -46,15 +46,15 @@ class Vehicles extends AbstractQuery implements
     protected $includeActive = true;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Optional
      */
     protected $vrm;
 
     /**
      * @var string
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      * @Transfer\Optional
      */
     protected $disc;

@@ -11,10 +11,9 @@ trait NoteType
 {
     /**
      * @var String
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *     options={
      *          "haystack": {
      *              "note_t_app",
      *              "note_t_bus",
@@ -26,7 +25,7 @@ trait NoteType
      *              "note_t_tm"
      *          }
      *      }
-     * })
+     * )
      */
     protected $noteType;
 

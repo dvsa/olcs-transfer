@@ -14,7 +14,7 @@ class PsvDiscs extends AbstractQuery implements \Dvsa\Olcs\Transfer\Query\PagedQ
     use Identity, \Dvsa\Olcs\Transfer\Query\PagedTraitOptional;
 
     /**
-     * @Transfer\Filter({"name": "Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
     protected $includeCeased = false;

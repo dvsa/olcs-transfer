@@ -20,8 +20,8 @@ final class Grant extends AbstractCommand
     use Identity;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"grant_authority_dl", "grant_authority_tc", "grant_authority_tr"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"grant_authority_dl", "grant_authority_tc", "grant_authority_tr"}})
      */
     protected $grantAuthority;
 

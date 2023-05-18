@@ -10,10 +10,9 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait ReportType
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *      options={
      *          "haystack": {
      *              "rep_typ_comm_lic_bulk_reprint",
      *              "rep_typ_bulk_letter",
@@ -21,7 +20,7 @@ trait ReportType
      *              "rep_typ_post_scoring_email"
      *          }
      *      }
-     * })
+     * )
      */
     protected $reportType;
 

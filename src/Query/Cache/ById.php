@@ -26,7 +26,7 @@ class ById extends AbstractQuery implements CacheableShortTermQueryInterface
     use UniqueIdStringOptional;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
     protected $shouldRegen = false;

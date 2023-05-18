@@ -18,19 +18,16 @@ class ContactDetailsList extends AbstractQuery implements PagedQueryInterface, O
     use OrderedTrait;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Laminas\Filter\StringToLower"})
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray",
-     *      "options":{
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Filter("Laminas\Filter\StringToLower")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *      options={
      *          "haystack": {
      *              "ct_complainant", "ct_corr", "ct_driver", "ct_est", "ct_hackney", "ct_irfo_op",
      *              "ct_obj", "ct_partner", "ct_reg", "ct_rep", "ct_requestor", "ct_ta", "ct_tcon",
      *              "ct_team_user", "ct_tm", "ct_user", "ct_work"
      *          }
      *      }
-     *  }
      * )
      * @Transfer\Optional
      */

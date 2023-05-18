@@ -18,8 +18,8 @@ final class WithdrawBusReg extends AbstractCommand
     use FieldType\Identity;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"reg_in_error","withdrawn"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"reg_in_error","withdrawn"}})
      */
     public $reason;
 

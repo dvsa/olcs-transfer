@@ -12,8 +12,8 @@ trait Vrm
     /**
      * @var String
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"\Dvsa\Olcs\Transfer\Filter\Vrm"})
-     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\Vrm"})
+     * @Transfer\Filter("\Dvsa\Olcs\Transfer\Filter\Vrm")
+     * @Transfer\Validator("\Dvsa\Olcs\Transfer\Validators\Vrm")
      */
     protected $vrm = null;
 

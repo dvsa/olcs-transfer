@@ -20,7 +20,7 @@ class Application extends AbstractQuery implements CacheableShortTermQueryInterf
     use Identity;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
     protected $validateAppCompletion;

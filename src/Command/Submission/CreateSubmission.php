@@ -15,17 +15,16 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class CreateSubmission extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $case;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *      options={
      *          "haystack": {
      *              "submission_type_o_bus_reg", "submission_type_o_clo_fep", "submission_type_o_clo_g",
      * "submission_type_o_clo_psv", "submission_type_o_env", "submission_type_o_impounding",
@@ -33,15 +32,15 @@ final class CreateSubmission extends AbstractCommand
      * "submission_type_o_schedule_41", "submission_type_o_tm", "submission_type_o_ni_tru"
      *          }
      *      }
-     * })
+     * )
      */
     protected $submissionType;
 
     /**
      * @Transfer\Optional
      * @Transfer\ArrayInput
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\SubmissionSection"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\SubmissionSection")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"min":1})
      */
     protected $sections = [];
 

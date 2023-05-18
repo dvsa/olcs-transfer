@@ -10,7 +10,7 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait VehicleType
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Validator(
      *     {"name":"Laminas\Validator\InArray", "options": {"haystack": {"app_veh_type_mixed","app_veh_type_lgv"}}}
      * )

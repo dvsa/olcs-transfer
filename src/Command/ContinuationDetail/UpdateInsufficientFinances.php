@@ -16,7 +16,7 @@ final class UpdateInsufficientFinances extends AbstractCommand
     use Identity,
         Version;
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
     protected $financialEvidenceUploaded;

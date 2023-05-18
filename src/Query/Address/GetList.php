@@ -19,8 +19,8 @@ final class GetList extends AbstractQuery implements CacheableMediumTermQueryInt
     /**
      * @var String
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":8}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"max":8})
      */
     protected $postcode;
 

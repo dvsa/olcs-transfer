@@ -16,8 +16,8 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 class LicenceByNumber extends AbstractQuery
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":2, "max":18}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"min":2, "max":18})
      */
     protected $licenceNumber;
 

@@ -13,24 +13,24 @@ class UpdateComplaint extends AbstractCommand
 {
     /**
      * @var int
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $id = null;
 
     /**
      * @var int
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $version = null;
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Identical", "options": {"token": true}})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
+     * @Transfer\Validator("Laminas\Validator\Identical", options={"token": true})
      */
     protected $isCompliance = true;
 
@@ -40,47 +40,38 @@ class UpdateComplaint extends AbstractCommand
     protected $contactType = 'ct_complainant';
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":35}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":2,"max":35})
      */
     protected $complainantForename = null;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":35}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":2,"max":35})
      */
     protected $complainantFamilyName = null;
 
     /**
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
-     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\DateNotInFuture"})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
+     * @Transfer\Validator("\Dvsa\Olcs\Transfer\Validators\DateNotInFuture")
      */
     protected $complaintDate = null;
 
     /**
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {"haystack": {"ct_cor","ct_cov","ct_dgm","ct_dsk","ct_fls","ct_lvu","ct_ndl","ct_nol","ct_olr",
-     *      "ct_ovb","ct_pvo","ct_rds","ct_rta","ct_sln","ct_spe","ct_tgo","ct_ufl","ct_ump","ct_urd","ct_vpo"}}
-     *  }
-     * )
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *      options={"haystack": {"ct_cor","ct_cov","ct_dgm","ct_dsk","ct_fls","ct_lvu","ct_ndl","ct_nol","ct_olr",
+     *      "ct_ovb","ct_pvo","ct_rds","ct_rta","ct_sln","ct_spe","ct_tgo","ct_ufl","ct_ump","ct_urd","ct_vpo"}})
      */
     protected $complaintType = null;
 
     /**
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {"haystack": {"cs_ack","cs_pin","cs_rfs","cs_vfr","cs_yst"}}
-     *  }
-     * )
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"cs_ack","cs_pin","cs_rfs","cs_vfr","cs_yst"}})
      */
     protected $status = null;
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":5,"max":4000}})
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":5,"max":4000})
      */
     protected $description = null;
 
@@ -91,20 +82,20 @@ class UpdateComplaint extends AbstractCommand
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":35}})
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":2,"max":35})
      */
     protected $driverForename = null;
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":35}})
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":2,"max":35})
      */
     protected $driverFamilyName = null;
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
-     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\DateNotInFuture"})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
+     * @Transfer\Validator("\Dvsa\Olcs\Transfer\Validators\DateNotInFuture")
      */
     protected $closedDate = null;
 

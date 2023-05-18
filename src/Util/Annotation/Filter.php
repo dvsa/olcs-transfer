@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * Filter
+ *
+ * @author Rob Caiger <rob@clocal.co.uk>
+ */
 namespace Dvsa\Olcs\Transfer\Util\Annotation;
 
 use Dvsa\Olcs\Transfer\Traits\LaminasFormVersionTrait;
@@ -7,6 +12,7 @@ use Laminas\Form\Annotation\Filter as LaminasFilter;
 
 /**
  * @Annotation
+ * @NamedArgumentConstructor
  */
 class Filter
 {

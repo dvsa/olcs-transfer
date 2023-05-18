@@ -17,7 +17,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class CreateContinuationSeparatorSheet extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     protected $licNo;
 

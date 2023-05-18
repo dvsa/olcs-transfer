@@ -22,14 +22,14 @@ final class UpdateVehicles extends AbstractCommand
         Version;
 
     /**
-     * @Transfer\Filter({"name": "Laminas\Filter\StringTrim"})
-     * @Transfer\Filter({"name": "Laminas\Filter\StringToUpper"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Filter("Laminas\Filter\StringToUpper")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y","N"}})
      */
     protected $hasEnteredReg;
 
     /**
-     * @Transfer\Filter({"name": "Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
     protected $partial = false;

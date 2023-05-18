@@ -12,6 +12,7 @@ use Laminas\Form\Annotation\ComposedObject;
 
 /**
  * @Annotation
+ * @NamedArgumentConstructor
  */
 class Partial
 {

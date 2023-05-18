@@ -18,18 +18,16 @@ final class Queue extends AbstractCommand
 {
     /**
      * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
      * @Transfer\Optional
      */
     protected $ids = [];
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *      options={
      *          "haystack": {
      *              "que_typ_cont_check_rem_gen_let",
      *              "que_typ_cpid_export_csv",
@@ -38,7 +36,6 @@ final class Queue extends AbstractCommand
      *              "que_typ_cont_checklist"
      *          }
      *      }
-     *  }
      * )
      * @Transfer\Optional
      */

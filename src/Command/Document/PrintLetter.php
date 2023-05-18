@@ -18,16 +18,15 @@ final class PrintLetter extends AbstractCommand
     use Identity;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *     options={
      *          "haystack": {
      *              PrintLetter::METHOD_EMAIL,
      *              PrintLetter::METHOD_PRINT_AND_POST,
      *          },
      *     },
-     * })
+     * )
      * @Transfer\Optional
      */
     protected $method;

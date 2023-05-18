@@ -8,9 +8,9 @@ trait OrderedTraitOptional
      *
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\NotEmpty"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Sort"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\NotEmpty")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\Sort")
      */
     protected $sort = 'id';
 
@@ -19,9 +19,9 @@ trait OrderedTraitOptional
      *
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Laminas\Filter\StringToUpper"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Order"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Filter("Laminas\Filter\StringToUpper")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\Order")
      */
     protected $order = 'ASC';
 
