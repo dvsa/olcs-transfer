@@ -12,14 +12,28 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class ProcessAuthResponse extends AbstractCommand
 {
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      */
     protected $code;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
      */
     protected $state;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     */
+    protected $error;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     */
+    protected $errorDescription;
 
     /**
      * @return string
@@ -35,5 +49,21 @@ class ProcessAuthResponse extends AbstractCommand
     public function getState()
     {
         return $this->state;
+    }
+
+    /**
+     * @return string
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @return string
+     */
+    public function getErrorDescription()
+    {
+        return $this->errorDescription;
     }
 }
