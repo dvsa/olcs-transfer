@@ -28,4 +28,15 @@ class GetGovUkAccountRedirect extends AbstractCommand
     {
         return $this->returnUrl;
     }
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     */
+    protected $returnUrlOnError;
+
+    public function getReturnUrlOnError()
+    {
+        return $this->returnUrlOnError;
+    }
 }
