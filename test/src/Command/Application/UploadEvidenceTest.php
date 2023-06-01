@@ -20,6 +20,7 @@ class UploadEvidenceTest extends \PHPUnit\Framework\TestCase
             'id' => 111,
             'operatingCentres' => [$oc1],
             'financialEvidence' => true,
+            'supportingEvidence' => true,
         ];
 
         $command = UploadEvidence::create($data);
@@ -27,5 +28,6 @@ class UploadEvidenceTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(111, $command->getId());
         $this->assertEquals([$oc1], $command->getOperatingCentres());
         $this->assertTrue($command->getFinancialEvidence());
+        $this->assertTrue($command->getSupportingEvidence());
     }
 }
