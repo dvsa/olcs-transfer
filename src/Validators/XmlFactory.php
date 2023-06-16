@@ -15,8 +15,12 @@ class XmlFactory implements FactoryInterface
 {
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null): Xml
     {
+        if (method_exists($container, 'getServiceLocator') && $container->getServiceLocator()) {
+            $container = $container->getServiceLocator();
+        }
+
         $service = new Xml();
-        $service->setSecurityValidator($container->getServiceLocator()->get(XmlSecurityValidator::class));
+        $service->setSecurityValidator($container->get(XmlSecurityValidator::class));
 
         return $service;
     }
