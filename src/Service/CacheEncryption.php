@@ -25,12 +25,16 @@ class CacheEncryption
     const TTL_2_MINUTES = 120;
     const TTL_60_DAYS = 5184000;
 
+    const TTL_20_DAYS = 1728000;
+
     const TRANSLATION_KEY_IDENTIFIER = 'translation_key';
     const TRANSLATION_REPLACEMENT_IDENTIFIER = 'translation_replacement';
 
     const SYS_PARAM_IDENTIFIER = 'sys_param';
     const SYS_PARAM_LIST_IDENTIFIER = 'sys_param_list';
     const USER_ACCOUNT_IDENTIFIER = 'user_account';
+
+    const SECRETS_MANAGER_IDENTIFIER = 'secretsmanager';
 
     /** @var string[] a list of caches held against a user id */
     const USER_CACHES = [
@@ -63,6 +67,11 @@ class CacheEncryption
             'mode' => self::ENCRYPTION_MODE_SHARED,
             'ttl' => self::TTL_2_MINUTES,
         ],
+        self::SECRETS_MANAGER_IDENTIFIER => [
+            'mode' => self::ENCRYPTION_MODE_SHARED,
+            'ttl'  => self::TTL_20_DAYS
+        ]
+
     ];
 
     /** @var StorageInterface $cache */
