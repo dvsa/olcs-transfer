@@ -28,11 +28,14 @@ return [
         'factories' => [
             'ApiRouter' => \Dvsa\Olcs\Transfer\Router\RouterFactory::class,
             Service\CacheEncryption::class => Service\CacheEncryptionFactory::class,
-            'TransferAnnotationBuilder' => \Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilderFactory::class
+            \Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilder::class => \Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilderFactory::class,
         ],
         'invokables' => [
             \Laminas\Xml\Security::class => \Laminas\Xml\Security::class
-        ]
+        ],
+        'aliases' => [
+            'TransferAnnotationBuilder' => \Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilder::class,
+        ],
     ],
     'filters' => [
         'invokables' => [
