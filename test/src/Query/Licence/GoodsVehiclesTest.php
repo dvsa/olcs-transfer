@@ -6,7 +6,11 @@ use Dvsa\Olcs\Transfer\Query\Licence\GoodsVehicles;
 use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\Olcs\Transfer\Query\QueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilder;
+use Laminas\Filter\FilterPluginManager;
+use Laminas\ServiceManager\ServiceManager;
+use Laminas\Validator\ValidatorPluginManager;
 use PHPUnit\Framework\TestCase;
+use Mockery as m;
 
 class GoodsVehiclesTest extends TestCase
 {
@@ -122,6 +126,13 @@ class GoodsVehiclesTest extends TestCase
      */
     public function newQueryContainer(QueryInterface $query): QueryContainer
     {
-        return (new AnnotationBuilder())->createQuery($query);
+        $serviceManager = m::mock(ServiceManager::class);
+
+        $annotationBuilder = new AnnotationBuilder();
+
+        $annotationBuilder->setFilterManager(new FilterPluginManager($serviceManager));
+        $annotationBuilder->setValidatorManager(new ValidatorPluginManager($serviceManager));
+
+        return $annotationBuilder->createQuery($query);
     }
 }
