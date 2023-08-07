@@ -1,10 +1,5 @@
 <?php
 
-/**
- * Send Transport Manager Application Email
- *
- * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Command\TransportManagerApplication;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -22,20 +17,6 @@ final class SendTmApplication extends AbstractCommand
      * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
      */
     protected $id;
-
-    /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\EmailAddress"})
-     */
-    protected $emailAddress;
-
-    /**
-     * @return string
-     */
-    public function getEmailAddress()
-    {
-        return $this->emailAddress;
-    }
 
     /**
      * Get tm application ID
