@@ -20,7 +20,6 @@ class SendAmendTmApplicationTest extends \PHPUnit\Framework\TestCase
     protected function getValidFieldValues()
     {
         return [
-            'emailAddress' => ['test@test.com', 'kajshkj_jsahk@kfjsdsd.com'],
             'id' => ['5', '3']
         ];
     }
@@ -29,14 +28,12 @@ class SendAmendTmApplicationTest extends \PHPUnit\Framework\TestCase
     {
         return [
             'id' => ['unexpected' => 'string'],
-            'emailAddress' => ['unexpected' => 'string']
         ];
     }
 
     protected function getFilterTransformations()
     {
         return [
-            'emailAddress' => [['test@test.com ', 'test@test.com']],
             'id' => [[8, '8']]
         ];
     }
