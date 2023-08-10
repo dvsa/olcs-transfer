@@ -65,6 +65,7 @@ class AnnotationBuilder
     }
 
 
+    /** @var AnnotationReader */
     protected $reader;
 
     public function setReader(AnnotationReader $reader)
@@ -72,7 +73,7 @@ class AnnotationBuilder
         $this->reader = $reader;
     }
 
-    public function getReader()
+    public function getReader(): AnnotationReader
     {
         if ($this->reader === null) {
             $this->setReader(new AnnotationReader());
