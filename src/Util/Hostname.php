@@ -2,10 +2,10 @@
 
 namespace Dvsa\Olcs\Transfer\Util;
 
-use Laminas\Mvc\Router\Http\RouteInterface;
-use Laminas\Mvc\Router\Http\RouteMatch;
+use Laminas\Router\Http\RouteInterface;
+use Laminas\Router\Http\RouteMatch;
 use Traversable;
-use Laminas\Mvc\Router\Exception;
+use Laminas\Router\Exception;
 use Laminas\Stdlib\ArrayUtils;
 use Laminas\Stdlib\RequestInterface as Request;
 
@@ -71,7 +71,7 @@ class Hostname implements RouteInterface
      *
      * @param array|Traversable $options options
      *
-     * @see \Laminas\Mvc\Router\RouteInterface::factory()
+     * @see \Laminas\Router\RouteInterface::factory()
      * @return Hostname
      * @throws Exception\InvalidArgumentException
      */
@@ -273,7 +273,7 @@ class Hostname implements RouteInterface
      *
      * @param Request $request request
      *
-     * @see \Laminas\Mvc\Router\RouteInterface::match()
+     * @see \Laminas\Router\RouteInterface::match()
      * @return RouteMatch|null
      */
     public function match(Request $request)
@@ -308,7 +308,7 @@ class Hostname implements RouteInterface
      * @param array $params  params
      * @param array $options options
      *
-     * @see \Laminas\Mvc\Router\RouteInterface::assemble()
+     * @see \Laminas\Router\RouteInterface::assemble()
      * @return string
      */
     public function assemble(array $params = array(), array $options = array())

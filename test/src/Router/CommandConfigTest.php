@@ -16,7 +16,7 @@ class CommandConfigTest extends \PHPUnit\Framework\TestCase
         $config = CommandConfig::getDeleteConfig('Foo\Bar');
 
         $expected = [
-            'type' => \Laminas\Mvc\Router\Http\Method::class,
+            'type' => \Laminas\Router\Http\Method::class,
             'options' => [
                 'verb' => 'DELETE',
                 'defaults' => [
@@ -33,7 +33,7 @@ class CommandConfigTest extends \PHPUnit\Framework\TestCase
         $config = CommandConfig::getPutConfig('Foo\Bar');
 
         $expected = [
-            'type' => \Laminas\Mvc\Router\Http\Method::class,
+            'type' => \Laminas\Router\Http\Method::class,
             'options' => [
                 'verb' => 'PUT',
                 'defaults' => [
@@ -50,7 +50,7 @@ class CommandConfigTest extends \PHPUnit\Framework\TestCase
         $config = CommandConfig::getPostConfig('Foo\Bar');
 
         $expected = [
-            'type' => \Laminas\Mvc\Router\Http\Method::class,
+            'type' => \Laminas\Router\Http\Method::class,
             'options' => [
                 'verb' => 'POST',
                 'defaults' => [

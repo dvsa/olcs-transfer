@@ -7,9 +7,9 @@
  */
 namespace Dvsa\Olcs\Transfer\Router;
 
-use Laminas\Mvc\Router\Http\Query as LaminasQuery;
+use Laminas\Router\Http\Query as LaminasQuery;
 use Laminas\Stdlib\RequestInterface as Request;
-use Laminas\Mvc\Router\Http\RouteMatch;
+use Laminas\Router\Http\RouteMatch;
 
 /**
  * Query
@@ -26,7 +26,7 @@ class Query extends LaminasQuery
     /**
      * match(): defined by RouteInterface interface.
      *
-     * @see    \Laminas\Mvc\Router\RouteInterface::match()
+     * @see    \Laminas\Router\RouteInterface::match()
      * @param  Request $request
      * @return RouteMatch|null
      */
