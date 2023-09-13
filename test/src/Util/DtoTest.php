@@ -2,7 +2,6 @@
 
 namespace Dvsa\OlcsTest\Transfer\Util;
 
-use Dvsa\Olcs\Transfer\Traits\LaminasFormVersionTrait;
 use Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilder;
 use Laminas\Filter\FilterPluginManager;
 use Laminas\ServiceManager\ServiceManager;
@@ -21,8 +20,6 @@ use Mockery as m;
  */
 class DtoTest extends MockeryTestCase
 {
-    use LaminasFormVersionTrait;
-
     /**
      * @var AnnotationBuilder
      */
