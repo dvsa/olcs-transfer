@@ -1,34 +1,30 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dvsa\OlcsTest\Transfer\Service;
 
 use Dvsa\Olcs\Transfer\Service\CacheEncryption;
 use Dvsa\Olcs\Transfer\Service\CacheEncryptionFactory;
+use Interop\Container\ContainerInterface;
 use Mockery as m;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
-use Laminas\Cache\Storage\Adapter\Redis;
 use Laminas\Cache\Storage\StorageInterface;
-use Laminas\ServiceManager\ServiceLocatorInterface;
 
-/**
- * CacheEncryptionFactoryTest
- *
- * @author Ian Lindsay <ian@hemera-business-services.co.uk>
- */
 class CacheEncryptionFactoryTest extends MockeryTestCase
 {
-    public function testCreateServiceNoConfig()
+    public function testInvokeNoConfig()
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage(CacheEncryptionFactory::MISSING_CONFIG);
-        $mockSl = m::mock(ServiceLocatorInterface::class);
+        $mockSl = m::mock(ContainerInterface::class);
         $mockSl->shouldReceive('get')->with('Config')->andReturn([]);
 
         $sut = new CacheEncryptionFactory();
-        $sut->createService($mockSl);
+        $sut->__invoke($mockSl, CacheEncryption::class);
     }
 
-    public function testCreateService()
+    public function testInvoke()
     {
         $config = [
             'cache-encryption' => [
@@ -47,12 +43,12 @@ class CacheEncryptionFactoryTest extends MockeryTestCase
 
         $cache = m::mock(StorageInterface::class);
 
-        $mockSl = m::mock(ServiceLocatorInterface::class);
+        $mockSl = m::mock(ContainerInterface::class);
         $mockSl->shouldReceive('get')->with('Config')->andReturn($config);
-        $mockSl->shouldReceive('get')->with(Redis::class)->andReturn($cache);
+        $mockSl->shouldReceive('get')->with('default-cache')->andReturn($cache);
 
         $sut = new CacheEncryptionFactory();
-        $service = $sut->createService($mockSl);
+        $service = $sut->__invoke($mockSl, CacheEncryption::class);
 
         self::assertInstanceOf(CacheEncryption::class, $service);
         self::assertEquals('ssweb', $service->getNodeSuffix());
