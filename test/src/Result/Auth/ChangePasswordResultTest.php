@@ -15,7 +15,7 @@ class ChangePasswordResultTest extends TestCase
     public function construct_ThrowsInvalidArgumentException_WhenCodeIsNotValid(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectErrorMessage('999 is not a valid code');
+        $this->expectExceptionMessage('999 is not a valid code');
 
         new ChangePasswordResult(999);
     }
@@ -26,7 +26,7 @@ class ChangePasswordResultTest extends TestCase
     public function fromArray_ThrowsInvalidArgumentException_WhenCodeIsNotValid(): void
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectErrorMessage('999 is not a valid code');
+        $this->expectExceptionMessage('999 is not a valid code');
 
         ChangePasswordResult::fromArray(['code' => 999, 'message' => '']);
     }

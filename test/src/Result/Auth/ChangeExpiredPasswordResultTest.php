@@ -15,7 +15,7 @@ class ChangeExpiredPasswordResultTest extends TestCase
     public function __construct_ThrowsInvalidArgumentException_WhenCodeIsNotValid()
     {
         $this->expectException(InvalidArgumentException::class);
-        $this->expectErrorMessage('999 is not a valid code');
+        $this->expectExceptionMessage('999 is not a valid code');
 
         new ChangeExpiredPasswordResult(999);
     }

@@ -21,7 +21,8 @@
     },
     "require-dev": {
         "olcs/olcs-devtools": "~4.206.0",
-        "doctrine/annotations": "^1.14.2"
+        "doctrine/annotations": "^1.14.2",
+        "phpunit/phpunit": "^9.6"
     },
     "config": {
         "preferred-install": "dist",
