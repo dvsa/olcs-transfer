@@ -11,7 +11,7 @@ trait GovUkAccountJourney
 {
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")
-     * @Transfer\Validator("Laminas\Validator\InArray","options":{"haystack": {"jrny_new_application","jrny_continuation","jrny_variation","jrny_tm_application","jrny_surrender"}})
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"jrny_new_application","jrny_continuation","jrny_variation","jrny_tm_application","jrny_surrender"}})
      */
     protected $journey = null;
 
