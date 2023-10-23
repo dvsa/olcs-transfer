@@ -26,7 +26,7 @@ final class CreateWorkshop extends AbstractCommand
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Filter("Laminas\Filter\StringToUpper")
-     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y","N"})
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y","N"}})
      */
     protected $isExternal;
 
