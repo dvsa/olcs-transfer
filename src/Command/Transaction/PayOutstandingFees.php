@@ -50,7 +50,7 @@ final class PayOutstandingFees extends AbstractCommand
 
     /**
      * @Transfer\Validator("Laminas\Validator\InArray",
-     *  "options": {
+     *  options={
      *      "haystack": {
      *          "fpm_card_offline",
      *          "fpm_card_online",
