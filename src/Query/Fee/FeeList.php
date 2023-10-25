@@ -46,7 +46,7 @@ class FeeList extends AbstractQuery implements
     /**
      * @Transfer\Optional
      * @Transfer\Filter("Laminas\Filter\StringTrim")
-     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"current","historical","all"})
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"current","historical","all"}})
      */
     protected $status;
 
