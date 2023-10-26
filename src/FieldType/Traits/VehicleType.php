@@ -12,7 +12,7 @@ trait VehicleType
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Validator(
-     *     {"name":"Laminas\Validator\InArray", "options": {"haystack": {"app_veh_type_mixed","app_veh_type_lgv"}}}
+     *     "Laminas\Validator\InArray", options={"haystack": {"app_veh_type_mixed","app_veh_type_lgv"}}
      * )
      * @Transfer\Optional
      */

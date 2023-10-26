@@ -19,7 +19,7 @@ final class Get extends AbstractQuery implements CacheableLongTermQueryInterface
 {
     /**
      * @var string
-     * Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\TrafficArea"})
+     * Transfer\Validator("Dvsa\Olcs\Transfer\Validators\TrafficArea")
      */
     protected $id;
 

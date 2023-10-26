@@ -25,7 +25,7 @@ final class PrintDiscs extends AbstractCommand
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")
-     * @Transfer\Validator("Laminas\Validator\InArray", "options": {"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}})
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"ltyp_r","ltyp_sn","ltyp_si","ltyp_sr"}})
      * @Transfer\Optional
      */
     public $licenceType;
