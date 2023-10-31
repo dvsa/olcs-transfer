@@ -10,7 +10,7 @@ namespace Dvsa\Olcs\Transfer\Router;
 
 use Laminas\Router\Exception;
 use Laminas\Router\Http\RouteInterface;
-use Laminas\Router\RouteMatch;
+use Laminas\Router\Http\RouteMatch;
 use Laminas\Stdlib\ArrayUtils;
 use Laminas\Stdlib\RequestInterface as Request;
 use Traversable;
