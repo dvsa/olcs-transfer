@@ -22,7 +22,7 @@ trait TemplateFolder
      *              "guides"
      *          }
      *      }
-     * })
+     * )
      */
     protected $templateFolder;
 
