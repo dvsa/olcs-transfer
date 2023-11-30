@@ -8,6 +8,12 @@ return [
     'messaging' => RouteConfig::getRouteConfig(
         'messaging',
         [
+            'conversations' => RouteConfig::getRouteConfig(
+                'conversations',
+                [
+                    'GET' => QueryConfig::getConfig(Query\Messaging\GetConversationList::class),
+                ]
+            ),
             'messages' => RouteConfig::getRouteConfig(
                 'messages',
                 [
