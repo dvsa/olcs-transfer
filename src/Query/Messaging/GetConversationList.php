@@ -16,7 +16,6 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 final class GetConversationList extends AbstractQuery implements PagedQueryInterface
 {
     use PagedTrait;
-
     use ApplicationOptional;
 
     /**
