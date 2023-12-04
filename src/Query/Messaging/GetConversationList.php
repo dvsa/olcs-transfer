@@ -16,8 +16,27 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 final class GetConversationList extends AbstractQuery implements PagedQueryInterface
 {
     use PagedTrait;
-    use LicenceOptional;
+
     use ApplicationOptional;
+
+    /**
+     * @var int
+     * @Transfer\Optional
+     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     */
+    protected $licence;
+
+    /**
+     * Get licence
+     *
+     * @return int
+     */
+    public function getLicence()
+    {
+        return $this->licence;
+    }
 
     /**
      * @Transfer\Optional
