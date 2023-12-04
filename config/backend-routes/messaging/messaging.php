@@ -14,8 +14,8 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Messaging\GetConversationList::class),
                 ]
             ),
-            'messages' => RouteConfig::getRouteConfig(
-                'messages',
+            'conversation-messages' => RouteConfig::getRouteConfig(
+                'conversation-messages',
                 [
                     'GET' => QueryConfig::getConfig(Query\Messaging\GetConversationMessages::class),
                 ]
