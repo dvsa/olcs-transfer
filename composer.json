@@ -9,7 +9,7 @@
         "laminas/laminas-validator": "^2.11.1",
         "laminas/laminas-servicemanager": "^3.0",
         "laminas/laminas-inputfilter": "^2.10.1",
-        "laminas/laminas-form": "^3.0",
+        "laminas/laminas-form": "^3.1.1",
         "laminas/laminas-crypt": "^3.4.0",
         "laminas/laminas-xml": "^1.4.0"
     },
