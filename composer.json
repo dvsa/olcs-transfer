@@ -55,6 +55,9 @@
     "config": {
       "allow-plugins": {
             "bamarni/composer-bin-plugin": true
+      },
+      "platform": {
+        "ext-redis": "4.3"
       }
     }
 }
