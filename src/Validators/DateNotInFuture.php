@@ -23,7 +23,7 @@ class DateNotInFuture extends AbstractValidator
      * Error codes
      * @const string
      */
-    protected const IN_FUTURE = 'inFuture';
+    public const IN_FUTURE = 'inFuture';
 
     /**
      * Error messages

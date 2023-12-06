@@ -2,7 +2,6 @@
 
 namespace Dvsa\Olcs\Transfer\Command;
 
-/** @phpstan-consistent-constructor */
 abstract class AbstractCommand implements CommandInterface
 {
     final public function __construct()

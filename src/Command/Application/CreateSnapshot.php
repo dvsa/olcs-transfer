@@ -20,6 +20,12 @@ final class CreateSnapshot extends AbstractCommand
 {
     use Identity;
 
+    public const ON_SUBMIT = 0;
+    public const ON_GRANT = 1;
+    public const ON_REFUSE = 2;
+    public const ON_WITHDRAW = 3;
+    public const ON_NTU = 4;
+
     /**
      * @Transfer\Optional
      */

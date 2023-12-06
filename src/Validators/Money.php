@@ -17,7 +17,7 @@ use Laminas\Validator\AbstractValidator;
  */
 class Money extends AbstractValidator
 {
-    protected const INVALID  = 'invalid';
+    public const INVALID  = 'invalid';
 
     /**
      * Holds the templates

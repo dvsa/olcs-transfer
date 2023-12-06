@@ -17,12 +17,12 @@ use Laminas\Validator\AbstractValidator;
  */
 class Postcode extends AbstractValidator
 {
-    protected const POSTCODE_MIN_LENGTH = 5;
-    protected const POSTCODE_MAX_LENGTH = 8;
-    protected const POSTCODE_BAD_LENGTH     = 'postcodeBadLength';
-    protected const POSTCODE_INVALID_FORMAT = 'invalidPostcodeFormat';
-    protected const POSTCODE_IS_EMPTY       = 'isEmpty';
-    protected const POSTCODE_TOO_LONG       = 'stringLengthTooLong';
+    public const POSTCODE_MIN_LENGTH = 5;
+    public const POSTCODE_MAX_LENGTH = 8;
+    public const POSTCODE_BAD_LENGTH     = 'postcodeBadLength';
+    public const POSTCODE_INVALID_FORMAT = 'invalidPostcodeFormat';
+    public const POSTCODE_IS_EMPTY       = 'isEmpty';
+    public const POSTCODE_TOO_LONG       = 'stringLengthTooLong';
 
     protected $messageTemplates = [
         self::POSTCODE_BAD_LENGTH     => 'postcode.validation.postcodeBadLength',

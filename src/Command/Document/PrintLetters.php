@@ -14,6 +14,9 @@ class PrintLetters extends AbstractCommand
 {
     use Ids;
 
+    public const METHOD_EMAIL = 'email';
+    public const METHOD_PRINT_AND_POST = 'printAndPost';
+
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Validator("Laminas\Validator\InArray",

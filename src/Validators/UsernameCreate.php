@@ -9,9 +9,9 @@ use Laminas\Validator\StringLength;
  */
 class UsernameCreate extends StringLength
 {
-    protected const USERNAME_LENGTH_MIN = 4;
-    protected const USERNAME_LENGTH_MAX = 40;
-    protected const USERNAME_INVALID = 'usernameCreateInvalid';
+    public const USERNAME_LENGTH_MIN = 4;
+    public const USERNAME_LENGTH_MAX = 40;
+    public const USERNAME_INVALID = 'usernameCreateInvalid';
 
     /**
      * Sets validator options

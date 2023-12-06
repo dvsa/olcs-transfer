@@ -4,7 +4,7 @@ namespace Dvsa\Olcs\Transfer\Validators;
 
 class Sort extends \Laminas\Validator\AbstractValidator
 {
-    protected const INVALID_SORT = 'invalidSort';
+    public const INVALID_SORT = 'invalidSort';
 
     protected $messageTemplates = array(
         self::INVALID_SORT => 'The sort value is not valid',
