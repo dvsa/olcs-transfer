@@ -3,6 +3,7 @@
 /**
  * Create an IRHP Permit Window
  */
+
 namespace Dvsa\Olcs\Transfer\Command\IrhpPermitWindow;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\DaysForPayment;

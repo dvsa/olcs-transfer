@@ -70,7 +70,7 @@ class DeleteUserResult
 
     public static function fromArray(array $data): DeleteUserResult
     {
-        return new static(
+        return new self(
             $data['code'] ?? null,
             $data['message'] ?? null,
         );

@@ -5,6 +5,7 @@
  *
  * @author Josh Curtis <josh.curtis@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Correspondence;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

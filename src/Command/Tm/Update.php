@@ -5,6 +5,7 @@
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Tm;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -274,7 +275,7 @@ final class Update extends AbstractCommand
 
     public function getVersion()
     {
-        return $this->veersion;
+        return $this->version;
     }
 
     public function getHomeCdId()

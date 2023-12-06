@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Document;
 
 use Dvsa\Olcs\Transfer\Command\LoggerOmitContentInterface;
@@ -24,13 +25,13 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Upload extends AbstractCommand implements LoggerOmitContentInterface
 {
-    use ApplicationOptional,
-        BusRegOptional,
-        CasesOptional,
-        TransportManagerOptional,
-        LicenceOptional,
-        SurrenderOptional,
-        IrhpApplicationOptional;
+    use ApplicationOptional;
+    use BusRegOptional;
+    use CasesOptional;
+    use TransportManagerOptional;
+    use LicenceOptional;
+    use SurrenderOptional;
+    use IrhpApplicationOptional;
 
     /**
      * @Transfer\Filter("Laminas\Filter\PregReplace", options={"pattern": "/[^a-zA-Z0-9\-\_\.]+/", "replacement": ""})

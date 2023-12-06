@@ -3,6 +3,7 @@
 /**
  * Update IrfoDetails
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Irfo;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

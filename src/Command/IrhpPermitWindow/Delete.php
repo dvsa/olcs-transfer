@@ -3,6 +3,7 @@
 /**
  * Delete IRHP Permit Stock
  */
+
 namespace Dvsa\Olcs\Transfer\Command\IrhpPermitWindow;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

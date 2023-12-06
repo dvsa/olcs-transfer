@@ -3,6 +3,7 @@
 /**
  * Update an IRHP Candidate Permit
  */
+
 namespace Dvsa\Olcs\Transfer\Command\IrhpCandidatePermit;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitRange;

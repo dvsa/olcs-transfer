@@ -14,8 +14,8 @@ use Dvsa\Olcs\Transfer\Query\PagedTrait;
  */
 final class GetList extends AbstractQuery implements OrderedQueryInterface, PagedQueryInterface
 {
-    use OrderedTraitOptional,
-        PagedTrait;
+    use OrderedTraitOptional;
+    use PagedTrait;
 
     /**
      * @Transfer\Filter("Laminas\Filter\Digits")

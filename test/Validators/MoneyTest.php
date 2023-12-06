@@ -6,6 +6,7 @@
  * @author Rob Caiger <rob@clocal.co.uk>
  * @author Dan Eggleston <dan@stolenegg.com>
  */
+
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
 use Dvsa\Olcs\Transfer\Validators\Money;

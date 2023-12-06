@@ -3,6 +3,7 @@
 /**
  * Update IRHP Permit Sector
  */
+
 namespace Dvsa\Olcs\Transfer\Command\IrhpPermitSector;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

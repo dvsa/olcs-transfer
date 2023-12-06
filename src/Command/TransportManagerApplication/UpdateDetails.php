@@ -12,8 +12,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateDetails extends AbstractCommand
 {
-    use Traits\Identity,
-        Traits\Version;
+    use Traits\Identity;
+    use Traits\Version;
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")

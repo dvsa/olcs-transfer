@@ -3,6 +3,7 @@
 /**
  * Update IRHP Permit Jurisdiction
  */
+
 namespace Dvsa\Olcs\Transfer\Command\IrhpPermitJurisdiction;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

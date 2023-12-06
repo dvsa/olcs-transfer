@@ -3,6 +3,7 @@
 /**
  * Update ProposeToRevoke
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Cases\ProposeToRevoke;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

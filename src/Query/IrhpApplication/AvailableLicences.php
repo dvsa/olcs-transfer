@@ -3,6 +3,7 @@
 /**
  * Get licences for a single IRHP application by application id
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

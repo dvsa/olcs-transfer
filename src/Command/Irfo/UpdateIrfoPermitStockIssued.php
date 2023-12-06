@@ -3,6 +3,7 @@
 /**
  * Update IRFO Permit Stock Issued
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Irfo;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

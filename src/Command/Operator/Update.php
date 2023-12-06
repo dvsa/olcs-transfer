@@ -5,6 +5,7 @@
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Operator;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;

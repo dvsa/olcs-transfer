@@ -65,7 +65,7 @@ class PsvDiscCountTest extends \PHPUnit\Framework\TestCase
     protected function getInvalidFieldValues()
     {
         return [
-            "id"=>[
+            "id" => [
                 0
             ]
         ];

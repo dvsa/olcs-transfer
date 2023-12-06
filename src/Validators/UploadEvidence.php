@@ -11,7 +11,7 @@ use Laminas\Validator\AbstractValidator;
  */
 class UploadEvidence extends AbstractValidator
 {
-    const UPLOAD_ADVERT = 'upload_advert';
+    public const UPLOAD_ADVERT = 'upload_advert';
 
     /**
      * @var array
@@ -28,13 +28,15 @@ class UploadEvidence extends AbstractValidator
     public function isValid($value, $context = null)
     {
         $isValid = true;
-        if ((!empty($context['adPlacedIn'])
+        if (
+            (!empty($context['adPlacedIn'])
             || !empty($context['adPlacedDate']['day'])
             || !empty($context['adPlacedDate']['month'])
             || !empty($context['adPlacedDate']['year'])
-        ) && (!isset($context['file']['list'])
+            ) && (!isset($context['file']['list'])
             || count($context['file']['list']) === 0
-        )) {
+            )
+        ) {
             $isValid = false;
         }
 

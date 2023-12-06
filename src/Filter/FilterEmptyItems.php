@@ -3,7 +3,6 @@
 namespace Dvsa\Olcs\Transfer\Filter;
 
 use Laminas\Filter\AbstractFilter;
-use Dvsa\Olcs\Api\Domain\Exception\RuntimeException;
 
 /**
  * Removes empty items from an array
@@ -17,7 +16,6 @@ class FilterEmptyItems extends AbstractFilter
      *
      * @param mixed $value
      * @return array|mixed
-     * @throws \Dvsa\Olcs\Api\Domain\Exception\RuntimeException
      */
     public function filter($value)
     {
@@ -33,7 +31,7 @@ class FilterEmptyItems extends AbstractFilter
                     $newValue[] = $val;
                 }
             } else {
-                throw new RuntimeException(
+                throw new \RuntimeException(
                     'FilterEmptyItems should not be used for associative arrays as array keys will be re-indexed
                     numerically'
                 );

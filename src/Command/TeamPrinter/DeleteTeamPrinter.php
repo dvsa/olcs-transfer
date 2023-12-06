@@ -3,6 +3,7 @@
 /**
  * Delete Team Printer
  */
+
 namespace Dvsa\Olcs\Transfer\Command\TeamPrinter;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

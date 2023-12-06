@@ -181,7 +181,7 @@ class VehiclesTest extends TestCase
     /**
      * @test
      */
-    public function includeActive_IsOptional()
+    public function includeActiveIsOptional()
     {
         $sut = $this->createDtoContainer($this->createBlankDto());
         $inputFilter = $sut->getInputFilter();
@@ -193,7 +193,7 @@ class VehiclesTest extends TestCase
     /**
      * @test
      */
-    public function includeActive_DefaultsToTrue()
+    public function includeActiveDefaultsToTrue()
     {
         $dto = $this->createBlankDto();
         $dto->exchangeArray([]);

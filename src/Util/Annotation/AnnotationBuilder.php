@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Util\Annotation;
 
 use Doctrine\Common\Annotations\AnnotationReader;
@@ -193,6 +194,9 @@ class AnnotationBuilder
 
         $escape = true;
 
+        $arrayFilterChain = new \Laminas\Filter\FilterChain();
+        $arrayValidatorChain = new \Laminas\Validator\ValidatorChain();
+
         // Determine what type of input we have
         foreach ($propertyAnnotations as $annotation) {
             if ($annotation instanceof ArrayInput) {
@@ -200,8 +204,6 @@ class AnnotationBuilder
 
                 $input = new \Dvsa\Olcs\Transfer\Util\ArrayInput($property->getName());
 
-                $arrayFilterChain = new \Laminas\Filter\FilterChain();
-                $arrayValidatorChain = new \Laminas\Validator\ValidatorChain();
                 break;
             }
 

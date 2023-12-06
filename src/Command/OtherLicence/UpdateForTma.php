@@ -12,8 +12,8 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 final class UpdateForTma extends AbstractCommand
 {
-    use Traits\Identity,
-        Traits\Version;
+    use Traits\Identity;
+    use Traits\Version;
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")

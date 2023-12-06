@@ -17,5 +17,5 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 class RegistrationHistoryList extends AbstractQuery implements OrderedQueryInterface
 {
     use OrderedTrait;
-    use FieldTypeTraits\Identity; //bus reg id
+    use FieldTypeTraits\Identity;
 }

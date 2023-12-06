@@ -3,6 +3,7 @@
 /**
  * Delete User
  */
+
 namespace Dvsa\Olcs\Transfer\Command\User;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -14,5 +15,4 @@ use Dvsa\Olcs\Transfer\Command\AbstractDeleteCommand;
  */
 final class DeleteUser extends AbstractDeleteCommand
 {
-
 }

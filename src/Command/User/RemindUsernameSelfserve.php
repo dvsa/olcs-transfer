@@ -3,6 +3,7 @@
 /**
  * Remind Username Selfserve
  */
+
 namespace Dvsa\Olcs\Transfer\Command\User;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

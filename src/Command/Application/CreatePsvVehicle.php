@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Application;
@@ -18,8 +19,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class CreatePsvVehicle extends AbstractCommand
 {
-    use Application,
-        Vrm;
+    use Application;
+    use Vrm;
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")
@@ -48,13 +49,5 @@ final class CreatePsvVehicle extends AbstractCommand
     public function getReceivedDate()
     {
         return $this->receivedDate;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRemovalDate()
-    {
-        return $this->removalDate;
     }
 }

@@ -3,6 +3,7 @@
 /**
  * Details emissions standards applicable to years for given type
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitType;

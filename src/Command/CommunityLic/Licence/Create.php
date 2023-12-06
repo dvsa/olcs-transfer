@@ -5,6 +5,7 @@
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\CommunityLic\Licence;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

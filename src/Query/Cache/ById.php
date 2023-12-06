@@ -9,6 +9,7 @@
  *
  * @author Ian Lindsay <ian@hemera-business-services.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Cache;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\IdentityString;

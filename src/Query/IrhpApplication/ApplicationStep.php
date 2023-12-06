@@ -5,6 +5,7 @@
  *
  * @author Jonathan Thomas <jonathan@opalise.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

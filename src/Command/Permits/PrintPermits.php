@@ -1,4 +1,5 @@
 <?php
+
 namespace Dvsa\Olcs\Transfer\Command\Permits;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Ids;

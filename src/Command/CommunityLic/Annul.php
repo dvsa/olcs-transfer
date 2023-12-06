@@ -13,8 +13,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Annul extends AbstractCommand
 {
-    use ApplicationOptional,
-        Licence;
+    use ApplicationOptional;
+    use Licence;
 
     /**
      * @var array

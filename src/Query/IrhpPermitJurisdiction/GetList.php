@@ -5,6 +5,7 @@
  *
  * @author Scott Callaway <scott.callaway@capgemini.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpPermitJurisdiction;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

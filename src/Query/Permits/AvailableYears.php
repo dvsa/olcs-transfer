@@ -3,6 +3,7 @@
 /**
  * Get list of all available permit years by permit type id
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

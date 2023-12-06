@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Document;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
@@ -21,11 +22,11 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class CreateDocument extends AbstractCommand
 {
-    use ApplicationOptional,
-        BusRegOptional,
-        CasesOptional,
-        TransportManagerOptional,
-        LicenceOptional;
+    use ApplicationOptional;
+    use BusRegOptional;
+    use CasesOptional;
+    use TransportManagerOptional;
+    use LicenceOptional;
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")

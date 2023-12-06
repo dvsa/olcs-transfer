@@ -13,9 +13,9 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 final class UpdateForResponsibilities extends AbstractCommand
 {
-    use Traits\Identity,
-        Traits\HasUndertakenTraining,
-        Traits\Version;
+    use Traits\Identity;
+    use Traits\HasUndertakenTraining;
+    use Traits\Version;
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")

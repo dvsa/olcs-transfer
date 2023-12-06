@@ -3,6 +3,7 @@
 /**
  * Generate IRFO GV Permit
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Irfo;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;

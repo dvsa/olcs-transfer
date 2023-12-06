@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Application;
@@ -19,9 +20,9 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateGoodsVehicle extends AbstractCommand
 {
-    use Identity,
-        Version,
-        Application;
+    use Identity;
+    use Version;
+    use Application;
 
     /**
      * @Transfer\Filter("Laminas\Filter\Digits")

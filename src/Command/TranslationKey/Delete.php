@@ -3,6 +3,7 @@
 /**
  * Delete Translation Key
  */
+
 namespace Dvsa\Olcs\Transfer\Command\TranslationKey;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;

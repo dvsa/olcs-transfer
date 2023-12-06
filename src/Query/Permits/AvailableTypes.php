@@ -3,6 +3,7 @@
 /**
  * Get list of all available permit types
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

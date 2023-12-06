@@ -5,6 +5,7 @@
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\TransportManagerApplication;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -50,16 +51,6 @@ final class Create extends AbstractCommand
     public function getApplication()
     {
         return $this->application;
-    }
-
-    /**
-     * Get Transport Manager ID
-     *
-     * @return int
-     */
-    public function getTransportManager()
-    {
-        return $this->transportManager;
     }
 
     /**

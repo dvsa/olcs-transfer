@@ -15,7 +15,8 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class Correspondences extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
 {
-    use PagedTrait, OrderedTrait;
+    use PagedTrait;
+    use OrderedTrait;
 
     /**
      * @var int

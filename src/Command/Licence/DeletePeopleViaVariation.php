@@ -1,4 +1,5 @@
 <?php
+
 namespace Dvsa\Olcs\Transfer\Command\Licence;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

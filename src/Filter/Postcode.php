@@ -5,6 +5,7 @@
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Filter;
 
 use Laminas\Filter\StringTrim;

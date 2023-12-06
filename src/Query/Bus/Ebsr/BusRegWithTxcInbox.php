@@ -3,6 +3,7 @@
 /**
  * BusRegWithTxcInbox
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Bus\Ebsr;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

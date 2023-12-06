@@ -3,6 +3,7 @@
 /**
  * Update Submission sections. Leave any other sections as is. Just update section/subsection passed in Command
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Submission;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

@@ -5,6 +5,7 @@
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Version;
@@ -18,8 +19,8 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 */
 class UpdateAuthSignature extends AbstractCommand
 {
-    use Identity,
-        Version;
+    use Identity;
+    use Version;
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")

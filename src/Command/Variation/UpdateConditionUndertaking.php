@@ -5,6 +5,7 @@
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Variation;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
@@ -18,8 +19,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateConditionUndertaking extends AbstractCommand
 {
-    use Identity,
-        Version;
+    use Identity;
+    use Version;
 
     /**
      * @Transfer\Filter("Laminas\Filter\Digits")

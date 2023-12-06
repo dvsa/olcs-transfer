@@ -18,9 +18,9 @@ class CommunityLicences extends AbstractQuery implements
     OrderedQueryInterface,
     PagedQueryInterface
 {
-    use OrderedTrait,
-        LicenceOptional,
-        PagedTrait;
+    use OrderedTrait;
+    use LicenceOptional;
+    use PagedTrait;
 
     /**
      * @var string

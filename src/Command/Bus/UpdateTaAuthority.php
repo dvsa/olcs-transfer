@@ -3,6 +3,7 @@
 /**
  * Bus stops
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Bus;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

@@ -11,11 +11,11 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @author Rob Caiger <rob@clocal.co.uk>
- *         
+ *
  * @Transfer\RouteName("backend/application/single/goods-vehicles")
  */
 class GoodsVehicles extends AbstractGoodsVehicles implements PagedQueryInterface, OrderedQueryInterface
 {
-    use PagedTrait,
-        OrderedTrait;
+    use PagedTrait;
+    use OrderedTrait;
 }

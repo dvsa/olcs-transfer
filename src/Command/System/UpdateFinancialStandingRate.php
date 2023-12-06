@@ -5,6 +5,7 @@
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\System;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -17,8 +18,8 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
  */
 final class UpdateFinancialStandingRate extends AbstractCommand
 {
-    use FieldTypeTraits\Identity,
-        FieldTypeTraits\Version;
+    use FieldTypeTraits\Identity;
+    use FieldTypeTraits\Version;
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")

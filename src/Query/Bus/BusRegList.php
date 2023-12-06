@@ -8,7 +8,6 @@ use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
-
 use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 
 /**

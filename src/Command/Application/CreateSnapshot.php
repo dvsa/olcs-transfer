@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -17,12 +18,6 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
  */
 final class CreateSnapshot extends AbstractCommand
 {
-    const ON_SUBMIT = 0;
-    const ON_GRANT = 1;
-    const ON_REFUSE = 2;
-    const ON_WITHDRAW = 3;
-    const ON_NTU = 4;
-
     use Identity;
 
     /**

@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
@@ -18,8 +19,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdatePsvVehicles extends AbstractCommand
 {
-    use Identity,
-        Version;
+    use Identity;
+    use Version;
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")

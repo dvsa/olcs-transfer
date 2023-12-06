@@ -5,6 +5,7 @@
  *
  * @author Joshua Curtis <josh.curtis@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\LicenceStatusRule;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

@@ -3,6 +3,7 @@
 /**
  * Update Team Printer
  */
+
 namespace Dvsa\Olcs\Transfer\Command\TeamPrinter;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -18,10 +19,10 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Version;
  */
 final class UpdateTeamPrinter extends AbstractCommand
 {
-    use SubCategoryOptional,
-        UserOptional,
-        Identity,
-        Version;
+    use SubCategoryOptional;
+    use UserOptional;
+    use Identity;
+    use Version;
 
     /**
      * @var int

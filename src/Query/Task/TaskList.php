@@ -20,14 +20,14 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
  */
 class TaskList extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
 {
-    use PagedTrait,
-        OrderedTrait,
-        LicenceOptional,
-        TransportManagerOptional,
-        ApplicationOptional,
-        BusRegOptional,
-        CasesOptional,
-        OrganisationOptional;
+    use PagedTrait;
+    use OrderedTrait;
+    use LicenceOptional;
+    use TransportManagerOptional;
+    use ApplicationOptional;
+    use BusRegOptional;
+    use CasesOptional;
+    use OrganisationOptional;
 
     /**
      * @Transfer\Filter("Laminas\Filter\Digits")

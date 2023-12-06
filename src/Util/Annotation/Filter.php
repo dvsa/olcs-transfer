@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Util\Annotation;
 
 use Laminas\Form\Annotation\Filter as LaminasFilter;
@@ -29,14 +30,14 @@ class Filter
 
     public function getName()
     {
-        $spec = $this->getFilterSpecification();
+        $spec = $this->filter->getFilterSpecification();
 
         return $spec['name'];
     }
 
     public function getOptions()
     {
-        $spec = $this->getFilterSpecification();
+        $spec = $this->filter->getFilterSpecification();
 
         if (empty($spec['options'])) {
             return null;

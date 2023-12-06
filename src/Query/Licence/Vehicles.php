@@ -21,9 +21,9 @@ class Vehicles extends AbstractQuery implements
     OrderedQueryInterface,
     FiltersByIncludeActiveInterface
 {
-    use Identity,
-        PagedTrait,
-        OrderedTrait;
+    use Identity;
+    use PagedTrait;
+    use OrderedTrait;
 
     /**
      * @Transfer\Filter("Laminas\Filter\Boolean")

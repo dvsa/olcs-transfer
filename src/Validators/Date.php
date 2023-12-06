@@ -11,7 +11,6 @@ use Laminas\Validator\Date as LaminasDate;
  */
 class Date extends LaminasDate
 {
-
     /**
      * Validation failure message template definitions
      *

@@ -3,6 +3,7 @@
 /**
  * Delete Printer
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Printer;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

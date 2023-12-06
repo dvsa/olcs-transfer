@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Dvsa\Olcs\Transfer\Command\Surrender;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;

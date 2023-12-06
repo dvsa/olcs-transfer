@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Workshop;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
@@ -18,7 +19,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
  */
 class Workshop extends AbstractQuery
 {
-    use Identity,
-        LicenceOptional,
-        ApplicationOptional;
+    use Identity;
+    use LicenceOptional;
+    use ApplicationOptional;
 }

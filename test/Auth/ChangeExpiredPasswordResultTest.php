@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Dvsa\OlcsTest\Transfer\Result\Auth;
@@ -12,7 +13,7 @@ class ChangeExpiredPasswordResultTest extends TestCase
     /**
      * @test
      */
-    public function __construct_ThrowsInvalidArgumentException_WhenCodeIsNotValid()
+    public function constructThrowsInvalidArgumentExceptionWhenCodeIsNotValid()
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('999 is not a valid code');
@@ -24,7 +25,7 @@ class ChangeExpiredPasswordResultTest extends TestCase
      * @test
      * @dataProvider validCodeDataProvider
      */
-    public function __construct_CreatesInstance_WhenCodeIsValid(int $code)
+    public function constructCreatesInstanceWhenCodeIsValid(int $code)
     {
         $this->assertInstanceOf(ChangeExpiredPasswordResult::class, new ChangeExpiredPasswordResult($code));
     }
@@ -45,7 +46,7 @@ class ChangeExpiredPasswordResultTest extends TestCase
      * @test
      * @dataProvider validCodeDataProvider
      */
-    public function isValid_ReturnsExpectedResponse(int $code, bool $isValid)
+    public function isValidReturnsExpectedResponse(int $code, bool $isValid)
     {
         $result = new ChangeExpiredPasswordResult($code);
 

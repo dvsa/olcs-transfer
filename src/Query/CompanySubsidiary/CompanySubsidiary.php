@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\CompanySubsidiary;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
@@ -18,7 +19,7 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
  */
 class CompanySubsidiary extends AbstractQuery
 {
-    use Identity,
-        ApplicationOptional,
-        LicenceOptional;
+    use Identity;
+    use ApplicationOptional;
+    use LicenceOptional;
 }

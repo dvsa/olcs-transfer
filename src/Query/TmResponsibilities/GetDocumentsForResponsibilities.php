@@ -5,6 +5,7 @@
  *
  * @author Alex Peshkov <alex.peshkov@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\TmResponsibilities;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

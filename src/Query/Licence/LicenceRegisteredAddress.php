@@ -3,6 +3,7 @@
 /**
  * Licence Registered Address
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Licence;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

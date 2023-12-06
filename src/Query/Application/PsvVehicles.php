@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Application;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
@@ -24,9 +25,9 @@ class PsvVehicles extends AbstractQuery implements
     PagedQueryInterface,
     OrderedQueryInterface
 {
-    use Identity,
-        PagedTrait,
-        OrderedTrait;
+    use Identity;
+    use PagedTrait;
+    use OrderedTrait;
 
     /**
      * @Transfer\Filter("Laminas\Filter\Boolean")

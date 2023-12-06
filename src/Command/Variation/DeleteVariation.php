@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Dvsa\Olcs\Transfer\Command\Variation;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;

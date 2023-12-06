@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Dvsa\Olcs\Transfer\Query\LicenceVehicle;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Ids;

@@ -2,6 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Validators;
 
+use Exception;
 use Laminas\Validator\AbstractValidator as AbstractValidator;
 
 /**
@@ -14,12 +15,12 @@ class DateInFuture extends AbstractValidator
     /**
      * @const string
      */
-    const IN_FUTURE = 'inFuture';
+    public const IN_FUTURE = 'inFuture';
 
     /**
      * @const string
      */
-    const TODAY_OR_IN_FUTURE = 'todayOrInFuture';
+    public const TODAY_OR_IN_FUTURE = 'todayOrInFuture';
 
     /**
      * @var bool
@@ -45,7 +46,7 @@ class DateInFuture extends AbstractValidator
      */
     public function setIncludeToday($includeToday)
     {
-        $this->includeToday = (boolean) $includeToday;
+        $this->includeToday = (bool) $includeToday;
         return $this;
     }
 
@@ -68,7 +69,7 @@ class DateInFuture extends AbstractValidator
      */
     public function setUseTime($useTime)
     {
-        $this->useTime = (boolean) $useTime;
+        $this->useTime = (bool) $useTime;
         return $this;
     }
 
@@ -91,7 +92,7 @@ class DateInFuture extends AbstractValidator
      */
     public function setAllowEmpty($allowEmpty)
     {
-        $this->allowEmpty = (boolean) $allowEmpty;
+        $this->allowEmpty = (bool) $allowEmpty;
         return $this;
     }
 
@@ -142,7 +143,7 @@ class DateInFuture extends AbstractValidator
      * @param mixed $value value
      *
      * @return bool
-     * @throws Exception\RuntimeException if the token doesn't exist in the context array
+     * @throws Exception if the token doesn't exist in the context array
      */
     public function isValid($value)
     {

@@ -3,6 +3,7 @@
 /**
  * UpdateLicenceStatusRule.php
  */
+
 namespace Dvsa\Olcs\Transfer\Command\LicenceStatusRule;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

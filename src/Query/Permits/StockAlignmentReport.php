@@ -3,6 +3,7 @@
 /**
  * Stock alignment report
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

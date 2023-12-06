@@ -5,6 +5,7 @@
  *
  * @author Jonathan Thomas <jonathan@opalise.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Permits;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;

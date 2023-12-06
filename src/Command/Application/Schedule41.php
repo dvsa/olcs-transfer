@@ -5,6 +5,7 @@
  *
  * @author Joshua Curtis <josh.curtis@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
@@ -18,8 +19,8 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Licence;
  */
 final class Schedule41 extends AbstractCommand
 {
-    use Identity,
-        Licence;
+    use Identity;
+    use Licence;
 
     /**
      * @Transfer\ArrayInput

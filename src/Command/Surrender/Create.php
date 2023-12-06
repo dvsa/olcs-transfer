@@ -12,7 +12,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 class Create extends AbstractCommand
 {
-    use  Identity;
+    use Identity;
 
 
     /**

@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Util\Annotation;
 
 use Laminas\Form\Annotation\Validator as LaminasValidator;
@@ -29,14 +30,14 @@ class Validator
 
     public function getName()
     {
-        $spec = $this->getValidatorSpecification();
+        $spec = $this->validator->getValidatorSpecification();
 
         return $spec['name'];
     }
 
     public function getOptions()
     {
-        $spec = $this->getValidatorSpecification();
+        $spec = $this->validator->getValidatorSpecification();
 
         if (empty($spec['options'])) {
             return null;

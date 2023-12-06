@@ -3,6 +3,7 @@
 /**
  * Query to get short notice by Bus Reg
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Bus;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -14,5 +15,5 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
  */
 class ShortNoticeByBusReg extends AbstractQuery
 {
-    use FieldType\Identity; //this is the parent bus reg id
+    use FieldType\Identity;
 }

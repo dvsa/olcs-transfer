@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\VariationOperatingCentre;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

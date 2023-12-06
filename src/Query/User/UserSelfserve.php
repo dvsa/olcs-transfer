@@ -3,6 +3,7 @@
 /**
  * User Selfserve
  */
+
 namespace Dvsa\Olcs\Transfer\Query\User;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;

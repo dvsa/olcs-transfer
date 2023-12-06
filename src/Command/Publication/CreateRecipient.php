@@ -3,6 +3,7 @@
 /**
  * Create Recipient
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Publication;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

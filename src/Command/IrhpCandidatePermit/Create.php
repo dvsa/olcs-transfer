@@ -3,6 +3,7 @@
 /**
  * Create Irhp Candidate Permit
  */
+
 namespace Dvsa\Olcs\Transfer\Command\IrhpCandidatePermit;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
