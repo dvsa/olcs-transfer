@@ -5,6 +5,7 @@
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Licence;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;

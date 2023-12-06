@@ -9,8 +9,8 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 
 abstract class AbstractUpdateInterim extends AbstractCommand
 {
-    use Identity,
-        Version;
+    use Identity;
+    use Version;
 
     /**
      * @Transfer\Optional

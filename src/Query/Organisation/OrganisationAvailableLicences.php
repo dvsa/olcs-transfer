@@ -3,6 +3,7 @@
 /**
  * Organisation Permits Query
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Organisation;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;

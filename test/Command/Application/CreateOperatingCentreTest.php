@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Dvsa\OlcsTest\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\Command\Application\CreateOperatingCentre;

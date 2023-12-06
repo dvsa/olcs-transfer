@@ -6,6 +6,7 @@
  * @author Kollol Shamsuddin <kol.shamsudin@capgemini.com>
  * @author Jason De Jonge <jason.de-jonge@capgemini.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

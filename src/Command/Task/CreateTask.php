@@ -19,14 +19,14 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class CreateTask extends AbstractCommand
 {
-    use LicenceOptional,
-        ApplicationOptional,
-        TransportManagerOptional,
-        SubmissionOptional,
-        BusRegOptional,
-        CasesOptional,
-        IrhpApplicationOptional,
-        SurrenderOptional;
+    use LicenceOptional;
+    use ApplicationOptional;
+    use TransportManagerOptional;
+    use SubmissionOptional;
+    use BusRegOptional;
+    use CasesOptional;
+    use IrhpApplicationOptional;
+    use SurrenderOptional;
 
 
     /**

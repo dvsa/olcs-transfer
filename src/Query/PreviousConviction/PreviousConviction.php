@@ -5,6 +5,7 @@
  *
  * @author Nick Payne <nick.payne@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\PreviousConviction;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;

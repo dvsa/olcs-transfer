@@ -3,6 +3,7 @@
 /**
  * Get list of all available countries
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpPermitStock;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

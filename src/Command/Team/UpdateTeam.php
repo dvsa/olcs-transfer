@@ -3,6 +3,7 @@
 /**
  * Create Team
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Team;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -17,9 +18,9 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Version;
  */
 final class UpdateTeam extends AbstractCommand
 {
-    use TrafficAreaOptional,
-        Identity,
-        Version;
+    use TrafficAreaOptional;
+    use Identity;
+    use Version;
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")

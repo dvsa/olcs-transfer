@@ -13,8 +13,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateFinances extends AbstractCommand
 {
-    use Identity,
-        Version;
+    use Identity;
+    use Version;
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
@@ -10,7 +9,6 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
  */
 trait IsTaOverridden
 {
-
     /**
      * @Transfer\Optional
      * @Transfer\Filter("Laminas\Filter\StringTrim")
@@ -21,7 +19,7 @@ trait IsTaOverridden
     /**
      * @return string
      */
-    public function getTaIsOverridden():?string
+    public function getTaIsOverridden(): ?string
     {
         return $this->taIsOverridden;
     }

@@ -5,6 +5,7 @@
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\ConditionUndertaking;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
@@ -19,9 +20,9 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Create extends AbstractCommand
 {
-    use LicenceOptional,
-        ApplicationOptional,
-        CasesOptional;
+    use LicenceOptional;
+    use ApplicationOptional;
+    use CasesOptional;
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")

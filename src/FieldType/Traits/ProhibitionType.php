@@ -1,4 +1,5 @@
 <?php
+
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
@@ -9,7 +10,6 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
  */
 trait ProhibitionType
 {
-
     /**
      * @var String
      * @Transfer\Filter("Laminas\Filter\StringTrim")

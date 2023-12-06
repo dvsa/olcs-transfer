@@ -5,6 +5,7 @@
  *
  * @author Joshua Curtis <josh.curtis@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;

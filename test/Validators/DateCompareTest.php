@@ -18,8 +18,7 @@ class DateCompareTest extends MockeryTestCase
         $sut = new DateCompare();
         $sut->setOptions(
             [
-                'compare_to' =>'test',
-                'operator' => false,
+                'compare_to' => 'test',
                 'compare_to_label' => [null],
                 'operator' => 'lt',
                 'has_time' => false
@@ -30,7 +29,6 @@ class DateCompareTest extends MockeryTestCase
         $this->assertEquals([null], $sut->getCompareToLabel());
         $this->assertEquals('lt', $sut->getOperator());
         $this->assertEquals(false, $sut->getHasTime());
-
     }
 
     /**
@@ -97,7 +95,7 @@ class DateCompareTest extends MockeryTestCase
                 false,
                 ['compare_to' => 'other_field', 'operator' => 'invalid', 'compare_to_label' => 'Other field'],
                 '2014-01-10',
-                ['other_field'=> ''],
+                ['other_field' => ''],
                 [DateCompare::INVALID_FIELD => 'Input field being compared to doesn\'t exist']
             ],
             //context matches value is empty

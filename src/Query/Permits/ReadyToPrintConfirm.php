@@ -3,6 +3,7 @@
 /**
  * Get a list of permits ready to print for confirmation
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Ids;

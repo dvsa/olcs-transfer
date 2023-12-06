@@ -5,6 +5,7 @@
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\OrganisationPerson;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;

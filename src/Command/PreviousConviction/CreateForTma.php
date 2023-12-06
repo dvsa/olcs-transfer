@@ -5,6 +5,7 @@
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\PreviousConviction;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -54,8 +55,6 @@ final class CreateForTma extends AbstractCommand
 
     /**
      * Get Transport Manager Application Id
-     *
-     * @return type
      */
     public function getTmaId()
     {

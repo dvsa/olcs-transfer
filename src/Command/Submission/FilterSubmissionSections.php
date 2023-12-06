@@ -4,6 +4,7 @@
  * Filter Submission sections. Leave any other sections as is. Just remove specified data from sections passed in
  * Command
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Submission;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

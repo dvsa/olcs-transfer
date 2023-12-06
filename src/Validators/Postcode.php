@@ -5,6 +5,7 @@
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Validators;
 
 use Laminas\Validator\AbstractValidator;
@@ -16,12 +17,12 @@ use Laminas\Validator\AbstractValidator;
  */
 class Postcode extends AbstractValidator
 {
-    const POSTCODE_MIN_LENGTH = 5;
-    const POSTCODE_MAX_LENGTH = 8;
-    const POSTCODE_BAD_LENGTH     = 'postcodeBadLength';
-    const POSTCODE_INVALID_FORMAT = 'invalidPostcodeFormat';
-    const POSTCODE_IS_EMPTY       = 'isEmpty';
-    const POSTCODE_TOO_LONG       = 'stringLengthTooLong';
+    protected const POSTCODE_MIN_LENGTH = 5;
+    protected const POSTCODE_MAX_LENGTH = 8;
+    protected const POSTCODE_BAD_LENGTH     = 'postcodeBadLength';
+    protected const POSTCODE_INVALID_FORMAT = 'invalidPostcodeFormat';
+    protected const POSTCODE_IS_EMPTY       = 'isEmpty';
+    protected const POSTCODE_TOO_LONG       = 'stringLengthTooLong';
 
     protected $messageTemplates = [
         self::POSTCODE_BAD_LENGTH     => 'postcode.validation.postcodeBadLength',
@@ -91,7 +92,7 @@ class Postcode extends AbstractValidator
             return $this->validateUkPostcode($value);
         }
 
-        return $this->validateNonUkPostcode($value, $context);
+        return $this->validateNonUkPostcode($value);
     }
 
     /**

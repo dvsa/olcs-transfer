@@ -3,6 +3,7 @@
 /**
  * Update Partner
  */
+
 namespace Dvsa\Olcs\Transfer\Command\User;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

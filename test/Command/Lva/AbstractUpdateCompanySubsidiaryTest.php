@@ -1,6 +1,6 @@
 <?php
 
-namespace Dvsa\OlcsTest\Transfer\Command;
+namespace Dvsa\OlcsTest\Transfer\Command\Lva;
 
 use Dvsa\Olcs\Transfer\Command\Lva\AbstractUpdateCompanySubsidiary;
 
@@ -12,7 +12,10 @@ class AbstractUpdateCompanySubsidiaryTest extends \PHPUnit\Framework\TestCase
 {
     public function testGetSet()
     {
-        $command = TestAbstractUpdateCompanySubsidiary::create(
+        $class = new class extends AbstractUpdateCompanySubsidiary {
+        };
+
+        $command = $class::create(
             [
                 'id' => 111,
                 'version' => 2,
@@ -26,11 +29,4 @@ class AbstractUpdateCompanySubsidiaryTest extends \PHPUnit\Framework\TestCase
         static::assertEquals('unit_name', $command->getName());
         static::assertEquals('unit_CompNo', $command->getCompanyNo());
     }
-}
-
-/**
- * Class for testing Abstract Class
- */
-class TestAbstractUpdateCompanySubsidiary extends AbstractUpdateCompanySubsidiary
-{
 }

@@ -1,7 +1,9 @@
 <?php
+
 /**
  * Paged Query Interface
  */
+
 namespace Dvsa\Olcs\Transfer\Query;
 
 /**

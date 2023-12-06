@@ -3,6 +3,7 @@
 /**
  * Bus Reg
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Bus;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

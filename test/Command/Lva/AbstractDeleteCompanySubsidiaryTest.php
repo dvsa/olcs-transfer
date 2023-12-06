@@ -1,6 +1,6 @@
 <?php
 
-namespace Dvsa\OlcsTest\Transfer\Command;
+namespace Dvsa\OlcsTest\Transfer\Command\Lva;
 
 use Dvsa\Olcs\Transfer\Command\Lva\AbstractDeleteCompanySubsidiary;
 
@@ -11,7 +11,10 @@ class AbstractDeleteCompanySubsidiaryTest extends \PHPUnit\Framework\TestCase
 {
     public function testGetSet()
     {
-        $command = TestAbstractDeleteCompanySubsidiary::create(
+        $class = new class extends AbstractDeleteCompanySubsidiary {
+        };
+
+        $command = $class::create(
             [
                 'ids' => [111, 222, 333],
             ]
@@ -19,11 +22,4 @@ class AbstractDeleteCompanySubsidiaryTest extends \PHPUnit\Framework\TestCase
 
         static::assertEquals([111, 222, 333], $command->getIds());
     }
-}
-
-/**
- * Class for testing Abstract Class
- */
-class TestAbstractDeleteCompanySubsidiary extends AbstractDeleteCompanySubsidiary
-{
 }

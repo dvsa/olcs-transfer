@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Workshop;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -18,8 +19,8 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
  */
 final class DeleteWorkshop extends AbstractCommand
 {
-    use LicenceOptional,
-        ApplicationOptional;
+    use LicenceOptional;
+    use ApplicationOptional;
 
     /**
      * @Transfer\ArrayInput

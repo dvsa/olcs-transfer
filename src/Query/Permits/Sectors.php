@@ -5,6 +5,7 @@
  *
  * @author Tonci Vidovic <tonci.vidovic@capgemini.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
 use Dvsa\Olcs\Transfer\Query\CacheableLongTermQueryInterface;

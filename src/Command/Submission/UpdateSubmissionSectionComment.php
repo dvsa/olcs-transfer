@@ -3,6 +3,7 @@
 /**
  * Update SubmissionSectionComment
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Submission;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

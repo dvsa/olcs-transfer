@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\OlcsTest\Transfer\Util\Stub;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

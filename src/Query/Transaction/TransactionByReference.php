@@ -5,6 +5,7 @@
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Transaction;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

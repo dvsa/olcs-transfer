@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Organisation;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
@@ -19,9 +20,9 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateBusinessType extends AbstractCommand
 {
-    use Identity,
-        ApplicationOptional,
-        LicenceOptional;
+    use Identity;
+    use ApplicationOptional;
+    use LicenceOptional;
 
     /**
      * @Transfer\Filter("Laminas\Filter\Digits")

@@ -3,6 +3,7 @@
 /**
  * Update txc inbox
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Bus\Ebsr;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

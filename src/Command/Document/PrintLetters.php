@@ -12,9 +12,6 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Ids;
  */
 class PrintLetters extends AbstractCommand
 {
-    const METHOD_EMAIL = 'email';
-    const METHOD_PRINT_AND_POST = 'printAndPost';
-
     use Ids;
 
     /**

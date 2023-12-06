@@ -8,7 +8,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @author Rob Caiger <rob@clocal.co.uk>
- *         
+ *
  * @Transfer\RouteName("backend/application/named-single/company-subsidiary/single")
  * @Transfer\Method("PUT")
  */

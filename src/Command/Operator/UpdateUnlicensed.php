@@ -5,6 +5,7 @@
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Operator;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;

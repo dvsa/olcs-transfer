@@ -14,5 +14,5 @@ use Dvsa\Olcs\Transfer\FieldType as FieldType;
  */
 class ReopenSubmission extends AbstractReopenCommand
 {
-    // 
+    //
 }

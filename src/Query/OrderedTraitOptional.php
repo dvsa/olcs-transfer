@@ -1,4 +1,5 @@
 <?php
+
 namespace Dvsa\Olcs\Transfer\Query;
 
 trait OrderedTraitOptional

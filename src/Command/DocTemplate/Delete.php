@@ -3,6 +3,7 @@
 /**
  * Delete Document Template
  */
+
 namespace Dvsa\Olcs\Transfer\Command\DocTemplate;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\LicenceVehicle;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
@@ -20,10 +21,10 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdatePsvLicenceVehicle extends AbstractCommand
 {
-    use Identity,
-        Version,
-        ApplicationOptional,
-        LicenceOptional;
+    use Identity;
+    use Version;
+    use ApplicationOptional;
+    use LicenceOptional;
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")

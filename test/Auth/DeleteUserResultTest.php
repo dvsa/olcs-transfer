@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Dvsa\OlcsTest\Transfer\Result\Auth;
+namespace Dvsa\OlcsTest\Transfer\Auth;
 
 use Dvsa\Olcs\Transfer\Result\Auth\DeleteUserResult;
 use InvalidArgumentException;
@@ -13,7 +13,7 @@ class DeleteUserResultTest extends TestCase
     /**
      * @test
      */
-    public function __construct_ThrowsInvalidArgumentException_WhenCodeIsNotValid()
+    public function constructThrowsInvalidArgumentExceptionWhenCodeIsNotValid()
     {
         $this->expectException(InvalidArgumentException::class);
         $this->expectExceptionMessage('999 is not a valid code');
@@ -25,7 +25,7 @@ class DeleteUserResultTest extends TestCase
      * @test
      * @dataProvider validCodeDataProvider
      */
-    public function __construct_CreatesInstance_WhenCodeIsValid(int $code)
+    public function constructCreatesInstanceWhenCodeIsValid(int $code)
     {
         $this->assertInstanceOf(DeleteUserResult::class, new DeleteUserResult($code));
     }
@@ -34,7 +34,7 @@ class DeleteUserResultTest extends TestCase
      * @test
      * @dataProvider validCodeDataProvider
      */
-    public function isValid_ReturnsExpectedResponse(int $code, bool $isValid)
+    public function isValidReturnsExpectedResponse(int $code, bool $isValid)
     {
         $result = new DeleteUserResult($code);
         $this->assertSame($isValid, $result->isValid());
@@ -53,7 +53,7 @@ class DeleteUserResultTest extends TestCase
      * @test
      * @dataProvider notPresentCodeDataProvider
      */
-    public function notPresent_ReturnsExpectedResponse(int $code, bool $isValid)
+    public function notPresentReturnsExpectedResponse(int $code, bool $isValid)
     {
         $result = new DeleteUserResult($code);
         $this->assertSame($isValid, $result->isUserNotPresent());

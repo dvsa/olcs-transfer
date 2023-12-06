@@ -2,10 +2,8 @@
 
 namespace Dvsa\Olcs\Transfer\Util;
 
-
 class ChildRoutesGenerator
 {
-
     private $routes;
 
     private $directory;
@@ -24,12 +22,11 @@ class ChildRoutesGenerator
         $paths = scandir($directory);
 
         foreach ($paths as $path) {
-
-            if(substr($path, 0, 1) === '.') {
+            if (substr($path, 0, 1) === '.') {
                 continue;
             }
 
-            if(!is_dir($path) && pathinfo($path, PATHINFO_EXTENSION) === 'php') {
+            if (!is_dir($path) && pathinfo($path, PATHINFO_EXTENSION) === 'php') {
                 $childRoot = include $directory . '/' . $path;
                 $child[key($childRoot)] = current($childRoot);
             } else {
@@ -38,13 +35,12 @@ class ChildRoutesGenerator
                 ];
                 $child[$path]['child_routes'] = $this->buildChildRoutes($directory . '/' . $path, $child[$path]['child_routes']);
             }
-
         }
 
         return $child;
     }
 
-    public function getUpdatedRoutes() : array
+    public function getUpdatedRoutes(): array
     {
         $childRoutes = $this->buildChildRoutes($this->directory);
 

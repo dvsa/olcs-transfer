@@ -5,6 +5,7 @@
  *
  * @author Andy Newton <andy.newton@dvsa.gov.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Cases\PresidingTc;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

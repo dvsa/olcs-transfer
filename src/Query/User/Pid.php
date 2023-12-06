@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\User;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

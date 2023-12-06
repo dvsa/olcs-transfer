@@ -5,6 +5,7 @@
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\OtherLicence;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

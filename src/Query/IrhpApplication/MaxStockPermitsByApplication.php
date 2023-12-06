@@ -3,6 +3,7 @@
 /**
  * Max permits by stock
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Licence;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Ids;
@@ -18,6 +19,6 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class DeleteOperatingCentres extends AbstractCommand
 {
-    use Ids,
-        Licence;
+    use Ids;
+    use Licence;
 }

@@ -5,6 +5,7 @@
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Operator;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Organisation;
@@ -18,6 +19,6 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
  */
 class UnlicensedVehicles extends AbstractQuery implements PagedQueryInterface
 {
-    use Organisation,
-        PagedTrait;
+    use Organisation;
+    use PagedTrait;
 }

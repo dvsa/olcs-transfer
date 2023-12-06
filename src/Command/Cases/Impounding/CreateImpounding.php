@@ -202,6 +202,7 @@ class CreateImpounding extends AbstractCommand
     public function setOutcome($outcome)
     {
         $this->outcome = $outcome;
+        return $this;
     }
 
     /**
@@ -219,6 +220,7 @@ class CreateImpounding extends AbstractCommand
     public function setOutcomeSentDate($outcomeSentDate)
     {
         $this->outcomeSentDate = $outcomeSentDate;
+        return $this;
     }
 
     /**
@@ -236,6 +238,7 @@ class CreateImpounding extends AbstractCommand
     public function setVenue($venue)
     {
         $this->venue = $venue;
+        return $this;
     }
 
     /**
@@ -253,6 +256,7 @@ class CreateImpounding extends AbstractCommand
     public function setVenueOther($venueOther)
     {
         $this->venueOther = $venueOther;
+        return $this;
     }
 
     /**
@@ -270,6 +274,7 @@ class CreateImpounding extends AbstractCommand
     public function setPresidingTc($presidingTc)
     {
         $this->presidingTc = $presidingTc;
+        return $this;
     }
 
     /**
@@ -287,6 +292,7 @@ class CreateImpounding extends AbstractCommand
     public function setVrm($vrm)
     {
         $this->vrm = $vrm;
+        return $this;
     }
 
     /**

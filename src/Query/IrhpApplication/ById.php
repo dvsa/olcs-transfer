@@ -3,6 +3,7 @@
 /**
  * Get a single IRHP application by id
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

@@ -5,6 +5,7 @@
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Fee;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
@@ -26,14 +27,14 @@ class CreateFee extends AbstractCommand implements
     FieldType\IrfoGvPermitInterface,
     FieldType\IrfoPsvAuthInterface
 {
-    use FieldTypeTraits\ApplicationOptional,
-        FieldTypeTraits\BusRegOptional,
-        FieldTypeTraits\LicenceOptional,
-        FieldTypeTraits\IrhpApplicationOptional,
-        FieldTypeTraits\IrhpPermitApplicationOptional,
-        FieldTypeTraits\TaskOptional,
-        FieldTypeTraits\IrfoGvPermitOptional,
-        FieldTypeTraits\IrfoPsvAuthOptional;
+    use FieldTypeTraits\ApplicationOptional;
+    use FieldTypeTraits\BusRegOptional;
+    use FieldTypeTraits\LicenceOptional;
+    use FieldTypeTraits\IrhpApplicationOptional;
+    use FieldTypeTraits\IrhpPermitApplicationOptional;
+    use FieldTypeTraits\TaskOptional;
+    use FieldTypeTraits\IrfoGvPermitOptional;
+    use FieldTypeTraits\IrfoPsvAuthOptional;
 
     /**
      * @Transfer\Optional

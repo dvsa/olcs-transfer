@@ -5,6 +5,7 @@
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Validators;
 
 use Laminas\Validator\AbstractValidator;
@@ -16,7 +17,7 @@ use Laminas\Validator\AbstractValidator;
  */
 class Money extends AbstractValidator
 {
-    const INVALID  = 'invalid';
+    protected const INVALID  = 'invalid';
 
     /**
      * Holds the templates

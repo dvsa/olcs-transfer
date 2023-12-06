@@ -3,6 +3,7 @@
 /**
  * CreateDocument - used by the olcs-scanning service to add scanned documents
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Scan;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

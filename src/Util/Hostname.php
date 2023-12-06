@@ -96,7 +96,7 @@ class Hostname implements RouteInterface
             $options['defaults'] = array();
         }
 
-        return new static($options['route'], $options['constraints'], $options['defaults']);
+        return new self($options['route'], $options['constraints'], $options['defaults']);
     }
 
     /**
@@ -237,7 +237,8 @@ class Hostname implements RouteInterface
                         }
 
                         return '';
-                    } elseif (!$isOptional
+                    } elseif (
+                        !$isOptional
                         || !isset($this->defaults[$part[1]])
                         || $this->defaults[$part[1]] !== $mergedParams[$part[1]]
                     ) {

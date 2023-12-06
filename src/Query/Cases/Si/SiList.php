@@ -5,6 +5,7 @@
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Cases\Si;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

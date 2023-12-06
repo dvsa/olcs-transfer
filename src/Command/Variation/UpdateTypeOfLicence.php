@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Variation;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -18,7 +19,8 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\VehicleType;
  */
 final class UpdateTypeOfLicence extends AbstractCommand
 {
-    use LgvDeclarationConfirmation, VehicleType;
+    use LgvDeclarationConfirmation;
+    use VehicleType;
 
     /**
      * @Transfer\Filter("Laminas\Filter\Digits")

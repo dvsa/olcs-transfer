@@ -5,6 +5,7 @@
  *
  * @author Jonathan Thomas <jonathan@opalise.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
@@ -18,5 +19,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\TranslateToWelshOptional;
  */
 class AnswersSummary extends AbstractQuery
 {
-    use Identity, IrhpPermitApplicationOptional, TranslateToWelshOptional;
+    use Identity;
+    use IrhpPermitApplicationOptional;
+    use TranslateToWelshOptional;
 }

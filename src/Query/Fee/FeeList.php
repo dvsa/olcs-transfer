@@ -8,7 +8,6 @@ use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\PagedTraitOptional;
 use Dvsa\Olcs\Transfer\Query\OrderedTraitOptional;
-
 use Dvsa\Olcs\Transfer\FieldType;
 use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 

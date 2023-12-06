@@ -3,6 +3,7 @@
 /**
  * UsernameTest
  */
+
 namespace Dvsa\OlcsTest\Transfer\Validators;
 
 use Dvsa\Olcs\Transfer\Validators\Username;

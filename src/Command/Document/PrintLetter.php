@@ -12,10 +12,10 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 final class PrintLetter extends AbstractCommand
 {
-    const METHOD_EMAIL = 'email';
-    const METHOD_PRINT_AND_POST = 'printAndPost';
-
     use Identity;
+
+    public const METHOD_EMAIL = 'email';
+    public const METHOD_PRINT_AND_POST = 'printAndPost';
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")

@@ -5,6 +5,7 @@
  *
  * @author Ian Lindsay <ian@hemera-business-services.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Validators;
 
 use Laminas\Validator\AbstractValidator;
@@ -18,8 +19,8 @@ use Laminas\Xml\Exception\RuntimeException;
  */
 class Xml extends AbstractValidator
 {
-    const XML_NOT_VALID = 'xml_not_valid_error';
-    const XML_CONTAINS_EXTERNAL_ENTITIES = 'xml_external_entities_error';
+    protected const XML_NOT_VALID = 'xml_not_valid_error';
+    protected const XML_CONTAINS_EXTERNAL_ENTITIES = 'xml_external_entities_error';
 
     protected $messageTemplates = array(
         self::XML_NOT_VALID => 'The XML was not valid',

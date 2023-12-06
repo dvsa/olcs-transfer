@@ -68,7 +68,7 @@ class LaminasRouterHttpQueryV2 implements RouteInterface
             $options['defaults'] = [];
         }
 
-        return new static($options['defaults']);
+        return new self($options['defaults']);
     }
 
     /**

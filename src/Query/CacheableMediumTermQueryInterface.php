@@ -7,5 +7,4 @@ namespace Dvsa\Olcs\Transfer\Query;
  */
 interface CacheableMediumTermQueryInterface
 {
-
 }

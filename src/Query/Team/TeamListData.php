@@ -5,6 +5,7 @@
  * For internal users with limited permissions, the backend will proxy
  * to Dvsa\Olcs\Api\Domain\Query\Team\TeamListByTrafficArea
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Team;
 
 use Dvsa\Olcs\Transfer\Query\AbstractListData;

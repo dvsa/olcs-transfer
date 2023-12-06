@@ -3,6 +3,7 @@
 /**
  * Update User
  */
+
 namespace Dvsa\Olcs\Transfer\Command\User;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\TranslateToWelshOptional;

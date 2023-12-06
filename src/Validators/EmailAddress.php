@@ -5,6 +5,7 @@
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Validators;
 
 use Laminas\Validator\Hostname;
@@ -22,10 +23,10 @@ class EmailAddress extends AbstractValidator
     /**
      * Should be consistent across the application, see OLCS-9884
      */
-    const EMAIL_ADDRESS_MAX_LENGTH = 254;
-    const INVALID            = 'emailAddressInvalid';
-    const INVALID_FORMAT     = 'emailAddressInvalidFormat';
-    const ERROR_INVALID      = 'emailAddressLengthNotInRange';
+    public const EMAIL_ADDRESS_MAX_LENGTH = 254;
+    public const INVALID            = 'emailAddressInvalid';
+    public const INVALID_FORMAT     = 'emailAddressInvalidFormat';
+    public const ERROR_INVALID      = 'emailAddressLengthNotInRange';
 
     /**
      * @var array
@@ -221,7 +222,7 @@ class EmailAddress extends AbstractValidator
         // Quoted-string characters are: DQUOTE *(qtext/quoted-pair) DQUOTE
         $qtext      = '\x20-\x21\x23-\x5b\x5d-\x7e'; // %d32-33 / %d35-91 / %d93-126
         $quotedPair = '\x20-\x7e'; // %d92 %d32-126
-        if (preg_match('/^"(['. $qtext .']|\x5c[' . $quotedPair . '])*"$/', $this->localPart)) {
+        if (preg_match('/^"([' . $qtext . ']|\x5c[' . $quotedPair . '])*"$/', $this->localPart)) {
             return true;
         }
 
@@ -267,8 +268,10 @@ class EmailAddress extends AbstractValidator
     protected function splitEmailParts($value)
     {
         // Split email address up and disallow '..'
-        if ((strpos($value, '..') !== false) or
-            (!preg_match('/^(.+)@([^@]+)$/', $value, $matches))) {
+        if (
+            (strpos($value, '..') !== false) or
+            (!preg_match('/^(.+)@([^@]+)$/', $value, $matches))
+        ) {
             return false;
         }
 

@@ -13,6 +13,7 @@ use Mockery as m;
 trait QueryTest
 {
     use DtoTest;
+
     protected function createDtoContainer(ArraySerializableInterface $dto)
     {
         $serviceManager = m::mock(ServiceManager::class);

@@ -3,6 +3,7 @@
 /**
  * Create Team Printer
  */
+
 namespace Dvsa\Olcs\Transfer\Command\TeamPrinter;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -16,8 +17,8 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\UserOptional;
  */
 final class CreateTeamPrinter extends AbstractCommand
 {
-    use SubCategoryOptional,
-        UserOptional;
+    use SubCategoryOptional;
+    use UserOptional;
 
     /**
      * @var int

@@ -18,15 +18,11 @@ class AbstractDownloadTest extends MockeryTestCase
         ];
 
         /** @var AbstractDownload $sut */
-        $sut = AbstractDownloadStub::create($data);
+        $class = new class extends AbstractDownload {
+        };
+
+        $sut = $class::create($data);
 
         static::assertEquals('unit_Inline', $sut->isInline());
     }
-}
-
-/**
- * Stub class for testign AbstractDownload class
- */
-class AbstractDownloadStub extends AbstractDownload
-{
 }

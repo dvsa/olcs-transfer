@@ -5,6 +5,7 @@
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\CommunityLic;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
@@ -18,8 +19,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Stop extends AbstractCommand
 {
-    use ApplicationOptional,
-        Licence;
+    use ApplicationOptional;
+    use Licence;
 
     /**
      * @Transfer\ArrayInput

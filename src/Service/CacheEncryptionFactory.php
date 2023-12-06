@@ -9,7 +9,7 @@ use Laminas\Crypt\BlockCipher;
 
 class CacheEncryptionFactory implements FactoryInterface
 {
-    const MISSING_CONFIG = 'Config is missing for cache encryption';
+    public const MISSING_CONFIG = 'Config is missing for cache encryption';
 
     /**
      * Invoke

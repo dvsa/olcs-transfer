@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Licence;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
@@ -19,9 +20,9 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class CreateGoodsVehicle extends AbstractCommand
 {
-    use Identity,
-        Vrm,
-        UnvalidatedVrm;
+    use Identity;
+    use Vrm;
+    use UnvalidatedVrm;
 
     /**
      * @Transfer\Filter("Laminas\Filter\Digits")

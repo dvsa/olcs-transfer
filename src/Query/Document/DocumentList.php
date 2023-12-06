@@ -25,15 +25,15 @@ class DocumentList extends AbstractQuery implements
     PagedQueryInterface,
     CacheableShortTermQueryInterface
 {
-    use OrderedTrait,
-        PagedTrait,
-        ApplicationOptional,
-        LicenceOptional,
-        CasesOptional,
-        BusRegOptional,
-        TransportManagerOptional,
-        IrfoOrganisationOptional,
-        IrhpApplicationOptional;
+    use OrderedTrait;
+    use PagedTrait;
+    use ApplicationOptional;
+    use LicenceOptional;
+    use CasesOptional;
+    use BusRegOptional;
+    use TransportManagerOptional;
+    use IrfoOrganisationOptional;
+    use IrhpApplicationOptional;
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")

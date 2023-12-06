@@ -5,20 +5,22 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\FieldType\Traits\LgvDeclarationConfirmation;
 use Dvsa\Olcs\Transfer\FieldType\Traits\VehicleType;
-    
+
 /**
  * @Transfer\RouteName("backend/application")
  * @Transfer\Method("POST")
  */
 final class CreateApplication extends AbstractCommand
 {
-    use LgvDeclarationConfirmation, VehicleType;
+    use LgvDeclarationConfirmation;
+    use VehicleType;
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")
