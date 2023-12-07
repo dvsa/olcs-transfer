@@ -28,7 +28,6 @@ class DtoTest extends MockeryTestCase
     public function setUp(): void
     {
         $annotationBuilder = new AnnotationBuilder();
-        ;
 
         $serviceManager = m::mock(ServiceManager::class);
 
