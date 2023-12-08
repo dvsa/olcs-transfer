@@ -19,58 +19,43 @@ class UpdateStay extends AbstractCommand implements
     use FieldType\Traits\Version;
 
     /**
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      */
     protected $requestDate = null;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      */
     protected $decisionDate = null;
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {"haystack": {"stay_s_granted","stay_s_refused"}}
-     *  }
-     * )
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"stay_s_granted","stay_s_refused"}})
      */
     protected $outcome = null;
 
     /**
      * @Transfer\Optional()
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":4000}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":2,"max":4000})
      */
     protected $notes = null;
 
     /**
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {"haystack": {"Y","N"}}
-     *  }
-     * )
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      */
     protected $isWithdrawn = null;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      */
     protected $withdrawnDate = null;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {"haystack": {"Y","N"}}
-     *  }
-     * )
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      */
     protected $dvsaNotified = null;
 

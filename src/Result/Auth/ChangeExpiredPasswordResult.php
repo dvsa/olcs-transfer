@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Dvsa\Olcs\Transfer\Result\Auth;
@@ -118,7 +119,7 @@ class ChangeExpiredPasswordResult
      */
     public static function fromArray(array $data): ChangeExpiredPasswordResult
     {
-        return new static(
+        return new self(
             $data['code'] ?? null,
             $data['identity'] ?? [],
             $data['messages'] ?? [],

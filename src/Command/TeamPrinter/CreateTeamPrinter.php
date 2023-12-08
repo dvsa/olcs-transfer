@@ -3,6 +3,7 @@
 /**
  * Create Team Printer
  */
+
 namespace Dvsa\Olcs\Transfer\Command\TeamPrinter;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -16,22 +17,22 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\UserOptional;
  */
 final class CreateTeamPrinter extends AbstractCommand
 {
-    use SubCategoryOptional,
-        UserOptional;
+    use SubCategoryOptional;
+    use UserOptional;
 
     /**
      * @var int
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $team;
 
     /**
      * @var int
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $printer;
 

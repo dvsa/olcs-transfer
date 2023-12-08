@@ -15,30 +15,30 @@ abstract class AbstractGoodsVehicles extends AbstractQuery
 
     /**
      * @var string
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Optional
      */
     protected $vrm;
 
     /**
      * @var string
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      * @Transfer\Optional
      */
     protected $specified;
 
     /**
      * @var boolean
-     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
     protected $includeRemoved;
 
     /**
      * @var string
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      * @Transfer\Optional
      */
     protected $disc;

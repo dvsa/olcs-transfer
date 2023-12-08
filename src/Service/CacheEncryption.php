@@ -11,42 +11,42 @@ use Laminas\Crypt\BlockCipher;
 
 class CacheEncryption
 {
-    const ERR_NO_KEY_AVAILABLE = 'No encryption key available for this encryption mode';
-    const ERR_NO_IDS_TO_DELETE = 'Please provide ids for the items being deleted';
+    public const ERR_NO_KEY_AVAILABLE = 'No encryption key available for this encryption mode';
+    public const ERR_NO_IDS_TO_DELETE = 'Please provide ids for the items being deleted';
 
-    const ENCRYPTION_MODE_PUBLIC = 'encryption_public';
-    const ENCRYPTION_MODE_SHARED = 'encryption_shared';
-    const ENCRYPTION_MODE_NODE = 'encryption_node';
+    public const ENCRYPTION_MODE_PUBLIC = 'encryption_public';
+    public const ENCRYPTION_MODE_SHARED = 'encryption_shared';
+    public const ENCRYPTION_MODE_NODE = 'encryption_node';
 
-    const ENCRYPTION_PUBLIC_NODE_SUFFIX = 'public';
-    const ENCRYPTION_SHARED_NODE_SUFFIX = 'shared';
+    public const ENCRYPTION_PUBLIC_NODE_SUFFIX = 'public';
+    public const ENCRYPTION_SHARED_NODE_SUFFIX = 'shared';
 
-    const TTL_DEFAULT = 3600;
-    const TTL_2_MINUTES = 120;
-    const TTL_60_DAYS = 5184000;
+    public const TTL_DEFAULT = 3600;
+    public const TTL_2_MINUTES = 120;
+    public const TTL_60_DAYS = 5184000;
 
-    const TTL_20_DAYS = 1728000;
+    public const TTL_20_DAYS = 1728000;
 
-    const TRANSLATION_KEY_IDENTIFIER = 'translation_key';
-    const TRANSLATION_REPLACEMENT_IDENTIFIER = 'translation_replacement';
+    public const TRANSLATION_KEY_IDENTIFIER = 'translation_key';
+    public const TRANSLATION_REPLACEMENT_IDENTIFIER = 'translation_replacement';
 
-    const SYS_PARAM_IDENTIFIER = 'sys_param';
-    const SYS_PARAM_LIST_IDENTIFIER = 'sys_param_list';
-    const USER_ACCOUNT_IDENTIFIER = 'user_account';
+    public const SYS_PARAM_IDENTIFIER = 'sys_param';
+    public const SYS_PARAM_LIST_IDENTIFIER = 'sys_param_list';
+    public const USER_ACCOUNT_IDENTIFIER = 'user_account';
 
-    const SECRETS_MANAGER_IDENTIFIER = 'secretsmanager';
+    public const SECRETS_MANAGER_IDENTIFIER = 'secretsmanager';
 
     /** @var string[] a list of caches held against a user id */
-    const USER_CACHES = [
+    public const USER_CACHES = [
         self::USER_ACCOUNT_IDENTIFIER
     ];
 
-    const QUERY_MAP = [
+    public const QUERY_MAP = [
         SystemParameter::class => self::SYS_PARAM_IDENTIFIER,
         SystemParameterList::class => self::SYS_PARAM_LIST_IDENTIFIER,
     ];
 
-    const CUSTOM_CACHE_TYPE = [
+    public const CUSTOM_CACHE_TYPE = [
         self::SYS_PARAM_IDENTIFIER => [
             'mode' => self::ENCRYPTION_MODE_PUBLIC,
             'ttl' => self::TTL_60_DAYS,
@@ -149,7 +149,6 @@ class CacheEncryption
      * Shared mode: value will have been encrypted using a key shared between all nodes
      * Node specific mode: value will have been encrypted for a single group of nodes only e.g. ssweb, iuweb or api
      *
-     * @todo https://jira.dvsacloud.uk/browse/OLCS-28306
      * The suppression of errors here is due to Laminas using deprecated methods
      * This will be fixed by an upgrade to the laminas-cache package, covered by the above ticket
      *
@@ -162,13 +161,12 @@ class CacheEncryption
     public function removeItem(string $cacheKey, string $encryptionMode): bool
     {
         $nodeSuffix = $this->getSuffix($encryptionMode);
-        return @$this->cache->removeItem($cacheKey . $nodeSuffix);
+        return $this->cache->removeItem($cacheKey . $nodeSuffix);
     }
 
     /**
      * Remove a custom (non CQRS) cache item
      *
-     * @todo https://jira.dvsacloud.uk/browse/OLCS-28306
      * The suppression of errors here is due to Laminas using deprecated methods
      * This will be fixed by an upgrade to the laminas-cache package, covered by the above ticket
      *
@@ -182,7 +180,7 @@ class CacheEncryption
     {
         $cacheConfig = $this->getCustomCacheConfig($cacheKey);
         $nodeSuffix = $this->getSuffix($cacheConfig['mode']);
-        return @$this->cache->removeItem($cacheKey . $uniqueId. $nodeSuffix);
+        return $this->cache->removeItem($cacheKey . $uniqueId . $nodeSuffix);
     }
 
     /**
@@ -190,7 +188,6 @@ class CacheEncryption
      * Note that the method expects that ids will be included, to delete a cache which isn't specific
      * to a user/licence etc, use the removeCustomItem method which allows a blank value for $uniqueId
      *
-     * @todo https://jira.dvsacloud.uk/browse/OLCS-28306
      * The suppression of errors here is due to Laminas using deprecated methods
      * This will be fixed by an upgrade to the laminas-cache package, covered by the above ticket
      *
@@ -214,7 +211,7 @@ class CacheEncryption
             $cacheKeys[$uniqueId] = $cacheKey . $uniqueId . $nodeSuffix;
         }
 
-        return @$this->cache->removeItems($cacheKeys);
+        return $this->cache->removeItems($cacheKeys);
     }
 
     /**

@@ -5,6 +5,7 @@
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\CompaniesHouse;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Ids;

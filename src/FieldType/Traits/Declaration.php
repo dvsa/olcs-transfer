@@ -1,4 +1,5 @@
 <?php
+
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
@@ -12,8 +13,8 @@ trait Declaration
     /**
      * @var int
      * @Transfer\Optional
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 1}})
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\Between", options={"min": 0, "max": 1})
      */
     protected $declaration;
 

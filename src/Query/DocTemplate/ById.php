@@ -5,6 +5,7 @@
  *
  * @author Andy Newton <andy@vitri.ltd>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\DocTemplate;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

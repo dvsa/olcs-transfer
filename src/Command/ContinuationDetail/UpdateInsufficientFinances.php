@@ -13,10 +13,11 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateInsufficientFinances extends AbstractCommand
 {
-    use Identity,
-        Version;
+    use Identity;
+    use Version;
+
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
     protected $financialEvidenceUploaded;

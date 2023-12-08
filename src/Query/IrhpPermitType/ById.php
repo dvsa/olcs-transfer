@@ -3,6 +3,7 @@
 /**
  * Get a single Permit Type by Id
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpPermitType;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

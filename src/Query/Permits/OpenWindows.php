@@ -5,6 +5,7 @@
  *
  * @author Jonathan Thomas <jonathan@opalise.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
@@ -17,8 +18,8 @@ class OpenWindows extends AbstractQuery
 {
     /**
      * @var int
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $permitType;
 

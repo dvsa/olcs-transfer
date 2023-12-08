@@ -3,6 +3,7 @@
 /**
  * Get stock ranges by irhp application
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpApplication;

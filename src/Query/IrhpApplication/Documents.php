@@ -5,6 +5,7 @@
  *
  * @author Jonathan Thomas <jonathan@opalise.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
@@ -18,5 +19,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\SubCategory;
  */
 class Documents extends AbstractQuery
 {
-    use Identity, Category, SubCategory;
+    use Identity;
+    use Category;
+    use SubCategory;
 }

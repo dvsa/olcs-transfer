@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Dvsa\Olcs\Transfer\Command\Surrender;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
@@ -17,7 +16,7 @@ class Approve extends AbstractCommand
 
     /**
      * @var \DateTime
-     * @Transfer\Validator({"name":"Laminas\Validator\Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Laminas\Validator\Date", options={"format": "Y-m-d"})
      */
     protected $surrenderDate;
 

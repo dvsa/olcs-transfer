@@ -3,6 +3,7 @@
 /**
  * Bilateral country accessible
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
@@ -15,5 +16,6 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
  */
 class BilateralCountryAccessible extends AbstractQuery
 {
-    use Identity, Country;
+    use Identity;
+    use Country;
 }

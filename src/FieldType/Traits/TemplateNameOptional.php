@@ -12,7 +12,7 @@ trait TemplateNameOptional
 {
     /**
      * @var string
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Optional
      */
     protected $name;

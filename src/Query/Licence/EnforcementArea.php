@@ -5,6 +5,7 @@
  *
  * @author Enforcement Area <alex.peshkov@valetch.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Licence;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;

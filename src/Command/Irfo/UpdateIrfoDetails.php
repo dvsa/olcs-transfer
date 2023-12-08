@@ -3,6 +3,7 @@
 /**
  * Update IrfoDetails
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Irfo;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -15,37 +16,37 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class UpdateIrfoDetails extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $id;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $version;
 
     /**
      * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
+     * @Transfer\ArrayFilter("Dvsa\Olcs\Transfer\Filter\FilterEmptyItems")
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\TradingName")
      * @Transfer\Optional
      */
     protected $tradingNames = [];
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":2, "max":2}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":2,"max":2})
      * @Transfer\Optional
      */
     protected $irfoNationality;
 
     /**
      * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
+     * @Transfer\ArrayFilter("Dvsa\Olcs\Transfer\Filter\FilterEmptyItems")
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\IrfoPartner")
      * @Transfer\Optional
      */

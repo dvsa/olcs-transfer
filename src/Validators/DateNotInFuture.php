@@ -6,6 +6,7 @@
  * @author Ian Lindsay <ian@hemera-business-services.co.uk>
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Validators;
 
 use Laminas\Validator\AbstractValidator as AbstractValidator;
@@ -22,7 +23,7 @@ class DateNotInFuture extends AbstractValidator
      * Error codes
      * @const string
      */
-    const IN_FUTURE = 'inFuture';
+    public const IN_FUTURE = 'inFuture';
 
     /**
      * Error messages
@@ -37,7 +38,6 @@ class DateNotInFuture extends AbstractValidator
      *
      * @param  mixed $value
      * @return bool
-     * @throws Exception\RuntimeException if the token doesn't exist in the context array
      */
     public function isValid($value)
     {

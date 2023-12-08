@@ -5,6 +5,7 @@
  *
  * @author Ian Lindsay <ian@hemera-business-services.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\FeatureToggle;
 
 use Dvsa\Olcs\Transfer\Query\CacheableMediumTermQueryInterface;
@@ -19,8 +20,8 @@ class IsEnabled extends AbstractQuery implements CacheableMediumTermQueryInterfa
 {
     /**
      * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":255}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"max":255})
      */
     protected $ids = [];
 

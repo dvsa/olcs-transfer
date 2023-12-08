@@ -18,13 +18,13 @@ class CommunityLicences extends AbstractQuery implements
     OrderedQueryInterface,
     PagedQueryInterface
 {
-    use OrderedTrait,
-        LicenceOptional,
-        PagedTrait;
+    use OrderedTrait;
+    use LicenceOptional;
+    use PagedTrait;
 
     /**
      * @var string
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @transfer\Optional
      */
     protected $statuses;

@@ -581,7 +581,8 @@ class StructuredInput implements InputInterface, InputFilterInterface
             // key exists, is null, input is required, allows empty; valid if
             // continueIfEmpty is false or input doesn't implement
             // that interface; otherwise validation chain continues
-            if ($dataExists && null === $data[$name] && $input instanceof InputInterface && $input->isRequired()
+            if (
+                $dataExists && null === $data[$name] && $input instanceof InputInterface && $input->isRequired()
                 && $input->allowEmpty()
             ) {
                 if (!($input instanceof EmptyContextInterface && $input->continueIfEmpty())) {
@@ -591,7 +592,8 @@ class StructuredInput implements InputInterface, InputFilterInterface
             }
 
             // key exists, empty string, input is not required, allows empty; valid
-            if ($dataExists && '' === $data[$name] && $input instanceof InputInterface && !$input->isRequired()
+            if (
+                $dataExists && '' === $data[$name] && $input instanceof InputInterface && !$input->isRequired()
                 && $input->allowEmpty()
             ) {
                 $this->validInputs[$name] = $input;
@@ -600,7 +602,8 @@ class StructuredInput implements InputInterface, InputFilterInterface
 
             // key exists, empty string, input is required, allows empty; valid
             // if continueIfEmpty is false, otherwise validation continues
-            if ($dataExists && '' === $data[$name] && $input instanceof InputInterface && $input->isRequired()
+            if (
+                $dataExists && '' === $data[$name] && $input instanceof InputInterface && $input->isRequired()
                 && $input->allowEmpty()
             ) {
                 if (!($input instanceof EmptyContextInterface && $input->continueIfEmpty())) {

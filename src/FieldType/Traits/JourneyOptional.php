@@ -10,8 +10,8 @@ trait JourneyOptional
     /**
      * @var String
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray","options":{"haystack":{"journey_single", "journey_multiple"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",options={"haystack":{"journey_single", "journey_multiple"}})
      */
     protected $journey;
 

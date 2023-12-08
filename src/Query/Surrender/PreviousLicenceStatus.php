@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Dvsa\Olcs\Transfer\Query\Surrender;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;

@@ -3,26 +3,13 @@
 namespace Dvsa\Olcs\Transfer\Service;
 
 use Interop\Container\ContainerInterface;
-use Laminas\ServiceManager\FactoryInterface;
-use Laminas\ServiceManager\ServiceLocatorInterface;
-use Laminas\Cache\Storage\Adapter\Redis;
+use Laminas\Cache\Storage\StorageInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\Crypt\BlockCipher;
 
 class CacheEncryptionFactory implements FactoryInterface
 {
-    const MISSING_CONFIG = 'Config is missing for cache encryption';
-
-    /**
-     * Create service
-     *
-     * @param ServiceLocatorInterface $serviceLocator
-     *
-     * @return CacheEncryption|mixed
-     */
-    public function createService(ServiceLocatorInterface $serviceLocator)
-    {
-        return $this($serviceLocator, CacheEncryption::class);
-    }
+    public const MISSING_CONFIG = 'Config is missing for cache encryption';
 
     /**
      * Invoke
@@ -34,13 +21,16 @@ class CacheEncryptionFactory implements FactoryInterface
      * @throws \Exception
      * @return CacheEncryption
      */
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
+    public function __invoke(ContainerInterface $container, $requestedName, array $options = null): CacheEncryption
     {
         $config = $container->get('Config');
 
         if (!isset($config['cache-encryption'])) {
             throw new \Exception(self::MISSING_CONFIG);
         }
+
+        $cache = $container->get('default-cache');
+        assert($cache instanceof StorageInterface);
 
         /** @var BlockCipher $blockCipher */
         $blockCipher = BlockCipher::factory(
@@ -49,7 +39,7 @@ class CacheEncryptionFactory implements FactoryInterface
         );
 
         return new CacheEncryption(
-            $container->get(Redis::class),
+            $cache,
             $blockCipher,
             $config['cache-encryption']['secrets']['node'],
             $config['cache-encryption']['secrets']['shared'],

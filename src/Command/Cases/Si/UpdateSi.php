@@ -16,40 +16,40 @@ class UpdateSi extends AbstractCommand
     use FieldType\Version;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":36}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"max":36})
      * @Transfer\Optional
      */
     protected $notificationNumber = null;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $siCategoryType;
 
     /**
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
-     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\DateNotInFuture"})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
+     * @Transfer\Validator("\Dvsa\Olcs\Transfer\Validators\DateNotInFuture")
      */
     protected $infringementDate;
 
     /**
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
-     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\DateNotInFuture"})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
+     * @Transfer\Validator("\Dvsa\Olcs\Transfer\Validators\DateNotInFuture")
      */
     protected $checkDate;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":2, "max":2}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":2,"max":2})
      */
     protected $memberStateCode;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":5000}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"max":5000})
      * @Transfer\Optional
      */
     protected $reason = null;

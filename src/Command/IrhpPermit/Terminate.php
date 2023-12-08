@@ -5,6 +5,7 @@
  *
  * @author Tonci Vidovic <tonci.vidovic@capgemini.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\IrhpPermit;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;

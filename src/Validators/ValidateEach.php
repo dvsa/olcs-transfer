@@ -9,7 +9,7 @@ use Laminas\Validator\ValidatorChain;
 
 class ValidateEach extends IsCountable
 {
-    protected const OPTION_CHILDREN = 'children';
+    public const OPTION_CHILDREN = 'children';
     public const ERROR_TEMPLATE_KEY_NOT_ARRAY = 'notArray';
     public const ERROR_TEMPLATE_NOT_ARRAY = 'Expected input to be an array';
 

@@ -5,11 +5,11 @@
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Transaction;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
-
 use Dvsa\Olcs\Transfer\FieldType;
 use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 
@@ -23,8 +23,8 @@ final class ReverseTransaction extends AbstractCommand implements FieldType\Iden
     use FieldTypeTraits\MiscFeesDetails;
 
     /**
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options": {"min": 1, "max": 1000}})
-     * @Transfer\Filter({"name": "Laminas\Filter\StringTrim"})
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"min": 1, "max": 1000})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     protected $reason;
 

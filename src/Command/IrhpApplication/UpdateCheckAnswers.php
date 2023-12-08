@@ -5,6 +5,7 @@
  *
  * @author Tonci Vidovic <tonci.vidovic@capgemini.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
@@ -18,5 +19,6 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateCheckAnswers extends AbstractCommand
 {
-    use Identity, IrhpPermitApplicationOptional;
+    use Identity;
+    use IrhpPermitApplicationOptional;
 }

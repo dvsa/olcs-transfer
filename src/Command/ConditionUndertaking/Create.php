@@ -5,6 +5,7 @@
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\ConditionUndertaking;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
@@ -19,51 +20,47 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Create extends AbstractCommand
 {
-    use LicenceOptional,
-        ApplicationOptional,
-        CasesOptional;
+    use LicenceOptional;
+    use ApplicationOptional;
+    use CasesOptional;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"cdt_con", "cdt_und"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"cdt_con", "cdt_und"}})
      */
     protected $type;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={
      *          "haystack": {"cu_cat_env", "cu_cat_busreg", "cu_cat_fin", "cu_cat_other"}
      *      }
-     *  }
      * )
      */
     protected $conditionCategory;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":5,"max":8000}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":5,"max":8000})
      */
     protected $notes;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      */
     protected $fulfilled;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"cat_lic", "cat_oc"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"cat_lic", "cat_oc"}})
      */
     protected $attachedTo;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      * @Transfer\Optional
      */
     protected $operatingCentre;

@@ -3,6 +3,7 @@
 /**
  * Get list of all available stocks
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitType;

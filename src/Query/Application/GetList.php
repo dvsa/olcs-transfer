@@ -14,20 +14,20 @@ use Dvsa\Olcs\Transfer\Query\PagedTrait;
  */
 final class GetList extends AbstractQuery implements OrderedQueryInterface, PagedQueryInterface
 {
-    use OrderedTraitOptional,
-        PagedTrait;
+    use OrderedTraitOptional;
+    use PagedTrait;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $organisation;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Laminas\Filter\StringToLower"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\ApplicationStatus"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Filter("Laminas\Filter\StringToLower")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\ApplicationStatus")
      * @Transfer\Optional
      */
     protected $status;

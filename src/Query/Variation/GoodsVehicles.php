@@ -16,6 +16,6 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class GoodsVehicles extends AbstractGoodsVehicles implements PagedQueryInterface, OrderedQueryInterface
 {
-    use PagedTrait,
-        OrderedTrait;
+    use PagedTrait;
+    use OrderedTrait;
 }

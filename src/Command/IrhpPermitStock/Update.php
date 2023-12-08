@@ -3,6 +3,7 @@
 /**
  * Update IRHP Permit Stock
  */
+
 namespace Dvsa\Olcs\Transfer\Command\IrhpPermitStock;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;

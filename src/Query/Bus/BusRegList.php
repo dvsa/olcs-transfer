@@ -8,7 +8,6 @@ use Dvsa\Olcs\Transfer\Query\OrderedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
 use Dvsa\Olcs\Transfer\Query\OrderedTrait;
-
 use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;
 
 /**
@@ -23,30 +22,28 @@ class BusRegList extends AbstractQuery implements PagedQueryInterface, OrderedQu
     /**
      * @var int
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     protected $licNo;
 
     /**
      * @var int
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     protected $organisationName;
 
     /**
      * @var String
      * @Transfer\Optional
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
+     * @Transfer\Validator("Laminas\Validator\InArray",options={
      *          "haystack": {
      *              "breg_s_admin","breg_s_cancellation","breg_s_cancelled","breg_s_cns","breg_s_curt","breg_s_expired",
      *              "breg_s_new","breg_s_refused","breg_s_registered","breg_s_revoked","breg_s_surr","breg_s_var",
      *              "breg_s_withdrawn"
      *          }
      *     }
-     * })
+     * )
      */
     protected $status;
 

@@ -3,6 +3,7 @@
 /**
  * Establish whether the max permitted number of permits has been reached for a stock and licence
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpPermitStock;
@@ -15,5 +16,6 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class MaxPermittedReachedByStockAndLicence extends AbstractQuery
 {
-    use IrhpPermitStock, Licence;
+    use IrhpPermitStock;
+    use Licence;
 }

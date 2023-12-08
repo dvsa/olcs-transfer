@@ -8,7 +8,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 
 /**
  * Class Documents
- * 
+ *
  * @Transfer\RouteName("backend/transport-manager/single/documents")
  */
 class Documents extends AbstractQuery

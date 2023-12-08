@@ -5,6 +5,7 @@
  *
  * @author Andy Newton <andy@vitri.ltd>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

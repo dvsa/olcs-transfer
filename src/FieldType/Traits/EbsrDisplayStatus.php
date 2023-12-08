@@ -1,4 +1,5 @@
 <?php
+
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
@@ -12,15 +13,13 @@ trait EbsrDisplayStatus
     /**
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={
      *          "haystack": {
      *              "ebsrd_processing", "ebsrd_processed", "ebsrd_failed"
      *          }
      *      }
-     * })
+     * )
      */
     protected $status;
 

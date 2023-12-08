@@ -3,6 +3,7 @@
 /**
  * Custom Router Factory for api routing
  */
+
 namespace Dvsa\Olcs\Transfer\Router;
 
 use Interop\Container\ContainerInterface;
@@ -19,7 +20,7 @@ class RouterFactory implements FactoryInterface
         $config = $container->has('Config') ? $container->get('Config') : [];
 
         // Defaults
-        $routerClass = 'Laminas\Mvc\Router\Http\TreeRouteStack';
+        $routerClass = 'Laminas\Router\Http\TreeRouteStack';
         $routerConfig = isset($config['api_router']) ? $config['api_router'] : [];
 
         // Obtain the configured router class, if any

@@ -7,6 +7,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Document;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\TrafficAreasOptional;
@@ -25,13 +26,13 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerOptional;
  */
 class GenerateAndStore extends AbstractCommand
 {
-    use ApplicationOptional,
-        LicenceOptional,
-        BusRegOptional,
-        CasesOptional,
-        IrfoOrganisationOptional,
-        TransportManagerOptional,
-        TrafficAreasOptional;
+    use ApplicationOptional;
+    use LicenceOptional;
+    use BusRegOptional;
+    use CasesOptional;
+    use IrfoOrganisationOptional;
+    use TransportManagerOptional;
+    use TrafficAreasOptional;
 
     protected $template;
 

@@ -3,6 +3,7 @@
 /**
  * Retrieve a question/answer data for a given IRHP application
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;

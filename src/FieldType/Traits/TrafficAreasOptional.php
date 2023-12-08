@@ -10,13 +10,11 @@ trait TrafficAreasOptional
     /**
      * @Transfer\Optional
      * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {
-     *          "haystack": {"B","C","D","F","G","H","K","M","N","all"}}
-     *      })
+     * @Transfer\ArrayFilter("Dvsa\Olcs\Transfer\Filter\UniqueItems")
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={
+     *      "haystack": {"B","C","D","F","G","H","K","M","N","all"}
+     *  })
      */
     protected $trafficAreas = [];
 

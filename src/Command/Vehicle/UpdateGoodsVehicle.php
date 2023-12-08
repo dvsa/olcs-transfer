@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Vehicle;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
@@ -18,45 +19,45 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateGoodsVehicle extends AbstractCommand
 {
-    use Identity,
-        Version;
+    use Identity;
+    use Version;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 999999}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\Between", options={"min": 0, "max": 999999})
      * @Transfer\Optional
      */
     protected $platedWeight;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      */
     protected $receivedDate;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name": "Laminas\Filter\DateTimeFormatter"})
-     * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
+     * @Transfer\Filter("Laminas\Filter\DateTimeFormatter")
+     * @Transfer\Validator("Date", options={"format": \DateTime::ISO8601})
      */
     protected $specifiedDate;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      */
     protected $seedDate;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      */
     protected $sentDate;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      */
     protected $removalDate;
 

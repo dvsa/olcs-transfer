@@ -6,6 +6,7 @@
  * @author Kollol Shamsuddin <kol.shamsudin@capgemini.com>
  * @author Jason De Jonge <jason.de-jonge@capgemini.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
@@ -20,10 +21,10 @@ class EcmtPermitFees extends AbstractQuery implements CacheableLongTermQueryInte
 {
     /**
      * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\UniqueItems"})
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\ArrayFilter("Dvsa\Olcs\Transfer\Filter\FilterEmptyItems")
+     * @Transfer\ArrayFilter("Dvsa\Olcs\Transfer\Filter\UniqueItems")
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"min":1})
      */
     protected $productReferences;
 

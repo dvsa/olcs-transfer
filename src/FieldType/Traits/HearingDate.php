@@ -1,4 +1,5 @@
 <?php
+
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
@@ -11,8 +12,8 @@ trait HearingDate
 {
     /**
      * @var string
-     * @Transfer\Filter({"name": "Laminas\Filter\DateTimeFormatter"})
-     * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
+     * @Transfer\Filter("Laminas\Filter\DateTimeFormatter")
+     * @Transfer\Validator("Date", options={"format": \DateTime::ISO8601})
      */
     protected $hearingDate;
 

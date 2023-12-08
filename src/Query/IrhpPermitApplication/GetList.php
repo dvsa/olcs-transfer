@@ -5,6 +5,7 @@
  *
  * @author Scott Callaway <scott.callaway@capgemini.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpPermitApplication;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -25,7 +26,7 @@ final class GetList extends AbstractQuery implements PagedQueryInterface, Ordere
     use FieldTypeTraits\Licence;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Optional
      */
     protected $status = null;

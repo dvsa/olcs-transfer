@@ -3,6 +3,7 @@
 /**
  * Update feature toggle
  */
+
 namespace Dvsa\Olcs\Transfer\Command\FeatureToggle;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

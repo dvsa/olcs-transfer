@@ -27,7 +27,7 @@ class CommandConfig
     private static function getConfig($method, $dto)
     {
         return [
-            'type' => \Laminas\Mvc\Router\Http\Method::class,
+            'type' => \Laminas\Router\Http\Method::class,
             'options' => [
                 'verb' => $method,
                 'defaults' => [

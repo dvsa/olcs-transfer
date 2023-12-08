@@ -5,6 +5,7 @@
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\LicenceVehicle;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Organisation;
@@ -20,16 +21,16 @@ final class CreateUnlicensedOperatorLicenceVehicle extends AbstractCommand
     use Organisation;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":1,"max":20}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":1,"max":20})
      * @Transfer\Optional
      */
     protected $vrm;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 999999}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\Between", options={"min": 0, "max": 999999})
      * @Transfer\Optional
      */
     protected $platedWeight;

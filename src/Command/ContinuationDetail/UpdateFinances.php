@@ -13,65 +13,65 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateFinances extends AbstractCommand
 {
-    use Identity,
-        Version;
+    use Identity;
+    use Version;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money", "options": {"allow_negative": true}})
-     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": -9999999999, "max": 9999999999}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\Money", options={"allow_negative": true})
+     * @Transfer\Validator("Laminas\Validator\Between", options={"min": -9999999999, "max": 9999999999})
      * @Transfer\Optional
      */
     protected $averageBalanceAmount;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\YesNo")
      * @Transfer\Optional
      */
     protected $hasOverdraft;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 9999999999}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\Money")
+     * @Transfer\Validator("Laminas\Validator\Between", options={"min": 0, "max": 9999999999})
      * @Transfer\Optional
      */
     protected $overdraftAmount;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\YesNo")
      * @Transfer\Optional
      */
     protected $hasFactoring;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 9999999999}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\Money")
+     * @Transfer\Validator("Laminas\Validator\Between", options={"min": 0, "max": 9999999999})
      * @Transfer\Optional
      */
     protected $factoringAmount;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\YesNo")
      * @Transfer\Optional
      */
     protected $hasOtherFinances;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Money"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 9999999999}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\Money")
+     * @Transfer\Validator("Laminas\Validator\Between", options={"min": 0, "max": 9999999999})
      * @Transfer\Optional
      */
     protected $otherFinancesAmount;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":1,"max":200}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":1,"max":200})
      * @Transfer\Optional
      */
     protected $otherFinancesDetails;

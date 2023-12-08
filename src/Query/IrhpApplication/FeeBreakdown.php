@@ -3,6 +3,7 @@
 /**
  * Fee breakdown
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
