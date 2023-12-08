@@ -19,26 +19,26 @@ class OpenList extends AbstractQuery implements PagedQueryInterface
     /**
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Laminas\Filter\StringToLower"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\CaseType"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Filter("Laminas\Filter\StringToLower")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\CaseType")
      */
     protected $caseType = null;
 
     /**
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Filter({"name":"Laminas\Filter\StringToLower"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\ApplicationStatus"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Filter("Laminas\Filter\StringToLower")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\ApplicationStatus")
      */
     protected $applicationStatus = null;
 
     /**
      * @var string
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\LicenceStatus"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\LicenceStatus")
      */
     protected $licenceStatus = null;
 

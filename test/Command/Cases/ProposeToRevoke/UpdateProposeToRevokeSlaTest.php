@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Dvsa\OlcsTest\Transfer\Command\Cases\ProposeToRevoke;
 
 use Dvsa\Olcs\Transfer\Command\Cases\ProposeToRevoke\UpdateProposeToRevokeSla;

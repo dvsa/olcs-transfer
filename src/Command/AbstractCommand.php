@@ -2,13 +2,12 @@
 
 namespace Dvsa\Olcs\Transfer\Command;
 
-/**
- * Abstract Command
- *
- * @author Rob Caiger <rob@clocal.co.uk>
- */
 abstract class AbstractCommand implements CommandInterface
 {
+    final public function __construct()
+    {
+    }
+
     /**
      * Create instance of a command
      *

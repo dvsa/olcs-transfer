@@ -3,6 +3,7 @@
 /**
  * Upload report
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Report;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;

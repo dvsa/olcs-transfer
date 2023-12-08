@@ -12,6 +12,6 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 abstract class AbstractUpdateCompanySubsidiary extends AbstractCreateCompanySubsidiary
 {
-    use Traits\Identity,
-        Traits\Version;
+    use Traits\Identity;
+    use Traits\Version;
 }

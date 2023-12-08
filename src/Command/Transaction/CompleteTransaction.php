@@ -5,6 +5,7 @@
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Transaction;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -17,17 +18,14 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 class CompleteTransaction extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min": 1}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"min":1})
      */
     protected $reference;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *  "name":"Laminas\Validator\InArray",
-     *  "options": {"haystack": {"fpm_card_online", "fpm_card_offline"}}
-     * })
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"fpm_card_online", "fpm_card_offline"}})
      */
     protected $paymentMethod;
 
@@ -42,9 +40,9 @@ class CompleteTransaction extends AbstractCommand
      * and it will be submitted if payment succeeds
      *
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $submitApplicationId;
 

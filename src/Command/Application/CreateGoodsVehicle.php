@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
@@ -19,14 +20,14 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class CreateGoodsVehicle extends AbstractCommand
 {
-    use Identity,
-        Vrm,
-        UnvalidatedVrm;
+    use Identity;
+    use Vrm;
+    use UnvalidatedVrm;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 999999}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\Between", options={"min": 0, "max": 999999})
      */
     protected $platedWeight;
 
@@ -36,7 +37,7 @@ final class CreateGoodsVehicle extends AbstractCommand
     protected $receivedDate;
 
     /**
-     * @Transfer\Filter({"name": "Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
     protected $confirm;

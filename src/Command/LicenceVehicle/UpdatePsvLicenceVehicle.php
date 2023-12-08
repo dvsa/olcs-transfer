@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\LicenceVehicle;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
@@ -20,14 +21,14 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdatePsvLicenceVehicle extends AbstractCommand
 {
-    use Identity,
-        Version,
-        ApplicationOptional,
-        LicenceOptional;
+    use Identity;
+    use Version;
+    use ApplicationOptional;
+    use LicenceOptional;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":100}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":2,"max":100})
      * @Transfer\Optional
      */
     protected $makeModel;
@@ -44,8 +45,8 @@ final class UpdatePsvLicenceVehicle extends AbstractCommand
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name": "Laminas\Filter\DateTimeFormatter"})
-     * @Transfer\Validator({"name": "Date", "options": {"format": \DateTime::ISO8601}})
+     * @Transfer\Filter("Laminas\Filter\DateTimeFormatter")
+     * @Transfer\Validator("Date", options={"format": \DateTime::ISO8601})
      */
     protected $specifiedDate;
 

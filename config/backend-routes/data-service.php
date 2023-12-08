@@ -6,7 +6,7 @@ use Dvsa\Olcs\Transfer\Router\RouteConfig;
 
 return [
     'data-service' => [
-        'type' => \Laminas\Mvc\Router\Http\Segment::class,
+        'type' => \Laminas\Router\Http\Segment::class,
         'options' => [
             'route' => 'data-service/',
         ],

@@ -2,7 +2,6 @@
 
 namespace Dvsa\OlcsTest\Transfer\Query;
 
-use Dvsa\Olcs\Transfer\Traits\LaminasFormVersionTrait;
 use Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilder;
 use Dvsa\OlcsTest\Transfer\DtoTest;
 use Laminas\Filter\FilterPluginManager;
@@ -14,7 +13,6 @@ use Mockery as m;
 trait QueryTest
 {
     use DtoTest;
-    use LaminasFormVersionTrait;
 
     protected function createDtoContainer(ArraySerializableInterface $dto)
     {

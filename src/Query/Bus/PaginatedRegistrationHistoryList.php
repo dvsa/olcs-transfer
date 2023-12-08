@@ -18,5 +18,5 @@ class PaginatedRegistrationHistoryList extends AbstractQuery implements OrderedQ
 {
     use OrderedTrait;
     use PagedTrait;
-    use FieldTypeTraits\Identity; //bus reg id
+    use FieldTypeTraits\Identity;
 }

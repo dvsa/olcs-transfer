@@ -13,63 +13,63 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateOperatingCentres extends AbstractCommand
 {
-    use Identity,
-        Version;
+    use Identity;
+    use Version;
 
     /**
-     * @Transfer\Filter({"name":"\Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
     protected $partial;
 
     /**
-     * @Transfer\Filter({"name":"\Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Optional
      */
     protected $partialAction;
 
     /**
-     * @Transfer\Filter({"name":"\Laminas\Filter\ToInt"})
-     * @Transfer\Validator({"name": "Digits"})
-     * @Transfer\Validator({"name": "Between", "options": {"min":1, "max": 5000}})
+     * @Transfer\Filter("Laminas\Filter\ToInt")
+     * @Transfer\Validator("Digits")
+     * @Transfer\Validator("Between", options={"min":1, "max": 5000})
      * @Transfer\Optional
      */
     protected $totAuthHgvVehicles;
 
     /**
-     * @Transfer\Filter({"name":"\Laminas\Filter\ToInt"})
-     * @Transfer\Validator({"name": "Digits"})
-     * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 5000}})
+     * @Transfer\Filter("Laminas\Filter\ToInt")
+     * @Transfer\Validator("Digits")
+     * @Transfer\Validator("Between", options={"min":0, "max": 5000})
      * @Transfer\Optional
      */
     protected $totAuthLgvVehicles;
 
     /**
-     * @Transfer\Filter({"name":"\Laminas\Filter\ToInt"})
-     * @Transfer\Validator({"name": "Digits"})
-     * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 5000}})
+     * @Transfer\Filter("Laminas\Filter\ToInt")
+     * @Transfer\Validator("Digits")
+     * @Transfer\Validator("Between", options={"min":0, "max": 5000})
      * @Transfer\Optional
      */
     protected $totAuthTrailers;
 
     /**
-     * @Transfer\Filter({"name":"\Laminas\Filter\ToInt"})
-     * @Transfer\Validator({"name": "Digits"})
-     * @Transfer\Validator({"name": "Between", "options": {"min":0, "max": 10000}})
+     * @Transfer\Filter("Laminas\Filter\ToInt")
+     * @Transfer\Validator("Digits")
+     * @Transfer\Validator("Between", options={"min":0, "max": 10000})
      * @Transfer\Optional
      */
     protected $totCommunityLicences;
 
     /**
-     * @Transfer\Filter({"name":"\Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"\Laminas\Validator\StringLength", "options": {"min": 1, "max": "1"}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("\Laminas\Validator\StringLength", options={"min": 1, "max": "1"})
      * @Transfer\Optional
      */
     protected $trafficArea;
 
     /**
-     * @Transfer\Filter({"name":"\Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"\Laminas\Validator\StringLength", "options": {"min": 1, "max": "4"}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("\Laminas\Validator\StringLength", options={"min": 1, "max": "4"})
      * @Transfer\Optional
      */
     protected $enforcementArea;

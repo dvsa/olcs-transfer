@@ -1,4 +1,5 @@
 <?php
+
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
@@ -11,8 +12,8 @@ trait DeviationOptional
 {
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator("Laminas\I18n\Validator\IsFloat")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $deviation;
 

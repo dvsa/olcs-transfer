@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query;
 
 use ReflectionProperty;
@@ -16,6 +17,10 @@ use ReflectionProperty;
  */
 abstract class AbstractQuery implements QueryInterface
 {
+    final public function __construct()
+    {
+    }
+
     /**
      * Create instance of a query
      *

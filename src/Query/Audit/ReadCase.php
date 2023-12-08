@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Audit;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
@@ -18,6 +19,6 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
  */
 class ReadCase extends AbstractQuery implements PagedQueryInterface
 {
-    use Identity,
-        PagedTrait;
+    use Identity;
+    use PagedTrait;
 }

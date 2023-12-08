@@ -3,6 +3,7 @@
 /**
  * Create Printer
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Printer;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -15,14 +16,14 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class CreatePrinter extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":1, "max":45}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":1,"max":45})
      */
     protected $printerName;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":1, "max":255}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":1,"max":255})
      * @Transfer\Optional
      */
     protected $description;

@@ -5,6 +5,7 @@
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Scan;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -17,7 +18,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class CreateContinuationSeparatorSheet extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     protected $licNo;
 

@@ -11,13 +11,13 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Update extends AbstractCommand
 {
-    use \Dvsa\Olcs\Transfer\FieldType\Traits\Identity,
-        \Dvsa\Olcs\Transfer\FieldType\Traits\Version,
-        \Dvsa\Olcs\Transfer\FieldType\Traits\User;
+    use \Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+    use \Dvsa\Olcs\Transfer\FieldType\Traits\Version;
+    use \Dvsa\Olcs\Transfer\FieldType\Traits\User;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options": {"max": 50}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"max":50})
      */
     protected $letters;
 

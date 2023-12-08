@@ -11,8 +11,8 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class SystemParameter extends AbstractQuery
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":1, "max":32}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"min":1, "max":32})
      */
     protected $id;
 

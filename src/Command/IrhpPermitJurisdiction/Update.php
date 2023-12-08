@@ -3,6 +3,7 @@
 /**
  * Update IRHP Permit Jurisdiction
  */
+
 namespace Dvsa\Olcs\Transfer\Command\IrhpPermitJurisdiction;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -17,8 +18,8 @@ final class Update extends AbstractCommand
     /**
      * @var array
      * @Transfer\ArrayInput
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": -1}})
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": -1})
      */
     protected $trafficAreas;
 

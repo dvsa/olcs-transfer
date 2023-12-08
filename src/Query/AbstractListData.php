@@ -3,6 +3,7 @@
 /**
  * Abstract List Data
  */
+
 namespace Dvsa\Olcs\Transfer\Query;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

@@ -1,32 +1,17 @@
 <?php
 
-/**
- * Query
- *
- * @author Rob Caiger <rob@clocal.co.uk>
- */
 namespace Dvsa\Olcs\Transfer\Router;
 
-use Laminas\Mvc\Router\Http\Query as LaminasQuery;
+use Dvsa\Olcs\Transfer\Router\LaminasRouterHttpQueryV2 as LaminasQuery;
 use Laminas\Stdlib\RequestInterface as Request;
-use Laminas\Mvc\Router\Http\RouteMatch;
+use Laminas\Router\Http\RouteMatch;
 
-/**
- * Query
- *
- * @author Rob Caiger <rob@clocal.co.uk>
- */
 class Query extends LaminasQuery
 {
-    public function __construct(array $defaults = array())
-    {
-        $this->defaults = $defaults;
-    }
-
     /**
      * match(): defined by RouteInterface interface.
      *
-     * @see    \Laminas\Mvc\Router\RouteInterface::match()
+     * @see    \Laminas\Router\RouteInterface::match()
      * @param  Request $request
      * @return RouteMatch|null
      */

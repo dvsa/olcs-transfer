@@ -4,6 +4,7 @@
  * Country Select List
  *
  */
+
 namespace Dvsa\Olcs\Transfer\Query\ContactDetail;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\IsEcmtStateOptional;
@@ -18,6 +19,6 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
  */
 class CountrySelectList extends AbstractQuery implements CacheableLongTermQueryInterface, PublicQueryCacheInterface
 {
-    use IsEcmtStateOptional,
-        IsEeaStateOptional;
+    use IsEcmtStateOptional;
+    use IsEeaStateOptional;
 }

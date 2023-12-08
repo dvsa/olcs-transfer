@@ -3,6 +3,7 @@
 /**
  * Create a Presiding TC
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Cases\PresidingTc;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
@@ -18,8 +19,8 @@ final class Create extends AbstractCommand
     use User;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min": 1, "max": 70}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":1,"max":70})
      */
     protected $name;
 

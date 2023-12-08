@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Dvsa\OlcsTest\Transfer\Command\Licence;
 
 use Dvsa\Olcs\Transfer\Command\Licence\CreateCompanySubsidiary;

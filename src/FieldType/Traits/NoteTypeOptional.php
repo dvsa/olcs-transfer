@@ -1,4 +1,5 @@
 <?php
+
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
@@ -12,10 +13,9 @@ trait NoteTypeOptional
     /**
      * @var String
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *     options={
      *          "haystack": {
      *              "note_t_app",
      *              "note_t_bus",
@@ -27,7 +27,7 @@ trait NoteTypeOptional
      *              "note_t_tm"
      *          }
      *      }
-     * })
+     * )
      */
     protected $noteType;
 

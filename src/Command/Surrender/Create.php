@@ -12,17 +12,12 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 class Create extends AbstractCommand
 {
-    use  Identity;
+    use Identity;
 
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
-     *         "haystack": {"surr_sts_start"}
-     *     }
-     * })
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"surr_sts_start"}})
      */
     protected $status = 'surr_sts_start';
 

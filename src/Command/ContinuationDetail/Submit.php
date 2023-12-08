@@ -13,6 +13,6 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Submit extends AbstractCommand
 {
-    use Identity,
-        Version;
+    use Identity;
+    use Version;
 }

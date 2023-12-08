@@ -3,6 +3,7 @@
 /**
  * Ensure the username matches the required criteria
  */
+
 namespace Dvsa\Olcs\Transfer\Validators;
 
 use Laminas\Validator\StringLength;
@@ -12,9 +13,9 @@ use Laminas\Validator\StringLength;
  */
 class Username extends StringLength
 {
-    const USERNAME_LENGTH_MIN = 2;
-    const USERNAME_LENGTH_MAX = 40;
-    const USERNAME_INVALID = 'usernameInvalid';
+    public const USERNAME_LENGTH_MIN = 2;
+    public const USERNAME_LENGTH_MAX = 40;
+    public const USERNAME_INVALID = 'usernameInvalid';
 
     /**
      * Sets validator options

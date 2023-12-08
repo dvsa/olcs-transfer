@@ -5,6 +5,7 @@
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\TransportManagerApplication;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -17,27 +18,26 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class UpdateStatus extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $id;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      * @Transfer\Optional
      */
     protected $version;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {"haystack": {"tmap_st_incomplete", "tmap_st_tm_signed", "tmap_st_operator_signed",
-     *     "tmap_st_details_submitted", "tmap_st_details_checked", "tmap_st_operator_approved", "tmap_st_received"}}
-     *     })
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *     options={"haystack": {"tmap_st_incomplete", "tmap_st_tm_signed", "tmap_st_operator_signed",
+     *      "tmap_st_details_submitted", "tmap_st_details_checked", "tmap_st_operator_approved", "tmap_st_received"}}
+     *     )
      */
     protected $status;
 

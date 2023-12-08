@@ -4,14 +4,17 @@
     "require": {
         "php": "^7.4",
         "ext-openssl": "*",
-        "laminas/laminas-stdlib": "^2.7.9|^3.0",
+        "laminas/laminas-stdlib": "^3.0",
         "laminas/laminas-filter": "^2.9.4",
         "laminas/laminas-validator": "^2.11.1",
-        "laminas/laminas-servicemanager": "^2.7.11|^3.0",
+        "laminas/laminas-servicemanager": "^3.0",
         "laminas/laminas-inputfilter": "^2.10.1",
-        "laminas/laminas-form": "^2.13.0|^3.0",
+        "laminas/laminas-form": "^3.1.1",
         "laminas/laminas-crypt": "^3.4.0",
-        "laminas/laminas-xml": "^1.4.0"
+        "laminas/laminas-xml": "^1.4.0",
+        "laminas/laminas-cache": "^3.6",
+        "laminas/laminas-cache-storage-adapter-redis": "^2.4",
+        "laminas/laminas-router": "^3.9"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.6",
@@ -52,6 +55,9 @@
     "config": {
       "allow-plugins": {
             "bamarni/composer-bin-plugin": true
+      },
+      "platform": {
+        "ext-redis": "4.3"
       }
     }
 }

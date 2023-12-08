@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\LicenceOperatingCentre;
 
 use Dvsa\Olcs\Transfer\Command\ApplicationOperatingCentre\AbstractOperatingCentreCommand;
@@ -19,7 +20,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class Update extends AbstractOperatingCentreCommand
 {
-    use Identity,
-        Version;
+    use Identity;
+    use Version;
     use IsTaOverridden;
 }

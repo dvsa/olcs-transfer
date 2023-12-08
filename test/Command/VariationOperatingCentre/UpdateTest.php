@@ -108,7 +108,6 @@ class UpdateTest extends TestCase
     {
         return [
             'application' => [[99, '99'], ['string', '']],
-            'id' => [[' 99 ', '99']],
             'taIsOverridden' => [['Y ', 'Y']],
             'id' => [[99, '99'], [' 98 ', '98']],
             'permission' => [[99, '99'], [' Y', 'Y']]

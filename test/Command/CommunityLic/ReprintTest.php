@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Dvsa\OlcsTest\Transfer\Command\CommunityLic;
 
 use Dvsa\Olcs\Transfer\Command\CommunityLic\Reprint;

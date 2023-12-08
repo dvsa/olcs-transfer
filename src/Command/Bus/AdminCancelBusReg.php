@@ -3,6 +3,7 @@
 /**
  * Admin Cancel BusReg
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Bus;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -18,8 +19,8 @@ final class AdminCancelBusReg extends AbstractCommand
     use FieldType\Identity;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":255}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"max":255})
      */
     public $reason;
 

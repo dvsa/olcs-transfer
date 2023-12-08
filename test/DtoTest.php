@@ -5,7 +5,7 @@ namespace Dvsa\OlcsTest\Transfer;
 use Dvsa\Olcs\Transfer\Command\CommandContainer;
 use Dvsa\Olcs\Transfer\Query\QueryContainer;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
-use \PHPUnit\Framework\Assert as Assert;
+use PHPUnit\Framework\Assert as Assert;
 use ReflectionMethod;
 use Laminas\Stdlib\ArraySerializableInterface;
 

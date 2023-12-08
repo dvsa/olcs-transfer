@@ -1,5 +1,6 @@
-<?php declare(strict_types=1);
+<?php
 
+declare(strict_types=1);
 
 namespace Dvsa\OlcsTest\Transfer\Query\CompaniesHouse;
 
@@ -43,7 +44,7 @@ class ByNumberTest extends TestCase
     protected function getValidFieldValues()
     {
         return [
-            'companyNumber'=>[
+            'companyNumber' => [
                 '00001234',
                 'SC123456'
             ]

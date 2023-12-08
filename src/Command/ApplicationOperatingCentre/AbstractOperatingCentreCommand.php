@@ -20,39 +20,39 @@ abstract class AbstractOperatingCentreCommand extends AbstractCommand
     protected $address;
 
     /**
-     * @Transfer\Validator({"name": "Laminas\Validator\Between", "options": {"min":0, "max":1000000}})
+     * @Transfer\Validator("Laminas\Validator\Between", options={"min":0, "max":1000000})
      */
     protected $noOfVehiclesRequired;
 
     /**
-     * @Transfer\Validator({"name": "Laminas\Validator\Between", "options": {"min":0, "max":1000000}})
+     * @Transfer\Validator("Laminas\Validator\Between", options={"min":0, "max":1000000})
      * @Transfer\Optional
      */
     protected $noOfTrailersRequired;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y","N"}})
      * @Transfer\Optional
      */
     protected $permission;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Between", "options": {"min": 0, "max": 2}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\Between", options={"min": 0, "max": 2})
      * @Transfer\Optional
      */
     protected $adPlaced;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Optional
      */
     protected $adPlacedIn;
 
     /**
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      * @Transfer\Optional
      */
     protected $adPlacedDate;

@@ -1,4 +1,5 @@
 <?php
+
 namespace Dvsa\Olcs\Transfer\Command\DataRetention;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Ids;
@@ -14,8 +15,8 @@ final class DelayItems extends AbstractCommand
     use Ids;
 
     /**
-     * @Transfer\Validator({"name":"Date","options":{"format":"Y-m-d"}})
-     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\DateInFuture"})
+     * @Transfer\Validator("Date",options={"format":"Y-m-d"})
+     * @Transfer\Validator("\Dvsa\Olcs\Transfer\Validators\DateInFuture")
      * @Transfer\Optional
      */
     public $nextReviewDate;

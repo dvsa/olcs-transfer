@@ -5,6 +5,7 @@
  *
  * @author Andy Newton <andy@vitri.ltd>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\TranslationKey;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\TranslationSearchOptional;

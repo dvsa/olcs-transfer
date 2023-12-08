@@ -5,6 +5,7 @@
  *
  * @author Andy Newton <andy@vitri.ltd>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Language;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

@@ -126,11 +126,6 @@ class RecordsTest extends TestCase
         return [
             'dataRetentionRuleId' => [[99, '99']],
             'goodsOrPsv' => [
-                ['lcat_gv ', 'lcat_gv'],
-                [' lcat_gv', 'lcat_gv'],
-                [' lcat_gv ', 'lcat_gv']
-            ],
-            'goodsOrPsv' => [
                 ['pending ', 'pending'],
                 [' pending', 'pending'],
                 [' pending ', 'pending']

@@ -3,6 +3,7 @@
 /**
  * User List Selfserve
  */
+
 namespace Dvsa\Olcs\Transfer\Query\User;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

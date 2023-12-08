@@ -5,6 +5,7 @@
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Organisation;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;

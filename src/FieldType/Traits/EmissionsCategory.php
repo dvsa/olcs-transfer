@@ -10,8 +10,8 @@ trait EmissionsCategory
     /**
      * @var String
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray","options":{"haystack":{"emissions_cat_euro6", "emissions_cat_euro5","emissions_cat_na"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",options={"haystack":{"emissions_cat_euro6", "emissions_cat_euro5","emissions_cat_na"}})
      */
     protected $emissionsCategory = 'emissions_cat_na';
 

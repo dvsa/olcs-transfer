@@ -5,6 +5,7 @@
  *
  * @author Scott Callaway <scott.callaway@capgemini.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpPermitRange;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

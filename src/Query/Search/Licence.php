@@ -5,6 +5,7 @@
  *
  * @author Shaun Lizzio <shaun@lizzio.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Search;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;

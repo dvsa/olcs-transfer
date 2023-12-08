@@ -11,10 +11,9 @@ trait PermitAppWithdrawReason
 {
     /**
      * @var string
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *      options={
      *          "haystack": {
      *              "permits_app_withdraw_by_user",
      *              "permits_app_withdraw_declined",
@@ -23,7 +22,7 @@ trait PermitAppWithdrawReason
      *              "permits_app_withdraw_permits_rev"
      *          }
      *      }
-     * })
+     * )
      */
     protected $reason;
 

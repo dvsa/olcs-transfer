@@ -17,14 +17,13 @@ class BusRegBrowseContextList extends AbstractQuery implements OrderedQueryInter
 
     /**
      * @var string
-     * @Transfer\Validator({
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *      options={
      *          "haystack": {
      *              "eventRegistrationStatus"
      *          }
      *      }
-     * })
+     * )
      */
     protected $context;
 

@@ -3,6 +3,7 @@
 /**
  * Licence Registered Address
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Licence;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -14,8 +15,8 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 class LicenceRegisteredAddress extends AbstractQuery
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":2, "max":18}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"min":2, "max":18})
      */
     protected $licenceNumber;
 

@@ -12,22 +12,21 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Ids;
  */
 class PrintLetters extends AbstractCommand
 {
-    const METHOD_EMAIL = 'email';
-    const METHOD_PRINT_AND_POST = 'printAndPost';
-
     use Ids;
 
+    public const METHOD_EMAIL = 'email';
+    public const METHOD_PRINT_AND_POST = 'printAndPost';
+
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *     options={
      *          "haystack": {
      *              PrintLetter::METHOD_EMAIL,
      *              PrintLetter::METHOD_PRINT_AND_POST,
      *          },
      *     },
-     * })
+     * )
      * @Transfer\Optional
      */
     protected $method;

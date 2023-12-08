@@ -26,15 +26,14 @@ class AlertList extends AbstractQuery implements
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      */
     protected $includeClosed = false;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *      options={
      *          "haystack": {
      *              "company_status_change",
      *              "company_name_change",
@@ -43,7 +42,7 @@ class AlertList extends AbstractQuery implements
      *              "invalid_company_number"
      *          }
      *      }
-     * })
+     * )
      */
     protected $typeOfChange;
 

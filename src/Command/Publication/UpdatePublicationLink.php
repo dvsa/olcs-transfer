@@ -3,6 +3,7 @@
 /**
  * Publish a publication
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Publication;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -19,22 +20,22 @@ final class UpdatePublicationLink extends AbstractCommand
     use FieldType\Version;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":4000}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"max":4000})
      * @Transfer\Optional
      */
     public $text1;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":4000}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"max":4000})
      * @Transfer\Optional
      */
     public $text2;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":4000}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"max":4000})
      * @Transfer\Optional
      */
     public $text3;

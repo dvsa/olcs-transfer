@@ -1,7 +1,9 @@
 <?php
+
 /**
  * Ordered Query Interface
  */
+
 namespace Dvsa\Olcs\Transfer\Query;
 
 /**

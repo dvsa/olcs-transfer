@@ -5,6 +5,7 @@
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\ChangeOfEntity;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;

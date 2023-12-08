@@ -12,24 +12,24 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateDetails extends AbstractCommand
 {
-    use Traits\Identity,
-        Traits\Version;
+    use Traits\Identity;
+    use Traits\Version;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Optional
      */
     protected $email;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Optional
      */
     protected $placeOfBirth;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options": {"min": 7, "max": 7}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"min": 7, "max": 7})
      * @Transfer\Optional
      */
     protected $lgvAcquiredRightsReferenceNumber;
@@ -45,118 +45,118 @@ final class UpdateDetails extends AbstractCommand
     protected $workAddress;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"tm_t_i","tm_t_e"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"tm_t_i","tm_t_e"}})
      * @Transfer\Optional
      */
     protected $tmType;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      * @Transfer\Optional
      */
     protected $isOwner;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
+     * @Transfer\Filter("Laminas\I18n\Filter\NumberFormat")
+     * @Transfer\Validator("Laminas\I18n\Validator\IsFloat")
      * @Transfer\Optional
      */
     protected $hoursMon;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
+     * @Transfer\Filter("Laminas\I18n\Filter\NumberFormat")
+     * @Transfer\Validator("Laminas\I18n\Validator\IsFloat")
      * @Transfer\Optional
      */
     protected $hoursTue;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
+     * @Transfer\Filter("Laminas\I18n\Filter\NumberFormat")
+     * @Transfer\Validator("Laminas\I18n\Validator\IsFloat")
      * @Transfer\Optional
      */
     protected $hoursWed;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
+     * @Transfer\Filter("Laminas\I18n\Filter\NumberFormat")
+     * @Transfer\Validator("Laminas\I18n\Validator\IsFloat")
      * @Transfer\Optional
      */
     protected $hoursThu;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
+     * @Transfer\Filter("Laminas\I18n\Filter\NumberFormat")
+     * @Transfer\Validator("Laminas\I18n\Validator\IsFloat")
      * @Transfer\Optional
      */
     protected $hoursFri;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
+     * @Transfer\Filter("Laminas\I18n\Filter\NumberFormat")
+     * @Transfer\Validator("Laminas\I18n\Validator\IsFloat")
      * @Transfer\Optional
      */
     protected $hoursSat;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
+     * @Transfer\Filter("Laminas\I18n\Filter\NumberFormat")
+     * @Transfer\Validator("Laminas\I18n\Validator\IsFloat")
      * @Transfer\Optional
      */
     protected $hoursSun;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Optional
      */
     protected $additionalInfo;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      * @Transfer\Optional
      */
     protected $hasOtherLicences;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      * @Transfer\Optional
      */
     protected $hasOtherEmployment;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      * @Transfer\Optional
      */
     protected $hasConvictions;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      * @Transfer\Optional
      */
     protected $hasPreviousLicences;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      * @Transfer\Optional
      */
     protected $hasUndertakenTraining;
 
     /**
-     * @Transfer\Validator({"name":"Laminas\Validator\Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Laminas\Validator\Date", options={"format": "Y-m-d"})
      * @Transfer\Optional
      */
     protected $dob;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      * @Transfer\Optional
      */
     protected $submit;

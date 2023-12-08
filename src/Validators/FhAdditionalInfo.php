@@ -14,10 +14,10 @@ use Laminas\Validator as LaminasValidator;
  */
 class FhAdditionalInfo extends LaminasValidator\AbstractValidator
 {
-    const TOO_SHORT = 'stringLengthTooShort';
-    const IS_EMPTY  = 'isEmpty';
+    public const TOO_SHORT = 'stringLengthTooShort';
+    public const IS_EMPTY  = 'isEmpty';
 
-    const MIN_LEN = 150;
+    public const MIN_LEN = 150;
 
     /**
      * Validation failure message template definitions

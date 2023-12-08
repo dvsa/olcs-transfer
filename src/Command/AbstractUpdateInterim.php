@@ -9,99 +9,96 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 
 abstract class AbstractUpdateInterim extends AbstractCommand
 {
-    use Identity,
-        Version;
+    use Identity;
+    use Version;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y", "N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      */
     protected $requested;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options": {"min": 1, "max": 1000}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"min": 1, "max": 1000})
      * @Transfer\Optional
      */
     protected $reason;
 
     /**
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Date", "options":{"format": "Y-m-d"}})
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\Date", options={"format": "Y-m-d"})
      * @Transfer\Optional
      */
     protected $startDate;
 
     /**
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\Date", "options":{"format": "Y-m-d"}})
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\Date", options={"format": "Y-m-d"})
      * @Transfer\Optional
      */
     protected $endDate;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0, "inclusive": true}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0, "inclusive": true})
      * @Transfer\Optional
      */
     protected $authHgvVehicles;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0, "inclusive": true}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0, "inclusive": true})
      * @Transfer\Optional
      */
     protected $authLgvVehicles;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0, "inclusive": true}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0, "inclusive": true})
      * @Transfer\Optional
      */
     protected $authTrailers;
 
     /**
      * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      * @Transfer\Optional
      */
     protected $operatingCentres = [];
 
     /**
      * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      * @Transfer\Optional
      */
     protected $vehicles = [];
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
-     *         "haystack": {
-     *             "int_sts_requested",
-     *             "int_sts_in_force",
-     *             "int_sts_refused",
-     *             "int_sts_revoked",
-     *             "int_sts_granted",
-     *             "int_sts_ended"
-     *         }
-     *     }
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={
+     *      "haystack": {
+     *          "int_sts_requested",
+     *          "int_sts_in_force",
+     *          "int_sts_refused",
+     *          "int_sts_revoked",
+     *          "int_sts_granted",
+     *          "int_sts_ended"
+     *      }
      * })
      * @Transfer\Optional
      */
     protected $status;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"grant", "refuse"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"grant", "refuse"}})
      * @Transfer\Optional
      */
     protected $action;

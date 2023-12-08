@@ -3,6 +3,7 @@
 /**
  * Update Submission sections. Leave any other sections as is. Just update section/subsection passed in Command
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Submission;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -20,16 +21,16 @@ final class RefreshSubmissionSections extends AbstractCommand
     use FieldType\Traits\Version;
 
     /**
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\SubmissionSection"})
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options": {"max":50}})
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\SubmissionSection")
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"max":50})
      */
     protected $section;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options": {"max":50}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"max":50})
      */
     protected $subSection;
 

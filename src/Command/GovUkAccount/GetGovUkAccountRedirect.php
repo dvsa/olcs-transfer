@@ -19,8 +19,8 @@ class GetGovUkAccountRedirect extends AbstractCommand
     use GovUkAccountJourney;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":1}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":1})
      */
     protected $returnUrl;
 
@@ -31,7 +31,7 @@ class GetGovUkAccountRedirect extends AbstractCommand
 
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     protected $returnUrlOnError;
 

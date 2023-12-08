@@ -9,6 +9,7 @@
  *
  * @author Ian Lindsay <ian@hemera-business-services.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Cache;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\IdentityString;
@@ -26,7 +27,7 @@ class ById extends AbstractQuery implements CacheableShortTermQueryInterface
     use UniqueIdStringOptional;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
     protected $shouldRegen = false;
