@@ -9,7 +9,7 @@ namespace Dvsa\Olcs\Transfer\Validators;
  */
 class Order extends \Laminas\Validator\AbstractValidator
 {
-    const NOT_ASC_OR_DESC = 'notAscOrDesc';
+    public const NOT_ASC_OR_DESC = 'notAscOrDesc';
 
     protected $messageTemplates = array(
         self::NOT_ASC_OR_DESC => 'The order was not ASC or DESC',

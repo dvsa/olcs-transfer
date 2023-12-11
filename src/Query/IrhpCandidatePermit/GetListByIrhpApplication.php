@@ -3,6 +3,7 @@
 /**
  * Get list of IRHP Candidate Permits by IRHP Application id
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpCandidatePermit;
 
 use Dvsa\Olcs\Transfer\Query\PagedTrait;

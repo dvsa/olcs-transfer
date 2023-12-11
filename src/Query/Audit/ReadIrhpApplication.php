@@ -13,6 +13,6 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class ReadIrhpApplication extends AbstractQuery implements PagedQueryInterface
 {
-    use Identity,
-        PagedTrait;
+    use Identity;
+    use PagedTrait;
 }

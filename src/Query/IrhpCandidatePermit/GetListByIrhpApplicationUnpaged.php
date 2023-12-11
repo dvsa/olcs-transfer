@@ -3,6 +3,7 @@
 /**
  * Get list of IRHP Candidate Permits by IRHP Application id (unpaged)
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpCandidatePermit;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpApplication;

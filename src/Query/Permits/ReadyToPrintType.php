@@ -3,6 +3,7 @@
 /**
  * Get a list of permit types ready to print
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;

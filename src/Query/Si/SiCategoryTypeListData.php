@@ -3,6 +3,7 @@
 /**
  * Get a list of all Si Category Type for select
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Si;
 
 use Dvsa\Olcs\Transfer\Query\AbstractListData;

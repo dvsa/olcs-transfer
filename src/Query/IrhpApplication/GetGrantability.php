@@ -1,6 +1,7 @@
 <?php
 
 /** Get Grantability of Irhp Application */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpApplication;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;

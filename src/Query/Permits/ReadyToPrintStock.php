@@ -3,6 +3,7 @@
 /**
  * Get a list of permit stocks ready to print
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Permits;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits as FieldTypeTraits;

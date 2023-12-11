@@ -5,6 +5,7 @@
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\TrafficArea;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -19,7 +20,7 @@ final class Get extends AbstractQuery implements CacheableLongTermQueryInterface
 {
     /**
      * @var string
-     * Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\TrafficArea"})
+     * Transfer\Validator("Dvsa\Olcs\Transfer\Validators\TrafficArea")
      */
     protected $id;
 

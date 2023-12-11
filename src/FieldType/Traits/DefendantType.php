@@ -1,4 +1,5 @@
 <?php
+
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
@@ -11,10 +12,9 @@ trait DefendantType
 {
     /**
      * @var String
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *     options={
      *          "haystack": {
      *              "def_t_dir",
      *              "def_t_driver",
@@ -25,7 +25,7 @@ trait DefendantType
      *              "def_t_tm"
      *          }
      *      }
-     * })
+     * )
      */
     protected $defendantType;
 

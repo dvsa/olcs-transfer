@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Application;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Application;
@@ -18,19 +19,19 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class CreatePsvVehicle extends AbstractCommand
 {
-    use Application,
-        Vrm;
+    use Application;
+    use Vrm;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":2,"max":100}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":2,"max":100})
      * @Transfer\Optional
      */
     protected $makeModel;
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
      */
     protected $receivedDate;
 
@@ -48,13 +49,5 @@ final class CreatePsvVehicle extends AbstractCommand
     public function getReceivedDate()
     {
         return $this->receivedDate;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getRemovalDate()
-    {
-        return $this->removalDate;
     }
 }

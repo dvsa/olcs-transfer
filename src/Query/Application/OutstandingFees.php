@@ -5,6 +5,7 @@
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Application;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
@@ -21,7 +22,7 @@ class OutstandingFees extends AbstractQuery implements CacheableShortTermQueryIn
 
     /**
      * @return mixed
-     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
     protected $hideExpired;

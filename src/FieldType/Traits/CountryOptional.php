@@ -10,9 +10,9 @@ trait CountryOptional
 {
     /**
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      *
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options": {"min": 0, "max": 2}})
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":0,"max":2})
      */
     public $country;
 

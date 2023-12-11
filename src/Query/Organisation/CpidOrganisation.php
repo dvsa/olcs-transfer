@@ -18,19 +18,7 @@ class CpidOrganisation extends AbstractQuery implements PagedQueryInterface
 
     /**
      * @Transfer\Optional
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
-     *         "haystack": {
-     *             "op_cpid_central_government",
-     *             "op_cpid_local_government",
-     *             "op_cpid_public_corporation",
-     *             "op_cpid_default",
-     *             "op_cpid_default",
-     *             "op_cpid_all",
-     *         }
-     *     }
-     * })
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"op_cpid_central_government", "op_cpid_local_government", "op_cpid_public_corporation", "op_cpid_default", "op_cpid_default", "op_cpid_all"}})
      */
     protected $cpid;
 

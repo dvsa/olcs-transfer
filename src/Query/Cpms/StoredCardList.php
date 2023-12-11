@@ -5,6 +5,7 @@
  *
  * @author Mat Evans <mat.evans@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Cpms;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -16,7 +17,7 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 class StoredCardList extends AbstractQuery
 {
     /**
-     * @Transfer\Validator({"name":"Dvsa\Olcs\Transfer\Validators\YesNo"})
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\YesNo")
      */
     protected $isNi;
 

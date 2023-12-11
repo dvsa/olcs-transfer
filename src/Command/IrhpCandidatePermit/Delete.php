@@ -3,6 +3,7 @@
 /**
  * Delete IRHP Candidate Permit
  */
+
 namespace Dvsa\Olcs\Transfer\Command\IrhpCandidatePermit;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;

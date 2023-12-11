@@ -5,6 +5,7 @@
  *
  * @author Tonci Vidovic <tonci.vidovic@capgemini.com>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpPermit;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits;

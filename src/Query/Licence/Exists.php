@@ -5,6 +5,7 @@
  *
  * @author Ian Lindsay <ian@hemera-business-services.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Licence;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -16,7 +17,7 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 class Exists extends AbstractQuery
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      */
     protected $licNo;
 

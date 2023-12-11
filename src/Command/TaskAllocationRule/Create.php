@@ -11,10 +11,10 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Create extends AbstractCommand
 {
-    use \Dvsa\Olcs\Transfer\FieldType\Traits\Category,
-        \Dvsa\Olcs\Transfer\FieldType\Traits\Team,
-        \Dvsa\Olcs\Transfer\FieldType\Traits\UserOptional,
-        \Dvsa\Olcs\Transfer\FieldType\Traits\GoodsOrPsvOptional,
-        \Dvsa\Olcs\Transfer\FieldType\Traits\IsMlh,
-        \Dvsa\Olcs\Transfer\FieldType\Traits\TrafficAreaOptional;
+    use \Dvsa\Olcs\Transfer\FieldType\Traits\Category;
+    use \Dvsa\Olcs\Transfer\FieldType\Traits\Team;
+    use \Dvsa\Olcs\Transfer\FieldType\Traits\UserOptional;
+    use \Dvsa\Olcs\Transfer\FieldType\Traits\GoodsOrPsvOptional;
+    use \Dvsa\Olcs\Transfer\FieldType\Traits\IsMlh;
+    use \Dvsa\Olcs\Transfer\FieldType\Traits\TrafficAreaOptional;
 }

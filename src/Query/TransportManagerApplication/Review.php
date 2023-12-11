@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\TransportManagerApplication;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;

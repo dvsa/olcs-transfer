@@ -29,24 +29,16 @@ class Update extends AbstractCommand implements
     /**
      * @var int
      *
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
-     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\DateNotInFuture"})
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
+     * @Transfer\Validator("\Dvsa\Olcs\Transfer\Validators\DateNotInFuture")
      */
     public $prohibitionDate = null;
 
     /**
      * @var String
      *
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
-     *          "haystack": {
-     *              "Y",
-     *              "N"
-     *          }
-     *      }
-     * })
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      */
     public $isTrailer = null;
 
@@ -54,16 +46,15 @@ class Update extends AbstractCommand implements
      * @var string
      *
      * @Transfer\Optional
-     * @Transfer\Validator({"name": "Date", "options": {"format": "Y-m-d"}})
-     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\DateNotInFuture"})
-     * @Transfer\Validator({
-     *     "name": "\Dvsa\Olcs\Transfer\Validators\DateCompare",
-     *     "options": {
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
+     * @Transfer\Validator("\Dvsa\Olcs\Transfer\Validators\DateNotInFuture")
+     * @Transfer\Validator("\Dvsa\Olcs\Transfer\Validators\DateCompare",
+     *     options={
      *         "compare_to":"prohibitionDate",
      *         "compare_to_label":"Prohibition date",
      *         "operator": "gte",
      *     }
-     * })
+     * )
      */
     public $clearedDate = null;
 
@@ -71,8 +62,8 @@ class Update extends AbstractCommand implements
      * @var string
      *
      * @Transfer\Optional
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"max":255}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"max":255})
      */
     public $imposedAt = null;
 

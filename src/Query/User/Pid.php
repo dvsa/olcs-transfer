@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\User;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
@@ -16,8 +17,8 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class Pid extends AbstractQuery
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options": {"min": 1}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength", options={"min": 1})
      */
     protected $id;
 

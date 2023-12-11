@@ -13,14 +13,14 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Annul extends AbstractCommand
 {
-    use ApplicationOptional,
-        Licence;
+    use ApplicationOptional;
+    use Licence;
 
     /**
      * @var array
      * @Transfer\ArrayInput
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     public $communityLicenceIds = [];
 

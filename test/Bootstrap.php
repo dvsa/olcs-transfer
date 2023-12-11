@@ -3,11 +3,6 @@
 namespace Dvsa\OlcsTest\Transfer;
 
 use Mockery as m;
-use Doctrine\Common\Annotations\AnnotationRegistry;
-
-error_reporting(-1);
-chdir(dirname(__DIR__));
-date_default_timezone_set('Europe/London');
 
 /**
  * Test bootstrap, for setting up autoloading
@@ -19,10 +14,6 @@ class Bootstrap
     public static function init()
     {
         ini_set('memory_limit', '1500M');
-        // Setup the autoloader
-        $loader = static::initAutoloader();
-        $loader->addPsr4('Dvsa\\OlcsTest\\Transfer\\', __DIR__ . '/src');
-
         // Grab the application config
         $config = array(
             'modules' => array(
@@ -53,11 +44,4 @@ class Bootstrap
 
         return $sm;
     }
-
-    protected static function initAutoloader()
-    {
-        return require('vendor/autoload.php');
-    }
 }
-
-Bootstrap::init();

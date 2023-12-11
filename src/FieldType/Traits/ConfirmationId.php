@@ -8,7 +8,7 @@ trait ConfirmationId
 {
     /**
      * @var String
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":1, "max":255}})
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":1,"max":255})
      */
     protected ?string $confirmationId = null;
 

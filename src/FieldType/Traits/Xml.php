@@ -1,4 +1,5 @@
 <?php
+
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
@@ -9,8 +10,8 @@ trait Xml
     /**
      * @var string
      * @Transfer\Escape(false)
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"\Dvsa\Olcs\Transfer\Validators\Xml", "options":{"usePluginManager":true}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("\Dvsa\Olcs\Transfer\Validators\Xml", options={"usePluginManager":true})
      */
     public $xml;
 

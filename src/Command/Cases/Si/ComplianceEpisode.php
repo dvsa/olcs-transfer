@@ -14,5 +14,4 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
  */
 class ComplianceEpisode extends AbstractXmlCommand
 {
-
 }

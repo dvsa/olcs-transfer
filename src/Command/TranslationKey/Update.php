@@ -3,6 +3,7 @@
 /**
  * Update Translation Key
  */
+
 namespace Dvsa\Olcs\Transfer\Command\TranslationKey;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;

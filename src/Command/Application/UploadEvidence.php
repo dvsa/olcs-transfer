@@ -16,7 +16,7 @@ final class UploadEvidence extends AbstractCommand
 
     /**
      * @Transfer\ArrayInput
-     * @Transfer\ArrayFilter({"name":"Dvsa\Olcs\Transfer\Filter\FilterEmptyItems"})
+     * @Transfer\ArrayFilter("Dvsa\Olcs\Transfer\Filter\FilterEmptyItems")
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\OperatingCentreEvidence")
      * @Transfer\Optional
      */

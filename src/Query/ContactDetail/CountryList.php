@@ -5,6 +5,7 @@
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\ContactDetail;
 
 use Dvsa\Olcs\Transfer\Query\PublicQueryCacheInterface;

@@ -441,7 +441,6 @@ $routes = [
                             'schedule-41' => RouteConfig::getRouteConfig(
                                 'schedule-41',
                                 [
-                                    'GET' => QueryConfig::getConfig(Query\Application\Schedule41::class),
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\Schedule41::class)
                                 ]
                             ),
@@ -1442,20 +1441,6 @@ $routes = [
                     )
                 ]
             ],
-            'person' => [
-                'type' => 'Segment',
-                'options' => [
-                    'route' => 'person[/]',
-                ],
-                'may_terminate' => false,
-                'child_routes' => [
-                    'single' => RouteConfig::getSingleConfig(
-                        [
-                            'PUT' => CommandConfig::getPutConfig(Command\Person\Update::class),
-                        ]
-                    ),
-                ]
-            ],
             'tm-employment' => [
                 'type' => 'Segment',
                 'options' => [
@@ -1487,12 +1472,6 @@ $routes = [
                             'GET' => QueryConfig::getConfig(
                                 Query\Cases\ConditionUndertaking\ConditionUndertaking::class
                             ),
-                            'PUT' => CommandConfig::getPutConfig(
-                                Command\Cases\ConditionUndertaking\UpdateConditionUndertaking::class
-                            ),
-                            'DELETE' => CommandConfig::getDeleteConfig(
-                                Command\Cases\ConditionUndertaking\DeleteConditionUndertaking::class
-                            )
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(

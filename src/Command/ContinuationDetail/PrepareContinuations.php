@@ -5,6 +5,7 @@
  *
  * @author Alex Peshkov <alex.peshkov@valtech.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\ContinuationDetail;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -18,8 +19,8 @@ final class PrepareContinuations extends AbstractCommand
 {
     /**
      * @Transfer\ArrayInput
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
      * @Transfer\Optional
      */
     protected $ids = [];

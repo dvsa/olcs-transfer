@@ -1,5 +1,6 @@
-<?php declare(strict_types=1);
+<?php
 
+declare(strict_types=1);
 
 namespace Dvsa\Olcs\Transfer\Query\CompaniesHouse;
 
@@ -15,8 +16,8 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 class ByNumber extends AbstractQuery implements CacheableShortTermQueryInterface
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength","options":{"min":8,"max":8}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":8,"max":8})
      */
     protected $companyNumber;
 

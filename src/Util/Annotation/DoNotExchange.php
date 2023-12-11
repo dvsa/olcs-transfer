@@ -7,6 +7,7 @@
  *
  * You'll need to use this together with the Transfer\Optional annotation
  */
+
 namespace Dvsa\Olcs\Transfer\Util\Annotation;
 
 /**

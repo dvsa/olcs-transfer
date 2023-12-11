@@ -14,6 +14,6 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
  */
 class GetList extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
 {
-    use PagedTrait,
-        OrderedTraitOptional;
+    use PagedTrait;
+    use OrderedTraitOptional;
 }

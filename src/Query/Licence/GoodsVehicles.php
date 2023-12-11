@@ -14,13 +14,13 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class GoodsVehicles extends AbstractGoodsVehicles implements PagedQueryInterface, OrderedQueryInterface, FiltersByVehicleIdsInterface
 {
-    use PagedTrait, OrderedTrait;
+    use PagedTrait;
+    use OrderedTrait;
 
     /**
      * @var array|null
-     * @Transfer\Validator({
-     *     "name":"\Dvsa\Olcs\Transfer\Validators\ValidateEach",
-     *     "options": {
+     * @Transfer\Validator("\Dvsa\Olcs\Transfer\Validators\ValidateEach",
+     *     options={
      *         "min": 1,
      *         "max": 100,
      *         "children": {
@@ -28,7 +28,7 @@ class GoodsVehicles extends AbstractGoodsVehicles implements PagedQueryInterface
      *             {"name": "\Laminas\Validator\GreaterThan", "options": {"min": 0}}
      *         },
      *     }
-     * })
+     * )
      * @Transfer\Optional
      */
     protected $vehicleIds;

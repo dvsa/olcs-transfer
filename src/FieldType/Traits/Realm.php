@@ -8,13 +8,8 @@ trait Realm
 {
     /**
      * @var String
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {"haystack": {"selfserve","internal"}}
-     *  }
-     * )
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"selfserve","internal"}})
      */
     protected ?string $realm = null;
 

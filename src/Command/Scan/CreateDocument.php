@@ -3,6 +3,7 @@
 /**
  * CreateDocument - used by the olcs-scanning service to add scanned documents
  */
+
 namespace Dvsa\Olcs\Transfer\Command\Scan;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -16,9 +17,9 @@ use Dvsa\Olcs\Transfer\Command\LoggerOmitContentInterface;
 final class CreateDocument extends AbstractCommand implements LoggerOmitContentInterface
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $scanId;
 

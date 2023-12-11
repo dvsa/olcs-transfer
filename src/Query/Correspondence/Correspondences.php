@@ -15,13 +15,14 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class Correspondences extends AbstractQuery implements PagedQueryInterface, OrderedQueryInterface
 {
-    use PagedTrait, OrderedTrait;
+    use PagedTrait;
+    use OrderedTrait;
 
     /**
      * @var int
-     * @Transfer\Filter({"name":"Laminas\Filter\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\Digits"})
-     * @Transfer\Validator({"name":"Laminas\Validator\GreaterThan", "options": {"min": 0}})
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
     protected $organisation;
 

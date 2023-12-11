@@ -9,12 +9,9 @@ trait CaseType
 {
     /**
      * @var String
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {"haystack": {"case_t_app","case_t_imp","case_t_lic","case_t_tm"}}
-     *  }
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *      options={"haystack": {"case_t_app","case_t_imp","case_t_lic","case_t_tm"}}
      * )
      */
     protected $caseType = null;

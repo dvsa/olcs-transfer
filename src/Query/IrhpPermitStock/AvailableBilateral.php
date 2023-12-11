@@ -3,6 +3,7 @@
 /**
  * Get list of available bilateral stocks by country
  */
+
 namespace Dvsa\Olcs\Transfer\Query\IrhpPermitStock;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Country;

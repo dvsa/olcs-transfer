@@ -1,4 +1,5 @@
 <?php
+
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
@@ -11,10 +12,9 @@ trait TemplateFolder
 {
     /**
      * @var String
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({
-     *     "name":"Laminas\Validator\InArray",
-     *     "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *     options={
      *          "haystack": {
      *              "root",
      *              "gb",
@@ -23,7 +23,7 @@ trait TemplateFolder
      *              "guides"
      *          }
      *      }
-     * })
+     * )
      */
     protected $templateFolder;
 

@@ -11,10 +11,11 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class PsvDiscs extends AbstractQuery implements \Dvsa\Olcs\Transfer\Query\PagedQueryInterface
 {
-    use Identity, \Dvsa\Olcs\Transfer\Query\PagedTraitOptional;
+    use Identity;
+    use \Dvsa\Olcs\Transfer\Query\PagedTraitOptional;
 
     /**
-     * @Transfer\Filter({"name": "Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
     protected $includeCeased = false;

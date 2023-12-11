@@ -13,90 +13,87 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 final class UpdateForResponsibilities extends AbstractCommand
 {
-    use Traits\Identity,
-        Traits\HasUndertakenTraining,
-        Traits\Version;
+    use Traits\Identity;
+    use Traits\HasUndertakenTraining;
+    use Traits\Version;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"tm_t_i","tm_t_e"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"tm_t_i","tm_t_e"}})
      * @Transfer\Optional
      */
     protected $tmType;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\InArray", "options": {"haystack": {"Y","N"}}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      */
     protected $isOwner;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
+     * @Transfer\Filter("Laminas\I18n\Filter\NumberFormat")
+     * @Transfer\Validator("Laminas\I18n\Validator\IsFloat")
      * @Transfer\Optional
      */
     protected $hoursMon;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
+     * @Transfer\Filter("Laminas\I18n\Filter\NumberFormat")
+     * @Transfer\Validator("Laminas\I18n\Validator\IsFloat")
      * @Transfer\Optional
      */
     protected $hoursTue;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
+     * @Transfer\Filter("Laminas\I18n\Filter\NumberFormat")
+     * @Transfer\Validator("Laminas\I18n\Validator\IsFloat")
      * @Transfer\Optional
      */
     protected $hoursWed;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
+     * @Transfer\Filter("Laminas\I18n\Filter\NumberFormat")
+     * @Transfer\Validator("Laminas\I18n\Validator\IsFloat")
      * @Transfer\Optional
      */
     protected $hoursThu;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
+     * @Transfer\Filter("Laminas\I18n\Filter\NumberFormat")
+     * @Transfer\Validator("Laminas\I18n\Validator\IsFloat")
      * @Transfer\Optional
      */
     protected $hoursFri;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
+     * @Transfer\Filter("Laminas\I18n\Filter\NumberFormat")
+     * @Transfer\Validator("Laminas\I18n\Validator\IsFloat")
      * @Transfer\Optional
      */
     protected $hoursSat;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\I18n\Filter\NumberFormat"})
-     * @Transfer\Validator({"name":"Laminas\I18n\Validator\IsFloat"})
+     * @Transfer\Filter("Laminas\I18n\Filter\NumberFormat")
+     * @Transfer\Validator("Laminas\I18n\Validator\IsFloat")
      * @Transfer\Optional
      */
     protected $hoursSun;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Optional
      */
     protected $additionalInformation;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator(
-     *  {
-     *      "name":"Laminas\Validator\InArray",
-     *      "options": {
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *      options={
      *          "haystack": {
      *              "tmap_st_awaiting_signature", "tmap_st_incomplete", "tmap_st_operator_signed",
      *              "tmap_st_postal_application", "tmap_st_received", "tmap_st_tm_signed"
      *          }
      *      }
-     *  }
      * )
      */
     protected $tmApplicationStatus;

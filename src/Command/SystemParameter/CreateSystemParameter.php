@@ -3,6 +3,7 @@
 /**
  * Create System Parameter
  */
+
 namespace Dvsa\Olcs\Transfer\Command\SystemParameter;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -15,20 +16,20 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 final class CreateSystemParameter extends AbstractCommand
 {
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":1, "max":32}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":1,"max":32})
      */
     protected $id;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":1, "max":1024}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":1,"max":1024})
      */
     protected $paramValue;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
-     * @Transfer\Validator({"name":"Laminas\Validator\StringLength", "options":{"min":1, "max":255}})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":1,"max":255})
      * @Transfer\Optional
      */
     protected $description;

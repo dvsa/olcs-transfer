@@ -5,6 +5,7 @@
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  */
+
 namespace Dvsa\Olcs\Transfer\Query\Licence;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
@@ -24,18 +25,18 @@ class PsvVehicles extends AbstractQuery implements
     PagedQueryInterface,
     OrderedQueryInterface
 {
-    use Identity,
-        PagedTrait,
-        OrderedTrait;
+    use Identity;
+    use PagedTrait;
+    use OrderedTrait;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\Boolean"})
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
     protected $includeRemoved;
 
     /**
-     * @Transfer\Filter({"name":"Laminas\Filter\StringTrim"})
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Optional
      */
     protected $vrm;

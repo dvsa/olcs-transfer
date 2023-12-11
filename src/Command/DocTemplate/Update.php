@@ -5,6 +5,7 @@
  *
  * author Andy Newton <andy@the-shed.eu>
  */
+
 namespace Dvsa\Olcs\Transfer\Command\DocTemplate;
 
 use Dvsa\Olcs\Transfer\FieldType\Traits\Category;
