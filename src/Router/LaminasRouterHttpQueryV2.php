@@ -43,7 +43,7 @@ class LaminasRouterHttpQueryV2 implements RouteInterface
      *
      * @param array $defaults
      */
-    public function __construct(array $defaults = [])
+    final public function __construct(array $defaults = [])
     {
         $this->defaults = $defaults;
     }
@@ -68,7 +68,7 @@ class LaminasRouterHttpQueryV2 implements RouteInterface
             $options['defaults'] = [];
         }
 
-        return new self($options['defaults']);
+        return new static($options['defaults']);
     }
 
     /**
