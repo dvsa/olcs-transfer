@@ -15,7 +15,6 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 final class GetConversationMessages extends AbstractQuery implements PagedQueryInterface
 {
     use PagedTrait;
-    use Licence;
 
     /**
      * @var int
