@@ -11,8 +11,19 @@ return [
             'conversations' => RouteConfig::getRouteConfig(
                 'conversations',
                 [
-                    'GET' => QueryConfig::getConfig(Query\Messaging\GetConversationList::class),
-                ]
+                    'by-licence' => RouteConfig::getRouteConfig(
+                        'by-licence',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\Conversations\ByLicence::class),
+                        ],
+                    ),
+                    'by-application-to-licence' => RouteConfig::getRouteConfig(
+                        'by-application-to-licence',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\Conversations\ByApplicationToLicence::class),
+                        ],
+                    ),
+                ],
             ),
             'conversation-messages' => RouteConfig::getRouteConfig(
                 'conversation-messages',
