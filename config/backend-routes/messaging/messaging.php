@@ -25,6 +25,12 @@ return [
                     ),
                 ],
             ),
+            'conversation-messages' => RouteConfig::getRouteConfig(
+                'conversation-messages',
+                [
+                    'GET' => QueryConfig::getConfig(Query\Messaging\GetConversationMessages::class),
+                ]
+            ),
         ]
     )
 ];
