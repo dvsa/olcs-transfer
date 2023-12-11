@@ -10,7 +10,7 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 
 /**
- * @Transfer\RouteName("backend/messaging/conversation-messages")
+ * @Transfer\RouteName("backend/messaging/messages/by-conversation")
  */
 final class GetConversationMessages extends AbstractQuery implements PagedQueryInterface
 {
