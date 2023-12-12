@@ -31,7 +31,7 @@ return [
                     'by-conversation' => RouteConfig::getRouteConfig(
                         'by-conversation',
                         [
-                            'GET' => QueryConfig::getConfig(Query\Messaging\GetConversationMessages::class),
+                            'GET' => QueryConfig::getConfig(Query\Messaging\ByConversation::class),
                         ],
                     ),
                 ]

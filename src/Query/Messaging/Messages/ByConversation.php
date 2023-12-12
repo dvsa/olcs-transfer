@@ -12,7 +12,7 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 /**
  * @Transfer\RouteName("backend/messaging/messages/by-conversation")
  */
-final class GetConversationMessages extends AbstractQuery implements PagedQueryInterface
+final class ByConversation extends AbstractQuery implements PagedQueryInterface
 {
     use PagedTrait;
 
