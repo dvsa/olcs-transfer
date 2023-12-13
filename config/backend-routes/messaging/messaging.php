@@ -30,6 +30,12 @@ return [
                 'messages',
                 [
                     'POST' => QueryConfig::getConfig(Command\Messaging\CreateMessage::class),
+                    'by-conversation' => RouteConfig::getRouteConfig(
+                        'by-conversation',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\Messages\ByConversation::class),
+                        ],
+                    ),
                 ]
             ),
         ]
