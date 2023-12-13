@@ -25,6 +25,17 @@ return [
                     ),
                 ],
             ),
+            'messages' => RouteConfig::getRouteConfig(
+                'messages',
+                [
+                    'by-conversation' => RouteConfig::getRouteConfig(
+                        'by-conversation',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\Messages\ByConversation::class),
+                        ],
+                    ),
+                ]
+            ),
         ]
     )
 ];
