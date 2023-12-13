@@ -1,5 +1,6 @@
 <?php
 
+use Dvsa\Olcs\Transfer\Command;
 use Dvsa\Olcs\Transfer\Query;
 use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
@@ -24,6 +25,12 @@ return [
                         ],
                     ),
                 ],
+            ),
+            'messages' => RouteConfig::getRouteConfig(
+                'messages',
+                [
+                    'POST' => QueryConfig::getConfig(Command\Messaging\CreateMessage::class),
+                ]
             ),
         ]
     )
