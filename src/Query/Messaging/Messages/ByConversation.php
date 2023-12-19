@@ -2,7 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Query\Messaging\Messages;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\Conversation;
+use Dvsa\Olcs\Transfer\FieldType\Traits\Messaging\Conversation;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
 use Dvsa\Olcs\Transfer\Query\PagedTrait;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
