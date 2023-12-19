@@ -11,7 +11,7 @@ trait Conversation
 {
     /**
      * @var int
-     * @Transfer\Filter("Laminas\Filter\Digits)
+     * @Transfer\Filter("Laminas\Filter\Digits")
      * @Transfer\Validator("Laminas\Validator\Digits")
      * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
