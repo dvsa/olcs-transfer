@@ -39,22 +39,22 @@ return [
             'application-licence-list' => RouteConfig::getRouteConfig(
                 'application-licence-list',
                 [
-//                    'by-licence-to-organisation' => RouteConfig::getRouteConfig(
-//                        'by-licence-to-organisation',
-//                        [
-//                            'GET' => QueryConfig::getConfig(Query\Messaging\ApplicationLicenceList\ByLicenceToOrganisation::class),
-//                        ],
-//                    ),
-//                    'by-application-to-organisation' => RouteConfig::getRouteConfig(
-//                        'by-application-to-organisation',
-//                        [
-//                            'GET' => QueryConfig::getConfig(Query\Messaging\ApplicationLicenceList\ByApplicationToOrganisation::class),
-//                        ],
-//                    ),
                     'by-organisation' => RouteConfig::getRouteConfig(
                         'by-organisation',
                         [
                             'GET' => QueryConfig::getConfig(Query\Messaging\ApplicationLicenceList\ByOrganisation::class),
+                        ],
+                    ),
+                    'by-licence-to-organisation' => RouteConfig::getRouteConfig(
+                        'by-licence-to-organisation',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\ApplicationLicenceList\ByLicenceToOrganisation::class),
+                        ],
+                    ),
+                    'by-application-to-organisation' => RouteConfig::getRouteConfig(
+                        'by-application-to-organisation',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\ApplicationLicenceList\ByApplicationToOrganisation::class),
                         ],
                     ),
                 ]
