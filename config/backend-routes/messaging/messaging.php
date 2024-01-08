@@ -1,6 +1,8 @@
 <?php
 
+use Dvsa\Olcs\Transfer\Command;
 use Dvsa\Olcs\Transfer\Query;
+use Dvsa\Olcs\Transfer\Router\CommandConfig;
 use Dvsa\Olcs\Transfer\Router\QueryConfig;
 use Dvsa\Olcs\Transfer\Router\RouteConfig;
 
@@ -21,6 +23,12 @@ return [
                         'by-application-to-licence',
                         [
                             'GET' => QueryConfig::getConfig(Query\Messaging\Conversations\ByApplicationToLicence::class),
+                        ],
+                    ),
+                    'close' => RouteConfig::getRouteConfig(
+                        'close',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\Messaging\Close::class)
                         ],
                     ),
                 ],
