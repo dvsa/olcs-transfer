@@ -28,7 +28,7 @@ return [
                     'close' => RouteConfig::getRouteConfig(
                         'close',
                         [
-                            'POST' => CommandConfig::getPostConfig(Command\Messaging\Close::class)
+                            'POST' => CommandConfig::getPostConfig(Command\Messaging\Conversation\Close::class)
                         ],
                     ),
                 ],
