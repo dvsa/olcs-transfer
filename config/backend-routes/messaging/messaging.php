@@ -36,7 +36,7 @@ return [
             'messages' => RouteConfig::getRouteConfig(
                 'messages',
                 [
-                    'POST' => CommandConfig::getPostConfig(Command\Messaging\CreateMessage::class),
+                    'POST' => CommandConfig::getPostConfig(Command\Messaging\Message\Create::class),
                     'by-conversation' => RouteConfig::getRouteConfig(
                         'by-conversation',
                         [
