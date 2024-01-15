@@ -25,6 +25,12 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Messaging\Conversations\ByApplicationToLicence::class),
                         ],
                     ),
+                    'close' => RouteConfig::getRouteConfig(
+                        'close',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\Messaging\Conversation\Close::class)
+                        ],
+                    ),
                 ],
             ),
             'messages' => RouteConfig::getRouteConfig(
