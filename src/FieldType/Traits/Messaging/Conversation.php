@@ -1,6 +1,6 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\FieldType\Traits;
+namespace Dvsa\Olcs\Transfer\FieldType\Traits\Messaging;
 
 /**
  * Trait Conversation
