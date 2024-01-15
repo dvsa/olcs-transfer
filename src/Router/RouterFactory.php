@@ -1,14 +1,9 @@
 <?php
 
-/**
- * Custom Router Factory for api routing
- */
-
 namespace Dvsa\Olcs\Transfer\Router;
 
 use Interop\Container\ContainerInterface;
-use Laminas\ServiceManager\FactoryInterface;
-use Laminas\ServiceManager\ServiceLocatorInterface;
+use Laminas\ServiceManager\Factory\FactoryInterface;
 
 /**
  * Custom Router Factory for api routing
@@ -37,17 +32,5 @@ class RouterFactory implements FactoryInterface
         // Obtain an instance
         $factory = sprintf('%s::factory', $routerClass);
         return call_user_func($factory, $routerConfig);
-    }
-
-    /**
-     * @param ServiceLocatorInterface $serviceLocator
-     * @param $cName
-     * @param $rName
-     * @return mixed
-     * @deprecated Not needed after Laminas 3
-     */
-    public function createService(ServiceLocatorInterface $serviceLocator, $cName = null, $rName = null)
-    {
-        return $this($serviceLocator, null);
     }
 }
