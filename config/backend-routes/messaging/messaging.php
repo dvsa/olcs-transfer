@@ -19,6 +19,12 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Messaging\Conversations\ByLicence::class),
                         ],
                     ),
+                    'by-organisation' => RouteConfig::getRouteConfig(
+                        'by-organisation',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\Conversations\ByOrganisation::class),
+                        ],
+                    ),
                     'by-application-to-licence' => RouteConfig::getRouteConfig(
                         'by-application-to-licence',
                         [
