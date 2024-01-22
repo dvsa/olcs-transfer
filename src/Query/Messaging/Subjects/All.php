@@ -1,6 +1,6 @@
 <?php
 
-namespace Dvsa\Olcs\Transfer\Query\Messaging;
+namespace Dvsa\Olcs\Transfer\Query\Messaging\Subjects;
 
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -8,6 +8,6 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 /**
  * @Transfer\RouteName("backend/messaging/subjects/all")
  */
-final class Subjects extends AbstractQuery
+final class All extends AbstractQuery
 {
 }

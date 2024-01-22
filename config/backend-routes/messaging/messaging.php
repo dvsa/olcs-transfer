@@ -57,7 +57,7 @@ return [
                     'all' => RouteConfig::getRouteConfig(
                         'all',
                         [
-                            'GET' => QueryConfig::getConfig(Query\Messaging\Subjects::class),
+                            'GET' => QueryConfig::getConfig(Query\Messaging\Subjects\All::class),
                         ],
                     ),
                 ]
