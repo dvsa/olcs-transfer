@@ -51,6 +51,17 @@ return [
                     ),
                 ]
             ),
+            'subjects' => RouteConfig::getRouteConfig(
+                'subjects',
+                [
+                    'all' => RouteConfig::getRouteConfig(
+                        'all',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\Subjects\All::class),
+                        ],
+                    ),
+                ]
+            ),
             'application-licence-list' => RouteConfig::getRouteConfig(
                 'application-licence-list',
                 [
