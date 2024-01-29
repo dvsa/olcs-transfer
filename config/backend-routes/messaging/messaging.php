@@ -37,6 +37,18 @@ return [
                             'POST' => CommandConfig::getPostConfig(Command\Messaging\Conversation\Close::class)
                         ],
                     ),
+                    'disable' => RouteConfig::getRouteConfig(
+                        'disable',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\Messaging\Conversation\Disable::class)
+                        ],
+                    ),
+                    'enable' => RouteConfig::getRouteConfig(
+                        'enable',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\Messaging\Conversation\Enable::class)
+                        ],
+                    ),
                 ],
             ),
             'messages' => RouteConfig::getRouteConfig(
