@@ -13,6 +13,7 @@ return [
             'conversations' => RouteConfig::getRouteConfig(
                 'conversations',
                 [
+                    'POST' => CommandConfig::getPostConfig(Command\Messaging\Conversation\Create::class),
                     'by-licence' => RouteConfig::getRouteConfig(
                         'by-licence',
                         [
