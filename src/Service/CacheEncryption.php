@@ -149,14 +149,7 @@ class CacheEncryption
      * Shared mode: value will have been encrypted using a key shared between all nodes
      * Node specific mode: value will have been encrypted for a single group of nodes only e.g. ssweb, iuweb or api
      *
-     * The suppression of errors here is due to Laminas using deprecated methods
-     * This will be fixed by an upgrade to the laminas-cache package, covered by the above ticket
-     *
-     * @param string $cacheKey
-     * @param string $encryptionMode
-     *
      * @throws \Exception
-     * @return bool
      */
     public function removeItem(string $cacheKey, string $encryptionMode): bool
     {
@@ -167,14 +160,7 @@ class CacheEncryption
     /**
      * Remove a custom (non CQRS) cache item
      *
-     * The suppression of errors here is due to Laminas using deprecated methods
-     * This will be fixed by an upgrade to the laminas-cache package, covered by the above ticket
-     *
-     * @param string $cacheKey
-     * @param string $uniqueId
-     *
      * @throws \Exception
-     * @return int
      */
     public function removeCustomItem(string $cacheKey, string $uniqueId = ''): bool
     {
@@ -188,14 +174,7 @@ class CacheEncryption
      * Note that the method expects that ids will be included, to delete a cache which isn't specific
      * to a user/licence etc, use the removeCustomItem method which allows a blank value for $uniqueId
      *
-     * The suppression of errors here is due to Laminas using deprecated methods
-     * This will be fixed by an upgrade to the laminas-cache package, covered by the above ticket
-     *
-     * @param string $cacheKey
-     * @param array  $uniqueIds
-     *
      * @throws \Exception
-     * @return array
      */
     public function removeCustomItems(string $cacheKey, array $uniqueIds): array
     {
