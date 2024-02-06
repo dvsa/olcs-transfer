@@ -106,7 +106,7 @@ class ByOrganisationTest extends \PHPUnit\Framework\TestCase
     protected function getFilterTransformations()
     {
         return [
-            'ids' => [[99, '99']],
+            'organisation' => [[99, '99']],
             'page' => [[99, '99']],
             'limit' => [[99, '99']],
         ];
