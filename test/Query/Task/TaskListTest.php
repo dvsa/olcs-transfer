@@ -20,6 +20,7 @@ class TaskListTest extends MockeryTestCase
             'date' => 'unit_date',
             'status' => 'unit_status',
             'urgent' => 'unit_urgent',
+            'messaging' => 'unit_messaging',
             'showTasks' => 'unit_showTasks',
             'assignedToTeam' => 'unit_assignedToTeam',
             'transportManager' => 'unit_transportManager',
@@ -43,6 +44,7 @@ class TaskListTest extends MockeryTestCase
         static::assertEquals('unit_date', $sut->getDate());
         static::assertEquals('unit_status', $sut->getStatus());
         static::assertEquals('unit_urgent', $sut->getUrgent());
+        static::assertEquals('unit_messaging', $sut->getMessaging());
         static::assertEquals('unit_showTasks', $sut->getShowTasks());
         static::assertEquals('unit_transportManager', $sut->getTransportManager());
         static::assertEquals('unit_organisation', $sut->getOrganisation());
