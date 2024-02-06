@@ -2,7 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Query\Messaging\ApplicationLicenceList;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\Organisation;
+use Dvsa\Olcs\Transfer\FieldType\Traits\OrganisationOptional;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
@@ -11,5 +11,5 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 final class ByOrganisation extends AbstractQuery
 {
-    use Organisation;
+    use OrganisationOptional;
 }

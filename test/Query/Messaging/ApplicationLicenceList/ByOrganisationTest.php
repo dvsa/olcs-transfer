@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Dvsa\OlcsTest\Transfer\Query\Messaging\Conversations;
+namespace Dvsa\OlcsTest\Transfer\Query\Messaging\ApplicationLicenceList;
 
-use Dvsa\Olcs\Transfer\Query\Messaging\Conversations\ByOrganisation;
+use Dvsa\Olcs\Transfer\Query\Messaging\ApplicationLicenceList\ByOrganisation;
 use Dvsa\OlcsTest\Transfer\DtoWithoutOptionalFieldsTest;
 use Dvsa\OlcsTest\Transfer\Query\QueryTest;
 use Laminas\Stdlib\ArraySerializableInterface;
@@ -45,12 +45,7 @@ class ByOrganisationTest extends \PHPUnit\Framework\TestCase
         return [
             'organisation' => [
                 '1',
-            ],
-            'page' => [
-                '1',
-            ],
-            'limit' => [
-                '1',
+                null,
             ],
         ];
     }
@@ -72,15 +67,12 @@ class ByOrganisationTest extends \PHPUnit\Framework\TestCase
      */
     protected function getInvalidFieldValues()
     {
-        $invalidNumbers = [0,
-            'a',
-            '-',
-            '\n',];
+        $invalidNumbers = [
+            0,
+        ];
 
         return [
             'organisation' => $invalidNumbers,
-            'page' => $invalidNumbers,
-            'limit' => $invalidNumbers,
         ];
     }
 
@@ -107,8 +99,6 @@ class ByOrganisationTest extends \PHPUnit\Framework\TestCase
     {
         return [
             'organisation' => [[99, '99']],
-            'page' => [[99, '99']],
-            'limit' => [[99, '99']],
         ];
     }
 }
