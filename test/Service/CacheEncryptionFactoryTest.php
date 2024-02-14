@@ -6,7 +6,7 @@ namespace Dvsa\OlcsTest\Transfer\Service;
 
 use Dvsa\Olcs\Transfer\Service\CacheEncryption;
 use Dvsa\Olcs\Transfer\Service\CacheEncryptionFactory;
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 use Mockery as m;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
 use Laminas\Cache\Storage\StorageInterface;

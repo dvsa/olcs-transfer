@@ -2,7 +2,7 @@
 
 namespace Dvsa\Olcs\Transfer\Service;
 
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 use Laminas\Cache\Storage\StorageInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
 use Laminas\Crypt\BlockCipher;
