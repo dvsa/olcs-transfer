@@ -29,35 +29,35 @@
         }
     },
     "autoload-dev": {
-      "psr-4": {
-        "Dvsa\\OlcsTest\\Transfer\\": "test/"
-      }
+        "psr-4": {
+            "Dvsa\\OlcsTest\\Transfer\\": "test/"
+        }
     },
     "scripts": {
-      "bin": "echo 'bin not installed'",
-      "test": "phpunit",
-      "phpcs": "phpcs",
-      "psalm": "psalm",
-      "phpstan": "phpstan",
-      "all": [
-        "@test",
-        "@phpcs",
-        "@psalm",
-        "@phpstan"
-      ]
+        "bin": "echo 'bin not installed'",
+        "test": "phpunit",
+        "phpcs": "phpcs",
+        "psalm": "psalm",
+        "phpstan": "phpstan",
+        "all": [
+            "@test",
+            "@phpcs",
+            "@psalm",
+            "@phpstan"
+        ]
     },
     "extra": {
-      "bamarni-bin": {
-        "bin-links": true,
-        "forward-command": true
-      }
+        "bamarni-bin": {
+            "bin-links": true,
+            "forward-command": true
+        }
     },
     "config": {
-      "allow-plugins": {
+        "allow-plugins": {
             "bamarni/composer-bin-plugin": true
-      },
-      "platform": {
-        "ext-redis": "4.3"
-      }
+        },
+        "platform": {
+            "ext-redis": "4.3"
+        }
     }
 }
