@@ -85,6 +85,12 @@ class TaskList extends AbstractQuery implements PagedQueryInterface, OrderedQuer
     protected $showTasks = null;
 
     /**
+     * @Transfer\Filter(\Laminas\Filter\Boolean::class)
+     * @Transfer\Optional
+     */
+    protected bool $messaging = false;
+
+    /**
      * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
@@ -168,5 +174,10 @@ class TaskList extends AbstractQuery implements PagedQueryInterface, OrderedQuer
     public function getUrgent()
     {
         return $this->urgent;
+    }
+
+    public function getMessaging(): bool
+    {
+        return $this->messaging;
     }
 }

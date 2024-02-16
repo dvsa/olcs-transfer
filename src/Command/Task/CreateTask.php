@@ -47,6 +47,12 @@ final class CreateTask extends AbstractCommand
     protected $urgent;
 
     /**
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
+     */
+    protected $messaging;
+
+    /**
      * @Transfer\Filter("Laminas\Filter\Digits")
      * @Transfer\Validator("Laminas\Validator\Digits")
      * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
@@ -116,6 +122,14 @@ final class CreateTask extends AbstractCommand
     public function getUrgent()
     {
         return $this->urgent;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMessaging()
+    {
+        return $this->messaging;
     }
 
     /**

@@ -13,10 +13,17 @@ return [
             'conversations' => RouteConfig::getRouteConfig(
                 'conversations',
                 [
+                    'POST' => CommandConfig::getPostConfig(Command\Messaging\Conversation\Create::class),
                     'by-licence' => RouteConfig::getRouteConfig(
                         'by-licence',
                         [
                             'GET' => QueryConfig::getConfig(Query\Messaging\Conversations\ByLicence::class),
+                        ],
+                    ),
+                    'by-organisation' => RouteConfig::getRouteConfig(
+                        'by-organisation',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\Conversations\ByOrganisation::class),
                         ],
                     ),
                     'by-application-to-licence' => RouteConfig::getRouteConfig(
@@ -29,6 +36,18 @@ return [
                         'close',
                         [
                             'POST' => CommandConfig::getPostConfig(Command\Messaging\Conversation\Close::class)
+                        ],
+                    ),
+                    'disable' => RouteConfig::getRouteConfig(
+                        'disable',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\Messaging\Conversation\Disable::class)
+                        ],
+                    ),
+                    'enable' => RouteConfig::getRouteConfig(
+                        'enable',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\Messaging\Conversation\Enable::class)
                         ],
                     ),
                 ],
@@ -45,6 +64,40 @@ return [
                     ),
                 ]
             ),
+            'subjects' => RouteConfig::getRouteConfig(
+                'subjects',
+                [
+                    'all' => RouteConfig::getRouteConfig(
+                        'all',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\Subjects\All::class),
+                        ],
+                    ),
+                ]
+            ),
+            'application-licence-list' => RouteConfig::getRouteConfig(
+                'application-licence-list',
+                [
+                    'by-organisation' => RouteConfig::getRouteConfig(
+                        'by-organisation',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\ApplicationLicenceList\ByOrganisation::class),
+                        ],
+                    ),
+                    'by-licence-to-organisation' => RouteConfig::getRouteConfig(
+                        'by-licence-to-organisation',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\ApplicationLicenceList\ByLicenceToOrganisation::class),
+                        ],
+                    ),
+                    'by-application-to-organisation' => RouteConfig::getRouteConfig(
+                        'by-application-to-organisation',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\ApplicationLicenceList\ByApplicationToOrganisation::class),
+                        ],
+                    ),
+                ]
+            )
         ]
     )
 ];

@@ -21,6 +21,7 @@ class CreateTaskTest extends \PHPUnit\Framework\TestCase
             'assignedToTeam' => 444,
             'isClosed' => true,
             'urgent' => 'Y',
+            'messaging' => 'Y',
             'application' => 555,
             'licence' => 666,
             'busReg' => 123,
@@ -30,7 +31,7 @@ class CreateTaskTest extends \PHPUnit\Framework\TestCase
             'irfoOrganisation' => 126,
             'irhpApplication' => 107,
             'assignedByUser' => 7,
-            'surrender' => 666
+            'surrender' => 666,
         ];
 
         $command = CreateTask::create($data);
@@ -43,6 +44,7 @@ class CreateTaskTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(444, $command->getAssignedToTeam());
         $this->assertEquals(true, $command->getIsClosed());
         $this->assertEquals('Y', $command->getUrgent());
+        $this->assertEquals('Y', $command->getMessaging());
         $this->assertEquals(555, $command->getApplication());
         $this->assertEquals(666, $command->getLicence());
         $this->assertEquals(123, $command->getBusReg());
@@ -64,6 +66,7 @@ class CreateTaskTest extends \PHPUnit\Framework\TestCase
                 'assignedToTeam' => 444,
                 'isClosed' => true,
                 'urgent' => 'Y',
+                'messaging' => 'Y',
                 'application' => 555,
                 'licence' => 666,
                 'busReg' => 123,
@@ -73,7 +76,7 @@ class CreateTaskTest extends \PHPUnit\Framework\TestCase
                 'irfoOrganisation' => 126,
                 'irhpApplication' => 107,
                 'assignedByUser' => 7,
-                'surrender' => 666
+                'surrender' => 666,
             ],
             $command->getArrayCopy()
         );
