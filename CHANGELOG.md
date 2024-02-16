@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.1.0](https://github.com/dvsa/olcs-transfer/compare/v5.0.0...v5.1.0) (2024-02-16)
+
+
+### Features
+
+* merge `project/messaging` merge to main ([#35](https://github.com/dvsa/olcs-transfer/issues/35)) ([d7f4080](https://github.com/dvsa/olcs-transfer/commit/d7f4080aba1423fb40a58d11164aa01d21654f55))
+
 ## [5.0.0](https://github.com/dvsa/olcs-transfer/compare/v5.0.0...v5.0.0) (2024-02-14)
 
 
