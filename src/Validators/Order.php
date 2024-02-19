@@ -11,9 +11,9 @@ class Order extends \Laminas\Validator\AbstractValidator
 {
     public const NOT_ASC_OR_DESC = 'notAscOrDesc';
 
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::NOT_ASC_OR_DESC => 'The order was not ASC or DESC',
-    );
+    ];
 
     public function isValid($value)
     {

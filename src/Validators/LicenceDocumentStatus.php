@@ -10,7 +10,7 @@ class LicenceDocumentStatus extends \Laminas\Validator\InArray
         'doc_sts_stolen',
     ];
 
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::NOT_IN_ARRAY => 'Invalid status',
-    );
+    ];
 }

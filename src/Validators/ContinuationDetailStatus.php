@@ -25,7 +25,7 @@ class ContinuationDetailStatus extends \Laminas\Validator\InArray
         'con_det_sts_error',
     ];
 
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::NOT_IN_ARRAY => 'The input was not a valid ContinuationDetail status',
-    );
+    ];
 }

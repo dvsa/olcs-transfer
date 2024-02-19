@@ -29,7 +29,7 @@ class SubmissionSection extends \Laminas\Validator\InArray
         'tm-responsibilities', 'tm-other-employment', 'tm-previous-history'
     ];
 
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::NOT_IN_ARRAY => 'The input is not contains an invalid submission section',
-    );
+    ];
 }

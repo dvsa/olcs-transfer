@@ -17,7 +17,7 @@ class YesNo extends \Laminas\Validator\InArray
 {
     protected $haystack = ['Y', 'N'];
 
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::NOT_IN_ARRAY => 'The input was not found, must be "Y" or "N"',
-    );
+    ];
 }

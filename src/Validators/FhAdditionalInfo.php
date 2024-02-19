@@ -24,24 +24,24 @@ class FhAdditionalInfo extends LaminasValidator\AbstractValidator
      *
      * @var array
      */
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::TOO_SHORT => 'FhAdditionalInfo.validation.too_short',
         self::IS_EMPTY => 'FhAdditionalInfo.validation.is_empty',
-    );
+    ];
 
     /**
      * @var array
      */
-    protected $options = array(
+    protected $options = [
         'min' => self::MIN_LEN,
-    );
+    ];
 
     /**
      * @var array
      */
-    protected $messageVariables = array(
-        'min' => array('options' => 'min'),
-    );
+    protected $messageVariables = [
+        'min' => ['options' => 'min'],
+    ];
 
     private $validationContextFields = ['bankrupt', 'liquidation', 'receivership', 'administration', 'disqualified'];
 

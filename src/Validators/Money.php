@@ -24,9 +24,9 @@ class Money extends AbstractValidator
      *
      * @var array
      */
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::INVALID => 'money-element-invalid'
-    );
+    ];
 
     /**
      * @var bool

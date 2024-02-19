@@ -481,7 +481,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
             return $this->messages;
         }
 
-        $messages = array();
+        $messages = [];
         foreach ($this->getInvalidInput() as $name => $input) {
             $messages[$name] = $input->getMessages();
         }
@@ -515,12 +515,12 @@ class StructuredInput implements InputInterface, InputFilterInterface
             if (!isset($this->data[$name])) {
                 // No value; clear value in this input
                 if ($input instanceof InputFilterInterface) {
-                    $input->setData(array());
+                    $input->setData([]);
                     continue;
                 }
 
                 if ($input instanceof ArrayInput) {
-                    $input->setValue(array());
+                    $input->setValue([]);
                     continue;
                 }
 
@@ -549,8 +549,8 @@ class StructuredInput implements InputInterface, InputFilterInterface
         // backwards compatibility
         $data = $this->getValues();
 
-        $this->validInputs   = array();
-        $this->invalidInputs = array();
+        $this->validInputs   = [];
+        $this->invalidInputs = [];
         $valid               = true;
 
         foreach ($this->inputs as $name => $input) {

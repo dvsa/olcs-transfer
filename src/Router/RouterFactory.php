@@ -15,8 +15,8 @@ class RouterFactory implements FactoryInterface
         $config = $container->has('Config') ? $container->get('Config') : [];
 
         // Defaults
-        $routerClass = 'Laminas\Router\Http\TreeRouteStack';
-        $routerConfig = isset($config['api_router']) ? $config['api_router'] : [];
+        $routerClass = \Laminas\Router\Http\TreeRouteStack::class;
+        $routerConfig = $config['api_router'] ?? [];
 
         // Obtain the configured router class, if any
         if (isset($routerConfig['router_class']) && class_exists($routerConfig['router_class'])) {

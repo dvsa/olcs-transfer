@@ -31,28 +31,28 @@ class EmailAddress extends AbstractValidator
     /**
      * @var array
      */
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::INVALID        => 'Invalid type given. String expected',
         self::INVALID_FORMAT => 'The input is not a valid email address.',
         self::ERROR_INVALID  => 'email-validator.error-message'
-    );
+    ];
 
     /**
      * @var array
      */
-    protected $messageVariables = array(
+    protected $messageVariables = [
         'hostname'  => 'hostname',
         'localPart' => 'localPart'
-    );
+    ];
 
     /**
      * Array of valid top-level-domains in addition to those used in Laminas hostname validator
      *
      * @var array
      */
-    protected $additionalValidTlds = array(
+    protected $additionalValidTlds = [
         'ltd'
-    );
+    ];
 
     /**
      * @var string
@@ -67,11 +67,11 @@ class EmailAddress extends AbstractValidator
     /**
      * Internal options array
      */
-    protected $options = array(
+    protected $options = [
         'useDomainCheck'    => true,
         'allow'             => Hostname::ALLOW_DNS,
         'hostnameValidator' => null,
-    );
+    ];
 
     /**
      * Instantiates hostname validator for local use
@@ -82,7 +82,7 @@ class EmailAddress extends AbstractValidator
      *
      * @param array|\Traversable $options OPTIONAL
      */
-    public function __construct($options = array())
+    public function __construct($options = [])
     {
         if (!is_array($options)) {
             $options = func_get_args();
@@ -240,7 +240,7 @@ class EmailAddress extends AbstractValidator
         $valid = $this->getHostnameValidator()->setTranslator($this->getTranslator())->isValid($this->hostname);
 
         if (!$valid) {
-            $hostnameValidatorTldDisabled = new Hostname(array('allow' => $this->getAllow(), 'useTldCheck' => false));
+            $hostnameValidatorTldDisabled = new Hostname(['allow' => $this->getAllow(), 'useTldCheck' => false]);
             $valid = $hostnameValidatorTldDisabled->setTranslator($this->getTranslator())
                 ->isValid($this->hostname) ? $this->isAdditionalValidTld() : false;
         }

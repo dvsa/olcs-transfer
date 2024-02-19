@@ -22,10 +22,10 @@ class Xml extends AbstractValidator
     public const XML_NOT_VALID = 'xml_not_valid_error';
     public const XML_CONTAINS_EXTERNAL_ENTITIES = 'xml_external_entities_error';
 
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::XML_NOT_VALID => 'The XML was not valid',
         self::XML_CONTAINS_EXTERNAL_ENTITIES => 'Detected use of ENTITY in XML, disabled to prevent XXE/XEE attacks',
-    );
+    ];
 
     /**
      * @var XmlSecurityValidator

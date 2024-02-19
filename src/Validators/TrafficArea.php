@@ -11,7 +11,7 @@ class TrafficArea extends InArrayExtra
 {
     protected $haystack = ['B', 'C', 'D', 'F', 'G', 'H', 'K', 'M', 'N'];
 
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::NOT_IN_ARRAY => 'The input is not a valid Traffic Area Code',
-    );
+    ];
 }

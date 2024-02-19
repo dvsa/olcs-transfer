@@ -9,22 +9,22 @@ use Mockery as m;
  */
 class Bootstrap
 {
-    protected static $config = array();
+    protected static $config = [];
 
     public static function init()
     {
         ini_set('memory_limit', '1500M');
         // Grab the application config
-        $config = array(
-            'modules' => array(
+        $config = [
+            'modules' => [
                 'Dvsa\Olcs\Transfer'
-            ),
-            'module_listener_options' => array(
-                'module_paths' => array(
+            ],
+            'module_listener_options' => [
+                'module_paths' => [
                     __DIR__ . '/../'
-                )
-            )
-        );
+                ]
+            ]
+        ];
 
         self::$config = $config;
 
@@ -38,7 +38,7 @@ class Bootstrap
      */
     public static function getServiceManager()
     {
-        $sm = m::mock('\Laminas\ServiceManager\ServiceManager')
+        $sm = m::mock(\Laminas\ServiceManager\ServiceManager::class)
             ->makePartial()
             ->setAllowOverride(true);
 

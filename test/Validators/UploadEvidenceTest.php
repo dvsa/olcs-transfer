@@ -17,7 +17,7 @@ class UploadEvidenceTest extends MockeryTestCase
 
     public function setUp(): void
     {
-        $this->sut = m::mock(UploadEvidence::class)->makePartial()->shouldAllowMockingProtectedMethods(true);
+        $this->sut = m::mock(UploadEvidence::class)->makePartial()->shouldAllowMockingProtectedMethods();
     }
 
     /**

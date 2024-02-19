@@ -281,7 +281,7 @@ trait DtoTest
     public function provideFieldTransformationCases()
     {
         foreach ($this->getFilterTransformations() as $fieldName => $transformations) {
-            foreach ($transformations as list($inputValue, $expectedValue)) {
+            foreach ($transformations as [$inputValue, $expectedValue]) {
                 yield [$fieldName, $inputValue, $expectedValue];
             }
         }

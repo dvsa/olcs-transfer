@@ -17,7 +17,7 @@ class SurrenderStatus extends \Laminas\Validator\InArray
         'surr_sts_withdrawn'
     ];
 
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::NOT_IN_ARRAY => 'Invalid status',
-    );
+    ];
 }

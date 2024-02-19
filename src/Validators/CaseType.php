@@ -14,7 +14,7 @@ class CaseType extends \Laminas\Validator\InArray
         'case_t_tm',
     ];
 
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::NOT_IN_ARRAY => 'The input is not a valid case type',
-    );
+    ];
 }

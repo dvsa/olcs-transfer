@@ -6,9 +6,9 @@ class Sort extends \Laminas\Validator\AbstractValidator
 {
     public const INVALID_SORT = 'invalidSort';
 
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::INVALID_SORT => 'The sort value is not valid',
-    );
+    ];
 
     public function isValid($value)
     {

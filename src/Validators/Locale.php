@@ -16,7 +16,7 @@ class Locale extends \Laminas\Validator\InArray
         'cy_NI',
     ];
 
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::NOT_IN_ARRAY => 'The input is not a valid locale',
-    );
+    ];
 }

@@ -16,11 +16,11 @@ class Date extends LaminasDate
      *
      * @var array
      */
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::INVALID        => "Please select a date",
         self::INVALID_DATE   => "The input does not appear to be a valid date",
         self::FALSEFORMAT    => "The input does not fit the date format '%format%'",
-    );
+    ];
 
     /**
      * Returns true if $value is a DateTime instance or can be converted into one.

@@ -22,7 +22,7 @@ class Username extends StringLength
      *
      * @param  array
      */
-    public function __construct($options = array())
+    public function __construct($options = [])
     {
         $options['min'] = self::USERNAME_LENGTH_MIN;
         $options['max'] = self::USERNAME_LENGTH_MAX;
