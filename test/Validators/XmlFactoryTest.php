@@ -6,7 +6,7 @@ namespace Dvsa\OlcsTest\Transfer\Validators;
 
 use Dvsa\Olcs\Transfer\Validators\Xml as XmlValidator;
 use Dvsa\Olcs\Transfer\Validators\XmlFactory as XmlFactory;
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 use Laminas\Xml\Security as XmlSecurityValidator;
 use Mockery\Adapter\Phpunit\MockeryTestCase as TestCase;
 use Mockery as m;
