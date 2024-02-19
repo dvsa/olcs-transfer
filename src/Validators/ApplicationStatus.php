@@ -21,7 +21,7 @@ class ApplicationStatus extends \Laminas\Validator\InArray
         'apsts_cancelled',
     ];
 
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::NOT_IN_ARRAY => 'The input is not a valid application status',
-    );
+    ];
 }

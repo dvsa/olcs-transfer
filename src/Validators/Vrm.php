@@ -16,9 +16,9 @@ class Vrm extends AbstractValidator
      *
      * @var array
      */
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         'invalid' => 'vehicle.error.vrm.invalid',
-    );
+    ];
 
     /**
      * Exceptional VRMs which are valid but would fail

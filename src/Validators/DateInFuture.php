@@ -113,7 +113,7 @@ class DateInFuture extends AbstractValidator
      *
      * @return DateInFuture
      */
-    public function setOptions($options = array())
+    public function setOptions($options = [])
     {
         if (isset($options['include_today'])) {
             $this->setIncludeToday($options['include_today']);
@@ -132,10 +132,10 @@ class DateInFuture extends AbstractValidator
      * Error messages
      * @var array
      */
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::IN_FUTURE => 'This date should be in the future',
         self::TODAY_OR_IN_FUTURE => 'This date should be today or in the future'
-    );
+    ];
 
     /**
      * Returns true if the date is not in the future

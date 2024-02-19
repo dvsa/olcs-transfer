@@ -36,7 +36,7 @@ class Hostname implements RouteInterface
      *
      * @var array
      */
-    protected $paramMap = array();
+    protected $paramMap = [];
 
     /**
      * Default values.
@@ -50,7 +50,7 @@ class Hostname implements RouteInterface
      *
      * @var array
      */
-    protected $assembledParams = array();
+    protected $assembledParams = [];
 
     /**
      * Create a new hostname route.
@@ -59,7 +59,7 @@ class Hostname implements RouteInterface
      * @param array  $constraints contraints
      * @param array  $defaults    defaults
      */
-    public function __construct($route, array $constraints = array(), array $defaults = array())
+    public function __construct($route, array $constraints = [], array $defaults = [])
     {
         $this->defaults = $defaults;
         $this->parts    = $this->parseRouteDefinition($route);
@@ -75,7 +75,7 @@ class Hostname implements RouteInterface
      * @return Hostname
      * @throws Exception\InvalidArgumentException
      */
-    public static function factory($options = array())
+    public static function factory($options = [])
     {
         if ($options instanceof Traversable) {
             $options = ArrayUtils::iteratorToArray($options);
@@ -89,11 +89,11 @@ class Hostname implements RouteInterface
         }
 
         if (!isset($options['constraints'])) {
-            $options['constraints'] = array();
+            $options['constraints'] = [];
         }
 
         if (!isset($options['defaults'])) {
-            $options['defaults'] = array();
+            $options['defaults'] = [];
         }
 
         return new self($options['route'], $options['constraints'], $options['defaults']);
@@ -111,8 +111,8 @@ class Hostname implements RouteInterface
     {
         $currentPos = 0;
         $length     = strlen($def);
-        $parts      = array();
-        $levelParts = array(&$parts);
+        $parts      = [];
+        $levelParts = [&$parts];
         $level      = 0;
 
         while ($currentPos < $length) {
@@ -121,7 +121,7 @@ class Hostname implements RouteInterface
             $currentPos += strlen($matches[0]);
 
             if (!empty($matches['literal'])) {
-                $levelParts[$level][] = array('literal', $matches['literal']);
+                $levelParts[$level][] = ['literal', $matches['literal']];
             }
 
             if ($matches['token'] === ':') {
@@ -131,15 +131,15 @@ class Hostname implements RouteInterface
                     throw new Exception\RuntimeException('Found empty parameter name');
                 }
 
-                $levelParts[$level][] = array(
+                $levelParts[$level][] = [
                     'parameter',
                     $matches['name'],
-                    isset($matches['delimiters']) ? $matches['delimiters'] : null
-                );
+                    $matches['delimiters'] ?? null
+                ];
 
                 $currentPos += strlen($matches[0]);
             } elseif ($matches['token'] === '[') {
-                $levelParts[$level][] = array('optional', array());
+                $levelParts[$level][] = ['optional', []];
                 $levelParts[$level + 1] = $levelParts[$level][count($levelParts[$level]) - 1][1];
 
                 $level++;
@@ -292,7 +292,7 @@ class Hostname implements RouteInterface
             return null;
         }
 
-        $params = array();
+        $params = [];
 
         foreach ($this->paramMap as $index => $name) {
             if (isset($matches[$index]) && $matches[$index] !== '') {
@@ -312,9 +312,9 @@ class Hostname implements RouteInterface
      * @see \Laminas\Router\RouteInterface::assemble()
      * @return string
      */
-    public function assemble(array $params = array(), array $options = array())
+    public function assemble(array $params = [], array $options = [])
     {
-        $this->assembledParams = array();
+        $this->assembledParams = [];
 
         if (isset($options['uri'])) {
             $host = $this->buildHost(

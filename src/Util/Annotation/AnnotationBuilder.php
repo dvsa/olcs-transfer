@@ -91,7 +91,7 @@ class AnnotationBuilder
 
         $routeName = null;
 
-        $inputFilterClass = '\Laminas\InputFilter\InputFilter';
+        $inputFilterClass = \Laminas\InputFilter\InputFilter::class;
 
         foreach ($classAnnotations as $annotation) {
             if ($annotation instanceof RouteName) {
@@ -128,7 +128,7 @@ class AnnotationBuilder
 
         $routeName = null;
         $method = null;
-        $inputFilterClass = '\Laminas\InputFilter\InputFilter';
+        $inputFilterClass = \Laminas\InputFilter\InputFilter::class;
 
         foreach ($classAnnotations as $annotation) {
             if ($annotation instanceof RouteName) {

@@ -20,7 +20,7 @@ class EbsrSubmissionStatus extends InArray
         'ebsrs_uploaded'
     ];
 
-    protected $messageTemplates = array(
+    protected $messageTemplates = [
         self::NOT_IN_ARRAY => 'The input is not a valid EBSR submission status',
-    );
+    ];
 }
