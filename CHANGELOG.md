@@ -1,5 +1,21 @@
 # Changelog
 
+## [6.0.0](https://github.com/dvsa/olcs-transfer/compare/v5.1.0...v6.0.0) (2024-02-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* interop/container no longer supported
+
+### Features
+
+* VOL-3691 switch to Psr Container ([#34](https://github.com/dvsa/olcs-transfer/issues/34)) ([4d646fb](https://github.com/dvsa/olcs-transfer/commit/4d646fb9eabf3ab3219bfac204c26bc06ed6d979))
+
+
+### Bug Fixes
+
+* apply PHP 7.4 Rector set ([#39](https://github.com/dvsa/olcs-transfer/issues/39)) ([63f9992](https://github.com/dvsa/olcs-transfer/commit/63f99924efb79fc65477c3b6ffa7cfd3b0a4b4ea))
+
 ## [5.1.0](https://github.com/dvsa/olcs-transfer/compare/v5.0.0...v5.1.0) (2024-02-16)
 
 
