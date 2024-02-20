@@ -62,6 +62,18 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Messaging\Messages\ByConversation::class),
                         ],
                     ),
+                    'unread-count-by-organisation-and-user' => RouteConfig::getRouteConfig(
+                        'unread-count-by-organisation-and-user',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\Messages\UnreadCountByOrganisationAndUser::class),
+                        ],
+                    ),
+                    'unread-count-by-licence-and-user' => RouteConfig::getRouteConfig(
+                        'unread-by-licence-and-user',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\Messages\UnreadCountByLicenceAndUser::class),
+                        ],
+                    ),
                 ]
             ),
             'subjects' => RouteConfig::getRouteConfig(
