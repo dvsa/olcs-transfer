@@ -10,6 +10,23 @@ return [
     'messaging' => RouteConfig::getRouteConfig(
         'messaging',
         [
+            'fileuploads' => RouteConfig::getRouteConfig(
+                'fileuploads',
+                [
+                    'enable' => RouteConfig::getRouteConfig(
+                        'enable',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\Messaging\EnableFileUpload::class)
+                        ]
+                    ),
+                    'disable' => RouteConfig::getRouteConfig(
+                        'disable',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\Messaging\DisableFileUpload::class)
+                        ]
+                    ),
+                ],
+            ),
             'conversations' => RouteConfig::getRouteConfig(
                 'conversations',
                 [
