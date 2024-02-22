@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.0.1](https://github.com/dvsa/olcs-transfer/compare/v6.0.0...v6.0.1) (2024-02-22)
+
+
+### Bug Fixes
+
+* Cannot create task, messaging flag is not optional ([#42](https://github.com/dvsa/olcs-transfer/issues/42)) ([d9ec20e](https://github.com/dvsa/olcs-transfer/commit/d9ec20e3ab30da5981006dfffb681285f1abf02f))
+
 ## [6.0.0](https://github.com/dvsa/olcs-transfer/compare/v5.1.0...v6.0.0) (2024-02-19)
 
 
