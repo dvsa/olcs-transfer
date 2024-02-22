@@ -47,6 +47,7 @@ final class CreateTask extends AbstractCommand
     protected $urgent;
 
     /**
+     * @Transfer\Optional
      * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      */
