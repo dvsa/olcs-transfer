@@ -12,9 +12,9 @@ use Dvsa\Olcs\Transfer\Command\LoggerOmitContentInterface;
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\BusRegOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\CasesOptional;
-use Dvsa\Olcs\Transfer\FieldType\Traits\ConversationOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
-use Dvsa\Olcs\Transfer\FieldType\Traits\MessageOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\MessagingConversationOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\MessagingMessageOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\SurrenderOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpApplicationOptional;
@@ -34,8 +34,8 @@ final class Upload extends AbstractCommand implements LoggerOmitContentInterface
     use LicenceOptional;
     use SurrenderOptional;
     use IrhpApplicationOptional;
-    use ConversationOptional;
-    use MessageOptional;
+    use MessagingConversationOptional;
+    use MessagingMessageOptional;
 
     /**
      * @Transfer\Filter("Laminas\Filter\PregReplace", options={"pattern": "/[^a-zA-Z0-9\-\_\.]+/", "replacement": ""})
