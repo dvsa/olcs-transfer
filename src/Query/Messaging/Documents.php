@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Dvsa\Olcs\Transfer\Query\Messaging;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\Messaging\Conversation;
+use Dvsa\Olcs\Transfer\FieldType\Traits\CorrelationId;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
@@ -13,5 +13,5 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
  */
 class Documents extends AbstractQuery
 {
-    use Conversation;
+    use CorrelationId;
 }
