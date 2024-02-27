@@ -24,8 +24,8 @@ class CacheEncryption
     public const TTL_DEFAULT = 3600;
     public const TTL_2_MINUTES = 120;
     public const TTL_60_DAYS = 5184000;
-
     public const TTL_20_DAYS = 1728000;
+    public const TTL_1_DAY = 86400;
 
     public const TRANSLATION_KEY_IDENTIFIER = 'translation_key';
     public const TRANSLATION_REPLACEMENT_IDENTIFIER = 'translation_replacement';
@@ -33,6 +33,7 @@ class CacheEncryption
     public const SYS_PARAM_IDENTIFIER = 'sys_param';
     public const SYS_PARAM_LIST_IDENTIFIER = 'sys_param_list';
     public const USER_ACCOUNT_IDENTIFIER = 'user_account';
+    public const GENERIC_STORAGE_IDENTIFIER = 'storage';
 
     public const SECRETS_MANAGER_IDENTIFIER = 'secretsmanager';
 
@@ -47,6 +48,10 @@ class CacheEncryption
     ];
 
     public const CUSTOM_CACHE_TYPE = [
+        self::GENERIC_STORAGE_IDENTIFIER => [
+            'mode' => self::ENCRYPTION_MODE_SHARED,
+            'ttl' => self::TTL_1_DAY,
+        ],
         self::SYS_PARAM_IDENTIFIER => [
             'mode' => self::ENCRYPTION_MODE_PUBLIC,
             'ttl' => self::TTL_60_DAYS,
