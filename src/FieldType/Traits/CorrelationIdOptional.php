@@ -7,7 +7,7 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
  *
  * @package Dvsa\Olcs\Transfer\FieldType\Traits
  */
-trait CorrelationId
+trait CorrelationIdOptional
 {
     /**
      * @Transfer\Filter(\Laminas\Filter\StringToLower::class)
