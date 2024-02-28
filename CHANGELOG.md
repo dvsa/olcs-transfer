@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.2.0](https://github.com/dvsa/olcs-transfer/compare/v6.1.0...v6.2.0) (2024-02-28)
+
+
+### Features
+
+* Enable/Disable Messaging File Upload ([#41](https://github.com/dvsa/olcs-transfer/issues/41)) ([4c8c1b9](https://github.com/dvsa/olcs-transfer/commit/4c8c1b930f2557b6a8f7006a7e1e5df5a81f696d))
+
 ## [6.1.0](https://github.com/dvsa/olcs-transfer/compare/v6.0.1...v6.1.0) (2024-02-22)
 
 
