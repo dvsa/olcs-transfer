@@ -10,6 +10,33 @@ return [
     'messaging' => RouteConfig::getRouteConfig(
         'messaging',
         [
+            'documents' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'documents[/]',
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Messaging\Documents::class),
+                ],
+            ],
+            'fileuploads' => RouteConfig::getRouteConfig(
+                'fileuploads',
+                [
+                    'enable' => RouteConfig::getRouteConfig(
+                        'enable',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\Messaging\EnableFileUpload::class)
+                        ]
+                    ),
+                    'disable' => RouteConfig::getRouteConfig(
+                        'disable',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\Messaging\DisableFileUpload::class)
+                        ]
+                    ),
+                ],
+            ),
             'conversations' => RouteConfig::getRouteConfig(
                 'conversations',
                 [

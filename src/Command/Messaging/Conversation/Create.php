@@ -6,6 +6,7 @@ namespace Dvsa\Olcs\Transfer\Command\Messaging\Conversation;
 
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\CorrelationIdOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Messaging\MessageContent;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Messaging\MessageSubject;
@@ -21,4 +22,5 @@ final class Create extends AbstractCommand
     use MessageSubject;
     use LicenceOptional;
     use ApplicationOptional;
+    use CorrelationIdOptional;
 }

@@ -13,6 +13,8 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\BusRegOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\CasesOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpApplicationOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\MessagingConversationOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\MessagingMessageOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\SurrenderOptional;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -33,6 +35,8 @@ final class UpdateDocumentLinks extends AbstractCommand
     use LicenceOptional;
     use IrhpApplicationOptional;
     use SurrenderOptional;
+    use MessagingConversationOptional;
+    use MessagingMessageOptional;
 
     /**
      * @var int
