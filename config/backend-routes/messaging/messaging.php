@@ -95,10 +95,10 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Messaging\Messages\UnreadCountByOrganisationAndUser::class),
                         ],
                     ),
-                    'unread-count-by-licence-and-user' => RouteConfig::getRouteConfig(
-                        'unread-by-licence-and-user',
+                    'unread-count-by-licence-and-roles' => RouteConfig::getRouteConfig(
+                        'unread-count-by-licence-and-roles',
                         [
-                            'GET' => QueryConfig::getConfig(Query\Messaging\Messages\UnreadCountByLicenceAndUser::class),
+                            'GET' => QueryConfig::getConfig(Query\Messaging\Messages\UnreadCountByLicenceAndRoles::class),
                         ],
                     ),
                 ]
