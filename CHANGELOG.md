@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.2.1](https://github.com/dvsa/olcs-transfer/compare/v6.2.0...v6.2.1) (2024-02-28)
+
+
+### Bug Fixes
+
+* fix `IrfoPsvAuth` annotation ([#46](https://github.com/dvsa/olcs-transfer/issues/46)) ([2a46943](https://github.com/dvsa/olcs-transfer/commit/2a4694363aa18fb5ccc3e126b34a82ade9d15387))
+
 ## [6.2.0](https://github.com/dvsa/olcs-transfer/compare/v6.1.0...v6.2.0) (2024-02-28)
 
 
