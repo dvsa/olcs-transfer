@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.3.0](https://github.com/dvsa/olcs-transfer/compare/v6.2.1...v6.3.0) (2024-03-01)
+
+
+### Features
+
+* Updated UnreadCountByLicenceAndRoles ([#48](https://github.com/dvsa/olcs-transfer/issues/48)) ([fc548e2](https://github.com/dvsa/olcs-transfer/commit/fc548e24e398b9182672c2a7b3a5181a41d7cf5c))
+
 ## [6.2.1](https://github.com/dvsa/olcs-transfer/compare/v6.2.0...v6.2.1) (2024-02-28)
 
 
