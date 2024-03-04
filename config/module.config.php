@@ -13,7 +13,7 @@ return [
                 'may_terminate' => false,
                 'child_routes' => [
                     'backend' => [
-                        'type' => \Dvsa\Olcs\Transfer\Util\Hostname::class,
+                        'type' => \Laminas\Router\Http\Hostname::class,
                         'options' => [
                             'route' => 'olcs-backend'
                         ],

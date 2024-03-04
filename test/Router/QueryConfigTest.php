@@ -3,15 +3,11 @@
 namespace Dvsa\OlcsTest\Transfer\Router;
 
 use Dvsa\Olcs\Transfer\Router\QueryConfig;
+use Laminas\Http\Request;
 
-/**
- * Query Config Test
- *
- * @author Rob Caiger <rob@clocal.co.uk>
- */
 class QueryConfigTest extends \PHPUnit\Framework\TestCase
 {
-    public function testGetConfig()
+    public function testGetConfig(): void
     {
         $config = QueryConfig::getConfig('Foo\Bar');
 
@@ -19,6 +15,7 @@ class QueryConfigTest extends \PHPUnit\Framework\TestCase
             'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
             'options' => [
                 'defaults' => [
+                    'verb' => Request::METHOD_GET,
                     'dto' => 'Foo\Bar'
                 ]
             ]
