@@ -2,31 +2,18 @@
 
 namespace Dvsa\Olcs\Transfer\Router;
 
-use Dvsa\Olcs\Transfer\Router\LaminasRouterHttpQueryV2 as LaminasQuery;
-use Laminas\Stdlib\RequestInterface as Request;
-use Laminas\Router\Http\RouteMatch;
+use Laminas\Router\Http\Method;
 
-class Query extends LaminasQuery
+class Query extends Method
 {
-    /**
-     * match(): defined by RouteInterface interface.
-     *
-     * @see    \Laminas\Router\RouteInterface::match()
-     * @param  Request $request
-     * @return RouteMatch|null
-     */
-    public function match(Request $request)
+    public function assemble(array $params = [], array $options = [])
     {
-        if (!method_exists($request, 'getMethod')) {
-            return null;
+        $mergedParams = array_merge($this->defaults, $params);
+
+        if (count($mergedParams)) {
+            $options['uri']->setQuery($mergedParams);
         }
 
-        $requestVerb = strtoupper($request->getMethod());
-
-        if ($requestVerb === 'GET') {
-            return new RouteMatch($this->defaults);
-        }
-
-        return null;
+        return parent::assemble($params, $options);
     }
 }

@@ -11,7 +11,7 @@ return [
         'options' => [
             'route' => 'correspondence[/]',
         ],
-        'may_terminate' => true,
+        'may_terminate' => false,
         'child_routes' => [
             'single' => RouteConfig::getSingleConfig(
                 [
