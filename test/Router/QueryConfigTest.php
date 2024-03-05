@@ -14,8 +14,8 @@ class QueryConfigTest extends \PHPUnit\Framework\TestCase
         $expected = [
             'type' => \Dvsa\Olcs\Transfer\Router\Query::class,
             'options' => [
+                'verb' => Request::METHOD_GET,
                 'defaults' => [
-                    'verb' => Request::METHOD_GET,
                     'dto' => 'Foo\Bar'
                 ]
             ]
