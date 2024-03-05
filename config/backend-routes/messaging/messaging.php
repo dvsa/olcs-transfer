@@ -53,6 +53,12 @@ return [
                             'GET' => QueryConfig::getConfig(Query\Messaging\Conversations\ByOrganisation::class),
                         ],
                     ),
+                    'by-case-to-licence' => RouteConfig::getRouteConfig(
+                        'by-case-to-licence',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\Conversations\ByCaseToLicence::class),
+                        ],
+                    ),
                     'by-application-to-licence' => RouteConfig::getRouteConfig(
                         'by-application-to-licence',
                         [
@@ -133,6 +139,12 @@ return [
                         'by-application-to-organisation',
                         [
                             'GET' => QueryConfig::getConfig(Query\Messaging\ApplicationLicenceList\ByApplicationToOrganisation::class),
+                        ],
+                    ),
+                    'by-case-to-organisation' => RouteConfig::getRouteConfig(
+                        'by-case-to-organisation',
+                        [
+                            'GET' => QueryConfig::getConfig(Query\Messaging\ApplicationLicenceList\ByCaseToOrganisation::class),
                         ],
                     ),
                 ]
