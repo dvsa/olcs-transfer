@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.5.0](https://github.com/dvsa/olcs-transfer/compare/v6.4.0...v6.5.0) (2024-03-05)
+
+
+### Features
+
+* Case to licence for messaging ([#50](https://github.com/dvsa/olcs-transfer/issues/50)) ([4acd05e](https://github.com/dvsa/olcs-transfer/commit/4acd05ea13a574e2ef78775a4bc67e6d43c2401e))
+
 ## [6.4.0](https://github.com/dvsa/olcs-transfer/compare/v6.3.0...v6.4.0) (2024-03-05)
 
 
