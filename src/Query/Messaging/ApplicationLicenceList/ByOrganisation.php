@@ -12,4 +12,9 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 final class ByOrganisation extends AbstractQuery
 {
     use OrganisationOptional;
+
+    public function getId()
+    {
+        return $this->getOrganisation();
+    }
 }

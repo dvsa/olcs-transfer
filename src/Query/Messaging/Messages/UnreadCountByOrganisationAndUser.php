@@ -14,4 +14,9 @@ final class UnreadCountByOrganisationAndUser extends AbstractQuery
 {
     use Organisation;
     use User;
+
+    public function getId(): int
+    {
+        return $this->getOrganisation();
+    }
 }
