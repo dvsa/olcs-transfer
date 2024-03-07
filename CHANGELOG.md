@@ -1,5 +1,19 @@
 # Changelog
 
+## [6.5.0](https://github.com/dvsa/olcs-transfer/compare/v6.4.0...v6.5.0) (2024-03-05)
+
+
+### Features
+
+* Case to licence for messaging ([#50](https://github.com/dvsa/olcs-transfer/issues/50)) ([4acd05e](https://github.com/dvsa/olcs-transfer/commit/4acd05ea13a574e2ef78775a4bc67e6d43c2401e))
+
+## [6.4.0](https://github.com/dvsa/olcs-transfer/compare/v6.3.0...v6.4.0) (2024-03-05)
+
+
+### Features
+
+* VOL-4642 remove reliance on copy/pasted Laminas 2 code in query routing ([#51](https://github.com/dvsa/olcs-transfer/issues/51)) ([e287bc4](https://github.com/dvsa/olcs-transfer/commit/e287bc4322cffdb89bd0dd1783e0b9d973bf8114))
+
 ## [6.3.0](https://github.com/dvsa/olcs-transfer/compare/v6.2.1...v6.3.0) (2024-03-01)
 
 
