@@ -1,14 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
-/**
- * Trait IsMlh
- *
- * @package Dvsa\Olcs\Transfer\Command\Traits\FieldType
- * @author Mat Evans <mat.evans@valtech.co.uk>
- */
-trait IsMlh
+trait IsMlhOptional
 {
     /**
      * @Transfer\Optional
