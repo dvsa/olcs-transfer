@@ -1,5 +1,13 @@
 # Changelog
 
+## [6.6.0](https://github.com/dvsa/olcs-transfer/compare/v6.5.0...v6.6.0) (2024-03-18)
+
+
+### Features
+
+* Introduced sub-category field for Task Allocation Rule ([#55](https://github.com/dvsa/olcs-transfer/issues/55)) ([e950113](https://github.com/dvsa/olcs-transfer/commit/e950113a1124637d9676064cf879a909d8294dbf))
+* Message footer showing operator first read ([#54](https://github.com/dvsa/olcs-transfer/issues/54)) ([3d3864d](https://github.com/dvsa/olcs-transfer/commit/3d3864d18d1a5f6999889304e980878003f82be0))
+
 ## [6.5.0](https://github.com/dvsa/olcs-transfer/compare/v6.4.0...v6.5.0) (2024-03-05)
 
 
