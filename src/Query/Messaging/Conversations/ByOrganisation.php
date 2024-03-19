@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Dvsa\Olcs\Transfer\Query\Messaging\Conversations;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\Messaging\StatusesOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Organisation;
 use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 use Dvsa\Olcs\Transfer\Query\PagedQueryInterface;
@@ -17,4 +18,5 @@ final class ByOrganisation extends AbstractQuery implements PagedQueryInterface
 {
     use PagedTrait;
     use Organisation;
+    use StatusesOptional;
 }
