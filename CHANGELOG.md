@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.7.0](https://github.com/dvsa/olcs-transfer/compare/v6.6.0...v6.7.0) (2024-03-19)
+
+
+### Features
+
+* Allow conversation status filtering ([#57](https://github.com/dvsa/olcs-transfer/issues/57)) ([dfc7a8e](https://github.com/dvsa/olcs-transfer/commit/dfc7a8e188478940d26bc7ae039a6f8dd2f05aac))
+
 ## [6.6.0](https://github.com/dvsa/olcs-transfer/compare/v6.5.0...v6.6.0) (2024-03-18)
 
 
