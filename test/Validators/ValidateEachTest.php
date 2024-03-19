@@ -54,7 +54,7 @@ class ValidateEachTest extends TestCase
         $validator = new ValidateEach(['children' => [['name' => Digits::class]]]);
 
         // Execute
-        $result = $validator->isValid('foo');
+        $result = $validator->isValid(['foo']);
 
         // Assert
         $this->assertFalse($result);
@@ -69,7 +69,7 @@ class ValidateEachTest extends TestCase
         $validator = new ValidateEach(['children' => [['name' => Digits::class]]]);
 
         // Execute
-        $validator->isValid('foo');
+        $validator->isValid(['foo']);
 
         // Assert
         $this->assertArrayHasKey(IsCountable::NOT_COUNTABLE, $validator->getMessages());

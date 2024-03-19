@@ -29,7 +29,7 @@ class ProcessSignatureResponseTest extends \PHPUnit\Framework\TestCase
         $command = ProcessSignatureResponse::create([]);
 
         $this->assertSame(null, $command->getContinuationDetail());
-        $command->setContinuationDetail('99');
+        $command->setContinuationDetail(99);
         $this->assertSame(99, $command->getContinuationDetail());
     }
 
@@ -38,7 +38,7 @@ class ProcessSignatureResponseTest extends \PHPUnit\Framework\TestCase
         $command = ProcessSignatureResponse::create([]);
 
         $this->assertSame(null, $command->getLicence());
-        $command->setLicence('99');
+        $command->setLicence(99);
         $this->assertSame(99, $command->getLicence());
     }
 
