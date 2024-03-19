@@ -83,17 +83,17 @@ final class UpdateLicenceStatusRule extends AbstractCommand
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getStartDate()
+    public function getStartDate(): string
     {
         return $this->startDate;
     }
 
     /**
-     * @return \DateTime
+     * @return string
      */
-    public function getEndDate()
+    public function getEndDate(): string
     {
         return $this->endDate;
     }

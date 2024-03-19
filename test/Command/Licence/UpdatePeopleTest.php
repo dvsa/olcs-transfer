@@ -7,7 +7,7 @@ use Mockery as m;
 use Mockery\Adapter\Phpunit\MockeryTestCase;
 
 /**
- * @covers \Dvsa\Olcs\Transfer\Command\Licence\UpdatePeople
+ * @covers UpdatePeople
  */
 class UpdatePeopleTest extends MockeryTestCase
 {
@@ -18,7 +18,6 @@ class UpdatePeopleTest extends MockeryTestCase
             'person' => 'unit_person',
         ];
 
-        /** @var UpdatePeople | m\MockInterface $sut */
         $sut = UpdatePeople::create($data);
 
         static::assertEquals(9999, $sut->getVersion());

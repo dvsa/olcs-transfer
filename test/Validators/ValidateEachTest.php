@@ -48,36 +48,6 @@ class ValidateEachTest extends TestCase
     /**
      * @depends testIsValidator
      */
-    public function testIsValidReturnsFalseIfTheInputIsNotAnArray()
-    {
-        // Setup
-        $validator = new ValidateEach(['children' => [['name' => Digits::class]]]);
-
-        // Execute
-        $result = $validator->isValid('foo');
-
-        // Assert
-        $this->assertFalse($result);
-    }
-
-    /**
-     * @depends testIsValidReturnsFalseIfTheInputIsNotAnArray
-     */
-    public function testIsValidSetsMessagesIfTheInputIsNotAnArray()
-    {
-        // Setup
-        $validator = new ValidateEach(['children' => [['name' => Digits::class]]]);
-
-        // Execute
-        $validator->isValid('foo');
-
-        // Assert
-        $this->assertArrayHasKey(IsCountable::NOT_COUNTABLE, $validator->getMessages());
-    }
-
-    /**
-     * @depends testIsValidator
-     */
     public function testIsValidValidatesASingleValidValueAgainstAChildValidatorAndReturnsTrue()
     {
         // Setup

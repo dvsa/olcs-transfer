@@ -28,9 +28,9 @@ class BusRegSearchViewContextList extends AbstractQuery implements OrderedQueryI
     protected $context;
 
     /**
-     * @return int
+     * @return string
      */
-    public function getContext()
+    public function getContext(): string
     {
         return $this->context;
     }

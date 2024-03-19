@@ -17,7 +17,7 @@ class AbstractDownloadTest extends MockeryTestCase
             'isInline' => 'unit_Inline',
         ];
 
-        /** @var AbstractDownload $sut */
+        /** @var AbstractDownload $class */
         $class = new class extends AbstractDownload {
         };
 

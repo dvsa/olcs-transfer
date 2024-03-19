@@ -25,14 +25,14 @@ class BusRegBrowseContextList extends AbstractQuery implements OrderedQueryInter
      *      }
      * )
      */
-    protected $context;
+    protected string $context;
 
     /**
      * Get context
      *
-     * @return int
+     * @return string
      */
-    public function getContext()
+    public function getContext(): string
     {
         return $this->context;
     }

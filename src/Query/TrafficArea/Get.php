@@ -25,9 +25,9 @@ final class Get extends AbstractQuery implements CacheableLongTermQueryInterface
     protected $id;
 
     /**
-     * @return int
+     * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }

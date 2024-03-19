@@ -18,9 +18,9 @@ trait Notes
     protected $notes;
 
     /**
-     * @return int
+     * @return string
      */
-    public function getNotes()
+    public function getNotes(): string
     {
         return $this->notes;
     }

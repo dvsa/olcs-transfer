@@ -23,9 +23,9 @@ trait IrhpPermitType
     protected $irhpPermitType;
 
     /**
-     * @return int
+     * @return string
      */
-    public function getIrhpPermitType(): int
+    public function getIrhpPermitType(): string
     {
         return $this->irhpPermitType;
     }

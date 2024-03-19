@@ -56,9 +56,9 @@ abstract class AbstractGoodsVehicles extends AbstractQuery
     /**
      * Get Specified (Yes|No)
      *
-     * @return boolean
+     * @return string
      */
-    public function getSpecified()
+    public function getSpecified(): string
     {
         return $this->specified;
     }

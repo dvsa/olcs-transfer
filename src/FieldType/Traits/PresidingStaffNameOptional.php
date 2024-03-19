@@ -20,9 +20,9 @@ trait PresidingStaffNameOptional
     protected $presidingStaffName;
 
     /**
-     * @return int
+     * @return string
      */
-    public function getPresidingStaffName()
+    public function getPresidingStaffName(): string
     {
         return $this->presidingStaffName;
     }

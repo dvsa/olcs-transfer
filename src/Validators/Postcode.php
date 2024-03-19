@@ -60,8 +60,8 @@ class Postcode extends AbstractValidator
     }
 
     /**
-     * @param array $options
-     * @return AbstractValidator
+     * @param mixed $options
+     * @return Postcode&static
      */
     public function setOptions($options = [])
     {
@@ -78,7 +78,7 @@ class Postcode extends AbstractValidator
      *
      * @see PaymentDb\Validator\Address in http://gitlab.clb.npm/cpms/payment-db/
      *
-     * @param string $value
+     * @param mixed $value
      * @param array $context
      * @return bool
      */

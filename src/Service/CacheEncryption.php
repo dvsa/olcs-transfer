@@ -322,9 +322,9 @@ class CacheEncryption
      * @param string $encryptionKey
      * @param ?string $encryptedValue
      *
-     * @return string
+     * @return mixed
      */
-    private function decrypt(string $encryptionKey, ?string $encryptedValue): ?string
+    private function decrypt(string $encryptionKey, ?string $encryptedValue)
     {
         if (is_null($encryptedValue)) {
             return $encryptedValue;
@@ -348,17 +348,7 @@ class CacheEncryption
             throw new \Exception('missing config for cache type ' . $cacheType);
         }
 
-        $cacheConfig = self::CUSTOM_CACHE_TYPE[$cacheType];
-
-        if (!isset($cacheConfig['mode'])) {
-            throw new \Exception('missing encryption mode for cache type ' . $cacheType);
-        }
-
-        if (!isset($cacheConfig['ttl'])) {
-            $cacheConfig['ttl'] = self::TTL_DEFAULT;
-        }
-
-        return $cacheConfig;
+        return self::CUSTOM_CACHE_TYPE[$cacheType];
     }
 
     /**

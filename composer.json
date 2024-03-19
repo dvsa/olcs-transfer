@@ -8,7 +8,7 @@
         "laminas/laminas-filter": "^2.9.4",
         "laminas/laminas-validator": "^2.11.1",
         "laminas/laminas-servicemanager": "^3.3",
-        "laminas/laminas-inputfilter": "^2.10.1",
+        "laminas/laminas-inputfilter": "^2.21",
         "laminas/laminas-form": "^3.1.1",
         "laminas/laminas-crypt": "^3.4.0",
         "laminas/laminas-xml": "^1.4.0",
@@ -22,7 +22,8 @@
         "mockery/mockery": "^1.6",
         "johnkary/phpunit-speedtrap": "^4.0",
         "bamarni/composer-bin-plugin": "^1.8",
-        "doctrine/annotations": "^1.14.2"
+        "doctrine/annotations": "^1.14.2",
+        "phpstan/phpstan-mockery": "^1.1"
     },
     "autoload": {
         "psr-4": {
