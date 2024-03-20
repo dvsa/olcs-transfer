@@ -16,7 +16,7 @@ class UsernameCreate extends StringLength
     /**
      * Sets validator options
      *
-     * @param  array
+     * @param  array $options
      */
     public function __construct($options = [])
     {

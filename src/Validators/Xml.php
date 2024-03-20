@@ -53,7 +53,7 @@ class Xml extends AbstractValidator
      * option is true, then the type of $value is also checked.
      *
      * @param string $value
-     * @return bool
+     * @return string|bool
      */
     public function isValid($value)
     {

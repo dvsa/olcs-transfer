@@ -14,7 +14,7 @@ class Date extends LaminasDate
     /**
      * Validation failure message template definitions
      *
-     * @var array
+     * @var array<string>
      */
     protected $messageTemplates = [
         self::INVALID        => "Please select a date",
@@ -26,7 +26,7 @@ class Date extends LaminasDate
      * Returns true if $value is a DateTime instance or can be converted into one.
      * Returns false if $value is empty of invalid  and gives an error message
      *
-     * @param  string|array|int|\DateTime $value
+     * @param  mixed $value
      * @return bool
      */
     public function isValid($value)

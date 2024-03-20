@@ -36,7 +36,7 @@ class Money extends AbstractValidator
     /**
      * Check if money amount is valid
      *
-     * @param string $value Value to check
+     * @param mixed $value Value to check
      *
      * @return bool
      */
@@ -77,7 +77,7 @@ class Money extends AbstractValidator
      *
      * @param array $options Options to set
      *
-     * @return void
+     * @return $this
      */
     public function setOptions($options = [])
     {
@@ -86,5 +86,6 @@ class Money extends AbstractValidator
         }
 
         parent::setOptions($options);
+        return $this;
     }
 }

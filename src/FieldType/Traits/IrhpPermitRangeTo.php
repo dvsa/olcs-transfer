@@ -17,10 +17,10 @@ trait IrhpPermitRangeTo
      *
      * @var int
      */
-    protected $toNo;
+    protected int $toNo = 0;
 
     /**
-     * @return array
+     * @return int
      */
     public function getToNo(): int
     {
