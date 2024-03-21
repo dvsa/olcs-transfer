@@ -211,8 +211,12 @@ class AnnotationBuilder
             }
 
             if ($annotation instanceof Partial) {
-                // Instead of calling getComposedObject(), delegate method calls directly
-                $input = $this->createPartial($annotation, $property->getName(), $filterChain, $validatorChain);
+                $input = $this->createPartial(
+                    $annotation->getComposedObject(),
+                    $property->getName(),
+                    $filterChain,
+                    $validatorChain
+                );
                 break;
             }
 

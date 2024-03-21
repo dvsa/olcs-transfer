@@ -13,6 +13,9 @@ use Laminas\Form\Annotation\ComposedObject;
 /**
  * @Annotation
  * @NamedArgumentConstructor
+ *
+ * @method mixed getComposedObject()
+ *
  */
 class Partial
 {

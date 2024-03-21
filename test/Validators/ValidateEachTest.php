@@ -72,7 +72,7 @@ class ValidateEachTest extends TestCase
         $validator->isValid(['foo']);
 
         // Assert
-        $this->assertArrayHasKey(IsCountable::NOT_COUNTABLE, $validator->getMessages());
+        $this->assertArrayHasKey('0.notDigits', $validator->getMessages());
     }
 
     /**
