@@ -213,7 +213,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
     public function merge(InputInterface $input)
     {
        // no-op
-       return $this;
+        return $this;
     }
 
     /**
