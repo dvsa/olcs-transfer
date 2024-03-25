@@ -2,6 +2,8 @@
 
 namespace Dvsa\Olcs\Transfer\Validators;
 
+use Laminas\Validator\AbstractValidator;
+
 /**
  * Class DateCompare - used to validate two dates via a legal operator:
  * 'gt' -> greater than
@@ -54,9 +56,9 @@ class DateCompare extends AbstractCompare
      * Sets options
      *
      * @param  array $options
-     * @return DateCompare
+     * @return AbstractValidator&static
      */
-    public function setOptions($options = [])
+    public function setOptions($options = []): DateCompare
     {
         if (isset($options['has_time'])) {
             $this->setHasTime($options['has_time']);

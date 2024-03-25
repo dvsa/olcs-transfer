@@ -48,7 +48,7 @@ class FhAdditionalInfo extends LaminasValidator\AbstractValidator
     /**
      * Check is valid
      *
-     * @param string $value   Field Value
+     * @param mixed $value   Field Value
      * @param mixed   $context Context
      *
      * @return bool

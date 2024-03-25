@@ -20,7 +20,7 @@ class Postcode extends StringTrim
     /**
      * Returns the result of filtering $value
      *
-     * @param  string $value
+     * @param  mixed $value
      * @return string
      */
     public function filter($value)

@@ -111,7 +111,7 @@ class DateInFuture extends AbstractValidator
      *
      * @param array $options options
      *
-     * @return DateInFuture
+     * @return AbstractValidator&static
      */
     public function setOptions($options = [])
     {

@@ -87,7 +87,9 @@ class ArrayInput extends \Laminas\InputFilter\ArrayInput
     }
 
     /**
-     * @return array
+     * Get messages
+     *
+     * @return array<array-key, string>
      */
     public function getMessages()
     {

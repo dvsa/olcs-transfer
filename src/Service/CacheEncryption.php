@@ -322,9 +322,9 @@ class CacheEncryption
      * @param string $encryptionKey
      * @param ?string $encryptedValue
      *
-     * @return string
+     * @return mixed
      */
-    private function decrypt(string $encryptionKey, ?string $encryptedValue): ?string
+    private function decrypt(string $encryptionKey, ?string $encryptedValue)
     {
         if (is_null($encryptedValue)) {
             return $encryptedValue;

@@ -180,7 +180,7 @@ class Vrm extends AbstractValidator
     /**
      * Check if VRM is valid
      *
-     * @param string $value Value
+     * @param mixed $value Value
      *
      * @return bool
      */

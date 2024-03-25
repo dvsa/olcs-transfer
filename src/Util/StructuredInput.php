@@ -128,7 +128,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Set errorMessage
      *
-     * @param string $errorMessage Error message
+     * @param string|null $errorMessage Error message
      * @return $this
      *
      */
@@ -239,7 +239,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Get errorMessage
      *
-     * @return string
+     * @return string|null
      */
     public function getErrorMessage()
     {
@@ -289,8 +289,8 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Add
      *
-     * @param \Laminas\InputFilter\InputInterface $input Input
-     * @param string                           $name  Name
+     * @param \Laminas\InputFilter\InputFilterInterface|\Laminas\InputFilter\InputInterface|\Traversable|array $input Input
+     * @param string|null                                                                                  $name  Name
      *
      * @return $this
      */
@@ -307,9 +307,6 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Get
      *
-     * @param string $name Name
-     *
-     * @return \Laminas\InputFilter\InputInterface
      */
     public function get($name)
     {
@@ -381,7 +378,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Set validationGroup
      *
-     * @param string $name Name
+     * @param mixed $name Name
      *
      * @return $this
      */
@@ -394,7 +391,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Get invalidInputs
      *
-     * @return array
+     * @return array<string, InputInterface|InputFilterInterface>
      */
     public function getInvalidInput()
     {
@@ -404,7 +401,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Get validInputs
      *
-     * @return array
+     * @return array<string, InputInterface|InputFilterInterface>
      */
     public function getValidInput()
     {
@@ -430,7 +427,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Get values
      *
-     * @return array
+     * @return array<string, mixed>|null
      */
     public function getValues(): ?array
     {
@@ -486,7 +483,6 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Get messages
      *
-     * @return array
      */
     public function getMessages()
     {

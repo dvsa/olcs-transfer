@@ -52,7 +52,7 @@ class Xml extends AbstractValidator
      * Returns true if and only if $value is contained in the haystack option. If the strict
      * option is true, then the type of $value is also checked.
      *
-     * @param string $value
+     * @param mixed $value
      * @return string|bool
      */
     public function isValid($value)

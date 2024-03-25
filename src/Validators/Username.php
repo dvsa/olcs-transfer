@@ -35,7 +35,7 @@ class Username extends StringLength
     /**
      * Check if username is valid
      *
-     * @param string $value
+     * @param mixed $value
      * @return bool
      */
     public function isValid($value)
