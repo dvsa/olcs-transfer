@@ -482,6 +482,8 @@ class StructuredInput implements InputInterface, InputFilterInterface
 
     /**
      * Get messages
+     * @return array<string, array<array<string>|string>> Error messages
+     * @phpstan-ignore-next-line
      *
      */
     public function getMessages()
@@ -497,6 +499,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
 
         return $messages;
     }
+
 
     /**
      * Count
