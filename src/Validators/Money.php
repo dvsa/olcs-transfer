@@ -75,7 +75,7 @@ class Money extends AbstractValidator
     /**
      * Set validator options
      *
-     * @param array $options Options to set
+     * @param mixed $options Options to set
      *
      * @return $this
      */

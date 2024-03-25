@@ -109,7 +109,7 @@ class DateInFuture extends AbstractValidator
     /**
      * Sets options
      *
-     * @param array $options options
+     * @param mixed $options options
      *
      * @return AbstractValidator&static
      */
