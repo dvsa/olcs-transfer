@@ -28,9 +28,9 @@ final class UpdateTrailer extends AbstractCommand
     protected $id;
 
     /**
-     * @var string
+     * @var string|null
      */
-    protected string $trailerNo = '';
+    protected ?string $trailerNo = null;
 
     /**
      * @Transfer\Filter("Laminas\Filter\Digits")
@@ -48,9 +48,9 @@ final class UpdateTrailer extends AbstractCommand
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTrailerNo(): string
+    public function getTrailerNo(): ?string
     {
         return $this->trailerNo;
     }
