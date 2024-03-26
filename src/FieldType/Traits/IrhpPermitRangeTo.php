@@ -15,14 +15,14 @@ trait IrhpPermitRangeTo
      * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      * @Transfer\Optional
      *
-     * @var int
+     * @var int|null
      */
-    protected int $toNo = 0;
+    protected ?int $toNo = null;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getToNo(): int
+    public function getToNo(): ?int
     {
         return $this->toNo;
     }
