@@ -11,7 +11,7 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait IrhpPermitType
 {
     /**
-     * @var string|null
+     * @var string
      * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Validator("Laminas\Validator\Between",
      *      options={
@@ -20,12 +20,12 @@ trait IrhpPermitType
      *      }
      * )
      */
-    protected ?string $irhpPermitType = null;
+    protected $irhpPermitType;
 
     /**
-     * @return string|null
+     * @return string
      */
-    public function getIrhpPermitType(): ?string
+    public function getIrhpPermitType(): string
     {
         return $this->irhpPermitType;
     }
