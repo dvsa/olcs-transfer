@@ -14,8 +14,7 @@ use Laminas\Form\Annotation\ComposedObject;
  * @Annotation
  * @NamedArgumentConstructor
  *
- * @method mixed getComposedObject()
- *
+ * @mixin mixed getComposedObject()
  */
 class Partial
 {
