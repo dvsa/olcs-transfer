@@ -13,6 +13,7 @@ use PHPUnit\Framework\TestCase;
 
 class ValidateEachTest extends TestCase
 {
+    public const NOT_DIGITS = '0.notDigits';
     public function testConstructorThrowsExceptionWhenNoChildrenAreSet()
     {
         // Set Expectations
@@ -70,9 +71,8 @@ class ValidateEachTest extends TestCase
 
         // Execute
         $validator->isValid(['foo']);
-
         // Assert
-        $this->assertArrayHasKey('0.notDigits', $validator->getMessages());
+        $this->assertArrayHasKey(self::NOT_DIGITS, $validator->getMessages());
     }
 
     /**
