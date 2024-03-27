@@ -108,7 +108,7 @@ abstract class AbstractCompare extends AbstractValidator
     /**
      * Sets options
      *
-     * @param  array $options
+     * @param mixed $options
      */
     public function setOptions($options = [])
     {

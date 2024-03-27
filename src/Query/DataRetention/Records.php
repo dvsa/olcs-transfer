@@ -109,10 +109,10 @@ final class Records extends AbstractQuery implements
     /**
      * Get assigned to User
      *
-     * @return int
+     * @return string
      *
      */
-    public function getAssignedToUser()
+    public function getAssignedToUser(): string
     {
         return $this->assignedToUser;
     }

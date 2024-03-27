@@ -103,36 +103,39 @@ class StructuredInput implements InputInterface, InputFilterInterface
      * Set allowEmpty
      *
      * @param bool $allowEmpty Allow empty
+     * @return $this
      *
-     * @return void
      */
     public function setAllowEmpty($allowEmpty)
     {
         $this->allowEmpty = $allowEmpty;
+        return $this;
     }
 
     /**
      * Set breakOnFailure
      *
      * @param bool $breakOnFailure Break on failure
+     * @return $this
      *
-     * @return void
      */
     public function setBreakOnFailure($breakOnFailure)
     {
         $this->breakOnFailure = $breakOnFailure;
+        return $this;
     }
 
     /**
      * Set errorMessage
      *
-     * @param string $errorMessage Error message
+     * @param string|null $errorMessage Error message
+     * @return $this
      *
-     * @return void
      */
     public function setErrorMessage($errorMessage)
     {
         $this->errorMessage = $errorMessage;
+        return $this;
     }
 
     /**
@@ -140,11 +143,12 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param \Laminas\Filter\FilterChain $filterChain Filter chain
      *
-     * @return void
+     * @return $this
      */
     public function setFilterChain(FilterChain $filterChain)
     {
         $this->filterChain = $filterChain;
+        return $this;
     }
 
     /**
@@ -152,11 +156,12 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param string $name Name
      *
-     * @return void
+     * @return $this
      */
     public function setName($name)
     {
         $this->name = $name;
+        return $this;
     }
 
     /**
@@ -164,23 +169,25 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param bool $required Required
      *
-     * @return void
+     * @return $this
      */
     public function setRequired($required)
     {
         $this->required = $required;
+        return $this;
     }
 
     /**
      * Set validatorChain
      *
-     * @param \Laminas\Validator\ValidatorChain $validatorChain Validator chain
+     * @param ValidatorChain $validatorChain Validator chain
      *
-     * @return void
+     * @return $this
      */
     public function setValidatorChain(ValidatorChain $validatorChain)
     {
         $this->validatorChain = $validatorChain;
+        return $this;
     }
 
     /**
@@ -188,11 +195,12 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param mixed $value Value
      *
-     * @return void
+     * @return $this
      */
     public function setValue($value)
     {
         $this->setData($value);
+        return $this;
     }
 
     /**
@@ -200,11 +208,12 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param \Laminas\InputFilter\InputInterface $input Value
      *
-     * @return void
+     * @return $this
      */
     public function merge(InputInterface $input)
     {
-        // no-op
+       // no-op
+        return $this;
     }
 
     /**
@@ -230,7 +239,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Get errorMessage
      *
-     * @return string
+     * @return string|null
      */
     public function getErrorMessage()
     {
@@ -270,9 +279,9 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Get validatorChain
      *
-     * @return \Laminas\Validator\ValidatorChain
+     * @return ValidatorChain
      */
-    public function getValidatorChain()
+    public function getValidatorChain(): ValidatorChain
     {
         return $this->validatorChain;
     }
@@ -280,10 +289,10 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Add
      *
-     * @param \Laminas\InputFilter\InputInterface $input Input
-     * @param string                           $name  Name
+     * @param \Laminas\InputFilter\InputFilterInterface|\Laminas\InputFilter\InputInterface|\Traversable|array $input Input
+     * @param string|null                                                                                  $name  Name
      *
-     * @return void
+     * @return $this
      */
     public function add($input, $name = null)
     {
@@ -292,14 +301,12 @@ class StructuredInput implements InputInterface, InputFilterInterface
         }
 
         $this->inputs[$name] = $input;
+        return $this;
     }
 
     /**
      * Get
      *
-     * @param string $name Name
-     *
-     * @return \Laminas\InputFilter\InputInterface
      */
     public function get($name)
     {
@@ -313,7 +320,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return bool
      */
-    public function has($name)
+    public function has($name): bool
     {
         return isset($this->inputs[$name]);
     }
@@ -323,11 +330,12 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param string $name Name
      *
-     * @return void
+     * @return $this
      */
     public function remove($name)
     {
         unset($this->inputs[$name]);
+        return $this;
     }
 
     /**
@@ -335,12 +343,13 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param mixed $data Data
      *
-     * @return void
+     * @return $this
      */
     public function setData($data)
     {
         $this->data = $data;
         $this->populate();
+        return $this;
     }
 
     /**
@@ -350,7 +359,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return bool
      */
-    public function isValid($context = null)
+    public function isValid($context = null): bool
     {
         if (empty($this->data) && !$this->isRequired()) {
             return true;
@@ -360,28 +369,29 @@ class StructuredInput implements InputInterface, InputFilterInterface
 
         if ($validatorChain->isValid($this->getValue(), $context)) {
             return $this->validateInputs();
-        } else {
-            $this->messages = $validatorChain->getMessages();
-            return false;
         }
+
+        $this->messages = $validatorChain->getMessages();
+        return false;
     }
 
     /**
      * Set validationGroup
      *
-     * @param string $name Name
+     * @param mixed $name Name
      *
-     * @return void
+     * @return $this
      */
     public function setValidationGroup($name)
     {
         // no-op
+        return $this;
     }
 
     /**
      * Get invalidInputs
      *
-     * @return array
+     * @return array<string, InputInterface|InputFilterInterface>
      */
     public function getInvalidInput()
     {
@@ -391,7 +401,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Get validInputs
      *
-     * @return array
+     * @return array<string, InputInterface|InputFilterInterface>
      */
     public function getValidInput()
     {
@@ -403,9 +413,9 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param string $name Name
      *
-     * @return mixed
+     * @return array|null
      */
-    public function getValue($name = null)
+    public function getValue($name = null): ?array
     {
         if ($name !== null) {
             return $this->inputs[$name]->getValue();
@@ -417,9 +427,9 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Get values
      *
-     * @return array
+     * @return array<string, mixed>|null
      */
-    public function getValues()
+    public function getValues(): ?array
     {
         if (empty($this->data)) {
             return null;
@@ -472,8 +482,9 @@ class StructuredInput implements InputInterface, InputFilterInterface
 
     /**
      * Get messages
+     * @return array<string, array<array<string>|string>> Error messages
+     * @phpstan-ignore-next-line
      *
-     * @return array
      */
     public function getMessages()
     {
@@ -488,6 +499,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
 
         return $messages;
     }
+
 
     /**
      * Count
@@ -630,7 +642,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
 
             // Validate an input
             if ($input instanceof InputInterface) {
-                if (!$input->isValid($data)) {
+                if (!$input->isValid()) {
                     // Validation failure
                     $this->invalidInputs[$name] = $input;
                     $valid = false;

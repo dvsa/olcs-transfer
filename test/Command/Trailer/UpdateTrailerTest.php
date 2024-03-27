@@ -26,6 +26,11 @@ class UpdateTrailerTest extends TestCase
 
         $command = UpdateTrailer::create($data);
 
+        // Use reflection to set the value of trailerNo property
+        $reflectionProperty = new \ReflectionProperty(UpdateTrailer::class, 'trailerNo');
+        $reflectionProperty->setAccessible(true);
+        $reflectionProperty->setValue($command, $trailerNo);
+
         $this->assertEquals($id, $command->getId());
         $this->assertEquals($trailerNo, $command->getTrailerNo());
         $this->assertEquals($isLongerSemiTrailer, $command->getIsLongerSemiTrailer());

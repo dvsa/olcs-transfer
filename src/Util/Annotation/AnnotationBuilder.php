@@ -14,8 +14,11 @@ use Dvsa\Olcs\Transfer\Command\CommandContainer;
 use Dvsa\Olcs\Transfer\Util\StructuredInput;
 use Laminas\Filter\FilterPluginManager;
 use Laminas\Filter\StripTags as Escaper;
+use Laminas\Form\Annotation\ComposedObject;
+use Laminas\InputFilter\Input;
 use Laminas\Validator\ValidatorPluginManager;
-use Laminas\InputFilter\InputFilter;
+use Dvsa\Olcs\Transfer\Util\Annotation\Filter;
+use ReflectionProperty;
 
 /**
  * Annotation Builder
@@ -98,7 +101,7 @@ class AnnotationBuilder
                 $routeName = $annotation->getRouteName();
             }
 
-            if ($annotation instanceof InputFilter) {
+            if ($annotation instanceof Filter) {
                 $inputFilterClass = $annotation->getName();
             }
         }
@@ -139,7 +142,7 @@ class AnnotationBuilder
                 $method = $annotation->getMethod();
             }
 
-            if ($annotation instanceof InputFilter) {
+            if ($annotation instanceof Filter) {
                 $inputFilterClass = $annotation->getName();
             }
         }
@@ -223,7 +226,7 @@ class AnnotationBuilder
         }
 
         if ($input === null) {
-            $input = new \Laminas\InputFilter\Input($property->getName());
+            $input = new Input($property->getName());
         }
 
         if ($isArrayInput) {

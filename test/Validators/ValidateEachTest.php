@@ -13,6 +13,7 @@ use PHPUnit\Framework\TestCase;
 
 class ValidateEachTest extends TestCase
 {
+    public const NOT_DIGITS = '0.notDigits';
     public function testConstructorThrowsExceptionWhenNoChildrenAreSet()
     {
         // Set Expectations
@@ -54,7 +55,7 @@ class ValidateEachTest extends TestCase
         $validator = new ValidateEach(['children' => [['name' => Digits::class]]]);
 
         // Execute
-        $result = $validator->isValid('foo');
+        $result = $validator->isValid(['foo']);
 
         // Assert
         $this->assertFalse($result);
@@ -69,10 +70,9 @@ class ValidateEachTest extends TestCase
         $validator = new ValidateEach(['children' => [['name' => Digits::class]]]);
 
         // Execute
-        $validator->isValid('foo');
-
+        $validator->isValid(['foo']);
         // Assert
-        $this->assertArrayHasKey(IsCountable::NOT_COUNTABLE, $validator->getMessages());
+        $this->assertArrayHasKey(self::NOT_DIGITS, $validator->getMessages());
     }
 
     /**

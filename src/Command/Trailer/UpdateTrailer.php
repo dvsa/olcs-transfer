@@ -30,7 +30,7 @@ final class UpdateTrailer extends AbstractCommand
     /**
      * @var string
      */
-    protected $trailerNo;
+    protected string $trailerNo;
 
     /**
      * @Transfer\Filter("Laminas\Filter\Digits")
@@ -48,9 +48,9 @@ final class UpdateTrailer extends AbstractCommand
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function getTrailerNo()
+    public function getTrailerNo(): string
     {
         return $this->trailerNo;
     }

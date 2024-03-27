@@ -14,12 +14,12 @@ trait CaseType
      *      options={"haystack": {"case_t_app","case_t_imp","case_t_lic","case_t_tm"}}
      * )
      */
-    protected $caseType = null;
+    protected ?string $caseType = null;
 
     /**
-     * @return int
+     * @return String|null
      */
-    public function getCaseType()
+    public function getCaseType(): ?string
     {
         return $this->caseType;
     }

@@ -19,7 +19,6 @@ class UpdatePeopleTest extends MockeryTestCase
             'birthDate' => 'unit_birthDate',
         ];
 
-        /** @var UpdatePeople | m\MockInterface $sut */
         $sut = UpdatePeople::create($data);
 
         static::assertEquals(9999, $sut->getVersion());
