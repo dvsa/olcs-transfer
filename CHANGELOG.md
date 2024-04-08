@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.8.0](https://github.com/dvsa/olcs-transfer/compare/v6.7.0...v6.8.0) (2024-04-08)
+
+
+### Features
+
+* VOL-4754 increase static analysis levels ([#59](https://github.com/dvsa/olcs-transfer/issues/59)) ([af58f18](https://github.com/dvsa/olcs-transfer/commit/af58f188b2f1b351a1958e26011bd7a13a2e14c0))
+
 ## [6.7.0](https://github.com/dvsa/olcs-transfer/compare/v6.6.0...v6.7.0) (2024-03-19)
 
 
