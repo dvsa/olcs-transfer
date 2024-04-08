@@ -23,9 +23,9 @@ class ChangeExpiredPasswordResult
     protected int $code;
 
     /**
-     * @var mixed
+     * @var array
      */
-    protected $identity;
+    protected array $identity;
 
     /**
      * @var array
