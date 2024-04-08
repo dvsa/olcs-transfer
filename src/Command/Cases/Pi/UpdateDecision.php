@@ -39,13 +39,13 @@ class UpdateDecision extends AbstractCommand
     protected $decidedByTcRole;
 
     /**
-     * @var int
+     * @var array
      * @Transfer\ArrayInput
      * @Transfer\Filter("Laminas\Filter\Digits")
      * @Transfer\Validator("Laminas\Validator\Digits")
      * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
-    protected $decisions = [];
+    protected array $decisions = [];
 
     /**
      * @Transfer\Optional
@@ -121,7 +121,7 @@ class UpdateDecision extends AbstractCommand
     /**
      * @return array
      */
-    public function getDecisions()
+    public function getDecisions(): array
     {
         return $this->decisions;
     }

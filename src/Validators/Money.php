@@ -36,7 +36,7 @@ class Money extends AbstractValidator
     /**
      * Check if money amount is valid
      *
-     * @param string $value Value to check
+     * @param mixed $value Value to check
      *
      * @return bool
      */
@@ -75,8 +75,9 @@ class Money extends AbstractValidator
     /**
      * Set validator options
      *
-     * @param array $options Options to set
+     * @param mixed $options Options to set
      *
+     * @phpstan-ignore-next-line
      * @return void
      */
     public function setOptions($options = [])

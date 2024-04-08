@@ -51,7 +51,7 @@ class PublishedList extends AbstractQuery implements PagedQueryInterface, Ordere
     protected $trafficArea;
 
     /**
-     * @return string|null|fals-y
+     * @return string|null
      */
     public function getPubType()
     {

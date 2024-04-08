@@ -37,22 +37,22 @@ class Vrm extends AbstractFilter
     /**
      * Returns the result of filtering $value
      *
-     * @param  string $input
+     * @param  mixed $value
      * @return string
      */
-    public function filter($input)
+    public function filter($value)
     {
         // Strip all whitespace
-        $input = preg_replace('/\s+/', '', $input);
+        $value = preg_replace('/\s+/', '', $value);
 
         // Convert to uppercase
-        $input = strtoupper($input);
+        $value = strtoupper($value);
 
         // Translate some commonly mis-typed / printed old plates
-        if (isset($this->translations[$input])) {
-            $input = $this->translations[$input];
+        if (isset($this->translations[$value])) {
+            $value = $this->translations[$value];
         }
 
-        return $input;
+        return $value;
     }
 }

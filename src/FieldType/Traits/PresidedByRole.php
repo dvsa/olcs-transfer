@@ -22,9 +22,9 @@ trait PresidedByRole
     protected $presidedByRole;
 
     /**
-     * @return int
+     * @return string
      */
-    public function getPresidedByRole()
+    public function getPresidedByRole(): string
     {
         return $this->presidedByRole;
     }

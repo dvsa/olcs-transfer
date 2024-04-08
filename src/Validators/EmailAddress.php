@@ -107,9 +107,9 @@ class EmailAddress extends AbstractValidator
      *
      * @param  string $messageString
      * @param  string $messageKey     OPTIONAL
-     * @return AbstractValidator Provides a fluent interface
+     * @return static Provides a fluent interface
      */
-    public function setMessage($messageString, $messageKey = null)
+    public function setMessage($messageString, $messageKey = null): AbstractValidator
     {
         if ($messageKey === null) {
             $this->getHostnameValidator()->setMessage($messageString);
@@ -136,6 +136,11 @@ class EmailAddress extends AbstractValidator
     public function getHostnameValidator()
     {
         if (!isset($this->options['hostnameValidator'])) {
+            /** @phpstan-ignore-next-line
+             * @psalm-suppress InvalidArgument
+             *
+             * Docblock types as array, but handles non-array values.
+             * */
             $this->options['hostnameValidator'] = new Hostname($this->getAllow());
         }
 
@@ -289,7 +294,7 @@ class EmailAddress extends AbstractValidator
      *
      * @link   http://www.ietf.org/rfc/rfc2822.txt RFC2822
      * @link   http://www.columbia.edu/kermit/ascii.html US-ASCII characters
-     * @param  string $value
+     * @param  mixed $value
      * @return bool
      */
     public function isValid($value)
