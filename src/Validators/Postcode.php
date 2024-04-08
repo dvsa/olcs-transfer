@@ -61,7 +61,7 @@ class Postcode extends AbstractValidator
 
     /**
      * @param mixed $options
-     * @return Postcode&static
+     * @return static
      */
     public function setOptions($options = [])
     {

@@ -104,7 +104,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param bool $allowEmpty Allow empty
      *
-     * @return self&static
+     * @return static
      */
     public function setAllowEmpty($allowEmpty)
     {
@@ -117,7 +117,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param bool $breakOnFailure Break on failure
      *
-     * @return self&static
+     * @return static
      */
     public function setBreakOnFailure($breakOnFailure)
     {
@@ -130,7 +130,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param string|null $errorMessage Error message
 
-     * @return self&static
+     * @return static
      */
     public function setErrorMessage($errorMessage)
     {
@@ -143,7 +143,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param \Laminas\Filter\FilterChain $filterChain Filter chain
      *
-     * @return self&static
+     * @return static
      */
     public function setFilterChain(FilterChain $filterChain)
     {
@@ -156,7 +156,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param string $name Name
      *
-     * @return self&static
+     * @return static
      */
     public function setName($name)
     {
@@ -169,7 +169,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param bool $required Required
      *
-     * @return self&static
+     * @return static
      */
     public function setRequired($required)
     {
@@ -182,7 +182,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param ValidatorChain $validatorChain Validator chain
      *
-     * @return self&static
+     * @return static
      */
     public function setValidatorChain(ValidatorChain $validatorChain)
     {
@@ -195,7 +195,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param mixed $value Value
      *
-     * @return self&static
+     * @return static
      */
     public function setValue($value)
     {
@@ -208,7 +208,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @param \Laminas\InputFilter\InputInterface $input Value
      *
-     * @return self&static
+     * @return static
      */
     public function merge(InputInterface $input)
     {

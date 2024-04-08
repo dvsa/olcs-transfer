@@ -56,7 +56,7 @@ class DateCompare extends AbstractCompare
      * Sets options
      *
      * @param  mixed $options
-     * @return self&static
+     * @return static
      */
     public function setOptions($options = []): DateCompare
     {
