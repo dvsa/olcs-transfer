@@ -11,7 +11,7 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait PresidingStaffNameOptional
 {
     /**
-     * @var string
+     * @var string|null
      *
      * @Transfer\Optional
      * @Transfer\Filter("Laminas\Filter\StringTrim")
@@ -20,9 +20,9 @@ trait PresidingStaffNameOptional
     protected $presidingStaffName;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPresidingStaffName(): string
+    public function getPresidingStaffName(): ?string
     {
         return $this->presidingStaffName;
     }

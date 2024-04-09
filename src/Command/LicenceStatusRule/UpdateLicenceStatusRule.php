@@ -43,7 +43,7 @@ final class UpdateLicenceStatusRule extends AbstractCommand
     protected $version;
 
     /**
-     * @var string
+     * @var string|null
      * @Transfer\Optional
      * @Transfer\Filter("Laminas\Filter\DateTimeFormatter")
      * @Transfer\Validator("Date", options={"format": \DateTime::ISO8601})
@@ -51,7 +51,7 @@ final class UpdateLicenceStatusRule extends AbstractCommand
     protected $startDate;
 
     /**
-     * @var string
+     * @var string|null
      * @Transfer\Optional
      * @Transfer\Filter("Laminas\Filter\DateTimeFormatter")
      * @Transfer\Validator("Date", options={"format": \DateTime::ISO8601})
@@ -83,17 +83,17 @@ final class UpdateLicenceStatusRule extends AbstractCommand
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getStartDate(): string
+    public function getStartDate(): ?string
     {
         return $this->startDate;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getEndDate(): string
+    public function getEndDate(): ?string
     {
         return $this->endDate;
     }

@@ -21,7 +21,7 @@ abstract class AbstractGoodsVehicles extends AbstractQuery
     protected $vrm;
 
     /**
-     * @var string
+     * @var string|null
      * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"Y", "N"}})
      * @Transfer\Optional
