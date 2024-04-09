@@ -53,7 +53,7 @@ final class Records extends AbstractQuery implements
     protected $markedForDeletion;
 
     /**
-     * @var string
+     * @var string|null
      * @Transfer\Optional
      */
     protected $assignedToUser;
@@ -109,7 +109,7 @@ final class Records extends AbstractQuery implements
     /**
      * Get assigned to User
      *
-     * @return string
+     * @return string|null
      *
      */
     public function getAssignedToUser(): ?string
