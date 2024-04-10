@@ -18,16 +18,14 @@ class DeleteUserResult
     public const MESSAGE_FAILURE_NOT_FOUND = 'User not deleted (not present in Cognito)';
 
     private int $code;
-    private ?string $message;
 
-    public function __construct(int $code, ?string $message = null)
+    public function __construct(int $code, private ?string $message = null)
     {
         if (!$this->isValidCode($code)) {
             throw new InvalidArgumentException(sprintf("%d is not a valid code", $code));
         }
 
         $this->code = $code;
-        $this->message = $message;
     }
 
     public function isValid(): bool

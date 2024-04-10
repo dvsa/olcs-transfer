@@ -22,8 +22,6 @@ trait GovUkAccountJourney
 
     /**
      * setJourney
-     *
-     * @param string $journey
      */
     public function setJourney(string $journey)
     {

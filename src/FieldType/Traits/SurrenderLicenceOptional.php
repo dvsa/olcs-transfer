@@ -27,8 +27,6 @@ trait SurrenderLicenceOptional
     }
 
     /**
-     * @param int $licence
-     *
      * @return  void
      */
     public function setLicence(int $licence): void

@@ -23,38 +23,17 @@ class ChangeExpiredPasswordResult
     protected int $code;
 
     /**
-     * @var array
-     */
-    protected array $identity;
-
-    /**
-     * @var array
-     */
-    protected array $messages;
-
-    /**
-     * @var array
-     */
-    private array $options;
-
-    /**
      * Sets the result code, identity, and failure messages
      *
-     * @param int $code
-     * @param mixed $identity
-     * @param array $messages
-     * @param array $options
+     * @param array $identity
      */
-    public function __construct(int $code, $identity = [], array $messages = [], array $options = [])
+    public function __construct(int $code, protected array $identity = [], protected array $messages = [], private array $options = [])
     {
         if (!$this->isValidCode($code)) {
             throw new InvalidArgumentException(sprintf("%d is not a valid code", $code));
         }
 
         $this->code     = $code;
-        $this->identity = $identity;
-        $this->messages = $messages;
-        $this->options = $options;
     }
 
     /**
@@ -98,7 +77,6 @@ class ChangeExpiredPasswordResult
     }
 
     /**
-     * @param int $code
      * @return bool
      */
     public function isValidCode(int $code): bool
@@ -114,7 +92,6 @@ class ChangeExpiredPasswordResult
     }
 
     /**
-     * @param array $data
      * @return ChangeExpiredPasswordResult
      */
     public static function fromArray(array $data): ChangeExpiredPasswordResult

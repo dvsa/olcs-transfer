@@ -79,51 +79,19 @@ class CacheEncryption
 
     ];
 
-    /** @var StorageInterface $cache */
-    private $cache;
-
-    /** @var BlockCipher $encryptor */
-    private $encryptor;
-
-    /** @var string $nodeKey */
-    private $nodeKey;
-
-    /** @var string $sharedKey */
-    private $sharedKey;
-
-    /** @var string $nodeSuffix */
-    private $nodeSuffix;
-
     /**
      * CacheEncryption constructor.
      *
-     * @param StorageInterface $cache
-     * @param BlockCipher      $encryptor
-     * @param string           $nodeKey
-     * @param string           $sharedKey
-     * @param string           $nodeSuffix
      *
      * @return void
      */
-    public function __construct(
-        StorageInterface $cache,
-        BlockCipher $encryptor,
-        string $nodeKey,
-        string $sharedKey,
-        string $nodeSuffix
-    ) {
-        $this->cache = $cache;
-        $this->encryptor = $encryptor;
-        $this->nodeKey = $nodeKey;
-        $this->sharedKey = $sharedKey;
-        $this->nodeSuffix = $nodeSuffix;
+    public function __construct(private StorageInterface $cache, private BlockCipher $encryptor, private string $nodeKey, private string $sharedKey, private string $nodeSuffix)
+    {
     }
 
     /**
      * Whether the cache has the requested item
      *
-     * @param string $cacheIdentifier
-     * @param string $encryptionMode
      *
      * @return bool
      */
@@ -135,8 +103,6 @@ class CacheEncryption
     /**
      * Whether a custom (non-CQRS) cache item exists
      *
-     * @param string $cacheType
-     * @param string $uniqueId
      *
      * @return bool
      * @throws \Exception
@@ -206,15 +172,11 @@ class CacheEncryption
      * Node specific mode: value will be encrypted for a single group of nodes only e.g. ssweb, iuweb or api
      * TTL is specified in seconds - 3600 means a default of one hour
      *
-     * @param string $cacheKey
-     * @param string $encryptionMode
-     * @param mixed  $value
-     * @param int    $ttl
      *
      * @throws \Exception
      * @return bool
      */
-    public function setItem(string $cacheKey, string $encryptionMode, $value, int $ttl = 3600): bool
+    public function setItem(string $cacheKey, string $encryptionMode, mixed $value, int $ttl = 3600): bool
     {
         $value = igbinary_serialize($value);
 
@@ -240,7 +202,7 @@ class CacheEncryption
      * @throws \Exception
      * @return bool
      */
-    public function setCustomItem(string $cacheType, $value, $uniqueId = ''): bool
+    public function setCustomItem(string $cacheType, mixed $value, $uniqueId = ''): bool
     {
         $cacheConfig = $this->getCustomCacheConfig($cacheType);
         return $this->setItem($cacheType . $uniqueId, $cacheConfig['mode'], $value, $cacheConfig['ttl']);
@@ -249,8 +211,6 @@ class CacheEncryption
     /**
      * Retrieve an item from the cache
      *
-     * @param string $cacheKey
-     * @param string $encryptionMode
      *
      * @throws \Exception
      * @return mixed|null
@@ -305,12 +265,10 @@ class CacheEncryption
     /**
      * Encrypt a value prior to saving in the cache
      *
-     * @param string $encryptionKey
-     * @param mixed  $value
      *
      * @return string
      */
-    private function encrypt(string $encryptionKey, $value): string
+    private function encrypt(string $encryptionKey, mixed $value): string
     {
         $this->encryptor->setKey($encryptionKey);
         return $this->encryptor->encrypt($value);
@@ -319,8 +277,6 @@ class CacheEncryption
     /**
      * Decrypt a value using the specified encryption key
      *
-     * @param string $encryptionKey
-     * @param ?string $encryptedValue
      *
      * @return mixed
      */
@@ -354,7 +310,6 @@ class CacheEncryption
     /**
      * Get the correct encryption key
      *
-     * @param string $encryptionMode
      *
      * @throws \Exception
      * @return string
@@ -376,7 +331,6 @@ class CacheEncryption
      * Get the correct suffix to use
      * (prevents the same data encrypted with a different key from having the same cache identifier)
      *
-     * @param string $encryptionMode
      *
      * @return string
      */
@@ -426,8 +380,6 @@ class CacheEncryption
     }
 
     /**
-     * @param QueryContainerInterface $queryContainer
-     *
      * @return string|null
      */
     public function getCustomCacheIdentifierForCqrs(QueryContainerInterface $queryContainer): ?string
@@ -437,8 +389,6 @@ class CacheEncryption
     }
 
     /**
-     * @param string $customCacheKey
-     *
      * @return string|null
      */
     public function getQueryFromCustomIdentifier(string $customCacheKey): ?string

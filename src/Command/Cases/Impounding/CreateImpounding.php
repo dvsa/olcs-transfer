@@ -88,10 +88,9 @@ class CreateImpounding extends AbstractCommand
     protected $notes = null;
 
     /**
-     * @param mixed $case
      * @return $this
      */
-    public function setCase($case)
+    public function setCase(mixed $case)
     {
         $this->case = $case;
         return $this;
@@ -106,10 +105,9 @@ class CreateImpounding extends AbstractCommand
     }
 
     /**
-     * @param mixed $applicationReceiptDate
      * @return $this
      */
-    public function setApplicationReceiptDate($applicationReceiptDate)
+    public function setApplicationReceiptDate(mixed $applicationReceiptDate)
     {
         $this->applicationReceiptDate = $applicationReceiptDate;
         return $this;
@@ -124,10 +122,9 @@ class CreateImpounding extends AbstractCommand
     }
 
     /**
-     * @param mixed $hearingDate
      * @return $this
      */
-    public function setHearingDate($hearingDate)
+    public function setHearingDate(mixed $hearingDate)
     {
         $this->hearingDate = $hearingDate;
         return $this;
@@ -142,10 +139,9 @@ class CreateImpounding extends AbstractCommand
     }
 
     /**
-     * @param mixed $impoundingLegislationTypes
      * @return $this
      */
-    public function setImpoundingLegislationTypes($impoundingLegislationTypes)
+    public function setImpoundingLegislationTypes(mixed $impoundingLegislationTypes)
     {
         $this->impoundingLegislationTypes = $impoundingLegislationTypes;
         return $this;
@@ -160,10 +156,9 @@ class CreateImpounding extends AbstractCommand
     }
 
     /**
-     * @param mixed $impoundingType
      * @return $this
      */
-    public function setImpoundingType($impoundingType)
+    public function setImpoundingType(mixed $impoundingType)
     {
         $this->impoundingType = $impoundingType;
         return $this;
@@ -178,10 +173,9 @@ class CreateImpounding extends AbstractCommand
     }
 
     /**
-     * @param mixed $notes
      * @return $this
      */
-    public function setNotes($notes)
+    public function setNotes(mixed $notes)
     {
         $this->notes = $notes;
         return $this;
@@ -196,10 +190,9 @@ class CreateImpounding extends AbstractCommand
     }
 
     /**
-     * @param mixed $outcome
      * @return $this
      */
-    public function setOutcome($outcome)
+    public function setOutcome(mixed $outcome)
     {
         $this->outcome = $outcome;
         return $this;
@@ -214,10 +207,9 @@ class CreateImpounding extends AbstractCommand
     }
 
     /**
-     * @param mixed $outcomeSentDate
      * @return $this
      */
-    public function setOutcomeSentDate($outcomeSentDate)
+    public function setOutcomeSentDate(mixed $outcomeSentDate)
     {
         $this->outcomeSentDate = $outcomeSentDate;
         return $this;
@@ -232,10 +224,9 @@ class CreateImpounding extends AbstractCommand
     }
 
     /**
-     * @param mixed $venue
      * @return $this
      */
-    public function setVenue($venue)
+    public function setVenue(mixed $venue)
     {
         $this->venue = $venue;
         return $this;
@@ -250,10 +241,9 @@ class CreateImpounding extends AbstractCommand
     }
 
     /**
-     * @param mixed $venueOther
      * @return $this
      */
-    public function setVenueOther($venueOther)
+    public function setVenueOther(mixed $venueOther)
     {
         $this->venueOther = $venueOther;
         return $this;
@@ -268,10 +258,9 @@ class CreateImpounding extends AbstractCommand
     }
 
     /**
-     * @param mixed $presidingTc
      * @return $this
      */
-    public function setPresidingTc($presidingTc)
+    public function setPresidingTc(mixed $presidingTc)
     {
         $this->presidingTc = $presidingTc;
         return $this;
@@ -286,10 +275,9 @@ class CreateImpounding extends AbstractCommand
     }
 
     /**
-     * @param mixed $vrm
      * @return $this
      */
-    public function setVrm($vrm)
+    public function setVrm(mixed $vrm)
     {
         $this->vrm = $vrm;
         return $this;

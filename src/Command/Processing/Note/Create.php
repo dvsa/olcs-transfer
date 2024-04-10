@@ -47,10 +47,7 @@ class Create extends AbstractCommand implements
         return $this->priority;
     }
 
-    /**
-     * @param mixed $priority
-     */
-    public function setPriority($priority)
+    public function setPriority(mixed $priority)
     {
         $this->priority = $priority;
     }

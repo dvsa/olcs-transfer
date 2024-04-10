@@ -16,8 +16,6 @@ class VrmTest extends TestCase
 
     /**
      * @dataProvider isValidProvider
-     * @param string $value
-     * @param bool $isValid
      */
     public function testIsValid(string $value, bool $isValid)
     {

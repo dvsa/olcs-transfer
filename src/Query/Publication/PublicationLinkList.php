@@ -22,18 +22,12 @@ class PublicationLinkList extends AbstractQuery implements PagedQueryInterface, 
     use LicenceOptional;
     use ApplicationOptional;
 
-    /**
-     * @param mixed $licence
-     */
-    public function setLicence($licence)
+    public function setLicence(mixed $licence)
     {
         $this->licence = $licence;
     }
 
-    /**
-     * @param mixed $application
-     */
-    public function setApplication($application)
+    public function setApplication(mixed $application)
     {
         $this->application = $application;
     }

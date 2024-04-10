@@ -8,6 +8,8 @@ use Laminas\Filter\AbstractFilter;
  * Removes empty items from an array
  *
  * @author Rob Caiger <rob@clocal.co.uk>
+ *
+ * @extends AbstractFilter<array>
  */
 class FilterEmptyItems extends AbstractFilter
 {

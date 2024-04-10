@@ -18,7 +18,6 @@ class ArrayInput extends \Laminas\InputFilter\ArrayInput
     protected $arrayValidatorChain;
 
     /**
-     * @param  FilterChain $filterChain
      * @return Input
      */
     public function setArrayFilterChain(FilterChain $filterChain)
@@ -36,7 +35,6 @@ class ArrayInput extends \Laminas\InputFilter\ArrayInput
     }
 
     /**
-     * @param  ValidatorChain $validatorChain
      * @return Input
      */
     public function setArrayValidatorChain(ValidatorChain $validatorChain)

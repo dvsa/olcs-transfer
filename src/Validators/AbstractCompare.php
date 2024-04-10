@@ -139,11 +139,9 @@ abstract class AbstractCompare extends AbstractValidator
     /**
      * Returns true if and only if values are valid for given operator.
      *
-     * @param  mixed $value
-     * @param  mixed $compareToValue
      * @return bool
      */
-    protected function isValidForOperator($value, $compareToValue)
+    protected function isValidForOperator(mixed $value, mixed $compareToValue)
     {
         switch ($this->getOperator()) {
             case 'gte':

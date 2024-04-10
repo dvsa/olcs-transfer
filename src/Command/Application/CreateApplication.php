@@ -77,10 +77,7 @@ final class CreateApplication extends AbstractCommand
         return $this->operatorType;
     }
 
-    /**
-     * @param mixed $operatorType
-     */
-    public function setOperatorType($operatorType)
+    public function setOperatorType(mixed $operatorType)
     {
         $this->operatorType = $operatorType;
     }
@@ -93,10 +90,7 @@ final class CreateApplication extends AbstractCommand
         return $this->licenceType;
     }
 
-    /**
-     * @param mixed $licenceType
-     */
-    public function setLicenceType($licenceType)
+    public function setLicenceType(mixed $licenceType)
     {
         $this->licenceType = $licenceType;
     }
@@ -109,10 +103,7 @@ final class CreateApplication extends AbstractCommand
         return $this->niFlag;
     }
 
-    /**
-     * @param mixed $niFlag
-     */
-    public function setNiFlag($niFlag)
+    public function setNiFlag(mixed $niFlag)
     {
         $this->niFlag = $niFlag;
     }
@@ -125,10 +116,7 @@ final class CreateApplication extends AbstractCommand
         return $this->organisation;
     }
 
-    /**
-     * @param mixed $organisation
-     */
-    public function setOrganisation($organisation)
+    public function setOrganisation(mixed $organisation)
     {
         $this->organisation = $organisation;
     }
@@ -141,10 +129,7 @@ final class CreateApplication extends AbstractCommand
         return $this->receivedDate;
     }
 
-    /**
-     * @param mixed $receivedDate
-     */
-    public function setReceivedDate($receivedDate)
+    public function setReceivedDate(mixed $receivedDate)
     {
         $this->receivedDate = $receivedDate;
     }
@@ -157,10 +142,7 @@ final class CreateApplication extends AbstractCommand
         return $this->trafficArea;
     }
 
-    /**
-     * @param mixed $trafficArea
-     */
-    public function setTrafficArea($trafficArea)
+    public function setTrafficArea(mixed $trafficArea)
     {
         $this->trafficArea = $trafficArea;
     }

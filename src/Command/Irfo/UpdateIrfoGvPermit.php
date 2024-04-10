@@ -148,66 +148,42 @@ final class UpdateIrfoGvPermit extends AbstractCommand
         return $this->exemptionDetails;
     }
 
-    /**
-     * @param mixed $id
-     */
-    public function setId($id)
+    public function setId(mixed $id)
     {
         $this->id = $id;
     }
 
-    /**
-     * @param mixed $version
-     */
-    public function setVersion($version)
+    public function setVersion(mixed $version)
     {
         $this->version = $version;
     }
 
-    /**
-     * @param mixed $irfoGvPermitType
-     */
-    public function setIrfoGvPermitType($irfoGvPermitType)
+    public function setIrfoGvPermitType(mixed $irfoGvPermitType)
     {
         $this->irfoGvPermitType = $irfoGvPermitType;
     }
 
-    /**
-     * @param mixed $yearRequired
-     */
-    public function setYearRequired($yearRequired)
+    public function setYearRequired(mixed $yearRequired)
     {
         $this->yearRequired = $yearRequired;
     }
 
-    /**
-     * @param mixed $inForceDate
-     */
-    public function setInForceDate($inForceDate)
+    public function setInForceDate(mixed $inForceDate)
     {
         $this->inForceDate = $inForceDate;
     }
 
-    /**
-     * @param mixed $noOfCopies
-     */
-    public function setNoOfCopies($noOfCopies)
+    public function setNoOfCopies(mixed $noOfCopies)
     {
         $this->noOfCopies = $noOfCopies;
     }
 
-    /**
-     * @param mixed $isFeeExempt
-     */
-    public function setIsFeeExempt($isFeeExempt)
+    public function setIsFeeExempt(mixed $isFeeExempt)
     {
         $this->isFeeExempt = $isFeeExempt;
     }
 
-    /**
-     * @param mixed $exemptionDetails
-     */
-    public function setExemptionDetails($exemptionDetails)
+    public function setExemptionDetails(mixed $exemptionDetails)
     {
         $this->exemptionDetails = $exemptionDetails;
     }

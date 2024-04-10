@@ -27,8 +27,6 @@ trait TmVerifyRole
 
     /**
      * setRole
-     *
-     * @param string $role
      */
     public function setRole(string $role)
     {

@@ -24,16 +24,14 @@ class ChangePasswordResult
     public const MESSAGE_GENERIC_SUCCESS = 'auth.change-password.success';
 
     private int $code;
-    private ?string $message;
 
-    public function __construct(int $code, ?string $message = null)
+    public function __construct(int $code, private ?string $message = null)
     {
         if (!$this->isValidCode($code)) {
             throw new InvalidArgumentException(sprintf("%d is not a valid code", $code));
         }
 
         $this->code = $code;
-        $this->message = $message;
     }
 
     public function isValid(): bool
@@ -70,7 +68,6 @@ class ChangePasswordResult
     }
 
     /**
-     * @param array $data
      * @return ChangePasswordResult
      */
     public static function fromArray(array $data): ChangePasswordResult

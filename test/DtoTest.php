@@ -92,8 +92,6 @@ trait DtoTest
     abstract protected function getFilterTransformations();
 
     /**
-     * @param ArraySerializableInterface $dto
-     *
      * @return QueryContainer|CommandContainer
      */
     abstract protected function createDtoContainer(ArraySerializableInterface $dto);
@@ -101,7 +99,6 @@ trait DtoTest
     /**
      * @dataProvider provideValidFieldsValidateCases
      *
-     * @param array  $fieldValues
      * @param string $fieldName
      */
     public function testValidFieldsValidate(array $fieldValues, $fieldName)
@@ -153,10 +150,8 @@ trait DtoTest
      * @dataProvider provideFieldTransformationCases
      *
      * @param string $fieldName
-     * @param mixed  $inputValue
-     * @param mixed  $expectedValue
      */
-    public function testFieldTransformations($fieldName, $inputValue, $expectedValue)
+    public function testFieldTransformations($fieldName, mixed $inputValue, mixed $expectedValue)
     {
         $fieldValues = [$fieldName => $inputValue];
         $dto = $this->createPopulatedDto($fieldValues);

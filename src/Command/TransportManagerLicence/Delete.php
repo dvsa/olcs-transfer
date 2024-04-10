@@ -36,10 +36,9 @@ final class Delete extends AbstractCommand
     }
 
     /**
-     * @param mixed $yesNo
      * @return void
      */
-    public function setYesNo($yesNo)
+    public function setYesNo(mixed $yesNo)
     {
         $this->yesNo = $yesNo;
     }
