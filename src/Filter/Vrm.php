@@ -9,7 +9,7 @@ use Laminas\Filter\AbstractFilter;
  *
  * Parses a VRM stripping whitespace, converting to UPPERCASE and translates commonly mistyped / printed old plates.
  *
- * @extends AbstractFilter<array>
+ * @template-extends AbstractFilter<array>
  */
 class Vrm extends AbstractFilter
 {

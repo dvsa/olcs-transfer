@@ -9,7 +9,7 @@ use Laminas\Filter\AbstractFilter;
  *
  * @author Rob Caiger <rob@clocal.co.uk>
  *
- * @extends AbstractFilter<array>
+ * @template-extends AbstractFilter<array>
  */
 class FilterEmptyItems extends AbstractFilter
 {
