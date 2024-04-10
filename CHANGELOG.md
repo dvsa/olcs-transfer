@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.8.1](https://github.com/dvsa/olcs-transfer/compare/v6.8.0...v6.8.1) (2024-04-10)
+
+
+### Bug Fixes
+
+* return type hint causing error in journey ([#61](https://github.com/dvsa/olcs-transfer/issues/61)) ([725e632](https://github.com/dvsa/olcs-transfer/commit/725e632db69b79ee4cde925c469c883b530ed5cf))
+
 ## [6.8.0](https://github.com/dvsa/olcs-transfer/compare/v6.7.0...v6.8.0) (2024-04-08)
 
 
