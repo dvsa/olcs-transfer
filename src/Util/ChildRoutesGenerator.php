@@ -4,17 +4,11 @@ namespace Dvsa\Olcs\Transfer\Util;
 
 class ChildRoutesGenerator
 {
-    private $routes;
-
-    private $directory;
-
     /**
      * ChildRoutesGenerator constructor.
      */
-    public function __construct(array $routes, string $directory)
+    public function __construct(private array $routes, private string $directory)
     {
-        $this->routes = $routes;
-        $this->directory = $directory;
     }
 
     private function buildChildRoutes($directory, array $child = []): array
@@ -22,7 +16,7 @@ class ChildRoutesGenerator
         $paths = scandir($directory);
 
         foreach ($paths as $path) {
-            if (substr($path, 0, 1) === '.') {
+            if (str_starts_with($path, '.')) {
                 continue;
             }
 

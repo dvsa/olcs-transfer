@@ -38,10 +38,7 @@ class AnnotationBuilder
         return $this->filterManager;
     }
 
-    /**
-     * @param mixed $filterManager
-     */
-    public function setFilterManager($filterManager)
+    public function setFilterManager(mixed $filterManager)
     {
         $this->filterManager = $filterManager;
     }
@@ -57,10 +54,7 @@ class AnnotationBuilder
         return $this->validatorManager;
     }
 
-    /**
-     * @param mixed $validatorManager
-     */
-    public function setValidatorManager($validatorManager)
+    public function setValidatorManager(mixed $validatorManager)
     {
         $this->validatorManager = $validatorManager;
     }

@@ -20,8 +20,6 @@ class ArrayInput
 
     /**
      * Receive and process the contents of an annotation
-     *
-     * @param  array $data
      */
     public function __construct(array $data)
     {

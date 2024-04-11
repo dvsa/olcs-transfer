@@ -121,7 +121,6 @@ class GoodsVehiclesTest extends TestCase
     }
 
     /**
-     * @param QueryInterface $query
      * @return QueryContainer
      */
     public function newQueryContainer(QueryInterface $query): QueryContainer

@@ -34,7 +34,7 @@ class QueryContainerTest extends MockeryTestCase
         $mockDto->shouldReceive('getArrayCopy')->with()->once()->andReturn(['foo' => 'bar']);
         $this->sut->setDto($mockDto);
 
-        $expected = md5(get_class($mockDto) . '-' . json_encode(['foo' => 'bar']));
+        $expected = md5($mockDto::class . '-' . json_encode(['foo' => 'bar']));
 
         $this->assertSame($expected, $this->sut->getCacheIdentifier());
     }
@@ -45,7 +45,7 @@ class QueryContainerTest extends MockeryTestCase
     public function testGetDtoClassName()
     {
         $dto = m::mock(QueryInterface::class);
-        $className = get_class($dto);
+        $className = $dto::class;
         $this->sut->setDto($dto);
 
         self::assertEquals($className, $this->sut->getDtoClassName());

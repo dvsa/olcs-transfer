@@ -43,11 +43,6 @@ class StructuredInput implements InputInterface, InputFilterInterface
     protected $filterChain;
 
     /**
-     * @var string
-     */
-    protected $name;
-
-    /**
      * @var bool
      */
     protected $notEmptyValidator = false;
@@ -94,9 +89,8 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return void
      */
-    public function __construct($name = null)
+    public function __construct(protected $name = null)
     {
-        $this->name = $name;
     }
 
     /**
@@ -258,7 +252,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
     /**
      * Get name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {

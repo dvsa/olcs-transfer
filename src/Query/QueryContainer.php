@@ -123,7 +123,7 @@ class QueryContainer implements QueryContainerInterface
      */
     public function getCacheIdentifier()
     {
-        $dtoClassName = get_class($this->dto);
+        $dtoClassName = $this->dto::class;
         $jsonData = json_encode($this->dto->getArrayCopy());
 
         return md5($dtoClassName . '-' . $jsonData);
@@ -146,7 +146,7 @@ class QueryContainer implements QueryContainerInterface
      */
     public function getDtoClassName(): string
     {
-        return get_class($this->dto);
+        return $this->dto::class;
     }
 
     public function setRouteName($routeName)

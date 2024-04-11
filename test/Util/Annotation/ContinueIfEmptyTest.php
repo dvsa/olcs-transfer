@@ -21,7 +21,7 @@ class ContinueIfEmptyTest extends \PHPUnit\Framework\TestCase
      * @param  bool $expected
      * @dataProvider valueProvider
      */
-    public function testInstantiationValue($value, $expected)
+    public function testInstantiationValue(mixed $value, $expected)
     {
         $sut = new ContinueIfEmpty(['value' => $value]);
         $this->assertSame($expected, $sut->getContinueIfEmpty());
