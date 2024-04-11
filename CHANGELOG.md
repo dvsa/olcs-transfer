@@ -1,5 +1,16 @@
 # Changelog
 
+## [7.0.0](https://github.com/dvsa/olcs-transfer/compare/v6.8.1...v7.0.0) (2024-04-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* Support PHP 8.0 ([#64](https://github.com/dvsa/olcs-transfer/issues/64))
+
+### Features
+
+* Support PHP 8.0 ([#64](https://github.com/dvsa/olcs-transfer/issues/64)) ([85aac72](https://github.com/dvsa/olcs-transfer/commit/85aac72e591c4f0dde7e55cf5ea4802b6f0915ea))
+
 ## [6.8.1](https://github.com/dvsa/olcs-transfer/compare/v6.8.0...v6.8.1) (2024-04-10)
 
 
