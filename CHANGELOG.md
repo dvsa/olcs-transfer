@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.0.1](https://github.com/dvsa/olcs-transfer/compare/v7.0.0...v7.0.1) (2024-04-17)
+
+
+### Bug Fixes
+
+* removed type on BusRegBrowseContextList query ([#66](https://github.com/dvsa/olcs-transfer/issues/66)) ([eb278f3](https://github.com/dvsa/olcs-transfer/commit/eb278f3017f066d6489437eec976cd91eaf035d6))
+
 ## [7.0.0](https://github.com/dvsa/olcs-transfer/compare/v6.8.1...v7.0.0) (2024-04-11)
 
 
