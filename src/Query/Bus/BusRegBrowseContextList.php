@@ -25,7 +25,7 @@ class BusRegBrowseContextList extends AbstractQuery implements OrderedQueryInter
      *      }
      * )
      */
-    protected string $context;
+    protected $context;
 
     /**
      * Get context
