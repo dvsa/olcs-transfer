@@ -2,7 +2,7 @@
     "name": "olcs/olcs-transfer",
     "description": "OLCS Transfer",
     "require": {
-        "php": "~8.0.0",
+        "php": "^8.0",
         "ext-openssl": "*",
         "laminas/laminas-stdlib": "^3.0",
         "laminas/laminas-filter": "^2.30",
@@ -59,7 +59,7 @@
             "bamarni/composer-bin-plugin": true
         },
         "platform": {
-            "ext-redis": "4.3"
+            "ext-redis": "5.0.2"
         }
     }
 }
