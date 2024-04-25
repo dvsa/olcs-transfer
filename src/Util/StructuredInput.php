@@ -495,7 +495,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return int
      */
-    public function count()
+    public function count(): int
     {
         return count($this->inputs);
     }

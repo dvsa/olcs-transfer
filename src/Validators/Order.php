@@ -17,6 +17,11 @@ class Order extends \Laminas\Validator\AbstractValidator
 
     public function isValid($value)
     {
+        if (!is_string($value)) {
+            $this->error(self::NOT_ASC_OR_DESC);
+            return false;
+        }
+
         $values = explode(',', $value);
         foreach ($values as $order) {
             $order = trim(strtoupper($order));
