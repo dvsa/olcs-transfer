@@ -59,7 +59,7 @@
             "bamarni/composer-bin-plugin": true
         },
         "platform": {
-            "ext-redis": "4.3"
+            "ext-redis": "5.0.2"
         }
     }
 }
