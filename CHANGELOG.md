@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.1](https://github.com/dvsa/olcs-transfer/compare/v7.1.0...v7.1.1) (2024-04-29)
+
+
+### Bug Fixes
+
+* Only show valid fees for licences ([#68](https://github.com/dvsa/olcs-transfer/issues/68)) ([1bfc1b7](https://github.com/dvsa/olcs-transfer/commit/1bfc1b738ee33a9bcb265b9045995651947d737b))
+
 ## [7.1.0](https://github.com/dvsa/olcs-transfer/compare/v7.0.1...v7.1.0) (2024-04-25)
 
 
