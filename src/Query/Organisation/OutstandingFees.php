@@ -29,9 +29,21 @@ class OutstandingFees extends AbstractQuery implements CacheableShortTermQueryIn
 
     /**
      * @return mixed
+     * @Transfer\Filter("Laminas\Filter\Boolean")
+     * @Transfer\Optional
+     */
+    protected $onlySubmitted;
+
+    /**
+     * @return mixed
      */
     public function getHideExpired()
     {
         return $this->hideExpired;
+    }
+
+    public function getOnlySubmitted()
+    {
+        return $this->onlySubmitted;
     }
 }

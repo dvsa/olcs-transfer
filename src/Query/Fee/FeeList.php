@@ -50,6 +50,14 @@ class FeeList extends AbstractQuery implements
     protected $status;
 
     /**
+     * @return mixed
+     * @Transfer\Filter("Laminas\Filter\Boolean")
+     * @Transfer\Optional
+     */
+    protected $onlySubmitted;
+
+
+    /**
      * @Transfer\ArrayInput
      * @Transfer\Optional
      */
@@ -61,6 +69,11 @@ class FeeList extends AbstractQuery implements
     public function getIsMiscellaneous()
     {
         return $this->isMiscellaneous;
+    }
+
+    public function getOnlySubmitted()
+    {
+        return $this->onlySubmitted;
     }
 
     /**
