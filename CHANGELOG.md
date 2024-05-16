@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.1.2](https://github.com/dvsa/olcs-transfer/compare/v7.1.1...v7.1.2) (2024-05-16)
+
+
+### Bug Fixes
+
+* fix PHP 8.2 deprecation ([7f6bb32](https://github.com/dvsa/olcs-transfer/commit/7f6bb3288ff43640fbd373ed391db08947789c9f))
+
 ## [7.1.1](https://github.com/dvsa/olcs-transfer/compare/v7.1.0...v7.1.1) (2024-04-29)
 
 
