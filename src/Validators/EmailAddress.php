@@ -300,7 +300,7 @@ class EmailAddress extends AbstractValidator
     public function isValid($value)
     {
         // Check length
-        if (strlen($value) > self::EMAIL_ADDRESS_MAX_LENGTH) {
+        if ($value === null || strlen($value) > self::EMAIL_ADDRESS_MAX_LENGTH) {
             $this->error(self::ERROR_INVALID);
             return false;
         }
