@@ -63,6 +63,12 @@ final class Overview extends AbstractCommand
     protected $overrideOppositionDate;
 
     /**
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\YesNo")
+     */
+    protected $applicationReferredToPi;
+
+    /**
      * Gets the value of id.
      *
      * @return int
@@ -129,5 +135,13 @@ final class Overview extends AbstractCommand
     public function getOverrideOppositionDate()
     {
         return $this->overrideOppositionDate;
+    }
+
+    /**
+     * @return string Y|N
+     */
+    public function getApplicationReferredToPi()
+    {
+        return $this->applicationReferredToPi;
     }
 }
