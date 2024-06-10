@@ -17,6 +17,8 @@ class OverviewTest extends \PHPUnit\Framework\TestCase
             'leadTcArea' => 'B',
             'receivedDate' => '2015-06-10',
             'targetCompletionDate' => '2016-01-02',
+            'overrideOppositionDate' => 'N',
+            'applicationReferredToPi' => 'N',
             'tracking' => [
                 'id' => 333,
                 'version' => 444,
@@ -31,6 +33,8 @@ class OverviewTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals('B', $command->getLeadTcArea());
         $this->assertEquals('2015-06-10', $command->getReceivedDate());
         $this->assertEquals('2016-01-02', $command->getTargetCompletionDate());
+        $this->assertEquals('N', $command->getOverrideOppositionDate());
+        $this->assertEquals('N', $command->getApplicationReferredToPi());
         $this->assertEquals(
             [
                 'id' => 333,
