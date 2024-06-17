@@ -27,7 +27,6 @@ class CreateUserTest extends TestCase
             'transportManager',
             'localAuthority',
             'partnerContactDetails',
-            'osType'
         ];
     }
 
@@ -62,11 +61,6 @@ class CreateUserTest extends TestCase
                     "local-authority-user"
                 ]
             ],
-            'osType' => [
-                'windows_7',
-                'windows_10',
-                'northern_i'
-            ]
         ];
     }
 
@@ -76,7 +70,6 @@ class CreateUserTest extends TestCase
             'userType' => ["incorrect", ['unexpected' => 'array']],
             'licenceNumber' => ['1', str_repeat('a', 19)],
             'roles' => [["wrong_role"], ['unexpected' => 'array']],
-            'osType' => ["incorrect", ['unexpected' => 'array']]
         ];
     }
 
@@ -85,7 +78,6 @@ class CreateUserTest extends TestCase
     {
         return [
             'loginId' => [['local-authority ', 'local-authority']],
-            'osType' => [['windows_71 ', 'windows_71'],[' windows_10', 'windows_10']],
             'userType' => [['partner ', 'partner']],
             'application' => [[54, '54']],
             'transportManager' => [[7, '7']],

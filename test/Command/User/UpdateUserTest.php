@@ -29,7 +29,6 @@ class UpdateUserTest extends TestCase
             'partnerContactDetails',
             'accountDisabled',
             'resetPassword',
-            'osType'
         ];
     }
 
@@ -68,11 +67,6 @@ class UpdateUserTest extends TestCase
             ],
             'accountDisabled' => ['Y', 'N'],
             'resetPassword' => ['post', 'email'],
-            'osType' => [
-                'windows_7',
-                'windows_10',
-                'northern_i'
-            ]
         ];
     }
 
@@ -86,7 +80,6 @@ class UpdateUserTest extends TestCase
             'roles' => [["wrong_role"], ['unexpected' => 'array']],
             'accountDisabled' => ['string', ['unexpected' => 'array']],
             'resetPassword' => ['string', ['unexpected' => 'array']],
-            'osType' => ["incorrect", ['unexpected' => 'array']]
         ];
     }
 
@@ -97,7 +90,6 @@ class UpdateUserTest extends TestCase
             'id' => [[1, '1']],
             'version' => [[2, '2']],
             'resetPassword' => [['email ', 'email']],
-            'osType' => [['windows_71 ', 'windows_71']],
             'userType' => [['partner ', 'partner']],
             'application' => [[54, '54']],
             'transportManager' => [[7, '7']],
