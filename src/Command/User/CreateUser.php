@@ -103,19 +103,6 @@ final class CreateUser extends AbstractCommand
     protected $roles = [];
 
     /**
-     * @Transfer\Filter("Laminas\Filter\StringTrim")
-     * @Transfer\Validator("Laminas\Validator\InArray",
-     *     options={
-     *          "haystack": {
-     *              "windows_7", "windows_10", "northern_i"
-     *          }
-     *     }
-     * )
-     * @Transfer\Optional
-     */
-    protected $osType = null;
-
-    /**
      * @Transfer\Partial("Dvsa\Olcs\Transfer\Command\Partial\ContactDetails")
      */
     protected $contactDetails;
@@ -168,21 +155,5 @@ final class CreateUser extends AbstractCommand
     public function getLoginId()
     {
         return $this->loginId;
-    }
-
-    /**
-     * @return string
-     */
-    public function getOsType(): ?string
-    {
-        return $this->osType;
-    }
-
-    /**
-     * @param string $osType
-     */
-    public function setOsType(?string $osType): void
-    {
-        $this->osType = $osType;
     }
 }
