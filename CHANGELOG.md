@@ -1,5 +1,14 @@
 # Changelog
 
+## [7.2.0](https://github.com/dvsa/olcs-transfer/compare/v7.1.2...v7.2.0) (2024-06-18)
+
+
+### Features
+
+* add new application referred to pi field on overview CMD ([#76](https://github.com/dvsa/olcs-transfer/issues/76)) ([a518ef1](https://github.com/dvsa/olcs-transfer/commit/a518ef172b82e690a39b0c6b3f188d43be149748))
+* VOL-4529 remove historic tm code ([#77](https://github.com/dvsa/olcs-transfer/issues/77)) ([069524c](https://github.com/dvsa/olcs-transfer/commit/069524c3de4f841bf70b8c9a340678df36fb4fe9))
+* VOL-4635 remove docman support ([#78](https://github.com/dvsa/olcs-transfer/issues/78)) ([3551e70](https://github.com/dvsa/olcs-transfer/commit/3551e70151c305d58cf3fae64923566e91f13f2c))
+
 ## [7.1.2](https://github.com/dvsa/olcs-transfer/compare/v7.1.1...v7.1.2) (2024-05-16)
 
 
