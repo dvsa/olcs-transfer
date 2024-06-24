@@ -9,6 +9,7 @@ namespace Dvsa\Olcs\Transfer\Command\LocalAuthority;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Description;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 
 /**
  * @Transfer\RouteName("backend/local-authority/single")
