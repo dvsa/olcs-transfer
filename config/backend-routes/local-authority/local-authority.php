@@ -14,6 +14,12 @@ return [
         ],
         'may_terminate' => false,
         'child_routes' => [
+            'single' => RouteConfig::getSingleConfig(
+                [
+                    'GET' => QueryConfig::getConfig(Query\LocalAuthority\ById::class),
+                    'PUT' => CommandConfig::getPutConfig(Command\LocalAuthority\Update::class),
+                ]
+            ),
             'GET' => QueryConfig::getConfig(Query\LocalAuthority\LocalAuthorityList::class),
         ]
     ]
