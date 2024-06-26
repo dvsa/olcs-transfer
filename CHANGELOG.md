@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.3.0](https://github.com/dvsa/olcs-transfer/compare/v7.2.0...v7.3.0) (2024-06-26)
+
+
+### Features
+
+* Lta Admin function vol 5532 ([#80](https://github.com/dvsa/olcs-transfer/issues/80)) ([eed1084](https://github.com/dvsa/olcs-transfer/commit/eed108496ca387908c1d1fcc2354c45ae051d665))
+
 ## [7.2.0](https://github.com/dvsa/olcs-transfer/compare/v7.1.2...v7.2.0) (2024-06-18)
 
 
