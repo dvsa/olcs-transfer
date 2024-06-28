@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.4.0](https://github.com/dvsa/olcs-transfer/compare/v7.3.0...v7.4.0) (2024-06-28)
+
+
+### Features
+
+* Change email column to use existing one on local_authority table. ([#82](https://github.com/dvsa/olcs-transfer/issues/82)) ([17afda9](https://github.com/dvsa/olcs-transfer/commit/17afda9da57e133397832de8c6475ec826ff2c47))
+
 ## [7.3.0](https://github.com/dvsa/olcs-transfer/compare/v7.2.0...v7.3.0) (2024-06-26)
 
 
