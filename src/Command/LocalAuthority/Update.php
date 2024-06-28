@@ -25,13 +25,13 @@ final class Update extends AbstractCommand
      * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\EmailAddress")
      * @Transfer\Optional
      */
-    public $notificationEmail;
+    public $emailAddress;
 
     /**
      * @return mixed
      */
-    public function getNotificationEmail()
+    public function getEmailAddress()
     {
-        return $this->notificationEmail;
+        return $this->emailAddress;
     }
 }
