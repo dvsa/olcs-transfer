@@ -23,24 +23,10 @@ class RequestMap extends AbstractCommand
     protected $scale;
 
     /**
-     * @Transfer\Filter("Laminas\Filter\Boolean")
-     * @Transfer\Optional
-     */
-    protected $fromNewEbsr;
-
-    /**
      * @return string
      */
     public function getScale()
     {
         return $this->scale;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getFromNewEbsr()
-    {
-        return $this->fromNewEbsr;
     }
 }
