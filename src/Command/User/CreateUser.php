@@ -89,6 +89,7 @@ final class CreateUser extends AbstractCommand
      *             "internal-case-worker",
      *             "internal-admin",
      *             "internal-irhp-admin",
+     *             "operator-tc",
      *             "operator-admin",
      *             "operator-user",
      *             "operator-tm",
