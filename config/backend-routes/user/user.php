@@ -82,6 +82,12 @@ return [
                         'register',
                         [
                             'POST' => CommandConfig::getPostConfig(Command\User\RegisterUserSelfserve::class),
+                            'register-consultant-operator' => RouteConfig::getRouteConfig(
+                                'register-consultant-operator',
+                                [
+                                    'POST' => CommandConfig::getPostConfig(Command\User\RegisterConsultantAndOperator::class),
+                                ]
+                            ),
                         ]
                     ),
                     'remind-username' => RouteConfig::getRouteConfig(
