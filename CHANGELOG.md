@@ -1,5 +1,13 @@
 # Changelog
 
+## [7.5.0](https://github.com/dvsa/olcs-transfer/compare/v7.4.0...v7.5.0) (2024-08-23)
+
+
+### Features
+
+* add consultant create account journey implementation ([#89](https://github.com/dvsa/olcs-transfer/issues/89)) ([e3904dd](https://github.com/dvsa/olcs-transfer/commit/e3904ddbf76a44ecfd5f8c172290f608ef8e5ac8))
+* VOL-5305 add the new operator-tc user to validation for user creation ([#86](https://github.com/dvsa/olcs-transfer/issues/86)) ([27a0b12](https://github.com/dvsa/olcs-transfer/commit/27a0b12a399e179530ab74c7648d4ab2693f1a0b))
+
 ## [7.4.0](https://github.com/dvsa/olcs-transfer/compare/v7.3.0...v7.4.0) (2024-06-28)
 
 
