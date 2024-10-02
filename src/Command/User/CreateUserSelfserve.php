@@ -31,7 +31,7 @@ final class CreateUserSelfserve extends AbstractCommand
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")
-     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"admin", "user"}})
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"admin", "user", "operator-tc"}})
      */
     protected $permission;
 
