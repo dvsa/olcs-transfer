@@ -107,6 +107,12 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\User\CreateUserSelfserve::class),
                 ]
             ],
+            'operator-admin-for-organisation-has-logged-in' => RouteConfig::getRouteConfig(
+                'operator-admin-for-organisation-has-logged-in',
+                [
+                    'GET' => QueryConfig::getConfig(Query\User\OperatorAdminForOrganisationHasLoggedIn::class),
+                ]
+            ),
             'pid' => RouteConfig::getRouteConfig(
                 'pid',
                 [

@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.6.0](https://github.com/dvsa/olcs-transfer/compare/v7.5.0...v7.6.0) (2024-10-02)
+
+
+### Features
+
+* new query - operator admin for org has logged in ([#92](https://github.com/dvsa/olcs-transfer/issues/92)) ([929f6bc](https://github.com/dvsa/olcs-transfer/commit/929f6bcbf327b90c6673eb9d7579c044c9bc0094))
+
 ## [7.5.0](https://github.com/dvsa/olcs-transfer/compare/v7.4.0...v7.5.0) (2024-08-23)
 
 
