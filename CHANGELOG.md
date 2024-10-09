@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.7.0](https://github.com/dvsa/olcs-transfer/compare/v7.6.0...v7.7.0) (2024-10-09)
+
+
+### Features
+
+* adding `operator-tc` to haystack ([#91](https://github.com/dvsa/olcs-transfer/issues/91)) ([6928f78](https://github.com/dvsa/olcs-transfer/commit/6928f78efb9ee6dfd9ac53c39ac1bc8fd6d29388))
+
 ## [7.6.0](https://github.com/dvsa/olcs-transfer/compare/v7.5.0...v7.6.0) (2024-10-02)
 
 
