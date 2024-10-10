@@ -39,7 +39,7 @@ final class UpdateUserSelfserve extends AbstractCommand
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")
-     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"admin", "user", "tm", "operator-tc"}})
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"admin", "user", "tm", "tc"}})
      */
     protected $permission;
 
