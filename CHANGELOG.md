@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.7.1](https://github.com/dvsa/olcs-transfer/compare/v7.7.0...v7.7.1) (2024-10-11)
+
+
+### Bug Fixes
+
+* change value to `tc` to reflect role ([#95](https://github.com/dvsa/olcs-transfer/issues/95)) ([502cd7b](https://github.com/dvsa/olcs-transfer/commit/502cd7bf1ed4e72fabdb4b2d021261870b165d09))
+
 ## [7.7.0](https://github.com/dvsa/olcs-transfer/compare/v7.6.0...v7.7.0) (2024-10-09)
 
 
