@@ -9,7 +9,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
 /**
  * @Transfer\RouteName("backend/user/selfserve/agree-terms")
- * @Transfer\Method("PUT")
+ * @Transfer\Method("POST")
  */
 final class AgreeTerms extends AbstractCommand
 {
