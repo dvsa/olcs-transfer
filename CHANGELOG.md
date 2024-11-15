@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.8.0](https://github.com/dvsa/olcs-transfer/compare/v7.7.1...v7.8.0) (2024-11-15)
+
+
+### Features
+
+* VOL-5664 selfserve accounts require t&c signup on first login ([#97](https://github.com/dvsa/olcs-transfer/issues/97)) ([f64e916](https://github.com/dvsa/olcs-transfer/commit/f64e91685339867d2f75ce9a45f88e2bab806d53))
+
 ## [7.7.1](https://github.com/dvsa/olcs-transfer/compare/v7.7.0...v7.7.1) (2024-10-11)
 
 
