@@ -96,6 +96,12 @@ return [
                             'POST' => CommandConfig::getPostConfig(Command\User\RemindUsernameSelfserve::class),
                         ]
                     ),
+                    'agree-terms' => RouteConfig::getRouteConfig(
+                        'agree-terms',
+                        [
+                            'POST' => CommandConfig::getPostConfig(Command\User\AgreeTerms::class),
+                        ]
+                    ),
                     'single' => RouteConfig::getSingleConfig(
                         [
                             'GET' => QueryConfig::getConfig(Query\User\UserSelfserve::class),

@@ -52,6 +52,12 @@ final class RegisterUserSelfserve extends AbstractCommand
      */
     protected $businessType;
 
+    /**
+     * @Transfer\Filter("Laminas\Filter\Boolean")
+     * @Transfer\Optional
+     */
+    protected $createdByConsultant = false;
+
     public function getLoginId()
     {
         return $this->loginId;
@@ -75,5 +81,10 @@ final class RegisterUserSelfserve extends AbstractCommand
     public function getBusinessType()
     {
         return $this->businessType;
+    }
+
+    public function getCreatedByConsultant()
+    {
+        return $this->createdByConsultant;
     }
 }
