@@ -768,6 +768,16 @@ $routes = [
                 ],
                 'may_terminate' => false,
                 'child_routes' => [
+                    'exists-with-operator-admin' => [
+                        'type' => 'Segment',
+                        'options' => [
+                            'route' => 'exists-with-operator-admin/:licNo[/]',
+                        ],
+                        'may_terminate' => false,
+                        'child_routes' => [
+                            'GET' => QueryConfig::getConfig(Query\Licence\ExistsWithOperatorAdmin::class),
+                        ]
+                    ],
                     'by-number' => [
                         'type' => 'Segment',
                         'options' => [
