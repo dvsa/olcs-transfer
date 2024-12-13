@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.9.0](https://github.com/dvsa/olcs-transfer/compare/v7.8.0...v7.9.0) (2024-12-13)
+
+
+### Features
+
+* add check for licence with valid operator admin VOL-5955 ([#99](https://github.com/dvsa/olcs-transfer/issues/99)) ([ff39035](https://github.com/dvsa/olcs-transfer/commit/ff390354ec99d2bdf4e32e8606ce22bd74af0718))
+
 ## [7.8.0](https://github.com/dvsa/olcs-transfer/compare/v7.7.1...v7.8.0) (2024-11-15)
 
 
