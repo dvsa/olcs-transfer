@@ -32,16 +32,17 @@ class Xml extends AbstractValidator
      */
     protected $securityValidator;
 
-    public function setSecurityValidator(XmlSecurityValidator $securityValidator)
+    public function setSecurityValidator(XmlSecurityValidator $securityValidator): void
     {
         $this->securityValidator = $securityValidator;
     }
 
-    /**
-     * @return XmlSecurityValidator
-     */
-    public function getSecurityValidator()
+    public function getSecurityValidator(): XmlSecurityValidator
     {
+        if ($this->securityValidator === null) {
+            $this->securityValidator = new XmlSecurityValidator();
+        }
+
         return $this->securityValidator;
     }
 
@@ -55,7 +56,7 @@ class Xml extends AbstractValidator
     public function isValid($value)
     {
         try {
-            $validator = $this->securityValidator;
+            $validator = $this->getSecurityValidator();
             $valid = $validator::scan($value, new \DOMDocument('1.0'));
         } catch (RuntimeException) {
             $this->error(self::XML_CONTAINS_EXTERNAL_ENTITIES);
