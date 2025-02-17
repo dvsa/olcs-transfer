@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.9.1](https://github.com/dvsa/olcs-transfer/compare/v7.9.0...v7.9.1) (2025-02-17)
+
+
+### Bug Fixes
+
+* temporary workaround for problem of transfer validators not instantiating correctly from factories VOL-5975 ([#102](https://github.com/dvsa/olcs-transfer/issues/102)) ([e7f9522](https://github.com/dvsa/olcs-transfer/commit/e7f9522bf7a6fd36203dd759ac0ed7ca8965e537))
+
 ## [7.9.0](https://github.com/dvsa/olcs-transfer/compare/v7.8.0...v7.9.0) (2024-12-13)
 
 
