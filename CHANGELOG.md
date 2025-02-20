@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.10.0](https://github.com/dvsa/olcs-transfer/compare/v7.9.1...v7.10.0) (2025-02-20)
+
+
+### Features
+
+* created new trait and updated command ([#104](https://github.com/dvsa/olcs-transfer/issues/104)) ([abbf9f8](https://github.com/dvsa/olcs-transfer/commit/abbf9f89257619e0a4ca12e57aea00dd40e2e3b5))
+
 ## [7.9.1](https://github.com/dvsa/olcs-transfer/compare/v7.9.0...v7.9.1) (2025-02-17)
 
 
