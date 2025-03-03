@@ -15,13 +15,13 @@ trait SiPenaltyErruRequested
      * @Transfer\Filter("Laminas\Filter\Digits")
      * @Transfer\Validator("Laminas\Validator\Digits")
      */
-    protected $siPenaltyRequestedIdentifier;
+    protected $erruPenaltyRequested;
 
     /**
      * @return int
      */
-    public function getSipenaltyRequestedIdentifier()
+    public function getErruPenaltyRequested()
     {
-        return $this->siPenaltyRequestedIdentifier;
+        return $this->erruPenaltyRequested;
     }
 }
