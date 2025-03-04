@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.10.1](https://github.com/dvsa/olcs-transfer/compare/v7.10.0...v7.10.1) (2025-03-04)
+
+
+### Miscellaneous Chores
+
+* release 7.10.1 ([#108](https://github.com/dvsa/olcs-transfer/issues/108)) ([9c8c6d5](https://github.com/dvsa/olcs-transfer/commit/9c8c6d55912b783df21a8a9fbf7826ff4ed9700b))
+
 ## [7.10.0](https://github.com/dvsa/olcs-transfer/compare/v7.9.1...v7.10.0) (2025-02-20)
 
 
