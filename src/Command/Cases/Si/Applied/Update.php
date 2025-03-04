@@ -12,6 +12,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits as FieldType;
  */
 class Update extends AbstractCommand
 {
+    use FieldType\SiPenaltyErruRequested;
     use FieldType\Identity;
     use FieldType\SiPenaltyType;
     use FieldType\StartDateOptional;
