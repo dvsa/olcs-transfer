@@ -18,4 +18,23 @@ class All extends AbstractQuery implements
     PublicQueryCacheInterface
 {
     use OrderedTrait;
+
+    /**
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     */
+    protected int $isActive;
+
+    public function setIsActive($isActive): void
+    {
+        $this->isActive = $isActive;
+    }
+
+    /**
+     * Get the is active
+     */
+    public function getIsActive(): int
+    {
+        return $this->isActive;
+    }
 }
