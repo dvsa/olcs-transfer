@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.11.0](https://github.com/dvsa/olcs-transfer/compare/v7.10.1...v7.11.0) (2025-03-11)
+
+
+### Features
+
+* add application complete date for bus reg records VOL-6054 ([#110](https://github.com/dvsa/olcs-transfer/issues/110)) ([d7ccc1e](https://github.com/dvsa/olcs-transfer/commit/d7ccc1efc56eb59982772504dbf1785c09ad7999))
+
 ## [7.10.1](https://github.com/dvsa/olcs-transfer/compare/v7.10.0...v7.10.1) (2025-03-04)
 
 
