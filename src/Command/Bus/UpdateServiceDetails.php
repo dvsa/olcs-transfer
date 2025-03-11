@@ -92,6 +92,13 @@ final class UpdateServiceDetails extends AbstractCommand
     public $endDate;
 
     /**
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Date", options={"format": "Y-m-d"})
+     * @Transfer\Optional
+     */
+    public ?string $applicationCompleteDate = null;
+
+    /**
      * @Transfer\Filter("Laminas\Filter\Digits")
      * @Transfer\Validator("Laminas\Validator\Digits")
      * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
@@ -196,6 +203,11 @@ final class UpdateServiceDetails extends AbstractCommand
     public function getEndDate()
     {
         return $this->endDate;
+    }
+
+    public function getApplicationCompleteDate(): ?string
+    {
+        return $this->applicationCompleteDate;
     }
 
     /**
