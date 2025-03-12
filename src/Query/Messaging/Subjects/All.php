@@ -23,18 +23,18 @@ class All extends AbstractQuery implements
      * @Transfer\Filter("Laminas\Filter\Digits")
      * @Transfer\Validator("Laminas\Validator\Digits")
      */
-    protected int $isActive;
+    protected int $onlyActive;
 
-    public function setIsActive($isActive): void
+    public function setOnlyActive($onlyActive): void
     {
-        $this->isActive = $isActive;
+        $this->onlyActive = $onlyActive;
     }
 
     /**
      * Get the is active
      */
-    public function getIsActive(): int
+    public function getOnlyActive(): int
     {
-        return $this->isActive;
+        return $this->onlyActive;
     }
 }
