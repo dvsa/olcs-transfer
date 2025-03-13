@@ -20,8 +20,11 @@ class All extends AbstractQuery implements
     use OrderedTrait;
 
     /**
-     * @Transfer\Filter("Laminas\Filter\Digits")
-     * @Transfer\Validator("Laminas\Validator\Digits")
+     * @Transfer\Validator("Laminas\Validator\InArray",
+     *     options={
+     *     "haystack": {true, false}
+     *     }
+     *  )
      */
     protected int $onlyActive;
 
