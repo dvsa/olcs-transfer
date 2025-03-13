@@ -20,23 +20,22 @@ class All extends AbstractQuery implements
     use OrderedTrait;
 
     /**
-     * @Transfer\Validator("Laminas\Validator\InArray",
-     *     options={
-     *     "haystack": {true, false}
-     *     }
-     *  )
+     * @Transfer\Validator("Laminas\Filter\Boolean")
      */
-    protected int $onlyActive;
+    protected bool $onlyActive = false;
 
+    /**
+     * Set the only active
+     */
     public function setOnlyActive($onlyActive): void
     {
         $this->onlyActive = $onlyActive;
     }
 
     /**
-     * Get the is active
+     * Get the only active
      */
-    public function getOnlyActive(): int
+    public function getOnlyActive(): bool
     {
         return $this->onlyActive;
     }
