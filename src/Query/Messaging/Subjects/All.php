@@ -20,9 +20,9 @@ class All extends AbstractQuery implements
     use OrderedTrait;
 
     /**
-     * @Transfer\Validator("Laminas\Filter\Boolean")
+     * @Transfer\Filter("Laminas\Filter\Boolean")
      */
-    protected bool $onlyActive = false;
+    public bool $onlyActive = false;
 
     /**
      * Set the only active
