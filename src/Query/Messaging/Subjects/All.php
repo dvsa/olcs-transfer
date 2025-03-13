@@ -18,4 +18,25 @@ class All extends AbstractQuery implements
     PublicQueryCacheInterface
 {
     use OrderedTrait;
+
+    /**
+     * @Transfer\Filter("Laminas\Filter\Boolean")
+     */
+    public bool $onlyActive = false;
+
+    /**
+     * Set the only active
+     */
+    public function setOnlyActive($onlyActive): void
+    {
+        $this->onlyActive = $onlyActive;
+    }
+
+    /**
+     * Get the only active
+     */
+    public function getOnlyActive(): bool
+    {
+        return $this->onlyActive;
+    }
 }
