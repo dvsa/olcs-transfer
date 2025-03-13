@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.12.0](https://github.com/dvsa/olcs-transfer/compare/v7.11.0...v7.12.0) (2025-03-13)
+
+
+### Features
+
+* filter messaging subjects by active categories VOL-6069 ([#112](https://github.com/dvsa/olcs-transfer/issues/112)) ([a990c70](https://github.com/dvsa/olcs-transfer/commit/a990c7033a735bec8c5e731be132ce97ad5a3a71))
+
 ## [7.11.0](https://github.com/dvsa/olcs-transfer/compare/v7.10.1...v7.11.0) (2025-03-11)
 
 
