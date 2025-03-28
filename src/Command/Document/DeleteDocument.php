@@ -19,4 +19,18 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 final class DeleteDocument extends AbstractCommand
 {
     use Identity;
+
+    /**
+     * @Transfer\Filter("Laminas\Filter\Boolean")
+     * @Transfer\Optional
+     */
+    protected $unlinkLicence = false;
+
+    /**
+     * @return mixed
+     */
+    public function getUnlinkLicence()
+    {
+        return $this->unlinkLicence;
+    }
 }
