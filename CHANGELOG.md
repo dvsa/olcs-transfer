@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.12.1](https://github.com/dvsa/olcs-transfer/compare/v7.12.0...v7.12.1) (2025-03-28)
+
+
+### Bug Fixes
+
+* new property to allow licence unlinking for some document delete calls ([#114](https://github.com/dvsa/olcs-transfer/issues/114)) ([e54bf79](https://github.com/dvsa/olcs-transfer/commit/e54bf795c945f16f3037b9b145b3edfa1de3cf6b))
+
 ## [7.12.0](https://github.com/dvsa/olcs-transfer/compare/v7.11.0...v7.12.0) (2025-03-13)
 
 
