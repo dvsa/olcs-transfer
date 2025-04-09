@@ -10,7 +10,7 @@
         "laminas/laminas-servicemanager": "^3.3",
         "laminas/laminas-inputfilter": "^2.21",
         "laminas/laminas-form": "^3.1.1",
-        "laminas/laminas-crypt": "^3.4.0",
+        "laminas/laminas-crypt": "4",
         "laminas/laminas-xml": "^1.4.0",
         "laminas/laminas-cache": "^3.6",
         "laminas/laminas-cache-storage-adapter-redis": "^2.4",
