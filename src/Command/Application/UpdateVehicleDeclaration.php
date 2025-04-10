@@ -8,6 +8,8 @@
 
 namespace Dvsa\Olcs\Transfer\Command\Application;
 
+use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
+use Dvsa\Olcs\Transfer\FieldType\Traits\Version;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 
@@ -17,28 +19,8 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class UpdateVehicleDeclaration extends AbstractCommand
 {
-    /**
-     * @Transfer\Filter("Laminas\Filter\Digits")
-     * @Transfer\Validator("Laminas\Validator\Digits")
-     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
-     */
-    protected $id;
-
-    /**
-     * @Transfer\Filter("Laminas\Filter\Digits")
-     * @Transfer\Validator("Laminas\Validator\Digits")
-     * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
-     */
-    protected $version;
-
-    // Small vehicles
-
-    /**
-     * @Transfer\Filter("Laminas\Filter\StringTrim")
-     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"psvvs_small", "psvvs_medium_large", "psvvs_both"}})
-     * @Transfer\Optional
-     */
-    protected $psvVehicleSize;
+    use Identity;
+    use Version;
 
     /**
      * @Transfer\Filter("Laminas\Filter\StringTrim")
@@ -111,11 +93,6 @@ final class UpdateVehicleDeclaration extends AbstractCommand
     public function getVersion()
     {
         return $this->version;
-    }
-
-    public function getPsvVehicleSize()
-    {
-        return $this->psvVehicleSize;
     }
 
     public function getPsvNoSmallVhlConfirmation()
