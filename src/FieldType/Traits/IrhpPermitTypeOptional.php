@@ -10,7 +10,6 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait IrhpPermitTypeOptional
 {
     /**
-     * @var int
      * @Transfer\Optional
      * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Validator("Laminas\Validator\Between",
@@ -20,12 +19,9 @@ trait IrhpPermitTypeOptional
      *      }
      * )
      */
-    protected $irhpPermitType;
+    protected ?int $irhpPermitType;
 
-    /**
-     * @return int
-     */
-    public function getIrhpPermitType()
+    public function getIrhpPermitType(): ?int
     {
         return $this->irhpPermitType;
     }

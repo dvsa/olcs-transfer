@@ -13,12 +13,9 @@ trait ValidOnlyOptional
      * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
      */
-    protected $validOnly;
+    protected ?bool $validOnly;
 
-    /**
-     * @return bool
-     */
-    public function getValidOnly()
+    public function getValidOnly(): ?bool
     {
         return $this->validOnly;
     }

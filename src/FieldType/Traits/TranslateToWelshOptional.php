@@ -12,12 +12,9 @@ trait TranslateToWelshOptional
      * @Transfer\Validator("Dvsa\Olcs\Transfer\Validators\YesNo")
      * @Transfer\Optional
      */
-    protected $translateToWelsh;
+    protected ?int $translateToWelsh;
 
-    /**
-     * @return string
-     */
-    public function getTranslateToWelsh()
+    public function getTranslateToWelsh(): ?int
     {
         return $this->translateToWelsh;
     }

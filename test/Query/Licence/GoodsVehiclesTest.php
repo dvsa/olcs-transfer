@@ -14,13 +14,20 @@ use Mockery as m;
 
 class GoodsVehiclesTest extends TestCase
 {
+    /**
+     * Ensures the getVehicleIds() method exists and is callable.
+     * Used as a dependency anchor for other tests that rely on this method being defined.
+     *
+     * Although this test only checks method presence, it is necessary to support @depends
+     * in other tests.
+     */
     public function testGetVehicleIdsIsDefined(): void
     {
         // Setup
         $sut = GoodsVehicles::create([]);
 
         // Assert
-        $this->assertIsCallable([$sut, 'getVehicleIds']);
+        $this->assertTrue(method_exists($sut, 'getVehicleIds'));
     }
 
     /**

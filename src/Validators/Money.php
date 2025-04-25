@@ -74,13 +74,8 @@ class Money extends AbstractValidator
 
     /**
      * Set validator options
-     *
-     * @param mixed $options Options to set
-     *
-     * @phpstan-ignore-next-line
-     * @return void
      */
-    public function setOptions($options = [])
+    public function setOptions(mixed $options = []): static
     {
         if (isset($options['allow_negative']) && $options['allow_negative'] == true) {
             $this->allowNegative = true;

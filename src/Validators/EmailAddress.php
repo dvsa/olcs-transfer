@@ -141,7 +141,7 @@ class EmailAddress extends AbstractValidator
              *
              * Docblock types as array, but handles non-array values.
              * */
-            $this->options['hostnameValidator'] = new Hostname($this->getAllow());
+            $this->options['hostnameValidator'] = new Hostname([$this->getAllow()]);
         }
 
         return $this->options['hostnameValidator'];
@@ -160,10 +160,8 @@ class EmailAddress extends AbstractValidator
 
     /**
      * Returns the allow option of the attached hostname validator
-     *
-     * @return int
      */
-    public function getAllow()
+    public function getAllow(): int
     {
         return $this->options['allow'];
     }

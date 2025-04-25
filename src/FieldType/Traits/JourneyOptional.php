@@ -8,17 +8,13 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait JourneyOptional
 {
     /**
-     * @var String
      * @Transfer\Optional
      * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Validator("Laminas\Validator\InArray",options={"haystack":{"journey_single", "journey_multiple"}})
      */
-    protected $journey;
+    protected ?string $journey;
 
-    /**
-     * @return string
-     */
-    public function getJourney()
+    public function getJourney(): ?string
     {
         return $this->journey;
     }
