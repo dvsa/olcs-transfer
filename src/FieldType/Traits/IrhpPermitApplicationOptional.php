@@ -11,17 +11,16 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait IrhpPermitApplicationOptional
 {
     /**
-     * @var int
      * @Transfer\Optional
      * @Transfer\Validator("Laminas\Validator\Digits")
      * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
-    protected $irhpPermitApplication;
+    protected ?int $irhpPermitApplication;
 
     /**
      * @return int|null
      */
-    public function getIrhpPermitApplication()
+    public function getIrhpPermitApplication(): ?int
     {
         return $this->irhpPermitApplication;
     }

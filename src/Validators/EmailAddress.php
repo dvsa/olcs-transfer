@@ -136,11 +136,6 @@ class EmailAddress extends AbstractValidator
     public function getHostnameValidator()
     {
         if (!isset($this->options['hostnameValidator'])) {
-            /** @phpstan-ignore-next-line
-             * @psalm-suppress InvalidArgument
-             *
-             * Docblock types as array, but handles non-array values.
-             * */
             $this->options['hostnameValidator'] = new Hostname([$this->getAllow()]);
         }
 

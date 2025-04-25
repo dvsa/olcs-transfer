@@ -10,17 +10,13 @@ namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 trait IrhpPermitRangeTypeOptional
 {
     /**
-     * @var string
      * @Transfer\Optional
      * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"standard.single", "standard.multiple", "cabotage.single", "cabotage.multiple"}})
      */
-    protected $irhpPermitRangeType;
+    protected ?string $irhpPermitRangeType = null;
 
-    /**
-     * @return string
-     */
-    public function getIrhpPermitRangeType()
+    public function getIrhpPermitRangeType(): string
     {
         return $this->irhpPermitRangeType;
     }

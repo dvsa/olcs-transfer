@@ -15,7 +15,7 @@ trait DtoWithoutFieldTransformationsTest
     public function testFieldTransformations()
     {
         // the test as defined by DtoTest is only relevant to Dto with filtered fields
-        Assert::assertTrue(true);
+        $this->markTestSkipped('Not applicable to DTOs without optional fields');
     }
 
     /**

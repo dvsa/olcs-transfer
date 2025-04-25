@@ -75,7 +75,7 @@ class Money extends AbstractValidator
     /**
      * Set validator options
      */
-    public function setOptions(mixed $options = []): static
+    public function setOptions(mixed $options = [])
     {
         if (isset($options['allow_negative']) && $options['allow_negative'] == true) {
             $this->allowNegative = true;

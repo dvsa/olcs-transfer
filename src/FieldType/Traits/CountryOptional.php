@@ -14,12 +14,9 @@ trait CountryOptional
      *
      * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":0,"max":2})
      */
-    public $country;
+    public mixed $country;
 
-    /**
-     * @return mixed
-     */
-    public function getCountry()
+    public function getCountry(): mixed
     {
         return $this->country;
     }
