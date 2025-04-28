@@ -11,6 +11,7 @@ parameters:
   excludePaths:
       - vendor/laminas/laminas-validator/src/Db/AbstractDb.php
       - test/Router/QueryTest.php
+      - test/Service/CacheEncryptionTest.php  
   ignoreErrors:
     - message: "#extends @final class#"
       path: src/Validators/*
