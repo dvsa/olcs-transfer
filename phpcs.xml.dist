@@ -7,4 +7,3 @@
 
   <rule ref="./vendor-bin/phpcs/vendor/dvsa/coding-standards/src/Profiles/DVSA/CS/ruleset.xml" />
 </ruleset>
-Dvsa\OlcsTest\Transfer\Query\IrhpPermit\UniqueCountriesByLicenceTest
