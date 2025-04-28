@@ -12,7 +12,7 @@ trait JourneyOptional
      * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Validator("Laminas\Validator\InArray",options={"haystack":{"journey_single", "journey_multiple"}})
      */
-    protected ?string $journey;
+    protected ?string $journey = null;
 
     public function getJourney(): ?string
     {

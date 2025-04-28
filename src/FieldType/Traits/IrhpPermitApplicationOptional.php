@@ -15,7 +15,7 @@ trait IrhpPermitApplicationOptional
      * @Transfer\Validator("Laminas\Validator\Digits")
      * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
-    protected ?int $irhpPermitApplication;
+    protected ?int $irhpPermitApplication = null;
 
     /**
      * @return int|null

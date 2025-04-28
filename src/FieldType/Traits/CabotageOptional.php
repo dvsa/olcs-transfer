@@ -13,7 +13,7 @@ trait CabotageOptional
      * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0, "inclusive": true})
      * @Transfer\Optional
      */
-    protected ?int $cabotage;
+    protected ?int $cabotage = null;
 
     public function getCabotage(): ?int
     {

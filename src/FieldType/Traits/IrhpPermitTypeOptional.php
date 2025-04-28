@@ -19,7 +19,7 @@ trait IrhpPermitTypeOptional
      *      }
      * )
      */
-    protected ?int $irhpPermitType;
+    protected ?int $irhpPermitType = null;
 
     public function getIrhpPermitType(): ?int
     {

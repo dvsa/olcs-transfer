@@ -16,7 +16,7 @@ trait IrhpPermitRangeTypeOptional
      */
     protected ?string $irhpPermitRangeType = null;
 
-    public function getIrhpPermitRangeType(): string
+    public function getIrhpPermitRangeType(): ?string
     {
         return $this->irhpPermitRangeType;
     }
