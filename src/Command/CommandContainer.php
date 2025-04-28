@@ -34,46 +34,55 @@ class CommandContainer implements CommandContainerInterface
      */
     protected $dto;
 
+    #[\Override]
     public function setInputFilter(InputFilterInterface $inputFilter)
     {
         $this->inputFilter = $inputFilter;
     }
 
+    #[\Override]
     public function getInputFilter()
     {
         return $this->inputFilter;
     }
 
+    #[\Override]
     public function setDto(CommandInterface $dto)
     {
         $this->dto = $dto;
     }
 
+    #[\Override]
     public function getDto()
     {
         return $this->dto;
     }
 
+    #[\Override]
     public function setRouteName($routeName)
     {
         $this->routeName = $routeName;
     }
 
+    #[\Override]
     public function getRouteName()
     {
         return $this->routeName;
     }
 
+    #[\Override]
     public function setMethod($method)
     {
         $this->method = $method;
     }
 
+    #[\Override]
     public function getMethod()
     {
         return $this->method;
     }
 
+    #[\Override]
     public function isValid()
     {
         $this->hasValidated = true;
@@ -85,6 +94,7 @@ class CommandContainer implements CommandContainerInterface
         return $this->inputFilter->isValid();
     }
 
+    #[\Override]
     public function getMessages()
     {
         if ($this->hasValidated === false) {

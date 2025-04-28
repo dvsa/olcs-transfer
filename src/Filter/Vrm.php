@@ -42,6 +42,7 @@ class Vrm extends AbstractFilter
      * @param  mixed $value
      * @return string
      */
+    #[\Override]
     public function filter($value)
     {
         // Strip all whitespace

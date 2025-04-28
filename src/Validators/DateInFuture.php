@@ -109,6 +109,7 @@ class DateInFuture extends AbstractValidator
     /**
      * Sets options
      */
+    #[\Override]
     public function setOptions(mixed $options = [])
     {
         if (isset($options['include_today'])) {
@@ -141,6 +142,7 @@ class DateInFuture extends AbstractValidator
      * @return bool
      * @throws Exception if the token doesn't exist in the context array
      */
+    #[\Override]
     public function isValid($value)
     {
         if (empty($value) && $this->getAllowEmpty()) {

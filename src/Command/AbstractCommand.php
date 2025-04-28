@@ -15,6 +15,7 @@ abstract class AbstractCommand implements CommandInterface
      *
      * @return static
      */
+    #[\Override]
     public static function create(array $data)
     {
         $command = new static();
@@ -29,6 +30,7 @@ abstract class AbstractCommand implements CommandInterface
      *
      * @return void
      */
+    #[\Override]
     public function exchangeArray(array $array)
     {
         $values = get_object_vars($this);
@@ -45,6 +47,7 @@ abstract class AbstractCommand implements CommandInterface
      *
      * @return array
      */
+    #[\Override]
     public function getArrayCopy()
     {
         return get_object_vars($this);
