@@ -14,7 +14,7 @@ trait CountryOptional
      *
      * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":0,"max":2})
      */
-    public mixed $country;
+    public mixed $country = null;
 
     public function getCountry(): mixed
     {

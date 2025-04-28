@@ -81,6 +81,6 @@ class Money extends AbstractValidator
             $this->allowNegative = true;
         }
 
-        parent::setOptions($options);
+        return parent::setOptions($options);
     }
 }
