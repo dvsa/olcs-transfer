@@ -1,7 +1,21 @@
+includes:
+    - vendor/phpstan/phpstan-mockery/extension.neon
+
 parameters:
   level: 5
+  reportUnmatchedIgnoredErrors: false
   paths:
     - test
     - src
-includes:
-  - vendor/phpstan/phpstan-mockery/extension.neon
+    - test/Router/QueryTest.php
+  excludePaths:
+      - vendor/laminas/laminas-validator/src/Db/AbstractDb.php
+      - test/Router/QueryTest.php
+      - test/Service/CacheEncryptionTest.php
+  ignoreErrors:
+    - message: "#extends @final class#"
+      path: src/Validators/*
+    - message: "#extends @final class#"
+      path: src/Filter/Postcode.php
+    - message: "#extends @final class#"
+      path: src/Util/ArrayInput.php

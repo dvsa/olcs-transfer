@@ -15,6 +15,7 @@ abstract class InArrayExtra extends \Laminas\Validator\InArray
      *
      * @return array
      */
+    #[\Override]
     public function getHaystack()
     {
         return array_unique(

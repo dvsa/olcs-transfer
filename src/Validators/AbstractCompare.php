@@ -110,6 +110,7 @@ abstract class AbstractCompare extends AbstractValidator
      *
      * @param mixed $options
      */
+    #[\Override]
     public function setOptions($options = [])
     {
         if (isset($options['compare_to'])) {
@@ -134,6 +135,7 @@ abstract class AbstractCompare extends AbstractValidator
      * @param  array $context
      * @return bool
      */
+    #[\Override]
     abstract public function isValid($value, array $context = null);
 
     /**

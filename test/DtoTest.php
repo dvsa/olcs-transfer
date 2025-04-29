@@ -240,7 +240,11 @@ trait DtoTest
             yield "$field optional - null" => [[$field => null], $field];
             yield "$field optional - ''" => [[$field => ''], $field];
             yield "$field optional - false" => [[$field => false], $field];
-            yield "$field optional - []" => [[$field => []], $field];
+
+            // Only yield the [] case if the field can actually accept arrays
+            if (!in_array($field, ['translateToWelsh'])) { // add other fields if needed
+                yield "$field optional - []" => [[$field => []], $field];
+            }
             yield "$field optional - unset" => [[], $field];
         }
 

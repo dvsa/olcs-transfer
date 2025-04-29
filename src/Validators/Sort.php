@@ -10,6 +10,7 @@ class Sort extends \Laminas\Validator\AbstractValidator
         self::INVALID_SORT => 'The sort value is not valid',
     ];
 
+    #[\Override]
     public function isValid($value)
     {
         if (!is_string($value)) {

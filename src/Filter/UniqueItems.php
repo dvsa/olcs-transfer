@@ -13,6 +13,7 @@ use Laminas\Filter\AbstractFilter;
  */
 class UniqueItems extends AbstractFilter
 {
+    #[\Override]
     public function filter($value)
     {
         return array_unique($value);
