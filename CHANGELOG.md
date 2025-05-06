@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.13.0](https://github.com/dvsa/olcs-transfer/compare/v7.12.2...v7.13.0) (2025-05-06)
+
+
+### Features
+
+* enhance PSV restricted app journey VOL-5882 ([#121](https://github.com/dvsa/olcs-transfer/issues/121)) ([aa30dd3](https://github.com/dvsa/olcs-transfer/commit/aa30dd3bd7f4e18cc8b196d6289710b1ded6c49c))
+
 ## [7.12.2](https://github.com/dvsa/olcs-transfer/compare/v7.12.1...v7.12.2) (2025-04-10)
 
 
