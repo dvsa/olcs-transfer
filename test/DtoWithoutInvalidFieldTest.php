@@ -15,7 +15,7 @@ trait DtoWithoutInvalidFieldTest
     public function testInvalidField()
     {
         // the test as defined by DtoTest is only relevant to Dto with fields validation
-        Assert::assertTrue(true);
+        $this->markTestSkipped('Not applicable to DTOs without optional fields');
     }
 
     /**

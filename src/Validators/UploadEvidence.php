@@ -25,6 +25,7 @@ class UploadEvidence extends AbstractValidator
      *
      * @return bool
      */
+    #[\Override]
     public function isValid($value, $context = null)
     {
         $isValid = true;

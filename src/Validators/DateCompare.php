@@ -54,11 +54,9 @@ class DateCompare extends AbstractCompare
 
     /**
      * Sets options
-     *
-     * @param  mixed $options
-     * @return static
      */
-    public function setOptions($options = []): DateCompare
+    #[\Override]
+    public function setOptions(mixed $options = [])
     {
         if (isset($options['has_time'])) {
             $this->setHasTime($options['has_time']);
@@ -75,6 +73,7 @@ class DateCompare extends AbstractCompare
      * @param  array $context
      * @return bool
      */
+    #[\Override]
     public function isValid($value, array $context = null)
     {
         if (empty($value)) {

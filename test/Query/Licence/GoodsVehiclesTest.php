@@ -19,7 +19,12 @@ class GoodsVehiclesTest extends TestCase
         // Setup
         $sut = GoodsVehicles::create([]);
 
-        // Assert
+        /**
+         * Ensures the getVehicleIds() method exists and is callable.
+         * Used as a dependency anchor for other tests that rely on this method being defined.
+         *
+         * @phpstan-ignore-next-line
+         */
         $this->assertIsCallable([$sut, 'getVehicleIds']);
     }
 

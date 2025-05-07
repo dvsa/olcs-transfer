@@ -70,6 +70,7 @@ class Vehicles extends AbstractQuery implements
     /**
      * @return mixed
      */
+    #[\Override]
     public function getIncludeActive()
     {
         return $this->includeActive;

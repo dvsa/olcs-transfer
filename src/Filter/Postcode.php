@@ -23,6 +23,7 @@ class Postcode extends StringTrim
      * @param  mixed $value
      * @return string
      */
+    #[\Override]
     public function filter($value)
     {
         // apply StringTrim filter

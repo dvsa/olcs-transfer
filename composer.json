@@ -15,7 +15,8 @@
         "laminas/laminas-cache": "^3.6",
         "laminas/laminas-cache-storage-adapter-redis": "^2.4",
         "laminas/laminas-router": "^3.9",
-        "psr/container": "^1.1|^2"
+        "psr/container": "^1.1|^2",
+        "laminas/laminas-db": "^2.20"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.6",

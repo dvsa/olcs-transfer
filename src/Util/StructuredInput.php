@@ -100,6 +100,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return static
      */
+    #[\Override]
     public function setAllowEmpty($allowEmpty)
     {
         $this->allowEmpty = $allowEmpty;
@@ -113,6 +114,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return static
      */
+    #[\Override]
     public function setBreakOnFailure($breakOnFailure)
     {
         $this->breakOnFailure = $breakOnFailure;
@@ -126,6 +128,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
 
      * @return static
      */
+    #[\Override]
     public function setErrorMessage($errorMessage)
     {
         $this->errorMessage = $errorMessage;
@@ -139,6 +142,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return static
      */
+    #[\Override]
     public function setFilterChain(FilterChain $filterChain)
     {
         $this->filterChain = $filterChain;
@@ -152,6 +156,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return static
      */
+    #[\Override]
     public function setName($name)
     {
         $this->name = $name;
@@ -165,6 +170,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return static
      */
+    #[\Override]
     public function setRequired($required)
     {
         $this->required = $required;
@@ -178,6 +184,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return static
      */
+    #[\Override]
     public function setValidatorChain(ValidatorChain $validatorChain)
     {
         $this->validatorChain = $validatorChain;
@@ -191,6 +198,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return static
      */
+    #[\Override]
     public function setValue($value)
     {
         $this->setData($value);
@@ -204,6 +212,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return static
      */
+    #[\Override]
     public function merge(InputInterface $input)
     {
         return $this;
@@ -214,6 +223,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return bool
      */
+    #[\Override]
     public function allowEmpty()
     {
         return $this->allowEmpty;
@@ -224,6 +234,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return bool
      */
+    #[\Override]
     public function breakOnFailure()
     {
         return $this->breakOnFailure;
@@ -234,6 +245,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return string|null
      */
+    #[\Override]
     public function getErrorMessage()
     {
         return $this->errorMessage;
@@ -244,6 +256,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return \Laminas\Filter\FilterChain
      */
+    #[\Override]
     public function getFilterChain()
     {
         return $this->filterChain;
@@ -254,6 +267,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return string|null
      */
+    #[\Override]
     public function getName()
     {
         return $this->name;
@@ -264,6 +278,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return bool
      */
+    #[\Override]
     public function isRequired()
     {
         return $this->required;
@@ -274,6 +289,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return ValidatorChain
      */
+    #[\Override]
     public function getValidatorChain(): ValidatorChain
     {
         return $this->validatorChain;
@@ -286,6 +302,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      * @param string|null                                                                                  $name  Name
      * @return self
      */
+    #[\Override]
     public function add($input, $name = null)
     {
         if ($name === null) {
@@ -300,6 +317,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      * Get
      *
      */
+    #[\Override]
     public function get($name)
     {
         return $this->inputs[$name];
@@ -312,6 +330,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return bool
      */
+    #[\Override]
     public function has($name): bool
     {
         return isset($this->inputs[$name]);
@@ -324,6 +343,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return self
      */
+    #[\Override]
     public function remove($name)
     {
         unset($this->inputs[$name]);
@@ -337,6 +357,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return self
      */
+    #[\Override]
     public function setData($data)
     {
         $this->data = $data;
@@ -351,6 +372,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return bool
      */
+    #[\Override]
     public function isValid($context = null): bool
     {
         if (empty($this->data) && !$this->isRequired()) {
@@ -374,6 +396,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return self
      */
+    #[\Override]
     public function setValidationGroup($name)
     {
         return $this;
@@ -384,6 +407,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return array<string, InputInterface|InputFilterInterface>
      */
+    #[\Override]
     public function getInvalidInput()
     {
         return $this->invalidInputs;
@@ -394,6 +418,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return array<string, InputInterface|InputFilterInterface>
      */
+    #[\Override]
     public function getValidInput()
     {
         return $this->validInputs;
@@ -406,6 +431,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return array|null
      */
+    #[\Override]
     public function getValue($name = null): ?array
     {
         if ($name !== null) {
@@ -420,6 +446,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return array<string, mixed>|null
      */
+    #[\Override]
     public function getValues(): ?array
     {
         if (empty($this->data)) {
@@ -446,6 +473,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return mixed
      */
+    #[\Override]
     public function getRawValue($name = null)
     {
         if ($name !== null) {
@@ -460,6 +488,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return array
      */
+    #[\Override]
     public function getRawValues()
     {
         $values = [];
@@ -476,6 +505,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      * @return array<string, array<array<string>|string>> Error messages
      * @phpstan-ignore-next-line
      */
+    #[\Override]
     public function getMessages()
     {
         if ($this->messages !== null) {
@@ -495,6 +525,7 @@ class StructuredInput implements InputInterface, InputFilterInterface
      *
      * @return int
      */
+    #[\Override]
     public function count(): int
     {
         return count($this->inputs);
