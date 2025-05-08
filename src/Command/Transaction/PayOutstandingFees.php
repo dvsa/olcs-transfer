@@ -108,12 +108,6 @@ final class PayOutstandingFees extends AbstractCommand
     protected $poNo;
 
     /**
-     * @Transfer\Optional
-     * @Transfer\Filter("Laminas\Filter\StringTrim")
-     */
-    protected $storedCardReference;
-
-    /**
      * Should resolve only
      * @Transfer\Filter("Laminas\Filter\Boolean")
      * @Transfer\Optional
@@ -238,16 +232,6 @@ final class PayOutstandingFees extends AbstractCommand
     public function getPoNo()
     {
         return $this->poNo;
-    }
-
-    /**
-     * Get stored card reference
-     *
-     * @return string
-     */
-    public function getStoredCardReference()
-    {
-        return $this->storedCardReference;
     }
 
     /**
