@@ -28,6 +28,7 @@ abstract class AbstractQuery implements QueryInterface
      *
      * @return static
      */
+    #[\Override]
     public static function create(array $data)
     {
         $command = new static();
@@ -42,6 +43,7 @@ abstract class AbstractQuery implements QueryInterface
      *
      * @return void
      */
+    #[\Override]
     public function exchangeArray(array $array)
     {
         $values = get_object_vars($this);
@@ -58,6 +60,7 @@ abstract class AbstractQuery implements QueryInterface
      *
      * @return array
      */
+    #[\Override]
     public function getArrayCopy()
     {
         return get_object_vars($this);

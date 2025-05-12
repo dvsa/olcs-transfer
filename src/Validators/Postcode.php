@@ -61,9 +61,9 @@ class Postcode extends AbstractValidator
 
     /**
      * @param mixed $options
-     * @return static
      */
-    public function setOptions($options = [])
+    #[\Override]
+    public function setOptions(mixed $options = [])
     {
         if (isset($options['allow_empty'])) {
             $this->setAllowEmpty($options['allow_empty']);
@@ -82,6 +82,7 @@ class Postcode extends AbstractValidator
      * @param array $context
      * @return bool
      */
+    #[\Override]
     public function isValid($value, $context = null)
     {
         if (empty($value) && $this->allowEmpty()) {
