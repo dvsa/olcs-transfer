@@ -1,5 +1,19 @@
 # Changelog
 
+## [7.14.0](https://github.com/dvsa/olcs-transfer/compare/v7.13.0...v7.14.0) (2025-05-08)
+
+
+### Features
+
+* removed stored Card Reference field as no longer needed ([#123](https://github.com/dvsa/olcs-transfer/issues/123)) ([fe4a772](https://github.com/dvsa/olcs-transfer/commit/fe4a7728565d72407fc3b4b8d107c623d930b19e))
+
+## [7.13.0](https://github.com/dvsa/olcs-transfer/compare/v7.12.2...v7.13.0) (2025-05-06)
+
+
+### Features
+
+* enhance PSV restricted app journey VOL-5882 ([#121](https://github.com/dvsa/olcs-transfer/issues/121)) ([aa30dd3](https://github.com/dvsa/olcs-transfer/commit/aa30dd3bd7f4e18cc8b196d6289710b1ded6c49c))
+
 ## [7.12.2](https://github.com/dvsa/olcs-transfer/compare/v7.12.1...v7.12.2) (2025-04-10)
 
 

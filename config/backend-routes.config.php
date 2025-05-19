@@ -270,6 +270,138 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\SubmitApplication::class),
                                 ]
                             ],
+                            'vehicle-size' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'vehicle-size[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateVehicleSize::class
+                                    ),
+                                ]
+                            ],
+                            'vehicle-nine-passengers' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'vehicle-nine-passengers[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateVehicleNinePassengers::class
+                                    ),
+                                ]
+                            ],
+                            'vehicle-operating-small' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'vehicle-operating-small[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateVehicleOperatingSmall::class
+                                    ),
+                                ]
+                            ],
+                            'small-vehicle-conditions' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'small-vehicle-conditions[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateSmallVehicleConditionsAndUndertaking::class
+                                    ),
+                                ]
+                            ],
+                            'written-explanation' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'written-explanation[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateWrittenExplanation::class
+                                    ),
+                                ]
+                            ],
+                            'novelty-vehicles' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'novelty-vehicles[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateNoveltyVehicles::class
+                                    ),
+                                ]
+                            ],
+                            'small-vehicle-evidence' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'small-vehicle-evidence[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateSmallVehicleEvidence::class
+                                    ),
+                                ]
+                            ],
+                            'small-vehicle-evidence-upload' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'small-vehicle-evidence-upload[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UploadSmallVehicleEvidence::class
+                                    ),
+                                ]
+                            ],
+                            'main-occupation-evidence' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'main-occupation-evidence[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateMainOccupationEvidence::class
+                                    ),
+                                ]
+                            ],
+                            'main-occupation-evidence-upload' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'main-occupation-evidence-upload[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UploadMainOccupationEvidence::class
+                                    ),
+                                ]
+                            ],
+                            'main-occupation-undertakings' => [
+                                'type' => 'Segment',
+                                'options' => [
+                                    'route' => 'main-occupation-undertakings[/]',
+                                ],
+                                'may_terminate' => false,
+                                'child_routes' => [
+                                    'PUT' => CommandConfig::getPutConfig(
+                                        Command\Application\UpdateMainOccupationUndertakings::class
+                                    ),
+                                ]
+                            ],
                             'vehicle-declaration' => [
                                 'type' => 'Segment',
                                 'options' => [
