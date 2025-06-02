@@ -9,11 +9,11 @@ trait EvidenceUploadType
     protected $evidenceUploadType;
 
     /**
-     * @Transfer\Filter("Laminas\Filter\ToInt")
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Validator("Laminas\Validator\Digits")
      * @Transfer\Validator("Laminas\Validator\Between", options={"min": 0, "max": 2})
      */
-    public function getEvidenceUploadType(): ?int
+    public function getEvidenceUploadType(): ?string
     {
         return $this->evidenceUploadType;
     }
