@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Dvsa\Olcs\Transfer\Command\Application;
 
-use Dvsa\Olcs\Transfer\FieldType\Traits\PsvLimousines;
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractIdWithVersionCommand;
 
