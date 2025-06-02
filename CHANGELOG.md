@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.14.1](https://github.com/dvsa/olcs-transfer/compare/v7.14.0...v7.14.1) (2025-06-02)
+
+
+### Bug Fixes
+
+* alterations to PSV restricted journey already in main VOL-5882 ([#125](https://github.com/dvsa/olcs-transfer/issues/125)) ([dae22bd](https://github.com/dvsa/olcs-transfer/commit/dae22bdcc1595d0fff71c60a1d22e47f7984f275))
+
 ## [7.14.0](https://github.com/dvsa/olcs-transfer/compare/v7.13.0...v7.14.0) (2025-05-08)
 
 
