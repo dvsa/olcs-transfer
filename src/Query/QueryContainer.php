@@ -26,11 +26,13 @@ class QueryContainer implements QueryContainerInterface
      */
     protected $dto;
 
+    #[\Override]
     public function setInputFilter(InputFilterInterface $inputFilter)
     {
         $this->inputFilter = $inputFilter;
     }
 
+    #[\Override]
     public function getInputFilter()
     {
         return $this->inputFilter;
@@ -41,6 +43,7 @@ class QueryContainer implements QueryContainerInterface
      *
      * @return bool
      */
+    #[\Override]
     public function isCustomCacheable(): bool
     {
         return ($this->dto instanceof CustomCacheableInterface);
@@ -51,6 +54,7 @@ class QueryContainer implements QueryContainerInterface
      *
      * @return bool
      */
+    #[\Override]
     public function isShortTermCacheable()
     {
         return ($this->dto instanceof CacheableShortTermQueryInterface);
@@ -61,6 +65,7 @@ class QueryContainer implements QueryContainerInterface
      *
      * @return bool
      */
+    #[\Override]
     public function isMediumTermCacheable()
     {
         return ($this->dto instanceof CacheableMediumTermQueryInterface);
@@ -71,6 +76,7 @@ class QueryContainer implements QueryContainerInterface
      *
      * @return bool
      */
+    #[\Override]
     public function isLongTermCacheable(): bool
     {
         return ($this->dto instanceof CacheableLongTermQueryInterface);
@@ -81,6 +87,7 @@ class QueryContainer implements QueryContainerInterface
      *
      * @return bool
      */
+    #[\Override]
     public function isPersistentCacheable(): bool
     {
         return $this->isLongTermCacheable() || $this->isMediumTermCacheable();
@@ -91,6 +98,7 @@ class QueryContainer implements QueryContainerInterface
      *
      * @return bool
      */
+    #[\Override]
     public function isPublicCacheable(): bool
     {
         return ($this->dto instanceof PublicQueryCacheInterface);
@@ -101,6 +109,7 @@ class QueryContainer implements QueryContainerInterface
      *
      * @return bool
      */
+    #[\Override]
     public function isSharedEncryptionCacheable(): bool
     {
         return ($this->dto instanceof SharedEncryptionCacheInterface);
@@ -111,6 +120,7 @@ class QueryContainer implements QueryContainerInterface
      *
      * @return bool
      */
+    #[\Override]
     public function isStream()
     {
         return ($this->dto instanceof StreamInterface);
@@ -129,11 +139,13 @@ class QueryContainer implements QueryContainerInterface
         return md5($dtoClassName . '-' . $jsonData);
     }
 
+    #[\Override]
     public function setDto(QueryInterface $dto)
     {
         $this->dto = $dto;
     }
 
+    #[\Override]
     public function getDto()
     {
         return $this->dto;
@@ -144,21 +156,25 @@ class QueryContainer implements QueryContainerInterface
      *
      * @return string
      */
+    #[\Override]
     public function getDtoClassName(): string
     {
         return $this->dto::class;
     }
 
+    #[\Override]
     public function setRouteName($routeName)
     {
         $this->routeName = $routeName;
     }
 
+    #[\Override]
     public function getRouteName()
     {
         return $this->routeName;
     }
 
+    #[\Override]
     public function isValid()
     {
         $this->hasValidated = true;
@@ -169,6 +185,7 @@ class QueryContainer implements QueryContainerInterface
         return $this->inputFilter->isValid();
     }
 
+    #[\Override]
     public function getMessages()
     {
         if ($this->hasValidated === false) {
@@ -183,6 +200,7 @@ class QueryContainer implements QueryContainerInterface
      *
      * @return string
      */
+    #[\Override]
     public function getEncryptionMode(): string
     {
         if ($this->isPublicCacheable()) {

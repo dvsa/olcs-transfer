@@ -184,6 +184,7 @@ class Vrm extends AbstractValidator
      *
      * @return bool
      */
+    #[\Override]
     public function isValid($value)
     {
         if (in_array($value, $this->exceptions)) {

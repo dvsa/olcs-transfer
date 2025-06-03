@@ -38,6 +38,7 @@ class GoodsVehicles extends AbstractGoodsVehicles implements PagedQueryInterface
      *
      * @return array|null
      */
+    #[\Override]
     public function getVehicleIds(): ?array
     {
         return $this->vehicleIds;

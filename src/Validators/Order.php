@@ -15,6 +15,7 @@ class Order extends \Laminas\Validator\AbstractValidator
         self::NOT_ASC_OR_DESC => 'The order was not ASC or DESC',
     ];
 
+    #[\Override]
     public function isValid($value)
     {
         if (!is_string($value)) {
