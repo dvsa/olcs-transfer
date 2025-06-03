@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.15.0](https://github.com/dvsa/olcs-transfer/compare/v7.14.1...v7.15.0) (2025-06-03)
+
+
+### Features
+
+* remove caching of section steps on LVA journey, add query to retrieve documents ([#127](https://github.com/dvsa/olcs-transfer/issues/127)) ([51e100f](https://github.com/dvsa/olcs-transfer/commit/51e100f26fdbb9086166a69e7f486c8f576a7040))
+
 ## [7.14.1](https://github.com/dvsa/olcs-transfer/compare/v7.14.0...v7.14.1) (2025-06-02)
 
 
