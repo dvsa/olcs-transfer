@@ -721,6 +721,12 @@ $routes = [
                                     'PUT' => CommandConfig::getPutConfig(Command\Application\UploadEvidence::class),
                                 ]
                             ),
+                            'documents' => RouteConfig::getRouteConfig(
+                                'documents',
+                                [
+                                    'GET' => QueryConfig::getConfig(Query\Application\Documents::class),
+                                ]
+                            ),
                         ]
                     ),
                     'POST' => CommandConfig::getPostConfig(Command\Application\CreateApplication::class),
