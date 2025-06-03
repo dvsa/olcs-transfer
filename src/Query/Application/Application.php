@@ -16,7 +16,7 @@ use Dvsa\Olcs\Transfer\Query\AbstractQuery;
 /**
  * @Transfer\RouteName("backend/application/single")
  */
-class Application extends AbstractQuery implements CacheableShortTermQueryInterface
+class Application extends AbstractQuery
 {
     use Identity;
 
