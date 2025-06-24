@@ -21,5 +21,4 @@ final class UpdateSubmissionSectionComment extends AbstractCommand
     use FieldType\Traits\Identity;
     use FieldType\Traits\Version;
     use OptionalEditorJsComment;
-
 }

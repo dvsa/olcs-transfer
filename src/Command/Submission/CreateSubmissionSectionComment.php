@@ -17,6 +17,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\EditorJsComment;
 final class CreateSubmissionSectionComment extends AbstractCommand
 {
     use EditorJsComment;
+
     /**
      * @Transfer\Filter("Laminas\Filter\Digits")
      * @Transfer\Validator("Laminas\Validator\Digits")
