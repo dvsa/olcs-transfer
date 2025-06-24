@@ -2,11 +2,11 @@
     "name": "olcs/olcs-transfer",
     "description": "OLCS Transfer",
     "require": {
-        "php": "^8.1",
+        "php": "^8.2",
         "ext-openssl": "*",
         "laminas/laminas-stdlib": "^3.0",
         "laminas/laminas-filter": "^2.30",
-        "laminas/laminas-validator": "^2.11.1",
+        "laminas/laminas-validator": ">=2.30.0 <2.56.0",
         "laminas/laminas-servicemanager": "^3.3",
         "laminas/laminas-inputfilter": "^2.21",
         "laminas/laminas-form": "^3.1.1",
