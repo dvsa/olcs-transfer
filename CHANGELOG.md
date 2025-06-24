@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.16.0](https://github.com/dvsa/olcs-transfer/compare/v7.15.0...v7.16.0) (2025-06-24)
+
+
+### Features
+
+* replace tinyMCE with editorJS - related DTO updates ([#129](https://github.com/dvsa/olcs-transfer/issues/129)) ([e71c6b5](https://github.com/dvsa/olcs-transfer/commit/e71c6b537cda017df73fd16ec2aa6fa303377866))
+
 ## [7.15.0](https://github.com/dvsa/olcs-transfer/compare/v7.14.1...v7.15.0) (2025-06-03)
 
 
