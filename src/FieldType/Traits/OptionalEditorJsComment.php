@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -16,10 +18,7 @@ trait OptionalEditorJsComment
      */
     protected $comment;
 
-    /**
-     * @return mixed
-     */
-    public function getComment()
+    public function getComment(): ?string
     {
         return $this->comment;
     }
