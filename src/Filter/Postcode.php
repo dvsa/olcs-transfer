@@ -8,6 +8,7 @@
 
 namespace Dvsa\Olcs\Transfer\Filter;
 
+use Laminas\Filter\FilterInterface;
 use Laminas\Filter\StringTrim;
 
 /**
@@ -15,8 +16,15 @@ use Laminas\Filter\StringTrim;
  *
  * @author Dan Eggleston <dan@stolenegg.com>
  */
-class Postcode extends StringTrim
+class Postcode implements FilterInterface
 {
+    private StringTrim $stringTrimFilter;
+
+    public function __construct()
+    {
+        $this->stringTrimFilter = new StringTrim();
+    }
+
     /**
      * Returns the result of filtering $value
      *
@@ -26,7 +34,7 @@ class Postcode extends StringTrim
     public function filter($value)
     {
         // apply StringTrim filter
-        $value = parent::filter($value);
+        $value = $this->stringTrimFilter->filter($value);
 
         if (empty($value)) {
             return $value;

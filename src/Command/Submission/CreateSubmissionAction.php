@@ -8,6 +8,7 @@ namespace Dvsa\Olcs\Transfer\Command\Submission;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
+use Dvsa\Olcs\Transfer\FieldType\Traits\EditorJsComment;
 
 /**
  * @Transfer\RouteName("backend/submission-action")
@@ -15,6 +16,7 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class CreateSubmissionAction extends AbstractCommand
 {
+    use EditorJsComment;
     /**
      * @Transfer\Filter("Laminas\Filter\Digits")
      * @Transfer\Validator("Laminas\Validator\Digits")
@@ -49,14 +51,6 @@ final class CreateSubmissionAction extends AbstractCommand
     protected $reasons = [];
 
     /**
-     * @Transfer\Filter("Laminas\Filter\StringTrim")
-     * @Transfer\Filter("htmlpurifier")
-     * @Transfer\Escape(false)
-     * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":5})
-     */
-    protected $comment;
-
-    /**
      * @return mixed
      */
     public function getSubmission()
@@ -86,13 +80,5 @@ final class CreateSubmissionAction extends AbstractCommand
     public function getReasons()
     {
         return $this->reasons;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getComment()
-    {
-        return $this->comment;
     }
 }
