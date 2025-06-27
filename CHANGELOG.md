@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.16.1](https://github.com/dvsa/olcs-transfer/compare/v7.16.0...v7.16.1) (2025-06-27)
+
+
+### Bug Fixes
+
+* relax laminas-validator version to solve vol-app dependency issue ([#131](https://github.com/dvsa/olcs-transfer/issues/131)) ([a99a7eb](https://github.com/dvsa/olcs-transfer/commit/a99a7ebc216f638c34da15891e69c3bde5f19590))
+
 ## [7.16.0](https://github.com/dvsa/olcs-transfer/compare/v7.15.0...v7.16.0) (2025-06-24)
 
 
