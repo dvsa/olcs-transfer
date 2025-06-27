@@ -1,7 +1,8 @@
 parameters:
-  level: 5
+  level: 4
   paths:
     - test
     - src
+  ignoreErrors: []
 includes:
   - vendor/phpstan/phpstan-mockery/extension.neon

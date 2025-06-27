@@ -58,7 +58,7 @@ class DateCompare extends AbstractCompare
      * @param  mixed $options
      * @return static
      */
-    public function setOptions($options = []): DateCompare
+    public function setOptions($options = []): AbstractValidator
     {
         if (isset($options['has_time'])) {
             $this->setHasTime($options['has_time']);
