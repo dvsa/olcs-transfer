@@ -111,9 +111,9 @@ class DateInFuture extends AbstractValidator
      *
      * @param mixed $options options
      *
-     * @return static
+     * @return AbstractValidator
      */
-    public function setOptions($options = [])
+    public function setOptions($options = []): AbstractValidator
     {
         if (isset($options['include_today'])) {
             $this->setIncludeToday($options['include_today']);
