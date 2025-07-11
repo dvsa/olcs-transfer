@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.17.0](https://github.com/dvsa/olcs-transfer/compare/v7.16.1...v7.17.0) (2025-07-11)
+
+
+### Features
+
+* update application tracking with new PSV journey VOL-6466 VOL-5882 ([#133](https://github.com/dvsa/olcs-transfer/issues/133)) ([76fbae9](https://github.com/dvsa/olcs-transfer/commit/76fbae9424b136b31f8db7606cc9cc0d25f048e8))
+
 ## [7.16.1](https://github.com/dvsa/olcs-transfer/compare/v7.16.0...v7.16.1) (2025-06-27)
 
 
