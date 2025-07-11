@@ -161,6 +161,69 @@ class ApplicationTracking extends AbstractCommand
      * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"0", "1", "2", "3"}})
      */
+    protected $vehiclesSizeStatus;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"0", "1", "2", "3"}})
+     */
+    protected $psvOperateSmallStatus;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"0", "1", "2", "3"}})
+     */
+    protected $psvOperateLargeStatus;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"0", "1", "2", "3"}})
+     */
+    protected $psvSmallConditionsStatus;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"0", "1", "2", "3"}})
+     */
+    protected $psvOperateNoveltyStatus;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"0", "1", "2", "3"}})
+     */
+    protected $psvSmallPartWrittenStatus;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"0", "1", "2", "3"}})
+     */
+    protected $psvDocumentaryEvidenceSmallStatus;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"0", "1", "2", "3"}})
+     */
+    protected $psvDocumentaryEvidenceLargeStatus;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"0", "1", "2", "3"}})
+     */
+    protected $psvMainOccupationUndertakingsStatus;
+
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"0", "1", "2", "3"}})
+     */
     protected $vehiclesPsvStatus;
 
     /**
@@ -370,6 +433,51 @@ class ApplicationTracking extends AbstractCommand
     public function getVehiclesDeclarationsStatus()
     {
         return $this->vehiclesDeclarationsStatus;
+    }
+
+    public function getVehiclesSizeStatus(): ?string
+    {
+        return $this->vehiclesSizeStatus;
+    }
+
+    public function getPsvOperateSmallStatus(): ?string
+    {
+        return $this->psvOperateSmallStatus;
+    }
+
+    public function getPsvOperateLargeStatus(): ?string
+    {
+        return $this->psvOperateLargeStatus;
+    }
+
+    public function getPsvSmallConditionsStatus(): ?string
+    {
+        return $this->psvSmallConditionsStatus;
+    }
+
+    public function getPsvOperateNoveltyStatus(): ?string
+    {
+        return $this->psvOperateNoveltyStatus;
+    }
+
+    public function getPsvSmallPartWrittenStatus(): ?string
+    {
+        return $this->psvSmallPartWrittenStatus;
+    }
+
+    public function getPsvDocumentaryEvidenceSmallStatus(): ?string
+    {
+        return $this->psvDocumentaryEvidenceSmallStatus;
+    }
+
+    public function getPsvDocumentaryEvidenceLargeStatus(): ?string
+    {
+        return $this->psvDocumentaryEvidenceLargeStatus;
+    }
+
+    public function getPsvMainOccupationUndertakingsStatus(): ?string
+    {
+        return $this->psvMainOccupationUndertakingsStatus;
     }
 
     /**

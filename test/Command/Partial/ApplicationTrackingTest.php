@@ -1,15 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dvsa\OlcsTest\Transfer\Command\Partial;
 
 use Dvsa\Olcs\Transfer\Command\Partial\ApplicationTracking;
 
-/**
- * Application Tracking Partial test
- */
 class ApplicationTrackingTest extends \PHPUnit\Framework\TestCase
 {
-    public function testStructure()
+    public function testStructure(): void
     {
         $data = [
             'id' => 69,
@@ -34,6 +33,15 @@ class ApplicationTrackingTest extends \PHPUnit\Framework\TestCase
             'vehiclesDeclarationsStatus' => 19,
             'vehiclesPsvStatus' => 20,
             'vehiclesStatus' => 21,
+            'vehiclesSizeStatus' => 22,
+            'psvOperateSmallStatus' => 23,
+            'psvOperateLargeStatus' => 24,
+            'psvSmallConditionsStatus' => 25,
+            'psvOperateNoveltyStatus' => 26,
+            'psvSmallPartWrittenStatus' => 27,
+            'psvDocumentaryEvidenceSmallStatus' => 28,
+            'psvDocumentaryEvidenceLargeStatus' => 29,
+            'psvMainOccupationUndertakingsStatus' => 30,
         ];
 
         $command = ApplicationTracking::create($data);
@@ -60,5 +68,14 @@ class ApplicationTrackingTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(19, $command->getVehiclesDeclarationsStatus());
         $this->assertEquals(20, $command->getVehiclesPsvStatus());
         $this->assertEquals(21, $command->getVehiclesStatus());
+        $this->assertEquals(22, $command->getVehiclesSizeStatus());
+        $this->assertEquals(23, $command->getPsvOperateSmallStatus());
+        $this->assertEquals(24, $command->getPsvOperateLargeStatus());
+        $this->assertEquals(25, $command->getPsvSmallConditionsStatus());
+        $this->assertEquals(26, $command->getPsvOperateNoveltyStatus());
+        $this->assertEquals(27, $command->getPsvSmallPartWrittenStatus());
+        $this->assertEquals(28, $command->getPsvDocumentaryEvidenceSmallStatus());
+        $this->assertEquals(29, $command->getPsvDocumentaryEvidenceLargeStatus());
+        $this->assertEquals(30, $command->getPsvMainOccupationUndertakingsStatus());
     }
 }
