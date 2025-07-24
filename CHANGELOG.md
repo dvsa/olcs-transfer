@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.18.0](https://github.com/dvsa/olcs-transfer/compare/v7.17.0...v7.18.0) (2025-07-24)
+
+
+### Features
+
+* remove old psv app tracking and vehicle declaration objects VOL-5882 ([#135](https://github.com/dvsa/olcs-transfer/issues/135)) ([d4f6df8](https://github.com/dvsa/olcs-transfer/commit/d4f6df8e2535b914ddf186e31875b2ac2c716341))
+
 ## [7.17.0](https://github.com/dvsa/olcs-transfer/compare/v7.16.1...v7.17.0) (2025-07-11)
 
 
