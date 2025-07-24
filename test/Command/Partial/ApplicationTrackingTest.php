@@ -30,7 +30,6 @@ class ApplicationTrackingTest extends \PHPUnit\Framework\TestCase
             'transportManagersStatus' => 16,
             'typeOfLicenceStatus' => 17,
             'declarationsInternalStatus' => 18,
-            'vehiclesDeclarationsStatus' => 19,
             'vehiclesPsvStatus' => 20,
             'vehiclesStatus' => 21,
             'vehiclesSizeStatus' => 22,
@@ -65,7 +64,6 @@ class ApplicationTrackingTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(16, $command->getTransportManagersStatus());
         $this->assertEquals(17, $command->getTypeOfLicenceStatus());
         $this->assertEquals(18, $command->getDeclarationsInternalStatus());
-        $this->assertEquals(19, $command->getVehiclesDeclarationsStatus());
         $this->assertEquals(20, $command->getVehiclesPsvStatus());
         $this->assertEquals(21, $command->getVehiclesStatus());
         $this->assertEquals(22, $command->getVehiclesSizeStatus());
