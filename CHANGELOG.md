@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.18.1](https://github.com/dvsa/olcs-transfer/compare/v7.18.0...v7.18.1) (2025-07-30)
+
+
+### Bug Fixes
+
+* stop escaping the JSON produced by EditorJS to preserve inline formatting like bold and italic ([#137](https://github.com/dvsa/olcs-transfer/issues/137)) ([12fe284](https://github.com/dvsa/olcs-transfer/commit/12fe284a72851251255d47b8ed3a9eb8df3da422))
+
 ## [7.18.0](https://github.com/dvsa/olcs-transfer/compare/v7.17.0...v7.18.0) (2025-07-24)
 
 
