@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.18.2](https://github.com/dvsa/olcs-transfer/compare/v7.18.1...v7.18.2) (2025-08-11)
+
+
+### Bug Fixes
+
+* remove unused stored cards code VOL-6371 ([#139](https://github.com/dvsa/olcs-transfer/issues/139)) ([93a4328](https://github.com/dvsa/olcs-transfer/commit/93a43286a70f556684eb23d264321b5370d20f67))
+
 ## [7.18.1](https://github.com/dvsa/olcs-transfer/compare/v7.18.0...v7.18.1) (2025-07-30)
 
 
