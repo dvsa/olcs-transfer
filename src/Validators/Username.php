@@ -38,6 +38,7 @@ class Username extends StringLength
      * @param mixed $value
      * @return bool
      */
+    #[\Override]
     public function isValid($value)
     {
         if (parent::isValid($value)) {

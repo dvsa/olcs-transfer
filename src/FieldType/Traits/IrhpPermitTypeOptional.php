@@ -23,7 +23,7 @@ trait IrhpPermitTypeOptional
     protected $irhpPermitType;
 
     /**
-     * @return int
+     * @return ?int
      */
     public function getIrhpPermitType()
     {

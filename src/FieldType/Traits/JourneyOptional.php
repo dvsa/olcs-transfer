@@ -16,7 +16,7 @@ trait JourneyOptional
     protected $journey;
 
     /**
-     * @return string
+     * @return ?string
      */
     public function getJourney()
     {
