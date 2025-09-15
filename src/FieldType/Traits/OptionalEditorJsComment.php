@@ -12,9 +12,11 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 trait OptionalEditorJsComment
 {
     /**
+     * @Transfer\Filter("Laminas\Filter\ToNull")
      * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Validator("Laminas\Validator\IsJsonString")
      * @Transfer\Optional
+     * @Transfer\Escape(false)
      */
     protected $comment;
 

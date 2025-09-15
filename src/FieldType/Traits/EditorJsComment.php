@@ -15,6 +15,7 @@ trait EditorJsComment
      * @Transfer\Filter("Laminas\Filter\StringTrim")
      * @Transfer\Validator("Laminas\Validator\IsJsonString")
      * @Transfer\Validator("Laminas\Validator\StringLength",options={"min":5})
+     * @Transfer\Escape(false)
      */
     protected $comment;
 

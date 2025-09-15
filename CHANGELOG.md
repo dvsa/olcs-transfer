@@ -1,5 +1,33 @@
 # Changelog
 
+## [7.18.2](https://github.com/dvsa/olcs-transfer/compare/v7.18.1...v7.18.2) (2025-08-11)
+
+
+### Bug Fixes
+
+* remove unused stored cards code VOL-6371 ([#139](https://github.com/dvsa/olcs-transfer/issues/139)) ([93a4328](https://github.com/dvsa/olcs-transfer/commit/93a43286a70f556684eb23d264321b5370d20f67))
+
+## [7.18.1](https://github.com/dvsa/olcs-transfer/compare/v7.18.0...v7.18.1) (2025-07-30)
+
+
+### Bug Fixes
+
+* stop escaping the JSON produced by EditorJS to preserve inline formatting like bold and italic ([#137](https://github.com/dvsa/olcs-transfer/issues/137)) ([12fe284](https://github.com/dvsa/olcs-transfer/commit/12fe284a72851251255d47b8ed3a9eb8df3da422))
+
+## [7.18.0](https://github.com/dvsa/olcs-transfer/compare/v7.17.0...v7.18.0) (2025-07-24)
+
+
+### Features
+
+* remove old psv app tracking and vehicle declaration objects VOL-5882 ([#135](https://github.com/dvsa/olcs-transfer/issues/135)) ([d4f6df8](https://github.com/dvsa/olcs-transfer/commit/d4f6df8e2535b914ddf186e31875b2ac2c716341))
+
+## [7.17.0](https://github.com/dvsa/olcs-transfer/compare/v7.16.1...v7.17.0) (2025-07-11)
+
+
+### Features
+
+* update application tracking with new PSV journey VOL-6466 VOL-5882 ([#133](https://github.com/dvsa/olcs-transfer/issues/133)) ([76fbae9](https://github.com/dvsa/olcs-transfer/commit/76fbae9424b136b31f8db7606cc9cc0d25f048e8))
+
 ## [7.16.1](https://github.com/dvsa/olcs-transfer/compare/v7.16.0...v7.16.1) (2025-06-27)
 
 
