@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Dvsa\Olcs\Transfer\Command\Cases\Pi;
 
 use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
@@ -16,27 +18,27 @@ class CreatePiSlaException extends AbstractCommand
     /**
      * Case ID
      *
-     * @var int
+     * @var ?int
      * @Transfer\Filter("Laminas\Filter\Digits")
      * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
-    protected $case;
+    protected ?int $case = null;
 
     /**
      * SLA Exception ID
      *
-     * @var int
+     * @var ?int
      * @Transfer\Filter("Laminas\Filter\Digits")
      * @Transfer\Validator("Laminas\Validator\GreaterThan", options={"min": 0})
      */
-    protected $slaException;
+    protected ?int $slaException = null;
 
     /**
      * Get Case ID
      *
-     * @return int
+     * @return ?int
      */
-    public function getCase(): int
+    public function getCase(): ?int
     {
         return $this->case;
     }
@@ -44,9 +46,9 @@ class CreatePiSlaException extends AbstractCommand
     /**
      * Get SLA Exception ID
      *
-     * @return int
+     * @return ?int
      */
-    public function getSlaException(): int
+    public function getSlaException(): ?int
     {
         return $this->slaException;
     }
