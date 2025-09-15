@@ -1,5 +1,12 @@
 # Changelog
 
+## [7.19.0](https://github.com/dvsa/olcs-transfer/compare/v7.18.2...v7.19.0) (2025-09-15)
+
+
+### Features
+
+* add pi sla exception cmd and qry ([#142](https://github.com/dvsa/olcs-transfer/issues/142)) ([c676b4c](https://github.com/dvsa/olcs-transfer/commit/c676b4c514b49cd7485145f192b7aef14677807a))
+
 ## [7.18.2](https://github.com/dvsa/olcs-transfer/compare/v7.18.1...v7.18.2) (2025-08-11)
 
 
