@@ -1,5 +1,16 @@
 # Changelog
 
+## [8.0.0](https://github.com/dvsa/olcs-transfer/compare/v7.19.0...v8.0.0) (2025-09-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* CI passing on PHP 8.2 and 8.3, bump dependencies, fix static analysis VOL-6497 ([#141](https://github.com/dvsa/olcs-transfer/issues/141))
+
+### Code Refactoring
+
+* CI passing on PHP 8.2 and 8.3, bump dependencies, fix static analysis VOL-6497 ([#141](https://github.com/dvsa/olcs-transfer/issues/141)) ([b828f92](https://github.com/dvsa/olcs-transfer/commit/b828f9220122556dd5b83290722f692dc16aca11))
+
 ## [7.19.0](https://github.com/dvsa/olcs-transfer/compare/v7.18.2...v7.19.0) (2025-09-15)
 
 
