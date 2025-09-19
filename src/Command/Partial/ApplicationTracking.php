@@ -418,16 +418,6 @@ class ApplicationTracking extends AbstractCommand
         return $this->declarationsInternalStatus;
     }
 
-    /**
-     * Gets the value of vehiclesDeclarationsStatus.
-     *
-     * @return mixed
-     */
-    public function getVehiclesDeclarationsStatus()
-    {
-        return $this->vehiclesDeclarationsStatus;
-    }
-
     public function getVehiclesSizeStatus(): ?string
     {
         return $this->vehiclesSizeStatus;

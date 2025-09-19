@@ -10,12 +10,11 @@ use PHPUnit\Framework\Assert as Assert;
 trait DtoWithoutFieldTransformationsTest
 {
     /**
-     * @inheritDoc
+     * @doesNotPerformAssertions
      */
     public function testFieldTransformations()
     {
         // the test as defined by DtoTest is only relevant to Dto with filtered fields
-        Assert::assertTrue(true);
     }
 
     /**

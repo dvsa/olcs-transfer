@@ -16,7 +16,7 @@ trait ValidOnlyOptional
     protected $validOnly;
 
     /**
-     * @return bool
+     * @return ?bool
      */
     public function getValidOnly()
     {

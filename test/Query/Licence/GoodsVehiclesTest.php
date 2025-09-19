@@ -14,18 +14,6 @@ use Mockery as m;
 
 class GoodsVehiclesTest extends TestCase
 {
-    public function testGetVehicleIdsIsDefined(): void
-    {
-        // Setup
-        $sut = GoodsVehicles::create([]);
-
-        // Assert
-        $this->assertIsCallable([$sut, 'getVehicleIds']);
-    }
-
-    /**
-     * @depends testGetVehicleIdsIsDefined
-     */
     public function testGetVehicleIdsReturnsAnArrayProvided()
     {
         // Setup
@@ -36,9 +24,6 @@ class GoodsVehiclesTest extends TestCase
         $this->assertEquals($expectedVehicleIds, $sut->getVehicleIds());
     }
 
-    /**
-     * @depends testGetVehicleIdsIsDefined
-     */
     public function testGetVehicleIdsReturnsNullProvided()
     {
         // Setup
@@ -48,9 +33,6 @@ class GoodsVehiclesTest extends TestCase
         $this->assertNull($sut->getVehicleIds());
     }
 
-    /**
-     * @depends testGetVehicleIdsIsDefined
-     */
     public function testGetVehicleIdsReturnsNullWhenNoVehicleIdsProvided()
     {
         // Setup
