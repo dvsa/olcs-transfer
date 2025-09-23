@@ -13,7 +13,7 @@
         "laminas/laminas-crypt": "^4",
         "laminas/laminas-xml": "^1.7.0",
         "laminas/laminas-cache": "^3.13",
-        "laminas/laminas-cache-storage-adapter-redis": "^2.7",
+        "laminas/laminas-cache-storage-adapter-redis": "^2.10",
         "laminas/laminas-router": "^3.14",
         "psr/container": "^1.1|^2"
     },
@@ -59,7 +59,7 @@
             "bamarni/composer-bin-plugin": true
         },
         "platform": {
-            "ext-redis": "5.0.2"
+            "ext-redis": "6.2.6"
         }
     }
 }
