@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.0.1](https://github.com/dvsa/olcs-transfer/compare/v8.0.0...v8.0.1) (2025-09-23)
+
+
+### Miscellaneous Chores
+
+* bump redis platform version to match elasticache, allows laminas package bump VOL-6459 ([#145](https://github.com/dvsa/olcs-transfer/issues/145)) ([2e0568d](https://github.com/dvsa/olcs-transfer/commit/2e0568d3051dd00b898bfb422d17ce808a5e804d))
+
 ## [8.0.0](https://github.com/dvsa/olcs-transfer/compare/v7.19.0...v8.0.0) (2025-09-19)
 
 
