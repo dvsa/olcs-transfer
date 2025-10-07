@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.0.3](https://github.com/dvsa/olcs-transfer/compare/v8.0.2...v8.0.3) (2025-10-07)
+
+
+### Bug Fixes
+
+* vol-5649 update variable hint to make sure its initialization  ([#150](https://github.com/dvsa/olcs-transfer/issues/150)) ([7baed51](https://github.com/dvsa/olcs-transfer/commit/7baed51ce5a2cf9ef2a66682c69bd455e4c09a96))
+
 ## [8.0.2](https://github.com/dvsa/olcs-transfer/compare/v8.0.1...v8.0.2) (2025-10-07)
 
 
