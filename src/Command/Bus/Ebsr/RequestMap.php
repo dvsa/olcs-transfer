@@ -19,7 +19,7 @@ class RequestMap extends AbstractCommand
     /**
      * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"small","large","auto"}})
      */
-    protected string $scale;
+    protected ?string $scale = null;
 
     public function getScale(): string
     {
