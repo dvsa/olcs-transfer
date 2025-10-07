@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.0.4](https://github.com/dvsa/olcs-transfer/compare/v8.0.3...v8.0.4) (2025-10-07)
+
+
+### Miscellaneous Chores
+
+* remove all files refrencing `GdsVerify` ([#149](https://github.com/dvsa/olcs-transfer/issues/149)) ([c0ce987](https://github.com/dvsa/olcs-transfer/commit/c0ce98722a84d323c80575d18dd443ea1c43535a))
+
 ## [8.0.3](https://github.com/dvsa/olcs-transfer/compare/v8.0.2...v8.0.3) (2025-10-07)
 
 
