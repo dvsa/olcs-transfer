@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.0.2](https://github.com/dvsa/olcs-transfer/compare/v8.0.1...v8.0.2) (2025-10-07)
+
+
+### Miscellaneous Chores
+
+* vol-5649 - remove legacy Transxchange publisher code ([#147](https://github.com/dvsa/olcs-transfer/issues/147)) ([3a8cd12](https://github.com/dvsa/olcs-transfer/commit/3a8cd127b084d30d0f6ddb898a5cb25d1b8b3f5a))
+
 ## [8.0.1](https://github.com/dvsa/olcs-transfer/compare/v8.0.0...v8.0.1) (2025-09-23)
 
 
