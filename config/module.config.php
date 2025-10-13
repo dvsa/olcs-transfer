@@ -1,6 +1,7 @@
 <?php
 
 use Dvsa\Olcs\Transfer\Service;
+use Laminas\ServiceManager\Factory\InvokableFactory;
 
 return [
     'api_router' => [
@@ -29,6 +30,7 @@ return [
             'ApiRouter' => \Dvsa\Olcs\Transfer\Router\RouterFactory::class,
             Service\CacheEncryption::class => Service\CacheEncryptionFactory::class,
             \Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilder::class => \Dvsa\Olcs\Transfer\Util\Annotation\AnnotationBuilderFactory::class,
+            Dvsa\Olcs\Transfer\Service\Crypto\SodiumEncryptor::class => InvokableFactory::class,
         ],
         'invokables' => [
             \Laminas\Xml\Security::class => \Laminas\Xml\Security::class
