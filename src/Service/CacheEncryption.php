@@ -91,7 +91,7 @@ class CacheEncryption
         private string $nodeKey,
         private string $sharedKey,
         private string $nodeSuffix
-    ){
+    ) {
     }
 
     /**
