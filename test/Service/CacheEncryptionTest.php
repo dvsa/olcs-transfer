@@ -98,7 +98,7 @@ class CacheEncryptionTest extends MockeryTestCase
 
         $encryptor = m::mock(EncryptorInterface::class);
         $encryptor->expects('encrypt')
-            ->with($encryptionKey,$serializedValue)
+            ->with($encryptionKey, $serializedValue)
             ->andReturn($this->encryptedValue);
 
         $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);

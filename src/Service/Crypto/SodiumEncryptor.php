@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Dvsa\Olcs\Transfer\Service\Crypto;
 
 use Random\RandomException;
@@ -27,6 +26,7 @@ final class SodiumEncryptor implements EncryptorInterface
      * @throws RandomException
      * @throws \SodiumException
      */
+    #[\Override]
     public function encrypt(string $key, string $plaintext, ?string $aad = null): string
     {
         $k = self::ensureKey($key);
@@ -46,6 +46,7 @@ final class SodiumEncryptor implements EncryptorInterface
     /**
      * @throws \SodiumException
      */
+    #[\Override]
     public function decrypt(string $key, string $ciphertext, ?string $aad = null): string
     {
         $k = self::ensureKey($key);
