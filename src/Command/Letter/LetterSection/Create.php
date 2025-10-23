@@ -13,6 +13,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\GoodsOrPsvOptional;
 final class Create extends AbstractCommand
 {
     use GoodsOrPsvOptional;
+
     /**
      * @var string
      * @Transfer\Filter("Laminas\Filter\StringTrim")

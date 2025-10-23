@@ -11,7 +11,6 @@ use Dvsa\Olcs\Transfer\Command\AbstractCommand;
  */
 final class Create extends AbstractCommand
 {
-
     /**
      * @var string
      * @Transfer\Filter("Laminas\Filter\StringTrim")

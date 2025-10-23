@@ -13,4 +13,3 @@ final class Get extends AbstractQuery
 {
     use Identity;
 }
-EOF < /dev/null

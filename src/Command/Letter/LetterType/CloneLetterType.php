@@ -10,7 +10,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
  * @Transfer\RouteName("backend/letter/letter-type/clone")
  * @Transfer\Method("POST")
  */
-final class Clone extends AbstractCommand
+final class CloneLetterType extends AbstractCommand
 {
     use Identity;
 

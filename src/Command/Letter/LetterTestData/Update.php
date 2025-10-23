@@ -42,5 +42,4 @@ final class Update extends AbstractCommand
     {
         return $this->json;
     }
-
 }
