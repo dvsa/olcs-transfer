@@ -19,13 +19,10 @@ class TrailerRegNumber extends Regex
     ];
 
     /**
-     * Sets validator options
+     * Sets validator options (default pattern 1 letter followed by 7 digits)
      */
-    public function __construct()
+    public function __construct(string $pattern = '/^[A-Za-z][0-9]{7}$/')
     {
-        // 1 letter followed by 7 digits
-        $pattern = '/^[A-Za-z][0-9]{7}$/';
-
         parent::__construct($pattern);
     }
 }

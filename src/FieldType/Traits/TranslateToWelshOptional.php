@@ -15,7 +15,7 @@ trait TranslateToWelshOptional
     protected $translateToWelsh;
 
     /**
-     * @return string
+     * @return ?string
      */
     public function getTranslateToWelsh()
     {

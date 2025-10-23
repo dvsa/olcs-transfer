@@ -53,6 +53,7 @@ class Xml extends AbstractValidator
      * @param mixed $value
      * @return string|bool
      */
+    #[\Override]
     public function isValid($value)
     {
         try {
