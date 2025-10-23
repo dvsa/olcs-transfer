@@ -42,35 +42,6 @@ final class Create extends AbstractCommand
     protected $isActive = true;
 
     /**
-     * @var array
-     * @Transfer\Optional
-     * @Transfer\ArrayInput
-     */
-    protected $sections;
-
-    /**
-     * @var array
-     * @Transfer\Optional
-     * @Transfer\ArrayInput
-     */
-    protected $issues;
-
-    /**
-     * @var array
-     * @Transfer\Optional
-     * @Transfer\ArrayInput
-     */
-    protected $todos;
-
-    /**
-     * @var array
-     * @Transfer\Optional
-     * @Transfer\ArrayInput
-     */
-    protected $appendices;
-
-
-    /**
      * @return string
      */
     public function getName()
@@ -92,37 +63,5 @@ final class Create extends AbstractCommand
     public function getIsActive()
     {
         return $this->isActive;
-    }
-
-    /**
-     * @return array
-     */
-    public function getSections()
-    {
-        return $this->sections;
-    }
-
-    /**
-     * @return array
-     */
-    public function getIssues()
-    {
-        return $this->issues;
-    }
-
-    /**
-     * @return array
-     */
-    public function getTodos()
-    {
-        return $this->todos;
-    }
-
-    /**
-     * @return array
-     */
-    public function getAppendices()
-    {
-        return $this->appendices;
     }
 }
