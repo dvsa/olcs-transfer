@@ -1,5 +1,51 @@
 # Changelog
 
+## [8.0.4](https://github.com/dvsa/olcs-transfer/compare/v8.0.3...v8.0.4) (2025-10-07)
+
+
+### Miscellaneous Chores
+
+* remove all files refrencing `GdsVerify` ([#149](https://github.com/dvsa/olcs-transfer/issues/149)) ([c0ce987](https://github.com/dvsa/olcs-transfer/commit/c0ce98722a84d323c80575d18dd443ea1c43535a))
+
+## [8.0.3](https://github.com/dvsa/olcs-transfer/compare/v8.0.2...v8.0.3) (2025-10-07)
+
+
+### Bug Fixes
+
+* vol-5649 update variable hint to make sure its initialization  ([#150](https://github.com/dvsa/olcs-transfer/issues/150)) ([7baed51](https://github.com/dvsa/olcs-transfer/commit/7baed51ce5a2cf9ef2a66682c69bd455e4c09a96))
+
+## [8.0.2](https://github.com/dvsa/olcs-transfer/compare/v8.0.1...v8.0.2) (2025-10-07)
+
+
+### Miscellaneous Chores
+
+* vol-5649 - remove legacy Transxchange publisher code ([#147](https://github.com/dvsa/olcs-transfer/issues/147)) ([3a8cd12](https://github.com/dvsa/olcs-transfer/commit/3a8cd127b084d30d0f6ddb898a5cb25d1b8b3f5a))
+
+## [8.0.1](https://github.com/dvsa/olcs-transfer/compare/v8.0.0...v8.0.1) (2025-09-23)
+
+
+### Miscellaneous Chores
+
+* bump redis platform version to match elasticache, allows laminas package bump VOL-6459 ([#145](https://github.com/dvsa/olcs-transfer/issues/145)) ([2e0568d](https://github.com/dvsa/olcs-transfer/commit/2e0568d3051dd00b898bfb422d17ce808a5e804d))
+
+## [8.0.0](https://github.com/dvsa/olcs-transfer/compare/v7.19.0...v8.0.0) (2025-09-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* CI passing on PHP 8.2 and 8.3, bump dependencies, fix static analysis VOL-6497 ([#141](https://github.com/dvsa/olcs-transfer/issues/141))
+
+### Code Refactoring
+
+* CI passing on PHP 8.2 and 8.3, bump dependencies, fix static analysis VOL-6497 ([#141](https://github.com/dvsa/olcs-transfer/issues/141)) ([b828f92](https://github.com/dvsa/olcs-transfer/commit/b828f9220122556dd5b83290722f692dc16aca11))
+
+## [7.19.0](https://github.com/dvsa/olcs-transfer/compare/v7.18.2...v7.19.0) (2025-09-15)
+
+
+### Features
+
+* add pi sla exception cmd and qry ([#142](https://github.com/dvsa/olcs-transfer/issues/142)) ([c676b4c](https://github.com/dvsa/olcs-transfer/commit/c676b4c514b49cd7485145f192b7aef14677807a))
+
 ## [7.18.2](https://github.com/dvsa/olcs-transfer/compare/v7.18.1...v7.18.2) (2025-08-11)
 
 

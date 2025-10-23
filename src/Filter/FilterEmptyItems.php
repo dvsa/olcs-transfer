@@ -19,6 +19,7 @@ class FilterEmptyItems extends AbstractFilter
      * @param mixed $value
      * @return array|mixed
      */
+    #[\Override]
     public function filter($value)
     {
         if (!is_array($value)) {

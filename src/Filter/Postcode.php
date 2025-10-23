@@ -31,6 +31,7 @@ class Postcode implements FilterInterface
      * @param  mixed $value
      * @return string
      */
+    #[\Override]
     public function filter($value)
     {
         // apply StringTrim filter

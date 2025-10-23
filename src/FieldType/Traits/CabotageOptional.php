@@ -17,7 +17,7 @@ trait CabotageOptional
     protected $cabotage;
 
     /**
-     * @return int
+     * @return ?int
      */
     public function getCabotage()
     {

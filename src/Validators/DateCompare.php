@@ -56,8 +56,8 @@ class DateCompare extends AbstractCompare
      * Sets options
      *
      * @param  mixed $options
-     * @return static
      */
+    #[\Override]
     public function setOptions($options = []): AbstractValidator
     {
         if (isset($options['has_time'])) {
@@ -75,6 +75,7 @@ class DateCompare extends AbstractCompare
      * @param  array $context
      * @return bool
      */
+    #[\Override]
     public function isValid($value, array $context = null)
     {
         if (empty($value)) {

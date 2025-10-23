@@ -54,6 +54,7 @@ class ArrayInput extends \Laminas\InputFilter\ArrayInput
     /**
      * @return array
      */
+    #[\Override]
     public function getValue()
     {
         $values = parent::getValue();
@@ -69,6 +70,7 @@ class ArrayInput extends \Laminas\InputFilter\ArrayInput
      * @param  mixed $context Extra "context" to provide the validator
      * @return bool
      */
+    #[\Override]
     public function isValid($context = null)
     {
         $values = $this->getValue();
@@ -89,6 +91,7 @@ class ArrayInput extends \Laminas\InputFilter\ArrayInput
      *
      * @return array<string, string>
      */
+    #[\Override]
     public function getMessages()
     {
         $validator = $this->getArrayValidatorChain();

@@ -53,6 +53,7 @@ class FhAdditionalInfo extends LaminasValidator\AbstractValidator
      *
      * @return bool
      */
+    #[\Override]
     public function isValid($value, $context = null)
     {
         $this->setValue($value);

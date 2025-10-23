@@ -6,6 +6,7 @@ use Laminas\Router\Http\Method;
 
 class Query extends Method
 {
+    #[\Override]
     public function assemble(array $params = [], array $options = [])
     {
         $mergedParams = array_merge($this->defaults, $params);

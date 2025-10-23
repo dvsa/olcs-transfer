@@ -13,4 +13,20 @@
       <directory name="vendor"/>
     </ignoreFiles>
   </projectFiles>
+    <issueHandlers>
+      <InvalidExtendClass>
+        <errorLevel type="suppress">
+          <!-- Laminas have added annotations to some classes we extend, to signify they will be final in upcoming versions -->
+          <directory name="src/Validators" />
+          <file name="src/Util/ArrayInput.php" />
+        </errorLevel>
+      </InvalidExtendClass>
+      <MethodSignatureMismatch>
+        <errorLevel type="suppress">
+          <!-- Laminas have added annotations to some classes we extend, to signify they will be final in upcoming versions -->
+          <directory name="src/Validators" />
+          <file name="src/Util/ArrayInput.php" />
+        </errorLevel>
+      </MethodSignatureMismatch>
+    </issueHandlers>
 </psalm>

@@ -118,7 +118,18 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Cases\Pi\PiDefinitionList::class)
                 ]
             ],
-            'POST' => CommandConfig::getPostConfig(Command\Cases\Pi\CreateAgreedAndLegislation::class)
+            'POST' => CommandConfig::getPostConfig(Command\Cases\Pi\CreateAgreedAndLegislation::class),
+            'sla-exceptions' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'sla-exceptions[/]'
+                ],
+                'may_terminate' => false,
+                'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Cases\Pi\SlaExceptionList::class),
+                    'POST' => CommandConfig::getPostConfig(Command\Cases\Pi\CreatePiSlaException::class),
+                ],
+            ],
         ],
     ]
 ];

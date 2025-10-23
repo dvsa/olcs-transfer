@@ -109,6 +109,7 @@ class EmailAddress extends AbstractValidator
      * @param  string $messageKey     OPTIONAL
      * @return static Provides a fluent interface
      */
+    #[\Override]
     public function setMessage($messageString, $messageKey = null): AbstractValidator
     {
         if ($messageKey === null) {
@@ -136,7 +137,7 @@ class EmailAddress extends AbstractValidator
     public function getHostnameValidator()
     {
         if (!isset($this->options['hostnameValidator'])) {
-            /** @phpstan-ignore-next-line
+            /**
              * @psalm-suppress InvalidArgument
              *
              * Docblock types as array, but handles non-array values.
@@ -297,6 +298,7 @@ class EmailAddress extends AbstractValidator
      * @param  mixed $value
      * @return bool
      */
+    #[\Override]
     public function isValid($value)
     {
         // Check length

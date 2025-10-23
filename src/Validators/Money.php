@@ -40,6 +40,7 @@ class Money extends AbstractValidator
      *
      * @return bool
      */
+    #[\Override]
     public function isValid($value)
     {
         // None numerics are not allowed
@@ -76,16 +77,14 @@ class Money extends AbstractValidator
      * Set validator options
      *
      * @param mixed $options Options to set
-     *
-     * @phpstan-ignore-next-line
-     * @return void
      */
-    public function setOptions($options = [])
+    #[\Override]
+    public function setOptions($options = []): AbstractValidator
     {
         if (isset($options['allow_negative']) && $options['allow_negative'] == true) {
             $this->allowNegative = true;
         }
 
-        parent::setOptions($options);
+        return parent::setOptions($options);
     }
 }

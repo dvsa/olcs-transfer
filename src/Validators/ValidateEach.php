@@ -31,6 +31,7 @@ class ValidateEach extends IsCountable
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function isValid($value)
     {
         if (! parent::isValid($value)) {
@@ -77,6 +78,7 @@ class ValidateEach extends IsCountable
     /**
      * @inheritDoc
      */
+    #[\Override]
     public function getMessages()
     {
         return $this->abstractOptions['messages'];

@@ -18,7 +18,7 @@ trait IrhpPermitRangeTypeOptional
     protected $irhpPermitRangeType;
 
     /**
-     * @return string
+     * @return ?string
      */
     public function getIrhpPermitRangeType()
     {
