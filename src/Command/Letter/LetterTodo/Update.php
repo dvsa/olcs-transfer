@@ -6,10 +6,12 @@ use Dvsa\Olcs\Transfer\Util\Annotation as Transfer;
 use Dvsa\Olcs\Transfer\Command\AbstractCommand;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Identity;
 
+// phpcs:disable Generic.Commenting.Todo.TaskFound
 /**
  * @Transfer\RouteName("backend/letter/letter-todo/single")
  * @Transfer\Method("PUT")
  */
+// phpcs:enable Generic.Commenting.Todo.TaskFound
 final class Update extends AbstractCommand
 {
     use Identity;
