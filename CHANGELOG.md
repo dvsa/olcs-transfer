@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.1.0](https://github.com/dvsa/olcs-transfer/compare/v8.0.4...v8.1.0) (2025-10-23)
+
+
+### Features
+
+* letters initial admin UI transfer objects ([#154](https://github.com/dvsa/olcs-transfer/issues/154)) ([6f301f3](https://github.com/dvsa/olcs-transfer/commit/6f301f342a7eb35b2e275e3da1eb0eb573e04d60))
+
 ## [8.0.4](https://github.com/dvsa/olcs-transfer/compare/v8.0.3...v8.0.4) (2025-10-07)
 
 
