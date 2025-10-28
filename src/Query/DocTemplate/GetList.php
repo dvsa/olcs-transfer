@@ -34,6 +34,12 @@ class GetList extends AbstractQuery implements OrderedQueryInterface
      */
     protected $subCategory;
 
+    /**
+     * @Transfer\Optional
+     * @Transfer\Filter("Laminas\Filter\Boolean")
+     */
+    protected $newTemplatesFirst = false;
+
     public function getCategory()
     {
         return $this->category;
@@ -42,5 +48,15 @@ class GetList extends AbstractQuery implements OrderedQueryInterface
     public function getSubCategory()
     {
         return $this->subCategory;
+    }
+
+    /**
+     * Get whether to order new templates first
+     *
+     * @return bool
+     */
+    public function getNewTemplatesFirst()
+    {
+        return $this->newTemplatesFirst;
     }
 }
