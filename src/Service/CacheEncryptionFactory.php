@@ -2,10 +2,10 @@
 
 namespace Dvsa\Olcs\Transfer\Service;
 
+use Dvsa\Olcs\Transfer\Service\Crypto\SodiumEncryptor;
 use Psr\Container\ContainerInterface;
 use Laminas\Cache\Storage\StorageInterface;
 use Laminas\ServiceManager\Factory\FactoryInterface;
-use Laminas\Crypt\BlockCipher;
 
 class CacheEncryptionFactory implements FactoryInterface
 {
@@ -22,7 +22,7 @@ class CacheEncryptionFactory implements FactoryInterface
      * @return CacheEncryption
      */
     #[\Override]
-    public function __invoke(ContainerInterface $container, $requestedName, array $options = null): CacheEncryption
+    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null): CacheEncryption
     {
         $config = $container->get('Config');
 
@@ -33,15 +33,11 @@ class CacheEncryptionFactory implements FactoryInterface
         $cache = $container->get('default-cache');
         assert($cache instanceof StorageInterface);
 
-        /** @var BlockCipher $blockCipher */
-        $blockCipher = BlockCipher::factory(
-            $config['cache-encryption']['adapter'],
-            $config['cache-encryption']['options']
-        );
+        $encryptor = new SodiumEncryptor();
 
         return new CacheEncryption(
             $cache,
-            $blockCipher,
+            $encryptor,
             $config['cache-encryption']['secrets']['node'],
             $config['cache-encryption']['secrets']['shared'],
             $config['cache-encryption']['node_suffix']

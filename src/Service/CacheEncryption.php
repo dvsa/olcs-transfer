@@ -5,9 +5,9 @@ namespace Dvsa\Olcs\Transfer\Service;
 use Dvsa\Olcs\Transfer\Query\QueryContainerInterface;
 use Dvsa\Olcs\Transfer\Query\SystemParameter\SystemParameter;
 use Dvsa\Olcs\Transfer\Query\SystemParameter\SystemParameterList;
+use Dvsa\Olcs\Transfer\Service\Crypto\EncryptorInterface;
 use Laminas\Cache\Storage\Adapter\AdapterOptions;
 use Laminas\Cache\Storage\StorageInterface;
-use Laminas\Crypt\BlockCipher;
 
 class CacheEncryption
 {
@@ -85,8 +85,13 @@ class CacheEncryption
      *
      * @return void
      */
-    public function __construct(private StorageInterface $cache, private BlockCipher $encryptor, private string $nodeKey, private string $sharedKey, private string $nodeSuffix)
-    {
+    public function __construct(
+        private StorageInterface $cache,
+        private EncryptorInterface $encryptor,
+        private string $nodeKey,
+        private string $sharedKey,
+        private string $nodeSuffix
+    ) {
     }
 
     /**
@@ -270,8 +275,7 @@ class CacheEncryption
      */
     private function encrypt(string $encryptionKey, mixed $value): string
     {
-        $this->encryptor->setKey($encryptionKey);
-        return $this->encryptor->encrypt($value);
+        return $this->encryptor->encrypt($encryptionKey, $value);
     }
 
     /**
@@ -286,8 +290,7 @@ class CacheEncryption
             return $encryptedValue;
         }
 
-        $this->encryptor->setKey($encryptionKey);
-        return $this->encryptor->decrypt($encryptedValue);
+        return $this->encryptor->decrypt($encryptionKey, $encryptedValue);
     }
 
     /**
