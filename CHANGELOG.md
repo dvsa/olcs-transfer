@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.2.0](https://github.com/dvsa/olcs-transfer/compare/v8.1.0...v8.2.0) (2025-11-04)
+
+
+### Features
+
+* first caseworker letters UI ([#156](https://github.com/dvsa/olcs-transfer/issues/156)) ([151a5dc](https://github.com/dvsa/olcs-transfer/commit/151a5dc34e08f3c76c893f1e90f0c32881871d17))
+
 ## [8.1.0](https://github.com/dvsa/olcs-transfer/compare/v8.0.4...v8.1.0) (2025-10-23)
 
 
