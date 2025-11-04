@@ -82,6 +82,14 @@ final class Create extends AbstractCommand
     protected $publishFrom;
 
     /**
+     * @var int
+     * @Transfer\Optional
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     */
+    protected $letterIssueTypeId;
+
+    /**
      * @return string
      */
     public function getIssueKey()
@@ -151,5 +159,13 @@ final class Create extends AbstractCommand
     public function getPublishFrom()
     {
         return $this->publishFrom;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLetterIssueTypeId()
+    {
+        return $this->letterIssueTypeId;
     }
 }

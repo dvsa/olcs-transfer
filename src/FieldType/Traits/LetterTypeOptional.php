@@ -3,7 +3,9 @@
 namespace Dvsa\Olcs\Transfer\FieldType\Traits;
 
 /**
- * Letter Type Optional
+ * Trait LetterTypeOptional
+ *
+ * @package Dvsa\Olcs\Transfer\FieldType\Traits
  */
 trait LetterTypeOptional
 {
@@ -17,7 +19,9 @@ trait LetterTypeOptional
     protected $letterType;
 
     /**
-     * @return int
+     * Get letter type
+     *
+     * @return int|null
      */
     public function getLetterType()
     {

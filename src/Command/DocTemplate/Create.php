@@ -12,6 +12,7 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\Category;
 use Dvsa\Olcs\Transfer\FieldType\Traits\Description;
 use Dvsa\Olcs\Transfer\FieldType\Traits\FilenameAndContent;
 use Dvsa\Olcs\Transfer\FieldType\Traits\IsNiOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\LetterTypeOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\SubCategoryOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\SuppressFromOp;
 use Dvsa\Olcs\Transfer\FieldType\Traits\TemplateFolder;
@@ -33,4 +34,5 @@ final class Create extends AbstractCommand
     use SuppressFromOp;
     use IsNiOptional;
     use TemplateSlugOptional;
+    use LetterTypeOptional;
 }

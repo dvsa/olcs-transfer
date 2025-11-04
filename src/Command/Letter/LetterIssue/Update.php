@@ -84,6 +84,14 @@ final class Update extends AbstractCommand
     protected $publishFrom;
 
     /**
+     * @var int
+     * @Transfer\Optional
+     * @Transfer\Filter("Laminas\Filter\Digits")
+     * @Transfer\Validator("Laminas\Validator\Digits")
+     */
+    protected $letterIssueTypeId;
+
+    /**
      * @return string
      */
     public function getIssueKey()
@@ -153,5 +161,13 @@ final class Update extends AbstractCommand
     public function getPublishFrom()
     {
         return $this->publishFrom;
+    }
+
+    /**
+     * @return int
+     */
+    public function getLetterIssueTypeId()
+    {
+        return $this->letterIssueTypeId;
     }
 }
