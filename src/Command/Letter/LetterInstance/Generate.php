@@ -27,6 +27,13 @@ final class Generate extends AbstractCommand
      * @Transfer\Optional
      * @Transfer\ArrayInput
      */
+    protected $selectedSections;
+
+    /**
+     * @var array
+     * @Transfer\Optional
+     * @Transfer\ArrayInput
+     */
     protected $selectedIssues;
 
     /**
@@ -48,6 +55,14 @@ final class Generate extends AbstractCommand
      * @Transfer\Optional
      */
     protected $additionalData;
+
+    /**
+     * @return array
+     */
+    public function getSelectedSections()
+    {
+        return $this->selectedSections;
+    }
 
     /**
      * @return array
