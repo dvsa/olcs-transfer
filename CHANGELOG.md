@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.3.0](https://github.com/dvsa/olcs-transfer/compare/v8.2.0...v8.3.0) (2025-11-28)
+
+
+### Features
+
+* remove old repute url query, replace with check repute command VOL-5804 ([#107](https://github.com/dvsa/olcs-transfer/issues/107)) ([bf28f15](https://github.com/dvsa/olcs-transfer/commit/bf28f159705c3784f94f006213a292431e1b4028))
+
 ## [8.2.0](https://github.com/dvsa/olcs-transfer/compare/v8.1.0...v8.2.0) (2025-11-04)
 
 

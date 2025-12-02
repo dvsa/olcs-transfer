@@ -45,6 +45,10 @@ return [
                 'remove',
                 ['POST' => CommandConfig::getPostConfig(Command\Tm\Remove::class),]
             ),
+            'check-repute' => RouteConfig::getRouteConfig(
+                'check-repute',
+                ['POST' => CommandConfig::getPostConfig(Command\Tm\CheckRepute::class)]
+            ),
         ]
     )
 ];
