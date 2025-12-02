@@ -8,6 +8,10 @@ use Dvsa\Olcs\Transfer\FieldType\Traits\LetterType;
 use Dvsa\Olcs\Transfer\FieldType\Traits\LicenceOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\ApplicationOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\CasesOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\BusRegOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\TransportManagerOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IrhpApplicationOptional;
+use Dvsa\Olcs\Transfer\FieldType\Traits\IrfoOrganisationOptional;
 use Dvsa\Olcs\Transfer\FieldType\Traits\LetterTestDataOptional;
 
 /**
@@ -20,6 +24,10 @@ final class Generate extends AbstractCommand
     use LicenceOptional;
     use ApplicationOptional;
     use CasesOptional;
+    use BusRegOptional;
+    use TransportManagerOptional;
+    use IrhpApplicationOptional;
+    use IrfoOrganisationOptional;
     use LetterTestDataOptional;
 
     // selectedSections removed temporarily - will be added back in future tickets
