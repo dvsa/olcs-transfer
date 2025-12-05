@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.4.0](https://github.com/dvsa/olcs-transfer/compare/v8.3.0...v8.4.0) (2025-12-05)
+
+
+### Features
+
+* letter instance builder vol 6441 ([#159](https://github.com/dvsa/olcs-transfer/issues/159)) ([c081478](https://github.com/dvsa/olcs-transfer/commit/c081478b33e065428aaf4a481f1d2e65ca809978))
+
 ## [8.3.0](https://github.com/dvsa/olcs-transfer/compare/v8.2.0...v8.3.0) (2025-11-28)
 
 
