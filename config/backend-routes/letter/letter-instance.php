@@ -41,6 +41,7 @@ return [
                     ]
                 ],
                 'child_routes' => [
+                    'GET' => QueryConfig::getConfig(Query\Letter\LetterInstance\Preview::class),
                     'POST' => CommandConfig::getPostConfig(Command\Letter\LetterInstance\Preview::class),
                 ]
             ]
