@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.5.0](https://github.com/dvsa/olcs-transfer/compare/v8.4.0...v8.5.0) (2026-01-12)
+
+
+### Features
+
+* letters builder preview function ([#161](https://github.com/dvsa/olcs-transfer/issues/161)) ([aed051f](https://github.com/dvsa/olcs-transfer/commit/aed051fbd67a694f607ccad18018d8e2aefbf616))
+
 ## [8.4.0](https://github.com/dvsa/olcs-transfer/compare/v8.3.0...v8.4.0) (2025-12-05)
 
 
