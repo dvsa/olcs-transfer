@@ -15,6 +15,7 @@ use Dvsa\Olcs\Transfer\Util\StructuredInput;
 use Laminas\Filter\FilterPluginManager;
 use Laminas\Filter\StripTags as Escaper;
 use Laminas\InputFilter\Input;
+use Laminas\InputFilter\InputFilter;
 use Laminas\Validator\ValidatorPluginManager;
 
 /**
@@ -24,68 +25,23 @@ use Laminas\Validator\ValidatorPluginManager;
  */
 class AnnotationBuilder
 {
-    protected $filterManager;
-    protected $validatorManager;
-
-    /**
-     * @return mixed
-     */
-    public function getFilterManager()
-    {
-        if ($this->filterManager === null) {
-            $this->filterManager = new FilterPluginManager();
-        }
-        return $this->filterManager;
+    public function __construct(
+        private readonly InputFilter $inputFilter,
+        private readonly FilterPluginManager $filterManager,
+        private readonly ValidatorPluginManager $validatorManager,
+        private readonly AnnotationReader $annotationReader
+    ) {
     }
 
-    public function setFilterManager(mixed $filterManager)
-    {
-        $this->filterManager = $filterManager;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getValidatorManager()
-    {
-        if ($this->validatorManager === null) {
-            $this->validatorManager = new ValidatorPluginManager();
-        }
-        return $this->validatorManager;
-    }
-
-    public function setValidatorManager(mixed $validatorManager)
-    {
-        $this->validatorManager = $validatorManager;
-    }
-
-
-    /** @var AnnotationReader */
-    protected $reader;
-
-    public function setReader(AnnotationReader $reader)
-    {
-        $this->reader = $reader;
-    }
-
-    public function getReader(): AnnotationReader
-    {
-        if ($this->reader === null) {
-            $this->setReader(new AnnotationReader());
-        }
-
-        return $this->reader;
-    }
-
-    public function createQuery($dto)
+    public function createQuery($dto): QueryContainer
     {
         $reflectedDto = new \ReflectionClass($dto);
 
-        $classAnnotations = $this->getReader()->getClassAnnotations($reflectedDto);
+        $classAnnotations = $this->annotationReader->getClassAnnotations($reflectedDto);
 
         $routeName = null;
 
-        $inputFilterClass = \Laminas\InputFilter\InputFilter::class;
+        $inputFilter = $this->inputFilter;
 
         foreach ($classAnnotations as $annotation) {
             if ($annotation instanceof RouteName) {
@@ -94,6 +50,7 @@ class AnnotationBuilder
 
             if ($annotation instanceof Filter) {
                 $inputFilterClass = $annotation->getName();
+                $inputFilter = new $inputFilterClass();
             }
         }
 
@@ -102,7 +59,6 @@ class AnnotationBuilder
         }
 
         $query = new QueryContainer();
-        $inputFilter = new $inputFilterClass();
         $query->setInputFilter($inputFilter);
         $query->setRouteName($routeName);
         $query->setDto($dto);
@@ -114,15 +70,16 @@ class AnnotationBuilder
         return $query;
     }
 
-    public function createCommand($dto)
+    public function createCommand($dto): CommandContainer
     {
         $reflectedDto = new \ReflectionClass($dto);
 
-        $classAnnotations = $this->getReader()->getClassAnnotations($reflectedDto);
+        $classAnnotations = $this->annotationReader->getClassAnnotations($reflectedDto);
 
         $routeName = null;
         $method = null;
-        $inputFilterClass = \Laminas\InputFilter\InputFilter::class;
+
+        $inputFilter = $this->inputFilter;
 
         foreach ($classAnnotations as $annotation) {
             if ($annotation instanceof RouteName) {
@@ -135,6 +92,7 @@ class AnnotationBuilder
 
             if ($annotation instanceof Filter) {
                 $inputFilterClass = $annotation->getName();
+                $inputFilter = new $inputFilterClass();
             }
         }
 
@@ -147,7 +105,7 @@ class AnnotationBuilder
         }
 
         $command = new CommandContainer();
-        $inputFilter = new $inputFilterClass();
+
         $command->setInputFilter($inputFilter);
         $command->setRouteName($routeName);
         $command->setMethod($method);
@@ -160,7 +118,7 @@ class AnnotationBuilder
         return $command;
     }
 
-    protected function createPartial($partial, $name, $filterChain, $validatorChain)
+    protected function createPartial($partial, $name, $filterChain, $validatorChain): StructuredInput
     {
         $reflectedPartial = new \ReflectionClass($partial);
 
@@ -170,7 +128,7 @@ class AnnotationBuilder
             $input->add($this->processProperty($property));
         }
 
-        $classAnnotations = $this->getReader()->getClassAnnotations($reflectedPartial);
+        $classAnnotations = $this->annotationReader->getClassAnnotations($reflectedPartial);
         $this->attachFiltersAndValidators($classAnnotations, $filterChain, $validatorChain, $input);
 
         return $input;
@@ -178,18 +136,18 @@ class AnnotationBuilder
 
     protected function processProperty(\ReflectionProperty $property)
     {
-        $propertyAnnotations = $this->getReader()->getPropertyAnnotations($property);
+        $propertyAnnotations = $this->annotationReader->getPropertyAnnotations($property);
 
         $isArrayInput = false;
         $input = null;
 
         $filterChain = $this->getNewFilterChain();
-        $validatorChain = new \Laminas\Validator\ValidatorChain();
+        $validatorChain = $this->getNewValidatorChain();
 
         $escape = true;
 
-        $arrayFilterChain = new \Laminas\Filter\FilterChain();
-        $arrayValidatorChain = new \Laminas\Validator\ValidatorChain();
+        $arrayFilterChain = $this->getNewFilterChain();
+        $arrayValidatorChain = $this->getNewValidatorChain();
 
         // Determine what type of input we have
         foreach ($propertyAnnotations as $annotation) {
@@ -262,7 +220,7 @@ class AnnotationBuilder
                 $options = $annotation->getOptions();
 
                 if (isset($options['usePluginManager']) && $options['usePluginManager']) {
-                    $validatorChain->attach($this->getValidatorManager()->get($annotation->getName()));
+                    $validatorChain->attach($this->validatorManager->get($annotation->getName()));
                     continue;
                 }
 
@@ -284,13 +242,17 @@ class AnnotationBuilder
         }
     }
 
-    /**
-     * @return \Laminas\Filter\FilterChain
-     */
-    protected function getNewFilterChain()
+    private function getNewFilterChain(): FilterChain
     {
         $filterChain = new \Laminas\Filter\FilterChain();
-        $filterChain->setPluginManager($this->getFilterManager());
+        $filterChain->setPluginManager($this->filterManager);
         return $filterChain;
+    }
+
+    private function getNewValidatorChain(): ValidatorChain
+    {
+        $validatorChain = new \Laminas\Validator\ValidatorChain();
+        $validatorChain->setPluginManager($this->validatorManager);
+        return $validatorChain;
     }
 }
