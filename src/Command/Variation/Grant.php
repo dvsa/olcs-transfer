@@ -27,10 +27,21 @@ final class Grant extends AbstractCommand
     protected $grantAuthority;
 
     /**
+     * @Transfer\Optional
+     * @Transfer\Filter("Laminas\Filter\Boolean")
+     */
+    protected $isAutoGrant = false;
+
+    /**
      * @return string
      */
     public function getGrantAuthority()
     {
         return $this->grantAuthority;
+    }
+
+    public function getIsAutoGrant()
+    {
+        return $this->isAutoGrant;
     }
 }
