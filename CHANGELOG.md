@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.6.0](https://github.com/dvsa/olcs-transfer/compare/v8.5.0...v8.6.0) (2026-02-10)
+
+
+### Features
+
+* Letters edit functionality ([#165](https://github.com/dvsa/olcs-transfer/issues/165)) ([608a0be](https://github.com/dvsa/olcs-transfer/commit/608a0bec61d2438ddd08e4fa1d20634abf1c088b))
+
 ## [8.5.0](https://github.com/dvsa/olcs-transfer/compare/v8.4.0...v8.5.0) (2026-01-12)
 
 
