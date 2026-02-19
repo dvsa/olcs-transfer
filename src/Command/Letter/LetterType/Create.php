@@ -42,6 +42,13 @@ final class Create extends AbstractCommand
     protected $isActive = true;
 
     /**
+     * @var array
+     * @Transfer\Optional
+     * @Transfer\ArrayInput
+     */
+    protected $appendices;
+
+    /**
      * @return string
      */
     public function getName()
@@ -63,5 +70,13 @@ final class Create extends AbstractCommand
     public function getIsActive()
     {
         return $this->isActive;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAppendices()
+    {
+        return $this->appendices;
     }
 }

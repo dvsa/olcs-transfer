@@ -45,7 +45,7 @@ final class Generate extends AbstractCommand
      */
     protected $selectedIssues;
 
-    // selectedTodos and selectedAppendices removed temporarily - will be added back in future tickets
+    // selectedTodos removed temporarily - will be added back in future tickets
     // /**
     //  * @var array
     //  * @Transfer\Optional
@@ -53,12 +53,12 @@ final class Generate extends AbstractCommand
     //  */
     // protected $selectedTodos;
 
-    // /**
-    //  * @var array
-    //  * @Transfer\Optional
-    //  * @Transfer\ArrayInput
-    //  */
-    // protected $selectedAppendices;
+    /**
+     * @var array
+     * @Transfer\Optional
+     * @Transfer\ArrayInput
+     */
+    protected $selectedAppendices;
 
     /**
      * @var array
@@ -83,7 +83,7 @@ final class Generate extends AbstractCommand
         return $this->selectedIssues;
     }
 
-    // Getters removed temporarily - will be added back in future tickets
+    // Getter removed temporarily - will be added back in future tickets
     // /**
     //  * @return array
     //  */
@@ -92,13 +92,13 @@ final class Generate extends AbstractCommand
     //     return $this->selectedTodos;
     // }
 
-    // /**
-    //  * @return array
-    //  */
-    // public function getSelectedAppendices()
-    // {
-    //     return $this->selectedAppendices;
-    // }
+    /**
+     * @return array
+     */
+    public function getSelectedAppendices()
+    {
+        return $this->selectedAppendices;
+    }
 
     /**
      * @return array
