@@ -132,6 +132,7 @@ final class Update extends AbstractCommand
      * Filter out null values so optional ArrayInput properties
      * are not passed to the InputFilter (where null fails is_array check).
      */
+    #[\Override]
     public function getArrayCopy()
     {
         return array_filter(parent::getArrayCopy(), fn($v) => $v !== null);
