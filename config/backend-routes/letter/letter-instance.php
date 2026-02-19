@@ -44,6 +44,18 @@ return [
                     'GET' => QueryConfig::getConfig(Query\Letter\LetterInstance\Preview::class),
                     'POST' => CommandConfig::getPostConfig(Command\Letter\LetterInstance\Preview::class),
                 ]
+            ],
+            'prepare-to-send' => [
+                'type' => 'Segment',
+                'options' => [
+                    'route' => 'prepare-to-send',
+                    'defaults' => [
+                        'controller' => 'Api\Generic'
+                    ]
+                ],
+                'child_routes' => [
+                    'POST' => CommandConfig::getPostConfig(Command\Letter\LetterInstance\PrepareToSend::class),
+                ]
             ]
         ]
     ],

@@ -53,6 +53,21 @@ final class Update extends AbstractCommand
     protected $publishFrom;
 
     /**
+     * @var string
+     * @Transfer\Optional
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     * @Transfer\Validator("Laminas\Validator\InArray", options={"haystack": {"pdf", "editable"}})
+     */
+    protected $appendixType;
+
+    /**
+     * @var string
+     * @Transfer\Optional
+     * @Transfer\Filter("Laminas\Filter\StringTrim")
+     */
+    protected $defaultContent;
+
+    /**
      * @return string
      */
     public function getAppendixKey()
@@ -90,5 +105,21 @@ final class Update extends AbstractCommand
     public function getPublishFrom()
     {
         return $this->publishFrom;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAppendixType()
+    {
+        return $this->appendixType;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefaultContent()
+    {
+        return $this->defaultContent;
     }
 }
