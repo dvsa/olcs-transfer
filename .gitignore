@@ -21,7 +21,7 @@ test/coverage/
 composer.lock
 .phpunit.result.cache
 
-# Non-dist files for the static analysis.
+# Non-dist files for the static analysis..
 # This allows developers to set a different (more strict) static analysis locally.
 phpcs.xml
 phpstan.neon
