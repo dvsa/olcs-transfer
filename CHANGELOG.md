@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.6.1](https://github.com/dvsa/olcs-transfer/compare/v8.6.0...v8.6.1) (2026-02-19)
+
+
+### Bug Fixes
+
+* trigger cd for reslease ([#168](https://github.com/dvsa/olcs-transfer/issues/168)) ([da3ac0d](https://github.com/dvsa/olcs-transfer/commit/da3ac0de2f417609629857b8f833fb8c9940f177))
+
 ## [8.6.0](https://github.com/dvsa/olcs-transfer/compare/v8.5.0...v8.6.0) (2026-02-10)
 
 
