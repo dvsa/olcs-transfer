@@ -95,6 +95,12 @@ return [
                     'POST' => CommandConfig::getPostConfig(Command\Document\Upload::class),
                 ]
             ),
+            'overwrite-content' => RouteConfig::getRouteConfig(
+                'overwrite-content',
+                [
+                    'POST' => CommandConfig::getPostConfig(Command\Document\OverwriteContent::class),
+                ]
+            ),
         ]
     )
 ];
