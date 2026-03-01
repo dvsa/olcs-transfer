@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.7.0](https://github.com/dvsa/olcs-transfer/compare/v8.6.1...v8.7.0) (2026-03-01)
+
+
+### Features
+
+* internal webdav server implementation ([#170](https://github.com/dvsa/olcs-transfer/issues/170)) ([db94326](https://github.com/dvsa/olcs-transfer/commit/db943266c5b83aae62a4e6a3e4080aa62393b668))
+
 ## [8.6.1](https://github.com/dvsa/olcs-transfer/compare/v8.6.0...v8.6.1) (2026-02-19)
 
 
