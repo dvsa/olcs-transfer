@@ -30,7 +30,6 @@ final class Queue extends AbstractCommand
      * @Transfer\Validator("Laminas\Validator\InArray",
      *      options={
      *          "haystack": {
-     *              "que_typ_cont_check_rem_gen_let",
      *              "que_typ_cpid_export_csv",
      *              "que_typ_ch_initial",
      *              "que_typ_ch_compare",
