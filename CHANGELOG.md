@@ -1,5 +1,12 @@
 # Changelog
 
+## [8.8.0](https://github.com/dvsa/olcs-transfer/compare/v8.7.0...v8.8.0) (2026-03-06)
+
+
+### Features
+
+* removed unused queue type from haystack array ([#172](https://github.com/dvsa/olcs-transfer/issues/172)) ([752a6bc](https://github.com/dvsa/olcs-transfer/commit/752a6bc8258f8bce2800e0f9ec26d3d62b513848))
+
 ## [8.7.0](https://github.com/dvsa/olcs-transfer/compare/v8.6.1...v8.7.0) (2026-03-01)
 
 
