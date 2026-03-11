@@ -330,4 +330,54 @@ class CacheEncryptionTest extends MockeryTestCase
         $sut = new CacheEncryption($cache, $encryptor, $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
         self::assertNull($sut->getQueryFromCustomIdentifier('missing identifier'));
     }
+
+    public function testClearAllItems(): void
+    {
+        $cache = m::mock(StorageInterface::class);
+        $cache->expects('flush')->andReturnTrue();
+
+        $sut = new CacheEncryption($cache, m::mock(BlockCipher::class), $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+        self::assertTrue($sut->clearAllItems());
+    }
+
+    public function testClearCqrsItemsThrowsWhenAdapterDoesNotSupportClearByPrefix(): void
+    {
+        $cache = m::mock(StorageInterface::class);
+
+        $sut = new CacheEncryption($cache, m::mock(BlockCipher::class), $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Cache adapter does not support ClearByPrefixInterface');
+        $sut->clearCqrsItems();
+    }
+
+    public function testClearItemsByTypeReturnsFalseForUnknownType(): void
+    {
+        $cache = m::mock(StorageInterface::class);
+
+        $sut = new CacheEncryption($cache, m::mock(BlockCipher::class), $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+        self::assertFalse($sut->clearItemsByType('unknown_cache_type'));
+    }
+
+    public function testClearItemsByTypeThrowsWhenAdapterDoesNotSupportClearByPrefix(): void
+    {
+        $cache = m::mock(StorageInterface::class);
+
+        $sut = new CacheEncryption($cache, m::mock(BlockCipher::class), $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Cache adapter does not support ClearByPrefixInterface');
+        $sut->clearItemsByType(CacheEncryption::SYS_PARAM_LIST_IDENTIFIER);
+    }
+
+    public function testClearDoctrineItemsThrowsWhenAdapterIsNotRedis(): void
+    {
+        $cache = m::mock(StorageInterface::class);
+
+        $sut = new CacheEncryption($cache, m::mock(BlockCipher::class), $this->nodeKey, $this->sharedKey, $this->nodeSuffix);
+
+        $this->expectException(\RuntimeException::class);
+        $this->expectExceptionMessage('Cache adapter is not Redis');
+        $sut->clearDoctrineItems();
+    }
 }

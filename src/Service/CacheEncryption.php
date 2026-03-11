@@ -6,6 +6,7 @@ use Dvsa\Olcs\Transfer\Query\QueryContainerInterface;
 use Dvsa\Olcs\Transfer\Query\SystemParameter\SystemParameter;
 use Dvsa\Olcs\Transfer\Query\SystemParameter\SystemParameterList;
 use Laminas\Cache\Storage\Adapter\AdapterOptions;
+use Laminas\Cache\Storage\ClearByPrefixInterface;
 use Laminas\Cache\Storage\StorageInterface;
 use Laminas\Crypt\BlockCipher;
 
@@ -34,8 +35,9 @@ class CacheEncryption
     public const SYS_PARAM_LIST_IDENTIFIER = 'sys_param_list';
     public const USER_ACCOUNT_IDENTIFIER = 'user_account';
     public const GENERIC_STORAGE_IDENTIFIER = 'storage';
-
     public const SECRETS_MANAGER_IDENTIFIER = 'secretsmanager';
+    public const CQRS_IDENTIFIER = 'cqrs';
+    public const DOCTRINE_IDENTIFIER = 'doctrine';
 
     /** @var string[] a list of caches held against a user id */
     public const USER_CACHES = [
@@ -76,12 +78,10 @@ class CacheEncryption
             'mode' => self::ENCRYPTION_MODE_SHARED,
             'ttl'  => self::TTL_20_DAYS
         ]
-
     ];
 
     /**
      * CacheEncryption constructor.
-     *
      *
      * @return void
      */
@@ -91,9 +91,6 @@ class CacheEncryption
 
     /**
      * Whether the cache has the requested item
-     *
-     *
-     * @return bool
      */
     public function hasItem(string $cacheIdentifier, string $encryptionMode): bool
     {
@@ -103,8 +100,6 @@ class CacheEncryption
     /**
      * Whether a custom (non-CQRS) cache item exists
      *
-     *
-     * @return bool
      * @throws \Exception
      */
     public function hasCustomItem(string $cacheType, string $uniqueId = ''): bool
@@ -172,9 +167,7 @@ class CacheEncryption
      * Node specific mode: value will be encrypted for a single group of nodes only e.g. ssweb, iuweb or api
      * TTL is specified in seconds - 3600 means a default of one hour
      *
-     *
      * @throws \Exception
-     * @return bool
      */
     public function setItem(string $cacheKey, string $encryptionMode, mixed $value, int $ttl = 3600): bool
     {
@@ -200,7 +193,6 @@ class CacheEncryption
      * @param string $uniqueId  optional suffix to add uniqueness, such as a translation locale or user id
      *
      * @throws \Exception
-     * @return bool
      */
     public function setCustomItem(string $cacheType, mixed $value, $uniqueId = ''): bool
     {
@@ -210,7 +202,6 @@ class CacheEncryption
 
     /**
      * Retrieve an item from the cache
-     *
      *
      * @throws \Exception
      * @return mixed|null
@@ -249,6 +240,73 @@ class CacheEncryption
     }
 
     /**
+     * Remove all items from the cache regardless of type or encryption mode
+     */
+    public function clearAllItems(): bool
+    {
+        return $this->cache->flush();
+    }
+
+    /**
+     * Remove all CQRS persistent-cache items.
+     *
+     * @throws \RuntimeException if the cache adapter does not support ClearByPrefixInterface
+     */
+    public function clearCqrsItems(): bool
+    {
+        if (!($this->cache instanceof ClearByPrefixInterface)) {
+            throw new \RuntimeException('Cache adapter does not support ClearByPrefixInterface');
+        }
+
+        return $this->cache->clearByPrefix(self::CQRS_IDENTIFIER);
+    }
+
+    /**
+     * Remove all cached items for a specific custom cache type.
+     * Returns false for unknown cache types.
+     *
+     * @throws \RuntimeException if the cache adapter does not support ClearByPrefixInterface
+     */
+    public function clearItemsByType(string $cacheType): bool
+    {
+        if (!isset(self::CUSTOM_CACHE_TYPE[$cacheType])) {
+            return false;
+        }
+
+        if (!($this->cache instanceof ClearByPrefixInterface)) {
+            throw new \RuntimeException('Cache adapter does not support ClearByPrefixInterface');
+        }
+
+        return $this->cache->clearByPrefix($cacheType);
+    }
+
+    /**
+     * Remove all Doctrine ORM cache items.
+     * Scans and deletes Redis keys matching the doctrine namespace prefix.
+     *
+     * @throws \RuntimeException if the cache adapter is not Redis
+     */
+    public function clearDoctrineItems(): bool
+    {
+        if (!($this->cache instanceof \Laminas\Cache\Storage\Adapter\Redis)) {
+            throw new \RuntimeException('Cache adapter is not Redis');
+        }
+
+        $options = $this->cache->getOptions();
+        $redis = $options->getResourceManager()->getResource($options->getResourceId());
+
+        $iterator = null;
+        do {
+            $keys = $redis->scan($iterator, self::DOCTRINE_IDENTIFIER . ':*', 100);
+            if ($keys !== false && !empty($keys)) {
+                $redis->del($keys);
+            }
+        } while ($iterator > 0);
+
+        return true;
+    }
+
+    /**
      * @note This isn't a great way of going about this, but there isn't a way of doing it on the Laminas client and
      * would rather not extend it at this stage. By making the method private we make sure only the TTL passed through
      * when each item is set will be used
@@ -277,7 +335,6 @@ class CacheEncryption
     /**
      * Decrypt a value using the specified encryption key
      *
-     *
      * @return mixed
      */
     private function decrypt(string $encryptionKey, ?string $encryptedValue)
@@ -295,7 +352,6 @@ class CacheEncryption
      *
      * @param $cacheType
      *
-     * @return array
      * @throws \Exception
      */
     private function getCustomCacheConfig($cacheType): array
@@ -310,9 +366,7 @@ class CacheEncryption
     /**
      * Get the correct encryption key
      *
-     *
      * @throws \Exception
-     * @return string
      */
     private function getEncryptionKey(string $encryptionMode): string
     {
@@ -330,9 +384,6 @@ class CacheEncryption
     /**
      * Get the correct suffix to use
      * (prevents the same data encrypted with a different key from having the same cache identifier)
-     *
-     *
-     * @return string
      */
     private function getSuffix(string $encryptionMode): string
     {
@@ -351,8 +402,6 @@ class CacheEncryption
 
     /**
      * Gets the encryption key for this node
-     *
-     * @return string
      */
     public function getNodeKey(): string
     {
@@ -361,8 +410,6 @@ class CacheEncryption
 
     /**
      * Gets the shared encryption key
-     *
-     * @return string
      */
     public function getSharedKey(): string
     {
@@ -371,26 +418,18 @@ class CacheEncryption
 
     /**
      * Gets the node suffix
-     *
-     * @return string
      */
     public function getNodeSuffix(): string
     {
         return $this->nodeSuffix;
     }
 
-    /**
-     * @return string|null
-     */
     public function getCustomCacheIdentifierForCqrs(QueryContainerInterface $queryContainer): ?string
     {
         $dtoClass = $queryContainer->getDtoClassName();
         return self::QUERY_MAP[$dtoClass] ?? null;
     }
 
-    /**
-     * @return string|null
-     */
     public function getQueryFromCustomIdentifier(string $customCacheKey): ?string
     {
         $map = array_flip(self::QUERY_MAP);
