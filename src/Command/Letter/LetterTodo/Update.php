@@ -54,7 +54,7 @@ final class Update extends AbstractCommand
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function getDescription()
     {

@@ -50,7 +50,7 @@ final class Create extends AbstractCommand
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function getDescription()
     {
