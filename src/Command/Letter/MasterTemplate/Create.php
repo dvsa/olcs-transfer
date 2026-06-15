@@ -112,7 +112,7 @@ final class Create extends AbstractCommand
     }
 
     /**
-     * @return array|null
+     * @return array
      */
     public function getHeaderLeftContent()
     {
@@ -120,7 +120,7 @@ final class Create extends AbstractCommand
     }
 
     /**
-     * @return array|null
+     * @return array
      */
     public function getHeaderRightContent()
     {
@@ -128,7 +128,7 @@ final class Create extends AbstractCommand
     }
 
     /**
-     * @return array|null
+     * @return array
      */
     public function getSignoffContent()
     {
@@ -136,7 +136,7 @@ final class Create extends AbstractCommand
     }
 
     /**
-     * @return array|null
+     * @return array
      */
     public function getFooterContent()
     {

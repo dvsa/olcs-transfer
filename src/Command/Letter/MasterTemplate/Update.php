@@ -116,7 +116,7 @@ final class Update extends AbstractCommand
     }
 
     /**
-     * @return array|null
+     * @return array
      */
     public function getHeaderLeftContent()
     {
@@ -124,7 +124,7 @@ final class Update extends AbstractCommand
     }
 
     /**
-     * @return array|null
+     * @return array
      */
     public function getHeaderRightContent()
     {
@@ -132,7 +132,7 @@ final class Update extends AbstractCommand
     }
 
     /**
-     * @return array|null
+     * @return array
      */
     public function getSignoffContent()
     {
@@ -140,7 +140,7 @@ final class Update extends AbstractCommand
     }
 
     /**
-     * @return array|null
+     * @return array
      */
     public function getFooterContent()
     {
